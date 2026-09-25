@@ -1,0 +1,363 @@
+{
+ "buys": [
+  {
+   "ticker": "VRTX",
+   "name": "Vertex Pharmaceuticals Incorpor",
+   "sector": "Health",
+   "price": 522.38,
+   "score": 79.9,
+   "momentum": 56,
+   "rs": 66,
+   "trend": 100,
+   "fund": 72,
+   "setup": "pullback",
+   "rsi": 51,
+   "fwd_pe": 25.998367,
+   "next_earnings": "2026-11-02",
+   "reason": [
+    "bounced off 20-EMA (RSI 51)",
+    "3-mo return +10% (stronger than 66% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +12% y/y",
+    "fwd P/E 26",
+    "analyst mean target +9% away"
+   ],
+   "entry": 522.38,
+   "limit": 524.99,
+   "stop": 498.52,
+   "t1": 558.16,
+   "t2": 593.95,
+   "stop_pct": -4.6,
+   "t1_pct": 6.9,
+   "t2_pct": 13.7,
+   "hold_days": 7,
+   "sell_by": "2026-10-06",
+   "shares": 1.15,
+   "dollars": 600.74,
+   "risk_dollars": 27.43,
+   "news": [
+    {
+     "title": "Maze Therapeutics (MAZE) Shares Moved, So What Is Driving Attention Now?",
+     "url": "https://finance.yahoo.com/healthcare/articles/maze-therapeutics-maze-shares-moved-042346245.html",
+     "source": "Simply Wall St."
+    },
+    {
+     "title": "Vertex Pharmaceuticals (VRTX) Increases Despite Market Slip: Here's What You Need to Know",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/vertex-pharmaceuticals-vrtx-increases-despite-205006588.html",
+     "source": "Zacks"
+    },
+    {
+     "title": "Will Vertex's Kidney Disease Pipeline Be a New Growth Engine?",
+     "url": "https://finance.yahoo.com/healthcare/articles/vertexs-kidney-disease-pipeline-growth-142700227.html",
+     "source": "Zacks"
+    }
+   ]
+  },
+  {
+   "ticker": "V",
+   "name": "Visa Inc.",
+   "sector": "Financials",
+   "price": 367.98,
+   "score": 74.7,
+   "momentum": 61,
+   "rs": 67,
+   "trend": 75,
+   "fund": 72,
+   "setup": "pullback",
+   "rsi": 48,
+   "fwd_pe": 24.52497,
+   "next_earnings": "2026-10-27",
+   "reason": [
+    "bounced off 20-EMA (RSI 48)",
+    "3-mo return +11% (stronger than 67% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +14% y/y",
+    "fwd P/E 25",
+    "analyst mean target +14% away"
+   ],
+   "entry": 367.98,
+   "limit": 369.82,
+   "stop": 358.8,
+   "t1": 381.76,
+   "t2": 395.53,
+   "stop_pct": -2.5,
+   "t1_pct": 3.7,
+   "t2_pct": 7.5,
+   "hold_days": 7,
+   "sell_by": "2026-10-06",
+   "shares": 1.63,
+   "dollars": 599.81,
+   "risk_dollars": 14.97,
+   "news": [
+    {
+     "title": "Visa (V) vs American Express (AXP): Which is a Better Stock to Buy",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/visa-v-vs-american-express-224717930.html",
+     "source": "Insider Monkey"
+    },
+    {
+     "title": "Mastercard\u2019s Faster Services Growth Could Reshape its Rivalry with Visa",
+     "url": "https://finance.yahoo.com/technology/ai/articles/mastercard-faster-services-growth-could-211243924.html",
+     "source": "Insider Monkey"
+    },
+    {
+     "title": "Visa Share Rises as Payment Networks Standardize AI-Agent Identity",
+     "url": "https://finance.yahoo.com/technology/ai/articles/visa-share-rises-payment-networks-192129440.html",
+     "source": "GuruFocus.com"
+    }
+   ]
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "DELL",
+   "name": "Dell Technologies Inc.",
+   "sector": "Tech",
+   "price": 536.02,
+   "score": 91.3,
+   "momentum": 100,
+   "rs": 86,
+   "trend": 100,
+   "fund": 80,
+   "setup": "pullback",
+   "rsi": 54,
+   "fwd_pe": 18.409096,
+   "next_earnings": "2026-11-27",
+   "reason": [
+    "sitting on 20-EMA support (RSI 54), no bounce yet",
+    "3-mo return +31% (stronger than 86% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +58% y/y",
+    "fwd P/E 18 is cheap for its growth",
+    "analyst mean target +8% away"
+   ],
+   "action": "Buy on a green day holding above 528.62"
+  },
+  {
+   "ticker": "PLTR",
+   "name": "Palantir Technologies Inc.",
+   "sector": "Tech",
+   "price": 192.59,
+   "score": 87.9,
+   "momentum": 83,
+   "rs": 100,
+   "trend": 100,
+   "fund": 90,
+   "setup": "breakout",
+   "rsi": 67,
+   "fwd_pe": 82.90608,
+   "next_earnings": "2026-11-02",
+   "reason": [
+    "0.6% below 20-day high",
+    "3-mo return +80% (stronger than 100% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +93% y/y",
+    "fwd P/E 83 is cheap for its growth",
+    "analyst mean target +2% away"
+   ],
+   "action": "Buy if it closes above 193.79 on strong volume"
+  },
+  {
+   "ticker": "PANW",
+   "name": "Palo Alto Networks, Inc.",
+   "sector": "Tech",
+   "price": 389.92,
+   "score": 87.8,
+   "momentum": 95,
+   "rs": 87,
+   "trend": 100,
+   "fund": 70,
+   "setup": "breakout",
+   "rsi": 61,
+   "fwd_pe": 79.91688,
+   "next_earnings": "2026-11-19",
+   "reason": [
+    "0.9% below 20-day high",
+    "3-mo return +37% (stronger than 87% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +34% y/y",
+    "fwd P/E 80",
+    "analyst mean target +1% away"
+   ],
+   "action": "Buy if it closes above 393.52 on strong volume"
+  },
+  {
+   "ticker": "CRWD",
+   "name": "CrowdStrike Holdings, Inc.",
+   "sector": "Tech",
+   "price": 259.67,
+   "score": 87.8,
+   "momentum": 99,
+   "rs": 95,
+   "trend": 100,
+   "fund": 47,
+   "setup": "breakout",
+   "rsi": 67,
+   "fwd_pe": 161.6965,
+   "next_earnings": "2026-12-01",
+   "reason": [
+    "1.4% below 20-day high",
+    "3-mo return +54% (stronger than 95% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +26% y/y",
+    "expensive (fwd P/E 162)",
+    "analyst mean target -9% away"
+   ],
+   "action": "Buy if it closes above 263.19 on strong volume"
+  },
+  {
+   "ticker": "SNOW",
+   "name": "Snowflake Inc.",
+   "sector": "Tech",
+   "price": 334.0,
+   "score": 86.4,
+   "momentum": 92,
+   "rs": 93,
+   "trend": 100,
+   "fund": 45,
+   "setup": "pullback",
+   "rsi": 54,
+   "fwd_pe": 110.81399,
+   "next_earnings": "2026-12-02",
+   "reason": [
+    "sitting on 20-EMA support (RSI 54), no bounce yet",
+    "3-mo return +48% (stronger than 93% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +35% y/y",
+    "unprofitable",
+    "analyst mean target +27% away"
+   ],
+   "action": "Buy on a green day holding above 330.15"
+  },
+  {
+   "ticker": "FTNT",
+   "name": "Fortinet, Inc.",
+   "sector": "Tech",
+   "price": 178.67,
+   "score": 86.1,
+   "momentum": 93,
+   "rs": 79,
+   "trend": 100,
+   "fund": 72,
+   "setup": "breakout",
+   "rsi": 65,
+   "fwd_pe": 47.295097,
+   "next_earnings": "2026-11-04",
+   "reason": [
+    "0.4% below 20-day high",
+    "3-mo return +23% (stronger than 79% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +26% y/y",
+    "fwd P/E 47",
+    "analyst mean target -8% away"
+   ],
+   "action": "Buy if it closes above 179.35 on strong volume"
+  },
+  {
+   "ticker": "ANET",
+   "name": "Arista Networks, Inc.",
+   "sector": "Tech",
+   "price": 205.7,
+   "score": 85.7,
+   "momentum": 84,
+   "rs": 83,
+   "trend": 100,
+   "fund": 90,
+   "setup": "breakout",
+   "rsi": 60,
+   "fwd_pe": 39.653625,
+   "next_earnings": "2026-11-03",
+   "reason": [
+    "0.4% below 20-day high",
+    "3-mo return +27% (stronger than 83% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +38% y/y",
+    "fwd P/E 40 is cheap for its growth",
+    "analyst mean target +18% away"
+   ],
+   "action": "Buy if it closes above 206.48 on strong volume"
+  },
+  {
+   "ticker": "ZS",
+   "name": "Zscaler, Inc.",
+   "sector": "Tech",
+   "price": 214.64,
+   "score": 85.7,
+   "momentum": 89,
+   "rs": 99,
+   "trend": 100,
+   "fund": 52,
+   "setup": "breakout",
+   "rsi": 70,
+   "fwd_pe": 38.314884,
+   "next_earnings": "2026-11-24",
+   "reason": [
+    "0.5% below 20-day high",
+    "3-mo return +69% (stronger than 99% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +25% y/y",
+    "unprofitable",
+    "analyst mean target -3% away"
+   ],
+   "action": "Buy if it closes above 215.73 on strong volume"
+  },
+  {
+   "ticker": "MSFT",
+   "name": "Microsoft Corporation",
+   "sector": "Tech",
+   "price": 497.93,
+   "score": 85.6,
+   "momentum": 78,
+   "rs": 91,
+   "trend": 100,
+   "fund": 82,
+   "setup": "pullback",
+   "rsi": 54,
+   "fwd_pe": 21.031107,
+   "next_earnings": "2026-10-28",
+   "reason": [
+    "sitting on 20-EMA support (RSI 54), no bounce yet",
+    "3-mo return +41% (stronger than 91% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +18% y/y",
+    "fwd P/E 21 is cheap for its growth",
+    "analyst mean target +16% away"
+   ],
+   "action": "Buy on a green day holding above 495.24"
+  },
+  {
+   "ticker": "NOW",
+   "name": "ServiceNow, Inc.",
+   "sector": "Tech",
+   "price": 137.78,
+   "score": 85.5,
+   "momentum": 79,
+   "rs": 94,
+   "trend": 100,
+   "fund": 72,
+   "setup": "pullback",
+   "rsi": 54,
+   "fwd_pe": 27.525667,
+   "next_earnings": "2026-10-28",
+   "reason": [
+    "sitting on 20-EMA support (RSI 54), no bounce yet",
+    "3-mo return +54% (stronger than 94% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +24% y/y",
+    "fwd P/E 28 is cheap for its growth",
+    "analyst mean target +5% away"
+   ],
+   "action": "Buy on a green day holding above 136.10"
+  }
+ ],
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 767.18,
+  "spy_sma50": 759.46,
+  "spy_sma200": 714.36,
+  "vix": 15.27
+ }
+}
