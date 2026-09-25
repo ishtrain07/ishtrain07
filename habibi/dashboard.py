@@ -36,10 +36,15 @@ td:first-child,th:first-child,td.l,th.l{text-align:left}tr:last-child td{border-
 .pos{color:var(--buy)}.neg{color:var(--sell)}.mute{color:var(--mute)}
 .news a{color:var(--acc);font-size:13px}.stack>*+*{margin-top:12px}
 form{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;align-items:end}
-label{font-size:12px;color:var(--mute);display:grid;gap:4px}input,select,button{font:inherit;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+label{font-size:12px;color:var(--mute);display:grid;gap:4px;min-width:0}input,select,button{width:100%;min-width:0;font:inherit;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
 button{background:var(--ink);color:var(--bg);border:0;font-weight:600;cursor:pointer}
 code{background:var(--chip);padding:2px 6px;border-radius:6px;font-size:13px;word-break:break-all}
 .note{font-size:12px;color:var(--mute)}
+details.sec{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 14px}
+details.sec>summary{cursor:pointer;padding:12px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between}
+details.sec>summary::after{content:"+";color:var(--mute)}details.sec[open]>summary::after{content:"−"}
+details.sec[open]{padding-bottom:14px}details.sec .tbl,details.sec .card{border-color:var(--line)}
+.headline{font-size:17px;margin:16px 0 0;padding:12px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
 @media (max-width:600px){.kpi .v{font-size:20px}}
 """
 
@@ -73,8 +78,7 @@ def render(r):
 <style>{CSS}</style></head><body><div class="wrap">
 <header><div><h1>Habibi Wealth Management</h1><div class="sub">Updated {e(r['generated_at'])} · refreshes 9:00 ET + position checks 11:30 / 13:30 / 15:30 ET</div></div>
 <div class="light"><span class="dot {e(reg['light'])}"></span>Market {e(reg['light'])}</div></header>
-<nav><a href="#orders">Today's orders</a><a href="#positions">Positions</a><a href="#watch">Watchlist</a><a href="#macro">Macro</a>
-<a href="#ranking">Ranking</a><a href="#log">Log a trade</a><a href="#track">You vs system</a><a href="#backtest">Backtest</a><a href="#method">Method</a></nav>
+<nav><a href="#orders">Orders</a><a href="#positions">Positions</a><a href="#log">Log a trade</a></nav>
 <div class="grid">
 <div class="card kpi"><div class="l">Account value</div><div class="v">${acct['equity']:,.2f}</div><div class="sub">cash ${acct['cash']:,.2f}</div></div>
 <div class="card kpi"><div class="l">Return</div><div class="v">{pct(acct['return_pct'], 2)}</div><div class="sub">realized {money(acct['realized'])} · open {money(acct['unrealized'])}</div></div>
@@ -82,6 +86,7 @@ def render(r):
 <div class="card kpi"><div class="l">Trading days left</div><div class="v">{r['trading_days_left']}</div><div class="sub">loss limit -{cfg['max_drawdown_halt_pct']}% halt</div></div>
 </div>"""]
 
+    parts.append(f'<div class="headline"><b>Today:</b> {e(_headline(r))}<div class="note">{e(reg["message"])}</div></div>')
     if r.get("drawdown_msg"):
         parts.append(f'<div class="card order sell" style="margin-top:12px"><b>{e(r["drawdown_msg"])}</b></div>')
 
@@ -115,7 +120,7 @@ def render(r):
         parts.append('<div class="card mute">No open positions. Log your fills below so the engine can track and alert you.</div>')
 
     # ---- watch / extended / avoid
-    parts.append('<h2 id="watch">Watchlist: buy only if the trigger happens</h2>')
+    parts.append(f'<h2>Details</h2><details class="sec" id="watch"><summary>Watchlist: buy only if the trigger happens ({len(r.get("watch", []))})</summary>')
     if r.get("watch"):
         parts.append(_simple_table(r["watch"], [("Ticker", "ticker"), ("Score", "score"), ("Price", "price"),
                                                 ("Setup", "setup"), ("RSI", "rsi"), ("Trigger", "action")]))
@@ -128,29 +133,30 @@ def render(r):
         parts.append('<p class="note"><b>Avoid today:</b> ' +
                      "; ".join(f'{e(x["ticker"])} ({e(x["why_not"])})' for x in r["avoid"][:8]) + "</p>")
 
+    parts.append("</details>")
     # ---- macro
-    parts.append('<h2 id="macro">Macro and global read</h2><div class="card"><ul class="why">' +
-                 "".join(f"<li>{e(n)}</li>" for n in r["macro_read"]) + "</ul></div>")
+    parts.append('<details class="sec" id="macro"><summary>Macro and global read</summary><ul class="why">' +
+                 "".join(f"<li>{e(n)}</li>" for n in r["macro_read"]) + "</ul>")
     if r.get("brief"):
         parts.append(f'<div class="card" style="margin-top:12px"><b>Analyst brief</b><div style="white-space:pre-wrap">{e(r["brief"])}</div></div>')
     mrows = "".join(f'<tr><td class="l">{e(m["label"])}</td><td>{m["last"]:,}</td><td>{pct(m["d1"], 2)}</td>'
                     f'<td>{pct(m["d5"])}</td><td>{pct(m["m1"])}</td></tr>' for m in r["macro"])
-    parts.append(f'<div class="tbl" style="margin-top:12px"><table><tr><th class="l">Market</th><th>Last</th><th>1D</th><th>5D</th><th>1M</th></tr>{mrows}</table></div>')
+    parts.append(f'<div class="tbl" style="margin-top:12px"><table><tr><th class="l">Market</th><th>Last</th><th>1D</th><th>5D</th><th>1M</th></tr>{mrows}</table></div></details>')
 
     # ---- ranking
-    parts.append('<h2 id="ranking">Full ranking (top 40)</h2>')
+    parts.append('<details class="sec" id="ranking"><summary>Full ranking (top 40 of the universe)</summary>')
     rk = "".join(
         f'<tr><td><b>{e(x["ticker"])}</b></td><td class="l">{e(x["sector"])}</td><td>{x["score"]}</td><td>${x["price"]}</td>'
         f'<td>{pct(x["ret21"])}</td><td>{pct(x["ret63"])}</td><td>{x["rsi"]}</td><td class="l">{e(x["setup"])}{" ✓" if x["triggered"] else ""}</td>'
         f'<td>{"-" if not x["fwd_pe"] else round(x["fwd_pe"], 1)}</td><td>{e(x["next_earnings"] or "-")}</td>'
         f'<td>{"" if x["eligible"] else "<span class=neg>no</span>"}</td></tr>' for x in r.get("ranking", []))
     parts.append(f'<div class="tbl"><table><tr><th>Ticker</th><th class="l">Sector</th><th>Score</th><th>Price</th><th>1M</th><th>3M</th>'
-                 f'<th>RSI</th><th class="l">Setup</th><th>Fwd P/E</th><th>Earnings</th><th>Trend ok</th></tr>{rk}</table></div>')
+                 f'<th>RSI</th><th class="l">Setup</th><th>Fwd P/E</th><th>Earnings</th><th>Trend ok</th></tr>{rk}</table></div></details>')
 
     parts.append(_log_form(cfg))
-    parts.append(_tracking(r))
-    parts.append(_backtest(r.get("backtest") or {}))
-    parts.append(_method(cfg))
+    for title, body in (("You vs the system", _tracking(r)), ("Backtest: does this rulebook work?", _backtest(r.get("backtest") or {})),
+                        ("How decisions are made", _method(cfg))):
+        parts.append(f'<details class="sec"><summary>{title}</summary>{body}</details>')
     parts.append('<p class="note" style="margin-top:32px">Rules-based signals for personal use, not financial advice. '
                  'No strategy guarantees profits; every trade can lose money. Size positions so a stop-out never hurts.</p>')
     parts.append("</div></body></html>")
@@ -167,7 +173,7 @@ def _buy_card(b):
 <div class="plan"><div><span>Entry</span><b>${b['entry']}</b></div><div><span>Stop-loss</span><b class="neg">${b['stop']}</b>{b['stop_pct']}%</div>
 <div><span>Target 1 (sell ½)</span><b class="pos">${b['t1']}</b>+{b['t1_pct']}%</div><div><span>Target 2 (sell rest)</span><b class="pos">${b['t2']}</b>+{b['t2_pct']}%</div>
 <div><span>Hold max</span><b>{b['hold_days']} days</b>sell by {e(b['sell_by'])}</div></div>
-<b>Why</b><ul class="why">{''.join(f'<li>{e(x)}</li>' for x in b['reason'])}</ul>
+<b>Why</b><ul class="why">{''.join(f'<li>{e(x)}</li>' for x in b['reason'][:3])}</ul>
 <div class="note">Momentum {b['momentum']} · RS {b['rs']} · Trend {b['trend']} · Fundamentals {b['fund']} · RSI {b['rsi']}{er}</div>
 {f'<ul class="why news">{news}</ul>' if news else ''}</div>"""
 
@@ -183,7 +189,7 @@ def _log_form(cfg):
     repo = cfg["github_repo"]
     edit = f"https://github.com/{repo}/edit/main/habibi/trades.csv"
     issue = f"https://github.com/{repo}/issues/new?labels=trade&title="
-    return f"""<h2 id="log">Log a trade you actually made</h2><div class="card">
+    return f"""<details class="sec" id="log" open><summary>Log a trade you actually made</summary><div>
 <form onsubmit="return mk(event)"><label>Date<input id="d" type="date" required></label>
 <label>Ticker<input id="t" required placeholder="NVDA" style="text-transform:uppercase"></label>
 <label>Side<select id="s"><option>BUY</option><option>SELL</option></select></label>
@@ -201,7 +207,7 @@ const l=[v('d'),v('t').toUpperCase(),v('s'),v('n'),v('p'),0,v('o').replace(/,/g,
 document.getElementById('line').textContent=l;document.getElementById('out').style.display='block';
 document.getElementById('is').href={json.dumps(issue)}+encodeURIComponent('TRADE '+l)+'&body='+encodeURIComponent(l);return false}}
 function cp(){{navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('line').textContent)}}
-</script>"""
+</script></details>"""
 
 
 def _tracking(r):
@@ -253,3 +259,13 @@ entry setup 25%, fundamentals 10% (growth, margins, forward P/E vs growth), ±5 
 Time stop after {cfg['hold_days']['pullback']} days (pullback) / {cfg['hold_days']['breakout']} (breakout). Always out before earnings.</li>
 <li><b>Sizing</b>: each trade risks {cfg['risk_per_trade_pct']}% of the account (~${cfg['starting_capital_usd'] * cfg['risk_per_trade_pct'] / 100:.0f}); max {cfg['max_position_pct']}% in one stock.
 Account down {cfg['max_drawdown_halt_pct']}% = stop buying; down {cfg['max_drawdown_liquidate_pct']}% = go to cash.</li></ol></div>"""
+
+
+def _headline(r):
+    sells = [f'{a["action"].lower()} {a["ticker"]}' for a in r["alerts"]]
+    buys = [f'buy {b["ticker"]}' for b in r.get("buys", [])]
+    holds = [p["ticker"] for p in r.get("positions", []) if p.get("action") == "HOLD"]
+    bits = sells + buys
+    if holds:
+        bits.append("hold " + ", ".join(holds))
+    return (", ".join(bits).capitalize() + ".") if bits else "Nothing to do. Stay in cash and check back tomorrow."

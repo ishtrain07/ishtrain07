@@ -248,6 +248,7 @@ def main():
     ap.add_argument("--skip-fundamentals", action="store_true")
     args = ap.parse_args()
     cfg = load_cfg()
+    (OUT / "history").mkdir(parents=True, exist_ok=True)
     (cmd_plan if args.mode == "plan" else cmd_check)(cfg, args)
 
 
