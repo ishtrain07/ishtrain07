@@ -1,0 +1,22 @@
+{
+  "owner_note": "Edit starting_capital_usd to the actual USD amount that lands in the account.",
+  "starting_capital_usd": 2000,
+  "start_date": "2026-09-28",
+  "goal_date": "2026-10-30",
+  "goal_return_pct": 20,
+  "max_drawdown_halt_pct": 10,
+  "max_drawdown_liquidate_pct": 13,
+  "risk_per_trade_pct": 1.5,
+  "max_position_pct": 30,
+  "max_positions": 4,
+  "max_per_sector": 2,
+  "min_cash_pct": 5,
+  "min_price": 10,
+  "min_dollar_volume": 25000000,
+  "buy_score_threshold": 65,
+  "watch_score_threshold": 55,
+  "hold_days": {"pullback": 7, "breakout": 6},
+  "fractional_shares": true,
+  "github_repo": "ishtrain07/ishtrain07",
+  "dashboard_url": "https://ishtrain07.github.io/ishtrain07/"
+}

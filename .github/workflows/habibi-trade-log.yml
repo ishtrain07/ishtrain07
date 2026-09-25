@@ -1,0 +1,56 @@
+name: Habibi trade log (from issue)
+
+# Open an issue titled "TRADE <csv line>" (the dashboard form builds it) and this
+# appends the line to habibi/trades.csv. Only the repo owner's issues are accepted.
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+jobs:
+  log:
+    if: startsWith(github.event.issue.title, 'TRADE ') && github.event.issue.user.login == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - name: Validate and append
+        id: add
+        env:
+          TITLE: ${{ github.event.issue.title }}
+        run: |
+          python3 - <<'PY'
+          import csv, datetime, io, os
+          line = os.environ["TITLE"][len("TRADE "):].strip()
+          row = next(csv.reader(io.StringIO(line)))
+          assert len(row) == 7, "need 7 fields: date,ticker,side,shares,price,fees,note"
+          datetime.date.fromisoformat(row[0])
+          assert row[2].upper() in ("BUY", "SELL")
+          assert float(row[3]) > 0 and float(row[4]) > 0
+          row[1], row[2] = row[1].upper(), row[2].upper()
+          with open("habibi/trades.csv", "a", newline="") as f:
+              csv.writer(f).writerow(row)
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write("line=" + ",".join(row) + "\n")
+          PY
+      - name: Commit
+        run: |
+          git config user.name "habibi-bot"
+          git config user.email "habibi-bot@users.noreply.github.com"
+          git commit -am "Log trade: ${{ steps.add.outputs.line }}"
+          git push
+      - name: Confirm and close
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({...context.repo, issue_number: context.issue.number,
+              body: "Logged `${{ steps.add.outputs.line }}` to trades.csv. The dashboard refreshes in ~2 minutes."});
+            await github.rest.issues.update({...context.repo, issue_number: context.issue.number, state: "closed"});
+            // Pushes made with GITHUB_TOKEN don't trigger workflows, so start the engine explicitly.
+            await github.rest.actions.createWorkflowDispatch({...context.repo, workflow_id: "habibi.yml",
+              ref: context.payload.repository.default_branch, inputs: {mode: "check"}});

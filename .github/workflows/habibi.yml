@@ -1,0 +1,76 @@
+name: Habibi engine
+
+on:
+  schedule:
+    - cron: "0 13 * * 1-5"    # 09:00 ET (EDT) - morning research + orders
+    - cron: "30 15 * * 1-5"   # 11:30 ET - position check / sell alerts
+    - cron: "30 17 * * 1-5"   # 13:30 ET
+    - cron: "30 19 * * 1-5"   # 15:30 ET - last check before the close
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "plan (full research) or check (positions only)"
+        default: plan
+        type: choice
+        options: [plan, check]
+  push:
+    paths:
+      - "habibi/trades.csv"
+      - "habibi/config.json"
+      - "habibi/*.py"
+      - ".github/workflows/habibi.yml"
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: habibi-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: habibi/requirements.txt
+      - run: pip install -r habibi/requirements.txt
+
+      - name: Pick mode
+        id: mode
+        run: |
+          MODE=check
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then MODE="${{ inputs.mode }}"; fi
+          if [ "${{ github.event.schedule }}" = "0 13 * * 1-5" ]; then MODE=plan; fi
+          if [ "${{ github.event_name }}" = "push" ] && ! git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -qx habibi/trades.csv; then MODE=plan; fi
+          if [ ! -f habibi/output/latest.json ]; then MODE=plan; fi
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          echo "Running mode: $MODE"
+        shell: bash
+
+      - name: Run engine
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HABIBI_ISSUES: ${{ vars.HABIBI_ISSUES }}
+          NOTIFY_FLAG: ${{ github.event_name == 'push' && '--no-notify' || '' }}
+        run: python -m habibi.run ${{ steps.mode.outputs.mode }} $NOTIFY_FLAG
+
+      - name: Save outputs
+        run: |
+          git config user.name "habibi-bot"
+          git config user.email "habibi-bot@users.noreply.github.com"
+          git add habibi/output docs
+          git diff --cached --quiet && exit 0
+          git commit -m "Habibi ${{ steps.mode.outputs.mode }} $(TZ=America/New_York date '+%Y-%m-%d %H:%M ET')"
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
