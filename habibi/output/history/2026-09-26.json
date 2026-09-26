@@ -99,18 +99,60 @@
      "source": "GuruFocus.com"
     }
    ]
+  },
+  {
+   "ticker": "CRWD",
+   "name": "CrowdStrike Holdings, Inc.",
+   "sector": "Tech",
+   "price": 252.13,
+   "score": 80.5,
+   "momentum": 97,
+   "rs": 95,
+   "trend": 100,
+   "fund": 47,
+   "rsi": 62,
+   "setup": "momentum",
+   "fwd_pe": 157.00133,
+   "next_earnings": "2026-12-01",
+   "entry": 252.13,
+   "limit": 253.39,
+   "stop": 226.92,
+   "t1": 279.2,
+   "t2": 306.28,
+   "stop_pct": -10.0,
+   "t1_pct": 10.7,
+   "t2_pct": 21.5,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-02",
+   "shares": 2.51,
+   "dollars": 632.85,
+   "risk_dollars": 63.28,
+   "reason": [
+    "#4 on risk-adjusted momentum: 6-mo +157%, 3-mo +44%, 1-mo +33%",
+    "stronger than 95% of the universe vs the S&P; above its 200-day average",
+    "revenue +26% y/y"
+   ],
+   "news": [
+    {
+     "title": "Why Did CrowdStrike Holdings (CRWD) Move Today?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/why-did-crowdstrike-holdings-crwd-031718513.html",
+     "source": "Simply Wall St."
+    },
+    {
+     "title": "S&P 500, Dow, Nasdaq End Week Higher On Chipmaker Strength, Easing Oil Amid Signs Of Easing US-Iran Conflict \u2014 META, COST, MSFT, CRWD, SKHY In Focus",
+     "url": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-dow-nasdaq-end-week-higher-on-chipmaker-strength-easing-oil-amid-signs-of-easing-us-iran-conflict-meta-cost-msft-crwd-skhy-in-focus/cZMOFkXRBOV",
+     "source": "Stocktwits"
+    },
+    {
+     "title": "Here\u2019s How CrowdStrike (CRWD) is Betting on AI Agent Security to Drive Future Growth",
+     "url": "https://finance.yahoo.com/technology/ai/articles/crowdstrike-crwd-betting-ai-agent-224158226.html",
+     "source": "Insider Monkey"
+    }
+   ]
   }
  ],
  "backups": [],
  "watch": [
-  {
-   "ticker": "CRWD",
-   "score": 20.5,
-   "price": 252.13,
-   "setup": "momentum",
-   "rsi": 62,
-   "action": "next in line if a holding drops out"
-  },
   {
    "ticker": "PANW",
    "score": 16.6,
@@ -141,6 +183,14 @@
    "price": 335.94,
    "setup": "momentum",
    "rsi": 55,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "MSFT",
+   "score": 14.6,
+   "price": 516.17,
+   "setup": "momentum",
+   "rsi": 63,
    "action": "next in line if a holding drops out"
   }
  ],
