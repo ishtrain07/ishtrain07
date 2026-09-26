@@ -16,7 +16,8 @@ from .dashboard import render
 from .indicators import add_features
 from .replay import replay
 from .portfolio import evaluate, load_history, load_trades, positions, system_paper
-from .strategy import market_regime, rank_and_bucket, trading_days_between
+from .strategy import (is_rebalance_day, market_regime, momentum_plan, rank_and_bucket,
+                       trading_days_between)
 from .universe import FOMC_2026, MACRO, UNIVERSE, all_price_tickers
 
 ROOT = Path(__file__).parent
@@ -144,8 +145,22 @@ def cmd_plan(cfg, args):
 
     selling = {a["ticker"] for a in alerts if a["action"] == "SELL ALL"}
     open_tickers = [p["ticker"] for p in book["open"] if p["ticker"] not in selling]
-    ranked = rank_and_bucket(feats, funds, regime, cfg, book["equity"], book["cash"],
-                             open_tickers, today, halted=dd_state != "OK")
+    if cfg.get("strategy") == "momentum":
+        state_path = OUT / "state.json"
+        state = json.loads(state_path.read_text()) if state_path.exists() else {}
+        rebalance = is_rebalance_day(today, state.get("last_rebalance")) and dd_state == "OK"
+        holdings = {p["ticker"]: p["value"] for p in book["open"] if p["ticker"] not in selling}
+        ranked = momentum_plan(feats, funds, regime, cfg, book["equity"], book["cash"], holdings, today, rebalance)
+        for t in ranked["rotate_out"]:
+            p = next(p for p in book["open"] if p["ticker"] == t)
+            p["action"], p["why"] = "SELL ALL", "rotated out: no longer in the top ranks this week"
+            alerts.append({"ticker": t, "action": "SELL ALL", "why": p["why"], "price": p["price"], "shares": p["shares"]})
+        if rebalance and not args.dry_run:
+            state["last_rebalance"] = today.isoformat()
+            state_path.write_text(json.dumps(state))
+    else:
+        ranked = rank_and_bucket(feats, funds, regime, cfg, book["equity"], book["cash"],
+                                 open_tickers, today, halted=dd_state != "OK")
     for b in ranked["buys"]:
         b["news"] = data.news(b["ticker"])
 
@@ -156,8 +171,10 @@ def cmd_plan(cfg, args):
         bt["run_date"] = today.isoformat()
         bt_path.write_text(json.dumps(bt, indent=1, default=str))
     bt = json.loads(bt_path.read_text())
-    rp = replay(feats, funds, cfg, 10)
-    (OUT / "replay.json").write_text(json.dumps(rp, indent=1, default=str))
+    rp = None
+    if cfg.get("strategy") != "momentum":
+        rp = replay(feats, funds, cfg, 10)
+        (OUT / "replay.json").write_text(json.dumps(rp, indent=1, default=str))
     research_path = OUT / "research.json"
     research = json.loads(research_path.read_text()) if research_path.exists() else None
 
@@ -169,7 +186,9 @@ def cmd_plan(cfg, args):
         "drawdown_state": dd_state, "drawdown_msg": dd_msg,
         "positions": book["open"], "closed": book["closed"], "alerts": alerts,
         "trading_days_left": trading_days_between(today, goal_date),
-        "system_paper": system_paper({**history, today.isoformat(): ranked}, feats, cfg, cfg["start_date"]),
+        "system_paper": system_paper({**history, today.isoformat(): ranked}, feats, cfg, cfg["start_date"])
+        if cfg.get("strategy") != "momentum" else {},
+        "strategy": cfg.get("strategy", "swing"), "rebalance": ranked.get("rebalance"),
         "backtest": bt, "replay": rp, "research": research, "config": cfg, **ranked,
     }
     brief = OUT / "brief.md"
@@ -251,6 +270,7 @@ def main():
     ap.add_argument("--no-notify", action="store_true")
     ap.add_argument("--backtest", action="store_true", help="force a backtest refresh")
     ap.add_argument("--skip-fundamentals", action="store_true")
+    ap.add_argument("--dry-run", action="store_true", help="don't advance the weekly rebalance marker")
     args = ap.parse_args()
     cfg = load_cfg()
     (OUT / "history").mkdir(parents=True, exist_ok=True)

@@ -282,3 +282,73 @@ def _ranking_table(scored, funds):
                      "eligible": bool(r.eligible), "fwd_pe": info.get("forward_pe"),
                      "next_earnings": info.get("next_earnings")})
     return rows
+
+
+# ---------------------------------------------------------------- momentum rotation mode
+def is_rebalance_day(today, last_rebalance):
+    """First trading day of a new ISO week (normally Monday)."""
+    if not last_rebalance:
+        return True
+    return today.isocalendar()[:2] != dt.date.fromisoformat(last_rebalance).isocalendar()[:2]
+
+
+def momentum_plan(feats, funds, regime, cfg, equity, cash, holdings, today, rebalance):
+    """Risk-adjusted momentum rotation (research variant R2).
+
+    Each week hold the top-N eligible names ranked by momentum / volatility.
+    Sell anything that drops out of the top-N; 10% hard stop checked daily.
+    """
+    spy = feats["SPY"].iloc[-1]
+    snap = snapshot(feats)
+    sc = score_snapshot(snap, spy.ret63, sector_strength(feats), funds, cfg)
+    mom = 0.5 * sc.ret126 + 0.3 * sc.ret63 + 0.2 * sc.ret21
+    sc["risk_adj_mom"] = mom / (sc.atr / sc.Close)
+    n = cfg["max_positions"]
+    ok = sc.eligible & (sc.rsi < 80)
+    ranked = sc[ok].sort_values("risk_adj_mom", ascending=False)
+    target = [] if regime["light"] == "RED" else list(ranked.head(n).index)
+
+    rotate_out = [t for t in holdings if rebalance and t not in target]
+    buys, avoid = [], []
+    if rebalance and regime["light"] != "RED":
+        keep = [t for t in holdings if t in target]
+        new = [t for t in target if t not in holdings]
+        spendable = cash + sum(holdings[t] for t in rotate_out) - equity * cfg["min_cash_pct"] / 100
+        per = min(spendable / max(len(new), 1), equity / n) if new else 0
+        for t in new:
+            r = sc.loc[t]
+            info = (funds or {}).get(t) or {}
+            er = info.get("next_earnings")
+            if er and trading_days_between(today, dt.date.fromisoformat(er)) <= 3:
+                avoid.append({"ticker": t, "why_not": f"earnings {er}: wait until after the report"})
+                continue
+            entry, a = float(r.Close), float(r.atr)
+            shares = per / entry
+            shares = round(shares, 2) if cfg.get("fractional_shares") else float(int(shares))
+            stop = entry * (1 - cfg.get("momentum_stop_pct", 10) / 100)
+            wk = a * 5 ** 0.5  # typical one-week move
+            review = add_trading_days(today, 5)
+            buys.append({
+                "ticker": t, "name": info.get("name", t), "sector": r.sector, "price": round(entry, 2),
+                "score": round(float(r.composite), 1), "momentum": round(float(r.momentum)),
+                "rs": round(float(r.rs)), "trend": round(float(r.trend)), "fund": round(float(r.fund)),
+                "rsi": round(float(r.rsi)), "setup": "momentum", "fwd_pe": info.get("forward_pe"),
+                "next_earnings": er, "entry": round(entry, 2), "limit": round(entry * 1.005, 2),
+                "stop": round(stop, 2), "t1": round(entry + wk, 2), "t2": round(entry + 2 * wk, 2),
+                "stop_pct": round((stop / entry - 1) * 100, 1), "t1_pct": round(wk / entry * 100, 1),
+                "t2_pct": round(2 * wk / entry * 100, 1), "hold_days": 60,
+                "sell_by": f"reviewed {review.isoformat()}", "shares": shares,
+                "dollars": round(shares * entry, 2), "risk_dollars": round(shares * (entry - stop), 2),
+                "reason": [
+                    f"#{list(ranked.index).index(t) + 1} on risk-adjusted momentum: 6-mo {r.ret126:+.0%}, 3-mo {r.ret63:+.0%}, 1-mo {r.ret21:+.0%}",
+                    f"stronger than {r.rs:.0f}% of the universe vs the S&P; above its 200-day average",
+                ] + list(r.fund_notes)[:1],
+            })
+        if keep:
+            avoid.append({"ticker": ", ".join(keep), "why_not": "already held and still top-ranked: keep"})
+    next_up = [{"ticker": t, "score": round(float(ranked.loc[t].risk_adj_mom), 1), "price": round(float(ranked.loc[t].Close), 2),
+                "setup": "momentum", "rsi": round(float(ranked.loc[t].rsi)),
+                "action": "next in line if a holding drops out"} for t in ranked.index[n:n + 5]]
+    return {"buys": buys, "backups": [], "watch": next_up, "extended": [], "avoid": avoid,
+            "rotate_out": rotate_out, "target": target, "rebalance": rebalance,
+            "ranking": _ranking_table(sc.loc[ranked.index], funds)}

@@ -81,8 +81,12 @@ def positions(trades, feats, history, cfg):
         avg = p["cost"] / p["shares"]
         plan, plan_date = find_plan(history, tk, p["first_buy"])
         f = feats.get(tk)
+        mode = "momentum" if (plan and plan.get("setup") == "momentum") or (
+            not plan and cfg.get("strategy") == "momentum") else "swing"
         if plan:
             stop, t1, t2, hold = plan["stop"], plan["t1"], plan["t2"], plan["hold_days"]
+        elif mode == "momentum":
+            stop, t1, t2, hold = avg * (1 - cfg.get("momentum_stop_pct", 10) / 100), avg * 1.05, avg * 1.10, 60
         else:
             a = float(f.loc[:pd.Timestamp(p["first_buy"])].atr.iloc[-1]) if f is not None else avg * 0.03
             dist = min(1.5 * a, 0.08 * avg)
@@ -91,7 +95,7 @@ def positions(trades, feats, history, cfg):
                          "first_buy": p["first_buy"].isoformat(), "stop": round(stop, 2),
                          "t1": round(t1, 2), "t2": round(t2, 2), "hold_days": hold,
                          "sell_by": add_trading_days(p["first_buy"], hold).isoformat(),
-                         "partial": p["sold"] > 0, "system_pick": plan is not None,
+                         "partial": p["sold"] > 0, "system_pick": plan is not None, "mode": mode,
                          "plan_entry": plan["entry"] if plan else None, "plan_date": plan_date,
                          "fills": p["fills"]})
     return {"cash": round(cash, 2), "realized": round(realized, 2), "open": open_pos,
@@ -126,7 +130,14 @@ def evaluate(book, feats, live, funds, cfg, today):
         er_days = trading_days_between(today, dt.date.fromisoformat(er)) if er else None
         below50 = f is not None and last_close < float(f.sma50.iloc[-1])
 
-        if px <= stop:
+        if p.get("mode") == "momentum":
+            p["active_stop"] = p["stop"]
+            if px <= p["stop"]:
+                act, why = "SELL ALL", f"hit the {cfg.get('momentum_stop_pct', 10)}% stop at {p['stop']:.2f}"
+            else:
+                act, why = "HOLD", (f"held while it stays top-{cfg['max_positions']}; reviewed every Monday; "
+                                    f"stop {p['stop']:.2f} ({(p['stop'] / px - 1) * 100:+.1f}%)")
+        elif px <= stop:
             act, why = "SELL ALL", f"hit stop {stop:.2f}" + (" (trailing)" if p["partial"] else "")
         elif px >= p["t2"]:
             act, why = "SELL ALL", f"reached target 2 ({p['t2']:.2f}) - bank it"

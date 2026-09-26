@@ -1,5 +1,7 @@
 {
   "owner_note": "Edit starting_capital_usd to the actual USD amount that lands in the account.",
+  "strategy": "momentum",
+  "momentum_stop_pct": 10,
   "starting_capital_usd": 2000,
   "start_date": "2026-09-28",
   "goal_date": "2026-10-30",

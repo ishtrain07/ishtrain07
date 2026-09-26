@@ -52,10 +52,12 @@ class Args:
     no_notify = True
     backtest = True
     skip_fundamentals = False
+    dry_run = False
 
 
 def test_plan_end_to_end(sandbox):
     cfg = run.load_cfg()
+    cfg["strategy"] = "swing"
     run.cmd_plan(cfg, Args())
     rep = json.loads((sandbox / "output" / "latest.json").read_text())
     assert rep["regime"]["light"] in {"GREEN", "YELLOW", "RED"}
@@ -72,6 +74,27 @@ def test_plan_end_to_end(sandbox):
     assert "Habibi Wealth Management" in html
     # intraday check reuses latest.json
     run.cmd_check(cfg, Args())
+
+
+def test_momentum_mode(sandbox):
+    cfg = run.load_cfg()
+    cfg["strategy"] = "momentum"
+    run.cmd_plan(cfg, Args())
+    rep = json.loads((sandbox / "output" / "latest.json").read_text())
+    assert rep["strategy"] == "momentum" and rep["rebalance"] is True
+    assert len(rep["buys"]) <= cfg["max_positions"]
+    for b in rep["buys"]:
+        assert b["setup"] == "momentum" and b["stop"] < b["entry"] < b["t1"] < b["t2"]
+    total = sum(b["dollars"] for b in rep["buys"])
+    assert total <= rep["account"]["cash"] + sum(p["value"] for p in rep["positions"]) + 1
+    held = {p["ticker"] for p in rep["positions"]}
+    rotated = {a["ticker"] for a in rep["alerts"] if "rotated" in a["why"]}
+    assert rotated <= held
+    # second run in the same week must not rebalance again
+    run.cmd_plan(cfg, Args())
+    rep2 = json.loads((sandbox / "output" / "latest.json").read_text())
+    assert rep2["rebalance"] is False and rep2["buys"] == []
+    assert "Habibi Wealth Management" in (sandbox / "docs" / "index.html").read_text()
 
 
 def test_calendar():

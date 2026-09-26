@@ -120,7 +120,7 @@ def render(r):
         parts.append('<div class="card mute">No open positions. Log your fills below so the engine can track and alert you.</div>')
 
     # ---- watch / extended / avoid
-    parts.append(f'<h2>Details</h2><details class="sec" id="watch"><summary>Watchlist: buy only if the trigger happens ({len(r.get("watch", []))})</summary>')
+    parts.append(f'<h2>Details</h2><details class="sec" id="watch"><summary>Watchlist: buy only if the trigger happens ({len(r.get("watch", []))})</summary>'.replace("Watchlist: buy only if the trigger happens", "Next in line" if r.get("strategy") == "momentum" else "Watchlist: buy only if the trigger happens"))
     if r.get("watch"):
         parts.append(_simple_table(r["watch"], [("Ticker", "ticker"), ("Score", "score"), ("Price", "price"),
                                                 ("Setup", "setup"), ("RSI", "rsi"), ("Trigger", "action")]))
@@ -174,11 +174,9 @@ def _buy_card(b, rank=1):
     return f"""<div class="card order"><h3><span>#{rank} BUY {e(b['ticker'])} <span class="mute" style="font-weight:400;font-size:14px">{e(b['name'])}</span></span>
 <span class="tag">{e(b['setup']).upper()} · score {b['score']}</span></h3>
 <div style="font-size:16px">Buy <b>{b['shares']} shares</b> (~<b>${b['dollars']:,.0f}</b>) · limit <b>${b['limit']}</b> ·
-target range <b class="pos">${b['t1']} – ${b['t2']}</b> (+{b['t1_pct']}% to +{b['t2_pct']}%) · stop <b class="neg">${b['stop']}</b> · sell by <b>{e(b['sell_by'])}</b></div>
-<div class="note">Worst case if stopped: -${b['risk_dollars']:.0f}. Best case at target 2: +${b['shares'] * (b['t2'] - b['entry']):.0f}.</div>
-<div class="plan"><div><span>Entry</span><b>${b['entry']}</b></div><div><span>Stop-loss</span><b class="neg">${b['stop']}</b>{b['stop_pct']}%</div>
-<div><span>Target 1 (sell ½)</span><b class="pos">${b['t1']}</b>+{b['t1_pct']}%</div><div><span>Target 2 (sell rest)</span><b class="pos">${b['t2']}</b>+{b['t2_pct']}%</div>
-<div><span>Hold max</span><b>{b['hold_days']} days</b>sell by {e(b['sell_by'])}</div></div>
+target range <b class="pos">${b['t1']} – ${b['t2']}</b> (+{b['t1_pct']}% to +{b['t2_pct']}%) · stop <b class="neg">${b['stop']}</b> · {'hold until it drops out of the top 3 (' + e(b['sell_by']) + ')' if b['setup'] == 'momentum' else 'sell by <b>' + e(b['sell_by']) + '</b>'}</div>
+<div class="note">Worst case if stopped: -${b['risk_dollars']:.0f}. Upside at top of target range: +${b['shares'] * (b['t2'] - b['entry']):.0f}.</div>
+{_plan_grid(b)}
 <b>Why</b><ul class="why">{''.join(f'<li>{e(x)}</li>' for x in b['reason'][:3])}</ul>
 <div class="note">Momentum {b['momentum']} · RS {b['rs']} · Trend {b['trend']} · Fundamentals {b['fund']} · RSI {b['rsi']}{er}</div>
 {f'<ul class="why news">{news}</ul>' if news else ''}</div>"""
@@ -254,6 +252,14 @@ earnings filter, fills at signal-day close. Treat as a sanity check, not a promi
 
 
 def _method(cfg):
+    if cfg.get("strategy") == "momentum":
+        return f"""<ol class="why">
+<li><b>Market light</b>: S&amp;P 500 vs its 50/200-day averages + VIX. RED = sell rotation holdings to cash, no buys.</li>
+<li><b>Universe filters</b>: price &gt; ${cfg['min_price']}, &gt;${cfg['min_dollar_volume'] / 1e6:.0f}M traded daily, above the 200-day average, RSI below 80.</li>
+<li><b>Rank</b>: risk-adjusted momentum = (50% 6-month + 30% 3-month + 20% 1-month return) / daily volatility (ATR %). Rewards steady winners over lottery tickets.</li>
+<li><b>Every Monday</b>: hold the top {cfg['max_positions']} in equal dollar amounts. Anything that falls out of the top {cfg['max_positions']} is sold and replaced. No buys within 3 days of earnings.</li>
+<li><b>Every day</b>: {cfg.get('momentum_stop_pct', 10)}% hard stop per stock (checked 4x a day). Account down {cfg['max_drawdown_halt_pct']}% = no new buys; down {cfg['max_drawdown_liquidate_pct']}% = everything to cash.</li>
+<li><b>Why this rulebook</b>: in the 2-year portfolio simulation it beat every swing variant and QQQ in both halves of history. The cost is big swings: without the account stop its worst drop was about 37%. Details in the Strategy lab.</li></ol>"""
     return f"""<h2 id="method">How decisions are made</h2><div class="card"><ol class="why">
 <li><b>Market light</b>: S&amp;P 500 vs its 50/200-day averages + VIX. GREEN = up to {cfg['max_positions']} positions at full risk; YELLOW = half risk, top grades only; RED = no buys.</li>
 <li><b>Filters</b>: price &gt; ${cfg['min_price']}, &gt;${cfg['min_dollar_volume'] / 1e6:.0f}M traded daily, above the 200-day average. No penny stocks, no downtrends.</li>
@@ -274,7 +280,8 @@ def _headline(r):
     bits = sells + buys
     if holds:
         bits.append("hold " + ", ".join(holds))
-    return (", ".join(bits).capitalize() + ".") if bits else "Nothing to do. Stay in cash and check back tomorrow."
+    text = ", ".join(bits)
+    return (text[0].upper() + text[1:] + ".") if bits else "Nothing to do. Stay in cash and check back tomorrow."
 
 
 def _replay(rp):
@@ -309,3 +316,17 @@ def _research(rs):
     return (f'<p class="note">Portfolio simulation with real limits. Full {e(p["full"][0])} to {e(p["full"][1])}; each half tested separately. '
             '"+20% odds" = share of 5-week windows that gained 20%+.</p><div class="tbl"><table><tr><th class="l">Rulebook</th><th>Full</th>'
             f'<th>Half 1</th><th>Half 2</th><th>Max DD</th><th>Trades</th><th>Win %</th><th>+20% odds</th><th>Loss odds</th></tr>{"".join(rows)}</table></div>')
+
+
+def _plan_grid(b):
+    if b["setup"] == "momentum":
+        cells = [("Entry", f"${b['entry']}", ""), ("Hard stop", f"<b class=neg>${b['stop']}</b>", f"{b['stop_pct']}%"),
+                 ("Typical 1-week move", f"<b class=pos>${b['t1']}</b>", f"+{b['t1_pct']}%"),
+                 ("Strong 1-week move", f"<b class=pos>${b['t2']}</b>", f"+{b['t2_pct']}%"),
+                 ("Exit rule", "<b>weekly review</b>", "sold when it leaves the top 3")]
+    else:
+        cells = [("Entry", f"${b['entry']}", ""), ("Stop-loss", f"<b class=neg>${b['stop']}</b>", f"{b['stop_pct']}%"),
+                 ("Target 1 (sell ½)", f"<b class=pos>${b['t1']}</b>", f"+{b['t1_pct']}%"),
+                 ("Target 2 (sell rest)", f"<b class=pos>${b['t2']}</b>", f"+{b['t2_pct']}%"),
+                 ("Hold max", f"<b>{b['hold_days']} days</b>", f"sell by {e(b['sell_by'])}")]
+    return '<div class="plan">' + "".join(f"<div><span>{k}</span><b>{v}</b>{sub}</div>" for k, v, sub in cells) + "</div>"

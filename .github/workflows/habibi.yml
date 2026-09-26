@@ -63,7 +63,7 @@ jobs:
           ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HABIBI_ISSUES: ${{ vars.HABIBI_ISSUES }}
-          NOTIFY_FLAG: ${{ github.event_name == 'push' && '--no-notify' || '' }}
+          NOTIFY_FLAG: ${{ github.event_name == 'push' && '--no-notify --dry-run' || '' }}
         run: python -m habibi.run ${{ steps.mode.outputs.mode }} $NOTIFY_FLAG
 
       - name: Save outputs
