@@ -40,7 +40,9 @@ def precompute(feats, days):
         v = float(vix.Close.loc[:d].iloc[-1]) if vix is not None else 18.0
         regime = "GREEN" if (sp.Close > sp.sma50 and sp.sma50 > sp.sma200 and v < 20) else \
                  "YELLOW" if (sp.Close > sp.sma200 and v < 28) else "RED"
-        rows[d] = (regime, sc[["composite", "setup", "triggered", "eligible", "momentum", "rs",
+        mom = 0.5 * sc.ret126 + 0.3 * sc.ret63 + 0.2 * sc.ret21
+        sc["risk_adj_mom"] = mom / (sc.atr / sc.Close)
+        rows[d] = (regime, sc[["composite", "setup", "triggered", "eligible", "momentum", "rs", "risk_adj_mom",
                                "Close", "atr", "low5", "ema20", "sma50", "ret63", "rsi"]].copy())
     return rows
 
@@ -126,34 +128,57 @@ def swing_sim(feats, pre, v, start=None, end=None):
 
 
 # ------------------------------------------------------------- momentum rotation
-def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_col="momentum"):
-    """Weekly: hold the top-N momentum names (eligible, regime not RED), equal weight."""
+def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_col="momentum",
+                 exit_below_ema20=False, entry_green_only=False, dd_brake=None, cool_days=5, max_rsi=80):
+    """Weekly: hold the top-N ranked names (eligible, regime not RED), equal weight.
+
+    exit_below_ema20: daily exit when a holding closes below its 20-EMA.
+    entry_green_only: new buys only when the market light is GREEN.
+    dd_brake: if equity falls this far below its peak, go to cash for cool_days.
+    """
     dates = [d for d in pre if (start is None or d >= start) and (end is None or d <= end)]
     cash, hold, curve, trades, last_week = 1.0, {}, [], [], None
+    peak, cool = 1.0, 0
+
+    def sell(t, px, why):
+        nonlocal cash
+        cash += hold[t]["sh"] * px
+        trades.append({"r": px / hold[t]["entry"] - 1, "ret": px / hold[t]["entry"] - 1, "why": why, "days": 0})
+        del hold[t]
+
     for d in dates:
-        # stops
         for t in list(hold):
             b = bar(feats, t, d)
-            if b is not None and b.Low <= hold[t]["stop"]:
-                px = min(hold[t]["stop"], b.Open)
-                cash += hold[t]["sh"] * px
-                trades.append({"r": px / hold[t]["entry"] - 1, "ret": px / hold[t]["entry"] - 1, "why": "stop", "days": 0})
-                del hold[t]
+            if b is None:
+                continue
+            if b.Low <= hold[t]["stop"]:
+                sell(t, min(hold[t]["stop"], b.Open), "stop")
+            elif exit_below_ema20 and b.Close < b.ema20:
+                sell(t, b.Close, "ema20")
         equity = cash + sum(h["sh"] * last_close(feats, t, d) for t, h in hold.items())
+        peak = max(peak, equity)
+        if dd_brake and equity < peak * (1 - dd_brake) and hold:
+            for t in list(hold):
+                sell(t, last_close(feats, t, d), "brake")
+            cool, peak = cool_days, equity
         curve.append((d, equity))
+        if cool > 0:
+            cool -= 1
+            continue
         week = d.isocalendar()[1]
         if week == last_week:
             continue
         last_week = week
         regime, sc = pre[d]
-        target = [] if regime == "RED" else list(
-            sc[sc.eligible & (sc.rsi < 80)].sort_values(rank_col, ascending=False).head(top_n).index)
+        ok = sc.eligible & (sc.rsi < max_rsi)
+        if exit_below_ema20:
+            ok &= sc.Close > sc.ema20
+        target = [] if regime == "RED" else list(sc[ok].sort_values(rank_col, ascending=False).head(top_n).index)
         for t in list(hold):
             if t not in target:
-                px = last_close(feats, t, d)
-                cash += hold[t]["sh"] * px
-                trades.append({"r": px / hold[t]["entry"] - 1, "ret": px / hold[t]["entry"] - 1, "why": "rotate", "days": 0})
-                del hold[t]
+                sell(t, last_close(feats, t, d), "rotate")
+        if entry_green_only and regime != "GREEN":
+            continue
         new = [t for t in target if t not in hold]
         if new:
             per = min(cash / len(new), equity / top_n)
@@ -248,8 +273,19 @@ def main():
         name = f"R momentum rotation top{n} weekly"
         res["results"][name] = {k: rotation_sim(feats, pre, n, 0.10, a, b) for k, (a, b) in periods.items()}
         print(name, res["results"][name]["full"])
-    res["results"]["R momentum rotation top4, ranked by RS"] = {
-        k: rotation_sim(feats, pre, 4, 0.10, a, b, rank_col="rs") for k, (a, b) in periods.items()}
+    rot = {
+        "R2 top3 risk-adjusted momentum": dict(top_n=3, rank_col="risk_adj_mom"),
+        "R3 top3, 7% stop, exit < 20-EMA": dict(top_n=3, stop_pct=0.07, exit_below_ema20=True),
+        "R4 top3 risk-adj, 7% stop, exit < 20-EMA": dict(top_n=3, stop_pct=0.07, exit_below_ema20=True, rank_col="risk_adj_mom"),
+        "R5 R4 + 10% drawdown brake": dict(top_n=3, stop_pct=0.07, exit_below_ema20=True, rank_col="risk_adj_mom", dd_brake=0.10),
+        "R6 R3 + 10% drawdown brake": dict(top_n=3, stop_pct=0.07, exit_below_ema20=True, dd_brake=0.10),
+        "R7 top4 risk-adj, 8% stop, green entries, brake 12%": dict(top_n=4, stop_pct=0.08, rank_col="risk_adj_mom",
+                                                               entry_green_only=True, dd_brake=0.12),
+        "R8 top3 momentum, 8% stop, brake 10%": dict(top_n=3, stop_pct=0.08, dd_brake=0.10),
+    }
+    for name, kw in rot.items():
+        res["results"][name] = {k: rotation_sim(feats, pre, start=a, end=b, **kw) for k, (a, b) in periods.items()}
+        print(name, res["results"][name]["full"])
     for t in ("SPY", "QQQ"):
         res["results"][f"Z buy & hold {t}"] = {k: buy_hold(feats, t, a, b) for k, (a, b) in periods.items()}
     OUT.mkdir(exist_ok=True)
