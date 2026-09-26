@@ -306,10 +306,22 @@ def momentum_plan(feats, funds, regime, cfg, equity, cash, holdings, today, reba
     n = cfg["max_positions"]
     ok = sc.eligible & (sc.rsi < 80)
     ranked = sc[ok].sort_values("risk_adj_mom", ascending=False)
-    target = [] if regime["light"] == "RED" else list(ranked.head(n).index)
+    # Names reporting earnings within 3 trading days can't be newly bought; the slot goes to the next name.
+    avoid = []
+    blocked = set()
+    for t in ranked.index:
+        er = ((funds or {}).get(t) or {}).get("next_earnings")
+        if t not in holdings and er and trading_days_between(today, dt.date.fromisoformat(er)) <= 3:
+            blocked.add(t)
+    buyable = [t for t in ranked.index if t not in blocked]
+    target = [] if regime["light"] == "RED" else buyable[:n]
+    for t in list(ranked.index[:n]):
+        if t in blocked:
+            er = funds[t]["next_earnings"]
+            avoid.append({"ticker": t, "why_not": f"ranked #{list(ranked.index).index(t) + 1} but reports earnings {er}: skipped"})
 
     rotate_out = [t for t in holdings if rebalance and t not in target]
-    buys, avoid = [], []
+    buys = []
     if rebalance and regime["light"] != "RED":
         keep = [t for t in holdings if t in target]
         new = [t for t in target if t not in holdings]
@@ -319,9 +331,6 @@ def momentum_plan(feats, funds, regime, cfg, equity, cash, holdings, today, reba
             r = sc.loc[t]
             info = (funds or {}).get(t) or {}
             er = info.get("next_earnings")
-            if er and trading_days_between(today, dt.date.fromisoformat(er)) <= 3:
-                avoid.append({"ticker": t, "why_not": f"earnings {er}: wait until after the report"})
-                continue
             entry, a = float(r.Close), float(r.atr)
             shares = per / entry
             shares = round(shares, 2) if cfg.get("fractional_shares") else float(int(shares))
@@ -348,7 +357,7 @@ def momentum_plan(feats, funds, regime, cfg, equity, cash, holdings, today, reba
             avoid.append({"ticker": ", ".join(keep), "why_not": "already held and still top-ranked: keep"})
     next_up = [{"ticker": t, "score": round(float(ranked.loc[t].risk_adj_mom), 1), "price": round(float(ranked.loc[t].Close), 2),
                 "setup": "momentum", "rsi": round(float(ranked.loc[t].rsi)),
-                "action": "next in line if a holding drops out"} for t in ranked.index[n:n + 5]]
+                "action": "next in line if a holding drops out"} for t in buyable[n:n + 5]]
     return {"buys": buys, "backups": [], "watch": next_up, "extended": [], "avoid": avoid,
             "rotate_out": rotate_out, "target": target, "rebalance": rebalance,
             "ranking": _ranking_table(sc.loc[ranked.index], funds)}
