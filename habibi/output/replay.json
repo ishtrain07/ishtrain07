@@ -19,7 +19,7 @@
       "3-mo return +45% (stronger than 99% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +58% y/y",
-      "fwd P/E 18 is cheap for its growth",
+      "fwd P/E 19 is cheap for its growth",
       "analyst mean target +2% away"
      ],
      "filled": true,
@@ -46,7 +46,7 @@
       "3-mo return +29% (stronger than 91% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +24% y/y",
-      "fwd P/E 28 is cheap for its growth",
+      "fwd P/E 27 is cheap for its growth",
       "analyst mean target +9% away"
      ],
      "filled": false,
@@ -67,7 +67,7 @@
       "3-mo return +16% (stronger than 79% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +14% y/y",
-      "fwd P/E 25",
+      "fwd P/E 24",
       "analyst mean target +13% away"
      ],
      "filled": true,
@@ -107,7 +107,7 @@
       "3-mo return +38% (stronger than 94% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +26% y/y",
-      "expensive (fwd P/E 162)",
+      "expensive (fwd P/E 157)",
       "analyst mean target +0% away"
      ],
      "filled": true,
@@ -161,7 +161,7 @@
       "3-mo return +17% (stronger than 76% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +14% y/y",
-      "fwd P/E 25",
+      "fwd P/E 24",
       "analyst mean target +12% away"
      ],
      "filled": true,
@@ -201,7 +201,7 @@
       "3-mo return +40% (stronger than 98% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +26% y/y",
-      "expensive (fwd P/E 162)",
+      "expensive (fwd P/E 157)",
       "analyst mean target -3% away"
      ],
      "filled": true,
@@ -228,7 +228,7 @@
       "3-mo return +16% (stronger than 77% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +14% y/y",
-      "fwd P/E 25",
+      "fwd P/E 24",
       "analyst mean target +12% away"
      ],
      "filled": true,
@@ -295,7 +295,7 @@
       "3-mo return +31% (stronger than 91% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +93% y/y",
-      "fwd P/E 83 is cheap for its growth",
+      "fwd P/E 82 is cheap for its growth",
       "analyst mean target +12% away"
      ],
      "filled": true,
@@ -335,7 +335,7 @@
       "3-mo return +35% (stronger than 92% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +93% y/y",
-      "fwd P/E 83 is cheap for its growth",
+      "fwd P/E 82 is cheap for its growth",
       "analyst mean target +11% away"
      ],
      "filled": true,
@@ -360,7 +360,7 @@
       "3-mo return +18% (stronger than 78% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +30% y/y",
-      "fwd P/E 54",
+      "fwd P/E 53",
       "analyst mean target +16% away"
      ],
      "filled": true,
@@ -446,8 +446,8 @@
       "3-mo return +19% (stronger than 84% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +44% y/y",
-      "fwd P/E 15 is cheap for its growth",
-      "analyst mean target +5% away"
+      "fwd P/E 14 is cheap for its growth",
+      "analyst mean target +6% away"
      ],
      "filled": true,
      "fill": 160.96,
@@ -511,7 +511,7 @@
       "3-mo return +48% (stronger than 94% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +24% y/y",
-      "fwd P/E 28 is cheap for its growth",
+      "fwd P/E 27 is cheap for its growth",
       "analyst mean target +5% away"
      ],
      "filled": true,
@@ -536,7 +536,7 @@
       "3-mo return +28% (stronger than 86% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +34% y/y",
-      "fwd P/E 59",
+      "fwd P/E 58",
       "analyst mean target +25% away"
      ],
      "filled": false,
@@ -572,10 +572,10 @@
    ],
    "watch": [
     "CRWD",
+    "ZS",
     "PLTR",
     "FTNT",
-    "ANET",
-    "NET"
+    "ANET"
    ]
   },
   {
@@ -597,8 +597,8 @@
       "3-mo return +14% (stronger than 71% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +44% y/y",
-      "fwd P/E 15 is cheap for its growth",
-      "analyst mean target +8% away"
+      "fwd P/E 14 is cheap for its growth",
+      "analyst mean target +9% away"
      ],
      "filled": true,
      "fill": 159.5,
@@ -611,9 +611,9 @@
    "watch": [
     "CRWD",
     "SNOW",
-    "ANET",
+    "ZS",
     "PLTR",
-    "MSFT"
+    "ANET"
    ]
   },
   {
@@ -660,7 +660,7 @@
       "above rising 50 & 200-day averages",
       "revenue +54% y/y",
       "fwd P/E 15 is cheap for its growth",
-      "analyst mean target +8% away"
+      "analyst mean target +9% away"
      ],
      "filled": true,
      "fill": 206.54,
@@ -684,7 +684,7 @@
       "3-mo return +19% (stronger than 77% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +44% y/y",
-      "fwd P/E 15 is cheap for its growth",
+      "fwd P/E 14 is cheap for its growth",
       "analyst mean target +7% away"
      ],
      "filled": true,
@@ -699,8 +699,8 @@
     "PANW",
     "CRWD",
     "PLTR",
-    "SNOW",
-    "FTNT"
+    "ZS",
+    "SNOW"
    ]
   },
   {
@@ -747,7 +747,7 @@
       "3-mo return +12% (stronger than 68% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +14% y/y",
-      "fwd P/E 25",
+      "fwd P/E 24",
       "analyst mean target +14% away"
      ],
      "filled": true,
