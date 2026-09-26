@@ -14,6 +14,7 @@ from . import data, notify
 from .backtest import run_backtest
 from .dashboard import render
 from .indicators import add_features
+from .replay import replay
 from .portfolio import evaluate, load_history, load_trades, positions, system_paper
 from .strategy import market_regime, rank_and_bucket, trading_days_between
 from .universe import FOMC_2026, MACRO, UNIVERSE, all_price_tickers
@@ -155,6 +156,10 @@ def cmd_plan(cfg, args):
         bt["run_date"] = today.isoformat()
         bt_path.write_text(json.dumps(bt, indent=1, default=str))
     bt = json.loads(bt_path.read_text())
+    rp = replay(feats, funds, cfg, 10)
+    (OUT / "replay.json").write_text(json.dumps(rp, indent=1, default=str))
+    research_path = OUT / "research.json"
+    research = json.loads(research_path.read_text()) if research_path.exists() else None
 
     goal_date = dt.date.fromisoformat(cfg["goal_date"])
     report = {
@@ -165,7 +170,7 @@ def cmd_plan(cfg, args):
         "positions": book["open"], "closed": book["closed"], "alerts": alerts,
         "trading_days_left": trading_days_between(today, goal_date),
         "system_paper": system_paper({**history, today.isoformat(): ranked}, feats, cfg, cfg["start_date"]),
-        "backtest": bt, "config": cfg, **ranked,
+        "backtest": bt, "replay": rp, "research": research, "config": cfg, **ranked,
     }
     brief = OUT / "brief.md"
     if brief.exists():

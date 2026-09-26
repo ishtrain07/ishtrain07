@@ -95,8 +95,8 @@ def render(r):
     for a in r["alerts"]:
         parts.append(f'<div class="card order sell"><h3><span>SELL {e(a["ticker"])}</span><span class="tag">{e(a["action"])}</span></h3>'
                      f'<div>Sell <b>{a["shares"]}</b> shares at market (~${a["price"]}). {e(a["why"])}</div></div>')
-    for b in r.get("buys", []):
-        parts.append(_buy_card(b))
+    for i, b in enumerate(r.get("buys", [])[:3], 1):
+        parts.append(_buy_card(b, i))
     if not r["alerts"] and not r.get("buys"):
         parts.append('<div class="card order warn"><b>No trades today.</b> Nothing meets the bar, and cash is a position. '
                      'Forcing trades is how accounts lose money.</div>')
@@ -154,6 +154,10 @@ def render(r):
                  f'<th>RSI</th><th class="l">Setup</th><th>Fwd P/E</th><th>Earnings</th><th>Trend ok</th></tr>{rk}</table></div></details>')
 
     parts.append(_log_form(cfg))
+    if r.get("replay"):
+        parts.append(f'<details class="sec"><summary>Replay: what the engine said the last 10 mornings, and what happened</summary>{_replay(r["replay"])}</details>')
+    if r.get("research"):
+        parts.append(f'<details class="sec"><summary>Strategy lab: rulebooks compared</summary>{_research(r["research"])}</details>')
     for title, body in (("You vs the system", _tracking(r)), ("Backtest: does this rulebook work?", _backtest(r.get("backtest") or {})),
                         ("How decisions are made", _method(cfg))):
         parts.append(f'<details class="sec"><summary>{title}</summary>{body}</details>')
@@ -163,13 +167,15 @@ def render(r):
     return "\n".join(parts)
 
 
-def _buy_card(b):
+def _buy_card(b, rank=1):
     news = "".join(f'<li><a href="{e(n["url"])}" target="_blank" rel="noopener">{e(n["title"])}</a> '
                    f'<span class="mute">{e(n.get("source"))}</span></li>' for n in b.get("news", []) if n.get("url"))
     er = f' · earnings {e(b["next_earnings"])}' if b.get("next_earnings") else ""
-    return f"""<div class="card order"><h3><span>BUY {e(b['ticker'])} <span class="mute" style="font-weight:400;font-size:14px">{e(b['name'])}</span></span>
+    return f"""<div class="card order"><h3><span>#{rank} BUY {e(b['ticker'])} <span class="mute" style="font-weight:400;font-size:14px">{e(b['name'])}</span></span>
 <span class="tag">{e(b['setup']).upper()} · score {b['score']}</span></h3>
-<div>Buy <b>{b['shares']} shares</b> (~<b>${b['dollars']:,.0f}</b>) with a <b>limit order at ${b['limit']}</b>. Risking ${b['risk_dollars']:.0f} if stopped.</div>
+<div style="font-size:16px">Buy <b>{b['shares']} shares</b> (~<b>${b['dollars']:,.0f}</b>) · limit <b>${b['limit']}</b> ·
+target range <b class="pos">${b['t1']} – ${b['t2']}</b> (+{b['t1_pct']}% to +{b['t2_pct']}%) · stop <b class="neg">${b['stop']}</b> · sell by <b>{e(b['sell_by'])}</b></div>
+<div class="note">Worst case if stopped: -${b['risk_dollars']:.0f}. Best case at target 2: +${b['shares'] * (b['t2'] - b['entry']):.0f}.</div>
 <div class="plan"><div><span>Entry</span><b>${b['entry']}</b></div><div><span>Stop-loss</span><b class="neg">${b['stop']}</b>{b['stop_pct']}%</div>
 <div><span>Target 1 (sell ½)</span><b class="pos">${b['t1']}</b>+{b['t1_pct']}%</div><div><span>Target 2 (sell rest)</span><b class="pos">${b['t2']}</b>+{b['t2_pct']}%</div>
 <div><span>Hold max</span><b>{b['hold_days']} days</b>sell by {e(b['sell_by'])}</div></div>
@@ -269,3 +275,37 @@ def _headline(r):
     if holds:
         bits.append("hold " + ", ".join(holds))
     return (", ".join(bits).capitalize() + ".") if bits else "Nothing to do. Stay in cash and check back tomorrow."
+
+
+def _replay(rp):
+    rows = []
+    for d in reversed(rp["days"]):
+        if not d["picks"]:
+            rows.append(f'<tr><td>{e(d["date"])}</td><td class="l">{e(d["regime"])}</td><td class="l mute" colspan="5">no buys (cash)</td></tr>')
+        for p in d["picks"]:
+            if not p.get("filled"):
+                res, pnl = e(p.get("note")), "-"
+            else:
+                res = (f'{e(p["exit_reason"])} {e(p["exit_date"])} @ ${p["exit_price"]}' if p["status"] == "closed"
+                       else f'still open @ ${p["last"]}')
+                pnl = f'{money(p["pnl"])} ({pct(p["pnl_pct"])})'
+            rows.append(f'<tr><td>{e(d["date"])}</td><td class="l">{e(d["regime"])}</td><td><b>{e(p["ticker"])}</b></td>'
+                        f'<td>{p["shares"]} @ ${p.get("fill", p["limit"])}</td><td>${p["t1"]} – ${p["t2"]}</td><td class="l">{res}</td><td>{pnl}</td></tr>')
+    return (f'<p class="note">{rp["n_picks"]} picks, {rp["n_filled"]} filled, {rp["n_winners"]} winners, '
+            f'P&amp;L if followed {money(rp["pnl"])}. {rp["empty_days"]} of {len(rp["days"])} days had no buys. '
+            'The engine only saw data up to the prior close each morning.</p>'
+            '<div class="tbl"><table><tr><th>Day</th><th class="l">Market</th><th>Pick</th><th>Bought</th><th>Target range</th>'
+            f'<th class="l">Outcome</th><th>P&amp;L</th></tr>{"".join(rows)}</table></div>')
+
+
+def _research(rs):
+    rows = []
+    for name, v in rs["results"].items():
+        f, h1, h2 = v.get("full", {}), v.get("half1", {}), v.get("half2", {})
+        rows.append(f'<tr><td class="l">{e(name)}</td><td>{pct(f.get("total_pct"))}</td><td>{pct(h1.get("total_pct"))}</td>'
+                    f'<td>{pct(h2.get("total_pct"))}</td><td>{f.get("max_dd_pct")}%</td><td>{f.get("trades")}</td>'
+                    f'<td>{f.get("win_rate") if f.get("win_rate") is not None else "-"}</td><td>{f.get("p25_20")}%</td><td>{f.get("p25_loss")}%</td></tr>')
+    p = rs["periods"]
+    return (f'<p class="note">Portfolio simulation with real limits. Full {e(p["full"][0])} to {e(p["full"][1])}; each half tested separately. '
+            '"+20% odds" = share of 5-week windows that gained 20%+.</p><div class="tbl"><table><tr><th class="l">Rulebook</th><th>Full</th>'
+            f'<th>Half 1</th><th>Half 2</th><th>Max DD</th><th>Trades</th><th>Win %</th><th>+20% odds</th><th>Loss odds</th></tr>{"".join(rows)}</table></div>')

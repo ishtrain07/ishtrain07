@@ -2,9 +2,12 @@ name: Habibi research
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "0 14 * * 0"   # Sundays: refresh the strategy lab
   push:
     paths:
       - "habibi/research.py"
+      - "habibi/replay.py"
       - ".github/workflows/habibi-research.yml"
 
 permissions:
@@ -23,11 +26,12 @@ jobs:
           cache-dependency-path: habibi/requirements.txt
       - run: pip install -r habibi/requirements.txt
       - run: python -m habibi.research
+      - run: python -m habibi.replay 10
       - name: Save results
         run: |
           git config user.name "habibi-bot"
           git config user.email "habibi-bot@users.noreply.github.com"
-          git add habibi/output/research.json
+          git add habibi/output/research.json habibi/output/replay.json
           git diff --cached --quiet && exit 0
           git commit -m "Habibi research results"
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done

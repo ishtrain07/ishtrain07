@@ -34,6 +34,8 @@ def precompute(feats, days):
         if snap.empty:
             continue
         sp = spy.loc[d]
+        fresh = [t for t in snap.index if feats[t].loc[:d].index[-1] == d]
+        snap = snap.loc[fresh]
         sc = score_snapshot(snap, sp.ret63, sector_strength(sub), None, CFG)
         v = float(vix.Close.loc[:d].iloc[-1]) if vix is not None else 18.0
         regime = "GREEN" if (sp.Close > sp.sma50 and sp.sma50 > sp.sma200 and v < 20) else \
@@ -41,6 +43,15 @@ def precompute(feats, days):
         rows[d] = (regime, sc[["composite", "setup", "triggered", "eligible", "momentum", "rs",
                                "Close", "atr", "low5", "ema20", "sma50", "ret63", "rsi"]].copy())
     return rows
+
+
+def bar(feats, t, d):
+    f = feats[t]
+    return f.loc[d] if d in f.index else None
+
+
+def last_close(feats, t, d):
+    return float(feats[t].Close.loc[:d].iloc[-1])
 
 
 # ------------------------------------------------------------- swing variants
@@ -52,7 +63,10 @@ def swing_sim(feats, pre, v, start=None, end=None):
         # 1) exits using today's bar
         still = []
         for p in open_pos:
-            b = feats[p["t"]].loc[d]
+            b = bar(feats, p["t"], d)
+            if b is None:
+                still.append(p)
+                continue
             p["days"] += 1
             exit_px, why = None, None
             if b.Low <= p["stop"]:
@@ -67,7 +81,7 @@ def swing_sim(feats, pre, v, start=None, end=None):
                     p["hc"] = max(p["hc"], b.Close)
                     if v["trail_atr"] and (p["half"] or not v["t1_r"]):
                         p["stop"] = max(p["stop"], p["hc"] - v["trail_atr"] * p["atr"])
-                    if v.get("exit_below_sma50") and b.Close < feats[p["t"]].loc[d].sma50:
+                    if v.get("exit_below_sma50") and b.Close < b.sma50:
                         exit_px, why = b.Close, "trend"
                     elif p["days"] >= v["hold"]:
                         exit_px, why = b.Close, "time"
@@ -79,7 +93,7 @@ def swing_sim(feats, pre, v, start=None, end=None):
             else:
                 still.append(p)
         open_pos = still
-        mv = sum(p["sh"] * feats[p["t"]].loc[d].Close for p in open_pos)
+        mv = sum(p["sh"] * last_close(feats, p["t"], d) for p in open_pos)
         equity = cash + mv
         equity_curve.append((d, equity))
 
@@ -119,13 +133,13 @@ def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_
     for d in dates:
         # stops
         for t in list(hold):
-            b = feats[t].loc[d]
-            if b.Low <= hold[t]["stop"]:
+            b = bar(feats, t, d)
+            if b is not None and b.Low <= hold[t]["stop"]:
                 px = min(hold[t]["stop"], b.Open)
                 cash += hold[t]["sh"] * px
                 trades.append({"r": px / hold[t]["entry"] - 1, "ret": px / hold[t]["entry"] - 1, "why": "stop", "days": 0})
                 del hold[t]
-        equity = cash + sum(h["sh"] * feats[t].loc[d].Close for t, h in hold.items())
+        equity = cash + sum(h["sh"] * last_close(feats, t, d) for t, h in hold.items())
         curve.append((d, equity))
         week = d.isocalendar()[1]
         if week == last_week:
@@ -136,7 +150,7 @@ def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_
             sc[sc.eligible & (sc.rsi < 80)].sort_values(rank_col, ascending=False).head(top_n).index)
         for t in list(hold):
             if t not in target:
-                px = feats[t].loc[d].Close
+                px = last_close(feats, t, d)
                 cash += hold[t]["sh"] * px
                 trades.append({"r": px / hold[t]["entry"] - 1, "ret": px / hold[t]["entry"] - 1, "why": "rotate", "days": 0})
                 del hold[t]
@@ -144,7 +158,7 @@ def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_
         if new:
             per = min(cash / len(new), equity / top_n)
             for t in new:
-                px = feats[t].loc[d].Close
+                px = last_close(feats, t, d)
                 hold[t] = {"sh": per / px, "entry": px, "stop": px * (1 - stop_pct)}
                 cash -= per
     return stats(curve, trades)
