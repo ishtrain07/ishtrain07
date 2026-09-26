@@ -1,0 +1,452 @@
+{
+ "buys": [
+  {
+   "ticker": "SNOW",
+   "name": "Snowflake Inc.",
+   "sector": "Tech",
+   "price": 335.94,
+   "score": 94.6,
+   "momentum": 93,
+   "rs": 90,
+   "trend": 100,
+   "fund": 45,
+   "setup": "pullback",
+   "rsi": 55,
+   "fwd_pe": 111.457634,
+   "next_earnings": "2026-12-02",
+   "reason": [
+    "bounced off 20-EMA (RSI 55)",
+    "3-mo return +35% (stronger than 90% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +35% y/y",
+    "unprofitable",
+    "analyst mean target +27% away"
+   ],
+   "entry": 335.94,
+   "limit": 337.62,
+   "stop": 321.0,
+   "t1": 358.36,
+   "t2": 380.77,
+   "stop_pct": -4.4,
+   "t1_pct": 6.7,
+   "t2_pct": 13.3,
+   "hold_days": 7,
+   "sell_by": "2026-10-06",
+   "shares": 1.79,
+   "dollars": 601.33,
+   "risk_dollars": 26.75,
+   "news": [
+    {
+     "title": "Palantir vs. Snowflake: Which Enterprise AI Stock Better Justifies Its Valuation?",
+     "url": "https://finance.yahoo.com/technology/ai/articles/palantir-vs-snowflake-enterprise-ai-205926979.html",
+     "source": "Insider Monkey"
+    },
+    {
+     "title": "Palantir\u2019s Valuation Is Huge. So Is the Opportunity",
+     "url": "https://247wallst.com/investing/2026/09/25/palantirs-valuation-is-huge-so-is-the-opportunity/",
+     "source": "24/7 Wall St."
+    },
+    {
+     "title": "Could CrowdStrike (CRWD)\u2019s Snowflake (SNOW) Partnership Unlock a New AI Growth Engine?",
+     "url": "https://finance.yahoo.com/technology/ai/articles/could-crowdstrike-crwd-snowflake-snow-203651870.html",
+     "source": "Insider Monkey"
+    }
+   ]
+  },
+  {
+   "ticker": "DDOG",
+   "name": "Datadog, Inc.",
+   "sector": "Tech",
+   "price": 268.13,
+   "score": 88.6,
+   "momentum": 92,
+   "rs": 70,
+   "trend": 75,
+   "fund": 55,
+   "setup": "breakout",
+   "rsi": 67,
+   "fwd_pe": 90.17411,
+   "next_earnings": "2026-11-05",
+   "reason": [
+    "new 20-day high on 1.5x volume",
+    "3-mo return +12% (stronger than 70% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +36% y/y",
+    "expensive (fwd P/E 90)",
+    "analyst mean target +7% away"
+   ],
+   "entry": 268.13,
+   "limit": 269.47,
+   "stop": 246.68,
+   "t1": 300.31,
+   "t2": 332.48,
+   "stop_pct": -8.0,
+   "t1_pct": 12.0,
+   "t2_pct": 24.0,
+   "hold_days": 6,
+   "sell_by": "2026-10-05",
+   "shares": 1.4,
+   "dollars": 375.38,
+   "risk_dollars": 30.03,
+   "news": [
+    {
+     "title": "Why Is Datadog (DDOG) Stock Rocketing Higher Today",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/why-datadog-ddog-stock-rocketing-031237536.html",
+     "source": "StockStory"
+    },
+    {
+     "title": "Datadog Climbs 6%, Approaches 52-Week High While Software Group Slips; Oracle and Cloudflare Decline",
+     "url": "https://247wallst.com/investing/2026/09/25/datadog-climbs-6-approaches-52-week-high-while-software-group-slips-oracle-and-cloudflare-decline/",
+     "source": "24/7 Wall St."
+    },
+    {
+     "title": "2 Nasdaq 100 Stocks to Target This Week and 1 We Question",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/2-nasdaq-100-stocks-target-173637699.html",
+     "source": "StockStory"
+    }
+   ]
+  },
+  {
+   "ticker": "FCX",
+   "name": "Freeport-McMoRan, Inc.",
+   "sector": "Materials",
+   "price": 72.31,
+   "score": 77.0,
+   "momentum": 70,
+   "rs": 74,
+   "trend": 100,
+   "fund": 35,
+   "setup": "pullback",
+   "rsi": 52,
+   "fwd_pe": 17.455896,
+   "next_earnings": "2026-10-22",
+   "reason": [
+    "bounced off 20-EMA (RSI 52)",
+    "3-mo return +16% (stronger than 74% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue shrinking -7%",
+    "fwd P/E 17",
+    "analyst mean target +0% away"
+   ],
+   "entry": 72.31,
+   "limit": 72.67,
+   "stop": 69.61,
+   "t1": 76.36,
+   "t2": 80.42,
+   "stop_pct": -3.7,
+   "t1_pct": 5.6,
+   "t2_pct": 11.2,
+   "hold_days": 7,
+   "sell_by": "2026-10-06",
+   "shares": 8.3,
+   "dollars": 600.17,
+   "risk_dollars": 22.43,
+   "news": [
+    {
+     "title": "Freeport-McMoRan (FCX): Can Copper Tightness Outrun Rising Costs?",
+     "url": "https://finance.yahoo.com/markets/commodities/articles/freeport-mcmoran-fcx-copper-tightness-123844857.html",
+     "source": "Insider Monkey"
+    },
+    {
+     "title": "Can Freeport-McMoRan's Growth Projects Drive the Next Expansion Wave?",
+     "url": "https://finance.yahoo.com/markets/commodities/articles/freeport-mcmorans-growth-projects-drive-111600222.html",
+     "source": "Zacks"
+    },
+    {
+     "title": "FCX vs. SCCO: Which Copper Mining Giant Should You Bet on?",
+     "url": "https://finance.yahoo.com/markets/commodities/articles/fcx-vs-scco-copper-mining-102700630.html",
+     "source": "Zacks"
+    }
+   ]
+  }
+ ],
+ "backups": [
+  {
+   "ticker": "VRTX",
+   "name": "Vertex Pharmaceuticals Incorpor",
+   "sector": "Health",
+   "price": 526.19,
+   "score": 76.1,
+   "momentum": 48,
+   "rs": 62,
+   "trend": 100,
+   "fund": 72,
+   "setup": "pullback",
+   "rsi": 53,
+   "fwd_pe": 26.187988,
+   "next_earnings": "2026-11-02",
+   "reason": [
+    "bounced off 20-EMA (RSI 53)",
+    "3-mo return +7% (stronger than 62% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +12% y/y",
+    "fwd P/E 26",
+    "analyst mean target +8% away"
+   ],
+   "entry": 526.19,
+   "limit": 528.82,
+   "stop": 501.19,
+   "t1": 563.69,
+   "t2": 601.19,
+   "stop_pct": -4.8,
+   "t1_pct": 7.1,
+   "t2_pct": 14.3,
+   "hold_days": 7,
+   "sell_by": "2026-10-06",
+   "shares": 0.61,
+   "dollars": 320.98,
+   "risk_dollars": 15.25
+  }
+ ],
+ "watch": [
+  {
+   "ticker": "PLTR",
+   "name": "Palantir Technologies Inc.",
+   "sector": "Tech",
+   "price": 189.67,
+   "score": 89.2,
+   "momentum": 84,
+   "rs": 100,
+   "trend": 100,
+   "fund": 90,
+   "setup": "breakout",
+   "rsi": 64,
+   "fwd_pe": 81.649086,
+   "next_earnings": "2026-11-02",
+   "reason": [
+    "2.6% below 20-day high",
+    "3-mo return +68% (stronger than 100% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +93% y/y",
+    "fwd P/E 82 is cheap for its growth",
+    "analyst mean target +3% away"
+   ],
+   "action": "Buy if it closes above 194.68 on strong volume"
+  },
+  {
+   "ticker": "PANW",
+   "name": "Palo Alto Networks, Inc.",
+   "sector": "Tech",
+   "price": 374.74,
+   "score": 89.1,
+   "momentum": 94,
+   "rs": 84,
+   "trend": 100,
+   "fund": 70,
+   "setup": "pullback",
+   "rsi": 54,
+   "fwd_pe": 76.80562,
+   "next_earnings": "2026-11-19",
+   "reason": [
+    "sitting on 20-EMA support (RSI 54), no bounce yet",
+    "3-mo return +23% (stronger than 84% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +34% y/y",
+    "fwd P/E 77",
+    "analyst mean target +6% away"
+   ],
+   "action": "Buy on a green day holding above 366.75"
+  },
+  {
+   "ticker": "ANET",
+   "name": "Arista Networks, Inc.",
+   "sector": "Tech",
+   "price": 206.55,
+   "score": 88.1,
+   "momentum": 86,
+   "rs": 89,
+   "trend": 100,
+   "fund": 90,
+   "setup": "breakout",
+   "rsi": 60,
+   "fwd_pe": 39.817482,
+   "next_earnings": "2026-11-03",
+   "reason": [
+    "0.8% below 20-day high",
+    "3-mo return +31% (stronger than 89% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +38% y/y",
+    "fwd P/E 40 is cheap for its growth",
+    "analyst mean target +17% away"
+   ],
+   "action": "Buy if it closes above 208.26 on strong volume"
+  },
+  {
+   "ticker": "MDB",
+   "name": "MongoDB, Inc.",
+   "sector": "Tech",
+   "price": 410.44,
+   "score": 87.4,
+   "momentum": 87,
+   "rs": 86,
+   "trend": 100,
+   "fund": 70,
+   "setup": "pullback",
+   "rsi": 54,
+   "fwd_pe": 52.670074,
+   "next_earnings": "2026-12-01",
+   "reason": [
+    "sitting on 20-EMA support (RSI 54), no bounce yet",
+    "3-mo return +31% (stronger than 86% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +30% y/y",
+    "fwd P/E 53",
+    "analyst mean target +11% away"
+   ],
+   "action": "Buy on a green day holding above 400.53"
+  },
+  {
+   "ticker": "ZS",
+   "name": "Zscaler, Inc.",
+   "sector": "Tech",
+   "price": 193.05,
+   "score": 86.1,
+   "momentum": 80,
+   "rs": 97,
+   "trend": 100,
+   "fund": 62,
+   "setup": "pullback",
+   "rsi": 54,
+   "fwd_pe": 34.460907,
+   "next_earnings": "2026-11-24",
+   "reason": [
+    "sitting on 20-EMA support (RSI 54), no bounce yet",
+    "3-mo return +46% (stronger than 97% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +25% y/y",
+    "unprofitable",
+    "analyst mean target +9% away"
+   ],
+   "action": "Buy on a green day holding above 191.10"
+  },
+  {
+   "ticker": "MSFT",
+   "name": "Microsoft Corporation",
+   "sector": "Tech",
+   "price": 516.17,
+   "score": 86.0,
+   "momentum": 79,
+   "rs": 93,
+   "trend": 100,
+   "fund": 82,
+   "setup": "breakout",
+   "rsi": 63,
+   "fwd_pe": 21.801512,
+   "next_earnings": "2026-10-28",
+   "reason": [
+    "0.3% below 20-day high",
+    "3-mo return +39% (stronger than 93% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +18% y/y",
+    "fwd P/E 22 is cheap for its growth",
+    "analyst mean target +12% away"
+   ],
+   "action": "Buy if it closes above 517.78 on strong volume"
+  },
+  {
+   "ticker": "MRVL",
+   "name": "Marvell Technology, Inc.",
+   "sector": "Semis",
+   "price": 261.94,
+   "score": 82.7,
+   "momentum": 95,
+   "rs": 46,
+   "trend": 100,
+   "fund": 90,
+   "setup": "breakout",
+   "rsi": 63,
+   "fwd_pe": 38.76355,
+   "next_earnings": "2026-12-01",
+   "reason": [
+    "1.5% below 20-day high",
+    "3-mo return -2% (stronger than 46% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +36% y/y",
+    "fwd P/E 39 is cheap for its growth",
+    "analyst mean target +10% away"
+   ],
+   "action": "Buy if it closes above 266.00 on strong volume"
+  },
+  {
+   "ticker": "AAPL",
+   "name": "Apple Inc.",
+   "sector": "Tech",
+   "price": 341.07,
+   "score": 81.3,
+   "momentum": 75,
+   "rs": 78,
+   "trend": 100,
+   "fund": 72,
+   "setup": "breakout",
+   "rsi": 66,
+   "fwd_pe": 35.582424,
+   "next_earnings": "2026-10-29",
+   "reason": [
+    "1.3% below 20-day high",
+    "3-mo return +20% (stronger than 78% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +16% y/y",
+    "fwd P/E 36",
+    "analyst mean target -4% away"
+   ],
+   "action": "Buy if it closes above 345.34 on strong volume"
+  },
+  {
+   "ticker": "CRM",
+   "name": "Salesforce, Inc.",
+   "sector": "Tech",
+   "price": 234.02,
+   "score": 81.2,
+   "momentum": 77,
+   "rs": 99,
+   "trend": 75,
+   "fund": 70,
+   "setup": "pullback",
+   "rsi": 50,
+   "fwd_pe": 14.620091,
+   "next_earnings": "2026-12-02",
+   "reason": [
+    "sitting on 20-EMA support (RSI 50), no bounce yet",
+    "3-mo return +48% (stronger than 99% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "fwd P/E 15 is cheap for its growth",
+    "analyst mean target +20% away"
+   ],
+   "action": "Buy on a green day holding above 237.77"
+  },
+  {
+   "ticker": "SHOP",
+   "name": "Shopify Inc.",
+   "sector": "Tech",
+   "price": 142.25,
+   "score": 81.0,
+   "momentum": 68,
+   "rs": 83,
+   "trend": 100,
+   "fund": 70,
+   "setup": "pullback",
+   "rsi": 53,
+   "fwd_pe": 58.05222,
+   "next_earnings": "2026-11-03",
+   "reason": [
+    "sitting on 20-EMA support (RSI 53), no bounce yet",
+    "3-mo return +22% (stronger than 83% of the universe vs S&P)",
+    "above rising 50 & 200-day averages",
+    "revenue +34% y/y",
+    "fwd P/E 58",
+    "analyst mean target +21% away"
+   ],
+   "action": "Buy on a green day holding above 138.81"
+  }
+ ],
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 771.35,
+  "spy_sma50": 759.91,
+  "spy_sma200": 714.84,
+  "vix": 14.87
+ }
+}
