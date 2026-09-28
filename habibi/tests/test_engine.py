@@ -33,6 +33,8 @@ def sandbox(tmp_path, monkeypatch):
     monkeypatch.setattr(run, "OUT", out)
     monkeypatch.setattr(run, "DOCS", tmp_path / "docs")
     monkeypatch.setattr("habibi.portfolio.HISTORY", out / "history")
+    monkeypatch.setattr("habibi.paper.PATH", out / "paper_trades.csv")
+    monkeypatch.setattr(run, "PAPER_PATH", out / "paper_trades.csv")
     monkeypatch.setattr(data, "download_prices", fake_prices)
     monkeypatch.setattr(data, "latest_prices", lambda t: {})
     monkeypatch.setattr(data, "news", lambda t, n=3: [])
@@ -90,10 +92,18 @@ def test_momentum_mode(sandbox):
     held = {p["ticker"] for p in rep["positions"]}
     rotated = {a["ticker"] for a in rep["alerts"] if "rotated" in a["why"]}
     assert rotated <= held
-    # second run in the same week must not rebalance again
+    # the system's paper account bought its own picks with the same capital
+    paper = rep["paper"]
+    assert {p["ticker"] for p in paper["positions"]} == {b["ticker"] for b in rep["buys"]}
+    assert abs(paper["account"]["equity"] - cfg["starting_capital_usd"]) < cfg["starting_capital_usd"] * 0.2
+    n_paper = len((sandbox / "output" / "paper_trades.csv").read_text().splitlines())
+    # second run in the same week must not rebalance again (for you or the paper account)
     run.cmd_plan(cfg, Args())
     rep2 = json.loads((sandbox / "output" / "latest.json").read_text())
     assert rep2["rebalance"] is False and rep2["buys"] == []
+    assert not [o for o in rep2["paper"]["orders_today"] if o["side"] == "BUY"]
+    assert len((sandbox / "output" / "paper_trades.csv").read_text().splitlines()) >= n_paper
+    run.cmd_check(cfg, Args())
     assert "Habibi Wealth Management" in (sandbox / "docs" / "index.html").read_text()
 
 

@@ -11,12 +11,13 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from . import adaptive, data, notify
+from .paper import PATH as PAPER_PATH, run_paper
 from .backtest import run_backtest
 from .dashboard import render
 from .indicators import add_features
 from .replay import replay
 from .portfolio import evaluate, load_history, load_trades, positions, system_paper
-from .strategy import (is_rebalance_day, market_regime, momentum_plan, rank_and_bucket,
+from .strategy import (add_trading_days, is_rebalance_day, market_regime, momentum_plan, rank_and_bucket,
                        trading_days_between)
 from .universe import FOMC_2026, MACRO, UNIVERSE, all_price_tickers
 
@@ -104,8 +105,29 @@ def dispatch_alerts(alerts, cfg, today):
     (OUT / "alerts_sent.json").write_text(json.dumps(sent, indent=1))
 
 
-def drawdown_state(book, cfg):
+def drawdown_state(book, cfg, today=None, persist=False):
+    """Account loss limits (vs starting capital) plus a peak brake (vs highest equity).
+
+    Peak brake: equity more than peak_brake_pct below its peak -> sell everything and
+    sit in cash for brake_cool_days trading days (research variant L2).
+    """
     r = book["return_pct"]
+    brake = cfg.get("peak_brake_pct")
+    if brake and today is not None:
+        sp = OUT / "state.json"
+        st = json.loads(sp.read_text()) if sp.exists() else {}
+        peak = max(float(st.get("peak_equity", cfg["starting_capital_usd"])), book["equity"])
+        cool_until = st.get("brake_until")
+        if book["equity"] < peak * (1 - brake / 100) and book["open"]:
+            cool_until = add_trading_days(today, cfg.get("brake_cool_days", 5)).isoformat()
+            peak = book["equity"]
+        if persist:
+            st.update({"peak_equity": round(peak, 2), "brake_until": cool_until})
+            sp.write_text(json.dumps(st))
+        if cool_until and today.isoformat() <= cool_until:
+            if book["open"]:
+                return "LIQUIDATE", f"Peak brake: account fell {brake}% from its high. Sell everything; cash until {cool_until}."
+            return "HALT", f"Cooling off after the peak brake: no buys until after {cool_until}."
     if r <= -cfg["max_drawdown_liquidate_pct"]:
         return "LIQUIDATE", f"Account down {r:.1f}%: loss limit hit. Sell everything and stop."
     if r <= -cfg["max_drawdown_halt_pct"]:
@@ -116,7 +138,8 @@ def drawdown_state(book, cfg):
 def cmd_plan(cfg, args):
     now = dt.datetime.now(ET)
     today = now.date()
-    tickers = sorted(set(all_price_tickers()) | set(load_trades(ROOT / "trades.csv").get("ticker", [])))
+    tickers = sorted(set(all_price_tickers()) | set(load_trades(ROOT / "trades.csv").get("ticker", []))
+                     | (set(load_trades(PAPER_PATH).get("ticker", [])) if PAPER_PATH.exists() else set()))
     prices = data.download_prices(tickers, period="2y")
     if "SPY" not in prices:
         sys.exit("SPY data unavailable - aborting")
@@ -134,9 +157,12 @@ def cmd_plan(cfg, args):
     history = load_history()
     trades = load_trades(ROOT / "trades.csv")
     book = positions(trades, feats, history, cfg)
-    live = data.latest_prices([p["ticker"] for p in book["open"]]) if book["open"] else {}
+    paper_held = sorted(set(load_trades(PAPER_PATH).ticker)) if PAPER_PATH.exists() and not load_trades(PAPER_PATH).empty else []
+    held_all = sorted({p["ticker"] for p in book["open"]} | set(paper_held))
+    live = data.latest_prices(held_all) if held_all else {}
     alerts = evaluate(book, feats, live, funds, cfg, today)
-    dd_state, dd_msg = drawdown_state(book, cfg)
+    dd_state, dd_msg = drawdown_state(book, cfg, today, persist=not args.dry_run)
+    rebalance, learned_scores = False, None
     if dd_state == "LIQUIDATE":
         for p in book["open"]:
             if not any(a["ticker"] == p["ticker"] for a in alerts):
@@ -150,7 +176,7 @@ def cmd_plan(cfg, args):
         state = json.loads(state_path.read_text()) if state_path.exists() else {}
         rebalance = is_rebalance_day(today, state.get("last_rebalance")) and dd_state == "OK"
         holdings = {p["ticker"]: p["value"] for p in book["open"] if p["ticker"] not in selling}
-        learned_scores, learned = None, None
+        learned = None
         if cfg.get("ranker") == "adaptive":
             uni = [t for t in UNIVERSE if t in feats and len(feats[t]) > 260]
             m = adaptive.model(feats, uni)
@@ -170,6 +196,8 @@ def cmd_plan(cfg, args):
                                  open_tickers, today, halted=dd_state != "OK")
     for b in ranked["buys"]:
         b["news"] = data.news(b["ticker"])
+    paper = run_paper(feats, funds, regime, cfg, today, history, live, execute=not args.dry_run,
+                      rebalance=rebalance, learned=learned_scores)
 
     macro = macro_table(feats)
     bt_path = OUT / "backtest.json"
@@ -195,7 +223,7 @@ def cmd_plan(cfg, args):
         "trading_days_left": trading_days_between(today, goal_date),
         "system_paper": system_paper({**history, today.isoformat(): ranked}, feats, cfg, cfg["start_date"])
         if cfg.get("strategy") != "momentum" else {},
-        "strategy": cfg.get("strategy", "swing"), "rebalance": ranked.get("rebalance"),
+        "strategy": cfg.get("strategy", "swing"), "rebalance": ranked.get("rebalance"), "paper": paper,
         "backtest": bt, "replay": rp, "research": research, "config": cfg, **ranked,
     }
     brief = OUT / "brief.md"
@@ -240,7 +268,9 @@ def cmd_check(cfg, args):
         return cmd_plan(cfg, args)
     report = json.loads(latest.read_text())
     trades = load_trades(ROOT / "trades.csv")
-    held = sorted(set(trades.ticker)) if not trades.empty else []
+    paper_trades = load_trades(PAPER_PATH) if PAPER_PATH.exists() else trades.iloc[0:0]
+    held = sorted((set(trades.ticker) if not trades.empty else set())
+                  | (set(paper_trades.ticker) if not paper_trades.empty else set()))
     if not held:
         print("No positions to check.")
         return
@@ -248,14 +278,16 @@ def cmd_check(cfg, args):
     feats = build_features(prices)
     history = load_history()
     book = positions(trades, feats, history, cfg)
-    live = data.latest_prices([p["ticker"] for p in book["open"]]) if book["open"] else {}
+    live = data.latest_prices(held)
     funds = json.loads((OUT / "fundamentals.json").read_text()) if (OUT / "fundamentals.json").exists() else {}
     alerts = evaluate(book, feats, live, funds, cfg, today)
-    dd_state, dd_msg = drawdown_state(book, cfg)
+    dd_state, dd_msg = drawdown_state(book, cfg, today, persist=not args.dry_run)
     report.update({"generated_at": now.strftime("%Y-%m-%d %H:%M ET") + " (position check)",
                    "account": {k: book[k] for k in ("cash", "realized", "unrealized", "market_value", "equity", "return_pct")},
                    "positions": book["open"], "closed": book["closed"], "alerts": alerts,
                    "drawdown_state": dd_state, "drawdown_msg": dd_msg})
+    regime = report.get("regime") or {"light": "YELLOW", "max_new": 0, "risk_mult": 0}
+    report["paper"] = run_paper(feats, funds, regime, cfg, today, history, live, execute=not args.dry_run)
     write_outputs(report)
     if not args.no_notify:
         dispatch_alerts(alerts, cfg, today)

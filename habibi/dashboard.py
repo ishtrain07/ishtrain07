@@ -83,6 +83,7 @@ def render(r):
 <div class="card kpi"><div class="l">Account value</div><div class="v">${acct['equity']:,.2f}</div><div class="sub">cash ${acct['cash']:,.2f}</div></div>
 <div class="card kpi"><div class="l">Return</div><div class="v">{pct(acct['return_pct'], 2)}</div><div class="sub">realized {money(acct['realized'])} · open {money(acct['unrealized'])}</div></div>
 <div class="card kpi"><div class="l">Goal +{goal}% by {e(cfg['goal_date'])}</div><div class="v">{progress:.0f}%</div><div class="bar"><i style="width:{progress:.0f}%"></i></div></div>
+{_scoreboard(r)}
 <div class="card kpi"><div class="l">Trading days left</div><div class="v">{r['trading_days_left']}</div><div class="sub">loss limit -{cfg['max_drawdown_halt_pct']}% halt</div></div>
 </div>"""]
 
@@ -221,7 +222,38 @@ function cp(){{navigator.clipboard&&navigator.clipboard.writeText(document.getEl
 </script></details>"""
 
 
+def _scoreboard(r):
+    pa = (r.get("paper") or {}).get("account")
+    if not pa:
+        return ""
+    you, sysr = r["account"]["return_pct"], pa["return_pct"]
+    lead = "tied" if abs(you - sysr) < 0.05 else ("you lead" if you > sysr else "system leads")
+    return (f'<div class="card kpi"><div class="l">You vs system</div><div class="v">{pct(you, 1)} <span class="mute" style="font-size:15px">vs</span> {pct(sysr, 1)}</div>'
+            f'<div class="sub">{lead} · system paper ${pa["equity"]:,.0f}</div></div>')
+
+
 def _tracking(r):
+    pa = r.get("paper") or {}
+    if pa.get("account"):
+        rows = "".join(f'<tr><td><b>{e(p["ticker"])}</b></td><td>{p["shares"]}</td><td>${p["avg_cost"]}</td><td>${p["price"]}</td>'
+                       f'<td>{money(p["pnl"])}</td><td>{pct(p["pnl_pct"])}</td><td class="l">{e(p["action"])}</td></tr>' for p in pa["positions"])
+        closed = pa.get("closed") or []
+        a = pa["account"]
+        out = [f'<div class="grid"><div class="card kpi"><div class="l">Your account</div><div class="v">{pct(r["account"]["return_pct"], 2)}</div>'
+               f'<div class="sub">${r["account"]["equity"]:,.2f}</div></div><div class="card kpi"><div class="l">System paper account</div>'
+               f'<div class="v">{pct(a["return_pct"], 2)}</div><div class="sub">${a["equity"]:,.2f} · realized {money(a["realized"])}</div></div></div>'
+               '<p class="note">The system starts with the same capital and auto-executes every order it gives you: buys at the limit price, '
+               'sells when the alert fires. Only your logged trades count for you.</p>']
+        if rows:
+            out.append('<div class="tbl"><table><tr><th>System holds</th><th>Shares</th><th>Cost</th><th>Price</th><th>P&amp;L</th><th>%</th>'
+                       f'<th class="l">Status</th></tr>{rows}</table></div>')
+        if closed:
+            out.append('<h2>System closed trades</h2>' + _simple_table(closed[-15:], [("Date", "date"), ("Ticker", "ticker"), ("Shares", "shares"),
+                                                                                      ("Sold at", "price"), ("Cost", "avg_cost"), ("P&L $", "pnl"), ("P&L %", "pnl_pct")]))
+        if r.get("closed"):
+            out.append('<h2>Your closed trades</h2>' + _simple_table(r["closed"], [("Date", "date"), ("Ticker", "ticker"), ("Shares", "shares"),
+                                                                                   ("Sold at", "price"), ("Avg cost", "avg_cost"), ("P&L $", "pnl"), ("P&L %", "pnl_pct")]))
+        return "".join(out)
     sp = r.get("system_paper") or {}
     closed = r.get("closed") or []
     you = r["account"]["return_pct"]
