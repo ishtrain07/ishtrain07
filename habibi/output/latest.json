@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-28 07:06 ET",
+ "generated_at": "2026-09-28 07:17 ET",
  "date": "2026-09-28",
  "mode": "plan",
  "regime": {
@@ -10,24 +10,24 @@
   "spy": 771.35,
   "spy_sma50": 759.91,
   "spy_sma200": 714.84,
-  "vix": 16.34
+  "vix": 16.31
  },
  "macro": [
   {
    "ticker": "ES=F",
    "label": "S&P 500 futures",
-   "last": 7763.25,
+   "last": 7763.0,
    "d1": -0.52,
    "d5": -0.9,
-   "m1": 0.27
+   "m1": 0.26
   },
   {
    "ticker": "NQ=F",
    "label": "Nasdaq 100 futures",
-   "last": 30590.75,
-   "d1": -0.97,
-   "d5": -0.63,
-   "m1": 3.01
+   "last": 30601.5,
+   "d1": -0.93,
+   "d5": -0.6,
+   "m1": 3.05
   },
   {
    "ticker": "SPY",
@@ -56,10 +56,10 @@
   {
    "ticker": "^VIX",
    "label": "VIX (fear)",
-   "last": 16.34,
-   "d1": 9.89,
-   "d5": 9.89,
-   "m1": 13.24
+   "last": 16.31,
+   "d1": 9.68,
+   "d5": 9.68,
+   "m1": 13.03
   },
   {
    "ticker": "^TNX",
@@ -72,34 +72,34 @@
   {
    "ticker": "DX-Y.NYB",
    "label": "US Dollar index",
-   "last": 101.14,
-   "d1": 0.17,
-   "d5": 0.71,
-   "m1": 2.0
+   "last": 101.16,
+   "d1": 0.19,
+   "d5": 0.73,
+   "m1": 2.02
   },
   {
    "ticker": "CL=F",
    "label": "WTI crude",
-   "last": 96.18,
-   "d1": 4.08,
-   "d5": 0.42,
-   "m1": 15.14
+   "last": 96.33,
+   "d1": 4.24,
+   "d5": 0.57,
+   "m1": 15.32
   },
   {
    "ticker": "GC=F",
    "label": "Gold",
-   "last": 4189.3,
-   "d1": -3.05,
-   "d5": -4.44,
-   "m1": -10.18
+   "last": 4183.9,
+   "d1": -3.18,
+   "d5": -4.56,
+   "m1": -10.29
   },
   {
    "ticker": "BTC-USD",
    "label": "Bitcoin",
-   "last": 82982.72,
-   "d1": -1.75,
-   "d5": -1.66,
-   "m1": 4.89
+   "last": 82998.24,
+   "d1": -1.73,
+   "d5": -1.64,
+   "m1": 4.91
   },
   {
    "ticker": "^N225",
@@ -120,18 +120,18 @@
   {
    "ticker": "^GDAXI",
    "label": "DAX (Germany)",
-   "last": 25390.93,
-   "d1": -0.07,
-   "d5": -0.72,
-   "m1": -4.44
+   "last": 25385.07,
+   "d1": -0.09,
+   "d5": -0.74,
+   "m1": -4.46
   },
   {
    "ticker": "^FTSE",
    "label": "FTSE 100 (UK)",
-   "last": 10726.71,
-   "d1": 0.29,
-   "d5": -0.11,
-   "m1": -0.61
+   "last": 10725.37,
+   "d1": 0.28,
+   "d5": -0.13,
+   "m1": -0.62
   },
   {
    "ticker": "^NSEI",
@@ -145,9 +145,9 @@
    "ticker": "USDCAD=X",
    "label": "USD/CAD",
    "last": 1.42,
-   "d1": 0.12,
-   "d5": 1.21,
-   "m1": 2.25
+   "d1": 0.13,
+   "d5": 1.22,
+   "m1": 2.26
   },
   {
    "ticker": "USDINR=X",
@@ -163,7 +163,7 @@
   "10Y yield 5.18% (+11.2% over a month): rising yields pressure high-P/E growth stocks.",
   "Dollar +2.0% over a month: strong dollar is a headwind for multinationals.",
   "Global overnight: Nikkei -0.7%, Hang Seng +0.5%, DAX -0.1%, Nifty 50 -1.6%.",
-  "US futures: S&P 500 futures -0.52%, Nasdaq 100 futures -0.97%.",
+  "US futures: S&P 500 futures -0.52%, Nasdaq 100 futures -0.93%.",
   "Uptrend confirmed and volatility calm. Full risk allowed."
  ],
  "account": {
@@ -281,7 +281,7 @@
     "exit_date": "2026-09-22",
     "exit_price": 265.21,
     "pnl_per_share": 8.089996337890625,
-    "r": 0.7045593390528118,
+    "r": 0.7045593390120415,
     "days": 7,
     "exit_reason": "time stop",
     "date": "2026-09-11",
@@ -293,7 +293,7 @@
    {
     "exit_date": "2026-09-22",
     "exit_price": 364.33,
-    "pnl_per_share": -6.119677963989091,
+    "pnl_per_share": -6.119677966496624,
     "r": -1.0,
     "days": 7,
     "exit_reason": "stop",
@@ -301,7 +301,7 @@
     "ticker": "V",
     "setup": "pullback",
     "entry": 370.45,
-    "ret_pct": -1.6519578248978495
+    "ret_pct": -1.6519578255747378
    },
    {
     "exit_date": "2026-09-23",
@@ -371,7 +371,7 @@
    {
     "exit_date": "2026-09-22",
     "exit_price": 364.35,
-    "pnl_per_share": -11.265636844487858,
+    "pnl_per_share": -11.265636846650011,
     "r": -1.0,
     "days": 5,
     "exit_reason": "stop",
@@ -379,7 +379,7 @@
     "ticker": "V",
     "setup": "pullback",
     "entry": 375.62,
-    "ret_pct": -2.9992111684504863
+    "ret_pct": -2.9992111690261085
    },
    {
     "exit_date": "2026-09-25",
@@ -410,7 +410,7 @@
    {
     "exit_date": "2026-09-18",
     "exit_price": 82.99,
-    "pnl_per_share": -3.6258830176604278,
+    "pnl_per_share": -3.6258830178688157,
     "r": -1.0,
     "days": 1,
     "exit_reason": "stop",
@@ -418,7 +418,7 @@
     "ticker": "GM",
     "setup": "pullback",
     "entry": 86.62,
-    "ret_pct": -4.185965022730852
+    "ret_pct": -4.1859650229714305
    },
    {
     "exit_date": "2026-09-25",
@@ -436,7 +436,7 @@
    {
     "exit_date": "2026-09-21",
     "exit_price": 159.84,
-    "pnl_per_share": -3.698778216772581,
+    "pnl_per_share": -3.6987782167728085,
     "r": -1.0,
     "days": 1,
     "exit_reason": "stop",
@@ -444,7 +444,7 @@
     "ticker": "XOM",
     "setup": "pullback",
     "entry": 163.54,
-    "ret_pct": -2.261696446508424
+    "ret_pct": -2.261696446508563
    },
    {
     "exit_date": "2026-09-24",
@@ -462,7 +462,7 @@
    {
     "exit_date": "2026-09-22",
     "exit_price": 364.29,
-    "pnl_per_share": -5.662723177030159,
+    "pnl_per_share": -5.662723185067534,
     "r": -1.0,
     "days": 1,
     "exit_reason": "stop",
@@ -470,7 +470,7 @@
     "ticker": "V",
     "setup": "pullback",
     "entry": 369.95,
-    "ret_pct": -1.53067252065968
+    "ret_pct": -1.530672522832237
    }
   ],
   "run_date": "2026-09-28"
@@ -1306,7 +1306,7 @@
      "avg_r": -0.0,
      "p25_20": 9.2,
      "p25_10": 17.6,
-     "p25_loss": 51.0,
+     "p25_loss": 51.2,
      "med25": -0.2
     },
     "half1": {
@@ -1317,7 +1317,7 @@
      "avg_r": 0.0,
      "p25_20": 5.1,
      "p25_10": 16.7,
-     "p25_loss": 42.6,
+     "p25_loss": 43.1,
      "med25": 0.3
     },
     "half2": {
@@ -1740,6 +1740,11 @@
    ],
    "news": [
     {
+     "title": "With AI Putting Cybersecurity in the Spotlight, Fortinet Stock Looks Hot at New All-Time Highs",
+     "url": "https://www.barchart.com/story/news/4825385/with-ai-putting-cybersecurity-in-the-spotlight-fortinet-stock-looks-hot-at-new-all-time-highs",
+     "source": "Barchart"
+    },
+    {
      "title": "Is Fortinet (FTNT) Fully Valued On Its New York Hub Expansion?",
      "url": "https://finance.yahoo.com/markets/stocks/articles/fortinet-ftnt-fully-valued-york-211158150.html",
      "source": "Simply Wall St."
@@ -1748,11 +1753,6 @@
      "title": "Fortinet (FTNT) Stock Sinks As Market Gains: What You Should Know",
      "url": "https://finance.yahoo.com/markets/stocks/articles/fortinet-ftnt-stock-sinks-market-204506199.html",
      "source": "Zacks"
-    },
-    {
-     "title": "What Was Cisco Telling You Before Its Stock Ran?",
-     "url": "https://www.trefis.com/articles/616644/what-was-cisco-telling-you-before-its-stock-ran/2026-09-25",
-     "source": "Trefis"
     }
    ]
   }
@@ -1821,7 +1821,9 @@
  ],
  "ranking": [
   {
+   "rank": 1,
    "ticker": "DELL",
+   "name": "Dell Technologies Inc.",
    "sector": "Tech",
    "score": 84.7,
    "price": 562.89,
@@ -1832,10 +1834,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 19.331919,
-   "next_earnings": "2026-11-27"
+   "next_earnings": "2026-11-27",
+   "range_lo": 633.53,
+   "range_hi": 704.17,
+   "range_lo_pct": 12.5,
+   "range_hi_pct": 25.1,
+   "analyst_target": 577.36,
+   "analyst_upside": 2.6
   },
   {
+   "rank": 2,
    "ticker": "SNOW",
+   "name": "Snowflake Inc.",
    "sector": "Tech",
    "score": 94.8,
    "price": 335.94,
@@ -1846,10 +1856,18 @@
    "triggered": true,
    "eligible": true,
    "fwd_pe": 111.457634,
-   "next_earnings": "2026-12-02"
+   "next_earnings": "2026-12-02",
+   "range_lo": 369.36,
+   "range_hi": 402.78,
+   "range_lo_pct": 9.9,
+   "range_hi_pct": 19.9,
+   "analyst_target": 425.14,
+   "analyst_upside": 26.6
   },
   {
+   "rank": 3,
    "ticker": "FTNT",
+   "name": "Fortinet, Inc.",
    "sector": "Tech",
    "score": 78.3,
    "price": 173.46,
@@ -1860,10 +1878,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 45.915977,
-   "next_earnings": "2026-11-04"
+   "next_earnings": "2026-11-04",
+   "range_lo": 188.61,
+   "range_hi": 203.76,
+   "range_lo_pct": 8.7,
+   "range_hi_pct": 17.5,
+   "analyst_target": 164.32,
+   "analyst_upside": -5.3
   },
   {
+   "rank": 4,
    "ticker": "PANW",
+   "name": "Palo Alto Networks, Inc.",
    "sector": "Tech",
    "score": 89.4,
    "price": 374.74,
@@ -1874,10 +1900,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 76.80562,
-   "next_earnings": "2026-11-19"
+   "next_earnings": "2026-11-19",
+   "range_lo": 414.49,
+   "range_hi": 454.24,
+   "range_lo_pct": 10.6,
+   "range_hi_pct": 21.2,
+   "analyst_target": 395.7,
+   "analyst_upside": 5.6
   },
   {
+   "rank": 5,
    "ticker": "HOOD",
+   "name": "Robinhood Markets, Inc.",
    "sector": "Financials",
    "score": 74.9,
    "price": 119.4,
@@ -1888,10 +1922,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 35.277435,
-   "next_earnings": "2026-11-04"
+   "next_earnings": "2026-11-04",
+   "range_lo": 133.3,
+   "range_hi": 147.2,
+   "range_lo_pct": 11.6,
+   "range_hi_pct": 23.3,
+   "analyst_target": 130.08,
+   "analyst_upside": 8.9
   },
   {
+   "rank": 6,
    "ticker": "ZS",
+   "name": "Zscaler, Inc.",
    "sector": "Tech",
    "score": 86.2,
    "price": 193.05,
@@ -1902,10 +1944,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 34.460907,
-   "next_earnings": "2026-11-24"
+   "next_earnings": "2026-11-24",
+   "range_lo": 216.05,
+   "range_hi": 239.05,
+   "range_lo_pct": 11.9,
+   "range_hi_pct": 23.8,
+   "analyst_target": 209.68,
+   "analyst_upside": 8.6
   },
   {
+   "rank": 7,
    "ticker": "CRM",
+   "name": "Salesforce, Inc.",
    "sector": "Tech",
    "score": 81.4,
    "price": 234.02,
@@ -1916,10 +1966,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 14.620091,
-   "next_earnings": "2026-12-02"
+   "next_earnings": "2026-12-02",
+   "range_lo": 253.91,
+   "range_hi": 273.8,
+   "range_lo_pct": 8.5,
+   "range_hi_pct": 17.0,
+   "analyst_target": 281.08,
+   "analyst_upside": 20.1
   },
   {
+   "rank": 8,
    "ticker": "MU",
+   "name": "Micron Technology, Inc.",
    "sector": "Semis",
    "score": 82.7,
    "price": 1082.28,
@@ -1930,10 +1988,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 6.7563868,
-   "next_earnings": "2026-09-30"
+   "next_earnings": "2026-09-30",
+   "range_lo": 1189.58,
+   "range_hi": 1296.87,
+   "range_lo_pct": 9.9,
+   "range_hi_pct": 19.8,
+   "analyst_target": 1520.76,
+   "analyst_upside": 40.5
   },
   {
+   "rank": 9,
    "ticker": "CRWD",
+   "name": "CrowdStrike Holdings, Inc.",
    "sector": "Tech",
    "score": 80.6,
    "price": 252.13,
@@ -1944,10 +2010,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 157.00133,
-   "next_earnings": "2026-12-01"
+   "next_earnings": "2026-12-01",
+   "range_lo": 279.2,
+   "range_hi": 306.28,
+   "range_lo_pct": 10.7,
+   "range_hi_pct": 21.5,
+   "analyst_target": 235.67,
+   "analyst_upside": -6.5
   },
   {
+   "rank": 10,
    "ticker": "AAPL",
+   "name": "Apple Inc.",
    "sector": "Tech",
    "score": 82.0,
    "price": 341.07,
@@ -1958,10 +2032,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 35.582424,
-   "next_earnings": "2026-10-29"
+   "next_earnings": "2026-10-29",
+   "range_lo": 356.66,
+   "range_hi": 372.26,
+   "range_lo_pct": 4.6,
+   "range_hi_pct": 9.1,
+   "analyst_target": 328.22,
+   "analyst_upside": -3.8
   },
   {
+   "rank": 11,
    "ticker": "UNH",
+   "name": "UnitedHealth Group Incorporated",
    "sector": "Health",
    "score": 41.9,
    "price": 376.59,
@@ -1972,10 +2054,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 16.655766,
-   "next_earnings": "2026-10-13"
+   "next_earnings": "2026-10-13",
+   "range_lo": 396.56,
+   "range_hi": 416.52,
+   "range_lo_pct": 5.3,
+   "range_hi_pct": 10.6,
+   "analyst_target": 481.72,
+   "analyst_upside": 27.9
   },
   {
+   "rank": 12,
    "ticker": "SPY",
+   "name": "State Street SPDR S&P 500 ETF T",
    "sector": "ETF",
    "score": 67.5,
    "price": 771.35,
@@ -1986,10 +2076,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": null,
-   "next_earnings": null
+   "next_earnings": null,
+   "range_lo": 786.1,
+   "range_hi": 800.85,
+   "range_lo_pct": 1.9,
+   "range_hi_pct": 3.8,
+   "analyst_target": null,
+   "analyst_upside": null
   },
   {
+   "rank": 13,
    "ticker": "AMD",
+   "name": "Advanced Micro Devices, Inc.",
    "sector": "Semis",
    "score": 74.5,
    "price": 630.63,
@@ -2000,10 +2098,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 40.48134,
-   "next_earnings": "2026-11-03"
+   "next_earnings": "2026-11-03",
+   "range_lo": 685.89,
+   "range_hi": 741.15,
+   "range_lo_pct": 8.8,
+   "range_hi_pct": 17.5,
+   "analyst_target": 618.51,
+   "analyst_upside": -1.9
   },
   {
+   "rank": 14,
    "ticker": "MRVL",
+   "name": "Marvell Technology, Inc.",
    "sector": "Semis",
    "score": 82.9,
    "price": 261.94,
@@ -2014,10 +2120,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 38.76355,
-   "next_earnings": "2026-12-01"
+   "next_earnings": "2026-12-01",
+   "range_lo": 292.14,
+   "range_hi": 322.34,
+   "range_lo_pct": 11.5,
+   "range_hi_pct": 23.1,
+   "analyst_target": 289.81,
+   "analyst_upside": 10.6
   },
   {
+   "rank": 15,
    "ticker": "ANET",
+   "name": "Arista Networks, Inc.",
    "sector": "Tech",
    "score": 88.0,
    "price": 206.55,
@@ -2028,10 +2142,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 39.817482,
-   "next_earnings": "2026-11-03"
+   "next_earnings": "2026-11-03",
+   "range_lo": 223.73,
+   "range_hi": 240.92,
+   "range_lo_pct": 8.3,
+   "range_hi_pct": 16.6,
+   "analyst_target": 241.93,
+   "analyst_upside": 17.1
   },
   {
+   "rank": 16,
    "ticker": "NVDA",
+   "name": "NVIDIA Corporation",
    "sector": "Semis",
    "score": 73.6,
    "price": 225.07,
@@ -2042,10 +2164,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 14.351548,
-   "next_earnings": "2026-11-17"
+   "next_earnings": "2026-11-17",
+   "range_lo": 238.17,
+   "range_hi": 251.28,
+   "range_lo_pct": 5.8,
+   "range_hi_pct": 11.6,
+   "analyst_target": 327.7,
+   "analyst_upside": 45.6
   },
   {
+   "rank": 17,
    "ticker": "MSFT",
+   "name": "Microsoft Corporation",
    "sector": "Tech",
    "score": 86.1,
    "price": 516.17,
@@ -2056,10 +2186,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 21.801512,
-   "next_earnings": "2026-10-28"
+   "next_earnings": "2026-10-28",
+   "range_lo": 542.5,
+   "range_hi": 568.82,
+   "range_lo_pct": 5.1,
+   "range_hi_pct": 10.2,
+   "analyst_target": 577.26,
+   "analyst_upside": 11.8
   },
   {
+   "rank": 18,
    "ticker": "ABBV",
+   "name": "AbbVie Inc.",
    "sector": "Health",
    "score": 69.1,
    "price": 264.34,
@@ -2069,11 +2207,19 @@
    "setup": "breakout",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 16.249537,
-   "next_earnings": "2026-10-29"
+   "fwd_pe": 16.249357,
+   "next_earnings": "2026-10-29",
+   "range_lo": 276.01,
+   "range_hi": 287.69,
+   "range_lo_pct": 4.4,
+   "range_hi_pct": 8.8,
+   "analyst_target": 278.56,
+   "analyst_upside": 5.4
   },
   {
+   "rank": 19,
    "ticker": "NOW",
+   "name": "ServiceNow, Inc.",
    "sector": "Tech",
    "score": 80.4,
    "price": 135.62,
@@ -2084,10 +2230,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 27.094143,
-   "next_earnings": "2026-10-28"
+   "next_earnings": "2026-10-28",
+   "range_lo": 148.74,
+   "range_hi": 161.87,
+   "range_lo_pct": 9.7,
+   "range_hi_pct": 19.4,
+   "analyst_target": 144.99,
+   "analyst_upside": 6.9
   },
   {
+   "rank": 20,
    "ticker": "JPM",
+   "name": "JP Morgan Chase & Co.",
    "sector": "Financials",
    "score": 52.1,
    "price": 343.06,
@@ -2097,11 +2251,19 @@
    "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 13.728995,
-   "next_earnings": "2026-10-13"
+   "fwd_pe": 13.695267,
+   "next_earnings": "2026-10-13",
+   "range_lo": 357.94,
+   "range_hi": 372.82,
+   "range_lo_pct": 4.3,
+   "range_hi_pct": 8.7,
+   "analyst_target": 375.81,
+   "analyst_upside": 9.5
   },
   {
+   "rank": 21,
    "ticker": "V",
+   "name": "Visa Inc.",
    "sector": "Financials",
    "score": 53.7,
    "price": 367.38,
@@ -2112,10 +2274,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 24.484982,
-   "next_earnings": "2026-10-27"
+   "next_earnings": "2026-10-27",
+   "range_lo": 380.94,
+   "range_hi": 394.51,
+   "range_lo_pct": 3.7,
+   "range_hi_pct": 7.4,
+   "analyst_target": 419.36,
+   "analyst_upside": 14.1
   },
   {
+   "rank": 22,
    "ticker": "INTC",
+   "name": "Intel Corporation",
    "sector": "Semis",
    "score": 71.0,
    "price": 123.0,
@@ -2126,10 +2296,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 59.648514,
-   "next_earnings": "2026-10-22"
+   "next_earnings": "2026-10-22",
+   "range_lo": 137.01,
+   "range_hi": 151.01,
+   "range_lo_pct": 11.4,
+   "range_hi_pct": 22.8,
+   "analyst_target": 116.37,
+   "analyst_upside": -5.4
   },
   {
+   "rank": 23,
    "ticker": "QQQ",
+   "name": "Invesco QQQ Trust, Series 1",
    "sector": "ETF",
    "score": 70.3,
    "price": 744.5,
@@ -2140,10 +2318,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": null,
-   "next_earnings": null
+   "next_earnings": null,
+   "range_lo": 765.92,
+   "range_hi": 787.33,
+   "range_lo_pct": 2.9,
+   "range_hi_pct": 5.8,
+   "analyst_target": null,
+   "analyst_upside": null
   },
   {
+   "rank": 24,
    "ticker": "AFRM",
+   "name": "Affirm Holdings, Inc.",
    "sector": "Financials",
    "score": 48.3,
    "price": 71.52,
@@ -2154,10 +2340,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 14.813925,
-   "next_earnings": "2026-11-05"
+   "next_earnings": "2026-11-05",
+   "range_lo": 79.46,
+   "range_hi": 87.39,
+   "range_lo_pct": 11.1,
+   "range_hi_pct": 22.2,
+   "analyst_target": 99.09,
+   "analyst_upside": 38.6
   },
   {
+   "rank": 25,
    "ticker": "ALAB",
+   "name": "Astera Labs, Inc.",
    "sector": "Semis",
    "score": 76.9,
    "price": 364.62,
@@ -2168,10 +2362,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 57.029976,
-   "next_earnings": "2026-11-03"
+   "next_earnings": "2026-11-03",
+   "range_lo": 416.27,
+   "range_hi": 467.92,
+   "range_lo_pct": 14.2,
+   "range_hi_pct": 28.3,
+   "analyst_target": 389.95,
+   "analyst_upside": 6.9
   },
   {
+   "rank": 26,
    "ticker": "AMZN",
+   "name": "Amazon.com, Inc.",
    "sector": "ConsDisc",
    "score": 51.4,
    "price": 249.67,
@@ -2182,10 +2384,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 23.834845,
-   "next_earnings": "2026-10-29"
+   "next_earnings": "2026-10-29",
+   "range_lo": 262.66,
+   "range_hi": 275.64,
+   "range_lo_pct": 5.2,
+   "range_hi_pct": 10.4,
+   "analyst_target": 329.54,
+   "analyst_upside": 32.0
   },
   {
+   "rank": 27,
    "ticker": "GOOGL",
+   "name": "Alphabet Inc.",
    "sector": "Comm",
    "score": 48.8,
    "price": 343.92,
@@ -2195,11 +2405,19 @@
    "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 22.819168,
-   "next_earnings": "2026-10-28"
+   "fwd_pe": 22.774998,
+   "next_earnings": "2026-10-28",
+   "range_lo": 363.56,
+   "range_hi": 383.2,
+   "range_lo_pct": 5.7,
+   "range_hi_pct": 11.4,
+   "analyst_target": 429.55,
+   "analyst_upside": 24.9
   },
   {
+   "rank": 28,
    "ticker": "SMH",
+   "name": "VanEck Semiconductor ETF",
    "sector": "ETF",
    "score": 66.3,
    "price": 606.56,
@@ -2210,10 +2428,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": null,
-   "next_earnings": null
+   "next_earnings": null,
+   "range_lo": 642.53,
+   "range_hi": 678.5,
+   "range_lo_pct": 5.9,
+   "range_hi_pct": 11.9,
+   "analyst_target": null,
+   "analyst_upside": null
   },
   {
+   "rank": 29,
    "ticker": "NBIS",
+   "name": "Nebius Group N.V.",
    "sector": "Tech",
    "score": 73.5,
    "price": 237.33,
@@ -2224,10 +2450,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": -67.913155,
-   "next_earnings": "2026-11-10"
+   "next_earnings": "2026-11-10",
+   "range_lo": 274.49,
+   "range_hi": 311.64,
+   "range_lo_pct": 15.7,
+   "range_hi_pct": 31.3,
+   "analyst_target": 283.58,
+   "analyst_upside": 19.5
   },
   {
+   "rank": 30,
    "ticker": "TSM",
+   "name": "Taiwan Semiconductor Manufactur",
    "sector": "Semis",
    "score": 77.9,
    "price": 450.61,
@@ -2238,10 +2472,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 20.552242,
-   "next_earnings": "2026-10-15"
+   "next_earnings": "2026-10-15",
+   "range_lo": 474.17,
+   "range_hi": 497.73,
+   "range_lo_pct": 5.2,
+   "range_hi_pct": 10.5,
+   "analyst_target": 552.26,
+   "analyst_upside": 22.6
   },
   {
+   "rank": 31,
    "ticker": "MS",
+   "name": "Morgan Stanley",
    "sector": "Financials",
    "score": 40.2,
    "price": 196.31,
@@ -2251,11 +2493,19 @@
    "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 14.423116,
-   "next_earnings": "2026-10-14"
+   "fwd_pe": 14.417914,
+   "next_earnings": "2026-10-14",
+   "range_lo": 207.57,
+   "range_hi": 218.83,
+   "range_lo_pct": 5.7,
+   "range_hi_pct": 11.5,
+   "analyst_target": 235.81,
+   "analyst_upside": 20.1
   },
   {
+   "rank": 32,
    "ticker": "ABNB",
+   "name": "Airbnb, Inc.",
    "sector": "ConsDisc",
    "score": 48.9,
    "price": 157.47,
@@ -2266,10 +2516,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 25.452288,
-   "next_earnings": "2026-11-05"
+   "next_earnings": "2026-11-05",
+   "range_lo": 170.04,
+   "range_hi": 182.62,
+   "range_lo_pct": 8.0,
+   "range_hi_pct": 16.0,
+   "analyst_target": 184.35,
+   "analyst_upside": 17.1
   },
   {
+   "rank": 33,
    "ticker": "DDOG",
+   "name": "Datadog, Inc.",
    "sector": "Tech",
    "score": 89.1,
    "price": 268.13,
@@ -2280,10 +2538,18 @@
    "triggered": true,
    "eligible": true,
    "fwd_pe": 90.17411,
-   "next_earnings": "2026-11-05"
+   "next_earnings": "2026-11-05",
+   "range_lo": 296.23,
+   "range_hi": 324.33,
+   "range_lo_pct": 10.5,
+   "range_hi_pct": 21.0,
+   "analyst_target": 286.26,
+   "analyst_upside": 6.8
   },
   {
+   "rank": 34,
    "ticker": "NET",
+   "name": "Cloudflare, Inc.",
    "sector": "Tech",
    "score": 77.7,
    "price": 349.02,
@@ -2294,10 +2560,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 208.22842,
-   "next_earnings": "2026-10-29"
+   "next_earnings": "2026-10-29",
+   "range_lo": 388.99,
+   "range_hi": 428.96,
+   "range_lo_pct": 11.5,
+   "range_hi_pct": 22.9,
+   "analyst_target": 336.81,
+   "analyst_upside": -3.5
   },
   {
+   "rank": 35,
    "ticker": "SMCI",
+   "name": "Super Micro Computer, Inc.",
    "sector": "Tech",
    "score": 89.1,
    "price": 43.26,
@@ -2308,10 +2582,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 8.1225395,
-   "next_earnings": "2026-11-03"
+   "next_earnings": "2026-11-03",
+   "range_lo": 48.48,
+   "range_hi": 53.69,
+   "range_lo_pct": 12.1,
+   "range_hi_pct": 24.1,
+   "analyst_target": 42.38,
+   "analyst_upside": -2.0
   },
   {
+   "rank": 36,
    "ticker": "BAC",
+   "name": "Bank of America Corporation",
    "sector": "Financials",
    "score": 42.6,
    "price": 56.7,
@@ -2322,10 +2604,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 10.7228365,
-   "next_earnings": "2026-10-14"
+   "next_earnings": "2026-10-14",
+   "range_lo": 59.4,
+   "range_hi": 62.1,
+   "range_lo_pct": 4.8,
+   "range_hi_pct": 9.5,
+   "analyst_target": 68.62,
+   "analyst_upside": 21.0
   },
   {
+   "rank": 37,
    "ticker": "MA",
+   "name": "Mastercard Incorporated",
    "sector": "Financials",
    "score": 52.3,
    "price": 567.65,
@@ -2336,10 +2626,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 24.653841,
-   "next_earnings": "2026-10-29"
+   "next_earnings": "2026-10-29",
+   "range_lo": 588.43,
+   "range_hi": 609.22,
+   "range_lo_pct": 3.7,
+   "range_hi_pct": 7.3,
+   "analyst_target": 666.71,
+   "analyst_upside": 17.5
   },
   {
+   "rank": 38,
    "ticker": "MDB",
+   "name": "MongoDB, Inc.",
    "sector": "Tech",
    "score": 87.2,
    "price": 410.44,
@@ -2350,10 +2648,18 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 52.670074,
-   "next_earnings": "2026-12-01"
+   "next_earnings": "2026-12-01",
+   "range_lo": 458.38,
+   "range_hi": 506.32,
+   "range_lo_pct": 11.7,
+   "range_hi_pct": 23.4,
+   "analyst_target": 456.88,
+   "analyst_upside": 11.3
   },
   {
+   "rank": 39,
    "ticker": "FCX",
+   "name": "Freeport-McMoRan, Inc.",
    "sector": "Materials",
    "score": 77.8,
    "price": 72.31,
@@ -2364,10 +2670,18 @@
    "triggered": true,
    "eligible": true,
    "fwd_pe": 17.455896,
-   "next_earnings": "2026-10-22"
+   "next_earnings": "2026-10-22",
+   "range_lo": 78.35,
+   "range_hi": 84.39,
+   "range_lo_pct": 8.4,
+   "range_hi_pct": 16.7,
+   "analyst_target": 72.45,
+   "analyst_upside": 0.2
   },
   {
+   "rank": 40,
    "ticker": "PLTR",
+   "name": "Palantir Technologies Inc.",
    "sector": "Tech",
    "score": 88.9,
    "price": 189.67,
@@ -2378,7 +2692,13 @@
    "triggered": false,
    "eligible": true,
    "fwd_pe": 81.649086,
-   "next_earnings": "2026-11-02"
+   "next_earnings": "2026-11-02",
+   "range_lo": 205.06,
+   "range_hi": 220.45,
+   "range_lo_pct": 8.1,
+   "range_hi_pct": 16.2,
+   "analyst_target": 195.57,
+   "analyst_upside": 3.1
   }
  ],
  "learned": [

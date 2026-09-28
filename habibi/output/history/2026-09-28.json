@@ -140,6 +140,11 @@
    ],
    "news": [
     {
+     "title": "With AI Putting Cybersecurity in the Spotlight, Fortinet Stock Looks Hot at New All-Time Highs",
+     "url": "https://www.barchart.com/story/news/4825385/with-ai-putting-cybersecurity-in-the-spotlight-fortinet-stock-looks-hot-at-new-all-time-highs",
+     "source": "Barchart"
+    },
+    {
      "title": "Is Fortinet (FTNT) Fully Valued On Its New York Hub Expansion?",
      "url": "https://finance.yahoo.com/markets/stocks/articles/fortinet-ftnt-fully-valued-york-211158150.html",
      "source": "Simply Wall St."
@@ -148,11 +153,6 @@
      "title": "Fortinet (FTNT) Stock Sinks As Market Gains: What You Should Know",
      "url": "https://finance.yahoo.com/markets/stocks/articles/fortinet-ftnt-stock-sinks-market-204506199.html",
      "source": "Zacks"
-    },
-    {
-     "title": "What Was Cisco Telling You Before Its Stock Ran?",
-     "url": "https://www.trefis.com/articles/616644/what-was-cisco-telling-you-before-its-stock-ran/2026-09-25",
-     "source": "Trefis"
     }
    ]
   }
@@ -208,6 +208,6 @@
   "spy": 771.35,
   "spy_sma50": 759.91,
   "spy_sma200": 714.84,
-  "vix": 16.34
+  "vix": 16.31
  }
 }
