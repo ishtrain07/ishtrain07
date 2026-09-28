@@ -378,7 +378,7 @@
  },
  "MU": {
   "name": "Micron Technology, Inc.",
-  "forward_pe": 6.7563868,
+  "forward_pe": 6.7212176,
   "trailing_pe": 24.447256,
   "revenue_growth": 3.457,
   "earnings_growth": 13.685,
@@ -430,7 +430,7 @@
  },
  "AMAT": {
   "name": "Applied Materials, Inc.",
-  "forward_pe": 26.241962,
+  "forward_pe": 26.27372,
   "trailing_pe": 41.84642,
   "revenue_growth": 0.248,
   "earnings_growth": 0.428,
@@ -456,7 +456,7 @@
  },
  "MRVL": {
   "name": "Marvell Technology, Inc.",
-  "forward_pe": 38.76355,
+  "forward_pe": 38.69552,
   "trailing_pe": 87.02159,
   "revenue_growth": 0.365,
   "earnings_growth": 0.5,
@@ -475,7 +475,7 @@
   "earnings_growth": 0.285,
   "profit_margin": 0.30114,
   "market_cap": 669847322624,
-  "target_mean": 2118.9521,
+  "target_mean": 2118.4702,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-10-14"
@@ -514,7 +514,7 @@
   "earnings_growth": null,
   "profit_margin": 0.18434,
   "market_cap": 104850006016,
-  "target_mean": 601.3794,
+  "target_mean": 601.2426,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-10-22"
@@ -586,7 +586,7 @@
  },
  "NKE": {
   "name": "Nike, Inc.",
-  "forward_pe": 16.239296,
+  "forward_pe": 16.34764,
   "trailing_pe": 17.02381,
   "revenue_growth": -0.011,
   "earnings_growth": 4.28,
@@ -618,7 +618,7 @@
   "earnings_growth": null,
   "profit_margin": 0.12303001,
   "market_cap": 10013071360,
-  "target_mean": 43.231472,
+  "target_mean": 43.207054,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-11"
@@ -1093,7 +1093,7 @@
  },
  "NU": {
   "name": "Nu Holdings Ltd.",
-  "forward_pe": 12.0679865,
+  "forward_pe": 12.028145,
   "trailing_pe": 18.616438,
   "revenue_growth": 0.521,
   "earnings_growth": 0.663,
@@ -1385,7 +1385,7 @@
   "earnings_growth": -0.206,
   "profit_margin": 0.35347,
   "market_cap": 171371249664,
-  "target_mean": 46.316944,
+  "target_mean": 46.301376,
   "recommendation": "hold",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-04"

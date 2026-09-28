@@ -36,7 +36,7 @@
    "exit_date": "2026-09-22",
    "exit_price": 265.21,
    "pnl_per_share": 8.089996337890625,
-   "r": 0.7045593390120415,
+   "r": 0.7045593390537326,
    "days": 7,
    "exit_reason": "time stop",
    "date": "2026-09-11",
@@ -48,7 +48,7 @@
   {
    "exit_date": "2026-09-22",
    "exit_price": 364.33,
-   "pnl_per_share": -6.119677966496624,
+   "pnl_per_share": -6.1196779664969085,
    "r": -1.0,
    "days": 7,
    "exit_reason": "stop",
@@ -56,7 +56,7 @@
    "ticker": "V",
    "setup": "pullback",
    "entry": 370.45,
-   "ret_pct": -1.6519578255747378
+   "ret_pct": -1.6519578255748144
   },
   {
    "exit_date": "2026-09-23",
@@ -126,7 +126,7 @@
   {
    "exit_date": "2026-09-22",
    "exit_price": 364.35,
-   "pnl_per_share": -11.265636846650011,
+   "pnl_per_share": -11.265636846650239,
    "r": -1.0,
    "days": 5,
    "exit_reason": "stop",
@@ -134,7 +134,7 @@
    "ticker": "V",
    "setup": "pullback",
    "entry": 375.62,
-   "ret_pct": -2.9992111690261085
+   "ret_pct": -2.999211169026169
   },
   {
    "exit_date": "2026-09-25",
@@ -165,7 +165,7 @@
   {
    "exit_date": "2026-09-18",
    "exit_price": 82.99,
-   "pnl_per_share": -3.6258830178688157,
+   "pnl_per_share": -3.625883017660513,
    "r": -1.0,
    "days": 1,
    "exit_reason": "stop",
@@ -173,7 +173,7 @@
    "ticker": "GM",
    "setup": "pullback",
    "entry": 86.62,
-   "ret_pct": -4.1859650229714305
+   "ret_pct": -4.185965022730951
   },
   {
    "exit_date": "2026-09-25",
@@ -191,7 +191,7 @@
   {
    "exit_date": "2026-09-21",
    "exit_price": 159.84,
-   "pnl_per_share": -3.6987782167728085,
+   "pnl_per_share": -3.6987782151920214,
    "r": -1.0,
    "days": 1,
    "exit_reason": "stop",
@@ -199,7 +199,7 @@
    "ticker": "XOM",
    "setup": "pullback",
    "entry": 163.54,
-   "ret_pct": -2.261696446508563
+   "ret_pct": -2.2616964455419573
   },
   {
    "exit_date": "2026-09-24",
@@ -217,7 +217,7 @@
   {
    "exit_date": "2026-09-22",
    "exit_price": 364.29,
-   "pnl_per_share": -5.662723185067534,
+   "pnl_per_share": -5.662723185068444,
    "r": -1.0,
    "days": 1,
    "exit_reason": "stop",
@@ -225,7 +225,7 @@
    "ticker": "V",
    "setup": "pullback",
    "entry": 369.95,
-   "ret_pct": -1.530672522832237
+   "ret_pct": -1.530672522832483
   }
  ],
  "run_date": "2026-09-28"

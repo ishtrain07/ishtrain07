@@ -36,6 +36,11 @@
    ],
    "news": [
     {
+     "title": "Dell's AI Server Backlog Has Ballooned to $95 Billion. Here's What a $1,000 Investment Today Could Be Worth by 2030",
+     "url": "https://www.fool.com/investing/2026/09/28/dells-ai-server-backlog-has-ballooned-to-95-billio/",
+     "source": "Motley Fool"
+    },
+    {
      "title": "HP\u2019s Dividend Looks Generous. Here\u2019s What\u2019s Really Funding It.",
      "url": "https://247wallst.com/investing/2026/09/27/hps-dividend-looks-generous-heres-whats-really-funding-it/",
      "source": "24/7 Wall St."
@@ -44,11 +49,6 @@
      "title": "Update: Dow Snaps 3-Day Losing Streak as Oil Retreats; Wall Street Logs Weekly Gains",
      "url": "https://finance.yahoo.com/markets/stocks/articles/dow-snaps-3-day-losing-205628233.html",
      "source": "MT Newswires"
-    },
-    {
-     "title": "What Was Cisco Telling You Before Its Stock Ran?",
-     "url": "https://www.trefis.com/articles/616644/what-was-cisco-telling-you-before-its-stock-ran/2026-09-25",
-     "source": "Trefis"
     }
    ]
   },
@@ -88,19 +88,19 @@
    ],
    "news": [
     {
-     "title": "Palantir vs. Snowflake: Which Enterprise AI Stock Better Justifies Its Valuation?",
-     "url": "https://finance.yahoo.com/technology/ai/articles/palantir-vs-snowflake-enterprise-ai-205926979.html",
-     "source": "Insider Monkey"
+     "title": "Snowflake shares slide as $3.5B debt offering sparks dilution jitters",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/snowflake-shares-slide-3-5b-122443248.html",
+     "source": "Investing.com"
     },
     {
-     "title": "Palantir\u2019s Valuation Is Huge. So Is the Opportunity",
-     "url": "https://247wallst.com/investing/2026/09/25/palantirs-valuation-is-huge-so-is-the-opportunity/",
+     "title": "Here Are Monday\u2019s Top Wall Street Analyst Research Calls: Applied Digital, Autodesk, Datadog, First Solar, L3Harris Technologies, PepsiCo, Roblox, Snowflake, TeraWulf and More",
+     "url": "https://247wallst.com/investing/2026/09/28/here-are-mondays-top-wall-street-analyst-research-calls-applied-digital-autodesk-datadog-first-solar-l3harris-technologies-pepsico-roblox-snowflake-terawulf-and-more/",
      "source": "24/7 Wall St."
     },
     {
-     "title": "Could CrowdStrike (CRWD)\u2019s Snowflake (SNOW) Partnership Unlock a New AI Growth Engine?",
-     "url": "https://finance.yahoo.com/technology/ai/articles/could-crowdstrike-crwd-snowflake-snow-203651870.html",
-     "source": "Insider Monkey"
+     "title": "Snowflake Shares Fall After $3.5 Billion Convertible Note Offering",
+     "url": "https://investorshub.advfn.com/market-news/article/36978/snowflake-shares-fall-after-3-5-billion-convertible-note-offering",
+     "source": "InvestorsHub"
     }
    ]
   },
@@ -208,6 +208,6 @@
   "spy": 771.35,
   "spy_sma50": 759.91,
   "spy_sma200": 714.84,
-  "vix": 16.31
+  "vix": 16.05
  }
 }

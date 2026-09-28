@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-28 07:17 ET",
+ "generated_at": "2026-09-28 08:59 ET",
  "date": "2026-09-28",
  "mode": "plan",
  "regime": {
@@ -10,24 +10,24 @@
   "spy": 771.35,
   "spy_sma50": 759.91,
   "spy_sma200": 714.84,
-  "vix": 16.31
+  "vix": 16.05
  },
  "macro": [
   {
    "ticker": "ES=F",
    "label": "S&P 500 futures",
-   "last": 7763.0,
-   "d1": -0.52,
-   "d5": -0.9,
-   "m1": 0.26
+   "last": 7777.25,
+   "d1": -0.34,
+   "d5": -0.72,
+   "m1": 0.45
   },
   {
    "ticker": "NQ=F",
    "label": "Nasdaq 100 futures",
-   "last": 30601.5,
-   "d1": -0.93,
-   "d5": -0.6,
-   "m1": 3.05
+   "last": 30725.75,
+   "d1": -0.53,
+   "d5": -0.19,
+   "m1": 3.47
   },
   {
    "ticker": "SPY",
@@ -56,50 +56,50 @@
   {
    "ticker": "^VIX",
    "label": "VIX (fear)",
-   "last": 16.31,
-   "d1": 9.68,
-   "d5": 9.68,
-   "m1": 13.03
+   "last": 16.05,
+   "d1": 7.94,
+   "d5": 7.94,
+   "m1": 11.23
   },
   {
    "ticker": "^TNX",
    "label": "US 10Y yield",
-   "last": 5.18,
-   "d1": 0.43,
-   "d5": 3.72,
-   "m1": 11.15
+   "last": 5.22,
+   "d1": 0.6,
+   "d5": 5.08,
+   "m1": 11.62
   },
   {
    "ticker": "DX-Y.NYB",
    "label": "US Dollar index",
-   "last": 101.16,
-   "d1": 0.19,
-   "d5": 0.73,
-   "m1": 2.02
+   "last": 101.19,
+   "d1": 0.21,
+   "d5": 0.75,
+   "m1": 2.04
   },
   {
    "ticker": "CL=F",
    "label": "WTI crude",
-   "last": 96.33,
-   "d1": 4.24,
-   "d5": 0.57,
-   "m1": 15.32
+   "last": 94.58,
+   "d1": 2.35,
+   "d5": -1.25,
+   "m1": 13.23
   },
   {
    "ticker": "GC=F",
    "label": "Gold",
-   "last": 4183.9,
-   "d1": -3.18,
-   "d5": -4.56,
-   "m1": -10.29
+   "last": 4178.6,
+   "d1": -3.3,
+   "d5": -4.68,
+   "m1": -10.41
   },
   {
    "ticker": "BTC-USD",
    "label": "Bitcoin",
-   "last": 82998.24,
-   "d1": -1.73,
-   "d5": -1.64,
-   "m1": 4.91
+   "last": 83538.69,
+   "d1": -1.09,
+   "d5": -1.0,
+   "m1": 5.59
   },
   {
    "ticker": "^N225",
@@ -120,18 +120,18 @@
   {
    "ticker": "^GDAXI",
    "label": "DAX (Germany)",
-   "last": 25385.07,
-   "d1": -0.09,
-   "d5": -0.74,
-   "m1": -4.46
+   "last": 25474.35,
+   "d1": 0.26,
+   "d5": -0.39,
+   "m1": -4.12
   },
   {
    "ticker": "^FTSE",
    "label": "FTSE 100 (UK)",
-   "last": 10725.37,
-   "d1": 0.28,
-   "d5": -0.13,
-   "m1": -0.62
+   "last": 10742.52,
+   "d1": 0.44,
+   "d5": 0.03,
+   "m1": -0.46
   },
   {
    "ticker": "^NSEI",
@@ -159,11 +159,11 @@
   }
  ],
  "macro_read": [
-  "VIX 16.3: normal.",
-  "10Y yield 5.18% (+11.2% over a month): rising yields pressure high-P/E growth stocks.",
+  "VIX 16.1: normal.",
+  "10Y yield 5.22% (+11.6% over a month): rising yields pressure high-P/E growth stocks.",
   "Dollar +2.0% over a month: strong dollar is a headwind for multinationals.",
-  "Global overnight: Nikkei -0.7%, Hang Seng +0.5%, DAX -0.1%, Nifty 50 -1.6%.",
-  "US futures: S&P 500 futures -0.52%, Nasdaq 100 futures -0.93%.",
+  "Global overnight: Nikkei -0.7%, Hang Seng +0.5%, DAX +0.3%, Nifty 50 -1.6%.",
+  "US futures: S&P 500 futures -0.34%, Nasdaq 100 futures -0.53%.",
   "Uptrend confirmed and volatility calm. Full risk allowed."
  ],
  "account": {
@@ -185,12 +185,12 @@
  "rebalance": true,
  "paper": {
   "account": {
-   "cash": 1000.0,
+   "cash": 524.28,
    "realized": 0.0,
-   "unrealized": 0,
-   "market_value": 0.0,
-   "equity": 1000.0,
-   "return_pct": 0.0
+   "unrealized": -2.37,
+   "market_value": 473.35,
+   "equity": 997.63,
+   "return_pct": -0.24
   },
   "record": {
    "trades": 0,
@@ -201,7 +201,101 @@
    "avg_loss_pct": null,
    "net": 0
   },
-  "positions": [],
+  "positions": [
+   {
+    "ticker": "DELL",
+    "shares": 0.28,
+    "avg_cost": 565.7,
+    "first_buy": "2026-09-28",
+    "stop": 520.44,
+    "t1": 633.53,
+    "t2": 704.17,
+    "hold_days": 60,
+    "sell_by": "2026-12-22",
+    "partial": false,
+    "system_pick": true,
+    "mode": "momentum",
+    "plan_entry": 562.89,
+    "plan_date": "2026-09-28",
+    "fills": [
+     {
+      "date": "2026-09-28",
+      "price": 565.7,
+      "shares": 0.28
+     }
+    ],
+    "price": 562.89,
+    "value": 157.61,
+    "pnl": -0.79,
+    "pnl_pct": -0.5,
+    "days_held": 0,
+    "active_stop": 520.44,
+    "action": "HOLD",
+    "why": "held while it stays top-3; reviewed every Monday; stop 520.44 (-7.5%)"
+   },
+   {
+    "ticker": "SNOW",
+    "shares": 0.47,
+    "avg_cost": 337.62,
+    "first_buy": "2026-09-28",
+    "stop": 310.61,
+    "t1": 369.36,
+    "t2": 402.78,
+    "hold_days": 60,
+    "sell_by": "2026-12-22",
+    "partial": false,
+    "system_pick": true,
+    "mode": "momentum",
+    "plan_entry": 335.94,
+    "plan_date": "2026-09-28",
+    "fills": [
+     {
+      "date": "2026-09-28",
+      "price": 337.62,
+      "shares": 0.47
+     }
+    ],
+    "price": 335.94,
+    "value": 157.89,
+    "pnl": -0.79,
+    "pnl_pct": -0.5,
+    "days_held": 0,
+    "active_stop": 310.61,
+    "action": "HOLD",
+    "why": "held while it stays top-3; reviewed every Monday; stop 310.61 (-7.5%)"
+   },
+   {
+    "ticker": "FTNT",
+    "shares": 0.91,
+    "avg_cost": 174.33,
+    "first_buy": "2026-09-28",
+    "stop": 160.38,
+    "t1": 188.61,
+    "t2": 203.76,
+    "hold_days": 60,
+    "sell_by": "2026-12-22",
+    "partial": false,
+    "system_pick": true,
+    "mode": "momentum",
+    "plan_entry": 173.46,
+    "plan_date": "2026-09-28",
+    "fills": [
+     {
+      "date": "2026-09-28",
+      "price": 174.33,
+      "shares": 0.91
+     }
+    ],
+    "price": 173.46,
+    "value": 157.85,
+    "pnl": -0.79,
+    "pnl_pct": -0.5,
+    "days_held": 0,
+    "active_stop": 160.38,
+    "action": "HOLD",
+    "why": "held while it stays top-3; reviewed every Monday; stop 160.38 (-7.5%)"
+   }
+  ],
   "closed": [],
   "orders_today": [
    {
@@ -232,7 +326,7 @@
     "note": "new"
    }
   ],
-  "executed": false
+  "executed": true
  },
  "record": {
   "trades": 0,
@@ -281,7 +375,7 @@
     "exit_date": "2026-09-22",
     "exit_price": 265.21,
     "pnl_per_share": 8.089996337890625,
-    "r": 0.7045593390120415,
+    "r": 0.7045593390537326,
     "days": 7,
     "exit_reason": "time stop",
     "date": "2026-09-11",
@@ -293,7 +387,7 @@
    {
     "exit_date": "2026-09-22",
     "exit_price": 364.33,
-    "pnl_per_share": -6.119677966496624,
+    "pnl_per_share": -6.1196779664969085,
     "r": -1.0,
     "days": 7,
     "exit_reason": "stop",
@@ -301,7 +395,7 @@
     "ticker": "V",
     "setup": "pullback",
     "entry": 370.45,
-    "ret_pct": -1.6519578255747378
+    "ret_pct": -1.6519578255748144
    },
    {
     "exit_date": "2026-09-23",
@@ -371,7 +465,7 @@
    {
     "exit_date": "2026-09-22",
     "exit_price": 364.35,
-    "pnl_per_share": -11.265636846650011,
+    "pnl_per_share": -11.265636846650239,
     "r": -1.0,
     "days": 5,
     "exit_reason": "stop",
@@ -379,7 +473,7 @@
     "ticker": "V",
     "setup": "pullback",
     "entry": 375.62,
-    "ret_pct": -2.9992111690261085
+    "ret_pct": -2.999211169026169
    },
    {
     "exit_date": "2026-09-25",
@@ -410,7 +504,7 @@
    {
     "exit_date": "2026-09-18",
     "exit_price": 82.99,
-    "pnl_per_share": -3.6258830178688157,
+    "pnl_per_share": -3.625883017660513,
     "r": -1.0,
     "days": 1,
     "exit_reason": "stop",
@@ -418,7 +512,7 @@
     "ticker": "GM",
     "setup": "pullback",
     "entry": 86.62,
-    "ret_pct": -4.1859650229714305
+    "ret_pct": -4.185965022730951
    },
    {
     "exit_date": "2026-09-25",
@@ -436,7 +530,7 @@
    {
     "exit_date": "2026-09-21",
     "exit_price": 159.84,
-    "pnl_per_share": -3.6987782167728085,
+    "pnl_per_share": -3.6987782151920214,
     "r": -1.0,
     "days": 1,
     "exit_reason": "stop",
@@ -444,7 +538,7 @@
     "ticker": "XOM",
     "setup": "pullback",
     "entry": 163.54,
-    "ret_pct": -2.261696446508563
+    "ret_pct": -2.2616964455419573
    },
    {
     "exit_date": "2026-09-24",
@@ -462,7 +556,7 @@
    {
     "exit_date": "2026-09-22",
     "exit_price": 364.29,
-    "pnl_per_share": -5.662723185067534,
+    "pnl_per_share": -5.662723185068444,
     "r": -1.0,
     "days": 1,
     "exit_reason": "stop",
@@ -470,7 +564,7 @@
     "ticker": "V",
     "setup": "pullback",
     "entry": 369.95,
-    "ret_pct": -1.530672522832237
+    "ret_pct": -1.530672522832483
    }
   ],
   "run_date": "2026-09-28"
@@ -1636,6 +1730,11 @@
    ],
    "news": [
     {
+     "title": "Dell's AI Server Backlog Has Ballooned to $95 Billion. Here's What a $1,000 Investment Today Could Be Worth by 2030",
+     "url": "https://www.fool.com/investing/2026/09/28/dells-ai-server-backlog-has-ballooned-to-95-billio/",
+     "source": "Motley Fool"
+    },
+    {
      "title": "HP\u2019s Dividend Looks Generous. Here\u2019s What\u2019s Really Funding It.",
      "url": "https://247wallst.com/investing/2026/09/27/hps-dividend-looks-generous-heres-whats-really-funding-it/",
      "source": "24/7 Wall St."
@@ -1644,11 +1743,6 @@
      "title": "Update: Dow Snaps 3-Day Losing Streak as Oil Retreats; Wall Street Logs Weekly Gains",
      "url": "https://finance.yahoo.com/markets/stocks/articles/dow-snaps-3-day-losing-205628233.html",
      "source": "MT Newswires"
-    },
-    {
-     "title": "What Was Cisco Telling You Before Its Stock Ran?",
-     "url": "https://www.trefis.com/articles/616644/what-was-cisco-telling-you-before-its-stock-ran/2026-09-25",
-     "source": "Trefis"
     }
    ]
   },
@@ -1688,19 +1782,19 @@
    ],
    "news": [
     {
-     "title": "Palantir vs. Snowflake: Which Enterprise AI Stock Better Justifies Its Valuation?",
-     "url": "https://finance.yahoo.com/technology/ai/articles/palantir-vs-snowflake-enterprise-ai-205926979.html",
-     "source": "Insider Monkey"
+     "title": "Snowflake shares slide as $3.5B debt offering sparks dilution jitters",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/snowflake-shares-slide-3-5b-122443248.html",
+     "source": "Investing.com"
     },
     {
-     "title": "Palantir\u2019s Valuation Is Huge. So Is the Opportunity",
-     "url": "https://247wallst.com/investing/2026/09/25/palantirs-valuation-is-huge-so-is-the-opportunity/",
+     "title": "Here Are Monday\u2019s Top Wall Street Analyst Research Calls: Applied Digital, Autodesk, Datadog, First Solar, L3Harris Technologies, PepsiCo, Roblox, Snowflake, TeraWulf and More",
+     "url": "https://247wallst.com/investing/2026/09/28/here-are-mondays-top-wall-street-analyst-research-calls-applied-digital-autodesk-datadog-first-solar-l3harris-technologies-pepsico-roblox-snowflake-terawulf-and-more/",
      "source": "24/7 Wall St."
     },
     {
-     "title": "Could CrowdStrike (CRWD)\u2019s Snowflake (SNOW) Partnership Unlock a New AI Growth Engine?",
-     "url": "https://finance.yahoo.com/technology/ai/articles/could-crowdstrike-crwd-snowflake-snow-203651870.html",
-     "source": "Insider Monkey"
+     "title": "Snowflake Shares Fall After $3.5 Billion Convertible Note Offering",
+     "url": "https://investorshub.advfn.com/market-news/article/36978/snowflake-shares-fall-after-3-5-billion-convertible-note-offering",
+     "source": "InvestorsHub"
     }
    ]
   },
@@ -1987,7 +2081,7 @@
    "setup": "breakout",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 6.7563868,
+   "fwd_pe": 6.7212176,
    "next_earnings": "2026-09-30",
    "range_lo": 1189.58,
    "range_hi": 1296.87,
@@ -2119,7 +2213,7 @@
    "setup": "breakout",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 38.76355,
+   "fwd_pe": 38.69552,
    "next_earnings": "2026-12-01",
    "range_lo": 292.14,
    "range_hi": 322.34,
