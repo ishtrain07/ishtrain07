@@ -35,7 +35,7 @@
      "ticker": "NOW",
      "setup": "pullback",
      "score": 88.9,
-     "shares": 2.26,
+     "shares": 2.36,
      "limit": 133.19,
      "stop": 126.17,
      "t1": 142.07,
@@ -56,7 +56,7 @@
      "ticker": "V",
      "setup": "pullback",
      "score": 83.7,
-     "shares": 0.81,
+     "shares": 0.94,
      "limit": 372.3,
      "stop": 364.33,
      "t1": 379.63,
@@ -76,7 +76,7 @@
      "exit_date": "2026-09-22",
      "exit_price": 364.33,
      "exit_reason": "stop",
-     "pnl": -6.46,
+     "pnl": -7.49,
      "pnl_pct": -2.14
     }
    ],
@@ -150,7 +150,7 @@
      "ticker": "V",
      "setup": "pullback",
      "score": 87.2,
-     "shares": 0.8,
+     "shares": 0.93,
      "limit": 377.16,
      "stop": 364.32,
      "t1": 391.72,
@@ -170,7 +170,7 @@
      "exit_date": "2026-09-22",
      "exit_price": 364.32,
      "exit_reason": "stop",
-     "pnl": -8.4,
+     "pnl": -9.77,
      "pnl_pct": -2.8
     }
    ],
@@ -435,7 +435,7 @@
      "ticker": "XOM",
      "setup": "pullback",
      "score": 85.9,
-     "shares": 1.83,
+     "shares": 2.14,
      "limit": 164.36,
      "stop": 159.84,
      "t1": 169.09,
@@ -455,7 +455,7 @@
      "exit_date": "2026-09-21",
      "exit_price": 159.84,
      "exit_reason": "stop",
-     "pnl": -2.05,
+     "pnl": -2.4,
      "pnl_pct": -0.7
     },
     {
@@ -499,7 +499,7 @@
      "ticker": "NOW",
      "setup": "pullback",
      "score": 91.7,
-     "shares": 2.18,
+     "shares": 2.42,
      "limit": 138.37,
      "stop": 131.48,
      "t1": 146.98,
@@ -517,7 +517,7 @@
      "fill": 138.37,
      "status": "open",
      "last": 135.62,
-     "pnl": -6.0,
+     "pnl": -6.66,
      "pnl_pct": -1.99
     },
     {
@@ -545,7 +545,7 @@
      "ticker": "AMZN",
      "setup": "pullback",
      "score": 81.4,
-     "shares": 1.16,
+     "shares": 1.24,
      "limit": 259.74,
      "stop": 246.4,
      "t1": 276.53,
@@ -565,7 +565,7 @@
      "exit_date": "2026-09-24",
      "exit_price": 246.02,
      "exit_reason": "stop",
-     "pnl": -10.54,
+     "pnl": -11.27,
      "pnl_pct": -3.56
     }
    ],
@@ -610,7 +610,7 @@
      "ticker": "PFE",
      "setup": "pullback",
      "score": 78.7,
-     "shares": 10.74,
+     "shares": 12.53,
      "limit": 28.07,
      "stop": 27.24,
      "t1": 28.96,
@@ -627,14 +627,14 @@
      "fill": 27.96,
      "status": "open",
      "last": 28.67,
-     "pnl": 7.63,
+     "pnl": 8.9,
      "pnl_pct": 2.54
     },
     {
      "ticker": "XOM",
      "setup": "pullback",
      "score": 73.6,
-     "shares": 1.89,
+     "shares": 2.21,
      "limit": 159.5,
      "stop": 154.86,
      "t1": 164.49,
@@ -652,7 +652,7 @@
      "fill": 159.5,
      "status": "open",
      "last": 160.59,
-     "pnl": 2.06,
+     "pnl": 2.41,
      "pnl_pct": 0.68
     }
    ],
@@ -672,7 +672,7 @@
      "ticker": "CRM",
      "setup": "pullback",
      "score": 88.9,
-     "shares": 1.26,
+     "shares": 1.47,
      "limit": 238.77,
      "stop": 227.92,
      "t1": 252.06,
@@ -689,14 +689,14 @@
      "fill": 238.77,
      "status": "open",
      "last": 234.02,
-     "pnl": -5.98,
+     "pnl": -6.98,
      "pnl_pct": -1.99
     },
     {
      "ticker": "CVX",
      "setup": "pullback",
      "score": 79.9,
-     "shares": 1.46,
+     "shares": 1.7,
      "limit": 206.54,
      "stop": 199.87,
      "t1": 213.97,
@@ -714,14 +714,14 @@
      "fill": 206.54,
      "status": "open",
      "last": 204.45,
-     "pnl": -3.05,
+     "pnl": -3.55,
      "pnl_pct": -1.01
     },
     {
      "ticker": "XOM",
      "setup": "pullback",
      "score": 77.2,
-     "shares": 1.86,
+     "shares": 1.56,
      "limit": 162.04,
      "stop": 155.09,
      "t1": 170.45,
@@ -739,7 +739,7 @@
      "fill": 162.04,
      "status": "open",
      "last": 160.59,
-     "pnl": -2.7,
+     "pnl": -2.26,
      "pnl_pct": -0.89
     }
    ],
@@ -759,7 +759,7 @@
      "ticker": "VRTX",
      "setup": "pullback",
      "score": 80.1,
-     "shares": 0.57,
+     "shares": 0.63,
      "limit": 524.99,
      "stop": 498.45,
      "t1": 558.27,
@@ -777,14 +777,14 @@
      "fill": 522.55,
      "status": "open",
      "last": 526.19,
-     "pnl": 2.07,
+     "pnl": 2.29,
      "pnl_pct": 0.7
     },
     {
      "ticker": "V",
      "setup": "pullback",
      "score": 76.1,
-     "shares": 0.82,
+     "shares": 0.95,
      "limit": 369.82,
      "stop": 358.56,
      "t1": 382.1,
@@ -802,7 +802,7 @@
      "fill": 366.02,
      "status": "open",
      "last": 367.38,
-     "pnl": 1.12,
+     "pnl": 1.29,
      "pnl_pct": 0.37
     }
    ],
@@ -818,6 +818,6 @@
  "n_picks": 27,
  "n_filled": 24,
  "n_winners": 15,
- "pnl": 75.12,
+ "pnl": 71.93,
  "empty_days": 0
 }
