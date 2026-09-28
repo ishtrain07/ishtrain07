@@ -129,16 +129,20 @@ def swing_sim(feats, pre, v, start=None, end=None):
 
 # ------------------------------------------------------------- momentum rotation
 def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_col="momentum",
-                 exit_below_ema20=False, entry_green_only=False, dd_brake=None, cool_days=5, max_rsi=80):
+                 exit_below_ema20=False, entry_green_only=False, dd_brake=None, cool_days=5, max_rsi=80,
+                 initial_frac=1.0, add_gain=None):
     """Weekly: hold the top-N ranked names (eligible, regime not RED), equal weight.
 
     exit_below_ema20: daily exit when a holding closes below its 20-EMA.
     entry_green_only: new buys only when the market light is GREEN.
     dd_brake: if equity falls this far below its peak, go to cash for cool_days.
+    initial_frac / add_gain: staged entry - buy initial_frac of a full slot, add the rest
+    once the holding is up add_gain and still in the current top-N.
     """
     dates = [d for d in pre if (start is None or d >= start) and (end is None or d <= end)]
     cash, hold, curve, trades, last_week = 1.0, {}, [], [], None
     peak, cool = 1.0, 0
+    target = []
 
     def sell(t, px, why):
         nonlocal cash
@@ -155,6 +159,17 @@ def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_
                 sell(t, min(hold[t]["stop"], b.Open), "stop")
             elif exit_below_ema20 and b.Close < b.ema20:
                 sell(t, b.Close, "ema20")
+        if add_gain:
+            for t, h in hold.items():
+                px = last_close(feats, t, d)
+                if not h["added"] and t in target and px >= h["entry"] * (1 + add_gain) and cash > 0:
+                    amt = min(h["full"] * (1 - initial_frac), cash)
+                    add_sh = amt / px
+                    h["entry"] = (h["entry"] * h["sh"] + amt) / (h["sh"] + add_sh)
+                    h["sh"] += add_sh
+                    h["stop"] = max(h["stop"], h["entry"] * (1 - stop_pct))
+                    h["added"] = True
+                    cash -= amt
         equity = cash + sum(h["sh"] * last_close(feats, t, d) for t, h in hold.items())
         peak = max(peak, equity)
         if dd_brake and equity < peak * (1 - dd_brake) and hold:
@@ -184,8 +199,9 @@ def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_
             per = min(cash / len(new), equity / top_n)
             for t in new:
                 px = last_close(feats, t, d)
-                hold[t] = {"sh": per / px, "entry": px, "stop": px * (1 - stop_pct)}
-                cash -= per
+                amt = per * initial_frac
+                hold[t] = {"sh": amt / px, "entry": px, "stop": px * (1 - stop_pct), "full": per, "added": initial_frac >= 1}
+                cash -= amt
     return stats(curve, trades)
 
 
@@ -295,6 +311,13 @@ def main():
         "L2 LEARNING model top3 weekly, 8% stop, brake 10%": dict(top_n=3, rank_col="adaptive", stop_pct=0.08, dd_brake=0.10),
         "L3 LEARNING model top4 weekly": dict(top_n=4, rank_col="adaptive"),
         "L0 equal-weight factors, no learning (control)": dict(top_n=3, rank_col="equal_mf"),
+        "L4 L2 + staged entry (50% now, add 50% at +4%)": dict(top_n=3, rank_col="adaptive", stop_pct=0.08, dd_brake=0.10,
+                                                            initial_frac=0.5, add_gain=0.04),
+        "L5 L2 + staged entry (50% now, add at +2%)": dict(top_n=3, rank_col="adaptive", stop_pct=0.08, dd_brake=0.10,
+                                                        initial_frac=0.5, add_gain=0.02),
+        "L6 L2 concentrated: top 2": dict(top_n=2, rank_col="adaptive", stop_pct=0.08, dd_brake=0.10),
+        "L7 L2 top 2 + staged entry": dict(top_n=2, rank_col="adaptive", stop_pct=0.08, dd_brake=0.10,
+                                           initial_frac=0.5, add_gain=0.04),
     })
     for name, kw in rot.items():
         res["results"][name] = {k: rotation_sim(feats, pre, start=a, end=b, **kw) for k, (a, b) in periods.items()}

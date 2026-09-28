@@ -141,3 +141,49 @@ def test_quality_gate():
     assert not quality_gate({"name": "X"}, 12)[0]           # cheap + missing data
     assert quality_gate({"name": "X"}, 300)[0]              # large + missing data
     assert quality_gate({"quote_type": "ETF"}, 10)[0]
+
+
+def test_staged_entry_and_add_on():
+    from habibi.indicators import add_features
+    from habibi.strategy import momentum_plan
+    from habibi.universe import UNIVERSE
+    tickers = sorted(set(UNIVERSE) | {"SPY"})
+    feats = {t: add_features(df) for t, df in fake_prices(tickers).items()}
+    cfg = run.load_cfg()
+    cfg.update({"initial_tranche_pct": 50, "add_on_gain_pct": 4, "max_positions": 3})
+    regime = {"light": "GREEN", "max_new": 3, "risk_mult": 1.0}
+    today = dt.date.today()
+    first = momentum_plan(feats, {}, regime, cfg, 1000, 1000, {}, today, True)
+    assert first["buys"] and all(b["dollars"] <= 1000 / 3 * 0.5 + 1 for b in first["buys"])
+    t = first["target"][0]
+    px = first["buys"][0]["price"] if first["buys"][0]["ticker"] == t else float(feats[t].Close.iloc[-1])
+    # starter position in t is up 6%: the engine should add the second half (not on a rebalance day)
+    details = {t: {"value": 170.0, "avg_cost": px / 1.06, "price": px}}
+    later = momentum_plan(feats, {}, regime, cfg, 1000, 830, {t: 170.0}, today, False, details=details)
+    adds = [b for b in later["buys"] if b["kind"] == "add"]
+    assert len(adds) == 1 and adds[0]["ticker"] == t and 100 < adds[0]["dollars"] <= 1000 / 3 - 170 + 1
+    # up only 1%: no add
+    details[t]["avg_cost"] = px / 1.01
+    assert not momentum_plan(feats, {}, regime, cfg, 1000, 830, {t: 170.0}, today, False, details=details)["buys"]
+
+
+def test_trial_week_ramp():
+    from habibi.indicators import add_features
+    from habibi.strategy import momentum_plan
+    from habibi.universe import UNIVERSE
+    feats = {t: add_features(df) for t, df in fake_prices(sorted(set(UNIVERSE) | {"SPY"})).items()}
+    cfg = run.load_cfg()
+    cfg.update({"initial_tranche_pct": 100, "add_on_gain_pct": None, "ramp_pct": 50, "max_positions": 3})
+    regime = {"light": "GREEN", "max_new": 3, "risk_mult": 1.0}
+    today = dt.date.today()
+    cfg["ramp_until"] = (today + dt.timedelta(days=3)).isoformat()
+    first = momentum_plan(feats, {}, regime, cfg, 1000, 1000, {}, today, True)
+    assert first["buys"] and all(b["dollars"] <= 1000 / 3 * 0.5 + 1 for b in first["buys"])
+    # after the ramp: a kept half-size holding is topped up on the rebalance
+    cfg["ramp_until"] = (today - dt.timedelta(days=1)).isoformat()
+    t = first["target"][0]
+    px = float(feats[t].Close.iloc[-1])
+    later = momentum_plan(feats, {}, regime, cfg, 1000, 830, {t: 165.0}, today, True,
+                          details={t: {"value": 165.0, "avg_cost": px, "price": px}})
+    tops = [b for b in later["buys"] if b.get("kind") == "add"]
+    assert len(tops) == 1 and tops[0]["ticker"] == t

@@ -85,6 +85,8 @@ def positions(trades, feats, history, cfg):
             not plan and cfg.get("strategy") == "momentum") else "swing"
         if plan:
             stop, t1, t2, hold = plan["stop"], plan["t1"], plan["t2"], plan["hold_days"]
+            if mode == "momentum":
+                stop = max(stop, avg * (1 - cfg.get("momentum_stop_pct", 10) / 100))
         elif mode == "momentum":
             stop, t1, t2, hold = avg * (1 - cfg.get("momentum_stop_pct", 10) / 100), avg * 1.05, avg * 1.10, 60
         else:
