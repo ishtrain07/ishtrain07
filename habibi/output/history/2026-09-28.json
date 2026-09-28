@@ -12,6 +12,7 @@
    "fund": 80,
    "rsi": 59,
    "setup": "momentum",
+   "kind": "new",
    "fwd_pe": 19.331919,
    "next_earnings": "2026-11-27",
    "entry": 562.89,
@@ -24,10 +25,11 @@
    "t2_pct": 25.1,
    "hold_days": 60,
    "sell_by": "reviewed 2026-10-05",
-   "shares": 0.56,
-   "dollars": 315.22,
-   "risk_dollars": 25.22,
+   "shares": 0.28,
+   "dollars": 157.61,
+   "risk_dollars": 12.61,
    "reason": [
+    "trial week: half-size position; topped up to a full slot on 2026-10-02+ rebalance if still top-3",
     "#1 on the learning model ranking: 6-mo +222%, 3-mo +41%, 1-mo +21%",
     "stronger than 95% of the universe vs the S&P; above its 200-day average",
     "revenue +58% y/y"
@@ -62,6 +64,7 @@
    "fund": 45,
    "rsi": 55,
    "setup": "momentum",
+   "kind": "new",
    "fwd_pe": 111.457634,
    "next_earnings": "2026-12-02",
    "entry": 335.94,
@@ -74,10 +77,11 @@
    "t2_pct": 19.9,
    "hold_days": 60,
    "sell_by": "reviewed 2026-10-05",
-   "shares": 0.94,
-   "dollars": 315.78,
-   "risk_dollars": 25.26,
+   "shares": 0.47,
+   "dollars": 157.89,
+   "risk_dollars": 12.63,
    "reason": [
+    "trial week: half-size position; topped up to a full slot on 2026-10-02+ rebalance if still top-3",
     "#2 on the learning model ranking: 6-mo +107%, 3-mo +35%, 1-mo +7%",
     "stronger than 91% of the universe vs the S&P; above its 200-day average",
     "revenue +35% y/y"
@@ -112,6 +116,7 @@
    "fund": 72,
    "rsi": 58,
    "setup": "momentum",
+   "kind": "new",
    "fwd_pe": 45.915977,
    "next_earnings": "2026-11-04",
    "entry": 173.46,
@@ -124,10 +129,11 @@
    "t2_pct": 17.5,
    "hold_days": 60,
    "sell_by": "reviewed 2026-10-05",
-   "shares": 1.83,
-   "dollars": 317.43,
-   "risk_dollars": 25.39,
+   "shares": 0.91,
+   "dollars": 157.85,
+   "risk_dollars": 12.63,
    "reason": [
+    "trial week: half-size position; topped up to a full slot on 2026-10-02+ rebalance if still top-3",
     "#3 on the learning model ranking: 6-mo +114%, 3-mo +15%, 1-mo +10%",
     "stronger than 77% of the universe vs the S&P; above its 200-day average",
     "revenue +26% y/y"
@@ -202,6 +208,6 @@
   "spy": 771.35,
   "spy_sma50": 759.91,
   "spy_sma200": 714.84,
-  "vix": 16.39
+  "vix": 16.34
  }
 }
