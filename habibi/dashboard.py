@@ -156,6 +156,13 @@ def render(r):
     parts.append(_log_form(cfg))
     if r.get("replay"):
         parts.append(f'<details class="sec"><summary>Replay: what the engine said the last 10 mornings, and what happened</summary>{_replay(r["replay"])}</details>')
+    if r.get("learned"):
+        lr = "".join(f'<tr><td class="l">{e(x["factor"])}</td><td>{x["weight"]}%</td><td>{"-" if x["recent_ic"] is None else x["recent_ic"]}</td></tr>'
+                     for x in r["learned"])
+        parts.append('<details class="sec"><summary>What the model learned (updates daily)</summary><p class="note">Each factor is scored by how well it '
+                     'predicted the next week of returns across the universe over the last ~60 days (IC: above 0 = it worked). '
+                     'Weights shift toward what is working, half-anchored to risk-adjusted momentum.</p>'
+                     f'<div class="tbl"><table><tr><th class="l">Signal</th><th>Weight now</th><th>Recent IC</th></tr>{lr}</table></div></details>')
     if r.get("research"):
         parts.append(f'<details class="sec"><summary>Strategy lab: rulebooks compared</summary>{_research(r["research"])}</details>')
     for title, body in (("You vs the system", _tracking(r)), ("Backtest: does this rulebook work?", _backtest(r.get("backtest") or {})),

@@ -51,6 +51,13 @@ UNIVERSE = {
     "CEG": "Utilities", "VST": "Utilities", "NRG": "Utilities",
     # Energy / materials
     "XOM": "Energy", "CVX": "Energy", "FCX": "Materials",
+    # Cheaper / mid-cap names: only bought if they pass the fundamentals gate
+    # (growing revenue and profitable or expected to be - see strategy.quality_gate)
+    "INTC": "Semis", "NU": "Financials", "F": "ConsDisc", "GM": "ConsDisc", "BAC": "Financials",
+    "WFC": "Financials", "C": "Financials", "T": "Comm", "PFE": "Health", "KMI": "Energy",
+    "UAL": "Industrials", "CCL": "ConsDisc", "AFRM": "Financials", "SMCI": "Tech", "CRDO": "Semis",
+    "ALAB": "Semis", "CIEN": "Tech", "NBIS": "Tech", "GRAB": "Tech", "PINS": "Comm",
+    "CPNG": "ConsDisc", "TOST": "Tech", "CLS": "Tech", "NVO": "Health", "ON": "Semis",
     # ETFs (lower-volatility options when single stocks are messy)
     "QQQ": "ETF", "SPY": "ETF", "SMH": "ETF", "IWM": "ETF",
 }

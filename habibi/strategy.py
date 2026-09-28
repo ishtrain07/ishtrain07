@@ -284,6 +284,28 @@ def _ranking_table(scored, funds):
     return rows
 
 
+# ---------------------------------------------------------------- fundamentals gate
+def quality_gate(info, price):
+    """(ok, reason). ETFs pass. Stocks need growing revenue and positive expected earnings.
+
+    Stricter under $40 (where weak businesses hide): revenue growth > 5% and forward P/E
+    between 0 and 60. Missing data passes for large names, fails for cheap ones.
+    """
+    if not info or info.get("quote_type") == "ETF":
+        return True, ""
+    g, pe, m = info.get("revenue_growth"), info.get("forward_pe"), info.get("profit_margin")
+    cheap = price < 40
+    if cheap and (g is None or pe is None):
+        return False, "cheap stock with missing fundamentals"
+    if g is not None and g < (0.05 if cheap else -0.05):
+        return False, f"revenue growth {g:.0%} too weak"
+    if pe is not None and (pe <= 0 or (cheap and pe > 60)):
+        return False, "no expected profits" if pe <= 0 else f"forward P/E {pe:.0f} too rich for its size"
+    if cheap and m is not None and m < -0.05:
+        return False, f"losing money (margin {m:.0%})"
+    return True, ""
+
+
 # ---------------------------------------------------------------- momentum rotation mode
 def is_rebalance_day(today, last_rebalance):
     """First trading day of a new ISO week (normally Monday)."""
@@ -292,7 +314,7 @@ def is_rebalance_day(today, last_rebalance):
     return today.isocalendar()[:2] != dt.date.fromisoformat(last_rebalance).isocalendar()[:2]
 
 
-def momentum_plan(feats, funds, regime, cfg, equity, cash, holdings, today, rebalance):
+def momentum_plan(feats, funds, regime, cfg, equity, cash, holdings, today, rebalance, learned=None):
     """Risk-adjusted momentum rotation (research variant R2).
 
     Each week hold the top-N eligible names ranked by momentum / volatility.
@@ -303,21 +325,30 @@ def momentum_plan(feats, funds, regime, cfg, equity, cash, holdings, today, reba
     sc = score_snapshot(snap, spy.ret63, sector_strength(feats), funds, cfg)
     mom = 0.5 * sc.ret126 + 0.3 * sc.ret63 + 0.2 * sc.ret21
     sc["risk_adj_mom"] = mom / (sc.atr / sc.Close)
+    # learned: today's adaptive-model scores (Series by ticker); else fixed risk-adjusted momentum
+    sc["rank_score"] = learned.reindex(sc.index) if learned is not None else sc["risk_adj_mom"]
     n = cfg["max_positions"]
-    ok = sc.eligible & (sc.rsi < 80)
-    ranked = sc[ok].sort_values("risk_adj_mom", ascending=False)
+    ok = sc.eligible & (sc.rsi < 80) & sc.rank_score.notna()
+    ranked = sc[ok].sort_values("rank_score", ascending=False)
     # Names reporting earnings within 3 trading days can't be newly bought; the slot goes to the next name.
     avoid = []
     blocked = set()
     for t in ranked.index:
         er = ((funds or {}).get(t) or {}).get("next_earnings")
-        if t not in holdings and er and trading_days_between(today, dt.date.fromisoformat(er)) <= 3:
+        if t in holdings:
+            continue
+        if er and trading_days_between(today, dt.date.fromisoformat(er)) <= 3:
             blocked.add(t)
+        good, why = quality_gate((funds or {}).get(t), float(ranked.loc[t].Close))
+        if not good:
+            blocked.add(t)
+            if list(ranked.index).index(t) < n + 3:
+                avoid.append({"ticker": t, "why_not": f"fundamentals gate: {why}"})
     buyable = [t for t in ranked.index if t not in blocked]
     target = [] if regime["light"] == "RED" else buyable[:n]
     for t in list(ranked.index[:n]):
-        if t in blocked:
-            er = funds[t]["next_earnings"]
+        er = ((funds or {}).get(t) or {}).get("next_earnings")
+        if t in blocked and er and trading_days_between(today, dt.date.fromisoformat(er)) <= 3:
             avoid.append({"ticker": t, "why_not": f"ranked #{list(ranked.index).index(t) + 1} but reports earnings {er}: skipped"})
 
     rotate_out = [t for t in holdings if rebalance and t not in target]
@@ -349,13 +380,14 @@ def momentum_plan(feats, funds, regime, cfg, equity, cash, holdings, today, reba
                 "sell_by": f"reviewed {review.isoformat()}", "shares": shares,
                 "dollars": round(shares * entry, 2), "risk_dollars": round(shares * (entry - stop), 2),
                 "reason": [
-                    f"#{list(ranked.index).index(t) + 1} on risk-adjusted momentum: 6-mo {r.ret126:+.0%}, 3-mo {r.ret63:+.0%}, 1-mo {r.ret21:+.0%}",
+                    f"#{list(ranked.index).index(t) + 1} on the {'learning model' if learned is not None else 'risk-adjusted momentum'} ranking: "
+                    f"6-mo {r.ret126:+.0%}, 3-mo {r.ret63:+.0%}, 1-mo {r.ret21:+.0%}",
                     f"stronger than {r.rs:.0f}% of the universe vs the S&P; above its 200-day average",
                 ] + list(r.fund_notes)[:1],
             })
         if keep:
             avoid.append({"ticker": ", ".join(keep), "why_not": "already held and still top-ranked: keep"})
-    next_up = [{"ticker": t, "score": round(float(ranked.loc[t].risk_adj_mom), 1), "price": round(float(ranked.loc[t].Close), 2),
+    next_up = [{"ticker": t, "score": round(float(ranked.loc[t].rank_score), 1), "price": round(float(ranked.loc[t].Close), 2),
                 "setup": "momentum", "rsi": round(float(ranked.loc[t].rsi)),
                 "action": "next in line if a holding drops out"} for t in buyable[n:n + 5]]
     return {"buys": buys, "backups": [], "watch": next_up, "extended": [], "avoid": avoid,

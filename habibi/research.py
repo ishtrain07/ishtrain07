@@ -13,7 +13,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from . import data
+from . import adaptive, data
 from .indicators import add_features
 from .strategy import score_snapshot, sector_strength, snapshot
 from .universe import SECTOR_ETF, UNIVERSE
@@ -261,6 +261,13 @@ def main():
     prices = data.download_prices(tickers, period="3y")
     feats = {t: add_features(df) for t, df in prices.items()}
     pre = precompute(feats, 480)
+    uni = [t for t in UNIVERSE if t in feats and len(feats[t]) > 260]
+    m = adaptive.model(feats, uni)
+    eq_w = pd.DataFrame(1 / len(adaptive.FACTORS), index=m["weights"].index, columns=m["weights"].columns)
+    eq_scores = adaptive.adaptive_scores(m["panels"], eq_w)
+    for d, (regime, sc) in pre.items():
+        sc["adaptive"] = m["scores"].loc[d].reindex(sc.index) if d in m["scores"].index else np.nan
+        sc["equal_mf"] = eq_scores.loc[d].reindex(sc.index) if d in eq_scores.index else np.nan
     dates = list(pre)
     mid = dates[len(dates) // 2]
     periods = {"full": (dates[0], dates[-1]), "half1": (dates[0], mid), "half2": (mid, dates[-1])}
@@ -283,11 +290,18 @@ def main():
                                                                entry_green_only=True, dd_brake=0.12),
         "R8 top3 momentum, 8% stop, brake 10%": dict(top_n=3, stop_pct=0.08, dd_brake=0.10),
     }
+    rot.update({
+        "L1 LEARNING model top3 weekly, 10% stop": dict(top_n=3, rank_col="adaptive"),
+        "L2 LEARNING model top3 weekly, 8% stop, brake 10%": dict(top_n=3, rank_col="adaptive", stop_pct=0.08, dd_brake=0.10),
+        "L3 LEARNING model top4 weekly": dict(top_n=4, rank_col="adaptive"),
+        "L0 equal-weight factors, no learning (control)": dict(top_n=3, rank_col="equal_mf"),
+    })
     for name, kw in rot.items():
         res["results"][name] = {k: rotation_sim(feats, pre, start=a, end=b, **kw) for k, (a, b) in periods.items()}
         print(name, res["results"][name]["full"])
     for t in ("SPY", "QQQ"):
         res["results"][f"Z buy & hold {t}"] = {k: buy_hold(feats, t, a, b) for k, (a, b) in periods.items()}
+    res["learned_weights_now"] = adaptive.explain_today(m)
     OUT.mkdir(exist_ok=True)
     (OUT / "research.json").write_text(json.dumps(res, indent=1, default=str))
 

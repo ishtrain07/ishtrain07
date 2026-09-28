@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from . import data, notify
+from . import adaptive, data, notify
 from .backtest import run_backtest
 from .dashboard import render
 from .indicators import add_features
@@ -150,7 +150,14 @@ def cmd_plan(cfg, args):
         state = json.loads(state_path.read_text()) if state_path.exists() else {}
         rebalance = is_rebalance_day(today, state.get("last_rebalance")) and dd_state == "OK"
         holdings = {p["ticker"]: p["value"] for p in book["open"] if p["ticker"] not in selling}
-        ranked = momentum_plan(feats, funds, regime, cfg, book["equity"], book["cash"], holdings, today, rebalance)
+        learned_scores, learned = None, None
+        if cfg.get("ranker") == "adaptive":
+            uni = [t for t in UNIVERSE if t in feats and len(feats[t]) > 260]
+            m = adaptive.model(feats, uni)
+            learned_scores, learned = m["scores"].iloc[-1], adaptive.explain_today(m)
+        ranked = momentum_plan(feats, funds, regime, cfg, book["equity"], book["cash"], holdings, today,
+                               rebalance, learned_scores)
+        ranked["learned"] = learned
         for t in ranked["rotate_out"]:
             p = next(p for p in book["open"] if p["ticker"] == t)
             p["action"], p["why"] = "SELL ALL", "rotated out: no longer in the top ranks this week"

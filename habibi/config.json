@@ -1,6 +1,7 @@
 {
   "owner_note": "Edit starting_capital_usd to the actual USD amount that lands in the account.",
   "strategy": "momentum",
+  "ranker": "adaptive",
   "momentum_stop_pct": 10,
   "starting_capital_usd": 2000,
   "start_date": "2026-09-28",
@@ -13,7 +14,7 @@
   "max_positions": 3,
   "max_per_sector": 2,
   "min_cash_pct": 5,
-  "min_price": 10,
+  "min_price": 5,
   "min_dollar_volume": 25000000,
   "buy_score_threshold": 65,
   "watch_score_threshold": 55,

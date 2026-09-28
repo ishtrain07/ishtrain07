@@ -67,7 +67,7 @@ def test_plan_end_to_end(sandbox):
     assert msft["shares"] == 2 and msft["partial"]
     for b in rep["buys"]:
         assert b["stop"] < b["entry"] < b["t1"] < b["t2"]
-        assert b["dollars"] <= cfg["starting_capital_usd"] * cfg["max_position_pct"] / 100 + 1
+        assert b["dollars"] <= rep["account"]["equity"] * cfg["max_position_pct"] / 100 + 1
         assert b["hold_days"] >= 3
     assert rep["backtest"]["n"] > 0
     html = (sandbox / "docs" / "index.html").read_text()
@@ -103,3 +103,31 @@ def test_calendar():
     assert add_trading_days(fri, 1) == dt.date(2026, 9, 28)
     assert trading_days_between(fri, dt.date(2026, 10, 2)) == 5
     assert add_trading_days(dt.date(2026, 11, 25), 1) == dt.date(2026, 11, 27)
+
+
+def test_adaptive_model_no_lookahead():
+    from habibi import adaptive
+    from habibi.indicators import add_features
+    from habibi.universe import UNIVERSE
+    tickers = sorted(set(UNIVERSE) | {"SPY"})
+    feats = {t: add_features(df) for t, df in fake_prices(tickers).items()}
+    uni = [t for t in UNIVERSE if t in feats]
+    m = adaptive.model(feats, uni)
+    w = m["weights"].iloc[-1]
+    assert abs(w.sum() - 1) < 1e-6 and (w >= 0).all()
+    # Scores on day t must not change if we delete everything after t.
+    cut = feats["SPY"].index[-30]
+    m2 = adaptive.model({t: f.loc[:cut] for t, f in feats.items()}, uni)
+    a, b = m["scores"].loc[cut].dropna(), m2["scores"].loc[cut].dropna()
+    assert np.allclose(a.sort_index(), b.reindex(a.index).sort_index())
+    assert len(adaptive.explain_today(m)) == len(adaptive.FACTORS)
+
+
+def test_quality_gate():
+    from habibi.strategy import quality_gate
+    assert quality_gate({"revenue_growth": 0.2, "forward_pe": 15, "profit_margin": 0.1}, 20)[0]
+    assert not quality_gate({"revenue_growth": -0.1, "forward_pe": 15}, 20)[0]
+    assert not quality_gate({"revenue_growth": 0.3, "forward_pe": -5}, 20)[0]
+    assert not quality_gate({"name": "X"}, 12)[0]           # cheap + missing data
+    assert quality_gate({"name": "X"}, 300)[0]              # large + missing data
+    assert quality_gate({"quote_type": "ETF"}, 10)[0]
