@@ -11,7 +11,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from . import adaptive, data, notify
-from .paper import PATH as PAPER_PATH, run_paper
+from .paper import PATH as PAPER_PATH, run_paper, win_loss
 from .backtest import run_backtest
 from .dashboard import render
 from .indicators import add_features
@@ -181,8 +181,11 @@ def cmd_plan(cfg, args):
             uni = [t for t in UNIVERSE if t in feats and len(feats[t]) > 260]
             m = adaptive.model(feats, uni)
             learned_scores, learned = m["scores"].iloc[-1], adaptive.explain_today(m)
+        details = {p["ticker"]: p for p in book["open"] if p["ticker"] not in selling}
         ranked = momentum_plan(feats, funds, regime, cfg, book["equity"], book["cash"], holdings, today,
-                               rebalance, learned_scores)
+                               rebalance if dd_state == "OK" else False, learned_scores, details)
+        if dd_state != "OK":
+            ranked["buys"] = []
         ranked["learned"] = learned
         for t in ranked["rotate_out"]:
             p = next(p for p in book["open"] if p["ticker"] == t)
@@ -197,7 +200,7 @@ def cmd_plan(cfg, args):
     for b in ranked["buys"]:
         b["news"] = data.news(b["ticker"])
     paper = run_paper(feats, funds, regime, cfg, today, history, live, execute=not args.dry_run,
-                      rebalance=rebalance, learned=learned_scores)
+                      rebalance=rebalance, learned=learned_scores, plan_day=True)
 
     macro = macro_table(feats)
     bt_path = OUT / "backtest.json"
@@ -224,6 +227,7 @@ def cmd_plan(cfg, args):
         "system_paper": system_paper({**history, today.isoformat(): ranked}, feats, cfg, cfg["start_date"])
         if cfg.get("strategy") != "momentum" else {},
         "strategy": cfg.get("strategy", "swing"), "rebalance": ranked.get("rebalance"), "paper": paper,
+        "record": win_loss(book["closed"]),
         "backtest": bt, "replay": rp, "research": research, "config": cfg, **ranked,
     }
     brief = OUT / "brief.md"
@@ -285,7 +289,7 @@ def cmd_check(cfg, args):
     report.update({"generated_at": now.strftime("%Y-%m-%d %H:%M ET") + " (position check)",
                    "account": {k: book[k] for k in ("cash", "realized", "unrealized", "market_value", "equity", "return_pct")},
                    "positions": book["open"], "closed": book["closed"], "alerts": alerts,
-                   "drawdown_state": dd_state, "drawdown_msg": dd_msg})
+                   "drawdown_state": dd_state, "drawdown_msg": dd_msg, "record": win_loss(book["closed"])})
     regime = report.get("regime") or {"light": "YELLOW", "max_new": 0, "risk_mult": 0}
     report["paper"] = run_paper(feats, funds, regime, cfg, today, history, live, execute=not args.dry_run)
     write_outputs(report)

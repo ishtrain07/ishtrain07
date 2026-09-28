@@ -21,7 +21,8 @@ def _append(rows):
             f.write(",".join(str(r[k]) for k in ("date", "ticker", "side", "shares", "price", "fees", "note")) + "\n")
 
 
-def run_paper(feats, funds, regime, cfg, today, history, live, execute, rebalance=False, learned=None):
+def run_paper(feats, funds, regime, cfg, today, history, live, execute, rebalance=False, learned=None,
+              plan_day=False):
     if not PATH.exists():
         PATH.parent.mkdir(parents=True, exist_ok=True)
         PATH.write_text(HEADER)
@@ -36,21 +37,36 @@ def run_paper(feats, funds, regime, cfg, today, history, live, execute, rebalanc
     freed = sum(a["price"] * a["shares"] for a in alerts)
     holdings = {p["ticker"]: p["value"] for p in book["open"] if p["ticker"] not in selling}
     if cfg.get("strategy") == "momentum":
+        details = {p["ticker"]: p for p in book["open"] if p["ticker"] not in selling}
         plan = momentum_plan(feats, funds, regime, cfg, book["equity"], book["cash"] + freed,
-                             holdings, today, rebalance, learned) if rebalance else {"buys": [], "rotate_out": []}
+                             holdings, today, rebalance, learned, details) if plan_day \
+            else {"buys": [], "rotate_out": []}
         for t in plan["rotate_out"]:
             p = next(p for p in book["open"] if p["ticker"] == t)
             orders.append({"date": today.isoformat(), "ticker": t, "side": "SELL", "shares": p["shares"],
                            "price": p["price"], "fees": 0, "note": "rotated out"})
     else:
         plan = rank_and_bucket(feats, funds, regime, cfg, book["equity"], book["cash"] + freed,
-                               list(holdings), today)
+                               list(holdings), today) if plan_day else {"buys": []}
     for b in plan["buys"][:cfg["max_positions"]]:
         orders.append({"date": today.isoformat(), "ticker": b["ticker"], "side": "BUY", "shares": b["shares"],
-                       "price": b["limit"], "fees": 0, "note": b["setup"]})
+                       "price": b["limit"], "fees": 0, "note": b.get("kind", b["setup"])})
     if execute and orders:
         _append(orders)
     book = positions(load_trades(PATH), feats, history, cfg)
     evaluate(book, feats, live, funds, cfg, today)
     return {"account": {k: book[k] for k in ("cash", "realized", "unrealized", "market_value", "equity", "return_pct")},
+            "record": win_loss(book["closed"]),
             "positions": book["open"], "closed": book["closed"], "orders_today": orders, "executed": execute}
+
+
+def win_loss(closed):
+    """Win/loss record from closed (sold) lots."""
+    wins = [c for c in closed if c["pnl"] > 0]
+    losses = [c for c in closed if c["pnl"] <= 0]
+    n = len(closed)
+    return {"trades": n, "wins": len(wins), "losses": len(losses),
+            "win_rate": round(len(wins) / n * 100, 1) if n else None,
+            "avg_win_pct": round(sum(c["pnl_pct"] for c in wins) / len(wins), 2) if wins else None,
+            "avg_loss_pct": round(sum(c["pnl_pct"] for c in losses) / len(losses), 2) if losses else None,
+            "net": round(sum(c["pnl"] for c in closed), 2)}

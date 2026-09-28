@@ -127,6 +127,13 @@ def render(r):
                                                 ("Setup", "setup"), ("RSI", "rsi"), ("Trigger", "action")]))
     else:
         parts.append('<div class="card mute">Nothing on watch.</div>')
+    if r.get("cheap"):
+        parts.append('<details class="sec"><summary>Best under $40 (passed the fundamentals check)</summary>' + _simple_table(
+            [{**c, "revenue_growth": f'{c["revenue_growth"] * 100:+.0f}%' if c.get("revenue_growth") is not None else "-",
+              "fwd_pe": round(c["fwd_pe"], 1) if c.get("fwd_pe") else "-"} for c in r["cheap"]],
+            [("Ticker", "ticker"), ("Price", "price"), ("Overall rank", "rank"), ("3-mo %", "ret63"), ("Fwd P/E", "fwd_pe"),
+             ("Revenue growth", "revenue_growth")]) +
+            '<p class="note">These only become orders if they climb into the top 3 overall. Cheap is not a reason to buy on its own.</p></details>')
     if r.get("extended"):
         parts.append('<p class="note"><b>Strong but stretched (do not chase):</b> ' +
                      "; ".join(f'{e(x["ticker"])}: {e(x["action"])}' for x in r["extended"]) + "</p>")
@@ -179,7 +186,7 @@ def _buy_card(b, rank=1):
     news = "".join(f'<li><a href="{e(n["url"])}" target="_blank" rel="noopener">{e(n["title"])}</a> '
                    f'<span class="mute">{e(n.get("source"))}</span></li>' for n in b.get("news", []) if n.get("url"))
     er = f' · earnings {e(b["next_earnings"])}' if b.get("next_earnings") else ""
-    return f"""<div class="card order"><h3><span>#{rank} BUY {e(b['ticker'])} <span class="mute" style="font-weight:400;font-size:14px">{e(b['name'])}</span></span>
+    return f"""<div class="card order"><h3><span>#{rank} {'ADD TO' if b.get('kind') == 'add' else 'BUY'} {e(b['ticker'])} <span class="mute" style="font-weight:400;font-size:14px">{e(b['name'])}</span></span>
 <span class="tag">{e(b['setup']).upper()} · score {b['score']}</span></h3>
 <div style="font-size:16px">Buy <b>{b['shares']} shares</b> (~<b>${b['dollars']:,.0f}</b>) · limit <b>${b['limit']}</b> ·
 target range <b class="pos">${b['t1']} – ${b['t2']}</b> (+{b['t1_pct']}% to +{b['t2_pct']}%) · stop <b class="neg">${b['stop']}</b> · {'hold until it drops out of the top 3 (' + e(b['sell_by']) + ')' if b['setup'] == 'momentum' else 'sell by <b>' + e(b['sell_by']) + '</b>'}</div>
@@ -228,8 +235,11 @@ def _scoreboard(r):
         return ""
     you, sysr = r["account"]["return_pct"], pa["return_pct"]
     lead = "tied" if abs(you - sysr) < 0.05 else ("you lead" if you > sysr else "system leads")
+    def rec(x):
+        x = x or {}
+        return f'{x.get("wins", 0)}W-{x.get("losses", 0)}L' + (f' ({x["win_rate"]:.0f}%)' if x.get("win_rate") is not None else "")
     return (f'<div class="card kpi"><div class="l">You vs system</div><div class="v">{pct(you, 1)} <span class="mute" style="font-size:15px">vs</span> {pct(sysr, 1)}</div>'
-            f'<div class="sub">{lead} · system paper ${pa["equity"]:,.0f}</div></div>')
+            f'<div class="sub">{lead} · you {rec(r.get("record"))} · system {rec((r.get("paper") or {}).get("record"))}</div></div>')
 
 
 def _tracking(r):
@@ -242,6 +252,7 @@ def _tracking(r):
         out = [f'<div class="grid"><div class="card kpi"><div class="l">Your account</div><div class="v">{pct(r["account"]["return_pct"], 2)}</div>'
                f'<div class="sub">${r["account"]["equity"]:,.2f}</div></div><div class="card kpi"><div class="l">System paper account</div>'
                f'<div class="v">{pct(a["return_pct"], 2)}</div><div class="sub">${a["equity"]:,.2f} · realized {money(a["realized"])}</div></div></div>'
+               + _record_table(r) +
                '<p class="note">The system starts with the same capital and auto-executes every order it gives you: buys at the limit price, '
                'sells when the alert fires. Only your logged trades count for you.</p>']
         if rows:
@@ -369,3 +380,14 @@ def _plan_grid(b):
                  ("Target 2 (sell rest)", f"<b class=pos>${b['t2']}</b>", f"+{b['t2_pct']}%"),
                  ("Hold max", f"<b>{b['hold_days']} days</b>", f"sell by {e(b['sell_by'])}")]
     return '<div class="plan">' + "".join(f"<div><span>{k}</span><b>{v}</b>{sub}</div>" for k, v, sub in cells) + "</div>"
+
+
+def _record_table(r):
+    rows = []
+    for who, x in (("You", r.get("record")), ("System", (r.get("paper") or {}).get("record"))):
+        x = x or {}
+        rows.append(f'<tr><td class="l"><b>{who}</b></td><td>{x.get("trades", 0)}</td><td>{x.get("wins", 0)}</td><td>{x.get("losses", 0)}</td>'
+                    f'<td>{"-" if x.get("win_rate") is None else str(x["win_rate"]) + "%"}</td><td>{pct(x.get("avg_win_pct"))}</td>'
+                    f'<td>{pct(x.get("avg_loss_pct"))}</td><td>{money(x.get("net"))}</td></tr>')
+    return ('<div class="tbl" style="margin-top:12px"><table><tr><th class="l">Win/loss</th><th>Closed</th><th>Wins</th><th>Losses</th>'
+            f'<th>Win rate</th><th>Avg win</th><th>Avg loss</th><th>Net realized</th></tr>{"".join(rows)}</table></div>')
