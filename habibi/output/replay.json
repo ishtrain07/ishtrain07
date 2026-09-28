@@ -34,7 +34,7 @@
     {
      "ticker": "NOW",
      "setup": "pullback",
-     "score": 88.7,
+     "score": 88.9,
      "shares": 4.53,
      "limit": 133.19,
      "stop": 126.17,
@@ -43,7 +43,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 53)",
-      "3-mo return +29% (stronger than 91% of the universe vs S&P)",
+      "3-mo return +29% (stronger than 92% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +24% y/y",
       "fwd P/E 27 is cheap for its growth",
@@ -55,7 +55,7 @@
     {
      "ticker": "V",
      "setup": "pullback",
-     "score": 83.3,
+     "score": 83.7,
      "shares": 1.62,
      "limit": 372.3,
      "stop": 364.33,
@@ -64,7 +64,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 51)",
-      "3-mo return +16% (stronger than 79% of the universe vs S&P)",
+      "3-mo return +16% (stronger than 81% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +14% y/y",
       "fwd P/E 24",
@@ -83,9 +83,9 @@
    "watch": [
     "HOOD",
     "SNOW",
-    "MSFT",
     "JPM",
-    "AAPL"
+    "MSFT",
+    "BAC"
    ]
   },
   {
@@ -95,7 +95,7 @@
     {
      "ticker": "CRWD",
      "setup": "breakout",
-     "score": 93.3,
+     "score": 93.7,
      "shares": 1.59,
      "limit": 236.56,
      "stop": 216.55,
@@ -104,7 +104,7 @@
      "hold_days": 6,
      "reason": [
       "new 20-day high on 2.4x volume",
-      "3-mo return +38% (stronger than 94% of the universe vs S&P)",
+      "3-mo return +38% (stronger than 96% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +26% y/y",
       "expensive (fwd P/E 157)",
@@ -122,7 +122,7 @@
     {
      "ticker": "SNOW",
      "setup": "pullback",
-     "score": 90.8,
+     "score": 91.4,
      "shares": 1.81,
      "limit": 334.01,
      "stop": 315.73,
@@ -149,7 +149,7 @@
     {
      "ticker": "V",
      "setup": "pullback",
-     "score": 86.3,
+     "score": 87.2,
      "shares": 1.6,
      "limit": 377.16,
      "stop": 364.32,
@@ -158,7 +158,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 56)",
-      "3-mo return +17% (stronger than 76% of the universe vs S&P)",
+      "3-mo return +17% (stronger than 79% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +14% y/y",
       "fwd P/E 24",
@@ -189,7 +189,7 @@
     {
      "ticker": "CRWD",
      "setup": "breakout",
-     "score": 93.6,
+     "score": 93.7,
      "shares": 0.77,
      "limit": 243.7,
      "stop": 223.09,
@@ -216,7 +216,7 @@
     {
      "ticker": "V",
      "setup": "pullback",
-     "score": 88.1,
+     "score": 89.2,
      "shares": 1.33,
      "limit": 377.5,
      "stop": 364.35,
@@ -225,7 +225,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 56)",
-      "3-mo return +16% (stronger than 77% of the universe vs S&P)",
+      "3-mo return +16% (stronger than 80% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +14% y/y",
       "fwd P/E 24",
@@ -245,8 +245,8 @@
     "HOOD",
     "CVX",
     "FTNT",
-    "NET",
-    "MSFT"
+    "MSFT",
+    "NET"
    ]
   },
   {
@@ -256,7 +256,7 @@
     {
      "ticker": "SNOW",
      "setup": "pullback",
-     "score": 90.8,
+     "score": 91.2,
      "shares": 0.89,
      "limit": 332.68,
      "stop": 314.16,
@@ -265,7 +265,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 54)",
-      "3-mo return +39% (stronger than 94% of the universe vs S&P)",
+      "3-mo return +39% (stronger than 96% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +35% y/y",
       "unprofitable",
@@ -283,7 +283,7 @@
     {
      "ticker": "PLTR",
      "setup": "pullback",
-     "score": 89.2,
+     "score": 90.2,
      "shares": 1.33,
      "limit": 175.21,
      "stop": 163.08,
@@ -292,7 +292,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 54)",
-      "3-mo return +31% (stronger than 91% of the universe vs S&P)",
+      "3-mo return +31% (stronger than 93% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +93% y/y",
       "fwd P/E 82 is cheap for its growth",
@@ -313,7 +313,7 @@
     "CRWD",
     "FTNT",
     "NET",
-    "ABBV"
+    "CVX"
    ]
   },
   {
@@ -323,7 +323,7 @@
     {
      "ticker": "PLTR",
      "setup": "pullback",
-     "score": 91.6,
+     "score": 92.0,
      "shares": 2.44,
      "limit": 177.12,
      "stop": 163.96,
@@ -332,7 +332,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 56)",
-      "3-mo return +35% (stronger than 92% of the universe vs S&P)",
+      "3-mo return +35% (stronger than 93% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +93% y/y",
       "fwd P/E 82 is cheap for its growth",
@@ -348,7 +348,7 @@
     {
      "ticker": "MDB",
      "setup": "pullback",
-     "score": 89.2,
+     "score": 89.6,
      "shares": 0.95,
      "limit": 395.39,
      "stop": 361.95,
@@ -357,7 +357,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 51)",
-      "3-mo return +18% (stronger than 78% of the universe vs S&P)",
+      "3-mo return +18% (stronger than 81% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +30% y/y",
       "fwd P/E 53",
@@ -373,7 +373,7 @@
     {
      "ticker": "AMD",
      "setup": "breakout",
-     "score": 85.3,
+     "score": 85.7,
      "shares": 0.69,
      "limit": 547.82,
      "stop": 501.48,
@@ -382,7 +382,7 @@
      "hold_days": 6,
      "reason": [
       "new 20-day high on 1.6x volume",
-      "3-mo return +6% (stronger than 66% of the universe vs S&P)",
+      "3-mo return +6% (stronger than 68% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +50% y/y",
       "fwd P/E 40 is cheap for its growth",
@@ -402,8 +402,8 @@
     "DELL",
     "CRM",
     "CRWD",
-    "NOW",
-    "FTNT"
+    "FTNT",
+    "NOW"
    ]
   },
   {
@@ -413,7 +413,7 @@
     {
      "ticker": "AMD",
      "setup": "breakout",
-     "score": 86.1,
+     "score": 86.7,
      "shares": 0.67,
      "limit": 562.62,
      "stop": 515.03,
@@ -422,7 +422,7 @@
      "hold_days": 6,
      "reason": [
       "new 20-day high on 1.7x volume",
-      "3-mo return +4% (stronger than 59% of the universe vs S&P)",
+      "3-mo return +4% (stronger than 62% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +50% y/y",
       "fwd P/E 40 is cheap for its growth",
@@ -434,7 +434,7 @@
     {
      "ticker": "XOM",
      "setup": "pullback",
-     "score": 85.2,
+     "score": 85.9,
      "shares": 3.67,
      "limit": 164.36,
      "stop": 159.84,
@@ -443,7 +443,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 54)",
-      "3-mo return +19% (stronger than 84% of the universe vs S&P)",
+      "3-mo return +19% (stronger than 86% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +44% y/y",
       "fwd P/E 14 is cheap for its growth",
@@ -459,36 +459,33 @@
      "pnl_pct": -0.7
     },
     {
-     "ticker": "FCX",
+     "ticker": "NBIS",
      "setup": "pullback",
-     "score": 73.9,
-     "shares": 5.87,
-     "limit": 71.9,
-     "stop": 66.43,
-     "t1": 79.21,
-     "t2": 86.88,
+     "score": 75.2,
+     "shares": 1.68,
+     "limit": 224.66,
+     "stop": 205.66,
+     "t1": 250.36,
+     "t2": 277.19,
      "hold_days": 7,
      "reason": [
-      "bounced off 20-EMA (RSI 50)",
-      "3-mo return +4% (stronger than 60% of the universe vs S&P)",
-      "above rising 50 & 200-day averages",
-      "revenue shrinking -7%",
-      "fwd P/E 17",
-      "analyst mean target +1% away"
+      "bounced off 20-EMA (RSI 52)",
+      "3-mo return -22% (stronger than 13% of the universe vs S&P)",
+      "above rising 50 & 200-day averages"
      ],
      "filled": true,
-     "fill": 71.9,
+     "fill": 224.66,
      "status": "open",
-     "last": 72.31,
-     "pnl": 2.41,
-     "pnl_pct": 0.57
+     "last": 237.33,
+     "pnl": 21.29,
+     "pnl_pct": 5.64
     }
    ],
    "watch": [
     "PANW",
+    "MSFT",
     "SNOW",
     "NOW",
-    "MSFT",
     "CRM"
    ]
   },
@@ -499,7 +496,7 @@
     {
      "ticker": "NOW",
      "setup": "pullback",
-     "score": 91.5,
+     "score": 91.7,
      "shares": 4.36,
      "limit": 138.37,
      "stop": 131.48,
@@ -508,7 +505,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 55)",
-      "3-mo return +48% (stronger than 94% of the universe vs S&P)",
+      "3-mo return +48% (stronger than 96% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +24% y/y",
       "fwd P/E 27 is cheap for its growth",
@@ -524,7 +521,7 @@
     {
      "ticker": "SHOP",
      "setup": "pullback",
-     "score": 86.0,
+     "score": 87.0,
      "shares": 2.72,
      "limit": 138.61,
      "stop": 126.89,
@@ -533,7 +530,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 51)",
-      "3-mo return +28% (stronger than 86% of the universe vs S&P)",
+      "3-mo return +28% (stronger than 89% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +34% y/y",
       "fwd P/E 58",
@@ -545,7 +542,7 @@
     {
      "ticker": "AMZN",
      "setup": "pullback",
-     "score": 80.1,
+     "score": 81.4,
      "shares": 2.32,
      "limit": 259.74,
      "stop": 246.4,
@@ -554,7 +551,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 53)",
-      "3-mo return +11% (stronger than 66% of the universe vs S&P)",
+      "3-mo return +11% (stronger than 70% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +20% y/y",
       "fwd P/E 24 is cheap for its growth",
@@ -572,9 +569,9 @@
    ],
    "watch": [
     "CRWD",
-    "ZS",
-    "PLTR",
     "FTNT",
+    "PLTR",
+    "ZS",
     "ANET"
    ]
   },
@@ -583,9 +580,53 @@
    "regime": "GREEN",
    "picks": [
     {
+     "ticker": "ALAB",
+     "setup": "breakout",
+     "score": 79.6,
+     "shares": 1.03,
+     "limit": 365.28,
+     "stop": 334.38,
+     "t1": 407.08,
+     "t2": 450.69,
+     "hold_days": 6,
+     "reason": [
+      "new 20-day high on 1.4x volume",
+      "3-mo return -8% (stronger than 25% of the universe vs S&P)",
+      "above rising 50 & 200-day averages"
+     ],
+     "filled": true,
+     "fill": 364.31,
+     "status": "open",
+     "last": 364.62,
+     "pnl": 0.32,
+     "pnl_pct": 0.09
+    },
+    {
+     "ticker": "PFE",
+     "setup": "pullback",
+     "score": 78.7,
+     "shares": 21.48,
+     "limit": 28.07,
+     "stop": 27.24,
+     "t1": 28.96,
+     "t2": 30.0,
+     "hold_days": 7,
+     "reason": [
+      "bounced off 20-EMA (RSI 57)",
+      "3-mo return +15% (stronger than 77% of the universe vs S&P)",
+      "above rising 50 & 200-day averages"
+     ],
+     "filled": true,
+     "fill": 27.96,
+     "status": "open",
+     "last": 28.67,
+     "pnl": 15.25,
+     "pnl_pct": 2.54
+    },
+    {
      "ticker": "XOM",
      "setup": "pullback",
-     "score": 72.6,
+     "score": 73.6,
      "shares": 3.78,
      "limit": 159.5,
      "stop": 154.86,
@@ -594,7 +635,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 46)",
-      "3-mo return +14% (stronger than 71% of the universe vs S&P)",
+      "3-mo return +14% (stronger than 75% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +44% y/y",
       "fwd P/E 14 is cheap for its growth",
@@ -611,9 +652,9 @@
    "watch": [
     "CRWD",
     "SNOW",
-    "ZS",
-    "PLTR",
-    "ANET"
+    "ANET",
+    "FTNT",
+    "ZS"
    ]
   },
   {
@@ -623,7 +664,7 @@
     {
      "ticker": "CRM",
      "setup": "pullback",
-     "score": 89.0,
+     "score": 88.9,
      "shares": 2.53,
      "limit": 238.77,
      "stop": 227.92,
@@ -632,7 +673,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 53)",
-      "3-mo return +56% (stronger than 95% of the universe vs S&P)",
+      "3-mo return +56% (stronger than 96% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "fwd P/E 15 is cheap for its growth",
       "analyst mean target +18% away"
@@ -647,7 +688,7 @@
     {
      "ticker": "CVX",
      "setup": "pullback",
-     "score": 78.0,
+     "score": 79.9,
      "shares": 2.92,
      "limit": 206.54,
      "stop": 199.87,
@@ -656,7 +697,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 50)",
-      "3-mo return +21% (stronger than 78% of the universe vs S&P)",
+      "3-mo return +21% (stronger than 82% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +54% y/y",
       "fwd P/E 14 is cheap for its growth",
@@ -672,7 +713,7 @@
     {
      "ticker": "XOM",
      "setup": "pullback",
-     "score": 76.1,
+     "score": 77.2,
      "shares": 3.72,
      "limit": 162.04,
      "stop": 155.09,
@@ -681,7 +722,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 50)",
-      "3-mo return +19% (stronger than 77% of the universe vs S&P)",
+      "3-mo return +19% (stronger than 80% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +44% y/y",
       "fwd P/E 14 is cheap for its growth",
@@ -699,8 +740,8 @@
     "PANW",
     "CRWD",
     "PLTR",
-    "ZS",
-    "SNOW"
+    "FTNT",
+    "ZS"
    ]
   },
   {
@@ -710,7 +751,7 @@
     {
      "ticker": "VRTX",
      "setup": "pullback",
-     "score": 78.6,
+     "score": 80.1,
      "shares": 1.15,
      "limit": 524.99,
      "stop": 498.45,
@@ -719,7 +760,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 51)",
-      "3-mo return +9% (stronger than 63% of the universe vs S&P)",
+      "3-mo return +9% (stronger than 67% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +12% y/y",
       "fwd P/E 26",
@@ -735,7 +776,7 @@
     {
      "ticker": "V",
      "setup": "pullback",
-     "score": 74.9,
+     "score": 76.1,
      "shares": 1.63,
      "limit": 369.82,
      "stop": 358.56,
@@ -744,7 +785,7 @@
      "hold_days": 7,
      "reason": [
       "bounced off 20-EMA (RSI 49)",
-      "3-mo return +12% (stronger than 68% of the universe vs S&P)",
+      "3-mo return +12% (stronger than 71% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +14% y/y",
       "fwd P/E 24",
@@ -767,9 +808,9 @@
    ]
   }
  ],
- "n_picks": 25,
- "n_filled": 22,
- "n_winners": 13,
- "pnl": 116.03,
+ "n_picks": 27,
+ "n_filled": 24,
+ "n_winners": 15,
+ "pnl": 150.48,
  "empty_days": 0
 }
