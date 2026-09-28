@@ -273,14 +273,21 @@ def rank_and_bucket(feats, funds, regime, cfg, equity, cash, open_tickers, today
 
 def _ranking_table(scored, funds):
     rows = []
-    for t, r in scored.head(40).iterrows():
+    for i, (t, r) in enumerate(scored.head(40).iterrows(), 1):
         info = (funds or {}).get(t) or {}
-        rows.append({"ticker": t, "sector": r.sector, "score": round(float(r.composite), 1),
-                     "price": round(float(r.Close), 2), "ret21": round(float(r.ret21) * 100, 1),
-                     "ret63": round(float(r.ret63) * 100, 1), "rsi": round(float(r.rsi)),
-                     "setup": r.setup, "triggered": bool(r.triggered),
+        px = float(r.Close)
+        wk = float(r.atr) * 5 ** 0.5
+        tgt = info.get("target_mean")
+        rows.append({"rank": i, "ticker": t, "name": info.get("name", t), "sector": r.sector,
+                     "score": round(float(r.composite), 1), "price": round(px, 2),
+                     "ret21": round(float(r.ret21) * 100, 1), "ret63": round(float(r.ret63) * 100, 1),
+                     "rsi": round(float(r.rsi)), "setup": r.setup, "triggered": bool(r.triggered),
                      "eligible": bool(r.eligible), "fwd_pe": info.get("forward_pe"),
-                     "next_earnings": info.get("next_earnings")})
+                     "next_earnings": info.get("next_earnings"),
+                     "range_lo": round(px + wk, 2), "range_hi": round(px + 2 * wk, 2),
+                     "range_lo_pct": round(wk / px * 100, 1), "range_hi_pct": round(2 * wk / px * 100, 1),
+                     "analyst_target": round(tgt, 2) if tgt else None,
+                     "analyst_upside": round((tgt / px - 1) * 100, 1) if tgt else None})
     return rows
 
 
