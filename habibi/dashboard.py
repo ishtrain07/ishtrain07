@@ -40,6 +40,9 @@ label{font-size:12px;color:var(--mute);display:grid;gap:4px;min-width:0}input,se
 button{background:var(--ink);color:var(--bg);border:0;font-weight:600;cursor:pointer}
 code{background:var(--chip);padding:2px 6px;border-radius:6px;font-size:13px;word-break:break-all}
 .note{font-size:12px;color:var(--mute)}
+.tbl td.stick,.tbl th.stick{position:sticky;left:0;background:var(--card);z-index:1}
+.st{font-size:11px;font-weight:700;padding:2px 7px;border-radius:99px;white-space:nowrap}
+.st.buy{background:var(--buy-bg);color:var(--buy)}.st.hold{background:var(--chip);color:var(--ink)}.st.next{background:var(--warn-bg);color:var(--warn)}
 details.sec{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 14px}
 details.sec>summary{cursor:pointer;padding:12px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between}
 details.sec>summary::after{content:"+";color:var(--mute)}details.sec[open]>summary::after{content:"−"}
@@ -152,14 +155,7 @@ def render(r):
     parts.append(f'<div class="tbl" style="margin-top:12px"><table><tr><th class="l">Market</th><th>Last</th><th>1D</th><th>5D</th><th>1M</th></tr>{mrows}</table></div></details>')
 
     # ---- ranking
-    parts.append('<details class="sec" id="ranking"><summary>Full ranking (top 40 of the universe)</summary>')
-    rk = "".join(
-        f'<tr><td><b>{e(x["ticker"])}</b></td><td class="l">{e(x["sector"])}</td><td>{x["score"]}</td><td>${x["price"]}</td>'
-        f'<td>{pct(x["ret21"])}</td><td>{pct(x["ret63"])}</td><td>{x["rsi"]}</td><td class="l">{e(x["setup"])}{" ✓" if x["triggered"] else ""}</td>'
-        f'<td>{"-" if not x["fwd_pe"] else round(x["fwd_pe"], 1)}</td><td>{e(x["next_earnings"] or "-")}</td>'
-        f'<td>{"" if x["eligible"] else "<span class=neg>no</span>"}</td></tr>' for x in r.get("ranking", []))
-    parts.append(f'<div class="tbl"><table><tr><th>Ticker</th><th class="l">Sector</th><th>Score</th><th>Price</th><th>1M</th><th>3M</th>'
-                 f'<th>RSI</th><th class="l">Setup</th><th>Fwd P/E</th><th>Earnings</th><th>Trend ok</th></tr>{rk}</table></div></details>')
+    parts.append(_ranking(r))
 
     parts.append(_log_form(cfg))
     if r.get("replay"):
@@ -371,9 +367,9 @@ def _research(rs):
 def _plan_grid(b):
     if b["setup"] == "momentum":
         cells = [("Entry", f"${b['entry']}", ""), ("Hard stop", f"<b class=neg>${b['stop']}</b>", f"{b['stop_pct']}%"),
-                 ("Typical 1-week move", f"<b class=pos>${b['t1']}</b>", f"+{b['t1_pct']}%"),
-                 ("Strong 1-week move", f"<b class=pos>${b['t2']}</b>", f"+{b['t2_pct']}%"),
-                 ("Exit rule", "<b>weekly review</b>", "sold when it leaves the top 3")]
+                 ("Target (typical move)", f"<b class=pos>${b['t1']}</b>", f"+{b['t1_pct']}% in 1–2 wks"),
+                 ("Target (strong move)", f"<b class=pos>${b['t2']}</b>", f"+{b['t2_pct']}% in 1–2 wks"),
+                 ("Review date", f"<b>{e(b['sell_by'].replace('reviewed ', ''))}</b>", "keep + top up, or sell")]
     else:
         cells = [("Entry", f"${b['entry']}", ""), ("Stop-loss", f"<b class=neg>${b['stop']}</b>", f"{b['stop_pct']}%"),
                  ("Target 1 (sell ½)", f"<b class=pos>${b['t1']}</b>", f"+{b['t1_pct']}%"),
@@ -391,3 +387,37 @@ def _record_table(r):
                     f'<td>{pct(x.get("avg_loss_pct"))}</td><td>{money(x.get("net"))}</td></tr>')
     return ('<div class="tbl" style="margin-top:12px"><table><tr><th class="l">Win/loss</th><th>Closed</th><th>Wins</th><th>Losses</th>'
             f'<th>Win rate</th><th>Avg win</th><th>Avg loss</th><th>Net realized</th></tr>{"".join(rows)}</table></div>')
+
+
+def _ranking(r):
+    buys = {b["ticker"]: b for b in r.get("buys", [])}
+    held = {p["ticker"] for p in r.get("positions", [])}
+    nxt = {w["ticker"] for w in r.get("watch", [])}
+    review = next((b["sell_by"].replace("reviewed ", "") for b in r.get("buys", []) if b.get("sell_by", "").startswith("reviewed")), "next Monday")
+    rows = []
+    for x in r.get("ranking", []):
+        t = x["ticker"]
+        if t in buys:
+            st = '<span class="st buy">BUY TODAY</span>'
+        elif t in held:
+            st = '<span class="st hold">HOLDING</span>'
+        elif t in nxt:
+            st = '<span class="st next">NEXT IN LINE</span>'
+        else:
+            st = '<span class="mute">-</span>'
+        lo, hi = x.get("range_lo"), x.get("range_hi")
+        rng = f'${lo} – ${hi}<div class="note">+{x["range_lo_pct"]}% to +{x["range_hi_pct"]}%</div>' if lo else "-"
+        an = (f'${x["analyst_target"]}<div class="note">{"+" if x["analyst_upside"] > 0 else ""}{x["analyst_upside"]}%</div>'
+              if x.get("analyst_target") else "-")
+        rows.append(f'<tr><td class="stick l"><b>{x.get("rank", "")}. {e(t)}</b><div class="note">{e(x.get("name", ""))[:22]}</div></td>'
+                    f'<td class="l">{st}</td><td>${x["price"]}</td><td>{pct(x["ret21"])}</td><td>{pct(x["ret63"])}</td>'
+                    f'<td>{rng}</td><td>{an}</td><td>{"-" if not x["fwd_pe"] else round(x["fwd_pe"], 1)}</td>'
+                    f'<td>{e(x["next_earnings"] or "-")}</td></tr>')
+    return ('<details class="sec" id="ranking"><summary>Full ranking (top 40, best first)</summary>'
+            '<p class="note"><b>Past 1M / Past 3M</b> = how much the stock already moved (history, not a forecast). '
+            f'<b>Target range</b> = a typical to strong move over the next 1–2 weeks, based on how much the stock normally swings; judge it at the '
+            f'weekly review on <b>{e(review)}</b>. <b>Analyst target</b> = Wall Street consensus 12-month price. Only the top 3 are bought; '
+            '"Next in line" names replace a holding that drops out.</p>'
+            '<div class="tbl"><table><tr><th class="stick l">Rank · Ticker</th><th class="l">Status</th><th>Price</th><th>Past 1M</th><th>Past 3M</th>'
+            '<th>Target range (1–2 wk)</th><th>Analyst target (12-mo)</th><th>Fwd P/E</th><th>Earnings</th></tr>'
+            f'{"".join(rows)}</table></div></details>')
