@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-28 16:04 ET",
+ "generated_at": "2026-09-28 17:20 ET (position check)",
  "date": "2026-09-28",
  "mode": "plan",
  "regime": {
@@ -187,9 +187,9 @@
   "account": {
    "cash": 524.28,
    "realized": 0.0,
-   "unrealized": -8.88,
-   "market_value": 466.83,
-   "equity": 991.11,
+   "unrealized": -8.91,
+   "market_value": 466.81,
+   "equity": 991.09,
    "return_pct": -0.89
   },
   "record": {
@@ -216,7 +216,7 @@
     "system_pick": true,
     "mode": "momentum",
     "plan_entry": 562.89,
-    "plan_date": "2026-09-28",
+    "plan_date": "2026-09-26",
     "fills": [
      {
       "date": "2026-09-28",
@@ -224,10 +224,10 @@
       "shares": 0.28
      }
     ],
-    "price": 543.51,
-    "value": 152.18,
-    "pnl": -6.21,
-    "pnl_pct": -3.92,
+    "price": 543.42,
+    "value": 152.16,
+    "pnl": -6.24,
+    "pnl_pct": -3.94,
     "days_held": 0,
     "active_stop": 520.44,
     "action": "HOLD",
@@ -239,15 +239,15 @@
     "avg_cost": 337.62,
     "first_buy": "2026-09-28",
     "stop": 310.61,
-    "t1": 369.36,
-    "t2": 402.78,
+    "t1": 354.5,
+    "t2": 371.38,
     "hold_days": 60,
     "sell_by": "2026-12-22",
     "partial": false,
-    "system_pick": true,
+    "system_pick": false,
     "mode": "momentum",
-    "plan_entry": 335.94,
-    "plan_date": "2026-09-28",
+    "plan_entry": null,
+    "plan_date": null,
     "fills": [
      {
       "date": "2026-09-28",
@@ -270,15 +270,15 @@
     "avg_cost": 174.33,
     "first_buy": "2026-09-28",
     "stop": 160.38,
-    "t1": 188.61,
-    "t2": 203.76,
+    "t1": 183.05,
+    "t2": 191.76,
     "hold_days": 60,
     "sell_by": "2026-12-22",
     "partial": false,
-    "system_pick": true,
+    "system_pick": false,
     "mode": "momentum",
-    "plan_entry": 173.46,
-    "plan_date": "2026-09-28",
+    "plan_entry": null,
+    "plan_date": null,
     "fills": [
      {
       "date": "2026-09-28",
