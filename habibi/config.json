@@ -5,7 +5,7 @@
   "momentum_stop_pct": 8,
   "peak_brake_pct": 10,
   "brake_cool_days": 5,
-  "starting_capital_usd": 2000,
+  "starting_capital_usd": 1000,
   "start_date": "2026-09-28",
   "goal_date": "2026-10-30",
   "goal_return_pct": 20,
