@@ -24,9 +24,9 @@
    "t2_pct": 25.1,
    "hold_days": 60,
    "sell_by": "reviewed 2026-10-05",
-   "shares": 1.13,
-   "dollars": 636.07,
-   "risk_dollars": 50.89,
+   "shares": 0.56,
+   "dollars": 315.22,
+   "risk_dollars": 25.22,
    "reason": [
     "#1 on the learning model ranking: 6-mo +222%, 3-mo +41%, 1-mo +21%",
     "stronger than 95% of the universe vs the S&P; above its 200-day average",
@@ -74,9 +74,9 @@
    "t2_pct": 19.9,
    "hold_days": 60,
    "sell_by": "reviewed 2026-10-05",
-   "shares": 1.89,
-   "dollars": 634.93,
-   "risk_dollars": 50.79,
+   "shares": 0.94,
+   "dollars": 315.78,
+   "risk_dollars": 25.26,
    "reason": [
     "#2 on the learning model ranking: 6-mo +107%, 3-mo +35%, 1-mo +7%",
     "stronger than 91% of the universe vs the S&P; above its 200-day average",
@@ -124,9 +124,9 @@
    "t2_pct": 17.5,
    "hold_days": 60,
    "sell_by": "reviewed 2026-10-05",
-   "shares": 3.65,
-   "dollars": 633.13,
-   "risk_dollars": 50.65,
+   "shares": 1.83,
+   "dollars": 317.43,
+   "risk_dollars": 25.39,
    "reason": [
     "#3 on the learning model ranking: 6-mo +114%, 3-mo +15%, 1-mo +10%",
     "stronger than 77% of the universe vs the S&P; above its 200-day average",
@@ -202,6 +202,6 @@
   "spy": 771.35,
   "spy_sma50": 759.91,
   "spy_sma200": 714.84,
-  "vix": 16.37
+  "vix": 16.41
  }
 }

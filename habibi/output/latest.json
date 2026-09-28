@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-28 05:28 ET",
+ "generated_at": "2026-09-28 06:53 ET",
  "date": "2026-09-28",
  "mode": "plan",
  "regime": {
@@ -10,24 +10,24 @@
   "spy": 771.35,
   "spy_sma50": 759.91,
   "spy_sma200": 714.84,
-  "vix": 16.37
+  "vix": 16.41
  },
  "macro": [
   {
    "ticker": "ES=F",
    "label": "S&P 500 futures",
-   "last": 7761.5,
-   "d1": -0.54,
-   "d5": -0.92,
-   "m1": 0.25
+   "last": 7761.0,
+   "d1": -0.55,
+   "d5": -0.93,
+   "m1": 0.24
   },
   {
    "ticker": "NQ=F",
    "label": "Nasdaq 100 futures",
-   "last": 30544.0,
-   "d1": -1.12,
-   "d5": -0.78,
-   "m1": 2.86
+   "last": 30577.25,
+   "d1": -1.01,
+   "d5": -0.67,
+   "m1": 2.97
   },
   {
    "ticker": "SPY",
@@ -56,10 +56,10 @@
   {
    "ticker": "^VIX",
    "label": "VIX (fear)",
-   "last": 16.37,
-   "d1": 10.09,
-   "d5": 10.09,
-   "m1": 13.44
+   "last": 16.41,
+   "d1": 10.36,
+   "d5": 10.36,
+   "m1": 13.72
   },
   {
    "ticker": "^TNX",
@@ -72,34 +72,34 @@
   {
    "ticker": "DX-Y.NYB",
    "label": "US Dollar index",
-   "last": 101.1,
-   "d1": 0.13,
-   "d5": 0.67,
-   "m1": 1.96
+   "last": 101.14,
+   "d1": 0.17,
+   "d5": 0.71,
+   "m1": 2.0
   },
   {
    "ticker": "CL=F",
    "label": "WTI crude",
-   "last": 95.71,
-   "d1": 3.57,
-   "d5": -0.07,
-   "m1": 14.58
+   "last": 96.28,
+   "d1": 4.19,
+   "d5": 0.52,
+   "m1": 15.26
   },
   {
    "ticker": "GC=F",
    "label": "Gold",
-   "last": 4174.2,
-   "d1": -3.4,
-   "d5": -4.78,
-   "m1": -10.5
+   "last": 4188.2,
+   "d1": -3.08,
+   "d5": -4.46,
+   "m1": -10.2
   },
   {
    "ticker": "BTC-USD",
    "label": "Bitcoin",
-   "last": 82724.0,
-   "d1": -2.05,
-   "d5": -1.97,
-   "m1": 4.56
+   "last": 82961.59,
+   "d1": -1.77,
+   "d5": -1.68,
+   "m1": 4.86
   },
   {
    "ticker": "^N225",
@@ -120,41 +120,41 @@
   {
    "ticker": "^GDAXI",
    "label": "DAX (Germany)",
-   "last": 25381.41,
-   "d1": -0.11,
-   "d5": -0.76,
-   "m1": -4.47
+   "last": 25370.76,
+   "d1": -0.15,
+   "d5": -0.8,
+   "m1": -4.51
   },
   {
    "ticker": "^FTSE",
    "label": "FTSE 100 (UK)",
-   "last": 10718.58,
-   "d1": 0.22,
-   "d5": -0.19,
-   "m1": -0.68
+   "last": 10713.68,
+   "d1": 0.17,
+   "d5": -0.24,
+   "m1": -0.73
   },
   {
    "ticker": "^NSEI",
    "label": "Nifty 50 (India)",
-   "last": 22803.35,
-   "d1": -1.46,
-   "d5": -2.61,
-   "m1": -5.34
+   "last": 22780.25,
+   "d1": -1.56,
+   "d5": -2.71,
+   "m1": -5.44
   },
   {
    "ticker": "USDCAD=X",
    "label": "USD/CAD",
    "last": 1.42,
-   "d1": 0.06,
-   "d5": 1.15,
-   "m1": 2.19
+   "d1": 0.1,
+   "d5": 1.19,
+   "m1": 2.23
   },
   {
    "ticker": "USDINR=X",
    "label": "USD/INR",
    "last": 95.98,
    "d1": -0.19,
-   "d5": -0.04,
+   "d5": -0.03,
    "m1": 0.53
   }
  ],
@@ -162,16 +162,16 @@
   "VIX 16.4: normal.",
   "10Y yield 5.18% (+11.2% over a month): rising yields pressure high-P/E growth stocks.",
   "Dollar +2.0% over a month: strong dollar is a headwind for multinationals.",
-  "Global overnight: Nikkei -0.7%, Hang Seng +0.5%, DAX -0.1%, Nifty 50 -1.5%.",
-  "US futures: S&P 500 futures -0.54%, Nasdaq 100 futures -1.12%.",
+  "Global overnight: Nikkei -0.7%, Hang Seng +0.5%, DAX -0.1%, Nifty 50 -1.6%.",
+  "US futures: S&P 500 futures -0.55%, Nasdaq 100 futures -1.01%.",
   "Uptrend confirmed and volatility calm. Full risk allowed."
  ],
  "account": {
-  "cash": 2000.0,
+  "cash": 1000.0,
   "realized": 0.0,
   "unrealized": 0,
   "market_value": 0.0,
-  "equity": 2000.0,
+  "equity": 1000.0,
   "return_pct": 0.0
  },
  "drawdown_state": "OK",
@@ -185,11 +185,11 @@
  "rebalance": true,
  "paper": {
   "account": {
-   "cash": 2000.0,
+   "cash": 1000.0,
    "realized": 0.0,
    "unrealized": 0,
    "market_value": 0.0,
-   "equity": 2000.0,
+   "equity": 1000.0,
    "return_pct": 0.0
   },
   "positions": [],
@@ -199,7 +199,7 @@
     "date": "2026-09-28",
     "ticker": "DELL",
     "side": "BUY",
-    "shares": 1.13,
+    "shares": 0.56,
     "price": 565.7,
     "fees": 0,
     "note": "momentum"
@@ -208,7 +208,7 @@
     "date": "2026-09-28",
     "ticker": "SNOW",
     "side": "BUY",
-    "shares": 1.89,
+    "shares": 0.94,
     "price": 337.62,
     "fees": 0,
     "note": "momentum"
@@ -217,7 +217,7 @@
     "date": "2026-09-28",
     "ticker": "FTNT",
     "side": "BUY",
-    "shares": 3.65,
+    "shares": 1.83,
     "price": 174.33,
     "fees": 0,
     "note": "momentum"
@@ -263,7 +263,7 @@
     "exit_date": "2026-09-22",
     "exit_price": 265.21,
     "pnl_per_share": 8.089996337890625,
-    "r": 0.7045593390116752,
+    "r": 0.7045593390110073,
     "days": 7,
     "exit_reason": "time stop",
     "date": "2026-09-11",
@@ -275,7 +275,7 @@
    {
     "exit_date": "2026-09-22",
     "exit_price": 364.33,
-    "pnl_per_share": -6.119677963989091,
+    "pnl_per_share": -6.119677963978745,
     "r": -1.0,
     "days": 7,
     "exit_reason": "stop",
@@ -283,7 +283,7 @@
     "ticker": "V",
     "setup": "pullback",
     "entry": 370.45,
-    "ret_pct": -1.6519578248978495
+    "ret_pct": -1.6519578248950566
    },
    {
     "exit_date": "2026-09-23",
@@ -353,7 +353,7 @@
    {
     "exit_date": "2026-09-22",
     "exit_price": 364.35,
-    "pnl_per_share": -11.265636844487858,
+    "pnl_per_share": -11.26563684447899,
     "r": -1.0,
     "days": 5,
     "exit_reason": "stop",
@@ -361,7 +361,7 @@
     "ticker": "V",
     "setup": "pullback",
     "entry": 375.62,
-    "ret_pct": -2.9992111684504863
+    "ret_pct": -2.9992111684481255
    },
    {
     "exit_date": "2026-09-25",
@@ -392,7 +392,7 @@
    {
     "exit_date": "2026-09-18",
     "exit_price": 82.99,
-    "pnl_per_share": -3.6258830176606125,
+    "pnl_per_share": -3.6258830178666273,
     "r": -1.0,
     "days": 1,
     "exit_reason": "stop",
@@ -400,7 +400,7 @@
     "ticker": "GM",
     "setup": "pullback",
     "entry": 86.62,
-    "ret_pct": -4.185965022731066
+    "ret_pct": -4.185965022968904
    },
    {
     "exit_date": "2026-09-25",
@@ -418,7 +418,7 @@
    {
     "exit_date": "2026-09-21",
     "exit_price": 159.84,
-    "pnl_per_share": -3.698778216782017,
+    "pnl_per_share": -3.69877821518989,
     "r": -1.0,
     "days": 1,
     "exit_reason": "stop",
@@ -426,7 +426,7 @@
     "ticker": "XOM",
     "setup": "pullback",
     "entry": 163.54,
-    "ret_pct": -2.2616964465141938
+    "ret_pct": -2.261696445540654
    },
    {
     "exit_date": "2026-09-24",
@@ -444,7 +444,7 @@
    {
     "exit_date": "2026-09-22",
     "exit_price": 364.29,
-    "pnl_per_share": -5.662723177030159,
+    "pnl_per_share": -5.662723176997019,
     "r": -1.0,
     "days": 1,
     "exit_reason": "stop",
@@ -452,7 +452,7 @@
     "ticker": "V",
     "setup": "pullback",
     "entry": 369.95,
-    "ret_pct": -1.53067252065968
+    "ret_pct": -1.5306725206507221
    }
   ],
   "run_date": "2026-09-28"
@@ -1183,7 +1183,7 @@
      "avg_r": 0.02,
      "p25_20": 12.3,
      "p25_10": 24.2,
-     "p25_loss": 39.1,
+     "p25_loss": 39.3,
      "med25": 2.2
     },
     "half1": {
@@ -1194,7 +1194,7 @@
      "avg_r": 0.02,
      "p25_20": 5.6,
      "p25_10": 20.8,
-     "p25_loss": 31.5,
+     "p25_loss": 31.9,
      "med25": 3.4
     },
     "half2": {
@@ -1253,7 +1253,7 @@
      "avg_r": 0.01,
      "p25_20": 10.5,
      "p25_10": 23.7,
-     "p25_loss": 36.9,
+     "p25_loss": 36.7,
      "med25": 3.6
     },
     "half1": {
@@ -1264,7 +1264,7 @@
      "avg_r": 0.02,
      "p25_20": 4.6,
      "p25_10": 21.3,
-     "p25_loss": 42.1,
+     "p25_loss": 41.7,
      "med25": 1.5
     },
     "half2": {
@@ -1414,7 +1414,7 @@
   "momentum_stop_pct": 8,
   "peak_brake_pct": 10,
   "brake_cool_days": 5,
-  "starting_capital_usd": 2000,
+  "starting_capital_usd": 1000,
   "start_date": "2026-09-28",
   "goal_date": "2026-10-30",
   "goal_return_pct": 20,
@@ -1462,9 +1462,9 @@
    "t2_pct": 25.1,
    "hold_days": 60,
    "sell_by": "reviewed 2026-10-05",
-   "shares": 1.13,
-   "dollars": 636.07,
-   "risk_dollars": 50.89,
+   "shares": 0.56,
+   "dollars": 315.22,
+   "risk_dollars": 25.22,
    "reason": [
     "#1 on the learning model ranking: 6-mo +222%, 3-mo +41%, 1-mo +21%",
     "stronger than 95% of the universe vs the S&P; above its 200-day average",
@@ -1512,9 +1512,9 @@
    "t2_pct": 19.9,
    "hold_days": 60,
    "sell_by": "reviewed 2026-10-05",
-   "shares": 1.89,
-   "dollars": 634.93,
-   "risk_dollars": 50.79,
+   "shares": 0.94,
+   "dollars": 315.78,
+   "risk_dollars": 25.26,
    "reason": [
     "#2 on the learning model ranking: 6-mo +107%, 3-mo +35%, 1-mo +7%",
     "stronger than 91% of the universe vs the S&P; above its 200-day average",
@@ -1562,9 +1562,9 @@
    "t2_pct": 17.5,
    "hold_days": 60,
    "sell_by": "reviewed 2026-10-05",
-   "shares": 3.65,
-   "dollars": 633.13,
-   "risk_dollars": 50.65,
+   "shares": 1.83,
+   "dollars": 317.43,
+   "risk_dollars": 25.39,
    "reason": [
     "#3 on the learning model ranking: 6-mo +114%, 3-mo +15%, 1-mo +10%",
     "stronger than 77% of the universe vs the S&P; above its 200-day average",
@@ -1750,7 +1750,7 @@
    "setup": "breakout",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 6.7858047,
+   "fwd_pe": 6.7563868,
    "next_earnings": "2026-09-30"
   },
   {
@@ -1890,7 +1890,7 @@
    "setup": "breakout",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 16.249537,
+   "fwd_pe": 16.249357,
    "next_earnings": "2026-10-29"
   },
   {
@@ -1918,7 +1918,7 @@
    "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 13.728995,
+   "fwd_pe": 13.695267,
    "next_earnings": "2026-10-13"
   },
   {
@@ -2016,7 +2016,7 @@
    "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 22.819168,
+   "fwd_pe": 22.774998,
    "next_earnings": "2026-10-28"
   },
   {
@@ -2072,7 +2072,7 @@
    "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 14.423116,
+   "fwd_pe": 14.417914,
    "next_earnings": "2026-10-14"
   },
   {
