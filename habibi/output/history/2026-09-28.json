@@ -1,202 +1,45 @@
 {
- "buys": [
-  {
-   "ticker": "DELL",
-   "name": "Dell Technologies Inc.",
-   "sector": "Tech",
-   "price": 562.89,
-   "score": 84.7,
-   "momentum": 100,
-   "rs": 95,
-   "trend": 100,
-   "fund": 80,
-   "rsi": 59,
-   "setup": "momentum",
-   "kind": "new",
-   "fwd_pe": 19.331919,
-   "next_earnings": "2026-11-27",
-   "entry": 562.89,
-   "limit": 565.7,
-   "stop": 517.86,
-   "t1": 633.53,
-   "t2": 704.17,
-   "stop_pct": -8.0,
-   "t1_pct": 12.5,
-   "t2_pct": 25.1,
-   "hold_days": 60,
-   "sell_by": "reviewed 2026-10-05",
-   "shares": 0.28,
-   "dollars": 157.61,
-   "risk_dollars": 12.61,
-   "reason": [
-    "trial week: half-size position; topped up to a full slot on 2026-10-02+ rebalance if still top-3",
-    "#1 on the learning model ranking: 6-mo +222%, 3-mo +41%, 1-mo +21%",
-    "stronger than 95% of the universe vs the S&P; above its 200-day average",
-    "revenue +58% y/y"
-   ],
-   "news": [
-    {
-     "title": "Dell's AI Server Backlog Has Ballooned to $95 Billion. Here's What a $1,000 Investment Today Could Be Worth by 2030",
-     "url": "https://www.fool.com/investing/2026/09/28/dells-ai-server-backlog-has-ballooned-to-95-billio/",
-     "source": "Motley Fool"
-    },
-    {
-     "title": "HP\u2019s Dividend Looks Generous. Here\u2019s What\u2019s Really Funding It.",
-     "url": "https://247wallst.com/investing/2026/09/27/hps-dividend-looks-generous-heres-whats-really-funding-it/",
-     "source": "24/7 Wall St."
-    },
-    {
-     "title": "Update: Dow Snaps 3-Day Losing Streak as Oil Retreats; Wall Street Logs Weekly Gains",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/dow-snaps-3-day-losing-205628233.html",
-     "source": "MT Newswires"
-    }
-   ]
-  },
-  {
-   "ticker": "SNOW",
-   "name": "Snowflake Inc.",
-   "sector": "Tech",
-   "price": 335.94,
-   "score": 94.8,
-   "momentum": 93,
-   "rs": 91,
-   "trend": 100,
-   "fund": 45,
-   "rsi": 55,
-   "setup": "momentum",
-   "kind": "new",
-   "fwd_pe": 111.457634,
-   "next_earnings": "2026-12-02",
-   "entry": 335.94,
-   "limit": 337.62,
-   "stop": 309.06,
-   "t1": 369.36,
-   "t2": 402.78,
-   "stop_pct": -8.0,
-   "t1_pct": 9.9,
-   "t2_pct": 19.9,
-   "hold_days": 60,
-   "sell_by": "reviewed 2026-10-05",
-   "shares": 0.47,
-   "dollars": 157.89,
-   "risk_dollars": 12.63,
-   "reason": [
-    "trial week: half-size position; topped up to a full slot on 2026-10-02+ rebalance if still top-3",
-    "#2 on the learning model ranking: 6-mo +107%, 3-mo +35%, 1-mo +7%",
-    "stronger than 91% of the universe vs the S&P; above its 200-day average",
-    "revenue +35% y/y"
-   ],
-   "news": [
-    {
-     "title": "Snowflake shares slide as $3.5B debt offering sparks dilution jitters",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/snowflake-shares-slide-3-5b-122443248.html",
-     "source": "Investing.com"
-    },
-    {
-     "title": "Here Are Monday\u2019s Top Wall Street Analyst Research Calls: Applied Digital, Autodesk, Datadog, First Solar, L3Harris Technologies, PepsiCo, Roblox, Snowflake, TeraWulf and More",
-     "url": "https://247wallst.com/investing/2026/09/28/here-are-mondays-top-wall-street-analyst-research-calls-applied-digital-autodesk-datadog-first-solar-l3harris-technologies-pepsico-roblox-snowflake-terawulf-and-more/",
-     "source": "24/7 Wall St."
-    },
-    {
-     "title": "Snowflake Shares Fall After $3.5 Billion Convertible Note Offering",
-     "url": "https://investorshub.advfn.com/market-news/article/36978/snowflake-shares-fall-after-3-5-billion-convertible-note-offering",
-     "source": "InvestorsHub"
-    }
-   ]
-  },
-  {
-   "ticker": "FTNT",
-   "name": "Fortinet, Inc.",
-   "sector": "Tech",
-   "price": 173.46,
-   "score": 78.3,
-   "momentum": 90,
-   "rs": 77,
-   "trend": 100,
-   "fund": 72,
-   "rsi": 58,
-   "setup": "momentum",
-   "kind": "new",
-   "fwd_pe": 45.915977,
-   "next_earnings": "2026-11-04",
-   "entry": 173.46,
-   "limit": 174.33,
-   "stop": 159.58,
-   "t1": 188.61,
-   "t2": 203.76,
-   "stop_pct": -8.0,
-   "t1_pct": 8.7,
-   "t2_pct": 17.5,
-   "hold_days": 60,
-   "sell_by": "reviewed 2026-10-05",
-   "shares": 0.91,
-   "dollars": 157.85,
-   "risk_dollars": 12.63,
-   "reason": [
-    "trial week: half-size position; topped up to a full slot on 2026-10-02+ rebalance if still top-3",
-    "#3 on the learning model ranking: 6-mo +114%, 3-mo +15%, 1-mo +10%",
-    "stronger than 77% of the universe vs the S&P; above its 200-day average",
-    "revenue +26% y/y"
-   ],
-   "news": [
-    {
-     "title": "With AI Putting Cybersecurity in the Spotlight, Fortinet Stock Looks Hot at New All-Time Highs",
-     "url": "https://www.barchart.com/story/news/4825385/with-ai-putting-cybersecurity-in-the-spotlight-fortinet-stock-looks-hot-at-new-all-time-highs",
-     "source": "Barchart"
-    },
-    {
-     "title": "Is Fortinet (FTNT) Fully Valued On Its New York Hub Expansion?",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/fortinet-ftnt-fully-valued-york-211158150.html",
-     "source": "Simply Wall St."
-    },
-    {
-     "title": "Fortinet (FTNT) Stock Sinks As Market Gains: What You Should Know",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/fortinet-ftnt-stock-sinks-market-204506199.html",
-     "source": "Zacks"
-    }
-   ]
-  }
- ],
+ "buys": [],
  "backups": [],
  "watch": [
   {
-   "ticker": "PANW",
-   "score": 75.5,
-   "price": 374.74,
+   "ticker": "ARM",
+   "score": 82.8,
+   "price": 283.33,
    "setup": "momentum",
-   "rsi": 54,
+   "rsi": 52,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "HOOD",
-   "score": 74.8,
-   "price": 119.4,
-   "setup": "momentum",
-   "rsi": 57,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "ZS",
-   "score": 74.7,
-   "price": 193.05,
-   "setup": "momentum",
-   "rsi": 54,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "CRM",
-   "score": 73.4,
-   "price": 234.02,
+   "ticker": "SNOW",
+   "score": 82.6,
+   "price": 328.12,
    "setup": "momentum",
    "rsi": 50,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "CRWD",
-   "score": 72.7,
-   "price": 252.13,
+   "ticker": "MRVL",
+   "score": 82.2,
+   "price": 251.9,
    "setup": "momentum",
-   "rsi": 62,
+   "rsi": 57,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "HOOD",
+   "score": 80.4,
+   "price": 116.46,
+   "setup": "momentum",
+   "rsi": 54,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "FTNT",
+   "score": 77.5,
+   "price": 176.33,
+   "setup": "momentum",
+   "rsi": 60,
    "action": "next in line if a holding drops out"
   }
  ],
@@ -205,9 +48,9 @@
   "risk_mult": 1.0,
   "max_new": 4,
   "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
-  "spy": 771.35,
-  "spy_sma50": 759.91,
-  "spy_sma200": 714.84,
-  "vix": 16.05
+  "spy": 765.55,
+  "spy_sma50": 760.39,
+  "spy_sma200": 715.29,
+  "vix": 16.14
  }
 }
