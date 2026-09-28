@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-28 06:53 ET",
+ "generated_at": "2026-09-28 07:01 ET",
  "date": "2026-09-28",
  "mode": "plan",
  "regime": {
@@ -10,24 +10,24 @@
   "spy": 771.35,
   "spy_sma50": 759.91,
   "spy_sma200": 714.84,
-  "vix": 16.41
+  "vix": 16.39
  },
  "macro": [
   {
    "ticker": "ES=F",
    "label": "S&P 500 futures",
-   "last": 7761.0,
-   "d1": -0.55,
-   "d5": -0.93,
-   "m1": 0.24
+   "last": 7764.25,
+   "d1": -0.51,
+   "d5": -0.88,
+   "m1": 0.28
   },
   {
    "ticker": "NQ=F",
    "label": "Nasdaq 100 futures",
-   "last": 30577.25,
-   "d1": -1.01,
-   "d5": -0.67,
-   "m1": 2.97
+   "last": 30599.25,
+   "d1": -0.94,
+   "d5": -0.6,
+   "m1": 3.04
   },
   {
    "ticker": "SPY",
@@ -56,10 +56,10 @@
   {
    "ticker": "^VIX",
    "label": "VIX (fear)",
-   "last": 16.41,
-   "d1": 10.36,
-   "d5": 10.36,
-   "m1": 13.72
+   "last": 16.39,
+   "d1": 10.22,
+   "d5": 10.22,
+   "m1": 13.58
   },
   {
    "ticker": "^TNX",
@@ -72,34 +72,34 @@
   {
    "ticker": "DX-Y.NYB",
    "label": "US Dollar index",
-   "last": 101.14,
-   "d1": 0.17,
-   "d5": 0.71,
-   "m1": 2.0
+   "last": 101.15,
+   "d1": 0.18,
+   "d5": 0.72,
+   "m1": 2.01
   },
   {
    "ticker": "CL=F",
    "label": "WTI crude",
-   "last": 96.28,
-   "d1": 4.19,
-   "d5": 0.52,
-   "m1": 15.26
+   "last": 96.3,
+   "d1": 4.21,
+   "d5": 0.54,
+   "m1": 15.29
   },
   {
    "ticker": "GC=F",
    "label": "Gold",
-   "last": 4188.2,
-   "d1": -3.08,
-   "d5": -4.46,
-   "m1": -10.2
+   "last": 4189.2,
+   "d1": -3.05,
+   "d5": -4.44,
+   "m1": -10.18
   },
   {
    "ticker": "BTC-USD",
    "label": "Bitcoin",
-   "last": 82961.59,
-   "d1": -1.77,
+   "last": 82968.58,
+   "d1": -1.76,
    "d5": -1.68,
-   "m1": 4.86
+   "m1": 4.87
   },
   {
    "ticker": "^N225",
@@ -120,18 +120,18 @@
   {
    "ticker": "^GDAXI",
    "label": "DAX (Germany)",
-   "last": 25370.76,
-   "d1": -0.15,
-   "d5": -0.8,
-   "m1": -4.51
+   "last": 25368.05,
+   "d1": -0.16,
+   "d5": -0.81,
+   "m1": -4.52
   },
   {
    "ticker": "^FTSE",
    "label": "FTSE 100 (UK)",
-   "last": 10713.68,
-   "d1": 0.17,
-   "d5": -0.24,
-   "m1": -0.73
+   "last": 10719.31,
+   "d1": 0.22,
+   "d5": -0.18,
+   "m1": -0.68
   },
   {
    "ticker": "^NSEI",
@@ -145,9 +145,9 @@
    "ticker": "USDCAD=X",
    "label": "USD/CAD",
    "last": 1.42,
-   "d1": 0.1,
-   "d5": 1.19,
-   "m1": 2.23
+   "d1": 0.12,
+   "d5": 1.2,
+   "m1": 2.24
   },
   {
    "ticker": "USDINR=X",
@@ -162,8 +162,8 @@
   "VIX 16.4: normal.",
   "10Y yield 5.18% (+11.2% over a month): rising yields pressure high-P/E growth stocks.",
   "Dollar +2.0% over a month: strong dollar is a headwind for multinationals.",
-  "Global overnight: Nikkei -0.7%, Hang Seng +0.5%, DAX -0.1%, Nifty 50 -1.6%.",
-  "US futures: S&P 500 futures -0.55%, Nasdaq 100 futures -1.01%.",
+  "Global overnight: Nikkei -0.7%, Hang Seng +0.5%, DAX -0.2%, Nifty 50 -1.6%.",
+  "US futures: S&P 500 futures -0.51%, Nasdaq 100 futures -0.94%.",
   "Uptrend confirmed and volatility calm. Full risk allowed."
  ],
  "account": {
@@ -263,7 +263,7 @@
     "exit_date": "2026-09-22",
     "exit_price": 265.21,
     "pnl_per_share": 8.089996337890625,
-    "r": 0.7045593390110073,
+    "r": 0.7045593390110143,
     "days": 7,
     "exit_reason": "time stop",
     "date": "2026-09-11",
@@ -392,7 +392,7 @@
    {
     "exit_date": "2026-09-18",
     "exit_price": 82.99,
-    "pnl_per_share": -3.6258830178666273,
+    "pnl_per_share": -3.6258830176833925,
     "r": -1.0,
     "days": 1,
     "exit_reason": "stop",
@@ -400,7 +400,7 @@
     "ticker": "GM",
     "setup": "pullback",
     "entry": 86.62,
-    "ret_pct": -4.185965022968904
+    "ret_pct": -4.185965022757364
    },
    {
     "exit_date": "2026-09-25",

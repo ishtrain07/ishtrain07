@@ -36,7 +36,7 @@
    "exit_date": "2026-09-22",
    "exit_price": 265.21,
    "pnl_per_share": 8.089996337890625,
-   "r": 0.7045593390110073,
+   "r": 0.7045593390110143,
    "days": 7,
    "exit_reason": "time stop",
    "date": "2026-09-11",
@@ -165,7 +165,7 @@
   {
    "exit_date": "2026-09-18",
    "exit_price": 82.99,
-   "pnl_per_share": -3.6258830178666273,
+   "pnl_per_share": -3.6258830176833925,
    "r": -1.0,
    "days": 1,
    "exit_reason": "stop",
@@ -173,7 +173,7 @@
    "ticker": "GM",
    "setup": "pullback",
    "entry": 86.62,
-   "ret_pct": -4.185965022968904
+   "ret_pct": -4.185965022757364
   },
   {
    "exit_date": "2026-09-25",
