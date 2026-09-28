@@ -1,0 +1,2261 @@
+{
+ "generated_at": "2026-09-28 05:28 ET",
+ "date": "2026-09-28",
+ "mode": "plan",
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 771.35,
+  "spy_sma50": 759.91,
+  "spy_sma200": 714.84,
+  "vix": 16.37
+ },
+ "macro": [
+  {
+   "ticker": "ES=F",
+   "label": "S&P 500 futures",
+   "last": 7761.5,
+   "d1": -0.54,
+   "d5": -0.92,
+   "m1": 0.25
+  },
+  {
+   "ticker": "NQ=F",
+   "label": "Nasdaq 100 futures",
+   "last": 30544.0,
+   "d1": -1.12,
+   "d5": -0.78,
+   "m1": 2.86
+  },
+  {
+   "ticker": "SPY",
+   "label": "S&P 500",
+   "last": 771.35,
+   "d1": 0.54,
+   "d5": 1.27,
+   "m1": 0.94
+  },
+  {
+   "ticker": "QQQ",
+   "label": "Nasdaq 100",
+   "last": 744.5,
+   "d1": 0.46,
+   "d5": 3.3,
+   "m1": 4.77
+  },
+  {
+   "ticker": "IWM",
+   "label": "Russell 2000",
+   "last": 281.97,
+   "d1": 0.11,
+   "d5": -0.75,
+   "m1": -5.43
+  },
+  {
+   "ticker": "^VIX",
+   "label": "VIX (fear)",
+   "last": 16.37,
+   "d1": 10.09,
+   "d5": 10.09,
+   "m1": 13.44
+  },
+  {
+   "ticker": "^TNX",
+   "label": "US 10Y yield",
+   "last": 5.18,
+   "d1": 0.43,
+   "d5": 3.72,
+   "m1": 11.15
+  },
+  {
+   "ticker": "DX-Y.NYB",
+   "label": "US Dollar index",
+   "last": 101.1,
+   "d1": 0.13,
+   "d5": 0.67,
+   "m1": 1.96
+  },
+  {
+   "ticker": "CL=F",
+   "label": "WTI crude",
+   "last": 95.71,
+   "d1": 3.57,
+   "d5": -0.07,
+   "m1": 14.58
+  },
+  {
+   "ticker": "GC=F",
+   "label": "Gold",
+   "last": 4174.2,
+   "d1": -3.4,
+   "d5": -4.78,
+   "m1": -10.5
+  },
+  {
+   "ticker": "BTC-USD",
+   "label": "Bitcoin",
+   "last": 82724.0,
+   "d1": -2.05,
+   "d5": -1.97,
+   "m1": 4.56
+  },
+  {
+   "ticker": "^N225",
+   "label": "Nikkei (Japan)",
+   "last": 65877.62,
+   "d1": -0.73,
+   "d5": 3.06,
+   "m1": 0.03
+  },
+  {
+   "ticker": "^HSI",
+   "label": "Hang Seng (HK)",
+   "last": 24642.51,
+   "d1": 0.54,
+   "d5": -1.6,
+   "m1": -3.68
+  },
+  {
+   "ticker": "^GDAXI",
+   "label": "DAX (Germany)",
+   "last": 25381.41,
+   "d1": -0.11,
+   "d5": -0.76,
+   "m1": -4.47
+  },
+  {
+   "ticker": "^FTSE",
+   "label": "FTSE 100 (UK)",
+   "last": 10718.58,
+   "d1": 0.22,
+   "d5": -0.19,
+   "m1": -0.68
+  },
+  {
+   "ticker": "^NSEI",
+   "label": "Nifty 50 (India)",
+   "last": 22803.35,
+   "d1": -1.46,
+   "d5": -2.61,
+   "m1": -5.34
+  },
+  {
+   "ticker": "USDCAD=X",
+   "label": "USD/CAD",
+   "last": 1.42,
+   "d1": 0.06,
+   "d5": 1.15,
+   "m1": 2.19
+  },
+  {
+   "ticker": "USDINR=X",
+   "label": "USD/INR",
+   "last": 95.98,
+   "d1": -0.19,
+   "d5": -0.04,
+   "m1": 0.53
+  }
+ ],
+ "macro_read": [
+  "VIX 16.4: normal.",
+  "10Y yield 5.18% (+11.2% over a month): rising yields pressure high-P/E growth stocks.",
+  "Dollar +2.0% over a month: strong dollar is a headwind for multinationals.",
+  "Global overnight: Nikkei -0.7%, Hang Seng +0.5%, DAX -0.1%, Nifty 50 -1.5%.",
+  "US futures: S&P 500 futures -0.54%, Nasdaq 100 futures -1.12%.",
+  "Uptrend confirmed and volatility calm. Full risk allowed."
+ ],
+ "account": {
+  "cash": 2000.0,
+  "realized": 0.0,
+  "unrealized": 0,
+  "market_value": 0.0,
+  "equity": 2000.0,
+  "return_pct": 0.0
+ },
+ "drawdown_state": "OK",
+ "drawdown_msg": "",
+ "positions": [],
+ "closed": [],
+ "alerts": [],
+ "trading_days_left": 24,
+ "system_paper": {},
+ "strategy": "momentum",
+ "rebalance": true,
+ "paper": {
+  "account": {
+   "cash": 2000.0,
+   "realized": 0.0,
+   "unrealized": 0,
+   "market_value": 0.0,
+   "equity": 2000.0,
+   "return_pct": 0.0
+  },
+  "positions": [],
+  "closed": [],
+  "orders_today": [
+   {
+    "date": "2026-09-28",
+    "ticker": "DELL",
+    "side": "BUY",
+    "shares": 1.13,
+    "price": 565.7,
+    "fees": 0,
+    "note": "momentum"
+   },
+   {
+    "date": "2026-09-28",
+    "ticker": "SNOW",
+    "side": "BUY",
+    "shares": 1.89,
+    "price": 337.62,
+    "fees": 0,
+    "note": "momentum"
+   },
+   {
+    "date": "2026-09-28",
+    "ticker": "FTNT",
+    "side": "BUY",
+    "shares": 3.65,
+    "price": 174.33,
+    "fees": 0,
+    "note": "momentum"
+   }
+  ],
+  "executed": false
+ },
+ "backtest": {
+  "n": 807,
+  "win_rate": 47.2,
+  "avg_r": 0.02,
+  "avg_win_pct": 6.05,
+  "avg_loss_pct": -4.99,
+  "avg_days": 5.0,
+  "total_return_pct": 6.9,
+  "max_drawdown_pct": -43.8,
+  "p_25d_gain_20pct": 21.7,
+  "p_25d_gain_10pct": 30.7,
+  "p_25d_loss": 53.8,
+  "median_25d_pct": -1.7,
+  "by_setup": {
+   "breakout": {
+    "n": 197,
+    "win_rate": 51.3,
+    "avg_r": 0.06
+   },
+   "pullback": {
+    "n": 610,
+    "win_rate": 45.9,
+    "avg_r": 0.01
+   }
+  },
+  "exit_reasons": {
+   "stop": 350,
+   "time stop": 349,
+   "trail/breakeven": 58,
+   "target 2": 50
+  },
+  "from": "2025-07-30",
+  "to": "2026-09-21",
+  "recent": [
+   {
+    "exit_date": "2026-09-22",
+    "exit_price": 265.21,
+    "pnl_per_share": 8.089996337890625,
+    "r": 0.7045593390116752,
+    "days": 7,
+    "exit_reason": "time stop",
+    "date": "2026-09-11",
+    "ticker": "ABBV",
+    "setup": "pullback",
+    "entry": 257.12,
+    "ret_pct": 3.146389425763426
+   },
+   {
+    "exit_date": "2026-09-22",
+    "exit_price": 364.33,
+    "pnl_per_share": -6.119677963989091,
+    "r": -1.0,
+    "days": 7,
+    "exit_reason": "stop",
+    "date": "2026-09-11",
+    "ticker": "V",
+    "setup": "pullback",
+    "entry": 370.45,
+    "ret_pct": -1.6519578248978495
+   },
+   {
+    "exit_date": "2026-09-23",
+    "exit_price": 334.81,
+    "pnl_per_share": 2.459991455078125,
+    "r": 0.14803708494951204,
+    "days": 7,
+    "exit_reason": "time stop",
+    "date": "2026-09-14",
+    "ticker": "SNOW",
+    "setup": "pullback",
+    "entry": 332.35,
+    "ret_pct": 0.7401809567928583
+   },
+   {
+    "exit_date": "2026-09-23",
+    "exit_price": 191.79,
+    "pnl_per_share": 16.930098673865928,
+    "r": 1.6511583292547605,
+    "days": 7,
+    "exit_reason": "time stop",
+    "date": "2026-09-14",
+    "ticker": "PLTR",
+    "setup": "pullback",
+    "entry": 173.31,
+    "ret_pct": 9.768679771714895
+   },
+   {
+    "exit_date": "2026-09-22",
+    "exit_price": 250.06,
+    "pnl_per_share": 14.67999267578125,
+    "r": 0.779590044356672,
+    "days": 6,
+    "exit_reason": "time stop",
+    "date": "2026-09-14",
+    "ticker": "CRWD",
+    "setup": "breakout",
+    "entry": 235.38,
+    "ret_pct": 6.236720354853381
+   },
+   {
+    "exit_date": "2026-09-22",
+    "exit_price": 210.18,
+    "pnl_per_share": 18.449996948242188,
+    "r": 1.2028632295009318,
+    "days": 6,
+    "exit_reason": "time stop",
+    "date": "2026-09-14",
+    "ticker": "ZS",
+    "setup": "breakout",
+    "entry": 191.73,
+    "ret_pct": 9.622905836007448
+   },
+   {
+    "exit_date": "2026-09-23",
+    "exit_price": 262.49,
+    "pnl_per_share": 19.999984741210938,
+    "r": 1.0309695393700848,
+    "days": 6,
+    "exit_reason": "time stop",
+    "date": "2026-09-15",
+    "ticker": "CRWD",
+    "setup": "breakout",
+    "entry": 242.49,
+    "ret_pct": 8.247756314960679
+   },
+   {
+    "exit_date": "2026-09-22",
+    "exit_price": 364.35,
+    "pnl_per_share": -11.265636844487858,
+    "r": -1.0,
+    "days": 5,
+    "exit_reason": "stop",
+    "date": "2026-09-15",
+    "ticker": "V",
+    "setup": "pullback",
+    "entry": 375.62,
+    "ret_pct": -2.9992111684504863
+   },
+   {
+    "exit_date": "2026-09-25",
+    "exit_price": 335.94,
+    "pnl_per_share": 4.920013427734375,
+    "r": 0.29173672934676503,
+    "days": 7,
+    "exit_reason": "time stop",
+    "date": "2026-09-16",
+    "ticker": "SNOW",
+    "setup": "pullback",
+    "entry": 331.02,
+    "ret_pct": 1.4863191320845484
+   },
+   {
+    "exit_date": "2026-09-25",
+    "exit_price": 189.67,
+    "pnl_per_share": 16.10653269948304,
+    "r": 1.4310080011274502,
+    "days": 7,
+    "exit_reason": "time stop",
+    "date": "2026-09-16",
+    "ticker": "PLTR",
+    "setup": "pullback",
+    "entry": 174.34,
+    "ret_pct": 9.238575793168401
+   },
+   {
+    "exit_date": "2026-09-18",
+    "exit_price": 82.99,
+    "pnl_per_share": -3.6258830176606125,
+    "r": -1.0,
+    "days": 1,
+    "exit_reason": "stop",
+    "date": "2026-09-17",
+    "ticker": "GM",
+    "setup": "pullback",
+    "entry": 86.62,
+    "ret_pct": -4.185965022731066
+   },
+   {
+    "exit_date": "2026-09-25",
+    "exit_price": 630.63,
+    "pnl_per_share": 75.47539062499999,
+    "r": 1.7308010352988061,
+    "days": 6,
+    "exit_reason": "time stop",
+    "date": "2026-09-17",
+    "ticker": "AMD",
+    "setup": "breakout",
+    "entry": 545.09,
+    "ret_pct": 13.846408282390458
+   },
+   {
+    "exit_date": "2026-09-21",
+    "exit_price": 159.84,
+    "pnl_per_share": -3.698778216782017,
+    "r": -1.0,
+    "days": 1,
+    "exit_reason": "stop",
+    "date": "2026-09-18",
+    "ticker": "XOM",
+    "setup": "pullback",
+    "entry": 163.54,
+    "ret_pct": -2.2616964465141938
+   },
+   {
+    "exit_date": "2026-09-24",
+    "exit_price": 246.02,
+    "pnl_per_share": -12.430007934570312,
+    "r": -1.0314347510109518,
+    "days": 3,
+    "exit_reason": "stop",
+    "date": "2026-09-21",
+    "ticker": "AMZN",
+    "setup": "pullback",
+    "entry": 258.45,
+    "ret_pct": -4.809443740561042
+   },
+   {
+    "exit_date": "2026-09-22",
+    "exit_price": 364.29,
+    "pnl_per_share": -5.662723177030159,
+    "r": -1.0,
+    "days": 1,
+    "exit_reason": "stop",
+    "date": "2026-09-21",
+    "ticker": "V",
+    "setup": "pullback",
+    "entry": 369.95,
+    "ret_pct": -1.53067252065968
+   }
+  ],
+  "run_date": "2026-09-28"
+ },
+ "replay": null,
+ "research": {
+  "periods": {
+   "full": [
+    "2024-10-25",
+    "2026-09-25"
+   ],
+   "half1": [
+    "2024-10-25",
+    "2025-10-13"
+   ],
+   "half2": [
+    "2025-10-13",
+    "2026-09-25"
+   ]
+  },
+  "results": {
+   "A current rules": {
+    "full": {
+     "total_pct": 22.4,
+     "max_dd_pct": -17.8,
+     "trades": 326,
+     "win_rate": 49.1,
+     "avg_r": 0.09,
+     "p25_20": 0.0,
+     "p25_10": 7.0,
+     "p25_loss": 45.7,
+     "med25": 0.5
+    },
+    "half1": {
+     "total_pct": 2.9,
+     "max_dd_pct": -17.8,
+     "trades": 151,
+     "win_rate": 52.3,
+     "avg_r": 0.08,
+     "p25_20": 0.0,
+     "p25_10": 5.1,
+     "p25_loss": 38.0,
+     "med25": 0.8
+    },
+    "half2": {
+     "total_pct": 15.3,
+     "max_dd_pct": -16.8,
+     "trades": 175,
+     "win_rate": 46.3,
+     "avg_r": 0.08,
+     "p25_20": 0.0,
+     "p25_10": 9.8,
+     "p25_loss": 50.2,
+     "med25": -0.0
+    }
+   },
+   "B current, hold 15, trail 3ATR, no T2": {
+    "full": {
+     "total_pct": 25.7,
+     "max_dd_pct": -17.1,
+     "trades": 197,
+     "win_rate": 43.7,
+     "avg_r": 0.11,
+     "p25_20": 0.0,
+     "p25_10": 10.5,
+     "p25_loss": 47.5,
+     "med25": 0.2
+    },
+    "half1": {
+     "total_pct": 20.1,
+     "max_dd_pct": -14.4,
+     "trades": 90,
+     "win_rate": 44.4,
+     "avg_r": 0.2,
+     "p25_20": 0.0,
+     "p25_10": 14.8,
+     "p25_loss": 38.4,
+     "med25": 1.2
+    },
+    "half2": {
+     "total_pct": 7.9,
+     "max_dd_pct": -13.9,
+     "trades": 106,
+     "win_rate": 42.5,
+     "avg_r": 0.03,
+     "p25_20": 0.0,
+     "p25_10": 7.4,
+     "p25_loss": 52.6,
+     "med25": -0.2
+    }
+   },
+   "C breakouts only": {
+    "full": {
+     "total_pct": 3.7,
+     "max_dd_pct": -19.7,
+     "trades": 220,
+     "win_rate": 50.0,
+     "avg_r": 0.01,
+     "p25_20": 0.0,
+     "p25_10": 1.3,
+     "p25_loss": 47.0,
+     "med25": 0.0
+    },
+    "half1": {
+     "total_pct": -5.1,
+     "max_dd_pct": -19.7,
+     "trades": 108,
+     "win_rate": 52.8,
+     "avg_r": 0.02,
+     "p25_20": 0.0,
+     "p25_10": 2.8,
+     "p25_loss": 50.5,
+     "med25": -0.1
+    },
+    "half2": {
+     "total_pct": 8.4,
+     "max_dd_pct": -11.3,
+     "trades": 110,
+     "win_rate": 47.3,
+     "avg_r": 0.02,
+     "p25_20": 0.0,
+     "p25_10": 0.0,
+     "p25_loss": 47.4,
+     "med25": 0.3
+    }
+   },
+   "D breakouts, let winners run": {
+    "full": {
+     "total_pct": 18.4,
+     "max_dd_pct": -20.9,
+     "trades": 125,
+     "win_rate": 40.8,
+     "avg_r": 0.16,
+     "p25_20": 0.9,
+     "p25_10": 5.9,
+     "p25_loss": 41.3,
+     "med25": 0.5
+    },
+    "half1": {
+     "total_pct": 4.5,
+     "max_dd_pct": -19.0,
+     "trades": 57,
+     "win_rate": 40.4,
+     "avg_r": 0.21,
+     "p25_20": 1.9,
+     "p25_10": 5.6,
+     "p25_loss": 46.3,
+     "med25": 0.0
+    },
+    "half2": {
+     "total_pct": 14.2,
+     "max_dd_pct": -15.6,
+     "trades": 66,
+     "win_rate": 40.9,
+     "avg_r": 0.1,
+     "p25_20": 0.0,
+     "p25_10": 7.0,
+     "p25_loss": 40.0,
+     "med25": 1.4
+    }
+   },
+   "E leader pullbacks": {
+    "full": {
+     "total_pct": -11.6,
+     "max_dd_pct": -22.1,
+     "trades": 247,
+     "win_rate": 43.7,
+     "avg_r": 0.02,
+     "p25_20": 0.0,
+     "p25_10": 2.0,
+     "p25_loss": 49.9,
+     "med25": 0.0
+    },
+    "half1": {
+     "total_pct": -2.9,
+     "max_dd_pct": -15.8,
+     "trades": 103,
+     "win_rate": 45.6,
+     "avg_r": 0.03,
+     "p25_20": 0.0,
+     "p25_10": 0.0,
+     "p25_loss": 32.9,
+     "med25": 1.2
+    },
+    "half2": {
+     "total_pct": -8.7,
+     "max_dd_pct": -19.6,
+     "trades": 144,
+     "win_rate": 42.4,
+     "avg_r": 0.01,
+     "p25_20": 0.0,
+     "p25_10": 4.2,
+     "p25_loss": 63.3,
+     "med25": -2.6
+    }
+   },
+   "F leader pullbacks, let run": {
+    "full": {
+     "total_pct": 40.4,
+     "max_dd_pct": -30.2,
+     "trades": 163,
+     "win_rate": 28.8,
+     "avg_r": 0.21,
+     "p25_20": 3.3,
+     "p25_10": 20.7,
+     "p25_loss": 44.0,
+     "med25": 1.3
+    },
+    "half1": {
+     "total_pct": 46.0,
+     "max_dd_pct": -18.8,
+     "trades": 66,
+     "win_rate": 34.8,
+     "avg_r": 0.43,
+     "p25_20": 4.2,
+     "p25_10": 24.1,
+     "p25_loss": 28.2,
+     "med25": 3.0
+    },
+    "half2": {
+     "total_pct": -5.1,
+     "max_dd_pct": -30.2,
+     "trades": 96,
+     "win_rate": 25.0,
+     "avg_r": 0.01,
+     "p25_20": 2.8,
+     "p25_10": 19.5,
+     "p25_loss": 54.4,
+     "med25": -1.7
+    }
+   },
+   "G leaders any setup, let run": {
+    "full": {
+     "total_pct": 2.1,
+     "max_dd_pct": -29.0,
+     "trades": 179,
+     "win_rate": 29.1,
+     "avg_r": 0.06,
+     "p25_20": 2.6,
+     "p25_10": 12.5,
+     "p25_loss": 46.8,
+     "med25": 0.0
+    },
+    "half1": {
+     "total_pct": 16.2,
+     "max_dd_pct": -25.9,
+     "trades": 81,
+     "win_rate": 30.9,
+     "avg_r": 0.16,
+     "p25_20": 4.2,
+     "p25_10": 11.6,
+     "p25_loss": 34.3,
+     "med25": 0.7
+    },
+    "half2": {
+     "total_pct": -17.2,
+     "max_dd_pct": -29.0,
+     "trades": 98,
+     "win_rate": 26.5,
+     "avg_r": -0.11,
+     "p25_20": 1.4,
+     "p25_10": 14.4,
+     "p25_loss": 61.4,
+     "med25": -3.1
+    }
+   },
+   "H leaders, wide stop, let run": {
+    "full": {
+     "total_pct": 10.6,
+     "max_dd_pct": -16.8,
+     "trades": 138,
+     "win_rate": 32.6,
+     "avg_r": 0.1,
+     "p25_20": 0.0,
+     "p25_10": 6.2,
+     "p25_loss": 39.8,
+     "med25": 1.2
+    },
+    "half1": {
+     "total_pct": 14.4,
+     "max_dd_pct": -16.8,
+     "trades": 57,
+     "win_rate": 38.6,
+     "avg_r": 0.2,
+     "p25_20": 0.0,
+     "p25_10": 12.0,
+     "p25_loss": 33.3,
+     "med25": 1.6
+    },
+    "half2": {
+     "total_pct": -4.5,
+     "max_dd_pct": -15.7,
+     "trades": 75,
+     "win_rate": 30.7,
+     "avg_r": 0.02,
+     "p25_20": 0.0,
+     "p25_10": 0.9,
+     "p25_loss": 47.9,
+     "med25": 0.3
+    }
+   },
+   "I leaders, 3 positions, risk 2%": {
+    "full": {
+     "total_pct": 17.7,
+     "max_dd_pct": -29.1,
+     "trades": 133,
+     "win_rate": 30.1,
+     "avg_r": 0.07,
+     "p25_20": 3.5,
+     "p25_10": 13.8,
+     "p25_loss": 42.9,
+     "med25": 1.0
+    },
+    "half1": {
+     "total_pct": 25.7,
+     "max_dd_pct": -23.0,
+     "trades": 63,
+     "win_rate": 30.2,
+     "avg_r": 0.18,
+     "p25_20": 6.5,
+     "p25_10": 17.6,
+     "p25_loss": 30.6,
+     "med25": 1.6
+    },
+    "half2": {
+     "total_pct": -13.3,
+     "max_dd_pct": -29.1,
+     "trades": 70,
+     "win_rate": 30.0,
+     "avg_r": -0.1,
+     "p25_20": 0.9,
+     "p25_10": 9.8,
+     "p25_loss": 57.7,
+     "med25": -1.8
+    }
+   },
+   "R momentum rotation top3 weekly": {
+    "full": {
+     "total_pct": 103.0,
+     "max_dd_pct": -47.7,
+     "trades": 97,
+     "win_rate": 38.1,
+     "avg_r": 0.02,
+     "p25_20": 15.2,
+     "p25_10": 35.2,
+     "p25_loss": 39.1,
+     "med25": 5.4
+    },
+    "half1": {
+     "total_pct": 33.0,
+     "max_dd_pct": -47.7,
+     "trades": 47,
+     "win_rate": 42.6,
+     "avg_r": 0.01,
+     "p25_20": 9.7,
+     "p25_10": 31.0,
+     "p25_loss": 37.0,
+     "med25": 4.3
+    },
+    "half2": {
+     "total_pct": 47.6,
+     "max_dd_pct": -45.0,
+     "trades": 55,
+     "win_rate": 30.9,
+     "avg_r": 0.02,
+     "p25_20": 21.4,
+     "p25_10": 39.1,
+     "p25_loss": 37.7,
+     "med25": 6.4
+    }
+   },
+   "R momentum rotation top4 weekly": {
+    "full": {
+     "total_pct": 102.5,
+     "max_dd_pct": -41.9,
+     "trades": 121,
+     "win_rate": 38.0,
+     "avg_r": 0.03,
+     "p25_20": 11.4,
+     "p25_10": 34.9,
+     "p25_loss": 38.2,
+     "med25": 5.7
+    },
+    "half1": {
+     "total_pct": 37.0,
+     "max_dd_pct": -41.9,
+     "trades": 57,
+     "win_rate": 40.4,
+     "avg_r": 0.02,
+     "p25_20": 8.8,
+     "p25_10": 35.2,
+     "p25_loss": 35.2,
+     "med25": 5.9
+    },
+    "half2": {
+     "total_pct": 51.5,
+     "max_dd_pct": -40.1,
+     "trades": 69,
+     "win_rate": 33.3,
+     "avg_r": 0.02,
+     "p25_20": 17.7,
+     "p25_10": 38.6,
+     "p25_loss": 40.9,
+     "med25": 5.1
+    }
+   },
+   "R momentum rotation top5 weekly": {
+    "full": {
+     "total_pct": 136.7,
+     "max_dd_pct": -41.0,
+     "trades": 146,
+     "win_rate": 41.1,
+     "avg_r": 0.03,
+     "p25_20": 14.1,
+     "p25_10": 34.5,
+     "p25_loss": 33.4,
+     "med25": 5.7
+    },
+    "half1": {
+     "total_pct": 43.0,
+     "max_dd_pct": -40.0,
+     "trades": 70,
+     "win_rate": 42.9,
+     "avg_r": -0.0,
+     "p25_20": 12.0,
+     "p25_10": 32.4,
+     "p25_loss": 34.3,
+     "med25": 5.7
+    },
+    "half2": {
+     "total_pct": 55.7,
+     "max_dd_pct": -41.0,
+     "trades": 84,
+     "win_rate": 33.3,
+     "avg_r": 0.02,
+     "p25_20": 22.3,
+     "p25_10": 40.5,
+     "p25_loss": 35.8,
+     "med25": 6.7
+    }
+   },
+   "R2 top3 risk-adjusted momentum": {
+    "full": {
+     "total_pct": 141.0,
+     "max_dd_pct": -41.4,
+     "trades": 125,
+     "win_rate": 49.6,
+     "avg_r": 0.02,
+     "p25_20": 14.3,
+     "p25_10": 34.7,
+     "p25_loss": 38.5,
+     "med25": 4.1
+    },
+    "half1": {
+     "total_pct": 59.1,
+     "max_dd_pct": -35.7,
+     "trades": 60,
+     "win_rate": 51.7,
+     "avg_r": 0.02,
+     "p25_20": 11.6,
+     "p25_10": 33.3,
+     "p25_loss": 33.8,
+     "med25": 4.3
+    },
+    "half2": {
+     "total_pct": 62.2,
+     "max_dd_pct": -41.4,
+     "trades": 66,
+     "win_rate": 47.0,
+     "avg_r": 0.02,
+     "p25_20": 18.6,
+     "p25_10": 39.5,
+     "p25_loss": 36.7,
+     "med25": 6.4
+    }
+   },
+   "R3 top3, 7% stop, exit < 20-EMA": {
+    "full": {
+     "total_pct": 62.3,
+     "max_dd_pct": -53.4,
+     "trades": 151,
+     "win_rate": 30.5,
+     "avg_r": 0.01,
+     "p25_20": 15.2,
+     "p25_10": 25.1,
+     "p25_loss": 44.0,
+     "med25": 1.5
+    },
+    "half1": {
+     "total_pct": 100.1,
+     "max_dd_pct": -31.9,
+     "trades": 66,
+     "win_rate": 39.4,
+     "avg_r": 0.03,
+     "p25_20": 18.1,
+     "p25_10": 31.9,
+     "p25_loss": 30.6,
+     "med25": 4.4
+    },
+    "half2": {
+     "total_pct": -15.2,
+     "max_dd_pct": -53.4,
+     "trades": 85,
+     "win_rate": 22.4,
+     "avg_r": -0.01,
+     "p25_20": 14.0,
+     "p25_10": 20.5,
+     "p25_loss": 54.0,
+     "med25": -1.5
+    }
+   },
+   "R4 top3 risk-adj, 7% stop, exit < 20-EMA": {
+    "full": {
+     "total_pct": 111.3,
+     "max_dd_pct": -47.9,
+     "trades": 151,
+     "win_rate": 41.7,
+     "avg_r": 0.02,
+     "p25_20": 13.2,
+     "p25_10": 25.9,
+     "p25_loss": 42.0,
+     "med25": 1.6
+    },
+    "half1": {
+     "total_pct": 86.7,
+     "max_dd_pct": -24.0,
+     "trades": 68,
+     "win_rate": 45.6,
+     "avg_r": 0.03,
+     "p25_20": 12.5,
+     "p25_10": 33.8,
+     "p25_loss": 36.1,
+     "med25": 2.9
+    },
+    "half2": {
+     "total_pct": 19.4,
+     "max_dd_pct": -47.9,
+     "trades": 83,
+     "win_rate": 37.3,
+     "avg_r": 0.01,
+     "p25_20": 15.3,
+     "p25_10": 20.9,
+     "p25_loss": 43.7,
+     "med25": 1.5
+    }
+   },
+   "R5 R4 + 10% drawdown brake": {
+    "full": {
+     "total_pct": 66.2,
+     "max_dd_pct": -40.1,
+     "trades": 158,
+     "win_rate": 40.5,
+     "avg_r": 0.01,
+     "p25_20": 10.1,
+     "p25_10": 23.3,
+     "p25_loss": 49.7,
+     "med25": 0.0
+    },
+    "half1": {
+     "total_pct": 39.8,
+     "max_dd_pct": -20.0,
+     "trades": 74,
+     "win_rate": 44.6,
+     "avg_r": 0.02,
+     "p25_20": 6.0,
+     "p25_10": 27.8,
+     "p25_loss": 40.3,
+     "med25": 1.8
+    },
+    "half2": {
+     "total_pct": 20.5,
+     "max_dd_pct": -40.1,
+     "trades": 84,
+     "win_rate": 36.9,
+     "avg_r": 0.0,
+     "p25_20": 15.3,
+     "p25_10": 21.4,
+     "p25_loss": 53.5,
+     "med25": -1.1
+    }
+   },
+   "R6 R3 + 10% drawdown brake": {
+    "full": {
+     "total_pct": 96.8,
+     "max_dd_pct": -48.4,
+     "trades": 153,
+     "win_rate": 37.9,
+     "avg_r": 0.01,
+     "p25_20": 14.5,
+     "p25_10": 28.1,
+     "p25_loss": 44.2,
+     "med25": 1.6
+    },
+    "half1": {
+     "total_pct": 92.7,
+     "max_dd_pct": -22.7,
+     "trades": 66,
+     "win_rate": 45.5,
+     "avg_r": 0.03,
+     "p25_20": 15.3,
+     "p25_10": 31.9,
+     "p25_loss": 37.0,
+     "med25": 2.8
+    },
+    "half2": {
+     "total_pct": -19.5,
+     "max_dd_pct": -48.4,
+     "trades": 90,
+     "win_rate": 25.6,
+     "avg_r": -0.01,
+     "p25_20": 14.9,
+     "p25_10": 23.3,
+     "p25_loss": 59.5,
+     "med25": -3.3
+    }
+   },
+   "R7 top4 risk-adj, 8% stop, green entries, brake 12%": {
+    "full": {
+     "total_pct": 29.6,
+     "max_dd_pct": -37.1,
+     "trades": 129,
+     "win_rate": 38.0,
+     "avg_r": 0.01,
+     "p25_20": 8.6,
+     "p25_10": 14.7,
+     "p25_loss": 41.8,
+     "med25": 0.0
+    },
+    "half1": {
+     "total_pct": -9.0,
+     "max_dd_pct": -26.2,
+     "trades": 58,
+     "win_rate": 34.5,
+     "avg_r": -0.01,
+     "p25_20": 1.4,
+     "p25_10": 5.6,
+     "p25_loss": 40.3,
+     "med25": 0.0
+    },
+    "half2": {
+     "total_pct": 45.0,
+     "max_dd_pct": -30.6,
+     "trades": 74,
+     "win_rate": 37.8,
+     "avg_r": 0.02,
+     "p25_20": 16.7,
+     "p25_10": 23.3,
+     "p25_loss": 40.0,
+     "med25": 2.1
+    }
+   },
+   "R8 top3 momentum, 8% stop, brake 10%": {
+    "full": {
+     "total_pct": 107.3,
+     "max_dd_pct": -49.3,
+     "trades": 124,
+     "win_rate": 39.5,
+     "avg_r": 0.02,
+     "p25_20": 13.0,
+     "p25_10": 29.5,
+     "p25_loss": 37.6,
+     "med25": 2.5
+    },
+    "half1": {
+     "total_pct": 89.3,
+     "max_dd_pct": -19.2,
+     "trades": 55,
+     "win_rate": 43.6,
+     "avg_r": 0.04,
+     "p25_20": 11.6,
+     "p25_10": 35.2,
+     "p25_loss": 21.8,
+     "med25": 6.4
+    },
+    "half2": {
+     "total_pct": -1.2,
+     "max_dd_pct": -49.3,
+     "trades": 70,
+     "win_rate": 31.4,
+     "avg_r": 0.0,
+     "p25_20": 15.8,
+     "p25_10": 27.0,
+     "p25_loss": 49.3,
+     "med25": 0.4
+    }
+   },
+   "L1 LEARNING model top3 weekly, 10% stop": {
+    "full": {
+     "total_pct": 205.0,
+     "max_dd_pct": -39.0,
+     "trades": 159,
+     "win_rate": 53.5,
+     "avg_r": 0.03,
+     "p25_20": 12.1,
+     "p25_10": 27.3,
+     "p25_loss": 35.2,
+     "med25": 2.7
+    },
+    "half1": {
+     "total_pct": 60.6,
+     "max_dd_pct": -29.9,
+     "trades": 69,
+     "win_rate": 50.7,
+     "avg_r": 0.02,
+     "p25_20": 6.9,
+     "p25_10": 25.0,
+     "p25_loss": 32.9,
+     "med25": 2.1
+    },
+    "half2": {
+     "total_pct": 102.4,
+     "max_dd_pct": -39.0,
+     "trades": 91,
+     "win_rate": 54.9,
+     "avg_r": 0.03,
+     "p25_20": 18.6,
+     "p25_10": 32.6,
+     "p25_loss": 32.6,
+     "med25": 5.3
+    }
+   },
+   "L2 LEARNING model top3 weekly, 8% stop, brake 10%": {
+    "full": {
+     "total_pct": 151.7,
+     "max_dd_pct": -33.8,
+     "trades": 172,
+     "win_rate": 47.1,
+     "avg_r": 0.02,
+     "p25_20": 12.3,
+     "p25_10": 24.2,
+     "p25_loss": 39.1,
+     "med25": 2.2
+    },
+    "half1": {
+     "total_pct": 47.2,
+     "max_dd_pct": -27.9,
+     "trades": 76,
+     "win_rate": 46.1,
+     "avg_r": 0.02,
+     "p25_20": 5.6,
+     "p25_10": 20.8,
+     "p25_loss": 31.5,
+     "med25": 3.4
+    },
+    "half2": {
+     "total_pct": 107.0,
+     "max_dd_pct": -33.8,
+     "trades": 91,
+     "win_rate": 50.5,
+     "avg_r": 0.03,
+     "p25_20": 20.5,
+     "p25_10": 30.2,
+     "p25_loss": 34.0,
+     "med25": 4.4
+    }
+   },
+   "L3 LEARNING model top4 weekly": {
+    "full": {
+     "total_pct": 165.4,
+     "max_dd_pct": -35.7,
+     "trades": 191,
+     "win_rate": 51.3,
+     "avg_r": 0.02,
+     "p25_20": 11.0,
+     "p25_10": 23.1,
+     "p25_loss": 32.3,
+     "med25": 3.3
+    },
+    "half1": {
+     "total_pct": 61.8,
+     "max_dd_pct": -29.1,
+     "trades": 80,
+     "win_rate": 51.2,
+     "avg_r": 0.02,
+     "p25_20": 6.0,
+     "p25_10": 24.1,
+     "p25_loss": 30.6,
+     "med25": 3.4
+    },
+    "half2": {
+     "total_pct": 64.8,
+     "max_dd_pct": -35.7,
+     "trades": 113,
+     "win_rate": 49.6,
+     "avg_r": 0.02,
+     "p25_20": 17.2,
+     "p25_10": 24.2,
+     "p25_loss": 33.5,
+     "med25": 3.7
+    }
+   },
+   "L0 equal-weight factors, no learning (control)": {
+    "full": {
+     "total_pct": 126.3,
+     "max_dd_pct": -28.1,
+     "trades": 200,
+     "win_rate": 51.0,
+     "avg_r": 0.01,
+     "p25_20": 10.5,
+     "p25_10": 23.7,
+     "p25_loss": 36.9,
+     "med25": 3.6
+    },
+    "half1": {
+     "total_pct": 48.7,
+     "max_dd_pct": -26.9,
+     "trades": 99,
+     "win_rate": 49.5,
+     "avg_r": 0.02,
+     "p25_20": 4.6,
+     "p25_10": 21.3,
+     "p25_loss": 42.1,
+     "med25": 1.5
+    },
+    "half2": {
+     "total_pct": 52.3,
+     "max_dd_pct": -28.1,
+     "trades": 101,
+     "win_rate": 52.5,
+     "avg_r": 0.01,
+     "p25_20": 17.7,
+     "p25_10": 24.2,
+     "p25_loss": 35.8,
+     "med25": 4.0
+    }
+   },
+   "Z buy & hold SPY": {
+    "full": {
+     "total_pct": 36.3,
+     "max_dd_pct": -18.8,
+     "trades": 0,
+     "win_rate": null,
+     "avg_r": null,
+     "p25_20": 0.0,
+     "p25_10": 4.4,
+     "p25_loss": 32.3,
+     "med25": 1.7
+    },
+    "half1": {
+     "total_pct": 15.9,
+     "max_dd_pct": -18.8,
+     "trades": 0,
+     "win_rate": null,
+     "avg_r": null,
+     "p25_20": 0.0,
+     "p25_10": 4.6,
+     "p25_loss": 31.5,
+     "med25": 2.4
+    },
+    "half2": {
+     "total_pct": 17.6,
+     "max_dd_pct": -8.9,
+     "trades": 0,
+     "win_rate": null,
+     "avg_r": null,
+     "p25_20": 0.0,
+     "p25_10": 4.7,
+     "p25_loss": 36.7,
+     "med25": 1.3
+    }
+   },
+   "Z buy & hold QQQ": {
+    "full": {
+     "total_pct": 51.8,
+     "max_dd_pct": -22.8,
+     "trades": 0,
+     "win_rate": null,
+     "avg_r": null,
+     "p25_20": 2.0,
+     "p25_10": 11.0,
+     "p25_loss": 34.5,
+     "med25": 1.7
+    },
+    "half1": {
+     "total_pct": 22.2,
+     "max_dd_pct": -22.8,
+     "trades": 0,
+     "win_rate": null,
+     "avg_r": null,
+     "p25_20": 1.9,
+     "p25_10": 9.7,
+     "p25_loss": 27.3,
+     "med25": 3.0
+    },
+    "half2": {
+     "total_pct": 24.3,
+     "max_dd_pct": -12.0,
+     "trades": 0,
+     "win_rate": null,
+     "avg_r": null,
+     "p25_20": 2.3,
+     "p25_10": 13.5,
+     "p25_loss": 45.1,
+     "med25": 0.3
+    }
+   }
+  },
+  "learned_weights_now": [
+   {
+    "factor": "Momentum / volatility (6-3-1 month)",
+    "key": "risk_adj_mom",
+    "weight": 50.0,
+    "recent_ic": -0.005
+   },
+   {
+    "factor": "Short-term dip (5-day loser)",
+    "key": "reversal_5",
+    "weight": 31.8,
+    "recent_ic": 0.094
+   },
+   {
+    "factor": "6-month momentum",
+    "key": "mom_126",
+    "weight": 18.2,
+    "recent_ic": 0.054
+   },
+   {
+    "factor": "1-month momentum",
+    "key": "mom_21",
+    "weight": 0.0,
+    "recent_ic": -0.077
+   },
+   {
+    "factor": "3-month strength vs S&P",
+    "key": "rs_63",
+    "weight": 0.0,
+    "recent_ic": -0.149
+   },
+   {
+    "factor": "Closeness to 52-week high",
+    "key": "near_high",
+    "weight": 0.0,
+    "recent_ic": -0.047
+   },
+   {
+    "factor": "Trend alignment (20/50/200 day)",
+    "key": "trend",
+    "weight": 0.0,
+    "recent_ic": -0.038
+   },
+   {
+    "factor": "Low volatility",
+    "key": "low_vol",
+    "weight": 0.0,
+    "recent_ic": -0.099
+   },
+   {
+    "factor": "Volume surge",
+    "key": "volume_surge",
+    "weight": 0.0,
+    "recent_ic": -0.014
+   }
+  ]
+ },
+ "config": {
+  "owner_note": "Edit starting_capital_usd to the actual USD amount that lands in the account.",
+  "strategy": "momentum",
+  "ranker": "adaptive",
+  "momentum_stop_pct": 8,
+  "peak_brake_pct": 10,
+  "brake_cool_days": 5,
+  "starting_capital_usd": 2000,
+  "start_date": "2026-09-28",
+  "goal_date": "2026-10-30",
+  "goal_return_pct": 20,
+  "max_drawdown_halt_pct": 10,
+  "max_drawdown_liquidate_pct": 13,
+  "risk_per_trade_pct": 1.5,
+  "max_position_pct": 30,
+  "max_positions": 3,
+  "max_per_sector": 2,
+  "min_cash_pct": 5,
+  "min_price": 5,
+  "min_dollar_volume": 25000000,
+  "buy_score_threshold": 65,
+  "watch_score_threshold": 55,
+  "hold_days": {
+   "pullback": 7,
+   "breakout": 6
+  },
+  "fractional_shares": true,
+  "github_repo": "ishtrain07/ishtrain07",
+  "dashboard_url": "https://ishtrain07.github.io/ishtrain07/"
+ },
+ "buys": [
+  {
+   "ticker": "DELL",
+   "name": "Dell Technologies Inc.",
+   "sector": "Tech",
+   "price": 562.89,
+   "score": 84.7,
+   "momentum": 100,
+   "rs": 95,
+   "trend": 100,
+   "fund": 80,
+   "rsi": 59,
+   "setup": "momentum",
+   "fwd_pe": 19.331919,
+   "next_earnings": "2026-11-27",
+   "entry": 562.89,
+   "limit": 565.7,
+   "stop": 517.86,
+   "t1": 633.53,
+   "t2": 704.17,
+   "stop_pct": -8.0,
+   "t1_pct": 12.5,
+   "t2_pct": 25.1,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-05",
+   "shares": 1.13,
+   "dollars": 636.07,
+   "risk_dollars": 50.89,
+   "reason": [
+    "#1 on the learning model ranking: 6-mo +222%, 3-mo +41%, 1-mo +21%",
+    "stronger than 95% of the universe vs the S&P; above its 200-day average",
+    "revenue +58% y/y"
+   ],
+   "news": [
+    {
+     "title": "HP\u2019s Dividend Looks Generous. Here\u2019s What\u2019s Really Funding It.",
+     "url": "https://247wallst.com/investing/2026/09/27/hps-dividend-looks-generous-heres-whats-really-funding-it/",
+     "source": "24/7 Wall St."
+    },
+    {
+     "title": "Update: Dow Snaps 3-Day Losing Streak as Oil Retreats; Wall Street Logs Weekly Gains",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/dow-snaps-3-day-losing-205628233.html",
+     "source": "MT Newswires"
+    },
+    {
+     "title": "What Was Cisco Telling You Before Its Stock Ran?",
+     "url": "https://www.trefis.com/articles/616644/what-was-cisco-telling-you-before-its-stock-ran/2026-09-25",
+     "source": "Trefis"
+    }
+   ]
+  },
+  {
+   "ticker": "SNOW",
+   "name": "Snowflake Inc.",
+   "sector": "Tech",
+   "price": 335.94,
+   "score": 94.8,
+   "momentum": 93,
+   "rs": 91,
+   "trend": 100,
+   "fund": 45,
+   "rsi": 55,
+   "setup": "momentum",
+   "fwd_pe": 111.457634,
+   "next_earnings": "2026-12-02",
+   "entry": 335.94,
+   "limit": 337.62,
+   "stop": 309.06,
+   "t1": 369.36,
+   "t2": 402.78,
+   "stop_pct": -8.0,
+   "t1_pct": 9.9,
+   "t2_pct": 19.9,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-05",
+   "shares": 1.89,
+   "dollars": 634.93,
+   "risk_dollars": 50.79,
+   "reason": [
+    "#2 on the learning model ranking: 6-mo +107%, 3-mo +35%, 1-mo +7%",
+    "stronger than 91% of the universe vs the S&P; above its 200-day average",
+    "revenue +35% y/y"
+   ],
+   "news": [
+    {
+     "title": "Palantir vs. Snowflake: Which Enterprise AI Stock Better Justifies Its Valuation?",
+     "url": "https://finance.yahoo.com/technology/ai/articles/palantir-vs-snowflake-enterprise-ai-205926979.html",
+     "source": "Insider Monkey"
+    },
+    {
+     "title": "Palantir\u2019s Valuation Is Huge. So Is the Opportunity",
+     "url": "https://247wallst.com/investing/2026/09/25/palantirs-valuation-is-huge-so-is-the-opportunity/",
+     "source": "24/7 Wall St."
+    },
+    {
+     "title": "Could CrowdStrike (CRWD)\u2019s Snowflake (SNOW) Partnership Unlock a New AI Growth Engine?",
+     "url": "https://finance.yahoo.com/technology/ai/articles/could-crowdstrike-crwd-snowflake-snow-203651870.html",
+     "source": "Insider Monkey"
+    }
+   ]
+  },
+  {
+   "ticker": "FTNT",
+   "name": "Fortinet, Inc.",
+   "sector": "Tech",
+   "price": 173.46,
+   "score": 78.3,
+   "momentum": 90,
+   "rs": 77,
+   "trend": 100,
+   "fund": 72,
+   "rsi": 58,
+   "setup": "momentum",
+   "fwd_pe": 45.915977,
+   "next_earnings": "2026-11-04",
+   "entry": 173.46,
+   "limit": 174.33,
+   "stop": 159.58,
+   "t1": 188.61,
+   "t2": 203.76,
+   "stop_pct": -8.0,
+   "t1_pct": 8.7,
+   "t2_pct": 17.5,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-05",
+   "shares": 3.65,
+   "dollars": 633.13,
+   "risk_dollars": 50.65,
+   "reason": [
+    "#3 on the learning model ranking: 6-mo +114%, 3-mo +15%, 1-mo +10%",
+    "stronger than 77% of the universe vs the S&P; above its 200-day average",
+    "revenue +26% y/y"
+   ],
+   "news": [
+    {
+     "title": "Is Fortinet (FTNT) Fully Valued On Its New York Hub Expansion?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/fortinet-ftnt-fully-valued-york-211158150.html",
+     "source": "Simply Wall St."
+    },
+    {
+     "title": "Fortinet (FTNT) Stock Sinks As Market Gains: What You Should Know",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/fortinet-ftnt-stock-sinks-market-204506199.html",
+     "source": "Zacks"
+    },
+    {
+     "title": "What Was Cisco Telling You Before Its Stock Ran?",
+     "url": "https://www.trefis.com/articles/616644/what-was-cisco-telling-you-before-its-stock-ran/2026-09-25",
+     "source": "Trefis"
+    }
+   ]
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "PANW",
+   "score": 75.5,
+   "price": 374.74,
+   "setup": "momentum",
+   "rsi": 54,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "HOOD",
+   "score": 74.8,
+   "price": 119.4,
+   "setup": "momentum",
+   "rsi": 57,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "ZS",
+   "score": 74.7,
+   "price": 193.05,
+   "setup": "momentum",
+   "rsi": 54,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "CRM",
+   "score": 73.4,
+   "price": 234.02,
+   "setup": "momentum",
+   "rsi": 50,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "CRWD",
+   "score": 72.7,
+   "price": 252.13,
+   "setup": "momentum",
+   "rsi": 62,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "extended": [],
+ "avoid": [],
+ "rotate_out": [],
+ "target": [
+  "DELL",
+  "SNOW",
+  "FTNT"
+ ],
+ "ranking": [
+  {
+   "ticker": "DELL",
+   "sector": "Tech",
+   "score": 84.7,
+   "price": 562.89,
+   "ret21": 21.4,
+   "ret63": 41.1,
+   "rsi": 59,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 19.331919,
+   "next_earnings": "2026-11-27"
+  },
+  {
+   "ticker": "SNOW",
+   "sector": "Tech",
+   "score": 94.8,
+   "price": 335.94,
+   "ret21": 6.5,
+   "ret63": 34.9,
+   "rsi": 55,
+   "setup": "pullback",
+   "triggered": true,
+   "eligible": true,
+   "fwd_pe": 111.457634,
+   "next_earnings": "2026-12-02"
+  },
+  {
+   "ticker": "FTNT",
+   "sector": "Tech",
+   "score": 78.3,
+   "price": 173.46,
+   "ret21": 10.1,
+   "ret63": 14.6,
+   "rsi": 58,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 45.915977,
+   "next_earnings": "2026-11-04"
+  },
+  {
+   "ticker": "PANW",
+   "sector": "Tech",
+   "score": 89.4,
+   "price": 374.74,
+   "ret21": 10.4,
+   "ret63": 23.2,
+   "rsi": 54,
+   "setup": "pullback",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 76.80562,
+   "next_earnings": "2026-11-19"
+  },
+  {
+   "ticker": "HOOD",
+   "sector": "Financials",
+   "score": 74.9,
+   "price": 119.4,
+   "ret21": 10.0,
+   "ret63": 21.0,
+   "rsi": 57,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 35.277435,
+   "next_earnings": "2026-11-04"
+  },
+  {
+   "ticker": "ZS",
+   "sector": "Tech",
+   "score": 86.2,
+   "price": 193.05,
+   "ret21": 13.4,
+   "ret63": 46.0,
+   "rsi": 54,
+   "setup": "pullback",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 34.460907,
+   "next_earnings": "2026-11-24"
+  },
+  {
+   "ticker": "CRM",
+   "sector": "Tech",
+   "score": 81.4,
+   "price": 234.02,
+   "ret21": 14.0,
+   "ret63": 48.0,
+   "rsi": 50,
+   "setup": "pullback",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 14.620091,
+   "next_earnings": "2026-12-02"
+  },
+  {
+   "ticker": "MU",
+   "sector": "Semis",
+   "score": 82.7,
+   "price": 1082.28,
+   "ret21": 15.3,
+   "ret63": -4.4,
+   "rsi": 63,
+   "setup": "breakout",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 6.7858047,
+   "next_earnings": "2026-09-30"
+  },
+  {
+   "ticker": "CRWD",
+   "sector": "Tech",
+   "score": 80.6,
+   "price": 252.13,
+   "ret21": 33.3,
+   "ret63": 43.9,
+   "rsi": 62,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 157.00133,
+   "next_earnings": "2026-12-01"
+  },
+  {
+   "ticker": "AAPL",
+   "sector": "Tech",
+   "score": 82.0,
+   "price": 341.07,
+   "ret21": 8.8,
+   "ret63": 20.3,
+   "rsi": 66,
+   "setup": "breakout",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 35.582424,
+   "next_earnings": "2026-10-29"
+  },
+  {
+   "ticker": "UNH",
+   "sector": "Health",
+   "score": 41.9,
+   "price": 376.59,
+   "ret21": -5.5,
+   "ret63": -11.4,
+   "rsi": 41,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 16.655766,
+   "next_earnings": "2026-10-13"
+  },
+  {
+   "ticker": "SPY",
+   "sector": "ETF",
+   "score": 67.5,
+   "price": 771.35,
+   "ret21": 0.9,
+   "ret63": 6.1,
+   "rsi": 57,
+   "setup": "breakout",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": null,
+   "next_earnings": null
+  },
+  {
+   "ticker": "AMD",
+   "sector": "Semis",
+   "score": 74.5,
+   "price": 630.63,
+   "ret21": 31.1,
+   "ret63": 20.9,
+   "rsi": 73,
+   "setup": "extended",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 40.48134,
+   "next_earnings": "2026-11-03"
+  },
+  {
+   "ticker": "MRVL",
+   "sector": "Semis",
+   "score": 82.9,
+   "price": 261.94,
+   "ret21": 6.9,
+   "ret63": -1.8,
+   "rsi": 63,
+   "setup": "breakout",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 38.76355,
+   "next_earnings": "2026-12-01"
+  },
+  {
+   "ticker": "ANET",
+   "sector": "Tech",
+   "score": 88.0,
+   "price": 206.55,
+   "ret21": 2.1,
+   "ret63": 31.1,
+   "rsi": 60,
+   "setup": "breakout",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 39.817482,
+   "next_earnings": "2026-11-03"
+  },
+  {
+   "ticker": "NVDA",
+   "sector": "Semis",
+   "score": 73.6,
+   "price": 225.07,
+   "ret21": 7.5,
+   "ret63": 17.0,
+   "rsi": 55,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 14.351548,
+   "next_earnings": "2026-11-17"
+  },
+  {
+   "ticker": "MSFT",
+   "sector": "Tech",
+   "score": 86.1,
+   "price": 516.17,
+   "ret21": 4.0,
+   "ret63": 38.7,
+   "rsi": 63,
+   "setup": "breakout",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 21.801512,
+   "next_earnings": "2026-10-28"
+  },
+  {
+   "ticker": "ABBV",
+   "sector": "Health",
+   "score": 69.1,
+   "price": 264.34,
+   "ret21": 0.5,
+   "ret63": 5.1,
+   "rsi": 59,
+   "setup": "breakout",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 16.249537,
+   "next_earnings": "2026-10-29"
+  },
+  {
+   "ticker": "NOW",
+   "sector": "Tech",
+   "score": 80.4,
+   "price": 135.62,
+   "ret21": 7.8,
+   "ret63": 37.9,
+   "rsi": 52,
+   "setup": "pullback",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 27.094143,
+   "next_earnings": "2026-10-28"
+  },
+  {
+   "ticker": "JPM",
+   "sector": "Financials",
+   "score": 52.1,
+   "price": 343.06,
+   "ret21": -3.8,
+   "ret63": 4.7,
+   "rsi": 42,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 13.728995,
+   "next_earnings": "2026-10-13"
+  },
+  {
+   "ticker": "V",
+   "sector": "Financials",
+   "score": 53.7,
+   "price": 367.38,
+   "ret21": -4.3,
+   "ret63": 9.5,
+   "rsi": 48,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 24.484982,
+   "next_earnings": "2026-10-27"
+  },
+  {
+   "ticker": "INTC",
+   "sector": "Semis",
+   "score": 71.0,
+   "price": 123.0,
+   "ret21": 39.4,
+   "ret63": -4.1,
+   "rsi": 67,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 59.648514,
+   "next_earnings": "2026-10-22"
+  },
+  {
+   "ticker": "QQQ",
+   "sector": "ETF",
+   "score": 70.3,
+   "price": 744.5,
+   "ret21": 4.8,
+   "ret63": 5.5,
+   "rsi": 65,
+   "setup": "breakout",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": null,
+   "next_earnings": null
+  },
+  {
+   "ticker": "AFRM",
+   "sector": "Financials",
+   "score": 48.3,
+   "price": 71.52,
+   "ret21": -6.5,
+   "ret63": -10.0,
+   "rsi": 48,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 14.813925,
+   "next_earnings": "2026-11-05"
+  },
+  {
+   "ticker": "ALAB",
+   "sector": "Semis",
+   "score": 76.9,
+   "price": 364.62,
+   "ret21": 25.6,
+   "ret63": -6.9,
+   "rsi": 64,
+   "setup": "breakout",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 57.029976,
+   "next_earnings": "2026-11-03"
+  },
+  {
+   "ticker": "AMZN",
+   "sector": "ConsDisc",
+   "score": 51.4,
+   "price": 249.67,
+   "ret21": -4.1,
+   "ret63": 7.3,
+   "rsi": 45,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 23.834845,
+   "next_earnings": "2026-10-29"
+  },
+  {
+   "ticker": "GOOGL",
+   "sector": "Comm",
+   "score": 48.8,
+   "price": 343.92,
+   "ret21": 0.6,
+   "ret63": 2.0,
+   "rsi": 50,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 22.819168,
+   "next_earnings": "2026-10-28"
+  },
+  {
+   "ticker": "SMH",
+   "sector": "ETF",
+   "score": 66.3,
+   "price": 606.56,
+   "ret21": 9.1,
+   "ret63": -0.8,
+   "rsi": 63,
+   "setup": "breakout",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": null,
+   "next_earnings": null
+  },
+  {
+   "ticker": "NBIS",
+   "sector": "Tech",
+   "score": 73.5,
+   "price": 237.33,
+   "ret21": 10.9,
+   "ret63": -1.2,
+   "rsi": 56,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": -67.913155,
+   "next_earnings": "2026-11-10"
+  },
+  {
+   "ticker": "TSM",
+   "sector": "Semis",
+   "score": 77.9,
+   "price": 450.61,
+   "ret21": 8.2,
+   "ret63": 4.5,
+   "rsi": 62,
+   "setup": "breakout",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 20.552242,
+   "next_earnings": "2026-10-15"
+  },
+  {
+   "ticker": "MS",
+   "sector": "Financials",
+   "score": 40.2,
+   "price": 196.31,
+   "ret21": -8.3,
+   "ret63": -6.9,
+   "rsi": 32,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 14.423116,
+   "next_earnings": "2026-10-14"
+  },
+  {
+   "ticker": "ABNB",
+   "sector": "ConsDisc",
+   "score": 48.9,
+   "price": 157.47,
+   "ret21": -16.3,
+   "ret63": 8.2,
+   "rsi": 38,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 25.452288,
+   "next_earnings": "2026-11-05"
+  },
+  {
+   "ticker": "DDOG",
+   "sector": "Tech",
+   "score": 89.1,
+   "price": 268.13,
+   "ret21": 17.8,
+   "ret63": 11.8,
+   "rsi": 67,
+   "setup": "breakout",
+   "triggered": true,
+   "eligible": true,
+   "fwd_pe": 90.17411,
+   "next_earnings": "2026-11-05"
+  },
+  {
+   "ticker": "NET",
+   "sector": "Tech",
+   "score": 77.7,
+   "price": 349.02,
+   "ret21": 22.5,
+   "ret63": 47.1,
+   "rsi": 62,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 208.22842,
+   "next_earnings": "2026-10-29"
+  },
+  {
+   "ticker": "SMCI",
+   "sector": "Tech",
+   "score": 89.1,
+   "price": 43.26,
+   "ret21": 15.7,
+   "ret63": 41.2,
+   "rsi": 64,
+   "setup": "breakout",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 8.1225395,
+   "next_earnings": "2026-11-03"
+  },
+  {
+   "ticker": "BAC",
+   "sector": "Financials",
+   "score": 42.6,
+   "price": 56.7,
+   "ret21": -8.4,
+   "ret63": -1.5,
+   "rsi": 31,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 10.7228365,
+   "next_earnings": "2026-10-14"
+  },
+  {
+   "ticker": "MA",
+   "sector": "Financials",
+   "score": 52.3,
+   "price": 567.65,
+   "ret21": -5.1,
+   "ret63": 13.9,
+   "rsi": 49,
+   "setup": "none",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 24.653841,
+   "next_earnings": "2026-10-29"
+  },
+  {
+   "ticker": "MDB",
+   "sector": "Tech",
+   "score": 87.2,
+   "price": 410.44,
+   "ret21": 1.1,
+   "ret63": 30.7,
+   "rsi": 54,
+   "setup": "pullback",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 52.670074,
+   "next_earnings": "2026-12-01"
+  },
+  {
+   "ticker": "FCX",
+   "sector": "Materials",
+   "score": 77.8,
+   "price": 72.31,
+   "ret21": -8.5,
+   "ret63": 16.1,
+   "rsi": 52,
+   "setup": "pullback",
+   "triggered": true,
+   "eligible": true,
+   "fwd_pe": 17.455896,
+   "next_earnings": "2026-10-22"
+  },
+  {
+   "ticker": "PLTR",
+   "sector": "Tech",
+   "score": 88.9,
+   "price": 189.67,
+   "ret21": 6.9,
+   "ret63": 68.0,
+   "rsi": 64,
+   "setup": "breakout",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 81.649086,
+   "next_earnings": "2026-11-02"
+  }
+ ],
+ "learned": [
+  {
+   "factor": "Momentum / volatility (6-3-1 month)",
+   "key": "risk_adj_mom",
+   "weight": 50.0,
+   "recent_ic": -0.005
+  },
+  {
+   "factor": "Short-term dip (5-day loser)",
+   "key": "reversal_5",
+   "weight": 31.8,
+   "recent_ic": 0.094
+  },
+  {
+   "factor": "6-month momentum",
+   "key": "mom_126",
+   "weight": 18.2,
+   "recent_ic": 0.054
+  },
+  {
+   "factor": "1-month momentum",
+   "key": "mom_21",
+   "weight": 0.0,
+   "recent_ic": -0.077
+  },
+  {
+   "factor": "3-month strength vs S&P",
+   "key": "rs_63",
+   "weight": 0.0,
+   "recent_ic": -0.149
+  },
+  {
+   "factor": "Closeness to 52-week high",
+   "key": "near_high",
+   "weight": 0.0,
+   "recent_ic": -0.047
+  },
+  {
+   "factor": "Trend alignment (20/50/200 day)",
+   "key": "trend",
+   "weight": 0.0,
+   "recent_ic": -0.038
+  },
+  {
+   "factor": "Low volatility",
+   "key": "low_vol",
+   "weight": 0.0,
+   "recent_ic": -0.099
+  },
+  {
+   "factor": "Volume surge",
+   "key": "volume_surge",
+   "weight": 0.0,
+   "recent_ic": -0.014
+  }
+ ]
+}

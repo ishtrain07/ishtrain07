@@ -1,0 +1,310 @@
+"""Strategy research: portfolio-level simulation of rule variants.
+
+Unlike backtest.py (trade-by-trade), this enforces the real account limits:
+max open positions, risk-based sizing, 30% position cap, cash. Every variant
+is reported on two halves of history so a variant must work out-of-sample,
+not just once.
+
+  python -m habibi.research          # writes habibi/output/research.json
+"""
+import json
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+from . import adaptive, data
+from .indicators import add_features
+from .strategy import score_snapshot, sector_strength, snapshot
+from .universe import SECTOR_ETF, UNIVERSE
+
+OUT = Path(__file__).parent / "output"
+CFG = json.loads((Path(__file__).parent / "config.json").read_text())
+
+
+def precompute(feats, days):
+    """Scored universe for each date (the expensive part, shared by all variants)."""
+    spy = feats["SPY"]
+    vix = feats.get("^VIX")
+    dates = spy.index[-days:]
+    rows = {}
+    for d in dates:
+        sub = {t: f.loc[:d] for t, f in feats.items()}
+        snap = snapshot(sub)
+        if snap.empty:
+            continue
+        sp = spy.loc[d]
+        fresh = [t for t in snap.index if feats[t].loc[:d].index[-1] == d]
+        snap = snap.loc[fresh]
+        sc = score_snapshot(snap, sp.ret63, sector_strength(sub), None, CFG)
+        v = float(vix.Close.loc[:d].iloc[-1]) if vix is not None else 18.0
+        regime = "GREEN" if (sp.Close > sp.sma50 and sp.sma50 > sp.sma200 and v < 20) else \
+                 "YELLOW" if (sp.Close > sp.sma200 and v < 28) else "RED"
+        mom = 0.5 * sc.ret126 + 0.3 * sc.ret63 + 0.2 * sc.ret21
+        sc["risk_adj_mom"] = mom / (sc.atr / sc.Close)
+        rows[d] = (regime, sc[["composite", "setup", "triggered", "eligible", "momentum", "rs", "risk_adj_mom",
+                               "Close", "atr", "low5", "ema20", "sma50", "ret63", "rsi"]].copy())
+    return rows
+
+
+def bar(feats, t, d):
+    f = feats[t]
+    return f.loc[d] if d in f.index else None
+
+
+def last_close(feats, t, d):
+    return float(feats[t].Close.loc[:d].iloc[-1])
+
+
+# ------------------------------------------------------------- swing variants
+def swing_sim(feats, pre, v, start=None, end=None):
+    """Daily portfolio sim. v: variant dict (see VARIANTS)."""
+    dates = [d for d in pre if (start is None or d >= start) and (end is None or d <= end)]
+    cash, equity_curve, open_pos, trades = 1.0, [], [], []
+    for d in dates:
+        # 1) exits using today's bar
+        still = []
+        for p in open_pos:
+            b = bar(feats, p["t"], d)
+            if b is None:
+                still.append(p)
+                continue
+            p["days"] += 1
+            exit_px, why = None, None
+            if b.Low <= p["stop"]:
+                exit_px, why = min(p["stop"], b.Open), "stop"
+            else:
+                if v["t1_r"] and not p["half"] and b.High >= p["t1"]:
+                    cash += p["sh"] * 0.5 * p["t1"]; p["realized"] += p["sh"] * 0.5 * (p["t1"] - p["entry"])
+                    p["sh"] *= 0.5; p["half"] = True; p["stop"] = max(p["stop"], p["entry"])
+                if v["t2_r"] and b.High >= p["t2"]:
+                    exit_px, why = p["t2"], "target"
+                else:
+                    p["hc"] = max(p["hc"], b.Close)
+                    if v["trail_atr"] and (p["half"] or not v["t1_r"]):
+                        p["stop"] = max(p["stop"], p["hc"] - v["trail_atr"] * p["atr"])
+                    if v.get("exit_below_sma50") and b.Close < b.sma50:
+                        exit_px, why = b.Close, "trend"
+                    elif p["days"] >= v["hold"]:
+                        exit_px, why = b.Close, "time"
+            if exit_px is not None:
+                cash += p["sh"] * exit_px
+                pnl = p["realized"] + p["sh"] * (exit_px - p["entry"])
+                trades.append({"r": pnl / (p["sh0"] * p["risk"]), "why": why, "days": p["days"],
+                               "ret": pnl / (p["sh0"] * p["entry"])})
+            else:
+                still.append(p)
+        open_pos = still
+        mv = sum(p["sh"] * last_close(feats, p["t"], d) for p in open_pos)
+        equity = cash + mv
+        equity_curve.append((d, equity))
+
+        # 2) entries at today's close
+        regime, sc = pre[d]
+        if regime == "RED" or (regime == "YELLOW" and not v.get("trade_yellow", True)):
+            continue
+        slots = v["max_pos"] - len(open_pos)
+        if slots <= 0:
+            continue
+        cand = v["select"](sc, regime)
+        held = {p["t"] for p in open_pos}
+        risk_mult = 1.0 if regime == "GREEN" else 0.5
+        for t, r in cand.iterrows():
+            if slots <= 0 or t in held:
+                continue
+            a, entry = float(r.atr), float(r.Close)
+            dist = np.clip(entry - (float(r.low5) - 0.2 * a), v["stop_min"] * a, v["stop_max"] * a)
+            dist = min(dist, v.get("stop_cap", 0.08) * entry)
+            sh = min(equity * v["risk"] * risk_mult / dist, equity * v["pos_cap"] / entry, cash / entry)
+            if sh * entry < 0.02 * equity:
+                break
+            cash -= sh * entry
+            open_pos.append({"t": t, "sh": sh, "sh0": sh, "entry": entry, "risk": dist, "atr": a,
+                             "stop": entry - dist, "t1": entry + (v["t1_r"] or 0) * dist,
+                             "t2": entry + (v["t2_r"] or 0) * dist, "half": False, "realized": 0.0,
+                             "hc": entry, "days": 0})
+            slots -= 1
+    return stats(equity_curve, trades)
+
+
+# ------------------------------------------------------------- momentum rotation
+def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_col="momentum",
+                 exit_below_ema20=False, entry_green_only=False, dd_brake=None, cool_days=5, max_rsi=80):
+    """Weekly: hold the top-N ranked names (eligible, regime not RED), equal weight.
+
+    exit_below_ema20: daily exit when a holding closes below its 20-EMA.
+    entry_green_only: new buys only when the market light is GREEN.
+    dd_brake: if equity falls this far below its peak, go to cash for cool_days.
+    """
+    dates = [d for d in pre if (start is None or d >= start) and (end is None or d <= end)]
+    cash, hold, curve, trades, last_week = 1.0, {}, [], [], None
+    peak, cool = 1.0, 0
+
+    def sell(t, px, why):
+        nonlocal cash
+        cash += hold[t]["sh"] * px
+        trades.append({"r": px / hold[t]["entry"] - 1, "ret": px / hold[t]["entry"] - 1, "why": why, "days": 0})
+        del hold[t]
+
+    for d in dates:
+        for t in list(hold):
+            b = bar(feats, t, d)
+            if b is None:
+                continue
+            if b.Low <= hold[t]["stop"]:
+                sell(t, min(hold[t]["stop"], b.Open), "stop")
+            elif exit_below_ema20 and b.Close < b.ema20:
+                sell(t, b.Close, "ema20")
+        equity = cash + sum(h["sh"] * last_close(feats, t, d) for t, h in hold.items())
+        peak = max(peak, equity)
+        if dd_brake and equity < peak * (1 - dd_brake) and hold:
+            for t in list(hold):
+                sell(t, last_close(feats, t, d), "brake")
+            cool, peak = cool_days, equity
+        curve.append((d, equity))
+        if cool > 0:
+            cool -= 1
+            continue
+        week = d.isocalendar()[1]
+        if week == last_week:
+            continue
+        last_week = week
+        regime, sc = pre[d]
+        ok = sc.eligible & (sc.rsi < max_rsi)
+        if exit_below_ema20:
+            ok &= sc.Close > sc.ema20
+        target = [] if regime == "RED" else list(sc[ok].sort_values(rank_col, ascending=False).head(top_n).index)
+        for t in list(hold):
+            if t not in target:
+                sell(t, last_close(feats, t, d), "rotate")
+        if entry_green_only and regime != "GREEN":
+            continue
+        new = [t for t in target if t not in hold]
+        if new:
+            per = min(cash / len(new), equity / top_n)
+            for t in new:
+                px = last_close(feats, t, d)
+                hold[t] = {"sh": per / px, "entry": px, "stop": px * (1 - stop_pct)}
+                cash -= per
+    return stats(curve, trades)
+
+
+def buy_hold(feats, t, start, end):
+    c = feats[t].Close.loc[start:end]
+    curve = list(zip(c.index, c / c.iloc[0]))
+    return stats(curve, [])
+
+
+def stats(curve, trades):
+    if not curve:
+        return {}
+    eq = pd.Series([e for _, e in curve], index=[d for d, _ in curve])
+    dd = float((eq / eq.cummax() - 1).min())
+    w25 = (eq.shift(-25) / eq - 1).dropna()
+    tr = pd.DataFrame(trades)
+    return {
+        "total_pct": round(float(eq.iloc[-1] / eq.iloc[0] - 1) * 100, 1),
+        "max_dd_pct": round(dd * 100, 1),
+        "trades": int(len(tr)),
+        "win_rate": round(float((tr.ret > 0).mean() * 100), 1) if len(tr) else None,
+        "avg_r": round(float(tr.r.mean()), 2) if len(tr) and "r" in tr else None,
+        "p25_20": round(float((w25 >= 0.20).mean() * 100), 1) if len(w25) else None,
+        "p25_10": round(float((w25 >= 0.10).mean() * 100), 1) if len(w25) else None,
+        "p25_loss": round(float((w25 < 0).mean() * 100), 1) if len(w25) else None,
+        "med25": round(float(w25.median() * 100), 1) if len(w25) else None,
+    }
+
+
+# ------------------------------------------------------------- variant catalogue
+def sel_current(sc, regime):
+    thr = 65 if regime == "GREEN" else 72
+    return sc[sc.eligible & sc.triggered & (sc.composite >= thr)]
+
+
+def sel_breakout(sc, regime):
+    return sc[sc.eligible & sc.triggered & (sc.setup == "breakout") & (sc.composite >= 65)]
+
+
+def sel_leader_pullback(sc, regime):
+    return sc[sc.eligible & sc.triggered & (sc.setup == "pullback") & (sc.momentum >= 70) & (sc.rs >= 70)]
+
+
+def sel_leaders_any(sc, regime):
+    return sc[sc.eligible & sc.triggered & (sc.momentum >= 75)].sort_values("momentum", ascending=False)
+
+
+BASE = {"max_pos": 4, "risk": 0.015, "pos_cap": 0.30, "stop_min": 1.0, "stop_max": 2.0,
+        "t1_r": 1.5, "t2_r": 3.0, "trail_atr": 2.0, "hold": 7, "select": sel_current}
+
+VARIANTS = {
+    "A current rules": {},
+    "B current, hold 15, trail 3ATR, no T2": {"hold": 15, "t2_r": None, "trail_atr": 3.0},
+    "C breakouts only": {"select": sel_breakout},
+    "D breakouts, let winners run": {"select": sel_breakout, "hold": 20, "t1_r": None, "t2_r": None,
+                                     "trail_atr": 3.0, "exit_below_sma50": True},
+    "E leader pullbacks": {"select": sel_leader_pullback},
+    "F leader pullbacks, let run": {"select": sel_leader_pullback, "hold": 20, "t1_r": None,
+                                    "t2_r": None, "trail_atr": 3.0, "exit_below_sma50": True},
+    "G leaders any setup, let run": {"select": sel_leaders_any, "hold": 20, "t1_r": None,
+                                     "t2_r": None, "trail_atr": 3.0, "exit_below_sma50": True},
+    "H leaders, wide stop, let run": {"select": sel_leaders_any, "hold": 25, "t1_r": None, "t2_r": None,
+                                      "stop_min": 2.0, "stop_max": 3.0, "stop_cap": 0.12,
+                                      "trail_atr": 3.5, "exit_below_sma50": True},
+    "I leaders, 3 positions, risk 2%": {"select": sel_leaders_any, "max_pos": 3, "risk": 0.02,
+                                        "pos_cap": 0.35, "hold": 20, "t1_r": None, "t2_r": None,
+                                        "trail_atr": 3.0, "exit_below_sma50": True},
+}
+
+
+def main():
+    tickers = sorted(set(UNIVERSE) | set(SECTOR_ETF.values()) | {"^VIX", "SPY", "QQQ"})
+    prices = data.download_prices(tickers, period="3y")
+    feats = {t: add_features(df) for t, df in prices.items()}
+    pre = precompute(feats, 480)
+    uni = [t for t in UNIVERSE if t in feats and len(feats[t]) > 260]
+    m = adaptive.model(feats, uni)
+    eq_w = pd.DataFrame(1 / len(adaptive.FACTORS), index=m["weights"].index, columns=m["weights"].columns)
+    eq_scores = adaptive.adaptive_scores(m["panels"], eq_w)
+    for d, (regime, sc) in pre.items():
+        sc["adaptive"] = m["scores"].loc[d].reindex(sc.index) if d in m["scores"].index else np.nan
+        sc["equal_mf"] = eq_scores.loc[d].reindex(sc.index) if d in eq_scores.index else np.nan
+    dates = list(pre)
+    mid = dates[len(dates) // 2]
+    periods = {"full": (dates[0], dates[-1]), "half1": (dates[0], mid), "half2": (mid, dates[-1])}
+    res = {"periods": {k: [str(a.date()), str(b.date())] for k, (a, b) in periods.items()}, "results": {}}
+    for name, over in VARIANTS.items():
+        v = {**BASE, **over}
+        res["results"][name] = {k: swing_sim(feats, pre, v, a, b) for k, (a, b) in periods.items()}
+        print(name, res["results"][name]["full"])
+    for n in (3, 4, 5):
+        name = f"R momentum rotation top{n} weekly"
+        res["results"][name] = {k: rotation_sim(feats, pre, n, 0.10, a, b) for k, (a, b) in periods.items()}
+        print(name, res["results"][name]["full"])
+    rot = {
+        "R2 top3 risk-adjusted momentum": dict(top_n=3, rank_col="risk_adj_mom"),
+        "R3 top3, 7% stop, exit < 20-EMA": dict(top_n=3, stop_pct=0.07, exit_below_ema20=True),
+        "R4 top3 risk-adj, 7% stop, exit < 20-EMA": dict(top_n=3, stop_pct=0.07, exit_below_ema20=True, rank_col="risk_adj_mom"),
+        "R5 R4 + 10% drawdown brake": dict(top_n=3, stop_pct=0.07, exit_below_ema20=True, rank_col="risk_adj_mom", dd_brake=0.10),
+        "R6 R3 + 10% drawdown brake": dict(top_n=3, stop_pct=0.07, exit_below_ema20=True, dd_brake=0.10),
+        "R7 top4 risk-adj, 8% stop, green entries, brake 12%": dict(top_n=4, stop_pct=0.08, rank_col="risk_adj_mom",
+                                                               entry_green_only=True, dd_brake=0.12),
+        "R8 top3 momentum, 8% stop, brake 10%": dict(top_n=3, stop_pct=0.08, dd_brake=0.10),
+    }
+    rot.update({
+        "L1 LEARNING model top3 weekly, 10% stop": dict(top_n=3, rank_col="adaptive"),
+        "L2 LEARNING model top3 weekly, 8% stop, brake 10%": dict(top_n=3, rank_col="adaptive", stop_pct=0.08, dd_brake=0.10),
+        "L3 LEARNING model top4 weekly": dict(top_n=4, rank_col="adaptive"),
+        "L0 equal-weight factors, no learning (control)": dict(top_n=3, rank_col="equal_mf"),
+    })
+    for name, kw in rot.items():
+        res["results"][name] = {k: rotation_sim(feats, pre, start=a, end=b, **kw) for k, (a, b) in periods.items()}
+        print(name, res["results"][name]["full"])
+    for t in ("SPY", "QQQ"):
+        res["results"][f"Z buy & hold {t}"] = {k: buy_hold(feats, t, a, b) for k, (a, b) in periods.items()}
+    res["learned_weights_now"] = adaptive.explain_today(m)
+    OUT.mkdir(exist_ok=True)
+    (OUT / "research.json").write_text(json.dumps(res, indent=1, default=str))
+
+
+if __name__ == "__main__":
+    main()

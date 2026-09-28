@@ -1,0 +1,143 @@
+"""End-to-end test on synthetic prices (no network)."""
+import datetime as dt
+import json
+
+import numpy as np
+import pandas as pd
+import pytest
+
+from habibi import data, run
+from habibi.universe import all_price_tickers
+
+
+def fake_prices(tickers, period="2y"):
+    rng = np.random.default_rng(7)
+    idx = pd.bdate_range(end=pd.Timestamp.today().normalize(), periods=520)
+    out = {}
+    for i, t in enumerate(tickers):
+        drift = 0.0012 if i % 3 else -0.0004
+        r = rng.normal(drift, 0.018, len(idx))
+        c = 100 * np.exp(np.cumsum(r))
+        o = c * (1 + rng.normal(0, 0.004, len(idx)))
+        out[t] = pd.DataFrame({"Open": o, "High": np.maximum(o, c) * 1.01, "Low": np.minimum(o, c) * 0.99,
+                               "Close": c, "Volume": rng.integers(2e6, 9e6, len(idx)).astype(float)}, index=idx)
+    if "^VIX" in out:
+        out["^VIX"]["Close"] = 15.0
+    return out
+
+
+@pytest.fixture
+def sandbox(tmp_path, monkeypatch):
+    out = tmp_path / "output"
+    (out / "history").mkdir(parents=True)
+    monkeypatch.setattr(run, "OUT", out)
+    monkeypatch.setattr(run, "DOCS", tmp_path / "docs")
+    monkeypatch.setattr("habibi.portfolio.HISTORY", out / "history")
+    monkeypatch.setattr("habibi.paper.PATH", out / "paper_trades.csv")
+    monkeypatch.setattr(run, "PAPER_PATH", out / "paper_trades.csv")
+    monkeypatch.setattr(data, "download_prices", fake_prices)
+    monkeypatch.setattr(data, "latest_prices", lambda t: {})
+    monkeypatch.setattr(data, "news", lambda t, n=3: [])
+    monkeypatch.setattr(data, "fundamentals", lambda ts: {t: {"name": t, "forward_pe": 25, "revenue_growth": 0.2,
+                                                              "profit_margin": 0.2, "next_earnings": None} for t in ts})
+    trades = tmp_path / "trades.csv"
+    buy_day = (dt.date.today() - dt.timedelta(days=6)).isoformat()
+    trades.write_text("date,ticker,side,shares,price,fees,note\n"
+                      f"{buy_day},AAPL,BUY,2,100,0,test\n{buy_day},MSFT,BUY,3,90,0,\n"
+                      f"{dt.date.today().isoformat()},MSFT,SELL,1,95,0,\n")
+    monkeypatch.setattr(run, "ROOT", tmp_path)
+    (tmp_path / "config.json").write_text((run.Path(run.__file__).parent / "config.json").read_text())
+    return tmp_path
+
+
+class Args:
+    no_notify = True
+    backtest = True
+    skip_fundamentals = False
+    dry_run = False
+
+
+def test_plan_end_to_end(sandbox):
+    cfg = run.load_cfg()
+    cfg["strategy"] = "swing"
+    run.cmd_plan(cfg, Args())
+    rep = json.loads((sandbox / "output" / "latest.json").read_text())
+    assert rep["regime"]["light"] in {"GREEN", "YELLOW", "RED"}
+    assert len(rep["ranking"]) > 10
+    assert {p["ticker"] for p in rep["positions"]} == {"AAPL", "MSFT"}
+    msft = next(p for p in rep["positions"] if p["ticker"] == "MSFT")
+    assert msft["shares"] == 2 and msft["partial"]
+    for b in rep["buys"]:
+        assert b["stop"] < b["entry"] < b["t1"] < b["t2"]
+        assert b["dollars"] <= rep["account"]["equity"] * cfg["max_position_pct"] / 100 + 1
+        assert b["hold_days"] >= 3
+    assert rep["backtest"]["n"] > 0
+    html = (sandbox / "docs" / "index.html").read_text()
+    assert "Habibi Wealth Management" in html
+    # intraday check reuses latest.json
+    run.cmd_check(cfg, Args())
+
+
+def test_momentum_mode(sandbox):
+    cfg = run.load_cfg()
+    cfg["strategy"] = "momentum"
+    run.cmd_plan(cfg, Args())
+    rep = json.loads((sandbox / "output" / "latest.json").read_text())
+    assert rep["strategy"] == "momentum" and rep["rebalance"] is True
+    assert len(rep["buys"]) <= cfg["max_positions"]
+    for b in rep["buys"]:
+        assert b["setup"] == "momentum" and b["stop"] < b["entry"] < b["t1"] < b["t2"]
+    total = sum(b["dollars"] for b in rep["buys"])
+    assert total <= rep["account"]["cash"] + sum(p["value"] for p in rep["positions"]) + 1
+    held = {p["ticker"] for p in rep["positions"]}
+    rotated = {a["ticker"] for a in rep["alerts"] if "rotated" in a["why"]}
+    assert rotated <= held
+    # the system's paper account bought its own picks with the same capital
+    paper = rep["paper"]
+    assert {p["ticker"] for p in paper["positions"]} == {b["ticker"] for b in rep["buys"]}
+    assert abs(paper["account"]["equity"] - cfg["starting_capital_usd"]) < cfg["starting_capital_usd"] * 0.2
+    n_paper = len((sandbox / "output" / "paper_trades.csv").read_text().splitlines())
+    # second run in the same week must not rebalance again (for you or the paper account)
+    run.cmd_plan(cfg, Args())
+    rep2 = json.loads((sandbox / "output" / "latest.json").read_text())
+    assert rep2["rebalance"] is False and rep2["buys"] == []
+    assert not [o for o in rep2["paper"]["orders_today"] if o["side"] == "BUY"]
+    assert len((sandbox / "output" / "paper_trades.csv").read_text().splitlines()) >= n_paper
+    run.cmd_check(cfg, Args())
+    assert "Habibi Wealth Management" in (sandbox / "docs" / "index.html").read_text()
+
+
+def test_calendar():
+    from habibi.strategy import add_trading_days, trading_days_between
+    fri = dt.date(2026, 9, 25)
+    assert add_trading_days(fri, 1) == dt.date(2026, 9, 28)
+    assert trading_days_between(fri, dt.date(2026, 10, 2)) == 5
+    assert add_trading_days(dt.date(2026, 11, 25), 1) == dt.date(2026, 11, 27)
+
+
+def test_adaptive_model_no_lookahead():
+    from habibi import adaptive
+    from habibi.indicators import add_features
+    from habibi.universe import UNIVERSE
+    tickers = sorted(set(UNIVERSE) | {"SPY"})
+    feats = {t: add_features(df) for t, df in fake_prices(tickers).items()}
+    uni = [t for t in UNIVERSE if t in feats]
+    m = adaptive.model(feats, uni)
+    w = m["weights"].iloc[-1]
+    assert abs(w.sum() - 1) < 1e-6 and (w >= 0).all()
+    # Scores on day t must not change if we delete everything after t.
+    cut = feats["SPY"].index[-30]
+    m2 = adaptive.model({t: f.loc[:cut] for t, f in feats.items()}, uni)
+    a, b = m["scores"].loc[cut].dropna(), m2["scores"].loc[cut].dropna()
+    assert np.allclose(a.sort_index(), b.reindex(a.index).sort_index())
+    assert len(adaptive.explain_today(m)) == len(adaptive.FACTORS)
+
+
+def test_quality_gate():
+    from habibi.strategy import quality_gate
+    assert quality_gate({"revenue_growth": 0.2, "forward_pe": 15, "profit_margin": 0.1}, 20)[0]
+    assert not quality_gate({"revenue_growth": -0.1, "forward_pe": 15}, 20)[0]
+    assert not quality_gate({"revenue_growth": 0.3, "forward_pe": -5}, 20)[0]
+    assert not quality_gate({"name": "X"}, 12)[0]           # cheap + missing data
+    assert quality_gate({"name": "X"}, 300)[0]              # large + missing data
+    assert quality_gate({"quote_type": "ETF"}, 10)[0]

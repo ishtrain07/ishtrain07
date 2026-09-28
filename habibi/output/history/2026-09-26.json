@@ -1,0 +1,207 @@
+{
+ "buys": [
+  {
+   "ticker": "AMD",
+   "name": "Advanced Micro Devices, Inc.",
+   "sector": "Semis",
+   "price": 630.63,
+   "score": 73.9,
+   "momentum": 99,
+   "rs": 80,
+   "trend": 100,
+   "fund": 90,
+   "rsi": 73,
+   "setup": "momentum",
+   "fwd_pe": 40.48134,
+   "next_earnings": "2026-11-03",
+   "entry": 630.63,
+   "limit": 633.78,
+   "stop": 567.57,
+   "t1": 685.89,
+   "t2": 741.15,
+   "stop_pct": -10.0,
+   "t1_pct": 8.8,
+   "t2_pct": 17.5,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-02",
+   "shares": 1.0,
+   "dollars": 630.63,
+   "risk_dollars": 63.06,
+   "reason": [
+    "#1 on risk-adjusted momentum: 6-mo +209%, 3-mo +21%, 1-mo +31%",
+    "stronger than 80% of the universe vs the S&P; above its 200-day average",
+    "revenue +50% y/y"
+   ],
+   "news": [
+    {
+     "title": "Trump says China's Xi 'seemed to like' renaming AI as super intelligence",
+     "url": "https://finance.yahoo.com/markets/article/trump-says-chinas-xi-seemed-to-like-renaming-ai-as-super-intelligence-193805901.html",
+     "source": "Yahoo Finance"
+    },
+    {
+     "title": "Tech stocks gain after tech titan dinner with Trump and China's Xi Jinping: AlphaCheck",
+     "url": "https://finance.yahoo.com/markets/article/tech-stocks-gain-after-tech-titan-dinner-with-trump-and-chinas-xi-jinping-alphacheck-135107178.html",
+     "source": "Yahoo Finance"
+    },
+    {
+     "title": "Over 30 CEOs scored an invite to the US-China state dinner \u2014 and these 4 got a spot at the head table",
+     "url": "https://finance.yahoo.com/markets/article/over-30-ceos-scored-an-invite-to-the-us-china-state-dinner--and-these-4-got-a-spot-at-the-head-table-134400923.html",
+     "source": "Yahoo Finance"
+    }
+   ]
+  },
+  {
+   "ticker": "DELL",
+   "name": "Dell Technologies Inc.",
+   "sector": "Tech",
+   "price": 562.89,
+   "score": 84.6,
+   "momentum": 100,
+   "rs": 94,
+   "trend": 100,
+   "fund": 80,
+   "rsi": 59,
+   "setup": "momentum",
+   "fwd_pe": 19.331919,
+   "next_earnings": "2026-11-27",
+   "entry": 562.89,
+   "limit": 565.7,
+   "stop": 506.6,
+   "t1": 633.53,
+   "t2": 704.17,
+   "stop_pct": -10.0,
+   "t1_pct": 12.5,
+   "t2_pct": 25.1,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-02",
+   "shares": 1.13,
+   "dollars": 636.07,
+   "risk_dollars": 63.61,
+   "reason": [
+    "#3 on risk-adjusted momentum: 6-mo +222%, 3-mo +41%, 1-mo +21%",
+    "stronger than 94% of the universe vs the S&P; above its 200-day average",
+    "revenue +58% y/y"
+   ],
+   "news": [
+    {
+     "title": "Update: Dow Snaps 3-Day Losing Streak as Oil Retreats; Wall Street Logs Weekly Gains",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/dow-snaps-3-day-losing-205628233.html",
+     "source": "MT Newswires"
+    },
+    {
+     "title": "What Was Cisco Telling You Before Its Stock Ran?",
+     "url": "https://www.trefis.com/articles/616644/what-was-cisco-telling-you-before-its-stock-ran/2026-09-25",
+     "source": "Trefis"
+    },
+    {
+     "title": "Dell Stock Jumps 3.5% as Gemini Enters the XPS Franchise",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/dell-stock-jumps-3-5-175202479.html",
+     "source": "GuruFocus.com"
+    }
+   ]
+  },
+  {
+   "ticker": "CRWD",
+   "name": "CrowdStrike Holdings, Inc.",
+   "sector": "Tech",
+   "price": 252.13,
+   "score": 80.5,
+   "momentum": 97,
+   "rs": 95,
+   "trend": 100,
+   "fund": 47,
+   "rsi": 62,
+   "setup": "momentum",
+   "fwd_pe": 157.00133,
+   "next_earnings": "2026-12-01",
+   "entry": 252.13,
+   "limit": 253.39,
+   "stop": 226.92,
+   "t1": 279.2,
+   "t2": 306.28,
+   "stop_pct": -10.0,
+   "t1_pct": 10.7,
+   "t2_pct": 21.5,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-02",
+   "shares": 2.51,
+   "dollars": 632.85,
+   "risk_dollars": 63.28,
+   "reason": [
+    "#4 on risk-adjusted momentum: 6-mo +157%, 3-mo +44%, 1-mo +33%",
+    "stronger than 95% of the universe vs the S&P; above its 200-day average",
+    "revenue +26% y/y"
+   ],
+   "news": [
+    {
+     "title": "Why Did CrowdStrike Holdings (CRWD) Move Today?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/why-did-crowdstrike-holdings-crwd-031718513.html",
+     "source": "Simply Wall St."
+    },
+    {
+     "title": "S&P 500, Dow, Nasdaq End Week Higher On Chipmaker Strength, Easing Oil Amid Signs Of Easing US-Iran Conflict \u2014 META, COST, MSFT, CRWD, SKHY In Focus",
+     "url": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-dow-nasdaq-end-week-higher-on-chipmaker-strength-easing-oil-amid-signs-of-easing-us-iran-conflict-meta-cost-msft-crwd-skhy-in-focus/cZMOFkXRBOV",
+     "source": "Stocktwits"
+    },
+    {
+     "title": "Here\u2019s How CrowdStrike (CRWD) is Betting on AI Agent Security to Drive Future Growth",
+     "url": "https://finance.yahoo.com/technology/ai/articles/crowdstrike-crwd-betting-ai-agent-224158226.html",
+     "source": "Insider Monkey"
+    }
+   ]
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "PANW",
+   "score": 16.6,
+   "price": 374.74,
+   "setup": "momentum",
+   "rsi": 54,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "MRVL",
+   "score": 16.5,
+   "price": 261.94,
+   "setup": "momentum",
+   "rsi": 63,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "FTNT",
+   "score": 16.2,
+   "price": 173.46,
+   "setup": "momentum",
+   "rsi": 58,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "SNOW",
+   "score": 14.7,
+   "price": 335.94,
+   "setup": "momentum",
+   "rsi": 55,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "MSFT",
+   "score": 14.6,
+   "price": 516.17,
+   "setup": "momentum",
+   "rsi": 63,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 771.35,
+  "spy_sma50": 759.91,
+  "spy_sma200": 714.84,
+  "vix": 14.87
+ }
+}
