@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-29 15:28 ET (position check)",
+ "generated_at": "2026-09-29 16:09 ET (position check)",
  "date": "2026-09-29",
  "mode": "plan",
  "regime": {
@@ -188,10 +188,10 @@
   "account": {
    "cash": 524.28,
    "realized": 0.0,
-   "unrealized": -8.98,
-   "market_value": 466.74,
-   "equity": 991.02,
-   "return_pct": -0.9
+   "unrealized": -9.16,
+   "market_value": 466.55,
+   "equity": 990.83,
+   "return_pct": -0.92
   },
   "record": {
    "trades": 0,
@@ -225,14 +225,14 @@
       "shares": 0.28
      }
     ],
-    "price": 540.59,
-    "value": 151.37,
-    "pnl": -7.03,
-    "pnl_pct": -4.44,
+    "price": 539.73,
+    "value": 151.12,
+    "pnl": -7.27,
+    "pnl_pct": -4.59,
     "days_held": 1,
     "active_stop": 520.44,
     "action": "HOLD",
-    "why": "held while it stays top-3; reviewed every Monday; stop 520.44 (-3.7%)"
+    "why": "held while it stays top-3; reviewed every Monday; stop 520.44 (-3.6%)"
    },
    {
     "ticker": "SNOW",
@@ -256,14 +256,14 @@
       "shares": 0.47
      }
     ],
-    "price": 330.67,
-    "value": 155.41,
-    "pnl": -3.27,
-    "pnl_pct": -2.06,
+    "price": 330.3,
+    "value": 155.24,
+    "pnl": -3.44,
+    "pnl_pct": -2.17,
     "days_held": 1,
     "active_stop": 310.61,
     "action": "HOLD",
-    "why": "held while it stays top-3; reviewed every Monday; stop 310.61 (-6.1%)"
+    "why": "held while it stays top-3; reviewed every Monday; stop 310.61 (-6.0%)"
    },
    {
     "ticker": "FTNT",
@@ -287,14 +287,14 @@
       "shares": 0.91
      }
     ],
-    "price": 175.78,
-    "value": 159.96,
-    "pnl": 1.32,
-    "pnl_pct": 0.83,
+    "price": 176.03,
+    "value": 160.19,
+    "pnl": 1.55,
+    "pnl_pct": 0.98,
     "days_held": 1,
     "active_stop": 160.38,
     "action": "HOLD",
-    "why": "held while it stays top-3; reviewed every Monday; stop 160.38 (-8.8%)"
+    "why": "held while it stays top-3; reviewed every Monday; stop 160.38 (-8.9%)"
    }
   ],
   "closed": [],
