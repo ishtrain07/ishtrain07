@@ -1,0 +1,56 @@
+{
+ "buys": [],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "ARM",
+   "score": 83.2,
+   "price": 283.33,
+   "setup": "momentum",
+   "rsi": 52,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "SNOW",
+   "score": 82.0,
+   "price": 328.12,
+   "setup": "momentum",
+   "rsi": 50,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "MRVL",
+   "score": 81.2,
+   "price": 251.9,
+   "setup": "momentum",
+   "rsi": 57,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "HOOD",
+   "score": 80.3,
+   "price": 116.46,
+   "setup": "momentum",
+   "rsi": 54,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "FTNT",
+   "score": 76.5,
+   "price": 176.33,
+   "setup": "momentum",
+   "rsi": 60,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 765.61,
+  "spy_sma50": 760.39,
+  "spy_sma200": 715.29,
+  "vix": 16.07
+ }
+}
