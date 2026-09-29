@@ -462,6 +462,26 @@ def momentum_plan(feats, funds, regime, cfg, equity, cash, holdings, today, reba
                           "fwd_pe": info.get("forward_pe"), "revenue_growth": info.get("revenue_growth")})
         if len(cheap) >= 3:
             break
+    order_idx = {t: i + 1 for i, t in enumerate(ranked.index)}
+    universe_rows = []
+    for t, r in sc.iterrows():
+        info = (funds or {}).get(t) or {}
+        good, why = quality_gate(info, float(r.Close))
+        if t in order_idx:
+            status = f"#{order_idx[t]}"
+        elif not r.eligible:
+            status = "excluded: below 200-day average or illiquid"
+        elif r.rsi >= 80:
+            status = "excluded: overbought (RSI 80+)"
+        else:
+            status = "not ranked"
+        universe_rows.append({"ticker": t, "name": info.get("name", t), "rank": order_idx.get(t), "status": status,
+                              "price": round(float(r.Close), 2), "ret21": round(float(r.ret21) * 100, 1),
+                              "ret63": round(float(r.ret63) * 100, 1), "ret126": round(float(r.ret126) * 100, 1),
+                              "rsi": round(float(r.rsi)), "gate": "pass" if good else why,
+                              "fwd_pe": info.get("forward_pe"), "analyst_target": info.get("target_mean")})
+    universe_rows.sort(key=lambda x: (x["rank"] is None, x["rank"] or 0, x["ticker"]))
     return {"buys": buys, "backups": [], "watch": next_up, "extended": [], "avoid": avoid, "cheap": cheap,
+            "universe": universe_rows,
             "rotate_out": rotate_out, "target": target, "rebalance": rebalance,
             "ranking": _ranking_table(sc.loc[ranked.index], funds)}

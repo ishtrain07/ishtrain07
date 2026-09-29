@@ -157,6 +157,8 @@ def render(r):
     # ---- ranking
     parts.append(_ranking(r))
 
+    if r.get("universe"):
+        parts.append(_universe(r["universe"]))
     parts.append(_log_form(cfg))
     if r.get("replay"):
         parts.append(f'<details class="sec"><summary>Replay: what the engine said the last 10 mornings, and what happened</summary>{_replay(r["replay"])}</details>')
@@ -421,3 +423,18 @@ def _ranking(r):
             '<div class="tbl"><table><tr><th class="stick l">Rank · Ticker</th><th class="l">Status</th><th>Price</th><th>Past 1M</th><th>Past 3M</th>'
             '<th>Target range (1–2 wk)</th><th>Analyst target (12-mo)</th><th>Fwd P/E</th><th>Earnings</th></tr>'
             f'{"".join(rows)}</table></div></details>')
+
+
+def _universe(rows):
+    body = "".join(
+        f'<tr data-t="{e(x["ticker"])} {e(x["name"]).lower()}"><td class="stick l"><b>{e(x["ticker"])}</b><div class="note">{e(x["name"])[:22]}</div></td>'
+        f'<td class="l">{e(x["status"])}</td><td>${x["price"]}</td><td>{pct(x["ret21"])}</td><td>{pct(x["ret63"])}</td><td>{pct(x["ret126"])}</td>'
+        f'<td>{x["rsi"]}</td><td class="l">{e(x["gate"])}</td><td>{"-" if not x["fwd_pe"] else round(x["fwd_pe"], 1)}</td>'
+        f'<td>{"-" if not x["analyst_target"] else "$" + str(round(x["analyst_target"], 2))}</td></tr>' for x in rows)
+    return ('<details class="sec" id="lookup"><summary>Look up any stock (all ' + str(len(rows)) + ' tracked)</summary>'
+            '<input id="q" placeholder="Type a ticker or name, e.g. AKAM" oninput="flt()" style="margin-bottom:10px">'
+            '<div class="tbl"><table id="ut"><tr><th class="stick l">Ticker</th><th class="l">Rank / status</th><th>Price</th><th>Past 1M</th>'
+            '<th>Past 3M</th><th>Past 6M</th><th>RSI</th><th class="l">Fundamentals</th><th>Fwd P/E</th><th>Analyst target</th></tr>'
+            f'{body}</table></div><p class="note">Only the top 3 ranked names are bought. "Excluded" names cannot be bought while that condition holds.</p>'
+            '<script>function flt(){const q=document.getElementById("q").value.trim().toLowerCase();'
+            'document.querySelectorAll("#ut tr[data-t]").forEach(r=>{r.style.display=!q||r.dataset.t.toLowerCase().includes(q)?"":"none"})}</script></details>')
