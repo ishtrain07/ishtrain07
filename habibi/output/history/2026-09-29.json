@@ -116,42 +116,42 @@
  "watch": [
   {
    "ticker": "ARM",
-   "score": 83.2,
-   "price": 283.33,
+   "score": 85.9,
+   "price": 297.09,
    "setup": "momentum",
-   "rsi": 52,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "SNOW",
-   "score": 82.0,
-   "price": 328.12,
-   "setup": "momentum",
-   "rsi": 50,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "MRVL",
-   "score": 81.2,
-   "price": 251.9,
-   "setup": "momentum",
-   "rsi": 57,
+   "rsi": 56,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "HOOD",
-   "score": 80.3,
-   "price": 116.46,
+   "score": 83.4,
+   "price": 115.89,
    "setup": "momentum",
-   "rsi": 54,
+   "rsi": 53,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "FTNT",
-   "score": 76.5,
-   "price": 176.33,
+   "ticker": "ALAB",
+   "score": 82.9,
+   "price": 362.46,
    "setup": "momentum",
-   "rsi": 60,
+   "rsi": 62,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "SNOW",
+   "score": 82.6,
+   "price": 329.32,
+   "setup": "momentum",
+   "rsi": 51,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "MRVL",
+   "score": 81.0,
+   "price": 262.2,
+   "setup": "momentum",
+   "rsi": 61,
    "action": "next in line if a holding drops out"
   }
  ],
@@ -160,9 +160,9 @@
   "risk_mult": 1.0,
   "max_new": 4,
   "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
-  "spy": 765.61,
-  "spy_sma50": 760.39,
-  "spy_sma200": 715.29,
-  "vix": 15.86
+  "spy": 763.72,
+  "spy_sma50": 760.86,
+  "spy_sma200": 715.7,
+  "vix": 16.17
  }
 }
