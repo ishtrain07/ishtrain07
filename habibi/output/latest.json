@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-29 02:48 ET",
+ "generated_at": "2026-09-29 08:58 ET",
  "date": "2026-09-29",
  "mode": "plan",
  "regime": {
@@ -10,24 +10,24 @@
   "spy": 765.61,
   "spy_sma50": 760.39,
   "spy_sma200": 715.29,
-  "vix": 16.07
+  "vix": 15.86
  },
  "macro": [
   {
    "ticker": "ES=F",
    "label": "S&P 500 futures",
-   "last": 7743.0,
-   "d1": -0.05,
-   "d5": -1.13,
-   "m1": 0.27
+   "last": 7756.0,
+   "d1": 0.12,
+   "d5": -0.97,
+   "m1": 0.44
   },
   {
    "ticker": "NQ=F",
    "label": "Nasdaq 100 futures",
-   "last": 30540.25,
-   "d1": -0.09,
-   "d5": -1.57,
-   "m1": 3.56
+   "last": 30644.0,
+   "d1": 0.25,
+   "d5": -1.24,
+   "m1": 3.91
   },
   {
    "ticker": "SPY",
@@ -56,50 +56,50 @@
   {
    "ticker": "^VIX",
    "label": "VIX (fear)",
-   "last": 16.07,
-   "d1": 8.07,
-   "d5": 8.07,
-   "m1": 11.37
+   "last": 15.86,
+   "d1": -1.31,
+   "d5": 11.61,
+   "m1": 6.3
   },
   {
    "ticker": "^TNX",
    "label": "US 10Y yield",
-   "last": 5.24,
-   "d1": 1.08,
-   "d5": 5.58,
-   "m1": 12.16
+   "last": 5.22,
+   "d1": -0.31,
+   "d5": 5.15,
+   "m1": 10.68
   },
   {
    "ticker": "DX-Y.NYB",
    "label": "US Dollar index",
-   "last": 101.28,
-   "d1": 0.08,
-   "d5": 0.67,
-   "m1": 1.58
+   "last": 101.34,
+   "d1": 0.14,
+   "d5": 0.73,
+   "m1": 1.64
   },
   {
    "ticker": "CL=F",
    "label": "WTI crude",
-   "last": 93.93,
-   "d1": 1.44,
-   "d5": -0.7,
-   "m1": 12.63
+   "last": 90.47,
+   "d1": -2.3,
+   "d5": -4.36,
+   "m1": 8.48
   },
   {
    "ticker": "GC=F",
    "label": "Gold",
-   "last": 4174.4,
-   "d1": 0.14,
-   "d5": -4.62,
-   "m1": -7.85
+   "last": 4187.4,
+   "d1": 0.46,
+   "d5": -4.32,
+   "m1": -7.56
   },
   {
    "ticker": "BTC-USD",
    "label": "Bitcoin",
-   "last": 83845.33,
-   "d1": -0.73,
-   "d5": -0.64,
-   "m1": 5.98
+   "last": 84297.18,
+   "d1": 0.95,
+   "d5": -0.1,
+   "m1": 7.47
   },
   {
    "ticker": "^N225",
@@ -112,58 +112,58 @@
   {
    "ticker": "^HSI",
    "label": "Hang Seng (HK)",
-   "last": 24561.96,
-   "d1": -0.33,
-   "d5": -2.1,
-   "m1": -3.93
+   "last": 24523.57,
+   "d1": -0.48,
+   "d5": -2.25,
+   "m1": -4.08
   },
   {
    "ticker": "^GDAXI",
    "label": "DAX (Germany)",
-   "last": 25374.42,
-   "d1": -0.13,
-   "d5": -0.78,
-   "m1": -4.5
+   "last": 25576.5,
+   "d1": 0.8,
+   "d5": -0.01,
+   "m1": -2.6
   },
   {
    "ticker": "^FTSE",
    "label": "FTSE 100 (UK)",
-   "last": 10684.9,
-   "d1": -0.1,
-   "d5": -0.5,
-   "m1": -1.0
+   "last": 10708.62,
+   "d1": 0.22,
+   "d5": 0.0,
+   "m1": -1.07
   },
   {
    "ticker": "^NSEI",
    "label": "Nifty 50 (India)",
-   "last": 22731.9,
-   "d1": -0.21,
-   "d5": -2.56,
-   "m1": -5.97
+   "last": 22716.2,
+   "d1": -0.28,
+   "d5": -2.63,
+   "m1": -6.04
   },
   {
    "ticker": "USDCAD=X",
    "label": "USD/CAD",
    "last": 1.42,
-   "d1": 0.22,
-   "d5": 1.09,
-   "m1": 2.06
+   "d1": 0.2,
+   "d5": 1.07,
+   "m1": 2.04
   },
   {
    "ticker": "USDINR=X",
    "label": "USD/INR",
-   "last": 96.07,
-   "d1": 0.29,
-   "d5": 0.37,
-   "m1": 0.72
+   "last": 95.97,
+   "d1": 0.19,
+   "d5": 0.27,
+   "m1": 0.62
   }
  ],
  "macro_read": [
-  "VIX 16.1: normal.",
-  "10Y yield 5.24% (+12.2% over a month): rising yields pressure high-P/E growth stocks.",
+  "VIX 15.9: calm, dips tend to get bought.",
+  "10Y yield 5.22% (+10.7% over a month): rising yields pressure high-P/E growth stocks.",
   "Dollar +1.6% over a month: strong dollar is a headwind for multinationals.",
-  "Global overnight: Nikkei -0.6%, Hang Seng -0.3%, DAX -0.1%, Nifty 50 -0.2%.",
-  "US futures: S&P 500 futures -0.05%, Nasdaq 100 futures -0.09%.",
+  "Global overnight: Nikkei -0.6%, Hang Seng -0.5%, DAX +0.8%, Nifty 50 -0.3%.",
+  "US futures: S&P 500 futures +0.12%, Nasdaq 100 futures +0.25%.",
   "Uptrend confirmed and volatility calm. Full risk allowed."
  ],
  "account": {
@@ -298,7 +298,7 @@
   ],
   "closed": [],
   "orders_today": [],
-  "executed": false
+  "executed": true
  },
  "record": {
   "trades": 0,
@@ -1930,7 +1930,7 @@
    "ret126": 76.4,
    "rsi": 54,
    "gate": "pass",
-   "fwd_pe": 33.54031,
+   "fwd_pe": 33.735207,
    "analyst_target": 130.67184
   },
   {
@@ -1944,7 +1944,7 @@
    "ret126": 195.2,
    "rsi": 58,
    "gate": "pass",
-   "fwd_pe": 6.542628,
+   "fwd_pe": 6.52649,
    "analyst_target": 1520.7609
   },
   {
@@ -2224,7 +2224,7 @@
    "ret126": 134.7,
    "rsi": 67,
    "gate": "pass",
-   "fwd_pe": 90.36581,
+   "fwd_pe": 90.3725,
    "analyst_target": 286.25696
   },
   {
@@ -2490,7 +2490,7 @@
    "ret126": 28.5,
    "rsi": 51,
    "gate": "revenue growth -7% too weak",
-   "fwd_pe": 17.371405,
+   "fwd_pe": 17.309937,
    "analyst_target": 72.77273
   },
   {
@@ -2505,7 +2505,7 @@
    "rsi": 57,
    "gate": "pass",
    "fwd_pe": 30.101831,
-   "analyst_target": 2117.266
+   "analyst_target": 2113.662
   },
   {
    "ticker": "ETN",
@@ -2770,7 +2770,7 @@
    "ret126": -12.4,
    "rsi": 44,
    "gate": "revenue growth 2% too weak",
-   "fwd_pe": 9.688641,
+   "fwd_pe": 9.684081,
    "analyst_target": 29.05208
   },
   {
@@ -2798,7 +2798,7 @@
    "ret126": -4.8,
    "rsi": 48,
    "gate": "pass",
-   "fwd_pe": 15.959526,
+   "fwd_pe": 15.912923,
    "analyst_target": 158.87318
   },
   {
@@ -2966,7 +2966,7 @@
    "ret126": -5.9,
    "rsi": 52,
    "gate": "pass",
-   "fwd_pe": 36.92098,
+   "fwd_pe": 36.91677,
    "analyst_target": 1057.0857
   },
   {
@@ -3064,7 +3064,7 @@
    "ret126": 15.2,
    "rsi": 33,
    "gate": "pass",
-   "fwd_pe": 12.461472,
+   "fwd_pe": 12.48133,
    "analyst_target": 1127.25
   },
   {
@@ -3176,7 +3176,7 @@
    "ret126": -27.8,
    "rsi": 42,
    "gate": "revenue growth -1% too weak",
-   "fwd_pe": 16.7928,
+   "fwd_pe": 16.831638,
    "analyst_target": 45.76667
   },
   {
@@ -3219,7 +3219,7 @@
    "rsi": 31,
    "gate": "revenue growth 2% too weak",
    "fwd_pe": 11.536388,
-   "analyst_target": 46.283638
+   "analyst_target": 46.202507
   },
   {
    "ticker": "ON",
@@ -3247,7 +3247,7 @@
    "rsi": 54,
    "gate": "pass",
    "fwd_pe": 14.613025,
-   "analyst_target": 43.179684
+   "analyst_target": 43.148605
   },
   {
    "ticker": "ORCL",
@@ -3331,7 +3331,7 @@
    "rsi": 41,
    "gate": "pass",
    "fwd_pe": 28.352104,
-   "analyst_target": 602.43414
+   "analyst_target": 601.4086
   },
   {
    "ticker": "TSLA",
@@ -3570,7 +3570,7 @@
    "setup": "pullback",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 33.54031,
+   "fwd_pe": 33.735207,
    "next_earnings": "2026-11-04",
    "range_lo": 130.03,
    "range_hi": 143.59,
@@ -3592,7 +3592,7 @@
    "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 6.542628,
+   "fwd_pe": 6.52649,
    "next_earnings": "2026-09-30",
    "range_lo": 1162.05,
    "range_hi": 1270.11,
@@ -4032,7 +4032,7 @@
    "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 90.36581,
+   "fwd_pe": 90.3725,
    "next_earnings": "2026-11-05",
    "range_lo": 297.55,
    "range_hi": 326.41,
