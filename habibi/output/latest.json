@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-29 02:39 ET",
+ "generated_at": "2026-09-29 02:45 ET",
  "date": "2026-09-29",
  "mode": "plan",
  "regime": {
@@ -16,18 +16,18 @@
   {
    "ticker": "ES=F",
    "label": "S&P 500 futures",
-   "last": 7740.75,
-   "d1": -0.08,
-   "d5": -1.16,
-   "m1": 0.24
+   "last": 7743.75,
+   "d1": -0.04,
+   "d5": -1.12,
+   "m1": 0.28
   },
   {
    "ticker": "NQ=F",
    "label": "Nasdaq 100 futures",
-   "last": 30523.25,
-   "d1": -0.14,
-   "d5": -1.63,
-   "m1": 3.5
+   "last": 30545.0,
+   "d1": -0.07,
+   "d5": -1.56,
+   "m1": 3.57
   },
   {
    "ticker": "SPY",
@@ -72,50 +72,50 @@
   {
    "ticker": "DX-Y.NYB",
    "label": "US Dollar index",
-   "last": 101.25,
-   "d1": 0.05,
-   "d5": 0.65,
-   "m1": 1.56
+   "last": 101.27,
+   "d1": 0.07,
+   "d5": 0.67,
+   "m1": 1.57
   },
   {
    "ticker": "CL=F",
    "label": "WTI crude",
-   "last": 93.85,
-   "d1": 1.35,
-   "d5": -0.78,
-   "m1": 12.53
+   "last": 93.94,
+   "d1": 1.45,
+   "d5": -0.69,
+   "m1": 12.64
   },
   {
    "ticker": "GC=F",
    "label": "Gold",
-   "last": 4175.3,
-   "d1": -3.38,
-   "d5": -4.76,
-   "m1": -10.48
+   "last": 4174.6,
+   "d1": -3.39,
+   "d5": -4.77,
+   "m1": -10.49
   },
   {
    "ticker": "BTC-USD",
    "label": "Bitcoin",
-   "last": 83820.59,
-   "d1": -0.75,
-   "d5": -0.67,
-   "m1": 5.95
+   "last": 83879.36,
+   "d1": -0.69,
+   "d5": -0.6,
+   "m1": 6.02
   },
   {
    "ticker": "^N225",
    "label": "Nikkei (Japan)",
-   "last": 65197.86,
-   "d1": -1.03,
-   "d5": 1.66,
-   "m1": -1.61
+   "last": 65481.27,
+   "d1": -0.6,
+   "d5": 2.1,
+   "m1": -1.18
   },
   {
    "ticker": "^HSI",
    "label": "Hang Seng (HK)",
-   "last": 24543.26,
-   "d1": -0.4,
-   "d5": -2.17,
-   "m1": -4.0
+   "last": 24560.56,
+   "d1": -0.33,
+   "d5": -2.1,
+   "m1": -3.94
   },
   {
    "ticker": "^GDAXI",
@@ -136,18 +136,18 @@
   {
    "ticker": "^NSEI",
    "label": "Nifty 50 (India)",
-   "last": 22748.15,
-   "d1": -0.14,
-   "d5": -2.49,
-   "m1": -5.9
+   "last": 22737.4,
+   "d1": -0.19,
+   "d5": -2.54,
+   "m1": -5.95
   },
   {
    "ticker": "USDCAD=X",
    "label": "USD/CAD",
    "last": 1.42,
-   "d1": 0.23,
-   "d5": 1.1,
-   "m1": 2.08
+   "d1": 0.21,
+   "d5": 1.08,
+   "m1": 2.05
   },
   {
    "ticker": "USDINR=X",
@@ -162,8 +162,8 @@
   "VIX 16.1: normal.",
   "10Y yield 5.24% (+12.2% over a month): rising yields pressure high-P/E growth stocks.",
   "Dollar +1.6% over a month: strong dollar is a headwind for multinationals.",
-  "Global overnight: Nikkei -1.0%, Hang Seng -0.4%, DAX -0.1%, Nifty 50 -0.1%.",
-  "US futures: S&P 500 futures -0.08%, Nasdaq 100 futures -0.14%.",
+  "Global overnight: Nikkei -0.6%, Hang Seng -0.3%, DAX -0.1%, Nifty 50 -0.2%.",
+  "US futures: S&P 500 futures -0.04%, Nasdaq 100 futures -0.07%.",
   "Uptrend confirmed and volatility calm. Full risk allowed."
  ],
  "account": {
@@ -216,7 +216,7 @@
     "system_pick": true,
     "mode": "momentum",
     "plan_entry": 562.89,
-    "plan_date": "2026-09-26",
+    "plan_date": "2026-09-28",
     "fills": [
      {
       "date": "2026-09-28",
@@ -239,15 +239,15 @@
     "avg_cost": 337.62,
     "first_buy": "2026-09-28",
     "stop": 310.61,
-    "t1": 354.5,
-    "t2": 371.38,
+    "t1": 369.36,
+    "t2": 402.78,
     "hold_days": 60,
     "sell_by": "2026-12-22",
     "partial": false,
-    "system_pick": false,
+    "system_pick": true,
     "mode": "momentum",
-    "plan_entry": null,
-    "plan_date": null,
+    "plan_entry": 335.94,
+    "plan_date": "2026-09-28",
     "fills": [
      {
       "date": "2026-09-28",
@@ -270,15 +270,15 @@
     "avg_cost": 174.33,
     "first_buy": "2026-09-28",
     "stop": 160.38,
-    "t1": 183.05,
-    "t2": 191.76,
+    "t1": 188.61,
+    "t2": 203.76,
     "hold_days": 60,
     "sell_by": "2026-12-22",
     "partial": false,
-    "system_pick": false,
+    "system_pick": true,
     "mode": "momentum",
-    "plan_entry": null,
-    "plan_date": null,
+    "plan_entry": 173.46,
+    "plan_date": "2026-09-28",
     "fills": [
      {
       "date": "2026-09-28",
@@ -1665,7 +1665,119 @@
   "github_repo": "ishtrain07/ishtrain07",
   "dashboard_url": "https://ishtrain07.github.io/ishtrain07/"
  },
- "buys": [],
+ "buys": [
+  {
+   "ticker": "DELL",
+   "name": "Dell Technologies Inc.",
+   "sector": "Tech",
+   "price": 543.43,
+   "score": 92.3,
+   "momentum": 100,
+   "rs": 93,
+   "trend": 100,
+   "fund": 80,
+   "rsi": 54,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 18.663584,
+   "next_earnings": "2026-11-27",
+   "entry": 543.43,
+   "limit": 546.15,
+   "stop": 499.96,
+   "t1": 613.4,
+   "t2": 683.37,
+   "stop_pct": -8.0,
+   "t1_pct": 12.9,
+   "t2_pct": 25.8,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-06",
+   "shares": 0.29,
+   "dollars": 157.59,
+   "risk_dollars": 12.61,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "trial week: half-size position",
+    "#1 on the learning model ranking: 6-mo +218%, 3-mo +31%, 1-mo +15%",
+    "stronger than 93% of the universe vs the S&P; above its 200-day average",
+    "revenue +58% y/y"
+   ],
+   "news": []
+  },
+  {
+   "ticker": "SNOW",
+   "name": "Snowflake Inc.",
+   "sector": "Tech",
+   "price": 328.12,
+   "score": 81.0,
+   "momentum": 91,
+   "rs": 92,
+   "trend": 75,
+   "fund": 45,
+   "rsi": 50,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 108.86313,
+   "next_earnings": "2026-12-02",
+   "entry": 328.12,
+   "limit": 329.76,
+   "stop": 301.87,
+   "t1": 362.23,
+   "t2": 396.35,
+   "stop_pct": -8.0,
+   "t1_pct": 10.4,
+   "t2_pct": 20.8,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-06",
+   "shares": 0.48,
+   "dollars": 157.5,
+   "risk_dollars": 12.6,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "trial week: half-size position",
+    "#5 on the learning model ranking: 6-mo +115%, 3-mo +30%, 1-mo -0%",
+    "stronger than 92% of the universe vs the S&P; above its 200-day average",
+    "revenue +35% y/y"
+   ],
+   "news": []
+  },
+  {
+   "ticker": "FTNT",
+   "name": "Fortinet, Inc.",
+   "sector": "Tech",
+   "price": 176.33,
+   "score": 85.7,
+   "momentum": 92,
+   "rs": 79,
+   "trend": 100,
+   "fund": 72,
+   "rsi": 60,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 46.675686,
+   "next_earnings": "2026-11-04",
+   "entry": 176.33,
+   "limit": 177.21,
+   "stop": 162.22,
+   "t1": 191.57,
+   "t2": 206.82,
+   "stop_pct": -8.0,
+   "t1_pct": 8.6,
+   "t2_pct": 17.3,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-06",
+   "shares": 0.9,
+   "dollars": 158.7,
+   "risk_dollars": 12.7,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "trial week: half-size position",
+    "#9 on the learning model ranking: 6-mo +125%, 3-mo +13%, 1-mo +2%",
+    "stronger than 79% of the universe vs the S&P; above its 200-day average",
+    "revenue +26% y/y"
+   ],
+   "news": []
+  }
+ ],
  "backups": [],
  "watch": [
   {
