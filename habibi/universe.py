@@ -27,7 +27,7 @@ UNIVERSE = {
     "ORCL": "Tech", "CRM": "Tech", "ADBE": "Tech", "NOW": "Tech", "INTU": "Tech",
     "PLTR": "Tech", "SHOP": "Tech", "CRWD": "Tech", "PANW": "Tech", "ANET": "Tech",
     "SNOW": "Tech", "DDOG": "Tech", "NET": "Tech", "ZS": "Tech", "APP": "Tech",
-    "IBM": "Tech", "DELL": "Tech", "FTNT": "Tech", "MDB": "Tech",
+    "IBM": "Tech", "DELL": "Tech", "FTNT": "Tech", "MDB": "Tech", "AKAM": "Tech",
     # Semis
     "AVGO": "Semis", "AMD": "Semis", "TSM": "Semis", "MU": "Semis", "QCOM": "Semis",
     "ARM": "Semis", "LRCX": "Semis", "AMAT": "Semis", "KLAC": "Semis", "MRVL": "Semis",
