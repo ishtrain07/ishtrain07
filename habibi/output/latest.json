@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-29 14:33 ET",
+ "generated_at": "2026-09-29 15:28 ET (position check)",
  "date": "2026-09-29",
  "mode": "plan",
  "regime": {
@@ -188,10 +188,10 @@
   "account": {
    "cash": 524.28,
    "realized": 0.0,
-   "unrealized": -10.44,
-   "market_value": 465.28,
-   "equity": 989.56,
-   "return_pct": -1.04
+   "unrealized": -8.98,
+   "market_value": 466.74,
+   "equity": 991.02,
+   "return_pct": -0.9
   },
   "record": {
    "trades": 0,
@@ -225,10 +225,10 @@
       "shares": 0.28
      }
     ],
-    "price": 540.32,
-    "value": 151.29,
-    "pnl": -7.11,
-    "pnl_pct": -4.49,
+    "price": 540.59,
+    "value": 151.37,
+    "pnl": -7.03,
+    "pnl_pct": -4.44,
     "days_held": 1,
     "active_stop": 520.44,
     "action": "HOLD",
@@ -256,14 +256,14 @@
       "shares": 0.47
      }
     ],
-    "price": 328.93,
-    "value": 154.6,
-    "pnl": -4.08,
-    "pnl_pct": -2.57,
+    "price": 330.67,
+    "value": 155.41,
+    "pnl": -3.27,
+    "pnl_pct": -2.06,
     "days_held": 1,
     "active_stop": 310.61,
     "action": "HOLD",
-    "why": "held while it stays top-3; reviewed every Monday; stop 310.61 (-5.6%)"
+    "why": "held while it stays top-3; reviewed every Monday; stop 310.61 (-6.1%)"
    },
    {
     "ticker": "FTNT",
@@ -287,14 +287,14 @@
       "shares": 0.91
      }
     ],
-    "price": 175.15,
-    "value": 159.39,
-    "pnl": 0.75,
-    "pnl_pct": 0.47,
+    "price": 175.78,
+    "value": 159.96,
+    "pnl": 1.32,
+    "pnl_pct": 0.83,
     "days_held": 1,
     "active_stop": 160.38,
     "action": "HOLD",
-    "why": "held while it stays top-3; reviewed every Monday; stop 160.38 (-8.4%)"
+    "why": "held while it stays top-3; reviewed every Monday; stop 160.38 (-8.8%)"
    }
   ],
   "closed": [],
