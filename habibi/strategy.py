@@ -322,7 +322,7 @@ def is_rebalance_day(today, last_rebalance):
 
 
 def momentum_plan(feats, funds, regime, cfg, equity, cash, holdings, today, rebalance, learned=None,
-                  details=None):
+                  details=None, catch_up=None):
     """Risk-adjusted momentum rotation (research variant R2).
 
     Each week hold the top-N eligible names ranked by momentum / volatility.
@@ -408,6 +408,19 @@ def momentum_plan(feats, funds, regime, cfg, equity, cash, holdings, today, reba
                 extra = [f"trial week: half-size position; topped up to a full slot on {cfg['ramp_until']}+ "
                          f"rebalance if still top-{n}"]
             b = order(t, per * tranche * ramp_frac, "new", extra)
+            buys.append(b)
+            spendable -= b["dollars"]
+    # Catch-up (non-rebalance days): this week's official picks you don't hold yet.
+    # catch_up = {ticker: plan stop} from the last rebalance; skipped if price is at/below that stop.
+    if not rebalance and catch_up and regime["light"] != "RED":
+        missing = [t for t in catch_up if t not in holdings and t in sc.index
+                   and float(sc.loc[t].Close) > catch_up[t]]
+        slots = n - len(holdings)
+        per = min(spendable / max(min(len(missing), slots), 1), full_slot) if missing and slots > 0 else 0
+        for t in missing[:max(slots, 0)]:
+            b = order(t, per * tranche * ramp_frac, "new",
+                      ["catch-up: on this week's list (set at the Monday review); you don't hold it yet"] +
+                      ([f"trial week: half-size position"] if ramp_frac < 1 else []))
             buys.append(b)
             spendable -= b["dollars"]
     # After the trial-week ramp: on rebalance days bring kept holdings up to a full slot.

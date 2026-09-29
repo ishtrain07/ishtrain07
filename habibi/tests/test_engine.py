@@ -100,7 +100,10 @@ def test_momentum_mode(sandbox):
     # second run in the same week must not rebalance again (for you or the paper account)
     run.cmd_plan(cfg, Args())
     rep2 = json.loads((sandbox / "output" / "latest.json").read_text())
-    assert rep2["rebalance"] is False and rep2["buys"] == []
+    assert rep2["rebalance"] is False
+    # anything still offered is a catch-up of this week's list, never a new pick
+    assert {b["ticker"] for b in rep2["buys"]} <= {b["ticker"] for b in rep["buys"]}
+    assert all("catch-up" in b["reason"][0] for b in rep2["buys"])
     assert not [o for o in rep2["paper"]["orders_today"] if o["side"] == "BUY"]
     assert len((sandbox / "output" / "paper_trades.csv").read_text().splitlines()) >= n_paper
     run.cmd_check(cfg, Args())
@@ -187,3 +190,22 @@ def test_trial_week_ramp():
                           details={t: {"value": 165.0, "avg_cost": px, "price": px}})
     tops = [b for b in later["buys"] if b.get("kind") == "add"]
     assert len(tops) == 1 and tops[0]["ticker"] == t
+
+
+def test_catch_up_and_history_merge(sandbox):
+    cfg = run.load_cfg()
+    cfg["strategy"] = "momentum"
+    (sandbox / "trades.csv").write_text("date,ticker,side,shares,price,fees,note\n")
+    run.cmd_plan(cfg, Args())                       # rebalance day: sets this week's list
+    rep = json.loads((sandbox / "output" / "latest.json").read_text())
+    week = [b["ticker"] for b in rep["buys"]]
+    assert week
+    hist = sandbox / "output" / "history" / f"{dt.date.today().isoformat()}.json"
+    run.cmd_plan(cfg, Args())                       # same week, you still hold nothing -> catch-up buys
+    rep2 = json.loads((sandbox / "output" / "latest.json").read_text())
+    assert rep2["rebalance"] is False
+    assert [b["ticker"] for b in rep2["buys"]] == week
+    assert all("catch-up" in b["reason"][0] for b in rep2["buys"])
+    assert not [o for o in rep2["paper"]["orders_today"] if o["side"] == "BUY"]   # paper already holds them
+    # the day's saved plan still has the original list after the second run
+    assert [b["ticker"] for b in json.loads(hist.read_text())["buys"]] == week

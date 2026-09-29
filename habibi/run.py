@@ -135,6 +135,18 @@ def drawdown_state(book, cfg, today=None, persist=False):
     return "OK", ""
 
 
+def save_history(today, ranked, regime):
+    """The day's plan is the engine's memory (stops for positions, the week's list).
+    Later runs the same day merge in new orders; they never erase earlier ones."""
+    path = OUT / "history" / f"{today.isoformat()}.json"
+    old = json.loads(path.read_text()) if path.exists() else {}
+    buys = {b["ticker"]: b for b in old.get("buys", [])}
+    for b in ranked["buys"]:
+        buys.setdefault(b["ticker"], b)
+    path.write_text(json.dumps({"buys": list(buys.values()), "backups": ranked["backups"] or old.get("backups", []),
+                                "watch": ranked["watch"], "regime": regime}, indent=1, default=str))
+
+
 def cmd_plan(cfg, args):
     now = dt.datetime.now(ET)
     today = now.date()
@@ -182,8 +194,13 @@ def cmd_plan(cfg, args):
             m = adaptive.model(feats, uni)
             learned_scores, learned = m["scores"].iloc[-1], adaptive.explain_today(m)
         details = {p["ticker"]: p for p in book["open"] if p["ticker"] not in selling}
+        catch_up = None
+        if not rebalance and state.get("last_rebalance"):
+            week_plan = history.get(state["last_rebalance"], {})
+            catch_up = {b["ticker"]: b["stop"] for b in week_plan.get("buys", []) if b.get("kind") != "add"}
         ranked = momentum_plan(feats, funds, regime, cfg, book["equity"], book["cash"], holdings, today,
-                               rebalance if dd_state == "OK" else False, learned_scores, details)
+                               rebalance if dd_state == "OK" else False, learned_scores, details,
+                               catch_up if dd_state == "OK" else None)
         if dd_state != "OK":
             ranked["buys"] = []
         ranked["learned"] = learned
@@ -233,9 +250,8 @@ def cmd_plan(cfg, args):
     brief = OUT / "brief.md"
     if brief.exists():
         report["brief"] = brief.read_text()[:4000]
-    (OUT / "history" / f"{today.isoformat()}.json").write_text(
-        json.dumps({"buys": ranked["buys"], "backups": ranked["backups"], "watch": ranked["watch"],
-                    "regime": regime}, indent=1, default=str))
+    if not args.dry_run:
+        save_history(today, ranked, regime)
     write_outputs(report)
 
     if not args.no_notify:
