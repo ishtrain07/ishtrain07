@@ -135,6 +135,21 @@ def drawdown_state(book, cfg, today=None, persist=False):
     return "OK", ""
 
 
+def benchmark(feats, cfg, live=None):
+    """S&P 500 (SPY) return since the last close before the start date: the 'market' line."""
+    spy = feats.get("SPY")
+    if spy is None:
+        return None
+    start = dt.date.fromisoformat(cfg["start_date"])
+    before = spy.Close[spy.index.date < start]
+    if before.empty:
+        return None
+    base = float(before.iloc[-1])
+    last = float((live or {}).get("SPY", spy.Close.iloc[-1]))
+    return {"spy_return_pct": round((last / base - 1) * 100, 2), "base": round(base, 2), "last": round(last, 2),
+            "since": cfg["start_date"]}
+
+
 def save_history(today, ranked, regime):
     """The day's plan is the engine's memory (stops for positions, the week's list).
     Later runs the same day merge in new orders; they never erase earlier ones."""
@@ -244,7 +259,7 @@ def cmd_plan(cfg, args):
         "system_paper": system_paper({**history, today.isoformat(): ranked}, feats, cfg, cfg["start_date"])
         if cfg.get("strategy") != "momentum" else {},
         "strategy": cfg.get("strategy", "swing"), "rebalance": ranked.get("rebalance"), "paper": paper,
-        "record": win_loss(book["closed"]),
+        "record": win_loss(book["closed"]), "benchmark": benchmark(feats, cfg),
         "backtest": bt, "replay": rp, "research": research, "config": cfg, **ranked,
     }
     brief = OUT / "brief.md"
@@ -305,7 +320,8 @@ def cmd_check(cfg, args):
     report.update({"generated_at": now.strftime("%Y-%m-%d %H:%M ET") + " (position check)",
                    "account": {k: book[k] for k in ("cash", "realized", "unrealized", "market_value", "equity", "return_pct")},
                    "positions": book["open"], "closed": book["closed"], "alerts": alerts,
-                   "drawdown_state": dd_state, "drawdown_msg": dd_msg, "record": win_loss(book["closed"])})
+                   "drawdown_state": dd_state, "drawdown_msg": dd_msg, "record": win_loss(book["closed"]),
+                   "benchmark": benchmark(feats, cfg, live)})
     regime = report.get("regime") or {"light": "YELLOW", "max_new": 0, "risk_mult": 0}
     report["paper"] = run_paper(feats, funds, regime, cfg, today, history, live, execute=not args.dry_run)
     write_outputs(report)
