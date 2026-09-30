@@ -236,8 +236,10 @@ def _scoreboard(r):
     def rec(x):
         x = x or {}
         return f'{x.get("wins", 0)}W-{x.get("losses", 0)}L' + (f' ({x["win_rate"]:.0f}%)' if x.get("win_rate") is not None else "")
-    return (f'<div class="card kpi"><div class="l">You vs system</div><div class="v">{pct(you, 1)} <span class="mute" style="font-size:15px">vs</span> {pct(sysr, 1)}</div>'
-            f'<div class="sub">{lead} · you {rec(r.get("record"))} · system {rec((r.get("paper") or {}).get("record"))}</div></div>')
+    bm = (r.get("benchmark") or {}).get("spy_return_pct")
+    mkt = f' · market (S&amp;P 500) {pct(bm, 1)}' if bm is not None else ""
+    return (f'<div class="card kpi"><div class="l">You vs system vs market</div><div class="v">{pct(you, 1)} <span class="mute" style="font-size:15px">vs</span> {pct(sysr, 1)}</div>'
+            f'<div class="sub">{lead}{mkt} · you {rec(r.get("record"))} · system {rec((r.get("paper") or {}).get("record"))}</div></div>')
 
 
 def _tracking(r):
