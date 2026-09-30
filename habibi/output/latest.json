@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-30 16:14 ET (position check)",
+ "generated_at": "2026-09-30 17:30 ET (position check)",
  "date": "2026-09-30",
  "mode": "plan",
  "regime": {
@@ -169,9 +169,9 @@
  "account": {
   "cash": 799.95,
   "realized": 0.0,
-  "unrealized": 5.79,
-  "market_value": 205.84,
-  "equity": 1005.79,
+  "unrealized": 5.82,
+  "market_value": 205.87,
+  "equity": 1005.82,
   "return_pct": 0.58
  },
  "drawdown_state": "OK",
@@ -199,10 +199,10 @@
      "shares": 0.6059
     }
    ],
-   "price": 339.73,
-   "value": 205.84,
-   "pnl": 5.79,
-   "pnl_pct": 2.89,
+   "price": 339.78,
+   "value": 205.87,
+   "pnl": 5.82,
+   "pnl_pct": 2.91,
    "days_held": 1,
    "active_stop": 303.76,
    "action": "HOLD",
@@ -219,9 +219,9 @@
   "account": {
    "cash": 524.28,
    "realized": 0.0,
-   "unrealized": -2.61,
-   "market_value": 473.11,
-   "equity": 997.39,
+   "unrealized": -2.58,
+   "market_value": 473.14,
+   "equity": 997.42,
    "return_pct": -0.26
   },
   "record": {
@@ -287,10 +287,10 @@
       "shares": 0.47
      }
     ],
-    "price": 339.73,
-    "value": 159.67,
-    "pnl": 0.99,
-    "pnl_pct": 0.62,
+    "price": 339.78,
+    "value": 159.7,
+    "pnl": 1.02,
+    "pnl_pct": 0.64,
     "days_held": 2,
     "active_stop": 310.61,
     "action": "HOLD",
@@ -342,9 +342,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -1.15,
+  "spy_return_pct": -1.13,
   "base": 771.35,
-  "last": 762.48,
+  "last": 762.63,
   "since": "2026-09-28"
  },
  "backtest": {
