@@ -110,43 +110,43 @@
  "backups": [],
  "watch": [
   {
-   "ticker": "ARM",
-   "score": 85.3,
-   "price": 293.67,
+   "ticker": "ALAB",
+   "score": 88.0,
+   "price": 351.84,
    "setup": "momentum",
-   "rsi": 55,
+   "rsi": 59,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "ALAB",
-   "score": 85.2,
-   "price": 357.84,
+   "ticker": "ARM",
+   "score": 83.4,
+   "price": 288.43,
    "setup": "momentum",
-   "rsi": 61,
+   "rsi": 53,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "CRWD",
+   "score": 82.1,
+   "price": 265.73,
+   "setup": "momentum",
+   "rsi": 67,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "HOOD",
-   "score": 83.2,
-   "price": 116.22,
+   "score": 81.2,
+   "price": 112.31,
    "setup": "momentum",
-   "rsi": 54,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "SNOW",
-   "score": 81.6,
-   "price": 330.31,
-   "setup": "momentum",
-   "rsi": 51,
+   "rsi": 49,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "MRVL",
-   "score": 80.5,
-   "price": 263.27,
+   "score": 80.6,
+   "price": 262.43,
    "setup": "momentum",
-   "rsi": 62,
+   "rsi": 61,
    "action": "next in line if a holding drops out"
   }
  ],
@@ -155,9 +155,9 @@
   "risk_mult": 1.0,
   "max_new": 4,
   "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
-  "spy": 764.2,
-  "spy_sma50": 760.87,
-  "spy_sma200": 715.71,
-  "vix": 15.73
+  "spy": 766.73,
+  "spy_sma50": 761.28,
+  "spy_sma200": 716.13,
+  "vix": 15.88
  }
 }
