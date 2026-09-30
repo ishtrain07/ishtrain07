@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-29 19:04 ET (position check)",
+ "generated_at": "2026-09-30 03:32 ET (position check)",
  "date": "2026-09-29",
  "mode": "plan",
  "regime": {
@@ -168,16 +168,48 @@
   "Uptrend confirmed and volatility calm. Full risk allowed."
  ],
  "account": {
-  "cash": 1000.0,
+  "cash": 670.24,
   "realized": 0.0,
-  "unrealized": 0,
-  "market_value": 0.0,
-  "equity": 1000.0,
-  "return_pct": 0.0
+  "unrealized": 0.54,
+  "market_value": 330.3,
+  "equity": 1000.54,
+  "return_pct": 0.05
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
- "positions": [],
+ "positions": [
+  {
+   "ticker": "SNOW",
+   "shares": 1.0,
+   "avg_cost": 329.76,
+   "first_buy": "2026-09-29",
+   "stop": 303.38,
+   "t1": 362.23,
+   "t2": 396.35,
+   "hold_days": 60,
+   "sell_by": "2026-12-23",
+   "partial": false,
+   "system_pick": true,
+   "mode": "momentum",
+   "plan_entry": 328.12,
+   "plan_date": "2026-09-29",
+   "fills": [
+    {
+     "date": "2026-09-29",
+     "price": 329.76,
+     "shares": 1
+    }
+   ],
+   "price": 330.3,
+   "value": 330.3,
+   "pnl": 0.54,
+   "pnl_pct": 0.16,
+   "days_held": 1,
+   "active_stop": 303.38,
+   "action": "HOLD",
+   "why": "held while it stays top-3; reviewed every Monday; stop 303.38 (-8.2%)"
+  }
+ ],
  "closed": [],
  "alerts": [],
  "trading_days_left": 23,
@@ -229,7 +261,7 @@
     "value": 151.11,
     "pnl": -7.28,
     "pnl_pct": -4.6,
-    "days_held": 1,
+    "days_held": 2,
     "active_stop": 520.44,
     "action": "HOLD",
     "why": "held while it stays top-3; reviewed every Monday; stop 520.44 (-3.6%)"
@@ -260,7 +292,7 @@
     "value": 155.24,
     "pnl": -3.44,
     "pnl_pct": -2.17,
-    "days_held": 1,
+    "days_held": 2,
     "active_stop": 310.61,
     "action": "HOLD",
     "why": "held while it stays top-3; reviewed every Monday; stop 310.61 (-6.0%)"
@@ -291,7 +323,7 @@
     "value": 160.19,
     "pnl": 1.55,
     "pnl_pct": 0.98,
-    "days_held": 1,
+    "days_held": 2,
     "active_stop": 160.38,
     "action": "HOLD",
     "why": "held while it stays top-3; reviewed every Monday; stop 160.38 (-8.9%)"
@@ -299,7 +331,7 @@
   ],
   "closed": [],
   "orders_today": [],
-  "executed": true
+  "executed": false
  },
  "record": {
   "trades": 0,
@@ -4367,5 +4399,11 @@
    "weight": 0.0,
    "recent_ic": -0.002
   }
- ]
+ ],
+ "benchmark": {
+  "spy_return_pct": -0.93,
+  "base": 771.35,
+  "last": 764.2,
+  "since": "2026-09-28"
+ }
 }
