@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-30 03:32 ET (position check)",
+ "generated_at": "2026-09-30 03:33 ET (position check)",
  "date": "2026-09-29",
  "mode": "plan",
  "regime": {
@@ -168,22 +168,22 @@
   "Uptrend confirmed and volatility calm. Full risk allowed."
  ],
  "account": {
-  "cash": 670.24,
+  "cash": 799.95,
   "realized": 0.0,
-  "unrealized": 0.54,
-  "market_value": 330.3,
-  "equity": 1000.54,
-  "return_pct": 0.05
+  "unrealized": 0.08,
+  "market_value": 200.13,
+  "equity": 1000.08,
+  "return_pct": 0.01
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
  "positions": [
   {
    "ticker": "SNOW",
-   "shares": 1.0,
-   "avg_cost": 329.76,
+   "shares": 0.6059,
+   "avg_cost": 330.17,
    "first_buy": "2026-09-29",
-   "stop": 303.38,
+   "stop": 303.76,
    "t1": 362.23,
    "t2": 396.35,
    "hold_days": 60,
@@ -196,18 +196,18 @@
    "fills": [
     {
      "date": "2026-09-29",
-     "price": 329.76,
-     "shares": 1
+     "price": 330.17,
+     "shares": 0.6059
     }
    ],
    "price": 330.3,
-   "value": 330.3,
-   "pnl": 0.54,
-   "pnl_pct": 0.16,
+   "value": 200.13,
+   "pnl": 0.08,
+   "pnl_pct": 0.04,
    "days_held": 1,
-   "active_stop": 303.38,
+   "active_stop": 303.76,
    "action": "HOLD",
-   "why": "held while it stays top-3; reviewed every Monday; stop 303.38 (-8.2%)"
+   "why": "held while it stays top-3; reviewed every Monday; stop 303.76 (-8.0%)"
   }
  ],
  "closed": [],
