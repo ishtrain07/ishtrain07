@@ -1,0 +1,163 @@
+{
+ "buys": [
+  {
+   "ticker": "DELL",
+   "name": "Dell Technologies Inc.",
+   "sector": "Tech",
+   "price": 539.59,
+   "score": 90.8,
+   "momentum": 100,
+   "rs": 89,
+   "trend": 100,
+   "fund": 80,
+   "rsi": 54,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 18.531704,
+   "next_earnings": "2026-11-27",
+   "entry": 539.59,
+   "limit": 542.29,
+   "stop": 496.42,
+   "t1": 606.93,
+   "t2": 674.27,
+   "stop_pct": -8.0,
+   "t1_pct": 12.5,
+   "t2_pct": 25.0,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-07",
+   "shares": 0.31,
+   "dollars": 167.27,
+   "risk_dollars": 13.38,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "trial week: half-size position",
+    "#4 on the learning model ranking: 6-mo +229%, 3-mo +25%, 1-mo +18%",
+    "stronger than 89% of the universe vs the S&P; above its 200-day average",
+    "revenue +58% y/y"
+   ],
+   "news": [
+    {
+     "title": "Where Will Dell Technologies Be in 3 Years?",
+     "url": "https://www.fool.com/investing/2026/09/30/where-will-dell-technologies-be-in-3-years/",
+     "source": "Motley Fool"
+    },
+    {
+     "title": "These 7 Stocks Are Analyst Favorites For Magnificent Earnings Growth; Amazon In New Base",
+     "url": "https://www.investors.com/research/best-stocks-seven-magnificent-stocks-earnings-growth/?src=A00220&yptr=yahoo",
+     "source": "Investor's Business Daily"
+    },
+    {
+     "title": "What Are Dell Stock Investors Overlooking?",
+     "url": "https://www.trefis.com/articles/616932/what-are-dell-stock-investors-overlooking/2026-09-30",
+     "source": "Trefis"
+    }
+   ]
+  },
+  {
+   "ticker": "FTNT",
+   "name": "Fortinet, Inc.",
+   "sector": "Tech",
+   "price": 175.96,
+   "score": 85.1,
+   "momentum": 91,
+   "rs": 82,
+   "trend": 100,
+   "fund": 72,
+   "rsi": 60,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 46.577744,
+   "next_earnings": "2026-11-04",
+   "entry": 175.96,
+   "limit": 176.84,
+   "stop": 161.88,
+   "t1": 190.79,
+   "t2": 205.62,
+   "stop_pct": -8.0,
+   "t1_pct": 8.4,
+   "t2_pct": 16.9,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-07",
+   "shares": 0.95,
+   "dollars": 167.16,
+   "risk_dollars": 13.37,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "trial week: half-size position",
+    "#11 on the learning model ranking: 6-mo +123%, 3-mo +15%, 1-mo +6%",
+    "stronger than 82% of the universe vs the S&P; above its 200-day average",
+    "revenue +26% y/y"
+   ],
+   "news": [
+    {
+     "title": "Palo Alto CEO Said The Quiet Part About AI Aloud And I Buy Reality",
+     "url": "https://247wallst.com/investing/2026/09/30/palo-alto-ceo-said-the-quiet-part-about-ai-aloud-and-i-buy-reality/",
+     "source": "24/7 Wall St."
+    },
+    {
+     "title": "Okta Stock Rises After Morgan Stanley Raises Price Target to $245",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/okta-stock-rises-morgan-stanley-122919510.html",
+     "source": "GuruFocus.com"
+    },
+    {
+     "title": "S&P 500 investors may have more tech exposure than they think: Here's how one wealth manager mitigates concentration risk",
+     "url": "https://www.thestreet.com/investing/are-index-funds-overweight-in-tech",
+     "source": "TheStreet"
+    }
+   ]
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "ARM",
+   "score": 85.3,
+   "price": 293.67,
+   "setup": "momentum",
+   "rsi": 55,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "ALAB",
+   "score": 85.2,
+   "price": 357.84,
+   "setup": "momentum",
+   "rsi": 61,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "HOOD",
+   "score": 83.2,
+   "price": 116.22,
+   "setup": "momentum",
+   "rsi": 54,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "SNOW",
+   "score": 81.6,
+   "price": 330.31,
+   "setup": "momentum",
+   "rsi": 51,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "MRVL",
+   "score": 80.5,
+   "price": 263.27,
+   "setup": "momentum",
+   "rsi": 62,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 764.2,
+  "spy_sma50": 760.87,
+  "spy_sma200": 715.71,
+  "vix": 15.73
+ }
+}
