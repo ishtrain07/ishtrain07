@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-01 11:28 ET (position check)",
+ "generated_at": "2026-10-01 14:37 ET (position check)",
  "date": "2026-10-01",
  "mode": "plan",
  "regime": {
@@ -169,10 +169,10 @@
  "account": {
   "cash": 2499.95,
   "realized": 0.0,
-  "unrealized": 5.8,
-  "market_value": 205.85,
-  "equity": 2705.8,
-  "return_pct": 0.21
+  "unrealized": 5.87,
+  "market_value": 205.92,
+  "equity": 2705.87,
+  "return_pct": 0.22
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -199,10 +199,10 @@
      "shares": 0.6059
     }
    ],
-   "price": 339.74,
-   "value": 205.85,
-   "pnl": 5.8,
-   "pnl_pct": 2.9,
+   "price": 339.86,
+   "value": 205.92,
+   "pnl": 5.87,
+   "pnl_pct": 2.93,
    "days_held": 2,
    "active_stop": 303.76,
    "action": "HOLD",
@@ -219,10 +219,10 @@
   "account": {
    "cash": 2224.28,
    "realized": 0.0,
-   "unrealized": -5.22,
-   "market_value": 470.5,
-   "equity": 2694.78,
-   "return_pct": -0.19
+   "unrealized": -1.82,
+   "market_value": 473.9,
+   "equity": 2698.18,
+   "return_pct": -0.07
   },
   "record": {
    "trades": 0,
@@ -256,14 +256,14 @@
       "shares": 0.28
      }
     ],
-    "price": 531.5,
-    "value": 148.82,
-    "pnl": -9.58,
-    "pnl_pct": -6.05,
+    "price": 542.2,
+    "value": 151.82,
+    "pnl": -6.58,
+    "pnl_pct": -4.15,
     "days_held": 3,
     "active_stop": 520.44,
     "action": "HOLD",
-    "why": "held while it stays top-3; reviewed every Monday; stop 520.44 (-2.1%)"
+    "why": "held while it stays top-3; reviewed every Monday; stop 520.44 (-4.0%)"
    },
    {
     "ticker": "SNOW",
@@ -287,10 +287,10 @@
       "shares": 0.47
      }
     ],
-    "price": 339.74,
-    "value": 159.68,
-    "pnl": 1.0,
-    "pnl_pct": 0.63,
+    "price": 339.86,
+    "value": 159.73,
+    "pnl": 1.05,
+    "pnl_pct": 0.66,
     "days_held": 3,
     "active_stop": 310.61,
     "action": "HOLD",
@@ -318,14 +318,14 @@
       "shares": 0.91
      }
     ],
-    "price": 178.02,
-    "value": 162.0,
-    "pnl": 3.36,
-    "pnl_pct": 2.12,
+    "price": 178.4,
+    "value": 162.35,
+    "pnl": 3.71,
+    "pnl_pct": 2.34,
     "days_held": 3,
     "active_stop": 160.38,
     "action": "HOLD",
-    "why": "held while it stays top-3; reviewed every Monday; stop 160.38 (-9.9%)"
+    "why": "held while it stays top-3; reviewed every Monday; stop 160.38 (-10.1%)"
    }
   ],
   "closed": [],
@@ -342,9 +342,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -1.32,
+  "spy_return_pct": -0.89,
   "base": 771.35,
-  "last": 761.14,
+  "last": 764.48,
   "since": "2026-09-28"
  },
  "anomalies": {
