@@ -209,3 +209,26 @@ def test_catch_up_and_history_merge(sandbox):
     assert not [o for o in rep2["paper"]["orders_today"] if o["side"] == "BUY"]   # paper already holds them
     # the day's saved plan still has the original list after the second run
     assert [b["ticker"] for b in json.loads(hist.read_text())["buys"]] == week
+
+
+def test_anomalies_learn_and_detect():
+    from habibi import adaptive, anomalies
+    from habibi.indicators import add_features
+    from habibi.universe import UNIVERSE
+    prices = fake_prices(sorted(set(UNIVERSE) | {"SPY"}))
+    t = "AAPL"
+    df = prices[t]
+    # inject a crash on the last day: big drop on 4x volume with a gap down
+    df.iloc[-1, df.columns.get_loc("Open")] = df.Close.iloc[-2] * 0.90
+    df.iloc[-1, df.columns.get_loc("Close")] = df.Close.iloc[-2] * 0.85
+    df.iloc[-1, df.columns.get_loc("Low")] = df.Close.iloc[-2] * 0.84
+    df.iloc[-1, df.columns.get_loc("Volume")] = df.Volume.iloc[-21:-1].mean() * 4
+    feats = {k: add_features(v) for k, v in prices.items()}
+    m = adaptive.model(feats, [u for u in UNIVERSE if u in feats])
+    stats = anomalies.learn(feats, m["scores"])
+    assert "baseline_avg_pct" in stats and set(anomalies.LABELS) <= set(stats)
+    out = anomalies.detect(feats, [t, "MSFT"], stats, m["scores"], held={t}, sectors=UNIVERSE)
+    types = {f["type"] for f in out["flags"] if f["ticker"] == t}
+    assert {"big_drop", "gap_down", "volume_spike"} <= types
+    assert all(f["held"] for f in out["flags"] if f["ticker"] == t)
+    assert out["rank_trends"] and out["rank_trends"][0]["ticker"] == t

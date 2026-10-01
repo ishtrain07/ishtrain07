@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from . import adaptive, data, notify
+from . import adaptive, anomalies, data, notify
 from .paper import PATH as PAPER_PATH, run_paper, win_loss
 from .backtest import run_backtest
 from .dashboard import render
@@ -135,6 +135,23 @@ def drawdown_state(book, cfg, today=None, persist=False):
     return "OK", ""
 
 
+def scan_anomalies(feats, model_scores, book, paper, ranked, cfg):
+    """Learned unusual-activity flags + rank trends for holdings and the top of the ranking."""
+    held = [p["ticker"] for p in book["open"]]
+    paper_held = [p["ticker"] for p in (paper or {}).get("positions", [])]
+    top = [x["ticker"] for x in ranked.get("ranking", [])[:10]]
+    watch = list(dict.fromkeys(held + paper_held + top))
+    try:
+        stats = anomalies.learn(feats, model_scores)
+        out = anomalies.detect(feats, watch, stats, model_scores, held=set(held),
+                               sectors=UNIVERSE, max_positions=cfg["max_positions"])
+        out["stats"] = stats
+        return out
+    except Exception as e:  # never let diagnostics break the plan
+        print(f"anomaly scan failed: {e}")
+        return None
+
+
 def benchmark(feats, cfg, live=None):
     """S&P 500 (SPY) return since the last close before the start date: the 'market' line."""
     spy = feats.get("SPY")
@@ -189,7 +206,7 @@ def cmd_plan(cfg, args):
     live = data.latest_prices(held_all) if held_all else {}
     alerts = evaluate(book, feats, live, funds, cfg, today)
     dd_state, dd_msg = drawdown_state(book, cfg, today, persist=not args.dry_run)
-    rebalance, learned_scores = False, None
+    rebalance, learned_scores, model_scores = False, None, None
     if dd_state == "LIQUIDATE":
         for p in book["open"]:
             if not any(a["ticker"] == p["ticker"] for a in alerts):
@@ -208,6 +225,7 @@ def cmd_plan(cfg, args):
             uni = [t for t in UNIVERSE if t in feats and len(feats[t]) > 260]
             m = adaptive.model(feats, uni)
             learned_scores, learned = m["scores"].iloc[-1], adaptive.explain_today(m)
+            model_scores = m["scores"]
         details = {p["ticker"]: p for p in book["open"] if p["ticker"] not in selling}
         catch_up = None
         if not rebalance and state.get("last_rebalance"):
@@ -260,6 +278,7 @@ def cmd_plan(cfg, args):
         if cfg.get("strategy") != "momentum" else {},
         "strategy": cfg.get("strategy", "swing"), "rebalance": ranked.get("rebalance"), "paper": paper,
         "record": win_loss(book["closed"]), "benchmark": benchmark(feats, cfg),
+        "anomalies": scan_anomalies(feats, model_scores, book, paper, ranked, cfg),
         "backtest": bt, "replay": rp, "research": research, "config": cfg, **ranked,
     }
     brief = OUT / "brief.md"
@@ -324,6 +343,17 @@ def cmd_check(cfg, args):
                    "benchmark": benchmark(feats, cfg, live)})
     regime = report.get("regime") or {"light": "YELLOW", "max_new": 0, "risk_mult": 0}
     report["paper"] = run_paper(feats, funds, regime, cfg, today, history, live, execute=not args.dry_run)
+    prev = report.get("anomalies") or {}
+    if prev.get("stats"):
+        try:
+            held_now = {p["ticker"] for p in book["open"]}
+            fresh = anomalies.detect(feats, sorted(held_now), prev["stats"], held=held_now,
+                                     sectors=UNIVERSE, max_positions=cfg["max_positions"])
+            report["anomalies"] = {**prev, "flags": fresh["flags"] + [f for f in prev.get("flags", [])
+                                                                      if f["ticker"] not in held_now],
+                                   "concentration": fresh["concentration"]}
+        except Exception as e:
+            print(f"anomaly check failed: {e}")
     write_outputs(report)
     if not args.no_notify:
         dispatch_alerts(alerts, cfg, today)
@@ -332,6 +362,14 @@ def cmd_check(cfg, args):
 def write_outputs(report):
     OUT.mkdir(exist_ok=True)
     DOCS.mkdir(exist_ok=True)
+    brief = OUT / "brief.json"
+    if brief.exists():
+        try:
+            b = json.loads(brief.read_text())
+            if b.get("date") == report.get("date", "")[:10] or b.get("date") == dt.datetime.now(ET).date().isoformat():
+                report["analyst"] = b
+        except Exception:
+            pass
     (OUT / "latest.json").write_text(json.dumps(report, indent=1, default=str))
     html = render(report)
     (DOCS / "index.html").write_text(html)

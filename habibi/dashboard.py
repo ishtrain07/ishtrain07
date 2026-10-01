@@ -40,6 +40,8 @@ label{font-size:12px;color:var(--mute);display:grid;gap:4px;min-width:0}input,se
 button{background:var(--ink);color:var(--bg);border:0;font-weight:600;cursor:pointer}
 code{background:var(--chip);padding:2px 6px;border-radius:6px;font-size:13px;word-break:break-all}
 .note{font-size:12px;color:var(--mute)}
+.flag{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}.flag:last-child{border-bottom:0}
+.vd{font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap}.vd.caution{background:var(--sell-bg);color:var(--sell)}.vd.positive{background:var(--buy-bg);color:var(--buy)}.vd.neutral,.vd.few{background:var(--chip);color:var(--mute)}
 .tbl td.stick,.tbl th.stick{position:sticky;left:0;background:var(--card);z-index:1}
 .st{font-size:11px;font-weight:700;padding:2px 7px;border-radius:99px;white-space:nowrap}
 .st.buy{background:var(--buy-bg);color:var(--buy)}.st.hold{background:var(--chip);color:var(--ink)}.st.next{background:var(--warn-bg);color:var(--warn)}
@@ -91,6 +93,8 @@ def render(r):
 </div>"""]
 
     parts.append(f'<div class="headline"><b>Today:</b> {e(_headline(r))}<div class="note">{e(reg["message"])}</div></div>')
+    if r.get("analyst"):
+        parts.append(_analyst(r["analyst"]))
     if r.get("drawdown_msg"):
         parts.append(f'<div class="card order sell" style="margin-top:12px"><b>{e(r["drawdown_msg"])}</b></div>')
 
@@ -123,6 +127,8 @@ def render(r):
     else:
         parts.append('<div class="card mute">No open positions. Log your fills below so the engine can track and alert you.</div>')
 
+    if r.get("anomalies"):
+        parts.append(_anomalies(r["anomalies"]))
     # ---- watch / extended / avoid
     parts.append(f'<h2>Details</h2><details class="sec" id="watch"><summary>Watchlist: buy only if the trigger happens ({len(r.get("watch", []))})</summary>'.replace("Watchlist: buy only if the trigger happens", "Next in line" if r.get("strategy") == "momentum" else "Watchlist: buy only if the trigger happens"))
     if r.get("watch"):
@@ -440,3 +446,40 @@ def _universe(rows):
             f'{body}</table></div><p class="note">Only the top 3 ranked names are bought. "Excluded" names cannot be bought while that condition holds.</p>'
             '<script>function flt(){const q=document.getElementById("q").value.trim().toLowerCase();'
             'document.querySelectorAll("#ut tr[data-t]").forEach(r=>{r.style.display=!q||r.dataset.t.toLowerCase().includes(q)?"":"none"})}</script></details>')
+
+
+def _analyst(a):
+    cautions = "".join(f'<li><b>{e(c.get("ticker"))}</b>: {e(c.get("why"))}</li>' for c in a.get("cautions", []))
+    return (f'<div class="card" style="margin-top:12px"><b>Analyst note</b> <span class="note">({e(a.get("date"))}, written by Claude after reading the news and today\'s numbers)</span>'
+            f'<div style="white-space:pre-wrap;margin-top:6px">{e(a.get("text"))}</div>'
+            + (f'<div style="margin-top:8px"><b class="neg">Caution flags</b><ul class="why">{cautions}</ul></div>' if cautions else "") + '</div>')
+
+
+def _anomalies(an):
+    flags = an.get("flags") or []
+    rows = []
+    for f in flags[:12]:
+        vd = f.get("verdict") or "too few cases"
+        cls = {"caution": "caution", "positive": "positive", "neutral": "neutral"}.get(vd, "few")
+        hist = (f'After this signal over the past year ({f["n"]} cases): avg {f["avg_pct"]:+.2f}% over the next 5 days, '
+                f'{f["down_pct"]:.0f}% fell; {f["edge_pct"]:+.2f}% vs a normal day.') if f.get("avg_pct") is not None else \
+               f'Not enough past cases ({f.get("n") or 0}) to judge.'
+        rows.append(f'<div class="flag"><span class="vd {cls}">{e(vd.upper())}</span><div><b>{e(f["ticker"])}</b>'
+                    f'{" <span class=tag>you hold</span>" if f.get("held") else ""} {e(f["label"])} '
+                    f'<span class="mute">({pct(f.get("day_pct"), 1)} today)</span><div class="note">{e(hist)}</div></div></div>')
+    trends = an.get("rank_trends") or []
+    trow = "".join(
+        f'<tr><td class="l"><b>{e(t["ticker"])}</b>{" (held)" if t["held"] else ""}</td><td>#{t["rank"]}</td>'
+        f'<td>{"▲" if t["change"] > 0 else "▼" if t["change"] < 0 else "="} {abs(t["change"])}</td>'
+        f'<td class="l mute">{" → ".join("#" + str(x) for x in t["path"][-6:])}</td>'
+        f'<td class="l">{"<b class=neg>likely sold at Monday review</b>" if t["warning"] else ""}</td></tr>' for t in trends[:10])
+    held_flags = [f for f in flags if f.get("held")]
+    summary = (f'{len(flags)} flag(s) today' + (f', {len(held_flags)} on stocks you hold' if held_flags else '')) if flags else "Nothing unusual today."
+    conc = f'<p class="note"><b class="neg">Concentration:</b> {e(an["concentration"])}</p>' if an.get("concentration") else ""
+    return (f'<details class="sec" id="unusual" {"open" if held_flags or an.get("concentration") else ""}><summary>Unusual activity &amp; rank trends ({e(summary)})</summary>'
+            '<p class="note">Flags are learned, not guessed: each signal type was tested across the whole universe over the past year, and '
+            'the verdict comes from what stocks actually did in the 5 days after it fired.</p>'
+            + conc + ("".join(rows) if rows else '<div class="mute">No unusual moves on holdings or top-ranked stocks.</div>')
+            + (f'<div class="tbl" style="margin-top:12px"><table><tr><th class="l">Rank trend (learning model)</th><th>Now</th><th>5-day change</th>'
+               f'<th class="l">Path</th><th class="l"></th></tr>{trow}</table></div>' if trow else "")
+            + '</details>')
