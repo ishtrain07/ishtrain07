@@ -1,0 +1,9 @@
+{
+ "date": "2026-10-01",
+ "text": "Market: green light, VIX ~16. Semis are leading after Micron's blowout quarter (revenue well above estimates, stronger guidance, AI memory supply tight into 2027-28). That lifted AMD and Intel; Micron itself dipped slightly premarket on 'sell the news'.\n\nYour SNOW (+3%): Snowflake upsized its convertible-note sale to $3.75B (closes today). Dilution worries are already in the price; analysts' consensus target is ~$414. The bigger issue is the model: SNOW's rank fell from #2 to #18 this week, so it will most likely be sold at Monday's review.\n\nMonday's likely top 3: AMD, INTC, MU, all chips. Fundamentals look supportive (Micron earnings, Intel's Nvidia OpenShell tie-in, AMD data-center records), but owning three semis means one sector shock hits everything, so position sizes and the 8% stops matter.\n\nLearned this week: across the past year, stocks that gapped down >5% bounced +1.65% more than a normal week over the next 5 days; volume spikes slightly underperformed. Most other signals showed no reliable edge.",
+ "cautions": [
+  {"ticker": "SNOW", "why": "Rank fell #2 -> #18; likely rotated out Monday. Upsized $3.75B convertible = dilution overhang."},
+  {"ticker": "AMD/INTC/MU", "why": "Likely Monday picks are all semiconductors: sector concentration risk."},
+  {"ticker": "MU", "why": "Just reported earnings; stock dipped despite a beat (sell-the-news)."}
+ ]
+}
