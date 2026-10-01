@@ -110,43 +110,43 @@
  "backups": [],
  "watch": [
   {
-   "ticker": "ALAB",
-   "score": 89.6,
-   "price": 354.58,
+   "ticker": "MU",
+   "score": 88.5,
+   "price": 1083.13,
    "setup": "momentum",
-   "rsi": 60,
+   "rsi": 62,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "DELL",
-   "score": 85.7,
-   "price": 539.06,
+   "score": 86.9,
+   "price": 539.83,
    "setup": "momentum",
-   "rsi": 53,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "NET",
-   "score": 84.5,
-   "price": 347.2,
-   "setup": "momentum",
-   "rsi": 60,
+   "rsi": 54,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "FTNT",
-   "score": 84.3,
-   "price": 177.31,
+   "score": 85.9,
+   "price": 177.81,
    "setup": "momentum",
-   "rsi": 60,
+   "rsi": 61,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "ZS",
-   "score": 83.6,
-   "price": 201.51,
+   "ticker": "PANW",
+   "score": 84.0,
+   "price": 391.58,
    "setup": "momentum",
    "rsi": 58,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "CRWD",
+   "score": 83.3,
+   "price": 266.21,
+   "setup": "momentum",
+   "rsi": 67,
    "action": "next in line if a holding drops out"
   }
  ],
@@ -155,9 +155,9 @@
   "risk_mult": 1.0,
   "max_new": 4,
   "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
-  "spy": 764.12,
+  "spy": 764.29,
   "spy_sma50": 761.57,
   "spy_sma200": 716.56,
-  "vix": 16.42
+  "vix": 16.52
  }
 }
