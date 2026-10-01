@@ -16,7 +16,7 @@
  "results": {
   "A current rules": {
    "full": {
-    "total_pct": 17.7,
+    "total_pct": 17.9,
     "max_dd_pct": -17.8,
     "trades": 324,
     "win_rate": 50.3,
@@ -38,7 +38,7 @@
     "med25": 0.6
    },
    "half2": {
-    "total_pct": 9.9,
+    "total_pct": 10.1,
     "max_dd_pct": -14.9,
     "trades": 172,
     "win_rate": 47.7,
@@ -143,7 +143,7 @@
     "med25": 0.0
    },
    "half2": {
-    "total_pct": 26.4,
+    "total_pct": 26.5,
     "max_dd_pct": -17.0,
     "trades": 63,
     "win_rate": 46.0,
@@ -191,7 +191,7 @@
   },
   "F leader pullbacks, let run": {
    "full": {
-    "total_pct": 33.2,
+    "total_pct": 33.0,
     "max_dd_pct": -30.2,
     "trades": 161,
     "win_rate": 29.2,
@@ -213,7 +213,7 @@
     "med25": 2.9
    },
    "half2": {
-    "total_pct": -2.0,
+    "total_pct": -2.1,
     "max_dd_pct": -30.2,
     "trades": 93,
     "win_rate": 25.8,
@@ -226,7 +226,7 @@
   },
   "G leaders any setup, let run": {
    "full": {
-    "total_pct": 9.1,
+    "total_pct": 8.9,
     "max_dd_pct": -29.0,
     "trades": 173,
     "win_rate": 30.1,
@@ -248,7 +248,7 @@
     "med25": 0.9
    },
    "half2": {
-    "total_pct": -5.9,
+    "total_pct": -6.0,
     "max_dd_pct": -29.0,
     "trades": 91,
     "win_rate": 29.7,
@@ -261,7 +261,7 @@
   },
   "H leaders, wide stop, let run": {
    "full": {
-    "total_pct": 25.1,
+    "total_pct": 25.0,
     "max_dd_pct": -15.7,
     "trades": 131,
     "win_rate": 34.4,
@@ -296,7 +296,7 @@
   },
   "I leaders, 3 positions, risk 2%": {
    "full": {
-    "total_pct": 25.9,
+    "total_pct": 25.8,
     "max_dd_pct": -29.1,
     "trades": 130,
     "win_rate": 32.3,
@@ -318,7 +318,7 @@
     "med25": 1.6
    },
    "half2": {
-    "total_pct": -3.8,
+    "total_pct": -3.9,
     "max_dd_pct": -29.1,
     "trades": 68,
     "win_rate": 32.4,
@@ -331,7 +331,7 @@
   },
   "R momentum rotation top3 weekly": {
    "full": {
-    "total_pct": 103.9,
+    "total_pct": 104.0,
     "max_dd_pct": -47.7,
     "trades": 98,
     "win_rate": 38.8,
@@ -353,7 +353,7 @@
     "med25": 3.8
    },
    "half2": {
-    "total_pct": 69.9,
+    "total_pct": 70.0,
     "max_dd_pct": -45.0,
     "trades": 52,
     "win_rate": 34.6,
@@ -366,7 +366,7 @@
   },
   "R momentum rotation top4 weekly": {
    "full": {
-    "total_pct": 114.3,
+    "total_pct": 114.6,
     "max_dd_pct": -41.9,
     "trades": 120,
     "win_rate": 38.3,
@@ -388,7 +388,7 @@
     "med25": 5.3
    },
    "half2": {
-    "total_pct": 71.5,
+    "total_pct": 71.7,
     "max_dd_pct": -40.1,
     "trades": 66,
     "win_rate": 36.4,
@@ -401,7 +401,7 @@
   },
   "R momentum rotation top5 weekly": {
    "full": {
-    "total_pct": 144.5,
+    "total_pct": 144.8,
     "max_dd_pct": -41.0,
     "trades": 144,
     "win_rate": 41.7,
@@ -423,7 +423,7 @@
     "med25": 5.4
    },
    "half2": {
-    "total_pct": 69.3,
+    "total_pct": 69.5,
     "max_dd_pct": -41.0,
     "trades": 80,
     "win_rate": 37.5,
@@ -436,7 +436,7 @@
   },
   "R2 top3 risk-adjusted momentum": {
    "full": {
-    "total_pct": 145.3,
+    "total_pct": 145.4,
     "max_dd_pct": -41.4,
     "trades": 125,
     "win_rate": 49.6,
@@ -471,7 +471,7 @@
   },
   "R3 top3, 7% stop, exit < 20-EMA": {
    "full": {
-    "total_pct": 65.6,
+    "total_pct": 65.7,
     "max_dd_pct": -53.4,
     "trades": 152,
     "win_rate": 30.9,
@@ -528,7 +528,7 @@
     "med25": 2.5
    },
    "half2": {
-    "total_pct": 15.8,
+    "total_pct": 15.9,
     "max_dd_pct": -47.9,
     "trades": 84,
     "win_rate": 38.1,
@@ -563,7 +563,7 @@
     "med25": 1.2
    },
    "half2": {
-    "total_pct": 16.7,
+    "total_pct": 16.8,
     "max_dd_pct": -40.1,
     "trades": 85,
     "win_rate": 37.6,
@@ -576,7 +576,7 @@
   },
   "R6 R3 + 10% drawdown brake": {
    "full": {
-    "total_pct": 100.7,
+    "total_pct": 100.8,
     "max_dd_pct": -48.4,
     "trades": 154,
     "win_rate": 38.3,
@@ -598,7 +598,7 @@
     "med25": 2.2
    },
    "half2": {
-    "total_pct": 0.4,
+    "total_pct": 0.5,
     "max_dd_pct": -48.4,
     "trades": 87,
     "win_rate": 32.2,
@@ -611,7 +611,7 @@
   },
   "R7 top4 risk-adj, 8% stop, green entries, brake 12%": {
    "full": {
-    "total_pct": 25.6,
+    "total_pct": 25.7,
     "max_dd_pct": -37.1,
     "trades": 127,
     "win_rate": 37.8,
@@ -633,7 +633,7 @@
     "med25": 0.0
    },
    "half2": {
-    "total_pct": 41.4,
+    "total_pct": 41.5,
     "max_dd_pct": -30.6,
     "trades": 72,
     "win_rate": 36.1,
@@ -646,7 +646,7 @@
   },
   "R8 top3 momentum, 8% stop, brake 10%": {
    "full": {
-    "total_pct": 109.6,
+    "total_pct": 109.7,
     "max_dd_pct": -49.3,
     "trades": 125,
     "win_rate": 40.0,
@@ -681,7 +681,7 @@
   },
   "L1 LEARNING model top3 weekly, 10% stop": {
    "full": {
-    "total_pct": 166.7,
+    "total_pct": 167.1,
     "max_dd_pct": -39.6,
     "trades": 166,
     "win_rate": 50.0,
@@ -703,7 +703,7 @@
     "med25": 1.4
    },
    "half2": {
-    "total_pct": 79.7,
+    "total_pct": 79.9,
     "max_dd_pct": -39.6,
     "trades": 96,
     "win_rate": 52.1,
@@ -716,7 +716,7 @@
   },
   "L2 LEARNING model top3 weekly, 8% stop, brake 10%": {
    "full": {
-    "total_pct": 164.6,
+    "total_pct": 165.0,
     "max_dd_pct": -35.2,
     "trades": 172,
     "win_rate": 46.5,
@@ -738,7 +738,7 @@
     "med25": 2.9
    },
    "half2": {
-    "total_pct": 56.8,
+    "total_pct": 57.0,
     "max_dd_pct": -35.2,
     "trades": 96,
     "win_rate": 45.8,
@@ -751,7 +751,7 @@
   },
   "L3 LEARNING model top4 weekly": {
    "full": {
-    "total_pct": 207.9,
+    "total_pct": 208.5,
     "max_dd_pct": -35.8,
     "trades": 198,
     "win_rate": 51.5,
@@ -773,7 +773,7 @@
     "med25": 3.1
    },
    "half2": {
-    "total_pct": 79.3,
+    "total_pct": 79.6,
     "max_dd_pct": -35.8,
     "trades": 117,
     "win_rate": 49.6,
@@ -821,14 +821,14 @@
   },
   "L4 L2 + staged entry (50% now, add 50% at +4%)": {
    "full": {
-    "total_pct": 68.2,
+    "total_pct": 68.3,
     "max_dd_pct": -35.3,
     "trades": 175,
     "win_rate": 40.0,
     "avg_r": 0.0,
     "p25_20": 8.4,
     "p25_10": 16.7,
-    "p25_loss": 52.5,
+    "p25_loss": 52.7,
     "med25": -0.4
    },
    "half1": {
@@ -839,11 +839,11 @@
     "avg_r": 0.01,
     "p25_20": 3.2,
     "p25_10": 14.4,
-    "p25_loss": 42.1,
+    "p25_loss": 42.6,
     "med25": 0.3
    },
    "half2": {
-    "total_pct": 23.1,
+    "total_pct": 23.2,
     "max_dd_pct": -27.9,
     "trades": 103,
     "win_rate": 37.9,
@@ -856,7 +856,7 @@
   },
   "L5 L2 + staged entry (50% now, add at +2%)": {
    "full": {
-    "total_pct": 83.4,
+    "total_pct": 83.6,
     "max_dd_pct": -34.5,
     "trades": 178,
     "win_rate": 40.4,
@@ -878,7 +878,7 @@
     "med25": 1.0
    },
    "half2": {
-    "total_pct": 27.2,
+    "total_pct": 27.3,
     "max_dd_pct": -28.6,
     "trades": 103,
     "win_rate": 35.9,
@@ -891,7 +891,7 @@
   },
   "L6 L2 concentrated: top 2": {
    "full": {
-    "total_pct": 174.6,
+    "total_pct": 174.9,
     "max_dd_pct": -37.1,
     "trades": 127,
     "win_rate": 50.4,
@@ -913,7 +913,7 @@
     "med25": 1.0
    },
    "half2": {
-    "total_pct": 78.8,
+    "total_pct": 79.0,
     "max_dd_pct": -37.1,
     "trades": 75,
     "win_rate": 48.0,
@@ -926,7 +926,7 @@
   },
   "L7 L2 top 2 + staged entry": {
    "full": {
-    "total_pct": 92.1,
+    "total_pct": 92.3,
     "max_dd_pct": -30.2,
     "trades": 127,
     "win_rate": 40.9,
@@ -948,7 +948,7 @@
     "med25": 0.1
    },
    "half2": {
-    "total_pct": 30.4,
+    "total_pct": 30.5,
     "max_dd_pct": -30.2,
     "trades": 76,
     "win_rate": 39.5,
@@ -996,7 +996,7 @@
   },
   "Z buy & hold QQQ": {
    "full": {
-    "total_pct": 54.2,
+    "total_pct": 54.0,
     "max_dd_pct": -22.8,
     "trades": 0,
     "win_rate": null,
@@ -1018,7 +1018,7 @@
     "med25": 2.9
    },
    "half2": {
-    "total_pct": 22.9,
+    "total_pct": 22.8,
     "max_dd_pct": -12.0,
     "trades": 0,
     "win_rate": null,
@@ -1040,19 +1040,19 @@
   {
    "factor": "6-month momentum",
    "key": "mom_126",
-   "weight": 25.8,
+   "weight": 25.9,
    "recent_ic": 0.073
   },
   {
    "factor": "Short-term dip (5-day loser)",
    "key": "reversal_5",
-   "weight": 18.5,
+   "weight": 18.3,
    "recent_ic": 0.052
   },
   {
    "factor": "Trend alignment (20/50/200 day)",
    "key": "trend",
-   "weight": 0.2,
+   "weight": 0.3,
    "recent_ic": 0.001
   },
   {

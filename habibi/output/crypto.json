@@ -2,7 +2,7 @@
  "results": {
   "BTC buy & hold": {
    "full": {
-    "total_pct": 32.4,
+    "total_pct": 32.5,
     "max_dd_pct": -53.1,
     "vol_pct": 45.7,
     "p25_loss": 47.0,
@@ -25,7 +25,7 @@
   },
   "BTC trend 50/200": {
    "full": {
-    "total_pct": 4.3,
+    "total_pct": 4.4,
     "max_dd_pct": -32.3,
     "vol_pct": 22.9,
     "p25_loss": 31.5,
@@ -108,7 +108,7 @@
     "med25": 0.0
    },
    "half2": {
-    "total_pct": 49.9,
+    "total_pct": 50.0,
     "max_dd_pct": -18.7,
     "vol_pct": 31.2,
     "p25_loss": 14.6,
@@ -140,7 +140,7 @@
   },
   "QNT buy & hold": {
    "full": {
-    "total_pct": 145.4,
+    "total_pct": 146.3,
     "max_dd_pct": -66.4,
     "vol_pct": 105.0,
     "p25_loss": 62.4,
@@ -154,16 +154,16 @@
     "med25": -6.7
    },
    "half2": {
-    "total_pct": 133.3,
+    "total_pct": 134.1,
     "max_dd_pct": -58.6,
-    "vol_pct": 120.6,
+    "vol_pct": 120.5,
     "p25_loss": 64.6,
     "med25": -3.9
    }
   },
   "QNT trend 50/200": {
    "full": {
-    "total_pct": -60.9,
+    "total_pct": -60.7,
     "max_dd_pct": -70.7,
     "vol_pct": 30.6,
     "p25_loss": 23.5,
@@ -177,16 +177,16 @@
     "med25": 0.0
    },
    "half2": {
-    "total_pct": -29.7,
+    "total_pct": -29.4,
     "max_dd_pct": -48.4,
-    "vol_pct": 31.8,
+    "vol_pct": 31.7,
     "p25_loss": 17.7,
     "med25": 0.0
    }
   },
   "QNT trend 20/100": {
    "full": {
-    "total_pct": 251.2,
+    "total_pct": 252.5,
     "max_dd_pct": -54.1,
     "vol_pct": 78.0,
     "p25_loss": 22.2,
@@ -200,9 +200,9 @@
     "med25": 0.0
    },
    "half2": {
-    "total_pct": 298.2,
+    "total_pct": 299.6,
     "max_dd_pct": -19.2,
-    "vol_pct": 102.6,
+    "vol_pct": 102.5,
     "p25_loss": 13.7,
     "med25": 0.0
    }
@@ -233,22 +233,22 @@
  },
  "now": {
   "BTC": {
-   "price": 84118.72,
+   "price": 84123.98,
    "in_trend": true,
-   "sma50": 77686.31,
-   "sma200": 71319.38
+   "sma50": 77686.42,
+   "sma200": 71319.41
   },
   "ETH": {
-   "price": 2697.7,
+   "price": 2698.48,
    "in_trend": true,
-   "sma50": 2452.12,
-   "sma200": 2112.34
+   "sma50": 2452.13,
+   "sma200": 2112.35
   },
   "QNT": {
-   "price": 266.14,
+   "price": 267.08,
    "in_trend": true,
-   "sma50": 86.64,
-   "sma200": 73.83
+   "sma50": 86.66,
+   "sma200": 73.84
   }
  },
  "periods": {

@@ -321,10 +321,10 @@
      "fill": 27.96,
      "status": "closed",
      "exit_date": "2026-10-01",
-     "exit_price": 28.45,
+     "exit_price": 28.43,
      "exit_reason": "time stop",
-     "pnl": 6.2,
-     "pnl_pct": 1.77
+     "pnl": 5.89,
+     "pnl_pct": 1.68
     },
     {
      "ticker": "XOM",
@@ -413,9 +413,9 @@
      "filled": true,
      "fill": 206.54,
      "status": "open",
-     "last": 206.26,
-     "pnl": -0.47,
-     "pnl_pct": -0.13
+     "last": 206.17,
+     "pnl": -0.63,
+     "pnl_pct": -0.18
     },
     {
      "ticker": "XOM",
@@ -438,9 +438,9 @@
      "filled": true,
      "fill": 162.04,
      "status": "open",
-     "last": 163.62,
-     "pnl": 2.46,
-     "pnl_pct": 0.98
+     "last": 163.53,
+     "pnl": 2.32,
+     "pnl_pct": 0.92
     }
    ],
    "watch": [
@@ -476,9 +476,9 @@
      "filled": true,
      "fill": 522.55,
      "status": "open",
-     "last": 514.29,
-     "pnl": -5.2,
-     "pnl_pct": -1.58
+     "last": 513.51,
+     "pnl": -5.7,
+     "pnl_pct": -1.73
     },
     {
      "ticker": "V",
@@ -568,9 +568,9 @@
      "filled": true,
      "fill": 257.0,
      "status": "open",
-     "last": 274.98,
-     "pnl": 12.58,
-     "pnl_pct": 6.99
+     "last": 274.77,
+     "pnl": 12.44,
+     "pnl_pct": 6.91
     },
     {
      "ticker": "VRTX",
@@ -593,9 +593,9 @@
      "filled": true,
      "fill": 524.27,
      "status": "open",
-     "last": 514.29,
-     "pnl": -5.99,
-     "pnl_pct": -1.9
+     "last": 513.51,
+     "pnl": -6.46,
+     "pnl_pct": -2.05
     }
    ],
    "watch": [
@@ -631,9 +631,9 @@
      "filled": true,
      "fill": 522.22,
      "status": "open",
-     "last": 514.29,
-     "pnl": -5.23,
-     "pnl_pct": -1.52
+     "last": 513.51,
+     "pnl": -5.75,
+     "pnl_pct": -1.67
     }
    ],
    "watch": [
@@ -669,9 +669,9 @@
      "filled": true,
      "fill": 294.0,
      "status": "open",
-     "last": 290.45,
-     "pnl": -2.7,
-     "pnl_pct": -1.21
+     "last": 291.14,
+     "pnl": -2.17,
+     "pnl_pct": -0.97
     }
    ],
    "watch": [
@@ -707,9 +707,9 @@
      "filled": true,
      "fill": 341.26,
      "status": "open",
-     "last": 343.7,
-     "pnl": 1.42,
-     "pnl_pct": 0.72
+     "last": 343.67,
+     "pnl": 1.4,
+     "pnl_pct": 0.71
     },
     {
      "ticker": "AAPL",
@@ -726,15 +726,15 @@
       "3-mo return +13% (stronger than 81% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +16% y/y",
-      "fwd P/E 34",
+      "fwd P/E 35",
       "analyst mean target -1% away"
      ],
      "filled": true,
      "fill": 330.17,
      "status": "open",
-     "last": 330.73,
-     "pnl": 0.59,
-     "pnl_pct": 0.17
+     "last": 330.89,
+     "pnl": 0.76,
+     "pnl_pct": 0.22
     },
     {
      "ticker": "XOM",
@@ -757,9 +757,9 @@
      "filled": true,
      "fill": 161.5,
      "status": "open",
-     "last": 163.62,
-     "pnl": 4.56,
-     "pnl_pct": 1.31
+     "last": 163.53,
+     "pnl": 4.36,
+     "pnl_pct": 1.26
     }
    ],
    "watch": [
@@ -774,6 +774,6 @@
  "n_picks": 25,
  "n_filled": 23,
  "n_winners": 10,
- "pnl": -40.38,
+ "pnl": -42.14,
  "empty_days": 0
 }
