@@ -79,42 +79,42 @@
  "watch": [
   {
    "ticker": "DELL",
-   "score": 86.3,
-   "price": 541.74,
+   "score": 91.5,
+   "price": 566.5,
    "setup": "momentum",
-   "rsi": 54,
+   "rsi": 59,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "MU",
-   "score": 86.1,
-   "price": 1097.39,
+   "ticker": "INTC",
+   "score": 89.0,
+   "price": 119.94,
    "setup": "momentum",
-   "rsi": 64,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "FTNT",
-   "score": 84.4,
-   "price": 178.72,
-   "setup": "momentum",
-   "rsi": 62,
+   "rsi": 61,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "CRWD",
-   "score": 83.5,
-   "price": 266.09,
+   "score": 87.5,
+   "price": 268.75,
    "setup": "momentum",
-   "rsi": 67,
+   "rsi": 68,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "ARM",
-   "score": 83.0,
-   "price": 292.34,
+   "ticker": "MRVL",
+   "score": 85.9,
+   "price": 272.17,
    "setup": "momentum",
-   "rsi": 54,
+   "rsi": 65,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "FTNT",
+   "score": 85.4,
+   "price": 180.85,
+   "setup": "momentum",
+   "rsi": 64,
    "action": "next in line if a holding drops out"
   }
  ],
@@ -123,9 +123,9 @@
   "risk_mult": 1.0,
   "max_new": 4,
   "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
-  "spy": 763.99,
-  "spy_sma50": 761.56,
-  "spy_sma200": 716.56,
-  "vix": 15.54
+  "spy": 768.91,
+  "spy_sma50": 762.21,
+  "spy_sma200": 717.04,
+  "vix": 15.61
  }
 }
