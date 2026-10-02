@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-02 08:58 ET",
+ "generated_at": "2026-10-02 09:01 ET (position check)",
  "date": "2026-10-02",
  "mode": "plan",
  "regime": {
@@ -348,21 +348,7 @@
   "since": "2026-09-28"
  },
  "anomalies": {
-  "flags": [
-   {
-    "ticker": "SNOW",
-    "type": "rank_drop",
-    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
-    "held": true,
-    "price": 341.99,
-    "day_pct": 0.72,
-    "n": 609,
-    "avg_pct": 0.66,
-    "down_pct": 49.9,
-    "edge_pct": 0.18,
-    "verdict": "neutral"
-   }
-  ],
+  "flags": [],
   "rank_trends": [
    {
     "ticker": "SNOW",
@@ -4657,5 +4643,23 @@
    "weight": 0.0,
    "recent_ic": -0.007
   }
- ]
+ ],
+ "analyst": {
+  "date": "2026-10-02",
+  "text": "Market GREEN (VIX 15.5). September jobs came in weak (+29k vs ~90k expected), which cut the odds of a Fed hike, so futures are up about 1% (Nasdaq 100 +1.2%). The 10-year yield is still high at 5.18%.\nSNOW: steady at ~$342 (+3.5% on our cost). The new $3.75B convertible bond is mild dilution. Rank has slid from #2 to #15 (rank warning), and the drop-out flag's learned record is neutral (+0.18% vs baseline). Hold today; it will likely be swapped out at Monday's review.\nThe system shows two half-size catch-up buys: DELL (#5) and FTNT (#7). Neither is in the top 3 any more, and the full review is next trading day (Mon Oct 5).\nDELL: fundamentals are strong ($95B backlog, revenue +58%), but UBS and TD Cowen (Hold, target $550) see limited upside from here.\nFTNT: trading ~$180, above the analyst consensus target (~$153). Wedbush downgraded it to Neutral, and earnings are on Oct 29.\nThe leaders are now AMD, INTC, ALAB and NBIS, all of which have jumped in rank over the past week. The new top 3 is heavily chip-related.\nRecommendation: skip both catch-ups today and deploy at full size at Monday's rebalance, so we don't buy on Friday and sell on Monday.",
+  "cautions": [
+   {
+    "ticker": "SNOW",
+    "why": "Held; rank warning (#2 to #15 in a week); likely rotated out Monday. $3.75B convertible = mild dilution."
+   },
+   {
+    "ticker": "DELL",
+    "why": "Catch-up buy but now rank #5, out of the top 3; Monday rebalance in 1 trading day; analysts (UBS, TD Cowen Hold) see limited upside. Recommend skip."
+   },
+   {
+    "ticker": "FTNT",
+    "why": "Catch-up buy at rank #7; trading above consensus target; Wedbush downgrade; earnings Oct 29; pre-market already near/above the 179.61 limit. Recommend skip."
+   }
+  ]
+ }
 }
