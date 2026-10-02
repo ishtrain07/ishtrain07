@@ -1,0 +1,131 @@
+{
+ "buys": [
+  {
+   "ticker": "DELL",
+   "name": "Dell Technologies Inc.",
+   "sector": "Tech",
+   "price": 541.74,
+   "score": 100.3,
+   "momentum": 100,
+   "rs": 96,
+   "trend": 100,
+   "fund": 80,
+   "rsi": 54,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 18.605541,
+   "next_earnings": "2026-11-27",
+   "entry": 541.74,
+   "limit": 544.45,
+   "stop": 498.4,
+   "t1": 606.96,
+   "t2": 672.17,
+   "stop_pct": -8.0,
+   "t1_pct": 12.0,
+   "t2_pct": 24.1,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-09",
+   "shares": 0.83,
+   "dollars": 449.64,
+   "risk_dollars": 35.97,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "trial week: half-size position",
+    "#5 on the learning model ranking: 6-mo +221%, 3-mo +38%, 1-mo +27%",
+    "stronger than 96% of the universe vs the S&P; above its 200-day average",
+    "revenue +58% y/y"
+   ],
+   "news": []
+  },
+  {
+   "ticker": "FTNT",
+   "name": "Fortinet, Inc.",
+   "sector": "Tech",
+   "price": 178.72,
+   "score": 85.6,
+   "momentum": 90,
+   "rs": 81,
+   "trend": 100,
+   "fund": 72,
+   "rsi": 62,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 47.308334,
+   "next_earnings": "2026-11-04",
+   "entry": 178.72,
+   "limit": 179.61,
+   "stop": 164.42,
+   "t1": 193.16,
+   "t2": 207.59,
+   "stop_pct": -8.0,
+   "t1_pct": 8.1,
+   "t2_pct": 16.2,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-09",
+   "shares": 2.52,
+   "dollars": 450.37,
+   "risk_dollars": 36.03,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "trial week: half-size position",
+    "#7 on the learning model ranking: 6-mo +120%, 3-mo +14%, 1-mo +10%",
+    "stronger than 81% of the universe vs the S&P; above its 200-day average",
+    "revenue +26% y/y"
+   ],
+   "news": []
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "DELL",
+   "score": 86.3,
+   "price": 541.74,
+   "setup": "momentum",
+   "rsi": 54,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "MU",
+   "score": 86.1,
+   "price": 1097.39,
+   "setup": "momentum",
+   "rsi": 64,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "FTNT",
+   "score": 84.4,
+   "price": 178.72,
+   "setup": "momentum",
+   "rsi": 62,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "CRWD",
+   "score": 83.5,
+   "price": 266.09,
+   "setup": "momentum",
+   "rsi": 67,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "ARM",
+   "score": 83.0,
+   "price": 292.34,
+   "setup": "momentum",
+   "rsi": 54,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 763.99,
+  "spy_sma50": 761.56,
+  "spy_sma200": 716.56,
+  "vix": 15.54
+ }
+}
