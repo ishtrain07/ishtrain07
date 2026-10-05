@@ -18,6 +18,7 @@
   "risk_per_trade_pct": 1.5,
   "max_position_pct": 35,
   "max_positions": 3,
+  "hold_rank": 5,
   "max_per_sector": 2,
   "min_cash_pct": 5,
   "min_price": 5,
