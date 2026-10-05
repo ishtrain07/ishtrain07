@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-05 08:58 ET",
+ "generated_at": "2026-10-05 09:01 ET (position check)",
  "date": "2026-10-05",
  "mode": "plan",
  "regime": {
@@ -205,20 +205,12 @@
    "pnl_pct": 3.29,
    "days_held": 4,
    "active_stop": 303.76,
-   "action": "SELL ALL",
-   "why": "rotated out: no longer in the top ranks this week"
+   "action": "HOLD",
+   "why": "held while it stays top-3; reviewed every Monday; stop 303.76 (-10.9%)"
   }
  ],
  "closed": [],
- "alerts": [
-  {
-   "ticker": "SNOW",
-   "action": "SELL ALL",
-   "why": "rotated out: no longer in the top ranks this week",
-   "price": 341.02,
-   "shares": 0.6059
-  }
- ],
+ "alerts": [],
  "trading_days_left": 19,
  "system_paper": {},
  "strategy": "momentum",
@@ -227,10 +219,10 @@
   "account": {
    "cash": 122.88,
    "realized": 7.61,
-   "unrealized": -13.37,
-   "market_value": 2571.38,
-   "equity": 2694.26,
-   "return_pct": -0.21
+   "unrealized": -13.91,
+   "market_value": 2570.84,
+   "equity": 2693.72,
+   "return_pct": -0.23
   },
   "record": {
    "trades": 2,
@@ -284,15 +276,15 @@
     "avg_cost": 352.08,
     "first_buy": "2026-10-05",
     "stop": 323.91,
-    "t1": 369.68,
-    "t2": 387.29,
+    "t1": 399.35,
+    "t2": 448.38,
     "hold_days": 60,
     "sell_by": "2026-12-30",
     "partial": false,
-    "system_pick": false,
+    "system_pick": true,
     "mode": "momentum",
-    "plan_entry": null,
-    "plan_date": null,
+    "plan_entry": 350.33,
+    "plan_date": "2026-10-05",
     "fills": [
      {
       "date": "2026-10-05",
@@ -300,9 +292,9 @@
       "shares": 2.58
      }
     ],
-    "price": 350.33,
-    "value": 903.85,
-    "pnl": -4.52,
+    "price": 350.32,
+    "value": 903.83,
+    "pnl": -4.54,
     "pnl_pct": -0.5,
     "days_held": 0,
     "active_stop": 323.91,
@@ -315,15 +307,15 @@
     "avg_cost": 1080.26,
     "first_buy": "2026-10-05",
     "stop": 993.84,
-    "t1": 1134.27,
-    "t2": 1188.29,
+    "t1": 1178.83,
+    "t2": 1282.78,
     "hold_days": 60,
     "sell_by": "2026-12-30",
     "partial": false,
-    "system_pick": false,
+    "system_pick": true,
     "mode": "momentum",
-    "plan_entry": null,
-    "plan_date": null,
+    "plan_entry": 1074.89,
+    "plan_date": "2026-10-05",
     "fills": [
      {
       "date": "2026-10-05",
@@ -331,10 +323,10 @@
       "shares": 0.84
      }
     ],
-    "price": 1074.89,
-    "value": 902.91,
-    "pnl": -4.51,
-    "pnl_pct": -0.5,
+    "price": 1074.27,
+    "value": 902.39,
+    "pnl": -5.03,
+    "pnl_pct": -0.55,
     "days_held": 0,
     "active_stop": 993.84,
     "action": "HOLD",
@@ -361,53 +353,7 @@
     "pnl_pct": 3.79
    }
   ],
-  "orders_today": [
-   {
-    "date": "2026-10-05",
-    "ticker": "SNOW",
-    "side": "SELL",
-    "shares": 0.47,
-    "price": 341.02,
-    "fees": 0,
-    "note": "rotated out"
-   },
-   {
-    "date": "2026-10-05",
-    "ticker": "FTNT",
-    "side": "SELL",
-    "shares": 0.91,
-    "price": 180.94,
-    "fees": 0,
-    "note": "rotated out"
-   },
-   {
-    "date": "2026-10-05",
-    "ticker": "ALAB",
-    "side": "BUY",
-    "shares": 2.58,
-    "price": 352.08,
-    "fees": 0,
-    "note": "new"
-   },
-   {
-    "date": "2026-10-05",
-    "ticker": "MU",
-    "side": "BUY",
-    "shares": 0.84,
-    "price": 1080.26,
-    "fees": 0,
-    "note": "new"
-   },
-   {
-    "date": "2026-10-05",
-    "ticker": "DELL",
-    "side": "BUY",
-    "shares": 1.08,
-    "price": 565.33,
-    "fees": 0,
-    "note": "add"
-   }
-  ],
+  "orders_today": [],
   "executed": true
  },
  "record": {
@@ -426,21 +372,7 @@
   "since": "2026-09-28"
  },
  "anomalies": {
-  "flags": [
-   {
-    "ticker": "SNOW",
-    "type": "rank_drop",
-    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
-    "held": true,
-    "price": 341.04,
-    "day_pct": -0.28,
-    "n": 612,
-    "avg_pct": 0.62,
-    "down_pct": 50.2,
-    "edge_pct": 0.16,
-    "verdict": "neutral"
-   }
-  ],
+  "flags": [],
   "rank_trends": [
    {
     "ticker": "SNOW",
@@ -4762,5 +4694,19 @@
    "weight": 0.0,
    "recent_ic": -0.01
   }
- ]
+ ],
+ "analyst": {
+  "date": "2026-10-05",
+  "text": "Weekly rebalance day, first full-size week. Market GREEN (VIX 16). Futures are slightly lower (S&P -0.1%, Nasdaq -0.3%); Asia rallied after Friday's soft jobs data. Rising 10-year yields (5.29%) and a stronger dollar are mild headwinds. ISM Services is out at 10:00 ET.\nSNOW: sell everything (rotated out; rank #2 to #9). It exits with a ~+3.3% gain.\nALAB #1: Q2 revenue +104%, Q3 guidance implies ~40% growth from Q2, and Scorpio switches are shipping early. It is still the most volatile pick (-19% over 3 months before its earnings jump), so size discipline and the stop matter.\nDELL #2: $95B AI-server backlog and revenue +58%. Analysts are cautious on upside from here (TD Cowen Hold).\nMU #3: memory boom (revenue +379%) and a buyback starts in December.\nAMD and INTC slipped to #4 and #5. Intel is down ~4% pre-market on news about Musk's Terafab chip project, which is a reminder that semis can move together.\nAll three picks are AI-hardware names. The 8% stops and 10% portfolio brake are the safety net.",
+  "cautions": [
+   {
+    "ticker": "ALAB",
+    "why": "Highest volatility of the three (3-mo -19% before the earnings gap); respect the 322.30 stop."
+   },
+   {
+    "ticker": "ALAB/DELL/MU",
+    "why": "All AI-hardware: a semis/AI selloff hits all three together. Earnings: ALAB Nov 3 (inside the window, before Diwali)."
+   }
+  ]
+ }
 }
