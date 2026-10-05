@@ -35,15 +35,15 @@
   {
    "exit_date": "2026-10-01",
    "exit_price": 163.82,
-   "pnl_per_share": 5.446224786001608,
-   "r": 1.4127815451861743,
+   "pnl_per_share": 5.446224786003114,
+   "r": 1.4127815451858254,
    "days": 7,
    "exit_reason": "time stop",
    "date": "2026-09-22",
    "ticker": "XOM",
    "setup": "pullback",
    "entry": 158.71,
-   "ret_pct": 3.4315572778094703
+   "ret_pct": 3.431557277810419
   },
   {
    "exit_date": "2026-09-28",
@@ -88,7 +88,7 @@
    "exit_date": "2026-10-02",
    "exit_price": 206.69,
    "pnl_per_share": 1.1800079345703125,
-   "r": 0.2092728404428503,
+   "r": 0.2092728404315792,
    "days": 7,
    "exit_reason": "time stop",
    "date": "2026-09-23",
@@ -101,7 +101,7 @@
    "exit_date": "2026-10-02",
    "exit_price": 164.01,
    "pnl_per_share": 2.779998779296875,
-   "r": 0.45242766295228215,
+   "r": 0.45242766295225495,
    "days": 7,
    "exit_reason": "time stop",
    "date": "2026-09-23",
@@ -140,7 +140,7 @@
    "exit_date": "2026-10-01",
    "exit_price": 358.35,
    "pnl_per_share": -9.6300048828125,
-   "r": -1.0226604954086753,
+   "r": -1.022660495548457,
    "days": 5,
    "exit_reason": "stop",
    "date": "2026-09-24",
@@ -165,7 +165,7 @@
   {
    "exit_date": "2026-09-28",
    "exit_price": 69.61,
-   "pnl_per_share": -2.7020325744402385,
+   "pnl_per_share": -2.702032574657096,
    "r": -1.0,
    "days": 1,
    "exit_reason": "stop",
@@ -173,7 +173,7 @@
    "ticker": "FCX",
    "setup": "pullback",
    "entry": 72.31,
-   "ret_pct": -3.7367344290818783
+   "ret_pct": -3.736734429381779
   },
   {
    "exit_date": "2026-10-02",
@@ -203,16 +203,16 @@
   },
   {
    "exit_date": "2026-10-05",
-   "exit_price": 279.75,
-   "pnl_per_share": 11.6199951171875,
-   "r": 0.5417146023188489,
+   "exit_price": 279.72,
+   "pnl_per_share": 11.589996337890625,
+   "r": 0.5403160839345494,
    "days": 6,
    "exit_reason": "time stop",
    "date": "2026-09-25",
    "ticker": "DDOG",
    "setup": "breakout",
    "entry": 268.13,
-   "ret_pct": 4.333716818550791
+   "ret_pct": 4.322528671476394
   },
   {
    "exit_date": "2026-10-01",
