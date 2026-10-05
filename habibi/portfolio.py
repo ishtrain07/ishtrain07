@@ -137,7 +137,7 @@ def evaluate(book, feats, live, funds, cfg, today):
             if px <= p["stop"]:
                 act, why = "SELL ALL", f"hit the {cfg.get('momentum_stop_pct', 10)}% stop at {p['stop']:.2f}"
             else:
-                act, why = "HOLD", (f"held while it stays top-{cfg['max_positions']}; reviewed every Monday; "
+                act, why = "HOLD", (f"held while it stays top-{cfg.get('hold_rank') or cfg['max_positions']}; reviewed every Monday; "
                                     f"stop {p['stop']:.2f} ({(p['stop'] / px - 1) * 100:+.1f}%)")
         elif px <= stop:
             act, why = "SELL ALL", f"hit stop {stop:.2f}" + (" (trailing)" if p["partial"] else "")

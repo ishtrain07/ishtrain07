@@ -130,7 +130,7 @@ def swing_sim(feats, pre, v, start=None, end=None):
 # ------------------------------------------------------------- momentum rotation
 def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_col="momentum",
                  exit_below_ema20=False, entry_green_only=False, dd_brake=None, cool_days=5, max_rsi=80,
-                 initial_frac=1.0, add_gain=None):
+                 initial_frac=1.0, add_gain=None, cost=0.0, hold_rank=None):
     """Weekly: hold the top-N ranked names (eligible, regime not RED), equal weight.
 
     exit_below_ema20: daily exit when a holding closes below its 20-EMA.
@@ -138,6 +138,9 @@ def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_
     dd_brake: if equity falls this far below its peak, go to cash for cool_days.
     initial_frac / add_gain: staged entry - buy initial_frac of a full slot, add the rest
     once the holding is up add_gain and still in the current top-N.
+    cost: fraction lost on every buy and every sell (e.g. 0.015 = Wealthsimple's 1.5% FX fee).
+    hold_rank: keep a holding while it ranks within this many (default top_n); new buys still
+    come from the top-N. A buffer above top_n cuts turnover.
     """
     dates = [d for d in pre if (start is None or d >= start) and (end is None or d <= end)]
     cash, hold, curve, trades, last_week = 1.0, {}, [], [], None
@@ -146,7 +149,7 @@ def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_
 
     def sell(t, px, why):
         nonlocal cash
-        cash += hold[t]["sh"] * px
+        cash += hold[t]["sh"] * px * (1 - cost)
         trades.append({"r": px / hold[t]["entry"] - 1, "ret": px / hold[t]["entry"] - 1, "why": why, "days": 0})
         del hold[t]
 
@@ -164,7 +167,7 @@ def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_
                 px = last_close(feats, t, d)
                 if not h["added"] and t in target and px >= h["entry"] * (1 + add_gain) and cash > 0:
                     amt = min(h["full"] * (1 - initial_frac), cash)
-                    add_sh = amt / px
+                    add_sh = amt * (1 - cost) / px
                     h["entry"] = (h["entry"] * h["sh"] + amt) / (h["sh"] + add_sh)
                     h["sh"] += add_sh
                     h["stop"] = max(h["stop"], h["entry"] * (1 - stop_pct))
@@ -188,7 +191,12 @@ def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_
         ok = sc.eligible & (sc.rsi < max_rsi)
         if exit_below_ema20:
             ok &= sc.Close > sc.ema20
-        target = [] if regime == "RED" else list(sc[ok].sort_values(rank_col, ascending=False).head(top_n).index)
+        ranked = list(sc[ok].sort_values(rank_col, ascending=False).index)
+        if regime == "RED":
+            target = []
+        else:
+            keep = [t for t in ranked[:hold_rank or top_n] if t in hold][:top_n]
+            target = keep + [t for t in ranked if t not in keep][:top_n - len(keep)]
         for t in list(hold):
             if t not in target:
                 sell(t, last_close(feats, t, d), "rotate")
@@ -200,7 +208,7 @@ def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_
             for t in new:
                 px = last_close(feats, t, d)
                 amt = per * initial_frac
-                hold[t] = {"sh": amt / px, "entry": px, "stop": px * (1 - stop_pct), "full": per, "added": initial_frac >= 1}
+                hold[t] = {"sh": amt * (1 - cost) / px, "entry": px, "stop": px * (1 - stop_pct), "full": per, "added": initial_frac >= 1}
                 cash -= amt
     return stats(curve, trades)
 
@@ -318,6 +326,15 @@ def main():
         "L6 L2 concentrated: top 2": dict(top_n=2, rank_col="adaptive", stop_pct=0.08, dd_brake=0.10),
         "L7 L2 top 2 + staged entry": dict(top_n=2, rank_col="adaptive", stop_pct=0.08, dd_brake=0.10,
                                            initial_frac=0.5, add_gain=0.04),
+    })
+    l2 = dict(top_n=3, rank_col="adaptive", stop_pct=0.08, dd_brake=0.10)
+    rot.update({
+        "F1 L2 + 1.5% FX fee each way (no USD account)": dict(l2, cost=0.015),
+        "F2 L2 hold while top-5 + 1.5% FX fee": dict(l2, cost=0.015, hold_rank=5),
+        "F3 L2 + 0.1% cost (USD account, spread only)": dict(l2, cost=0.001),
+        "F4 L2 hold while top-4 + 0.1% cost": dict(l2, cost=0.001, hold_rank=4),
+        "F5 L2 hold while top-5 + 0.1% cost": dict(l2, cost=0.001, hold_rank=5),
+        "F6 L2 hold while top-6 + 0.1% cost": dict(l2, cost=0.001, hold_rank=6),
     })
     for name, kw in rot.items():
         res["results"][name] = {k: rotation_sim(feats, pre, start=a, end=b, **kw) for k, (a, b) in periods.items()}

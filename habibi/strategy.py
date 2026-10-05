@@ -326,7 +326,7 @@ def momentum_plan(feats, funds, regime, cfg, equity, cash, holdings, today, reba
     """Risk-adjusted momentum rotation (research variant R2).
 
     Each week hold the top-N eligible names ranked by momentum / volatility.
-    Sell anything that drops out of the top-N; 10% hard stop checked daily.
+    Sell a holding once it falls below cfg["hold_rank"] (default N); hard stop checked daily.
     """
     spy = feats["SPY"].iloc[-1]
     snap = snapshot(feats)
@@ -353,7 +353,10 @@ def momentum_plan(feats, funds, regime, cfg, equity, cash, holdings, today, reba
             if list(ranked.index).index(t) < n + 3:
                 avoid.append({"ticker": t, "why_not": f"fundamentals gate: {why}"})
     buyable = [t for t in ranked.index if t not in blocked]
-    target = [] if regime["light"] == "RED" else buyable[:n]
+    # Holdings stay while they rank within hold_rank (a buffer above top-N cuts fee-heavy turnover).
+    hold_rank = cfg.get("hold_rank") or n
+    kept = [t for t in ranked.index[:hold_rank] if t in holdings][:n]
+    target = [] if regime["light"] == "RED" else kept + [t for t in buyable if t not in kept][:n - len(kept)]
     for t in list(ranked.index[:n]):
         er = ((funds or {}).get(t) or {}).get("next_earnings")
         if t in blocked and er and trading_days_between(today, dt.date.fromisoformat(er)) <= 3:

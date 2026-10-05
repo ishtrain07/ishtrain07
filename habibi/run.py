@@ -239,7 +239,7 @@ def cmd_plan(cfg, args):
         ranked["learned"] = learned
         for t in ranked["rotate_out"]:
             p = next(p for p in book["open"] if p["ticker"] == t)
-            p["action"], p["why"] = "SELL ALL", "rotated out: no longer in the top ranks this week"
+            p["action"], p["why"] = "SELL ALL", f"rotated out: fell below #{cfg.get('hold_rank') or cfg['max_positions']} on the ranking this week"
             alerts.append({"ticker": t, "action": "SELL ALL", "why": p["why"], "price": p["price"], "shares": p["shares"]})
         if rebalance and not args.dry_run:
             state["last_rebalance"] = today.isoformat()
