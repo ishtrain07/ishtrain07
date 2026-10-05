@@ -232,3 +232,24 @@ def test_anomalies_learn_and_detect():
     assert {"big_drop", "gap_down", "volume_spike"} <= types
     assert all(f["held"] for f in out["flags"] if f["ticker"] == t)
     assert out["rank_trends"] and out["rank_trends"][0]["ticker"] == t
+
+
+def test_hold_rank_buffer():
+    from habibi.indicators import add_features
+    from habibi.strategy import momentum_plan
+    from habibi.universe import UNIVERSE
+    feats = {t: add_features(df) for t, df in fake_prices(sorted(set(UNIVERSE) | {"SPY"})).items()}
+    cfg = run.load_cfg()
+    cfg.update({"ramp_until": None, "max_positions": 3, "hold_rank": None})
+    regime = {"light": "GREEN", "max_new": 3, "risk_mult": 1.0}
+    today = dt.date.today()
+    ranked = momentum_plan(feats, {}, regime, cfg, 1000, 1000, {}, today, True)["universe"]
+    fifth = [r["ticker"] for r in ranked if r.get("rank") == 5][0]
+    held = {fifth: 300.0}
+    # default: rank #5 is outside the top 3, so it rotates out
+    assert fifth in momentum_plan(feats, {}, regime, cfg, 1000, 700, held, today, True)["rotate_out"]
+    # with a top-5 buffer it is kept and only two new names are bought
+    cfg["hold_rank"] = 5
+    plan = momentum_plan(feats, {}, regime, cfg, 1000, 700, held, today, True)
+    assert fifth not in plan["rotate_out"] and fifth in plan["target"]
+    assert len([b for b in plan["buys"] if b["kind"] == "new"]) == 2
