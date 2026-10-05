@@ -1,16 +1,16 @@
 {
- "n": 814,
- "win_rate": 47.4,
- "avg_r": 0.03,
- "avg_win_pct": 6.0,
- "avg_loss_pct": -4.98,
+ "n": 808,
+ "win_rate": 47.3,
+ "avg_r": 0.02,
+ "avg_win_pct": 6.03,
+ "avg_loss_pct": -5.0,
  "avg_days": 5.0,
- "total_return_pct": 10.1,
+ "total_return_pct": 5.1,
  "max_drawdown_pct": -41.8,
- "p_25d_gain_20pct": 21.7,
+ "p_25d_gain_20pct": 21.9,
  "p_25d_gain_10pct": 30.7,
- "p_25d_loss": 53.4,
- "median_25d_pct": -1.6,
+ "p_25d_loss": 54.0,
+ "median_25d_pct": -1.7,
  "by_setup": {
   "breakout": {
    "n": 195,
@@ -18,45 +18,45 @@
    "avg_r": 0.09
   },
   "pullback": {
-   "n": 619,
-   "win_rate": 45.9,
-   "avg_r": 0.01
+   "n": 613,
+   "win_rate": 45.7,
+   "avg_r": 0.0
   }
  },
  "exit_reasons": {
-  "time stop": 354,
-  "stop": 350,
-  "trail/breakeven": 57,
+  "time stop": 350,
+  "stop": 349,
+  "trail/breakeven": 56,
   "target 2": 53
  },
- "from": "2025-08-06",
+ "from": "2025-08-08",
  "to": "2026-09-28",
  "recent": [
   {
-   "exit_date": "2026-09-24",
-   "exit_price": 246.02,
-   "pnl_per_share": -12.430007934570312,
-   "r": -1.0314347510109518,
-   "days": 3,
-   "exit_reason": "stop",
-   "date": "2026-09-21",
-   "ticker": "AMZN",
+   "exit_date": "2026-10-01",
+   "exit_price": 163.82,
+   "pnl_per_share": 5.446224786001608,
+   "r": 1.4127815451861743,
+   "days": 7,
+   "exit_reason": "time stop",
+   "date": "2026-09-22",
+   "ticker": "XOM",
    "setup": "pullback",
-   "entry": 258.45,
-   "ret_pct": -4.809443740561042
+   "entry": 158.71,
+   "ret_pct": 3.4315572778094703
   },
   {
-   "exit_date": "2026-09-22",
-   "exit_price": 364.29,
-   "pnl_per_share": -5.662723177030273,
+   "exit_date": "2026-09-28",
+   "exit_price": 108.87,
+   "pnl_per_share": -9.467199707031256,
    "r": -1.0,
-   "days": 1,
+   "days": 4,
    "exit_reason": "stop",
-   "date": "2026-09-21",
-   "ticker": "V",
-   "setup": "pullback",
-   "entry": 369.95,
-   "ret_pct": -1.5306725206597107
+   "date": "2026-09-22",
+   "ticker": "AKAM",
+   "setup": "breakout",
+   "entry": 118.34,
+   "ret_pct": -8.000000000000004
   },
   {
    "exit_date": "2026-09-30",
@@ -75,7 +75,7 @@
    "exit_date": "2026-10-01",
    "exit_price": 28.12,
    "pnl_per_share": 0.1900005340576172,
-   "r": 0.2754455668427695,
+   "r": 0.275445566845804,
    "days": 7,
    "exit_reason": "time stop",
    "date": "2026-09-22",
@@ -85,36 +85,10 @@
    "ret_pct": 0.6802740135395119
   },
   {
-   "exit_date": "2026-10-01",
-   "exit_price": 163.82,
-   "pnl_per_share": 5.446224786003114,
-   "r": 1.4127815451858254,
-   "days": 7,
-   "exit_reason": "time stop",
-   "date": "2026-09-22",
-   "ticker": "XOM",
-   "setup": "pullback",
-   "entry": 158.71,
-   "ret_pct": 3.431557277810419
-  },
-  {
-   "exit_date": "2026-09-28",
-   "exit_price": 108.87,
-   "pnl_per_share": -9.467199707031256,
-   "r": -1.0,
-   "days": 4,
-   "exit_reason": "stop",
-   "date": "2026-09-22",
-   "ticker": "AKAM",
-   "setup": "breakout",
-   "entry": 118.34,
-   "ret_pct": -8.000000000000004
-  },
-  {
    "exit_date": "2026-10-02",
    "exit_price": 206.69,
    "pnl_per_share": 1.1800079345703125,
-   "r": 0.20927284043125116,
+   "r": 0.2092728404428503,
    "days": 7,
    "exit_reason": "time stop",
    "date": "2026-09-23",
@@ -127,7 +101,7 @@
    "exit_date": "2026-10-02",
    "exit_price": 164.01,
    "pnl_per_share": 2.779998779296875,
-   "r": 0.45242766295225495,
+   "r": 0.45242766295228215,
    "days": 7,
    "exit_reason": "time stop",
    "date": "2026-09-23",
@@ -140,7 +114,7 @@
    "exit_date": "2026-09-28",
    "exit_price": 224.97,
    "pnl_per_share": -12.610000610351562,
-   "r": -1.3059984987143098,
+   "r": -1.3059984987151747,
    "days": 3,
    "exit_reason": "stop",
    "date": "2026-09-23",
@@ -166,7 +140,7 @@
    "exit_date": "2026-10-01",
    "exit_price": 358.35,
    "pnl_per_share": -9.6300048828125,
-   "r": -1.0226604955484508,
+   "r": -1.0226604954086753,
    "days": 5,
    "exit_reason": "stop",
    "date": "2026-09-24",
@@ -176,9 +150,22 @@
    "ret_pct": -2.6169913025983065
   },
   {
+   "exit_date": "2026-10-05",
+   "exit_price": 498.45,
+   "pnl_per_share": -23.927269986070712,
+   "r": -1.0,
+   "days": 7,
+   "exit_reason": "stop",
+   "date": "2026-09-24",
+   "ticker": "VRTX",
+   "setup": "pullback",
+   "entry": 522.38,
+   "ret_pct": -4.580433738354593
+  },
+  {
    "exit_date": "2026-09-28",
    "exit_price": 69.61,
-   "pnl_per_share": -2.7020325746554477,
+   "pnl_per_share": -2.7020325744402385,
    "r": -1.0,
    "days": 1,
    "exit_reason": "stop",
@@ -186,7 +173,7 @@
    "ticker": "FCX",
    "setup": "pullback",
    "entry": 72.31,
-   "ret_pct": -3.7367344293794984
+   "ret_pct": -3.7367344290818783
   },
   {
    "exit_date": "2026-10-02",
@@ -213,6 +200,19 @@
    "setup": "pullback",
    "entry": 335.94,
    "ret_pct": -4.741915985000839
+  },
+  {
+   "exit_date": "2026-10-05",
+   "exit_price": 279.75,
+   "pnl_per_share": 11.6199951171875,
+   "r": 0.5417146023188489,
+   "days": 6,
+   "exit_reason": "time stop",
+   "date": "2026-09-25",
+   "ticker": "DDOG",
+   "setup": "breakout",
+   "entry": 268.13,
+   "ret_pct": 4.333716818550791
   },
   {
    "exit_date": "2026-10-01",
