@@ -1,0 +1,162 @@
+{
+ "buys": [
+  {
+   "ticker": "ALAB",
+   "name": "Astera Labs, Inc.",
+   "sector": "Semis",
+   "price": 350.33,
+   "score": 72.3,
+   "momentum": 96,
+   "rs": 12,
+   "trend": 100,
+   "fund": 90,
+   "rsi": 58,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 54.794884,
+   "next_earnings": "2026-11-03",
+   "entry": 350.33,
+   "limit": 352.08,
+   "stop": 322.3,
+   "t1": 399.35,
+   "t2": 448.38,
+   "stop_pct": -8.0,
+   "t1_pct": 14.0,
+   "t2_pct": 28.0,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-12",
+   "shares": 2.45,
+   "dollars": 858.31,
+   "risk_dollars": 68.66,
+   "reason": [
+    "#1 on the learning model ranking: 6-mo +199%, 3-mo -19%, 1-mo +28%",
+    "stronger than 12% of the universe vs the S&P; above its 200-day average",
+    "revenue +104% y/y"
+   ],
+   "news": []
+  },
+  {
+   "ticker": "DELL",
+   "name": "Dell Technologies Inc.",
+   "sector": "Tech",
+   "price": 562.52,
+   "score": 84.1,
+   "momentum": 100,
+   "rs": 96,
+   "trend": 100,
+   "fund": 80,
+   "rsi": 58,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 19.319212,
+   "next_earnings": "2026-11-27",
+   "entry": 562.52,
+   "limit": 565.33,
+   "stop": 517.52,
+   "t1": 627.27,
+   "t2": 692.02,
+   "stop_pct": -8.0,
+   "t1_pct": 11.5,
+   "t2_pct": 23.0,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-12",
+   "shares": 1.52,
+   "dollars": 855.03,
+   "risk_dollars": 68.4,
+   "reason": [
+    "#2 on the learning model ranking: 6-mo +224%, 3-mo +37%, 1-mo +14%",
+    "stronger than 96% of the universe vs the S&P; above its 200-day average",
+    "revenue +58% y/y"
+   ],
+   "news": []
+  },
+  {
+   "ticker": "MU",
+   "name": "Micron Technology, Inc.",
+   "sector": "Semis",
+   "price": 1074.89,
+   "score": 82.1,
+   "momentum": 97,
+   "rs": 76,
+   "trend": 100,
+   "fund": 90,
+   "rsi": 59,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 5.219066,
+   "next_earnings": "2026-12-23",
+   "entry": 1074.89,
+   "limit": 1080.26,
+   "stop": 988.9,
+   "t1": 1178.83,
+   "t2": 1282.78,
+   "stop_pct": -8.0,
+   "t1_pct": 9.7,
+   "t2_pct": 19.3,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-12",
+   "shares": 0.8,
+   "dollars": 859.91,
+   "risk_dollars": 68.79,
+   "reason": [
+    "#3 on the learning model ranking: 6-mo +194%, 3-mo +9%, 1-mo +12%",
+    "stronger than 76% of the universe vs the S&P; above its 200-day average",
+    "revenue +379% y/y"
+   ],
+   "news": []
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "AMD",
+   "score": 91.6,
+   "price": 633.91,
+   "setup": "momentum",
+   "rsi": 70,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "INTC",
+   "score": 89.1,
+   "price": 119.33,
+   "setup": "momentum",
+   "rsi": 61,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "CRWD",
+   "score": 86.9,
+   "price": 270.04,
+   "setup": "momentum",
+   "rsi": 69,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "MRVL",
+   "score": 85.5,
+   "price": 272.29,
+   "setup": "momentum",
+   "rsi": 65,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "PANW",
+   "score": 85.3,
+   "price": 403.24,
+   "setup": "momentum",
+   "rsi": 63,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 769.64,
+  "spy_sma50": 762.23,
+  "spy_sma200": 717.04,
+  "vix": 16.15
+ }
+}
