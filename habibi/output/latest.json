@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-05 14:08 ET",
+ "generated_at": "2026-10-05 15:44 ET (position check)",
  "date": "2026-10-05",
  "mode": "plan",
  "regime": {
@@ -169,10 +169,10 @@
  "account": {
   "cash": 2499.95,
   "realized": 0.0,
-  "unrealized": 5.72,
-  "market_value": 205.77,
-  "equity": 2705.72,
-  "return_pct": 0.21
+  "unrealized": 5.92,
+  "market_value": 205.97,
+  "equity": 2705.92,
+  "return_pct": 0.22
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -199,10 +199,10 @@
      "shares": 0.6059
     }
    ],
-   "price": 339.61,
-   "value": 205.77,
-   "pnl": 5.72,
-   "pnl_pct": 2.86,
+   "price": 339.95,
+   "value": 205.97,
+   "pnl": 5.92,
+   "pnl_pct": 2.96,
    "days_held": 4,
    "active_stop": 303.76,
    "action": "HOLD",
@@ -219,10 +219,10 @@
   "account": {
    "cash": 122.88,
    "realized": 7.61,
-   "unrealized": -11.16,
-   "market_value": 2573.57,
-   "equity": 2696.45,
-   "return_pct": -0.13
+   "unrealized": -7.5,
+   "market_value": 2577.25,
+   "equity": 2700.13,
+   "return_pct": 0.0
   },
   "record": {
    "trades": 2,
@@ -261,14 +261,14 @@
       "shares": 1.08
      }
     ],
-    "price": 550.5,
-    "value": 748.68,
-    "pnl": -20.28,
-    "pnl_pct": -2.64,
+    "price": 551.97,
+    "value": 750.68,
+    "pnl": -18.28,
+    "pnl_pct": -2.38,
     "days_held": 5,
     "active_stop": 520.17,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 520.17 (-5.5%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 520.17 (-5.8%)"
    },
    {
     "ticker": "ALAB",
@@ -292,14 +292,14 @@
       "shares": 2.58
      }
     ],
-    "price": 360.83,
-    "value": 930.95,
-    "pnl": 22.59,
-    "pnl_pct": 2.49,
+    "price": 362.1,
+    "value": 934.22,
+    "pnl": 25.85,
+    "pnl_pct": 2.85,
     "days_held": 0,
     "active_stop": 323.91,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 323.91 (-10.2%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 323.91 (-10.5%)"
    },
    {
     "ticker": "MU",
@@ -323,14 +323,14 @@
       "shares": 0.84
      }
     ],
-    "price": 1064.22,
-    "value": 893.94,
-    "pnl": -13.47,
-    "pnl_pct": -1.48,
+    "price": 1062.32,
+    "value": 892.35,
+    "pnl": -15.07,
+    "pnl_pct": -1.66,
     "days_held": 0,
     "active_stop": 993.84,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 993.84 (-6.6%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 993.84 (-6.4%)"
    }
   ],
   "closed": [
@@ -354,7 +354,7 @@
    }
   ],
   "orders_today": [],
-  "executed": false
+  "executed": true
  },
  "record": {
   "trades": 0,
@@ -366,9 +366,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": 0.41,
+  "spy_return_pct": 0.56,
   "base": 771.35,
-  "last": 774.48,
+  "last": 775.65,
   "since": "2026-09-28"
  },
  "anomalies": {
