@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-05 19:17 ET (position check)",
+ "generated_at": "2026-10-05 20:53 ET (position check)",
  "date": "2026-10-05",
  "mode": "plan",
  "regime": {
@@ -366,9 +366,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": 0.45,
+  "spy_return_pct": -0.22,
   "base": 771.35,
-  "last": 774.83,
+  "last": 769.64,
   "since": "2026-09-28"
  },
  "anomalies": {
