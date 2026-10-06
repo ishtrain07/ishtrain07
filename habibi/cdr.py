@@ -26,6 +26,7 @@ def cdr_match(us, cdr):
     a = us.Close.pct_change()
     b = cdr.Close.pct_change()
     j = pd.concat([a, b], axis=1, keys=["us", "cdr"]).dropna()
+    j = j[(j.us.abs() < 0.35) & (j.cdr.abs() < 0.35)]   # drop unadjusted split days
     if len(j) < 40:
         return None
     gap = j.cdr - j.us
@@ -38,18 +39,26 @@ def cdr_match(us, cdr):
 
 
 def cdr_prices(stocks):
-    """Yahoo ".NE" daily bars (yfinance only: the Stooq fallback would map these to the wrong symbols)."""
+    """Yahoo ".NE" daily bars, one ticker at a time with retries (batch requests get throttled).
+    yfinance only: the Stooq fallback would map these to the wrong symbols."""
+    import time
     import yfinance as yf
-    raw = yf.download([f"{t}.NE" for t in stocks], period="1y", interval="1d", group_by="ticker",
-                      auto_adjust=True, threads=True, progress=False)
-    out = {}
+    out, seen = {}, {}
     for t in stocks:
-        try:
-            df = raw[f"{t}.NE"].dropna(subset=["Close"])
-            if len(df) > 40:
-                out[f"{t}.NE"] = df
-        except KeyError:
-            pass
+        for attempt in range(3):
+            try:
+                df = yf.Ticker(f"{t}.NE").history(period="1y", interval="1d", auto_adjust=True)
+                df = df.dropna(subset=["Close"])
+                df.index = df.index.tz_localize(None).normalize()
+                seen[t] = len(df)
+                if len(df) > 40:
+                    out[f"{t}.NE"] = df
+                break
+            except Exception as e:
+                seen[t] = f"error: {e}"
+                time.sleep(2 * (attempt + 1))
+        time.sleep(0.4)
+    print("CDR quotes found:", {t: n for t, n in seen.items() if n})
     return out
 
 
@@ -78,7 +87,9 @@ def main():
         if c is None or t not in prices:
             continue
         m = cdr_match(prices[t], c)
-        if m and m["corr"] > 0.8:
+        if m:
+            print("candidate", t, m)
+        if m and m["corr"] > 0.7:
             match[t] = m
     avail = sorted(match)
     spreads = quote_spreads(avail)

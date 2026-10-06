@@ -2,6 +2,10 @@ name: Habibi research
 
 on:
   workflow_dispatch:
+    inputs:
+      task:
+        description: "all, or cdr to run only the CDR study"
+        default: "all"
   schedule:
     - cron: "0 14 * * 0"   # Sundays: refresh the strategy lab
   push:
@@ -9,8 +13,6 @@ on:
       - "habibi/research.py"
       - "habibi/replay.py"
       - "habibi/crypto.py"
-      - "habibi/cdr.py"
-      - ".github/workflows/habibi-research.yml"
 
 permissions:
   contents: write
@@ -27,9 +29,12 @@ jobs:
           cache: pip
           cache-dependency-path: habibi/requirements.txt
       - run: pip install -r habibi/requirements.txt
-      - run: python -m habibi.research
-      - run: python -m habibi.replay 10
-      - run: python -m habibi.crypto
+      - if: ${{ inputs.task != 'cdr' }}
+        run: python -m habibi.research
+      - if: ${{ inputs.task != 'cdr' }}
+        run: python -m habibi.replay 10
+      - if: ${{ inputs.task != 'cdr' }}
+        run: python -m habibi.crypto
       - run: python -m habibi.cdr
       - name: Save results
         run: |
