@@ -9,6 +9,7 @@ on:
       - "habibi/research.py"
       - "habibi/replay.py"
       - "habibi/crypto.py"
+      - "habibi/cdr.py"
       - ".github/workflows/habibi-research.yml"
 
 permissions:
@@ -29,11 +30,12 @@ jobs:
       - run: python -m habibi.research
       - run: python -m habibi.replay 10
       - run: python -m habibi.crypto
+      - run: python -m habibi.cdr
       - name: Save results
         run: |
           git config user.name "habibi-bot"
           git config user.email "habibi-bot@users.noreply.github.com"
-          git add habibi/output/research.json habibi/output/replay.json habibi/output/crypto.json
+          git add habibi/output/research.json habibi/output/replay.json habibi/output/crypto.json habibi/output/cdr.json
           git diff --cached --quiet && exit 0
           git commit -m "Habibi research results"
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
