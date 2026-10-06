@@ -77,40 +77,40 @@
  "watch": [
   {
    "ticker": "CRWD",
-   "score": 90.9,
-   "price": 272.67,
+   "score": 92.4,
+   "price": 278.81,
    "setup": "momentum",
-   "rsi": 70,
+   "rsi": 72,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "ALAB",
-   "score": 90.0,
-   "price": 362.34,
+   "score": 90.2,
+   "price": 386.8,
    "setup": "momentum",
-   "rsi": 62,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "PANW",
-   "score": 89.9,
-   "price": 406.76,
-   "setup": "momentum",
-   "rsi": 64,
+   "rsi": 67,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "DDOG",
-   "score": 89.3,
-   "price": 276.42,
+   "score": 89.9,
+   "price": 276.55,
    "setup": "momentum",
    "rsi": 70,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "FTNT",
-   "score": 87.8,
-   "price": 184.13,
+   "score": 89.7,
+   "price": 189.91,
+   "setup": "momentum",
+   "rsi": 71,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "PANW",
+   "score": 89.7,
+   "price": 419.05,
    "setup": "momentum",
    "rsi": 67,
    "action": "next in line if a holding drops out"
@@ -121,9 +121,9 @@
   "risk_mult": 1.0,
   "max_new": 4,
   "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
-  "spy": 774.83,
-  "spy_sma50": 762.98,
-  "spy_sma200": 717.56,
-  "vix": 15.32
+  "spy": 780.07,
+  "spy_sma50": 763.84,
+  "spy_sma200": 718.13,
+  "vix": 15.03
  }
 }
