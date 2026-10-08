@@ -76,43 +76,43 @@
  "backups": [],
  "watch": [
   {
+   "ticker": "AMD",
+   "score": 94.0,
+   "price": 614.25,
+   "setup": "momentum",
+   "rsi": 59,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "DELL",
+   "score": 93.7,
+   "price": 571.77,
+   "setup": "momentum",
+   "rsi": 59,
+   "action": "next in line if a holding drops out"
+  },
+  {
    "ticker": "MU",
-   "score": 93.8,
-   "price": 1088.0,
+   "score": 93.2,
+   "price": 1034.5,
    "setup": "momentum",
-   "rsi": 60,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "DDOG",
-   "score": 92.7,
-   "price": 271.34,
-   "setup": "momentum",
-   "rsi": 63,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "PANW",
-   "score": 92.1,
-   "price": 405.57,
-   "setup": "momentum",
-   "rsi": 60,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "FTNT",
-   "score": 91.9,
-   "price": 189.28,
-   "setup": "momentum",
-   "rsi": 69,
+   "rsi": 51,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "ALAB",
-   "score": 90.6,
-   "price": 382.25,
+   "score": 91.6,
+   "price": 349.6,
    "setup": "momentum",
-   "rsi": 65,
+   "rsi": 53,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "PANW",
+   "score": 91.5,
+   "price": 397.09,
+   "setup": "momentum",
+   "rsi": 56,
    "action": "next in line if a holding drops out"
   }
  ],
@@ -121,9 +121,9 @@
   "risk_mult": 1.0,
   "max_new": 4,
   "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
-  "spy": 777.22,
-  "spy_sma50": 764.58,
-  "spy_sma200": 718.67,
-  "vix": 15.72
+  "spy": 773.11,
+  "spy_sma50": 765.49,
+  "spy_sma200": 719.16,
+  "vix": 15.62
  }
 }
