@@ -1,0 +1,129 @@
+{
+ "buys": [
+  {
+   "ticker": "ALAB",
+   "name": "Astera Labs, Inc.",
+   "sector": "Semis",
+   "price": 382.25,
+   "score": 74.2,
+   "momentum": 99,
+   "rs": 32,
+   "trend": 100,
+   "fund": 90,
+   "rsi": 65,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 59.78747,
+   "next_earnings": "2026-11-03",
+   "entry": 382.25,
+   "limit": 384.16,
+   "stop": 351.67,
+   "t1": 434.67,
+   "t2": 487.1,
+   "stop_pct": -8.0,
+   "t1_pct": 13.7,
+   "t2_pct": 27.4,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-15",
+   "shares": 2.36,
+   "dollars": 902.11,
+   "risk_dollars": 72.17,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "#8 on the learning model ranking: 6-mo +205%, 3-mo -8%, 1-mo +32%",
+    "stronger than 32% of the universe vs the S&P; above its 200-day average",
+    "revenue +104% y/y"
+   ],
+   "news": []
+  },
+  {
+   "ticker": "DELL",
+   "name": "Dell Technologies Inc.",
+   "sector": "Tech",
+   "price": 578.96,
+   "score": 92.1,
+   "momentum": 100,
+   "rs": 94,
+   "trend": 100,
+   "fund": 80,
+   "rsi": 61,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 19.88383,
+   "next_earnings": "2026-11-27",
+   "entry": 578.96,
+   "limit": 581.85,
+   "stop": 532.64,
+   "t1": 642.19,
+   "t2": 705.42,
+   "stop_pct": -8.0,
+   "t1_pct": 10.9,
+   "t2_pct": 21.8,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-15",
+   "shares": 1.56,
+   "dollars": 903.18,
+   "risk_dollars": 72.25,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "#3 on the learning model ranking: 6-mo +214%, 3-mo +29%, 1-mo +8%",
+    "stronger than 94% of the universe vs the S&P; above its 200-day average",
+    "revenue +58% y/y"
+   ],
+   "news": []
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "MU",
+   "score": 93.8,
+   "price": 1088.0,
+   "setup": "momentum",
+   "rsi": 60,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "DDOG",
+   "score": 92.7,
+   "price": 271.34,
+   "setup": "momentum",
+   "rsi": 63,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "PANW",
+   "score": 92.1,
+   "price": 405.57,
+   "setup": "momentum",
+   "rsi": 60,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "FTNT",
+   "score": 91.9,
+   "price": 189.28,
+   "setup": "momentum",
+   "rsi": 69,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "ALAB",
+   "score": 90.6,
+   "price": 382.25,
+   "setup": "momentum",
+   "rsi": 65,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 777.22,
+  "spy_sma50": 764.58,
+  "spy_sma200": 718.67,
+  "vix": 15.72
+ }
+}
