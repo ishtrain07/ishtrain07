@@ -2,10 +2,6 @@ name: Habibi research
 
 on:
   workflow_dispatch:
-    inputs:
-      task:
-        description: "all, or cdr to run only the CDR study"
-        default: "all"
   schedule:
     - cron: "0 14 * * 0"   # Sundays: refresh the strategy lab
   push:
@@ -29,18 +25,14 @@ jobs:
           cache: pip
           cache-dependency-path: habibi/requirements.txt
       - run: pip install -r habibi/requirements.txt
-      - if: ${{ inputs.task != 'cdr' }}
-        run: python -m habibi.research
-      - if: ${{ inputs.task != 'cdr' }}
-        run: python -m habibi.replay 10
-      - if: ${{ inputs.task != 'cdr' }}
-        run: python -m habibi.crypto
-      - run: python -m habibi.cdr
+      - run: python -m habibi.research
+      - run: python -m habibi.replay 10
+      - run: python -m habibi.crypto
       - name: Save results
         run: |
           git config user.name "habibi-bot"
           git config user.email "habibi-bot@users.noreply.github.com"
-          git add habibi/output/research.json habibi/output/replay.json habibi/output/crypto.json habibi/output/cdr.json
+          git add habibi/output/research.json habibi/output/replay.json habibi/output/crypto.json
           git diff --cached --quiet && exit 0
           git commit -m "Habibi research results"
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done

@@ -2,7 +2,8 @@
 
 Every channel is optional and activated by environment variables / repo secrets:
   NTFY_TOPIC                        -> push to the ntfy app (subscribe to the same topic)
-  SMTP_USER, SMTP_PASSWORD, ALERT_EMAIL -> email via Gmail (use an App Password)
+  SMTP_USER, SMTP_PASSWORD, ALERT_EMAIL -> email via Gmail (use an App Password); ALERT_EMAIL can be
+                                       several addresses, comma-separated
   GITHUB_TOKEN, GITHUB_REPOSITORY   -> issue in the repo (needs Issues enabled)
 """
 import os
@@ -34,10 +35,11 @@ def email(subject, body):
         return False
     try:
         msg = MIMEText(body, "plain", "utf-8")
-        msg["Subject"], msg["From"], msg["To"] = subject, user, to
+        rcpts = [a.strip() for a in to.split(",") if a.strip()]   # ALERT_EMAIL may list several, comma-separated
+        msg["Subject"], msg["From"], msg["To"] = subject, user, ", ".join(rcpts)
         with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=20) as s:
             s.login(user, pwd)
-            s.sendmail(user, [to], msg.as_string())
+            s.sendmail(user, rcpts, msg.as_string())
         return True
     except Exception as e:
         print(f"email failed: {e}")

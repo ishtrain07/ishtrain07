@@ -414,10 +414,13 @@ def momentum_plan(feats, funds, regime, cfg, equity, cash, holdings, today, reba
             buys.append(b)
             spendable -= b["dollars"]
     # Catch-up (non-rebalance days): this week's official picks you don't hold yet.
-    # catch_up = {ticker: plan stop} from the last rebalance; skipped if price is at/below that stop.
+    # catch_up = {ticker: plan stop} from the last rebalance; skipped if price is at/below that stop,
+    # or if the name has since dropped out of today's top-N. Best-ranked first.
     if not rebalance and catch_up and regime["light"] != "RED":
-        missing = [t for t in catch_up if t not in holdings and t in sc.index
-                   and float(sc.loc[t].Close) > catch_up[t]]
+        today_rank = {t: i for i, t in enumerate(buyable)}
+        missing = sorted((t for t in catch_up if t not in holdings and t in sc.index
+                          and float(sc.loc[t].Close) > catch_up[t] and today_rank.get(t, n) < n),
+                         key=today_rank.get)
         slots = n - len(holdings)
         per = min(spendable / max(min(len(missing), slots), 1), full_slot) if missing and slots > 0 else 0
         for t in missing[:max(slots, 0)]:
