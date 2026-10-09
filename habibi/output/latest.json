@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09 13:26 ET",
+ "generated_at": "2026-10-09 13:28 ET (position check)",
  "date": "2026-10-09",
  "mode": "plan",
  "regime": {
@@ -169,10 +169,10 @@
  "account": {
   "cash": 1997.8,
   "realized": 0.0,
-  "unrealized": 21.92,
-  "market_value": 524.12,
-  "equity": 2521.92,
-  "return_pct": 0.88
+  "unrealized": 21.8,
+  "market_value": 524.0,
+  "equity": 2521.8,
+  "return_pct": 0.87
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -199,14 +199,14 @@
      "shares": 0.6059
     }
    ],
-   "price": 365.34,
-   "value": 221.36,
-   "pnl": 21.31,
-   "pnl_pct": 10.65,
+   "price": 365.08,
+   "value": 221.2,
+   "pnl": 21.15,
+   "pnl_pct": 10.57,
    "days_held": 8,
    "active_stop": 303.76,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-16.9%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-16.8%)"
   },
   {
    "ticker": "CRWD",
@@ -230,10 +230,10 @@
      "shares": 1.1075
     }
    ],
-   "price": 273.37,
-   "value": 302.76,
-   "pnl": 0.61,
-   "pnl_pct": 0.2,
+   "price": 273.41,
+   "value": 302.8,
+   "pnl": 0.65,
+   "pnl_pct": 0.22,
    "days_held": 0,
    "active_stop": 250.99,
    "action": "HOLD",
@@ -250,10 +250,10 @@
   "account": {
    "cash": 122.88,
    "realized": 7.61,
-   "unrealized": -45.54,
-   "market_value": 2539.21,
-   "equity": 2662.09,
-   "return_pct": -1.4
+   "unrealized": -46.68,
+   "market_value": 2538.06,
+   "equity": 2660.94,
+   "return_pct": -1.45
   },
   "record": {
    "trades": 2,
@@ -292,10 +292,10 @@
       "shares": 1.08
      }
     ],
-    "price": 583.22,
-    "value": 793.18,
-    "pnl": 24.22,
-    "pnl_pct": 3.15,
+    "price": 582.51,
+    "value": 792.21,
+    "pnl": 23.26,
+    "pnl_pct": 3.02,
     "days_held": 9,
     "active_stop": 520.17,
     "action": "HOLD",
@@ -323,10 +323,10 @@
       "shares": 2.58
      }
     ],
-    "price": 341.27,
-    "value": 880.49,
-    "pnl": -27.88,
-    "pnl_pct": -3.07,
+    "price": 341.17,
+    "value": 880.22,
+    "pnl": -28.15,
+    "pnl_pct": -3.1,
     "days_held": 4,
     "active_stop": 323.91,
     "action": "HOLD",
@@ -354,14 +354,14 @@
       "shares": 0.84
      }
     ],
-    "price": 1030.41,
-    "value": 865.54,
-    "pnl": -41.88,
+    "price": 1030.51,
+    "value": 865.63,
+    "pnl": -41.79,
     "pnl_pct": -4.61,
     "days_held": 4,
     "active_stop": 993.84,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 993.84 (-3.5%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 993.84 (-3.6%)"
    }
   ],
   "closed": [
@@ -385,7 +385,7 @@
    }
   ],
   "orders_today": [],
-  "executed": false
+  "executed": true
  },
  "record": {
   "trades": 0,
@@ -397,9 +397,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": 0.85,
+  "spy_return_pct": 0.86,
   "base": 771.35,
-  "last": 777.9,
+  "last": 777.99,
   "since": "2026-09-28"
  },
  "anomalies": {
@@ -409,8 +409,8 @@
     "type": "new_high",
     "label": "Closed at a 52-week high",
     "held": true,
-    "price": 364.49,
-    "day_pct": 6.14,
+    "price": 365.24,
+    "day_pct": 6.36,
     "n": 905,
     "avg_pct": 0.69,
     "down_pct": 46.9,
