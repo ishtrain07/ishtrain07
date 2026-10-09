@@ -1,9 +1,9 @@
 {
- "date": "2026-10-08",
- "text": "Market GREEN, but risk-off this morning. Futures are down ~0.5% (Nasdaq 100 -0.7%), Brent is above $105 as US-Iran peace talks stall, and the 10-year yield is near 5.35% (highest since 2002). Asia and Europe were lower overnight.\nStill waiting on the account setup (Plus/USD or CDRs). No new trades until then.\nSNOW (held): ~$333, +0.8% in USD. Rank #9, below the top-5 hold line (warning). Sell when the route is set.\nRanking reshuffle: AMD #1, CRWD #2 (up from #7), DELL #3, MU #4, DDOG #5 (up from #22). ALAB has slipped to #8.\nToday's catch-up list still shows ALAB, but at #8 it is outside the top 5 and would be sold at Monday's review. Skip it. DELL (#3) is fine.\nSystem's simulated account: +4.1% (ALAB +8.6%, DELL +2.4%, MU +0.7%) vs S&P +0.8%.",
+ "date": "2026-10-09",
+ "text": "Market GREEN with a rebound setting up: futures +0.3% (Nasdaq 100 +0.6%) as oil eases to ~$102 and tech recovers from Thursday's selloff, which was triggered by a report that OpenAI's revenue was below estimates. The 10-year yield has eased to 5.25%.\nBIG CHANGE: SNOW (held) jumped to rank #2 from #15 last week. It is back inside the top-5 hold line, so the plan is now to KEEP it, not sell it. ~$344, +4.1% in USD. Insider sales and the ASOS breach claim (Snowflake says there was no compromise) are worth watching but are not red flags.\nRanking: CRWD #1 (up from #8), SNOW #2, DELL #3, DDOG #4, AMD #5. MU dropped to #6 and ALAB to #7.\nToday's catch-up list shows ALAB (#7) and DELL (#3). Skip ALAB (outside the top 5). DELL is fine once the currency route is set.\nSystem's simulated account: -1.1% (DELL +1.7%, ALAB -1.5%, MU -4.2%). You +0.3%, S&P +0.3%.\nStill waiting on Plus vs CDRs before Monday's review.",
  "cautions": [
-  {"ticker": "ALAB", "why": "Catch-up buy but now rank #8, outside the top-5 hold line; it would be sold at Monday's review. Skip."},
-  {"ticker": "SNOW", "why": "Held; rank #9 (warning). Planned sell once the USD/CDR route is set."},
-  {"ticker": "ALL", "why": "Risk-off morning (oil above $105, 10-year near 5.35%). With the Monday review two trading days away, there's no need to rush."}
+  {"ticker": "ALAB", "why": "Catch-up buy but rank #7, outside the top-5 hold line, and down ~9% from Tuesday. Skip."},
+  {"ticker": "SNOW", "why": "Now KEEP (rank #2). Watch: insider sales on Oct 2, the $3.75B convertible, and the ASOS breach claim (denied)."},
+  {"ticker": "MU", "why": "Slipped to #6 and is -4% in the simulated account; it would be sold at Monday's review if it stays below #5."}
  ]
 }
