@@ -71,48 +71,84 @@
     "revenue +58% y/y"
    ],
    "news": []
+  },
+  {
+   "ticker": "MU",
+   "name": "Micron Technology, Inc.",
+   "sector": "Semis",
+   "price": 1031.25,
+   "score": 82.7,
+   "momentum": 94,
+   "rs": 74,
+   "trend": 75,
+   "fund": 90,
+   "rsi": 51,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 4.996452,
+   "next_earnings": "2026-12-23",
+   "entry": 1031.25,
+   "limit": 1036.41,
+   "stop": 948.75,
+   "t1": 1133.94,
+   "t2": 1236.63,
+   "stop_pct": -8.0,
+   "t1_pct": 10.0,
+   "t2_pct": 19.9,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-16",
+   "shares": 0.82,
+   "dollars": 845.62,
+   "risk_dollars": 67.65,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "#3 on the learning model ranking: 6-mo +145%, 3-mo +10%, 1-mo +6%",
+    "stronger than 74% of the universe vs the S&P; above its 200-day average",
+    "revenue +379% y/y"
+   ],
+   "news": []
   }
  ],
  "backups": [],
  "watch": [
   {
-   "ticker": "DDOG",
-   "score": 93.8,
-   "price": 273.8,
+   "ticker": "DELL",
+   "score": 91.1,
+   "price": 586.31,
    "setup": "momentum",
-   "rsi": 65,
+   "rsi": 62,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "AMD",
-   "score": 93.7,
-   "price": 620.68,
+   "ticker": "SNOW",
+   "score": 90.2,
+   "price": 365.74,
    "setup": "momentum",
-   "rsi": 61,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "MU",
-   "score": 93.2,
-   "price": 1035.84,
-   "setup": "momentum",
-   "rsi": 51,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "ALAB",
-   "score": 92.0,
-   "price": 347.05,
-   "setup": "momentum",
-   "rsi": 53,
+   "rsi": 68,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "PANW",
-   "score": 91.6,
-   "price": 398.5,
+   "score": 89.1,
+   "price": 418.03,
    "setup": "momentum",
-   "rsi": 57,
+   "rsi": 63,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "FTNT",
+   "score": 88.4,
+   "price": 194.85,
+   "setup": "momentum",
+   "rsi": 73,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "DDOG",
+   "score": 88.1,
+   "price": 291.67,
+   "setup": "momentum",
+   "rsi": 73,
    "action": "next in line if a holding drops out"
   }
  ],
@@ -121,9 +157,9 @@
   "risk_mult": 1.0,
   "max_new": 4,
   "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
-  "spy": 773.93,
-  "spy_sma50": 765.51,
-  "spy_sma200": 719.16,
-  "vix": 15.21
+  "spy": 778.46,
+  "spy_sma50": 766.28,
+  "spy_sma200": 719.66,
+  "vix": 14.88
  }
 }
