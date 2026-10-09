@@ -253,3 +253,20 @@ def test_hold_rank_buffer():
     plan = momentum_plan(feats, {}, regime, cfg, 1000, 700, held, today, True)
     assert fifth not in plan["rotate_out"] and fifth in plan["target"]
     assert len([b for b in plan["buys"] if b["kind"] == "new"]) == 2
+
+
+def test_catch_up_skips_names_that_left_top_n():
+    from habibi.indicators import add_features
+    from habibi.strategy import momentum_plan
+    from habibi.universe import UNIVERSE
+    feats = {t: add_features(df) for t, df in fake_prices(sorted(set(UNIVERSE) | {"SPY"})).items()}
+    cfg = run.load_cfg()
+    cfg.update({"ramp_until": None, "max_positions": 3})
+    regime = {"light": "GREEN", "max_new": 3, "risk_mult": 1.0}
+    today = dt.date.today()
+    ranked = momentum_plan(feats, {}, regime, cfg, 1000, 1000, {}, today, True)["universe"]
+    by_rank = {r["rank"]: r["ticker"] for r in ranked if r.get("rank")}
+    second, seventh = by_rank[2], by_rank[7]
+    plan = momentum_plan(feats, {}, regime, cfg, 1000, 1000, {}, today, False,
+                         catch_up={seventh: 0.0, second: 0.0})
+    assert [b["ticker"] for b in plan["buys"]] == [second]
