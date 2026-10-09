@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09 16:15 ET (position check)",
+ "generated_at": "2026-10-09 17:49 ET (position check)",
  "date": "2026-10-09",
  "mode": "plan",
  "regime": {
@@ -250,10 +250,10 @@
   "account": {
    "cash": 122.88,
    "realized": 7.61,
-   "unrealized": -41.58,
-   "market_value": 2543.16,
-   "equity": 2666.04,
-   "return_pct": -1.26
+   "unrealized": -41.14,
+   "market_value": 2543.6,
+   "equity": 2666.48,
+   "return_pct": -1.24
   },
   "record": {
    "trades": 2,
@@ -292,14 +292,14 @@
       "shares": 1.08
      }
     ],
-    "price": 586.06,
-    "value": 797.04,
-    "pnl": 28.08,
-    "pnl_pct": 3.65,
+    "price": 586.38,
+    "value": 797.48,
+    "pnl": 28.52,
+    "pnl_pct": 3.71,
     "days_held": 9,
     "active_stop": 520.17,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 520.17 (-11.2%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 520.17 (-11.3%)"
    },
    {
     "ticker": "ALAB",
