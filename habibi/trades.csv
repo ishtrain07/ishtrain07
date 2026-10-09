@@ -1,2 +1,3 @@
 date,ticker,side,shares,price,fees,note
 2026-09-29,SNOW,BUY,0.6059,330.17,0,confirmed fill
+2026-10-09,CRWD,BUY,1.1075,272.82,0,"5 CRWD CDR (CAD-hedged) @84.54 CAD = 422.70 CAD; logged as USD equivalent (422.70/1.399 FX = $302.14 / CRWD 272.82)"
