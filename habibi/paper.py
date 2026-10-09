@@ -23,6 +23,8 @@ def _append(rows):
 
 def run_paper(feats, funds, regime, cfg, today, history, live, execute, rebalance=False, learned=None,
               plan_day=False):
+    # The paper account keeps its own capital, so changing the real account size doesn't break its ledger.
+    cfg = {**cfg, "starting_capital_usd": cfg.get("paper_capital_usd", cfg["starting_capital_usd"])}
     if not PATH.exists():
         PATH.parent.mkdir(parents=True, exist_ok=True)
         PATH.write_text(HEADER)
