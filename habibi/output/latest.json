@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09 11:28 ET (position check)",
+ "generated_at": "2026-10-09 13:17 ET (position check)",
  "date": "2026-10-09",
  "mode": "plan",
  "regime": {
@@ -167,12 +167,12 @@
   "Uptrend confirmed and volatility calm. Full risk allowed."
  ],
  "account": {
-  "cash": 2499.95,
+  "cash": 2197.8,
   "realized": 0.0,
-  "unrealized": 17.49,
-  "market_value": 217.54,
-  "equity": 2717.49,
-  "return_pct": 0.65
+  "unrealized": 19.46,
+  "market_value": 521.66,
+  "equity": 2719.46,
+  "return_pct": 0.72
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -199,14 +199,45 @@
      "shares": 0.6059
     }
    ],
-   "price": 359.04,
-   "value": 217.54,
-   "pnl": 17.49,
-   "pnl_pct": 8.74,
+   "price": 362.49,
+   "value": 219.63,
+   "pnl": 19.58,
+   "pnl_pct": 9.79,
    "days_held": 8,
    "active_stop": 303.76,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-15.4%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-16.2%)"
+  },
+  {
+   "ticker": "CRWD",
+   "shares": 1.1075,
+   "avg_cost": 272.82,
+   "first_buy": "2026-10-09",
+   "stop": 250.99,
+   "t1": 286.46,
+   "t2": 300.1,
+   "hold_days": 60,
+   "sell_by": "2027-01-06",
+   "partial": false,
+   "system_pick": false,
+   "mode": "momentum",
+   "plan_entry": null,
+   "plan_date": null,
+   "fills": [
+    {
+     "date": "2026-10-09",
+     "price": 272.82,
+     "shares": 1.1075
+    }
+   ],
+   "price": 272.71,
+   "value": 302.03,
+   "pnl": -0.12,
+   "pnl_pct": -0.04,
+   "days_held": 0,
+   "active_stop": 250.99,
+   "action": "HOLD",
+   "why": "held while it stays top-5; reviewed every Monday; stop 250.99 (-8.0%)"
   }
  ],
  "closed": [],
@@ -219,10 +250,10 @@
   "account": {
    "cash": 122.88,
    "realized": 7.61,
-   "unrealized": -76.32,
-   "market_value": 2508.41,
-   "equity": 2631.29,
-   "return_pct": -2.54
+   "unrealized": -45.61,
+   "market_value": 2539.13,
+   "equity": 2662.01,
+   "return_pct": -1.41
   },
   "record": {
    "trades": 2,
@@ -261,14 +292,14 @@
       "shares": 1.08
      }
     ],
-    "price": 577.32,
-    "value": 785.15,
-    "pnl": 16.2,
-    "pnl_pct": 2.11,
+    "price": 583.1,
+    "value": 793.02,
+    "pnl": 24.06,
+    "pnl_pct": 3.13,
     "days_held": 9,
     "active_stop": 520.17,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 520.17 (-9.9%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 520.17 (-10.8%)"
    },
    {
     "ticker": "ALAB",
@@ -292,14 +323,14 @@
       "shares": 2.58
      }
     ],
-    "price": 335.55,
-    "value": 865.73,
-    "pnl": -42.63,
-    "pnl_pct": -4.69,
+    "price": 341.42,
+    "value": 880.86,
+    "pnl": -27.5,
+    "pnl_pct": -3.03,
     "days_held": 4,
     "active_stop": 323.91,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 323.91 (-3.5%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 323.91 (-5.1%)"
    },
    {
     "ticker": "MU",
@@ -323,14 +354,14 @@
       "shares": 0.84
      }
     ],
-    "price": 1020.87,
-    "value": 857.53,
-    "pnl": -49.89,
-    "pnl_pct": -5.5,
+    "price": 1030.06,
+    "value": 865.25,
+    "pnl": -42.17,
+    "pnl_pct": -4.65,
     "days_held": 4,
     "active_stop": 993.84,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 993.84 (-2.6%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 993.84 (-3.5%)"
    }
   ],
   "closed": [
@@ -354,7 +385,7 @@
    }
   ],
   "orders_today": [],
-  "executed": true
+  "executed": false
  },
  "record": {
   "trades": 0,
@@ -366,9 +397,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": 0.77,
+  "spy_return_pct": 0.85,
   "base": 771.35,
-  "last": 777.3,
+  "last": 777.94,
   "since": "2026-09-28"
  },
  "anomalies": {
@@ -378,8 +409,8 @@
     "type": "new_high",
     "label": "Closed at a 52-week high",
     "held": true,
-    "price": 358.98,
-    "day_pct": 4.54,
+    "price": 362.49,
+    "day_pct": 5.56,
     "n": 905,
     "avg_pct": 0.68,
     "down_pct": 47.1,
@@ -609,7 +640,7 @@
     "warning": false
    }
   ],
-  "concentration": null,
+  "concentration": "Tech makes up 2 of your 2 holdings: one sector shock hits everything.",
   "stats": {
    "baseline_avg_pct": 0.49,
    "baseline_down_pct": 48.9,
