@@ -1,259 +1,6 @@
 {
  "days": [
   {
-   "date": "2026-09-23",
-   "regime": "GREEN",
-   "picks": [
-    {
-     "ticker": "ALAB",
-     "setup": "breakout",
-     "score": 83.5,
-     "shares": 1.39,
-     "limit": 365.28,
-     "stop": 334.38,
-     "t1": 407.08,
-     "t2": 450.69,
-     "hold_days": 6,
-     "reason": [
-      "new 20-day high on 1.4x volume",
-      "3-mo return -8% (stronger than 25% of the universe vs S&P)",
-      "above rising 50 & 200-day averages",
-      "revenue +104% y/y",
-      "fwd P/E 57 is cheap for its growth",
-      "analyst mean target +7% away"
-     ],
-     "filled": true,
-     "fill": 364.31,
-     "status": "closed",
-     "exit_date": "2026-09-30",
-     "exit_price": 355.97,
-     "exit_reason": "time stop",
-     "pnl": -11.59,
-     "pnl_pct": -2.29
-    },
-    {
-     "ticker": "PFE",
-     "setup": "pullback",
-     "score": 78.9,
-     "shares": 33.83,
-     "limit": 28.07,
-     "stop": 27.24,
-     "t1": 28.96,
-     "t2": 30.0,
-     "hold_days": 7,
-     "reason": [
-      "bounced off 20-EMA (RSI 57)",
-      "3-mo return +15% (stronger than 77% of the universe vs S&P)",
-      "above rising 50 & 200-day averages",
-      "fwd P/E 9",
-      "analyst mean target +4% away"
-     ],
-     "filled": true,
-     "fill": 27.96,
-     "status": "closed",
-     "exit_date": "2026-10-01",
-     "exit_price": 28.12,
-     "exit_reason": "time stop",
-     "pnl": 5.41,
-     "pnl_pct": 0.57
-    },
-    {
-     "ticker": "XOM",
-     "setup": "pullback",
-     "score": 73.8,
-     "shares": 5.95,
-     "limit": 159.5,
-     "stop": 154.86,
-     "t1": 164.49,
-     "t2": 170.27,
-     "hold_days": 7,
-     "reason": [
-      "bounced off 20-EMA (RSI 46)",
-      "3-mo return +14% (stronger than 75% of the universe vs S&P)",
-      "above rising 50 & 200-day averages",
-      "revenue +44% y/y",
-      "fwd P/E 14 is cheap for its growth",
-      "analyst mean target +9% away"
-     ],
-     "filled": true,
-     "fill": 159.5,
-     "status": "closed",
-     "exit_date": "2026-09-29",
-     "exit_price": 159.5,
-     "exit_reason": "trail/breakeven",
-     "pnl": 14.85,
-     "pnl_pct": 1.56
-    }
-   ],
-   "watch": [
-    "SMCI",
-    "CRWD",
-    "SNOW",
-    "ANET",
-    "FTNT"
-   ]
-  },
-  {
-   "date": "2026-09-24",
-   "regime": "GREEN",
-   "picks": [
-    {
-     "ticker": "CRM",
-     "setup": "pullback",
-     "score": 89.0,
-     "shares": 3.98,
-     "limit": 238.77,
-     "stop": 227.92,
-     "t1": 252.06,
-     "t2": 266.55,
-     "hold_days": 7,
-     "reason": [
-      "bounced off 20-EMA (RSI 53)",
-      "3-mo return +56% (stronger than 96% of the universe vs S&P)",
-      "above rising 50 & 200-day averages",
-      "fwd P/E 14 is cheap for its growth",
-      "analyst mean target +19% away"
-     ],
-     "filled": true,
-     "fill": 238.77,
-     "status": "closed",
-     "exit_date": "2026-09-28",
-     "exit_price": 224.97,
-     "exit_reason": "stop",
-     "pnl": -54.92,
-     "pnl_pct": -5.78
-    },
-    {
-     "ticker": "CVX",
-     "setup": "pullback",
-     "score": 80.0,
-     "shares": 4.6,
-     "limit": 206.54,
-     "stop": 199.87,
-     "t1": 213.97,
-     "t2": 222.43,
-     "hold_days": 7,
-     "reason": [
-      "bounced off 20-EMA (RSI 50)",
-      "3-mo return +21% (stronger than 82% of the universe vs S&P)",
-      "above rising 50 & 200-day averages",
-      "revenue +54% y/y",
-      "fwd P/E 14 is cheap for its growth",
-      "analyst mean target +9% away"
-     ],
-     "filled": true,
-     "fill": 206.54,
-     "status": "closed",
-     "exit_date": "2026-10-02",
-     "exit_price": 206.69,
-     "exit_reason": "time stop",
-     "pnl": 0.69,
-     "pnl_pct": 0.07
-    },
-    {
-     "ticker": "XOM",
-     "setup": "pullback",
-     "score": 77.4,
-     "shares": 4.18,
-     "limit": 162.04,
-     "stop": 155.09,
-     "t1": 170.45,
-     "t2": 179.66,
-     "hold_days": 7,
-     "reason": [
-      "bounced off 20-EMA (RSI 50)",
-      "3-mo return +19% (stronger than 81% of the universe vs S&P)",
-      "above rising 50 & 200-day averages",
-      "revenue +44% y/y",
-      "fwd P/E 14 is cheap for its growth",
-      "analyst mean target +8% away"
-     ],
-     "filled": true,
-     "fill": 162.04,
-     "status": "closed",
-     "exit_date": "2026-10-02",
-     "exit_price": 164.01,
-     "exit_reason": "time stop",
-     "pnl": 8.23,
-     "pnl_pct": 1.22
-    }
-   ],
-   "watch": [
-    "PANW",
-    "CRWD",
-    "PLTR",
-    "SMCI",
-    "FTNT"
-   ]
-  },
-  {
-   "date": "2026-09-25",
-   "regime": "GREEN",
-   "picks": [
-    {
-     "ticker": "VRTX",
-     "setup": "pullback",
-     "score": 80.3,
-     "shares": 1.69,
-     "limit": 524.99,
-     "stop": 498.45,
-     "t1": 558.27,
-     "t2": 594.16,
-     "hold_days": 7,
-     "reason": [
-      "bounced off 20-EMA (RSI 51)",
-      "3-mo return +9% (stronger than 67% of the universe vs S&P)",
-      "above rising 50 & 200-day averages",
-      "revenue +12% y/y",
-      "fwd P/E 25",
-      "analyst mean target +9% away"
-     ],
-     "filled": true,
-     "fill": 522.55,
-     "status": "closed",
-     "exit_date": "2026-10-05",
-     "exit_price": 498.45,
-     "exit_reason": "stop",
-     "pnl": -40.73,
-     "pnl_pct": -4.61
-    },
-    {
-     "ticker": "V",
-     "setup": "pullback",
-     "score": 76.3,
-     "shares": 2.57,
-     "limit": 369.82,
-     "stop": 358.56,
-     "t1": 382.1,
-     "t2": 396.23,
-     "hold_days": 7,
-     "reason": [
-      "bounced off 20-EMA (RSI 49)",
-      "3-mo return +12% (stronger than 72% of the universe vs S&P)",
-      "above rising 50 & 200-day averages",
-      "revenue +14% y/y",
-      "fwd P/E 25",
-      "analyst mean target +14% away"
-     ],
-     "filled": true,
-     "fill": 366.02,
-     "status": "closed",
-     "exit_date": "2026-10-01",
-     "exit_price": 358.35,
-     "exit_reason": "stop",
-     "pnl": -19.71,
-     "pnl_pct": -2.1
-    }
-   ],
-   "watch": [
-    "DELL",
-    "PLTR",
-    "PANW",
-    "CRWD",
-    "CRM"
-   ]
-  },
-  {
    "date": "2026-09-28",
    "regime": "GREEN",
    "picks": [
@@ -261,7 +8,7 @@
      "ticker": "SNOW",
      "setup": "pullback",
      "score": 94.8,
-     "shares": 2.71,
+     "shares": 2.51,
      "limit": 337.62,
      "stop": 321.0,
      "t1": 358.36,
@@ -288,7 +35,7 @@
      "ticker": "DDOG",
      "setup": "breakout",
      "score": 89.1,
-     "shares": 1.89,
+     "shares": 1.75,
      "limit": 269.47,
      "stop": 246.68,
      "t1": 300.31,
@@ -299,7 +46,7 @@
       "3-mo return +12% (stronger than 73% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +36% y/y",
-      "expensive (fwd P/E 93)",
+      "expensive (fwd P/E 98)",
       "analyst mean target +7% away"
      ],
      "filled": true,
@@ -308,14 +55,14 @@
      "exit_date": "2026-10-05",
      "exit_price": 276.42,
      "exit_reason": "time stop",
-     "pnl": 36.69,
+     "pnl": 33.98,
      "pnl_pct": 7.55
     },
     {
      "ticker": "VRTX",
      "setup": "pullback",
      "score": 77.9,
-     "shares": 1.62,
+     "shares": 1.5,
      "limit": 528.82,
      "stop": 501.19,
      "t1": 563.69,
@@ -335,7 +82,7 @@
      "exit_date": "2026-10-02",
      "exit_price": 501.19,
      "exit_reason": "stop",
-     "pnl": -37.39,
+     "pnl": -34.62,
      "pnl_pct": -4.4
     }
    ],
@@ -355,7 +102,7 @@
      "ticker": "VRTX",
      "setup": "pullback",
      "score": 82.1,
-     "shares": 1.79,
+     "shares": 1.66,
      "limit": 530.31,
      "stop": 505.69,
      "t1": 560.63,
@@ -375,7 +122,7 @@
      "exit_date": "2026-10-01",
      "exit_price": 505.69,
      "exit_reason": "stop",
-     "pnl": -29.59,
+     "pnl": -27.44,
      "pnl_pct": -3.17
     }
    ],
@@ -394,8 +141,8 @@
     {
      "ticker": "ARM",
      "setup": "pullback",
-     "score": 80.0,
-     "shares": 2.06,
+     "score": 81.5,
+     "shares": 1.91,
      "limit": 295.14,
      "stop": 273.99,
      "t1": 323.19,
@@ -406,15 +153,17 @@
       "3-mo return -17% (stronger than 19% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +22% y/y",
-      "expensive (fwd P/E 99)",
+      "fwd P/E 87",
       "analyst mean target -1% away"
      ],
      "filled": true,
      "fill": 294.0,
-     "status": "open",
-     "last": 304.21,
-     "pnl": 21.04,
-     "pnl_pct": 3.47
+     "status": "closed",
+     "exit_date": "2026-10-08",
+     "exit_price": 273.99,
+     "exit_reason": "stop",
+     "pnl": -38.22,
+     "pnl_pct": -6.81
     }
    ],
    "watch": [
@@ -422,7 +171,7 @@
     "ANET",
     "CRWD",
     "PANW",
-    "ZS"
+    "FTNT"
    ]
   },
   {
@@ -433,7 +182,7 @@
      "ticker": "SNOW",
      "setup": "pullback",
      "score": 94.3,
-     "shares": 1.56,
+     "shares": 1.45,
      "limit": 341.26,
      "stop": 313.62,
      "t1": 378.47,
@@ -449,16 +198,18 @@
      ],
      "filled": true,
      "fill": 341.26,
-     "status": "open",
-     "last": 347.4,
-     "pnl": 9.57,
-     "pnl_pct": 1.8
+     "status": "closed",
+     "exit_date": "2026-10-09",
+     "exit_price": 368.89,
+     "exit_reason": "time stop",
+     "pnl": 40.06,
+     "pnl_pct": 8.1
     },
     {
      "ticker": "AAPL",
      "setup": "pullback",
      "score": 89.4,
-     "shares": 2.84,
+     "shares": 2.63,
      "limit": 334.69,
      "stop": 325.77,
      "t1": 343.9,
@@ -474,16 +225,18 @@
      ],
      "filled": true,
      "fill": 330.0,
-     "status": "open",
-     "last": 332.21,
-     "pnl": 6.27,
-     "pnl_pct": 0.67
+     "status": "closed",
+     "exit_date": "2026-10-09",
+     "exit_price": 336.64,
+     "exit_reason": "time stop",
+     "pnl": 17.46,
+     "pnl_pct": 2.01
     },
     {
      "ticker": "XOM",
      "setup": "pullback",
      "score": 83.6,
-     "shares": 5.81,
+     "shares": 5.38,
      "limit": 163.56,
      "stop": 158.55,
      "t1": 169.05,
@@ -494,15 +247,17 @@
       "3-mo return +20% (stronger than 87% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +44% y/y",
-      "fwd P/E 14 is cheap for its growth",
+      "fwd P/E 15 is cheap for its growth",
       "analyst mean target +7% away"
      ],
      "filled": true,
      "fill": 161.5,
-     "status": "open",
-     "last": 163.66,
-     "pnl": 12.58,
-     "pnl_pct": 1.34
+     "status": "closed",
+     "exit_date": "2026-10-09",
+     "exit_price": 168.94,
+     "exit_reason": "time stop",
+     "pnl": 40.32,
+     "pnl_pct": 4.64
     }
    ],
    "watch": [
@@ -521,7 +276,7 @@
      "ticker": "DELL",
      "setup": "pullback",
      "score": 100.3,
-     "shares": 1.39,
+     "shares": 1.29,
      "limit": 544.45,
      "stop": 512.57,
      "t1": 585.49,
@@ -532,7 +287,7 @@
       "3-mo return +38% (stronger than 96% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +58% y/y",
-      "fwd P/E 19 is cheap for its growth",
+      "fwd P/E 20 is cheap for its growth",
       "analyst mean target +8% away"
      ],
      "filled": false,
@@ -542,7 +297,7 @@
      "ticker": "CRM",
      "setup": "pullback",
      "score": 92.5,
-     "shares": 2.34,
+     "shares": 2.17,
      "limit": 237.87,
      "stop": 219.38,
      "t1": 262.66,
@@ -558,15 +313,15 @@
      "filled": true,
      "fill": 237.87,
      "status": "open",
-     "last": 231.29,
-     "pnl": -15.4,
-     "pnl_pct": -2.77
+     "last": 229.13,
+     "pnl": -18.97,
+     "pnl_pct": -3.67
     },
     {
      "ticker": "CVX",
      "setup": "pullback",
      "score": 85.5,
-     "shares": 4.56,
+     "shares": 4.23,
      "limit": 208.14,
      "stop": 201.86,
      "t1": 214.96,
@@ -577,15 +332,15 @@
       "3-mo return +23% (stronger than 88% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +54% y/y",
-      "fwd P/E 14 is cheap for its growth",
-      "analyst mean target +8% away"
+      "fwd P/E 15 is cheap for its growth",
+      "analyst mean target +9% away"
      ],
      "filled": true,
      "fill": 204.8,
      "status": "open",
-     "last": 205.87,
-     "pnl": 4.86,
-     "pnl_pct": 0.52
+     "last": 211.98,
+     "pnl": 30.37,
+     "pnl_pct": 3.51
     }
    ],
    "watch": [
@@ -593,7 +348,7 @@
     "MRVL",
     "PLTR",
     "CRWD",
-    "ZS"
+    "PANW"
    ]
   },
   {
@@ -604,7 +359,7 @@
      "ticker": "AAPL",
      "setup": "pullback",
      "score": 85.8,
-     "shares": 2.83,
+     "shares": 2.62,
      "limit": 335.36,
      "stop": 324.4,
      "t1": 347.62,
@@ -621,15 +376,15 @@
      "filled": true,
      "fill": 332.82,
      "status": "open",
-     "last": 332.21,
-     "pnl": -1.74,
-     "pnl_pct": -0.18
+     "last": 336.64,
+     "pnl": 10.01,
+     "pnl_pct": 1.15
     },
     {
      "ticker": "XOM",
      "setup": "pullback",
      "score": 84.4,
-     "shares": 5.76,
+     "shares": 5.34,
      "limit": 164.83,
      "stop": 158.56,
      "t1": 172.18,
@@ -640,21 +395,21 @@
       "3-mo return +21% (stronger than 88% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +44% y/y",
-      "fwd P/E 14 is cheap for its growth",
+      "fwd P/E 15 is cheap for its growth",
       "analyst mean target +6% away"
      ],
      "filled": true,
      "fill": 163.76,
      "status": "open",
-     "last": 163.66,
-     "pnl": -0.55,
-     "pnl_pct": -0.06
+     "last": 168.94,
+     "pnl": 27.66,
+     "pnl_pct": 3.16
     },
     {
      "ticker": "ABBV",
      "setup": "pullback",
      "score": 80.4,
-     "shares": 2.57,
+     "shares": 2.38,
      "limit": 264.13,
      "stop": 256.84,
      "t1": 271.79,
@@ -664,15 +419,15 @@
       "bounced off 20-EMA (RSI 54)",
       "3-mo return +4% (stronger than 68% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
-      "fwd P/E 16",
-      "analyst mean target +6% away"
+      "fwd P/E 17",
+      "analyst mean target +7% away"
      ],
      "filled": true,
      "fill": 261.27,
      "status": "open",
-     "last": 267.05,
-     "pnl": 14.84,
-     "pnl_pct": 2.21
+     "last": 276.47,
+     "pnl": 36.18,
+     "pnl_pct": 5.82
     }
    ],
    "watch": [
@@ -691,7 +446,7 @@
      "ticker": "NOW",
      "setup": "pullback",
      "score": 90.1,
-     "shares": 4.43,
+     "shares": 4.11,
      "limit": 136.76,
      "stop": 126.94,
      "t1": 149.78,
@@ -702,21 +457,21 @@
       "3-mo return +23% (stronger than 90% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +24% y/y",
-      "fwd P/E 27 is cheap for its growth",
-      "analyst mean target +7% away"
+      "fwd P/E 28 is cheap for its growth",
+      "analyst mean target +8% away"
      ],
      "filled": true,
-     "fill": 135.22,
+     "fill": 136.76,
      "status": "open",
-     "last": 139.48,
-     "pnl": 18.87,
-     "pnl_pct": 3.15
+     "last": 140.86,
+     "pnl": 16.85,
+     "pnl_pct": 3.0
     },
     {
      "ticker": "FCX",
      "setup": "pullback",
      "score": 78.4,
-     "shares": 8.18,
+     "shares": 7.57,
      "limit": 72.96,
      "stop": 67.65,
      "t1": 80.03,
@@ -728,20 +483,20 @@
       "above rising 50 & 200-day averages",
       "revenue shrinking -7%",
       "fwd P/E 17",
-      "analyst mean target +2% away"
+      "analyst mean target +6% away"
      ],
      "filled": true,
-     "fill": 72.22,
+     "fill": 72.84,
      "status": "open",
-     "last": 72.32,
-     "pnl": 0.82,
-     "pnl_pct": 0.14
+     "last": 73.69,
+     "pnl": 6.43,
+     "pnl_pct": 1.17
     },
     {
      "ticker": "V",
      "setup": "pullback",
      "score": 74.6,
-     "shares": 2.56,
+     "shares": 2.37,
      "limit": 371.56,
      "stop": 357.47,
      "t1": 388.07,
@@ -752,15 +507,15 @@
       "3-mo return +5% (stronger than 62% of the universe vs S&P)",
       "above rising 50 & 200-day averages",
       "revenue +14% y/y",
-      "fwd P/E 25",
+      "fwd P/E 26",
       "analyst mean target +13% away"
      ],
      "filled": true,
-     "fill": 359.49,
+     "fill": 368.79,
      "status": "open",
-     "last": 368.92,
-     "pnl": 24.13,
-     "pnl_pct": 2.62
+     "last": 385.45,
+     "pnl": 39.48,
+     "pnl_pct": 4.52
     }
    ],
    "watch": [
@@ -770,11 +525,254 @@
     "CRWD",
     "ANET"
    ]
+  },
+  {
+   "date": "2026-10-07",
+   "regime": "GREEN",
+   "picks": [
+    {
+     "ticker": "MRVL",
+     "setup": "breakout",
+     "score": 100.2,
+     "shares": 1.63,
+     "limit": 288.38,
+     "stop": 263.99,
+     "t1": 321.38,
+     "t2": 355.81,
+     "hold_days": 6,
+     "reason": [
+      "new 20-day high on 3.0x volume",
+      "3-mo return +24% (stronger than 88% of the universe vs S&P)",
+      "above rising 50 & 200-day averages",
+      "revenue +36% y/y",
+      "fwd P/E 38 is cheap for its growth",
+      "analyst mean target +18% away"
+     ],
+     "filled": true,
+     "fill": 281.24,
+     "status": "open",
+     "last": 275.28,
+     "pnl": -9.71,
+     "pnl_pct": -2.12
+    },
+    {
+     "ticker": "ANET",
+     "setup": "breakout",
+     "score": 96.8,
+     "shares": 2.73,
+     "limit": 216.44,
+     "stop": 201.63,
+     "t1": 235.95,
+     "t2": 256.54,
+     "hold_days": 6,
+     "reason": [
+      "new 20-day high on 1.5x volume",
+      "3-mo return +19% (stronger than 82% of the universe vs S&P)",
+      "above rising 50 & 200-day averages",
+      "revenue +38% y/y",
+      "fwd P/E 42 is cheap for its growth",
+      "analyst mean target +13% away"
+     ],
+     "filled": true,
+     "fill": 211.3,
+     "status": "open",
+     "last": 216.74,
+     "pnl": 14.85,
+     "pnl_pct": 2.57
+    },
+    {
+     "ticker": "ALAB",
+     "setup": "breakout",
+     "score": 94.7,
+     "shares": 1.2,
+     "limit": 391.75,
+     "stop": 358.62,
+     "t1": 436.58,
+     "t2": 483.35,
+     "hold_days": 6,
+     "reason": [
+      "new 20-day high on 1.6x volume",
+      "3-mo return -1% (stronger than 46% of the universe vs S&P)",
+      "above rising 50 & 200-day averages",
+      "revenue +104% y/y",
+      "fwd P/E 53 is cheap for its growth",
+      "analyst mean target +0% away"
+     ],
+     "filled": true,
+     "fill": 376.0,
+     "status": "closed",
+     "exit_date": "2026-10-08",
+     "exit_price": 358.62,
+     "exit_reason": "stop",
+     "pnl": -20.86,
+     "pnl_pct": -4.62
+    }
+   ],
+   "watch": [
+    "SMCI",
+    "PANW",
+    "MU",
+    "PLTR",
+    "MSFT"
+   ]
+  },
+  {
+   "date": "2026-10-08",
+   "regime": "GREEN",
+   "picks": [
+    {
+     "ticker": "INTC",
+     "setup": "pullback",
+     "score": 86.8,
+     "shares": 6.38,
+     "limit": 113.69,
+     "stop": 107.25,
+     "t1": 121.93,
+     "t2": 130.74,
+     "hold_days": 7,
+     "reason": [
+      "bounced off 20-EMA (RSI 53)",
+      "3-mo return +1% (stronger than 54% of the universe vs S&P)",
+      "above rising 50 & 200-day averages",
+      "revenue +25% y/y",
+      "unprofitable",
+      "analyst mean target +4% away"
+     ],
+     "filled": true,
+     "fill": 110.38,
+     "status": "closed",
+     "exit_date": "2026-10-08",
+     "exit_price": 107.25,
+     "exit_reason": "stop",
+     "pnl": -19.97,
+     "pnl_pct": -2.84
+    },
+    {
+     "ticker": "PFE",
+     "setup": "pullback",
+     "score": 78.6,
+     "shares": 31.25,
+     "limit": 28.14,
+     "stop": 27.01,
+     "t1": 29.48,
+     "t2": 30.96,
+     "hold_days": 7,
+     "reason": [
+      "bounced off 20-EMA (RSI 52)",
+      "3-mo return +17% (stronger than 83% of the universe vs S&P)",
+      "above rising 50 & 200-day averages",
+      "fwd P/E 10",
+      "analyst mean target +4% away"
+     ],
+     "filled": true,
+     "fill": 27.9,
+     "status": "open",
+     "last": 28.28,
+     "pnl": 11.88,
+     "pnl_pct": 1.36
+    },
+    {
+     "ticker": "HIMS",
+     "setup": "pullback",
+     "score": 72.8,
+     "shares": 23.2,
+     "limit": 29.69,
+     "stop": 27.92,
+     "t1": 31.96,
+     "t2": 34.39,
+     "hold_days": 7,
+     "reason": [
+      "bounced off 20-EMA (RSI 52)",
+      "3-mo return -17% (stronger than 13% of the universe vs S&P)",
+      "above rising 50 & 200-day averages",
+      "revenue +38% y/y",
+      "unprofitable",
+      "analyst mean target +5% away"
+     ],
+     "filled": true,
+     "fill": 29.2,
+     "status": "closed",
+     "exit_date": "2026-10-08",
+     "exit_price": 27.92,
+     "exit_reason": "stop",
+     "pnl": -29.7,
+     "pnl_pct": -4.38
+    }
+   ],
+   "watch": [
+    "DELL",
+    "SMCI",
+    "AMD",
+    "PLTR",
+    "MSFT"
+   ]
+  },
+  {
+   "date": "2026-10-09",
+   "regime": "GREEN",
+   "picks": [
+    {
+     "ticker": "PLTR",
+     "setup": "breakout",
+     "score": 99.4,
+     "shares": 3.02,
+     "limit": 199.77,
+     "stop": 186.37,
+     "t1": 217.4,
+     "t2": 236.02,
+     "hold_days": 6,
+     "reason": [
+      "new 20-day high on 1.9x volume",
+      "3-mo return +57% (stronger than 100% of the universe vs S&P)",
+      "above rising 50 & 200-day averages",
+      "revenue +93% y/y",
+      "fwd P/E 88 is cheap for its growth",
+      "analyst mean target +1% away"
+     ],
+     "filled": true,
+     "fill": 199.77,
+     "status": "open",
+     "last": 209.05,
+     "pnl": 28.03,
+     "pnl_pct": 4.65
+    },
+    {
+     "ticker": "CRM",
+     "setup": "pullback",
+     "score": 87.9,
+     "shares": 3.84,
+     "limit": 228.94,
+     "stop": 218.6,
+     "t1": 241.6,
+     "t2": 255.4,
+     "hold_days": 7,
+     "reason": [
+      "bounced off 20-EMA (RSI 47)",
+      "3-mo return +40% (stronger than 96% of the universe vs S&P)",
+      "above rising 50 & 200-day averages",
+      "fwd P/E 14 is cheap for its growth",
+      "analyst mean target +24% away"
+     ],
+     "filled": true,
+     "fill": 228.94,
+     "status": "open",
+     "last": 229.13,
+     "pnl": 0.73,
+     "pnl_pct": 0.08
+    }
+   ],
+   "watch": [
+    "SMCI",
+    "FTNT",
+    "SNOW",
+    "ZS",
+    "MSFT"
+   ]
   }
  ],
  "n_picks": 25,
  "n_filled": 24,
- "n_winners": 14,
- "pnl": -32.77,
+ "n_winners": 15,
+ "pnl": 154.8,
  "empty_days": 0
 }
