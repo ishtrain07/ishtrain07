@@ -111,43 +111,43 @@
  "backups": [],
  "watch": [
   {
-   "ticker": "DELL",
-   "score": 91.0,
-   "price": 586.06,
-   "setup": "momentum",
-   "rsi": 62,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "SNOW",
-   "score": 90.1,
-   "price": 368.89,
-   "setup": "momentum",
-   "rsi": 69,
-   "action": "next in line if a holding drops out"
-  },
-  {
    "ticker": "PANW",
-   "score": 89.0,
-   "price": 418.78,
+   "score": 90.0,
+   "price": 403.83,
    "setup": "momentum",
-   "rsi": 63,
+   "rsi": 57,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "FTNT",
-   "score": 88.7,
-   "price": 194.75,
+   "ticker": "NET",
+   "score": 86.6,
+   "price": 350.87,
    "setup": "momentum",
-   "rsi": 73,
+   "rsi": 56,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "DDOG",
-   "score": 88.3,
-   "price": 293.26,
+   "ticker": "MRVL",
+   "score": 86.3,
+   "price": 265.86,
    "setup": "momentum",
-   "rsi": 73,
+   "rsi": 55,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "DELL",
+   "score": 85.1,
+   "price": 576.76,
+   "setup": "momentum",
+   "rsi": 59,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "ALAB",
+   "score": 84.6,
+   "price": 324.11,
+   "setup": "momentum",
+   "rsi": 46,
    "action": "next in line if a holding drops out"
   }
  ],
@@ -156,9 +156,9 @@
   "risk_mult": 1.0,
   "max_new": 4,
   "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
-  "spy": 778.57,
-  "spy_sma50": 766.28,
-  "spy_sma200": 719.66,
-  "vix": 15.5
+  "spy": 778.1,
+  "spy_sma50": 766.94,
+  "spy_sma200": 720.14,
+  "vix": 15.21
  }
 }
