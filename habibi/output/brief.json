@@ -1,9 +1,9 @@
 {
- "date": "2026-10-09",
- "text": "Market GREEN with a rebound setting up: futures +0.3% (Nasdaq 100 +0.6%) as oil eases to ~$102 and tech recovers from Thursday's selloff, which was triggered by a report that OpenAI's revenue was below estimates. The 10-year yield has eased to 5.25%.\nBIG CHANGE: SNOW (held) jumped to rank #2 from #15 last week. It is back inside the top-5 hold line, so the plan is now to KEEP it, not sell it. ~$344, +4.1% in USD. Insider sales and the ASOS breach claim (Snowflake says there was no compromise) are worth watching but are not red flags.\nRanking: CRWD #1 (up from #8), SNOW #2, DELL #3, DDOG #4, AMD #5. MU dropped to #6 and ALAB to #7.\nToday's catch-up list shows ALAB (#7) and DELL (#3). Skip ALAB (outside the top 5). DELL is fine once the currency route is set.\nSystem's simulated account: -1.1% (DELL +1.7%, ALAB -1.5%, MU -4.2%). You +0.3%, S&P +0.3%.\nStill waiting on Plus vs CDRs before Monday's review.",
+ "date": "2026-10-12",
+ "text": "Weekly review, first full-size week on the $2,500 account. Market GREEN (VIX 15.5), futures flat after record highs last week. Brent is above $106 and bank earnings and inflation data are due this week. Columbus Day: stocks trade normally, but volume may be thin.\nPlan: put most of the cash to work. NEW: AMD (#1, record high on the OpenAI MI450 rollout and Oracle orders). TOP UP CRWD (#2) and SNOW (#5) to full slots. No sells.\nSNOW (held): +11.7%, at a 52-week high, but it slipped from #2 to #5, right on the hold line. The top-up adds money to the weakest of the three. Do it at half size or skip it.\nCRWD (held): +0.8%, #2. It trades about 13% above the analyst consensus, so momentum is doing the work. Keep the 8% stop.\nMU (#3) and DELL (#4) are not bought because the three slots go to AMD plus your two holdings.\nConcentration: all holdings are tech/AI-adjacent, so a sector selloff hits everything. The 8% stops are the safety net.\nSystem's simulated account -1.4% (ALAB stopped out); you +1.0%; S&P +0.9%.",
  "cautions": [
-  {"ticker": "ALAB", "why": "Catch-up buy but rank #7, outside the top-5 hold line, and down ~9% from Tuesday. Skip."},
-  {"ticker": "SNOW", "why": "Now KEEP (rank #2). Watch: insider sales on Oct 2, the $3.75B convertible, and the ASOS breach claim (denied)."},
-  {"ticker": "MU", "why": "Slipped to #6 and is -4% in the simulated account; it would be sold at Monday's review if it stays below #5."}
+  {"ticker": "SNOW", "why": "Top-up while rank #5 (on the hold line) and at a new high. Consider half size or skip."},
+  {"ticker": "CRWD", "why": "Trading ~13% above analyst consensus and ~167x forward earnings: rich valuation. Respect the stop at ~$253."},
+  {"ticker": "AMD", "why": "Record high and a rich valuation; earnings Nov 3. Normal size with the 8% stop is fine."}
  ]
 }
