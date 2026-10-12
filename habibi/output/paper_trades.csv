@@ -7,3 +7,5 @@ date,ticker,side,shares,price,fees,note
 2026-10-05,ALAB,BUY,2.58,352.08,0,new
 2026-10-05,MU,BUY,0.84,1080.26,0,new
 2026-10-05,DELL,BUY,1.08,565.33,0,add
+2026-10-12,ALAB,SELL,2.58,342.05,0,rotated out
+2026-10-12,AMD,BUY,1.43,611.14,0,new
