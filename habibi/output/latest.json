@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-10-12 21:30 ET (position check)",
- "date": "2026-10-12",
+ "generated_at": "2026-10-13 08:59 ET",
+ "date": "2026-10-13",
  "mode": "plan",
  "regime": {
   "light": "GREEN",
@@ -10,24 +10,24 @@
   "spy": 778.1,
   "spy_sma50": 766.94,
   "spy_sma200": 720.14,
-  "vix": 15.21
+  "vix": 15.29
  },
  "macro": [
   {
    "ticker": "ES=F",
    "label": "S&P 500 futures",
-   "last": 7857.0,
-   "d1": -0.03,
-   "d5": 0.39,
-   "m1": 2.58
+   "last": 7849.75,
+   "d1": -0.1,
+   "d5": -0.31,
+   "m1": 2.95
   },
   {
    "ticker": "NQ=F",
    "label": "Nasdaq 100 futures",
-   "last": 30877.5,
-   "d1": -0.74,
-   "d5": -1.41,
-   "m1": 5.07
+   "last": 30654.5,
+   "d1": -0.79,
+   "d5": -2.63,
+   "m1": 5.15
   },
   {
    "ticker": "SPY",
@@ -56,114 +56,114 @@
   {
    "ticker": "^VIX",
    "label": "VIX (fear)",
-   "last": 15.21,
-   "d1": 2.49,
-   "d5": -2.0,
-   "m1": -3.98
+   "last": 15.29,
+   "d1": 0.53,
+   "d5": 1.87,
+   "m1": -10.58
   },
   {
    "ticker": "^TNX",
    "label": "US 10Y yield",
-   "last": 5.24,
-   "d1": -0.08,
-   "d5": -1.34,
-   "m1": 5.33
+   "last": 5.19,
+   "d1": -1.01,
+   "d5": -1.56,
+   "m1": 4.56
   },
   {
    "ticker": "DX-Y.NYB",
    "label": "US Dollar index",
-   "last": 102.58,
-   "d1": 0.36,
-   "d5": 0.4,
-   "m1": 3.49
+   "last": 102.25,
+   "d1": -0.33,
+   "d5": 0.41,
+   "m1": 2.8
   },
   {
    "ticker": "CL=F",
    "label": "WTI crude",
-   "last": 93.16,
-   "d1": 1.43,
-   "d5": 4.17,
-   "m1": -6.89
+   "last": 92.54,
+   "d1": -1.28,
+   "d5": 3.47,
+   "m1": -8.73
   },
   {
    "ticker": "GC=F",
    "label": "Gold",
-   "last": 4195.9,
-   "d1": -0.48,
-   "d5": 0.94,
-   "m1": -4.83
+   "last": 4206.3,
+   "d1": 0.37,
+   "d5": 0.46,
+   "m1": -3.35
   },
   {
    "ticker": "BTC-USD",
    "label": "Bitcoin",
-   "last": 82800.77,
-   "d1": -1.05,
-   "d5": -0.57,
-   "m1": -4.39
+   "last": 83253.71,
+   "d1": 1.82,
+   "d5": 1.93,
+   "m1": -3.39
   },
   {
    "ticker": "^N225",
    "label": "Nikkei (Japan)",
-   "last": 69030.92,
-   "d1": -0.02,
-   "d5": 1.06,
-   "m1": 3.96
+   "last": 67777.52,
+   "d1": -1.82,
+   "d5": -3.1,
+   "m1": 3.84
   },
   {
    "ticker": "^HSI",
    "label": "Hang Seng (HK)",
-   "last": 24211.35,
-   "d1": 1.79,
-   "d5": 1.0,
-   "m1": -4.21
+   "last": 24345.22,
+   "d1": 0.3,
+   "d5": 0.27,
+   "m1": -1.86
   },
   {
    "ticker": "^GDAXI",
    "label": "DAX (Germany)",
-   "last": 25277.68,
-   "d1": 0.76,
-   "d5": 0.09,
-   "m1": -1.14
+   "last": 25314.98,
+   "d1": 0.15,
+   "d5": -0.53,
+   "m1": -0.49
   },
   {
    "ticker": "^FTSE",
    "label": "FTSE 100 (UK)",
-   "last": 10656.28,
-   "d1": 0.99,
-   "d5": 1.51,
-   "m1": 0.06
+   "last": 10719.88,
+   "d1": 0.6,
+   "d5": 1.69,
+   "m1": 0.21
   },
   {
    "ticker": "^NSEI",
    "label": "Nifty 50 (India)",
-   "last": 22520.45,
-   "d1": 1.3,
-   "d5": 0.44,
-   "m1": -4.72
+   "last": 22721.95,
+   "d1": 1.6,
+   "d5": -0.24,
+   "m1": -3.22
   },
   {
    "ticker": "USDCAD=X",
    "label": "USD/CAD",
-   "last": 1.43,
-   "d1": 0.36,
-   "d5": 0.14,
-   "m1": 3.17
+   "last": 1.42,
+   "d1": 0.12,
+   "d5": -0.09,
+   "m1": 2.93
   },
   {
    "ticker": "USDINR=X",
    "label": "USD/INR",
-   "last": 95.76,
-   "d1": -1.1,
-   "d5": -0.59,
-   "m1": 0.07
+   "last": 95.27,
+   "d1": -1.6,
+   "d5": -1.1,
+   "m1": -0.44
   }
  ],
  "macro_read": [
-  "VIX 15.2: calm, dips tend to get bought.",
-  "10Y yield 5.24% (+5.3% over a month): rising yields pressure high-P/E growth stocks.",
-  "Dollar +3.5% over a month: strong dollar is a headwind for multinationals.",
-  "Global overnight: Nikkei -0.0%, Hang Seng +1.8%, DAX +0.8%, Nifty 50 +1.3%.",
-  "US futures: S&P 500 futures -0.03%, Nasdaq 100 futures -0.74%.",
+  "VIX 15.3: calm, dips tend to get bought.",
+  "10Y yield 5.19% (+4.6% over a month): rising yields pressure high-P/E growth stocks.",
+  "Dollar +2.8% over a month: strong dollar is a headwind for multinationals.",
+  "Global overnight: Nikkei -1.8%, Hang Seng +0.3%, DAX +0.1%, Nifty 50 +1.6%.",
+  "US futures: S&P 500 futures -0.10%, Nasdaq 100 futures -0.79%.",
   "Earnings season: the engine blocks buys that would be held through a report.",
   "Uptrend confirmed and volatility calm. Full risk allowed."
  ],
@@ -204,7 +204,7 @@
    "value": 218.34,
    "pnl": 18.29,
    "pnl_pct": 9.14,
-   "days_held": 9,
+   "days_held": 10,
    "active_stop": 303.76,
    "action": "HOLD",
    "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-15.7%)"
@@ -235,7 +235,7 @@
    "value": 291.29,
    "pnl": -10.85,
    "pnl_pct": -3.59,
-   "days_held": 1,
+   "days_held": 2,
    "active_stop": 250.99,
    "action": "HOLD",
    "why": "held while it stays top-5; reviewed every Monday; stop 250.99 (-4.6%)"
@@ -243,7 +243,7 @@
  ],
  "closed": [],
  "alerts": [],
- "trading_days_left": 14,
+ "trading_days_left": 13,
  "system_paper": {},
  "strategy": "momentum",
  "rebalance": false,
@@ -297,7 +297,7 @@
     "value": 784.0,
     "pnl": 15.04,
     "pnl_pct": 1.96,
-    "days_held": 10,
+    "days_held": 11,
     "active_stop": 520.17,
     "action": "HOLD",
     "why": "held while it stays top-5; reviewed every Monday; stop 520.17 (-9.8%)"
@@ -328,7 +328,7 @@
     "value": 849.62,
     "pnl": -24.31,
     "pnl_pct": -2.78,
-    "days_held": 0,
+    "days_held": 1,
     "active_stop": 562.25,
     "action": "HOLD",
     "why": "held while it stays top-5; reviewed every Monday; stop 562.25 (-5.4%)"
@@ -394,15 +394,15 @@
   "flags": [
    {
     "ticker": "SNOW",
-    "type": "new_high",
-    "label": "Closed at a 52-week high",
+    "type": "rank_drop",
+    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
     "held": true,
-    "price": 368.89,
-    "day_pct": 7.42,
-    "n": 916,
-    "avg_pct": 0.69,
-    "down_pct": 47.3,
-    "edge_pct": 0.19,
+    "price": 360.37,
+    "day_pct": -2.31,
+    "n": 624,
+    "avg_pct": 0.66,
+    "down_pct": 49.7,
+    "edge_pct": 0.16,
     "verdict": "neutral"
    }
   ],
@@ -2283,7 +2283,7 @@
    "t1_pct": 8.9,
    "t2_pct": 17.8,
    "hold_days": 60,
-   "sell_by": "reviewed 2026-10-19",
+   "sell_by": "reviewed 2026-10-20",
    "shares": 1.41,
    "dollars": 837.88,
    "risk_dollars": 67.03,
@@ -2366,7 +2366,7 @@
    "price": 31.32,
    "rank": 55,
    "ret63": 4.4,
-   "fwd_pe": 18.046568,
+   "fwd_pe": 17.7995,
    "revenue_growth": 0.231
   }
  ],
@@ -2411,7 +2411,7 @@
    "rsi": 45,
    "gate": "pass",
    "fwd_pe": 4.79343,
-   "analyst_target": 1555.1304
+   "analyst_target": 1560.5652
   },
   {
    "ticker": "PANW",
@@ -2467,7 +2467,7 @@
    "rsi": 59,
    "gate": "pass",
    "fwd_pe": 19.808271,
-   "analyst_target": 585.96
+   "analyst_target": 589.96
   },
   {
    "ticker": "ALAB",
@@ -2495,7 +2495,7 @@
    "rsi": 68,
    "gate": "pass",
    "fwd_pe": 96.5856,
-   "analyst_target": 288.67703
+   "analyst_target": 288.8898
   },
   {
    "ticker": "FTNT",
@@ -2508,8 +2508,8 @@
    "ret126": 145.0,
    "rsi": 70,
    "gate": "pass",
-   "fwd_pe": 51.072456,
-   "analyst_target": 164.875
+   "fwd_pe": 51.056377,
+   "analyst_target": 165.43056
   },
   {
    "ticker": "SMCI",
@@ -2578,8 +2578,8 @@
    "ret126": 41.4,
    "rsi": 70,
    "gate": "pass",
-   "fwd_pe": 22.855206,
-   "analyst_target": 587.6338
+   "fwd_pe": 22.858334,
+   "analyst_target": 589.59607
   },
   {
    "ticker": "INTC",
@@ -2592,7 +2592,7 @@
    "ret126": 55.5,
    "rsi": 40,
    "gate": "pass",
-   "fwd_pe": 48.663494,
+   "fwd_pe": 48.480064,
    "analyst_target": 118.04651
   },
   {
@@ -2620,8 +2620,8 @@
    "ret126": 57.6,
    "rsi": 57,
    "gate": "pass",
-   "fwd_pe": 28.03311,
-   "analyst_target": 147.73174
+   "fwd_pe": 27.997536,
+   "analyst_target": 148.73174
   },
   {
    "ticker": "HOOD",
@@ -2634,8 +2634,8 @@
    "ret126": 52.4,
    "rsi": 46,
    "gate": "pass",
-   "fwd_pe": 31.776049,
-   "analyst_target": 134.68356
+   "fwd_pe": 31.865047,
+   "analyst_target": 134.55655
   },
   {
    "ticker": "ZS",
@@ -2662,8 +2662,8 @@
    "ret126": 57.9,
    "rsi": 76,
    "gate": "pass",
-   "fwd_pe": 89.15773,
-   "analyst_target": 203.35
+   "fwd_pe": 88.87792,
+   "analyst_target": 205.27309
   },
   {
    "ticker": "CRM",
@@ -2676,8 +2676,8 @@
    "ret126": 35.9,
    "rsi": 52,
    "gate": "pass",
-   "fwd_pe": 14.6011095,
-   "analyst_target": 283.36075
+   "fwd_pe": 14.599041,
+   "analyst_target": 285.67557
   },
   {
    "ticker": "ANET",
@@ -2704,8 +2704,8 @@
    "ret126": 31.8,
    "rsi": 60,
    "gate": "pass",
-   "fwd_pe": 35.563347,
-   "analyst_target": 328.09384
+   "fwd_pe": 35.553448,
+   "analyst_target": 328.60666
   },
   {
    "ticker": "SHOP",
@@ -2732,7 +2732,7 @@
    "ret126": 20.8,
    "rsi": 48,
    "gate": "pass",
-   "fwd_pe": 20.266726,
+   "fwd_pe": 19.910519,
    "analyst_target": 578.222
   },
   {
@@ -2760,7 +2760,7 @@
    "ret126": 38.3,
    "rsi": 75,
    "gate": "pass",
-   "fwd_pe": 17.290201,
+   "fwd_pe": 17.340904,
    "analyst_target": 282.60715
   },
   {
@@ -2830,8 +2830,8 @@
    "ret126": 26.3,
    "rsi": 70,
    "gate": "pass",
-   "fwd_pe": 25.946905,
-   "analyst_target": 419.6319
+   "fwd_pe": 25.944742,
+   "analyst_target": 420.4427
   },
   {
    "ticker": "NBIS",
@@ -2873,7 +2873,7 @@
    "rsi": 51,
    "gate": "pass",
    "fwd_pe": 48.687836,
-   "analyst_target": 446.77405
+   "analyst_target": 449.74
   },
   {
    "ticker": "AFRM",
@@ -2900,7 +2900,7 @@
    "ret126": 27.6,
    "rsi": 55,
    "gate": "pass",
-   "fwd_pe": 24.825823,
+   "fwd_pe": 24.815481,
    "analyst_target": 1330.1442
   },
   {
@@ -2914,7 +2914,7 @@
    "ret126": 18.7,
    "rsi": 58,
    "gate": "pass",
-   "fwd_pe": 9.688314,
+   "fwd_pe": 9.710605,
    "analyst_target": 56.88594
   },
   {
@@ -2928,8 +2928,8 @@
    "ret126": 17.1,
    "rsi": 49,
    "gate": "pass",
-   "fwd_pe": 29.93134,
-   "analyst_target": 2098.3938
+   "fwd_pe": 29.918327,
+   "analyst_target": 2111.2288
   },
   {
    "ticker": "META",
@@ -2984,8 +2984,8 @@
    "ret126": 17.4,
    "rsi": 68,
    "gate": "pass",
-   "fwd_pe": 25.834671,
-   "analyst_target": 668.0651
+   "fwd_pe": 25.820513,
+   "analyst_target": 669.3354
   },
   {
    "ticker": "VRTX",
@@ -2998,8 +2998,8 @@
    "ret126": 15.2,
    "rsi": 43,
    "gate": "pass",
-   "fwd_pe": 25.216177,
-   "analyst_target": 571.6071
+   "fwd_pe": 25.077124,
+   "analyst_target": 571.4286
   },
   {
    "ticker": "CVX",
@@ -3012,8 +3012,8 @@
    "ret126": 14.1,
    "rsi": 64,
    "gate": "pass",
-   "fwd_pe": 14.564659,
-   "analyst_target": 226.45833
+   "fwd_pe": 14.420481,
+   "analyst_target": 227.70833
   },
   {
    "ticker": "XOM",
@@ -3041,7 +3041,7 @@
    "rsi": 49,
    "gate": "pass",
    "fwd_pe": 23.539593,
-   "analyst_target": 257.24667
+   "analyst_target": 257.36572
   },
   {
    "ticker": "LRCX",
@@ -3054,7 +3054,7 @@
    "ret126": 16.0,
    "rsi": 47,
    "gate": "pass",
-   "fwd_pe": 26.313845,
+   "fwd_pe": 26.3104,
    "analyst_target": 375.80646
   },
   {
@@ -3082,7 +3082,7 @@
    "ret126": 7.4,
    "rsi": 58,
    "gate": "revenue growth 3% too weak",
-   "fwd_pe": 9.79949,
+   "fwd_pe": 9.780961,
    "analyst_target": 29.25962
   },
   {
@@ -3097,7 +3097,7 @@
    "rsi": 55,
    "gate": "revenue growth -7% too weak",
    "fwd_pe": 16.993324,
-   "analyst_target": 77.90909
+   "analyst_target": 78.59091
   },
   {
    "ticker": "GOOGL",
@@ -3110,8 +3110,8 @@
    "ret126": 9.9,
    "rsi": 57,
    "gate": "pass",
-   "fwd_pe": 23.185236,
-   "analyst_target": 429.47406
+   "fwd_pe": 23.13833,
+   "analyst_target": 430.4
   },
   {
    "ticker": "PINS",
@@ -3138,7 +3138,7 @@
    "ret126": 15.4,
    "rsi": 52,
    "gate": "pass",
-   "fwd_pe": 18.046568,
+   "fwd_pe": 17.7995,
    "analyst_target": 38.92308
   },
   {
@@ -3166,8 +3166,8 @@
    "ret126": 8.2,
    "rsi": 56,
    "gate": "pass",
-   "fwd_pe": 24.796421,
-   "analyst_target": 331.3576
+   "fwd_pe": 24.82645,
+   "analyst_target": 331.20242
   },
   {
    "ticker": "ETN",
@@ -3180,8 +3180,8 @@
    "ret126": 6.3,
    "rsi": 50,
    "gate": "pass",
-   "fwd_pe": 26.26415,
-   "analyst_target": 482.895
+   "fwd_pe": 26.236826,
+   "analyst_target": 484.35654
   },
   {
    "ticker": "GM",
@@ -3293,7 +3293,7 @@
    "rsi": 57,
    "gate": "pass",
    "fwd_pe": 30.855455,
-   "analyst_target": 591.4994
+   "analyst_target": 594.1108
   },
   {
    "ticker": "GEV",
@@ -3362,8 +3362,8 @@
    "ret126": -0.8,
    "rsi": 44,
    "gate": "pass",
-   "fwd_pe": 8.6054125,
-   "analyst_target": 275.06375
+   "fwd_pe": 8.61517,
+   "analyst_target": 273.6575
   },
   {
    "ticker": "AKAM",
@@ -3390,8 +3390,8 @@
    "ret126": -35.1,
    "rsi": 33,
    "gate": "pass",
-   "fwd_pe": 13.036804,
-   "analyst_target": 487.6584
+   "fwd_pe": 13.196652,
+   "analyst_target": 485.40033
   },
   {
    "ticker": "AVGO",
@@ -3432,8 +3432,8 @@
    "ret126": -3.2,
    "rsi": 50,
    "gate": "pass",
-   "fwd_pe": 15.441028,
-   "analyst_target": 371.1156
+   "fwd_pe": 15.4516735,
+   "analyst_target": 369.4356
   },
   {
    "ticker": "BAC",
@@ -3474,8 +3474,8 @@
    "ret126": -3.9,
    "rsi": 37,
    "gate": "pass",
-   "fwd_pe": 15.468126,
-   "analyst_target": 141.63635
+   "fwd_pe": 15.485636,
+   "analyst_target": 141.0
   },
   {
    "ticker": "CAT",
@@ -3488,8 +3488,8 @@
    "ret126": 1.3,
    "rsi": 44,
    "gate": "pass",
-   "fwd_pe": 24.658648,
-   "analyst_target": 970.79846
+   "fwd_pe": 24.644516,
+   "analyst_target": 965.02924
   },
   {
    "ticker": "CAVA",
@@ -3530,7 +3530,7 @@
    "ret126": -12.1,
    "rsi": 36,
    "gate": "pass",
-   "fwd_pe": 22.21102,
+   "fwd_pe": 22.215727,
    "analyst_target": 43.75806
   },
   {
@@ -3545,7 +3545,7 @@
    "rsi": 49,
    "gate": "revenue growth -17% too weak",
    "fwd_pe": 59.02293,
-   "analyst_target": 211.30606
+   "analyst_target": 211.54848
   },
   {
    "ticker": "COST",
@@ -3558,7 +3558,7 @@
    "ret126": -1.9,
    "rsi": 67,
    "gate": "pass",
-   "fwd_pe": 38.380516,
+   "fwd_pe": 38.37711,
    "analyst_target": 1060.8
   },
   {
@@ -3572,7 +3572,7 @@
    "ret126": -24.2,
    "rsi": 56,
    "gate": "revenue growth 4% too weak",
-   "fwd_pe": 56.083683,
+   "fwd_pe": 55.1147,
    "analyst_target": 23.39444
   },
   {
@@ -3586,7 +3586,7 @@
    "ret126": -22.1,
    "rsi": 57,
    "gate": "pass",
-   "fwd_pe": 10.121769,
+   "fwd_pe": 10.09704,
    "analyst_target": 120.40909
   },
   {
@@ -3600,7 +3600,7 @@
    "ret126": 1.0,
    "rsi": 34,
    "gate": "revenue growth -4% too weak",
-   "fwd_pe": 6.1343107,
+   "fwd_pe": 6.224357,
    "analyst_target": 15.69667
   },
   {
@@ -3656,7 +3656,7 @@
    "ret126": -13.5,
    "rsi": 42,
    "gate": "pass",
-   "fwd_pe": 18.135641,
+   "fwd_pe": 18.175667,
    "analyst_target": 379.75
   },
   {
@@ -3684,7 +3684,7 @@
    "ret126": -16.4,
    "rsi": 54,
    "gate": "pass",
-   "fwd_pe": 11.30139,
+   "fwd_pe": 11.300984,
    "analyst_target": 405.6
   },
   {
@@ -3726,7 +3726,7 @@
    "ret126": -31.6,
    "rsi": 45,
    "gate": "pass",
-   "fwd_pe": 18.549265,
+   "fwd_pe": 18.563992,
    "analyst_target": 92.54889
   },
   {
@@ -3768,8 +3768,8 @@
    "ret126": 2.9,
    "rsi": 38,
    "gate": "revenue growth 2% too weak",
-   "fwd_pe": 11.641959,
-   "analyst_target": 45.898376
+   "fwd_pe": 11.641031,
+   "analyst_target": 45.51092
   },
   {
    "ticker": "ON",
@@ -3797,7 +3797,7 @@
    "rsi": 78,
    "gate": "pass",
    "fwd_pe": 17.352783,
-   "analyst_target": 43.274532
+   "analyst_target": 43.418602
   },
   {
    "ticker": "ORCL",
@@ -3852,8 +3852,8 @@
    "ret126": -10.7,
    "rsi": 33,
    "gate": "pass",
-   "fwd_pe": 18.483234,
-   "analyst_target": 20.33182
+   "fwd_pe": 18.51469,
+   "analyst_target": 20.28636
   },
   {
    "ticker": "T",
@@ -3867,7 +3867,7 @@
    "rsi": 31,
    "gate": "revenue growth 2% too weak",
    "fwd_pe": 8.755913,
-   "analyst_target": 28.80435
+   "analyst_target": 28.76087
   },
   {
    "ticker": "TSLA",
@@ -3881,7 +3881,7 @@
    "rsi": 56,
    "gate": "pass",
    "fwd_pe": 173.2136,
-   "analyst_target": 397.88474
+   "analyst_target": 397.83212
   },
   {
    "ticker": "UAL",
@@ -3922,8 +3922,8 @@
    "ret126": -20.2,
    "rsi": 42,
    "gate": "pass",
-   "fwd_pe": 26.078308,
-   "analyst_target": 337.42856
+   "fwd_pe": 26.061357,
+   "analyst_target": 335.64285
   },
   {
    "ticker": "WFC",
@@ -3936,7 +3936,7 @@
    "ret126": -2.7,
    "rsi": 49,
    "gate": "pass",
-   "fwd_pe": 10.376205,
+   "fwd_pe": 10.374359,
    "analyst_target": 98.72917
   },
   {
@@ -4024,8 +4024,8 @@
    "range_hi": 1196.06,
    "range_lo_pct": 10.5,
    "range_hi_pct": 20.9,
-   "analyst_target": 1555.13,
-   "analyst_upside": 57.2
+   "analyst_target": 1560.57,
+   "analyst_upside": 57.8
   },
   {
    "rank": 4,
@@ -4086,7 +4086,7 @@
    "eligible": true,
    "fwd_pe": 36.505337,
    "next_earnings": "2026-12-01",
-   "range_lo": 298.91,
+   "range_lo": 298.9,
    "range_hi": 331.95,
    "range_lo_pct": 12.4,
    "range_hi_pct": 24.9,
@@ -4108,12 +4108,12 @@
    "eligible": true,
    "fwd_pe": 19.808271,
    "next_earnings": "2026-11-27",
-   "range_lo": 637.9,
-   "range_hi": 699.03,
+   "range_lo": 637.95,
+   "range_hi": 699.15,
    "range_lo_pct": 10.6,
    "range_hi_pct": 21.2,
-   "analyst_target": 585.96,
-   "analyst_upside": 1.6
+   "analyst_target": 589.96,
+   "analyst_upside": 2.3
   },
   {
    "rank": 8,
@@ -4156,8 +4156,8 @@
    "range_hi": 340.81,
    "range_lo_pct": 9.3,
    "range_hi_pct": 18.6,
-   "analyst_target": 288.68,
-   "analyst_upside": 0.5
+   "analyst_target": 288.89,
+   "analyst_upside": 0.6
   },
   {
    "rank": 10,
@@ -4172,14 +4172,14 @@
    "setup": "breakout",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 51.072456,
+   "fwd_pe": 51.056377,
    "next_earnings": "2026-10-28",
    "range_lo": 206.3,
    "range_hi": 219.67,
    "range_lo_pct": 6.9,
    "range_hi_pct": 13.9,
-   "analyst_target": 164.88,
-   "analyst_upside": -14.5
+   "analyst_target": 165.43,
+   "analyst_upside": -14.3
   },
   {
    "rank": 11,
@@ -4282,14 +4282,14 @@
    "setup": "breakout",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 22.855206,
+   "fwd_pe": 22.858334,
    "next_earnings": "2026-10-28",
    "range_lo": 566.95,
    "range_hi": 592.76,
    "range_lo_pct": 4.8,
    "range_hi_pct": 9.5,
-   "analyst_target": 587.63,
-   "analyst_upside": 8.6
+   "analyst_target": 589.6,
+   "analyst_upside": 9.0
   },
   {
    "rank": 16,
@@ -4304,7 +4304,7 @@
    "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 48.663494,
+   "fwd_pe": 48.480064,
    "next_earnings": "2026-10-29",
    "range_lo": 114.24,
    "range_hi": 127.13,
@@ -4328,7 +4328,7 @@
    "eligible": true,
    "fwd_pe": null,
    "next_earnings": null,
-   "range_lo": 766.12,
+   "range_lo": 766.11,
    "range_hi": 786.19,
    "range_lo_pct": 2.7,
    "range_hi_pct": 5.4,
@@ -4348,14 +4348,14 @@
    "setup": "pullback",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 28.03311,
+   "fwd_pe": 27.997536,
    "next_earnings": "2026-10-28",
    "range_lo": 153.09,
    "range_hi": 165.87,
    "range_lo_pct": 9.1,
    "range_hi_pct": 18.2,
-   "analyst_target": 147.73,
-   "analyst_upside": 5.3
+   "analyst_target": 148.73,
+   "analyst_upside": 6.0
   },
   {
    "rank": 19,
@@ -4370,14 +4370,14 @@
    "setup": "pullback",
    "triggered": true,
    "eligible": true,
-   "fwd_pe": 31.776049,
+   "fwd_pe": 31.865047,
    "next_earnings": "2026-10-27",
    "range_lo": 121.04,
    "range_hi": 132.87,
    "range_lo_pct": 10.8,
    "range_hi_pct": 21.7,
-   "analyst_target": 134.68,
-   "analyst_upside": 23.3
+   "analyst_target": 134.56,
+   "analyst_upside": 23.2
   },
   {
    "rank": 20,
@@ -4394,8 +4394,8 @@
    "eligible": true,
    "fwd_pe": 40.15037,
    "next_earnings": "2026-11-24",
-   "range_lo": 248.22,
-   "range_hi": 270.66,
+   "range_lo": 248.23,
+   "range_hi": 270.68,
    "range_lo_pct": 9.9,
    "range_hi_pct": 19.9,
    "analyst_target": 233.38,
@@ -4414,14 +4414,14 @@
    "setup": "extended",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 89.15773,
+   "fwd_pe": 88.87792,
    "next_earnings": "2026-11-02",
    "range_lo": 223.94,
    "range_hi": 238.89,
    "range_lo_pct": 7.2,
    "range_hi_pct": 14.3,
-   "analyst_target": 203.35,
-   "analyst_upside": -2.7
+   "analyst_target": 205.27,
+   "analyst_upside": -1.8
   },
   {
    "rank": 22,
@@ -4436,14 +4436,14 @@
    "setup": "pullback",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 14.6011095,
+   "fwd_pe": 14.599041,
    "next_earnings": "2026-12-02",
    "range_lo": 252.68,
    "range_hi": 271.44,
    "range_lo_pct": 8.0,
    "range_hi_pct": 16.0,
-   "analyst_target": 283.36,
-   "analyst_upside": 21.1
+   "analyst_target": 285.68,
+   "analyst_upside": 22.1
   },
   {
    "rank": 23,
@@ -4480,14 +4480,14 @@
    "setup": "breakout",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 35.563347,
+   "fwd_pe": 35.553448,
    "next_earnings": "2026-11-02",
    "range_lo": 355.93,
-   "range_hi": 370.89,
+   "range_hi": 370.9,
    "range_lo_pct": 4.4,
    "range_hi_pct": 8.8,
-   "analyst_target": 328.09,
-   "analyst_upside": -3.8
+   "analyst_target": 328.61,
+   "analyst_upside": -3.6
   },
   {
    "rank": 25,
@@ -4524,7 +4524,7 @@
    "setup": "pullback",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 20.266726,
+   "fwd_pe": 19.910519,
    "next_earnings": "2026-10-15",
    "range_lo": 469.66,
    "range_hi": 494.96,
@@ -4568,7 +4568,7 @@
    "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 17.290201,
+   "fwd_pe": 17.340904,
    "next_earnings": "2026-10-30",
    "range_lo": 294.17,
    "range_hi": 307.22,
@@ -4592,8 +4592,8 @@
    "eligible": true,
    "fwd_pe": 14.220904,
    "next_earnings": "2026-11-17",
-   "range_lo": 238.81,
-   "range_hi": 251.31,
+   "range_lo": 238.82,
+   "range_hi": 251.32,
    "range_lo_pct": 5.5,
    "range_hi_pct": 11.0,
    "analyst_target": 328.72,
@@ -4659,7 +4659,7 @@
    "fwd_pe": 26.42941,
    "next_earnings": "2026-11-05",
    "range_lo": 174.57,
-   "range_hi": 185.63,
+   "range_hi": 185.64,
    "range_lo_pct": 6.8,
    "range_hi_pct": 13.5,
    "analyst_target": 183.56,
@@ -4678,14 +4678,14 @@
    "setup": "breakout",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 25.946905,
+   "fwd_pe": 25.944742,
    "next_earnings": "2026-10-27",
    "range_lo": 404.0,
    "range_hi": 418.74,
    "range_lo_pct": 3.8,
    "range_hi_pct": 7.6,
-   "analyst_target": 419.63,
-   "analyst_upside": 7.8
+   "analyst_target": 420.44,
+   "analyst_upside": 8.0
   },
   {
    "rank": 34,
@@ -4724,8 +4724,8 @@
    "eligible": true,
    "fwd_pe": 26.924164,
    "next_earnings": "2026-11-12",
-   "range_lo": 538.72,
-   "range_hi": 579.92,
+   "range_lo": 538.75,
+   "range_hi": 579.97,
    "range_lo_pct": 8.3,
    "range_hi_pct": 16.6,
    "analyst_target": 635.33,
@@ -4750,8 +4750,8 @@
    "range_hi": 481.83,
    "range_lo_pct": 13.2,
    "range_hi_pct": 26.4,
-   "analyst_target": 446.77,
-   "analyst_upside": 17.2
+   "analyst_target": 449.74,
+   "analyst_upside": 18.0
   },
   {
    "rank": 37,
@@ -4788,10 +4788,10 @@
    "setup": "pullback",
    "triggered": true,
    "eligible": true,
-   "fwd_pe": 24.825823,
+   "fwd_pe": 24.815481,
    "next_earnings": "2026-10-29",
-   "range_lo": 1256.56,
-   "range_hi": 1330.5,
+   "range_lo": 1256.58,
+   "range_hi": 1330.54,
    "range_lo_pct": 6.3,
    "range_hi_pct": 12.5,
    "analyst_target": 1330.14,
@@ -4810,10 +4810,10 @@
    "setup": "breakout",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 9.688314,
+   "fwd_pe": 9.710605,
    "next_earnings": "2026-10-27",
    "range_lo": 59.21,
-   "range_hi": 62.36,
+   "range_hi": 62.37,
    "range_lo_pct": 5.6,
    "range_hi_pct": 11.3,
    "analyst_target": 56.89,
@@ -4832,14 +4832,14 @@
    "setup": "pullback",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 29.93134,
+   "fwd_pe": 29.918327,
    "next_earnings": "2026-10-14",
    "range_lo": 1863.41,
    "range_hi": 1976.58,
    "range_lo_pct": 6.5,
    "range_hi_pct": 12.9,
-   "analyst_target": 2098.39,
-   "analyst_upside": 19.9
+   "analyst_target": 2111.23,
+   "analyst_upside": 20.6
   }
  ],
  "learned": [
@@ -4897,23 +4897,5 @@
    "weight": 0.0,
    "recent_ic": -0.009
   }
- ],
- "analyst": {
-  "date": "2026-10-12",
-  "text": "Weekly review, first full-size week on the $2,500 account. Market GREEN (VIX 15.5), futures flat after record highs last week. Brent is above $106 and bank earnings and inflation data are due this week. Columbus Day: stocks trade normally, but volume may be thin.\nPlan: put most of the cash to work. NEW: AMD (#1, record high on the OpenAI MI450 rollout and Oracle orders). TOP UP CRWD (#2) and SNOW (#5) to full slots. No sells.\nSNOW (held): +11.7%, at a 52-week high, but it slipped from #2 to #5, right on the hold line. The top-up adds money to the weakest of the three. Do it at half size or skip it.\nCRWD (held): +0.8%, #2. It trades about 13% above the analyst consensus, so momentum is doing the work. Keep the 8% stop.\nMU (#3) and DELL (#4) are not bought because the three slots go to AMD plus your two holdings.\nConcentration: all holdings are tech/AI-adjacent, so a sector selloff hits everything. The 8% stops are the safety net.\nSystem's simulated account -1.4% (ALAB stopped out); you +1.0%; S&P +0.9%.",
-  "cautions": [
-   {
-    "ticker": "SNOW",
-    "why": "Top-up while rank #5 (on the hold line) and at a new high. Consider half size or skip."
-   },
-   {
-    "ticker": "CRWD",
-    "why": "Trading ~13% above analyst consensus and ~167x forward earnings: rich valuation. Respect the stop at ~$253."
-   },
-   {
-    "ticker": "AMD",
-    "why": "Record high and a rich valuation; earnings Nov 3. Normal size with the 8% stop is fine."
-   }
-  ]
- }
+ ]
 }
