@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12 19:44 ET (position check)",
+ "generated_at": "2026-10-12 21:30 ET (position check)",
  "date": "2026-10-12",
  "mode": "plan",
  "regime": {
@@ -391,7 +391,21 @@
   "since": "2026-09-28"
  },
  "anomalies": {
-  "flags": [],
+  "flags": [
+   {
+    "ticker": "SNOW",
+    "type": "new_high",
+    "label": "Closed at a 52-week high",
+    "held": true,
+    "price": 368.89,
+    "day_pct": 7.42,
+    "n": 916,
+    "avg_pct": 0.69,
+    "down_pct": 47.3,
+    "edge_pct": 0.19,
+    "verdict": "neutral"
+   }
+  ],
   "rank_trends": [
    {
     "ticker": "CRWD",
