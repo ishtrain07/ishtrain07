@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14 13:55 ET",
+ "generated_at": "2026-10-14 15:28 ET (position check)",
  "date": "2026-10-14",
  "mode": "plan",
  "regime": {
@@ -171,10 +171,10 @@
  "account": {
   "cash": 1997.8,
   "realized": 0.0,
-  "unrealized": -19.15,
-  "market_value": 483.04,
-  "equity": 2480.84,
-  "return_pct": -0.77
+  "unrealized": -22.3,
+  "market_value": 479.9,
+  "equity": 2477.7,
+  "return_pct": -0.89
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -201,14 +201,14 @@
      "shares": 0.6059
     }
    ],
-   "price": 339.11,
-   "value": 205.46,
-   "pnl": 5.41,
-   "pnl_pct": 2.71,
+   "price": 334.89,
+   "value": 202.91,
+   "pnl": 2.86,
+   "pnl_pct": 1.43,
    "days_held": 11,
    "active_stop": 303.76,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-10.4%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-9.3%)"
   },
   {
    "ticker": "CRWD",
@@ -232,10 +232,10 @@
      "shares": 1.1075
     }
    ],
-   "price": 250.64,
-   "value": 277.58,
-   "pnl": -24.56,
-   "pnl_pct": -8.13,
+   "price": 250.1,
+   "value": 276.99,
+   "pnl": -25.16,
+   "pnl_pct": -8.33,
    "days_held": 3,
    "active_stop": 250.99,
    "action": "SELL ALL",
@@ -248,7 +248,7 @@
    "ticker": "CRWD",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 250.99",
-   "price": 250.64,
+   "price": 250.1,
    "shares": 1.1075
   }
  ],
@@ -260,10 +260,10 @@
   "account": {
    "cash": 1669.66,
    "realized": -156.41,
-   "unrealized": -58.82,
-   "market_value": 815.11,
-   "equity": 2484.77,
-   "return_pct": -7.97
+   "unrealized": -57.04,
+   "market_value": 816.89,
+   "equity": 2486.55,
+   "return_pct": -7.91
   },
   "record": {
    "trades": 5,
@@ -297,14 +297,14 @@
       "shares": 1.43
      }
     ],
-    "price": 570.01,
-    "value": 815.11,
-    "pnl": -58.82,
-    "pnl_pct": -6.73,
+    "price": 571.25,
+    "value": 816.89,
+    "pnl": -57.04,
+    "pnl_pct": -6.53,
     "days_held": 2,
     "active_stop": 562.25,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 562.25 (-1.4%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 562.25 (-1.6%)"
    }
   ],
   "closed": [
@@ -367,40 +367,13 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -0.48,
+  "spy_return_pct": -0.34,
   "base": 771.35,
-  "last": 767.66,
+  "last": 768.75,
   "since": "2026-09-28"
  },
  "anomalies": {
-  "flags": [
-   {
-    "ticker": "CRWD",
-    "type": "rank_drop",
-    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
-    "held": true,
-    "price": 250.81,
-    "day_pct": -3.98,
-    "n": 627,
-    "avg_pct": 0.59,
-    "down_pct": 49.9,
-    "edge_pct": 0.11,
-    "verdict": "neutral"
-   },
-   {
-    "ticker": "SNOW",
-    "type": "rank_drop",
-    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
-    "held": true,
-    "price": 339.48,
-    "day_pct": -5.11,
-    "n": 627,
-    "avg_pct": 0.59,
-    "down_pct": 49.9,
-    "edge_pct": 0.11,
-    "verdict": "neutral"
-   }
-  ],
+  "flags": [],
   "rank_trends": [
    {
     "ticker": "CRWD",
