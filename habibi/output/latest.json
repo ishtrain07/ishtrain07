@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14 09:01 ET (position check)",
+ "generated_at": "2026-10-14 11:28 ET (position check)",
  "date": "2026-10-14",
  "mode": "plan",
  "regime": {
@@ -171,10 +171,10 @@
  "account": {
   "cash": 1997.8,
   "realized": 0.0,
-  "unrealized": 3.76,
-  "market_value": 505.95,
-  "equity": 2503.75,
-  "return_pct": 0.15
+  "unrealized": -14.54,
+  "market_value": 487.65,
+  "equity": 2485.45,
+  "return_pct": -0.58
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -201,14 +201,14 @@
      "shares": 0.6059
     }
    ],
-   "price": 357.71,
-   "value": 216.74,
-   "pnl": 16.69,
-   "pnl_pct": 8.34,
+   "price": 343.48,
+   "value": 208.11,
+   "pnl": 8.06,
+   "pnl_pct": 4.03,
    "days_held": 11,
    "active_stop": 303.76,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-15.1%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-11.6%)"
   },
   {
    "ticker": "CRWD",
@@ -232,14 +232,14 @@
      "shares": 1.1075
     }
    ],
-   "price": 261.14,
-   "value": 289.21,
-   "pnl": -12.93,
-   "pnl_pct": -4.28,
+   "price": 252.41,
+   "value": 279.54,
+   "pnl": -22.6,
+   "pnl_pct": -7.48,
    "days_held": 3,
    "active_stop": 250.99,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 250.99 (-3.9%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 250.99 (-0.6%)"
   }
  ],
  "closed": [],
@@ -250,59 +250,23 @@
  "rebalance": false,
  "paper": {
   "account": {
-   "cash": 962.46,
-   "realized": -94.65,
-   "unrealized": 1.8,
-   "market_value": 1644.69,
-   "equity": 2607.15,
-   "return_pct": -3.44
+   "cash": 1669.66,
+   "realized": -156.41,
+   "unrealized": -43.64,
+   "market_value": 830.29,
+   "equity": 2499.95,
+   "return_pct": -7.41
   },
   "record": {
-   "trades": 4,
+   "trades": 5,
    "wins": 2,
-   "losses": 2,
-   "win_rate": 50.0,
+   "losses": 3,
+   "win_rate": 40.0,
    "avg_win_pct": 2.4,
-   "avg_loss_pct": -5.63,
-   "net": -94.65
+   "avg_loss_pct": -6.43,
+   "net": -156.4
   },
   "positions": [
-   {
-    "ticker": "DELL",
-    "shares": 1.36,
-    "avg_cost": 565.41,
-    "first_buy": "2026-09-28",
-    "stop": 520.17,
-    "t1": 633.53,
-    "t2": 704.17,
-    "hold_days": 60,
-    "sell_by": "2026-12-22",
-    "partial": false,
-    "system_pick": true,
-    "mode": "momentum",
-    "plan_entry": 562.89,
-    "plan_date": "2026-09-28",
-    "fills": [
-     {
-      "date": "2026-09-28",
-      "price": 565.7,
-      "shares": 0.28
-     },
-     {
-      "date": "2026-10-05",
-      "price": 565.33,
-      "shares": 1.08
-     }
-    ],
-    "price": 572.63,
-    "value": 778.78,
-    "pnl": 9.82,
-    "pnl_pct": 1.28,
-    "days_held": 12,
-    "active_stop": 520.17,
-    "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 520.17 (-9.2%)"
-   },
    {
     "ticker": "AMD",
     "shares": 1.43,
@@ -325,14 +289,14 @@
       "shares": 1.43
      }
     ],
-    "price": 605.53,
-    "value": 865.91,
-    "pnl": -8.02,
-    "pnl_pct": -0.92,
+    "price": 580.62,
+    "value": 830.29,
+    "pnl": -43.64,
+    "pnl_pct": -4.99,
     "days_held": 2,
     "active_stop": 562.25,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 562.25 (-7.1%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 562.25 (-3.2%)"
    }
   ],
   "closed": [
@@ -371,9 +335,28 @@
     "avg_cost": 1080.26,
     "pnl": -76.39,
     "pnl_pct": -8.42
+   },
+   {
+    "date": "2026-10-14",
+    "ticker": "DELL",
+    "shares": 1.36,
+    "price": 520.0,
+    "avg_cost": 565.41,
+    "pnl": -61.75,
+    "pnl_pct": -8.03
    }
   ],
-  "orders_today": [],
+  "orders_today": [
+   {
+    "date": "2026-10-14",
+    "ticker": "DELL",
+    "side": "SELL",
+    "shares": 1.36,
+    "price": 520.0,
+    "fees": 0,
+    "note": "SELL ALL"
+   }
+  ],
   "executed": true
  },
  "record": {
@@ -386,9 +369,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": 0.86,
+  "spy_return_pct": 0.06,
   "base": 771.35,
-  "last": 778.01,
+  "last": 771.81,
   "since": "2026-09-28"
  },
  "anomalies": {
