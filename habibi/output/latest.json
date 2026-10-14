@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14 15:28 ET (position check)",
+ "generated_at": "2026-10-14 15:37 ET (position check)",
  "date": "2026-10-14",
  "mode": "plan",
  "regime": {
@@ -171,10 +171,10 @@
  "account": {
   "cash": 1997.8,
   "realized": 0.0,
-  "unrealized": -22.3,
-  "market_value": 479.9,
-  "equity": 2477.7,
-  "return_pct": -0.89
+  "unrealized": -21.34,
+  "market_value": 480.85,
+  "equity": 2478.65,
+  "return_pct": -0.85
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -201,14 +201,14 @@
      "shares": 0.6059
     }
    ],
-   "price": 334.89,
-   "value": 202.91,
-   "pnl": 2.86,
-   "pnl_pct": 1.43,
+   "price": 336.33,
+   "value": 203.78,
+   "pnl": 3.73,
+   "pnl_pct": 1.87,
    "days_held": 11,
    "active_stop": 303.76,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-9.3%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-9.7%)"
   },
   {
    "ticker": "CRWD",
@@ -232,10 +232,10 @@
      "shares": 1.1075
     }
    ],
-   "price": 250.1,
-   "value": 276.99,
-   "pnl": -25.16,
-   "pnl_pct": -8.33,
+   "price": 250.18,
+   "value": 277.07,
+   "pnl": -25.07,
+   "pnl_pct": -8.3,
    "days_held": 3,
    "active_stop": 250.99,
    "action": "SELL ALL",
@@ -248,7 +248,7 @@
    "ticker": "CRWD",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 250.99",
-   "price": 250.1,
+   "price": 250.18,
    "shares": 1.1075
   }
  ],
@@ -260,10 +260,10 @@
   "account": {
    "cash": 1669.66,
    "realized": -156.41,
-   "unrealized": -57.04,
-   "market_value": 816.89,
-   "equity": 2486.55,
-   "return_pct": -7.91
+   "unrealized": -55.88,
+   "market_value": 818.05,
+   "equity": 2487.71,
+   "return_pct": -7.86
   },
   "record": {
    "trades": 5,
@@ -297,14 +297,14 @@
       "shares": 1.43
      }
     ],
-    "price": 571.25,
-    "value": 816.89,
-    "pnl": -57.04,
-    "pnl_pct": -6.53,
+    "price": 572.06,
+    "value": 818.05,
+    "pnl": -55.88,
+    "pnl_pct": -6.39,
     "days_held": 2,
     "active_stop": 562.25,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 562.25 (-1.6%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 562.25 (-1.7%)"
    }
   ],
   "closed": [
@@ -367,9 +367,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -0.34,
+  "spy_return_pct": -0.33,
   "base": 771.35,
-  "last": 768.75,
+  "last": 768.83,
   "since": "2026-09-28"
  },
  "anomalies": {
