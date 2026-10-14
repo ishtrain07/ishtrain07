@@ -1,0 +1,93 @@
+{
+ "buys": [
+  {
+   "ticker": "AMD",
+   "name": "Advanced Micro Devices, Inc.",
+   "sector": "Semis",
+   "price": 605.53,
+   "score": 95.9,
+   "momentum": 95,
+   "rs": 83,
+   "trend": 100,
+   "fund": 90,
+   "rsi": 56,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 38.51509,
+   "next_earnings": "2026-11-03",
+   "entry": 605.53,
+   "limit": 608.56,
+   "stop": 557.09,
+   "t1": 660.46,
+   "t2": 715.39,
+   "stop_pct": -8.0,
+   "t1_pct": 9.1,
+   "t2_pct": 18.1,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-21",
+   "shares": 1.38,
+   "dollars": 835.63,
+   "risk_dollars": 66.85,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "#2 on the learning model ranking: 6-mo +137%, 3-mo +14%, 1-mo +23%",
+    "stronger than 83% of the universe vs the S&P; above its 200-day average",
+    "revenue +50% y/y"
+   ],
+   "news": []
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "MU",
+   "score": 90.0,
+   "price": 953.19,
+   "setup": "momentum",
+   "rsi": 40,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "MRVL",
+   "score": 88.5,
+   "price": 268.73,
+   "setup": "momentum",
+   "rsi": 57,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "ALAB",
+   "score": 86.2,
+   "price": 325.41,
+   "setup": "momentum",
+   "rsi": 47,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "DELL",
+   "score": 85.9,
+   "price": 572.47,
+   "setup": "momentum",
+   "rsi": 57,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "FTNT",
+   "score": 85.5,
+   "price": 190.76,
+   "setup": "momentum",
+   "rsi": 66,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 778.01,
+  "spy_sma50": 767.39,
+  "spy_sma200": 720.6,
+  "vix": 15.8
+ }
+}
