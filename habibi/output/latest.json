@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15 08:58 ET",
+ "generated_at": "2026-10-15 09:01 ET (position check)",
  "date": "2026-10-15",
  "mode": "plan",
  "regime": {
@@ -372,34 +372,7 @@
   "since": "2026-09-28"
  },
  "anomalies": {
-  "flags": [
-   {
-    "ticker": "CRWD",
-    "type": "rank_drop",
-    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
-    "held": true,
-    "price": 249.29,
-    "day_pct": -4.56,
-    "n": 628,
-    "avg_pct": 0.58,
-    "down_pct": 49.8,
-    "edge_pct": 0.1,
-    "verdict": "neutral"
-   },
-   {
-    "ticker": "SNOW",
-    "type": "rank_drop",
-    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
-    "held": true,
-    "price": 335.08,
-    "day_pct": -6.34,
-    "n": 628,
-    "avg_pct": 0.58,
-    "down_pct": 49.8,
-    "edge_pct": 0.1,
-    "verdict": "neutral"
-   }
-  ],
+  "flags": [],
   "rank_trends": [
    {
     "ticker": "CRWD",
@@ -4891,5 +4864,23 @@
    "weight": 0.0,
    "recent_ic": -0.026
   }
- ]
+ ],
+ "analyst": {
+  "date": "2026-10-15",
+  "text": "Risk-off morning. Nasdaq futures are -1.2% and the Nikkei fell 4.9% overnight, led by chip stocks. The market light is still GREEN (VIX 17.5), but semis are getting hit. 11 trading days left.\nSELL: CRWD hit its 8% stop yesterday ($250.99) and is at about $249 premarket. Sell all 5 CDRs at the open. This is the priority today.\nBUY: AMD (#2) is down about 6% from Tuesday, at about $571. The plan says 1.45 sh, limit $573.67, stop $525. With chips falling overseas, I'd buy half (about 0.7 sh) at the limit and add the rest only once it stabilizes.\nSNOW (held): +1.5%, ranked #18 (rank warning). Expect it to go at Monday's review. Selling today is reasonable too.\nThe new top 5 are DELL, AMD, MU, MRVL and ALAB, all AI hardware. That concentration is why the system's simulated account (-7.9%) is getting hit.\nYou -0.9%, S&P -0.2%. Staying mostly in cash has protected you this week.",
+  "cautions": [
+   {
+    "ticker": "CRWD",
+    "why": "Below its 8% stop. Sell all 5 CDRs at the open."
+   },
+   {
+    "ticker": "AMD",
+    "why": "Overnight chip selloff (Nikkei -4.9%, Nasdaq futures -1.2%). Consider half size. Earnings Nov 3."
+   },
+   {
+    "ticker": "SNOW",
+    "why": "Rank warning (#18). Gain is down to ~1.5%. Will likely be sold Monday."
+   }
+  ]
+ }
 }
