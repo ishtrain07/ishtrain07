@@ -170,10 +170,10 @@
  "account": {
   "cash": 1614.5,
   "realized": 0.0,
-  "unrealized": -33.73,
-  "market_value": 851.77,
-  "equity": 2466.27,
-  "return_pct": -1.35
+  "unrealized": -34.05,
+  "market_value": 851.45,
+  "equity": 2465.95,
+  "return_pct": -1.36
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -231,10 +231,10 @@
      "shares": 1.1075
     }
    ],
-   "price": 242.56,
-   "value": 268.64,
-   "pnl": -33.51,
-   "pnl_pct": -11.09,
+   "price": 242.69,
+   "value": 268.78,
+   "pnl": -33.37,
+   "pnl_pct": -11.04,
    "days_held": 4,
    "active_stop": 250.99,
    "action": "SELL ALL",
@@ -262,14 +262,14 @@
      "shares": 0.7
     }
    ],
-   "price": 549.24,
-   "value": 384.47,
-   "pnl": 1.17,
-   "pnl_pct": 0.3,
+   "price": 548.58,
+   "value": 384.01,
+   "pnl": 0.71,
+   "pnl_pct": 0.18,
    "days_held": 0,
    "active_stop": 525.15,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 525.15 (-4.4%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 525.15 (-4.3%)"
   }
  ],
  "closed": [],
@@ -278,7 +278,7 @@
    "ticker": "CRWD",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 250.99",
-   "price": 242.56,
+   "price": 242.69,
    "shares": 1.1075
   }
  ],
@@ -362,7 +362,7 @@
    }
   ],
   "orders_today": [],
-  "executed": true
+  "executed": false
  },
  "record": {
   "trades": 0,
@@ -374,9 +374,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -0.17,
+  "spy_return_pct": -0.16,
   "base": 771.35,
-  "last": 770.03,
+  "last": 770.14,
   "since": "2026-09-28"
  },
  "anomalies": {
@@ -386,8 +386,8 @@
     "type": "gap_down",
     "label": "Gapped down more than 5% at the open",
     "held": true,
-    "price": 549.12,
-    "day_pct": -3.8,
+    "price": 548.51,
+    "day_pct": -3.91,
     "n": 318,
     "avg_pct": 2.22,
     "down_pct": 46.9,
