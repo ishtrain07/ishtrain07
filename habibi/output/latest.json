@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15 11:28 ET (position check)",
+ "generated_at": "2026-10-15 11:53 ET (position check)",
  "date": "2026-10-15",
  "mode": "plan",
  "regime": {
@@ -168,12 +168,12 @@
   "Uptrend confirmed and volatility calm. Full risk allowed."
  ],
  "account": {
-  "cash": 1997.8,
+  "cash": 1614.5,
   "realized": 0.0,
-  "unrealized": -36.44,
-  "market_value": 465.76,
-  "equity": 2463.56,
-  "return_pct": -1.46
+  "unrealized": -33.75,
+  "market_value": 851.75,
+  "equity": 2466.25,
+  "return_pct": -1.35
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -200,14 +200,14 @@
      "shares": 0.6059
     }
    ],
-   "price": 326.0,
-   "value": 197.52,
-   "pnl": -2.53,
-   "pnl_pct": -1.26,
+   "price": 327.88,
+   "value": 198.66,
+   "pnl": -1.39,
+   "pnl_pct": -0.69,
    "days_held": 12,
    "active_stop": 303.76,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-6.8%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-7.4%)"
   },
   {
    "ticker": "CRWD",
@@ -231,14 +231,45 @@
      "shares": 1.1075
     }
    ],
-   "price": 242.2,
-   "value": 268.24,
-   "pnl": -33.91,
-   "pnl_pct": -11.22,
+   "price": 242.63,
+   "value": 268.71,
+   "pnl": -33.44,
+   "pnl_pct": -11.07,
    "days_held": 4,
    "active_stop": 250.99,
    "action": "SELL ALL",
    "why": "hit the 8% stop at 250.99"
+  },
+  {
+   "ticker": "AMD",
+   "shares": 0.7,
+   "avg_cost": 547.57,
+   "first_buy": "2026-10-15",
+   "stop": 525.15,
+   "t1": 627.98,
+   "t2": 685.14,
+   "hold_days": 60,
+   "sell_by": "2027-01-12",
+   "partial": false,
+   "system_pick": true,
+   "mode": "momentum",
+   "plan_entry": 570.82,
+   "plan_date": "2026-10-15",
+   "fills": [
+    {
+     "date": "2026-10-15",
+     "price": 547.57,
+     "shares": 0.7
+    }
+   ],
+   "price": 549.12,
+   "value": 384.38,
+   "pnl": 1.08,
+   "pnl_pct": 0.28,
+   "days_held": 0,
+   "active_stop": 525.15,
+   "action": "HOLD",
+   "why": "held while it stays top-5; reviewed every Monday; stop 525.15 (-4.4%)"
   }
  ],
  "closed": [],
@@ -247,7 +278,7 @@
    "ticker": "CRWD",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 250.99",
-   "price": 242.2,
+   "price": 242.63,
    "shares": 1.1075
   }
  ],
@@ -330,18 +361,8 @@
     "pnl_pct": -10.57
    }
   ],
-  "orders_today": [
-   {
-    "date": "2026-10-15",
-    "ticker": "AMD",
-    "side": "SELL",
-    "shares": 1.43,
-    "price": 546.54,
-    "fees": 0,
-    "note": "SELL ALL"
-   }
-  ],
-  "executed": true
+  "orders_today": [],
+  "executed": false
  },
  "record": {
   "trades": 0,
@@ -353,20 +374,33 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -0.13,
+  "spy_return_pct": -0.17,
   "base": 771.35,
-  "last": 770.35,
+  "last": 770.07,
   "since": "2026-09-28"
  },
  "anomalies": {
   "flags": [
    {
+    "ticker": "AMD",
+    "type": "gap_down",
+    "label": "Gapped down more than 5% at the open",
+    "held": true,
+    "price": 549.33,
+    "day_pct": -3.76,
+    "n": 318,
+    "avg_pct": 2.22,
+    "down_pct": 46.9,
+    "edge_pct": 1.73,
+    "verdict": "positive"
+   },
+   {
     "ticker": "SNOW",
     "type": "lost_50dma",
     "label": "Closed below its 50-day average (was above yesterday)",
     "held": true,
-    "price": 326.0,
-    "day_pct": -2.71,
+    "price": 327.88,
+    "day_pct": -2.15,
     "n": 1118,
     "avg_pct": 0.36,
     "down_pct": 49.2,
@@ -596,7 +630,7 @@
     "warning": false
    }
   ],
-  "concentration": "Tech makes up 2 of your 2 holdings: one sector shock hits everything.",
+  "concentration": "Tech makes up 2 of your 3 holdings: one sector shock hits everything.",
   "stats": {
    "baseline_avg_pct": 0.49,
    "baseline_down_pct": 48.8,
