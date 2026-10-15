@@ -1,9 +1,9 @@
 {
- "date": "2026-10-14",
- "text": "Market GREEN (VIX 15.8), but the open looks soft: S&P futures -0.3% and Nasdaq futures -0.6%. The 10-year yield is up to 5.31% and oil rose 8% this week, both bad for high-valuation tech. 12 trading days left.\nPlan: one buy, no sells. AMD (#2): same buy as yesterday's plan, now about 2% higher. Limit $608.56, stop $557, about 1.38 shares (~$836). Earnings Nov 3. If it opens above the limit, skip it today.\nCRWD (held): now #1 in the ranking, but down 4.3% on cost. The stop at ~$251 is only 3.9% away, so keep it in place.\nSNOW (held): +8.3%, but it fell to #17 (rank warning). Taking the profit is reasonable, since the system would almost certainly drop it at Monday's review.\nMU (#4) is flagged for a gap down of more than 5%. Historically that has been a mild positive signal, but it's not on this week's list. PANW (#3) and MRVL (#5) are rising.\nThe system's simulated account is at -3.4%, your account +0.2% and the S&P +0.9%. About 80% of your money is still in cash, which is safe but won't get to +20%.",
+ "date": "2026-10-15",
+ "text": "Risk-off morning. Nasdaq futures are -1.2% and the Nikkei fell 4.9% overnight, led by chip stocks. The market light is still GREEN (VIX 17.5), but semis are getting hit. 11 trading days left.\nSELL: CRWD hit its 8% stop yesterday ($250.99) and is at about $249 premarket. Sell all 5 CDRs at the open. This is the priority today.\nBUY: AMD (#2) is down about 6% from Tuesday, at about $571. The plan says 1.45 sh, limit $573.67, stop $525. With chips falling overseas, I'd buy half (about 0.7 sh) at the limit and add the rest only once it stabilizes.\nSNOW (held): +1.5%, ranked #18 (rank warning). Expect it to go at Monday's review. Selling today is reasonable too.\nThe new top 5 are DELL, AMD, MU, MRVL and ALAB, all AI hardware. That concentration is why the system's simulated account (-7.9%) is getting hit.\nYou -0.9%, S&P -0.2%. Staying mostly in cash has protected you this week.",
  "cautions": [
-  {"ticker": "AMD", "why": "Weak tech futures and rising yields. Don't chase above the $608.56 limit. Earnings Nov 3."},
-  {"ticker": "SNOW", "why": "Rank warning: down to #17, out of the top 5. Likely dropped at Monday's review. Consider locking in the ~8% gain."},
-  {"ticker": "CRWD", "why": "Ranked #1, but the price is only 3.9% above the ~$251 stop. Respect the stop."}
+  {"ticker": "CRWD", "why": "Below its 8% stop. Sell all 5 CDRs at the open."},
+  {"ticker": "AMD", "why": "Overnight chip selloff (Nikkei -4.9%, Nasdaq futures -1.2%). Consider half size. Earnings Nov 3."},
+  {"ticker": "SNOW", "why": "Rank warning (#18). Gain is down to ~1.5%. Will likely be sold Monday."}
  ]
 }
