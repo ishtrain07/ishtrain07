@@ -2,129 +2,121 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Hackathon Final Picks</title>
+<title>Hackathon Top 5</title>
 <style>
-  @page { size: Letter; margin: 0.45in 0.55in; }
-  :root { --ink:#16181d; --muted:#5b6170; --line:#e3e5ea; --accent:#76b900; --accent-ink:#3d6100; --soft:#f4f8ec; }
+  @page { size: Letter; margin: 0.42in 0.55in; }
+  :root { --ink:#16181d; --muted:#5b6170; --line:#e3e5ea; --accent:#76b900; --accent-ink:#3d6100; --soft:#f4f8ec; --pa:#eef2fb; --pa-ink:#2c4a8a; }
   * { box-sizing: border-box; }
-  body { font-family: "Helvetica Neue", Arial, sans-serif; color: var(--ink); font-size: 9.6pt; line-height: 1.38; margin: 0; background:#fff; }
-  .eyebrow { font-size: 8.5pt; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-  h1 { font-size: 21pt; margin: 4px 0 4px; }
-  .lede { font-size: 11pt; color: var(--muted); margin: 0 0 10px; }
-  h2 { font-size: 11pt; margin: 12px 0 5px; padding-bottom: 3px; border-bottom: 2px solid var(--accent); }
-  p { margin: 0 0 6px; }
-  ul { margin: 0 0 6px; padding-left: 16px; }
-  li { margin-bottom: 2px; }
-  table { width: 100%; border-collapse: collapse; font-size: 9pt; margin: 4px 0 6px; }
-  th, td { text-align: left; padding: 4px 5px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { font-size: 8pt; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: var(--ink); font-size: 9.5pt; line-height: 1.36; margin: 0; background:#fff; }
+  .eyebrow { font-size: 8.3pt; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  h1 { font-size: 20pt; margin: 4px 0 3px; }
+  .lede { font-size: 10.5pt; color: var(--muted); margin: 0 0 8px; }
+  h2 { font-size: 11pt; margin: 10px 0 5px; padding-bottom: 3px; border-bottom: 2px solid var(--accent); }
+  p { margin: 0 0 5px; }
+  ul { margin: 0 0 5px; padding-left: 16px; }
+  li { margin-bottom: 1px; }
+  table { width: 100%; border-collapse: collapse; font-size: 8.9pt; margin: 3px 0 6px; }
+  th, td { text-align: left; padding: 3px 5px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 7.8pt; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
   td.n, th.n { text-align: center; white-space: nowrap; }
   tr.win td { background: var(--soft); font-weight: 700; }
-  .card { border: 1px solid var(--line); border-radius: 6px; padding: 9px 12px; margin-bottom: 9px; break-inside: avoid; }
+  .card { border: 1px solid var(--line); border-radius: 6px; padding: 8px 11px; margin-bottom: 8px; break-inside: avoid; }
   .card.top { border: 2px solid var(--accent); }
-  .head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
-  .head h3 { margin: 0; font-size: 12pt; }
-  .score { font-weight: 700; color: var(--accent-ink); font-size: 11pt; }
-  .pill { display: inline-block; font-size: 7.8pt; padding: 1px 7px; border-radius: 10px; background: #eef0f4; color: var(--muted); margin-right: 4px; }
-  .pill.g { background: var(--soft); color: var(--accent-ink); }
-  .one { font-weight: 600; margin: 4px 0 5px; }
-  .cols { display: grid; grid-template-columns: 1.25fr 1fr; gap: 12px; }
-  .lbl { font-size: 8pt; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 2px 0 1px; }
-  .rec { background: var(--soft); border-left: 4px solid var(--accent); padding: 8px 11px; margin: 8px 0; }
-  .muted { color: var(--muted); font-size: 8.6pt; }
+  .head { display: flex; justify-content: space-between; align-items: baseline; }
+  .head h3 { margin: 0; font-size: 11.5pt; }
+  .score { font-weight: 700; color: var(--accent-ink); font-size: 10.5pt; }
+  .pill { display: inline-block; font-size: 7.6pt; padding: 1px 7px; border-radius: 10px; background: var(--soft); color: var(--accent-ink); margin: 2px 4px 0 0; }
+  .pill.pa { background: var(--pa); color: var(--pa-ink); }
+  .pill.f { background: #eef0f4; color: var(--muted); }
+  .one { font-weight: 600; margin: 4px 0 4px; }
+  .cols { display: grid; grid-template-columns: 1.3fr 1fr; gap: 12px; }
+  .lbl { font-size: 7.8pt; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 1px 0 1px; }
+  .rec { background: var(--soft); border-left: 4px solid var(--accent); padding: 7px 11px; margin: 6px 0 8px; }
+  .muted { color: var(--muted); font-size: 8.5pt; }
 </style>
 </head>
 <body>
 
 <div class="eyebrow">Nebius × NVIDIA Global AI Hackathon · Ish + co-founder · Deadline Oct 30, 10 AM PT</div>
-<h1>Final picks: 4 ideas, 4 different worlds</h1>
-<p class="lede">Out of 25+ ideas, here are the four strongest, each for a different kind of user: small businesses, the web, classrooms and families. All four run on NVIDIA Nemotron models via Nebius Token Factory.</p>
+<h1>Top 5 ideas: Apps &amp; Agents + Personal AI</h1>
+<p class="lede">Only the two tracks that suit us: product and design-led, light on heavy engineering. Five different fields, five different users. All run on NVIDIA Nemotron via Nebius Token Factory.</p>
 
-<h2 style="margin-top:4px">At a glance (scored /60)</h2>
-<p class="muted">Each scored 1-10 on: Easy to build in 2 weeks · Real pain · Easy to explain · Stands out · Design showcase (design is 25% of judging) · Fit with Nebius/NVIDIA + Tavily bonus prize.</p>
+<h2 style="margin-top:2px">Ranking (scored /60)</h2>
+<p class="muted">1-10 each on: <b>Light build</b> (how little heavy engineering it needs) · Real pain · Easy to explain · Stands out · Design showcase (25% of judging) · <b>Track fit</b> (matches what the track brief asks for).</p>
 <table>
-  <thead><tr><th>Pick</th><th>Field</th><th>Who it's for</th><th class="n">Build</th><th class="n">Pain</th><th class="n">Explain</th><th class="n">Stand-out</th><th class="n">Design</th><th class="n">Fit</th><th class="n">Total</th></tr></thead>
+  <thead><tr><th>#</th><th>Idea</th><th>Track</th><th>Field</th><th class="n">Light build</th><th class="n">Pain</th><th class="n">Explain</th><th class="n">Stand-out</th><th class="n">Design</th><th class="n">Track fit</th><th class="n">Total</th></tr></thead>
   <tbody>
-    <tr class="win"><td>1. Mentioned</td><td>Small business</td><td>Local shops &amp; services</td><td class="n">9</td><td class="n">8</td><td class="n">10</td><td class="n">9</td><td class="n">9</td><td class="n">10</td><td class="n">55</td></tr>
-    <tr><td>2. Curb Cut</td><td>Accessibility / web</td><td>Website owners, disabled users</td><td class="n">8</td><td class="n">8</td><td class="n">9</td><td class="n">8</td><td class="n">7</td><td class="n">8</td><td class="n">48</td></tr>
-    <tr><td>3. Misconception Map</td><td>Education</td><td>Teachers</td><td class="n">6</td><td class="n">8</td><td class="n">10</td><td class="n">9</td><td class="n">8</td><td class="n">6</td><td class="n">47</td></tr>
-    <tr><td>4. Caregiver Log</td><td>Health / family</td><td>People caring for a parent</td><td class="n">6</td><td class="n">9</td><td class="n">9</td><td class="n">7</td><td class="n">7</td><td class="n">5</td><td class="n">43</td></tr>
+    <tr class="win"><td>1</td><td>Mentioned</td><td>Apps &amp; Agents</td><td>Small business</td><td class="n">9</td><td class="n">8</td><td class="n">10</td><td class="n">9</td><td class="n">9</td><td class="n">9</td><td class="n">54</td></tr>
+    <tr><td>2</td><td>Misconception Map</td><td>Apps &amp; Agents</td><td>Education</td><td class="n">7</td><td class="n">8</td><td class="n">10</td><td class="n">9</td><td class="n">9</td><td class="n">8</td><td class="n">51</td></tr>
+    <tr><td>3</td><td>Caregiver Log</td><td>Personal AI</td><td>Health / family</td><td class="n">6</td><td class="n">9</td><td class="n">9</td><td class="n">8</td><td class="n">8</td><td class="n">8</td><td class="n">48</td></tr>
+    <tr><td>4</td><td>Life Admin</td><td>Personal AI</td><td>Everyday life</td><td class="n">6</td><td class="n">8</td><td class="n">9</td><td class="n">6</td><td class="n">8</td><td class="n">8</td><td class="n">45</td></tr>
+    <tr><td>5</td><td>Coach's Assistant</td><td>Apps &amp; Agents</td><td>Sports</td><td class="n">8</td><td class="n">7</td><td class="n">9</td><td class="n">7</td><td class="n">8</td><td class="n">6</td><td class="n">45</td></tr>
   </tbody>
 </table>
 
-<div class="rec"><strong>Recommendation: Mentioned.</strong> It's the easiest to build well in two weeks, the most visual (it plays to the co-founder's UI strength), and it uses every part of the Nebius/NVIDIA stack plus Tavily. <strong>If you want the most emotional story instead: Misconception Map.</strong></div>
+<div class="rec"><strong>Recommendation: Mentioned</strong>: lightest build, most visual, and it uses the Apps &amp; Agents stack (Nano/Super/Ultra + Serverless + Tavily) exactly as the brief describes. <strong>Runner-up: Misconception Map</strong>, the most emotional story. <span class="muted">Note: Personal AI picks need NVIDIA's newer agent tools (NemoClaw / OpenShell / Hermes Agent), which adds learning time.</span></div>
 
 <div class="card top">
-  <div class="head"><h3>1 · Mentioned</h3><span class="score">55 / 60</span></div>
-  <span class="pill g">Small business</span><span class="pill">Best Apps &amp; Agents track</span>
+  <div class="head"><h3>1 · Mentioned</h3><span class="score">54 / 60</span></div>
+  <span class="pill">Apps &amp; Agents</span><span class="pill f">Small business</span>
   <p class="one">"Your customers stopped Googling. They ask AI. Does it mention you?"</p>
   <div class="cols">
-    <div>
-      <div class="lbl">How it works</div>
-      <p>Enter a business name, city and type. It asks 25 real customer-style questions ("best bakery near me"), searches the web like an AI assistant, and shows: <strong>"AI mentions you in 3 of 25 answers. It recommends these 4 instead, and here's why."</strong> Then it writes paste-ready fixes and re-checks weekly.</p>
-    </div>
-    <div>
-      <div class="lbl">Why it wins</div>
-      <ul><li>Simplest build: text in, text out</li><li>Timely: AI is replacing search</li><li>Natural subscription business</li></ul>
-      <div class="lbl">Watch out</div>
-      <p>Shows visibility, not sales (yet). SEO incumbents may copy it.</p>
-    </div>
+    <div><div class="lbl">How it works</div>
+      <p>Enter a business name, city and type. It asks 25 customer-style questions, searches the web like an AI assistant, and shows: <b>"AI mentions you in 3 of 25 answers. It recommends these 4 instead, and here's why."</b> Then it writes paste-ready fixes and re-checks weekly.</p></div>
+    <div><div class="lbl">Why</div><ul><li>Text in, text out: simplest build</li><li>Timely, with a clear subscription model</li></ul>
+      <div class="lbl">Watch out</div><p>Shows visibility, not sales. SEO tools may copy it.</p></div>
   </div>
 </div>
 
 <div class="card">
-  <div class="head"><h3>2 · Curb Cut</h3><span class="score">48 / 60</span></div>
-  <span class="pill g">Accessibility / web</span><span class="pill">Coding &amp; Agentic track</span>
-  <p class="one">"Point it at any website. It fixes what blind and disabled visitors can't use, and proves it."</p>
-  <div class="cols">
-    <div>
-      <div class="lbl">How it works</div>
-      <p>It runs an accessibility audit, then the AI rewrites the actual website code: describes images for screen readers, labels buttons, fixes contrast. It <strong>re-runs the audit to prove each fix</strong>, then hands over the changes. Demo: score 54 → 96, plus a screen reader before and after.</p>
-    </div>
-    <div>
-      <div class="lbl">Why it wins</div>
-      <ul><li>Measurable, can't-fake result</li><li>Real social and legal impact</li><li>Matches the Coding track brief exactly</li></ul>
-      <div class="lbl">Watch out</div>
-      <p>Most crowded track; less visual for the designer.</p>
-    </div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="head"><h3>3 · Misconception Map</h3><span class="score">47 / 60</span></div>
-  <span class="pill g">Education</span><span class="pill">Best Apps &amp; Agents track</span>
+  <div class="head"><h3>2 · Misconception Map</h3><span class="score">51 / 60</span></div>
+  <span class="pill">Apps &amp; Agents</span><span class="pill f">Education</span>
   <p class="one">"Grading tells a teacher who got it wrong. This tells them why."</p>
   <div class="cols">
-    <div>
-      <div class="lbl">How it works</div>
-      <p>A teacher uploads a class set of quiz answers. The AI groups wrong answers by the misunderstanding behind them, e.g. <strong>"11 students think 1/3 is bigger than 1/2 because 3 is bigger than 2"</strong>, and writes a 10-minute reteach plan plus practice questions for each group.</p>
-    </div>
-    <div>
-      <div class="lbl">Why it wins</div>
-      <ul><li>Most creative and human story</li><li>Not another tutor chatbot</li><li>Weekly use, huge audience</li></ul>
-      <div class="lbl">Watch out</div>
-      <p>Reading handwriting is hard. Start with typed answers and Google Forms exports.</p>
-    </div>
+    <div><div class="lbl">How it works</div>
+      <p>A teacher uploads a class's quiz answers (Google Forms export or photos). The AI groups wrong answers by the misunderstanding behind them, e.g. <b>"11 students think 1/3 &gt; 1/2 because 3 &gt; 2"</b>, and writes a 10-minute reteach plan plus practice questions per group.</p></div>
+    <div><div class="lbl">Why</div><ul><li>Most creative, human story</li><li>Weekly use; not a tutor chatbot</li></ul>
+      <div class="lbl">Watch out</div><p>Handwriting is hard. Start with typed answers.</p></div>
   </div>
 </div>
 
 <div class="card">
-  <div class="head"><h3>4 · Caregiver Log</h3><span class="score">43 / 60</span></div>
-  <span class="pill g">Health / family</span><span class="pill">Personal AI track</span>
+  <div class="head"><h3>3 · Caregiver Log</h3><span class="score">48 / 60</span></div>
+  <span class="pill pa">Personal AI</span><span class="pill f">Health / family</span>
   <p class="one">"Talk for 30 seconds a day about Mom. Walk into the doctor's office with the whole picture."</p>
   <div class="cols">
-    <div>
-      <div class="lbl">How it works</div>
-      <p>A family caregiver leaves short voice notes ("slept badly, skipped lunch, a bit confused"). The assistant tracks patterns over weeks, flags changes worth mentioning, and writes a <strong>one-page brief for the next doctor visit</strong>. Private by design.</p>
-    </div>
-    <div>
-      <div class="lbl">Why it wins</div>
-      <ul><li>Deepest real-life pain</li><li>Very relatable demo</li><li>Fits the Personal AI track</li></ul>
-      <div class="lbl">Watch out</div>
-      <p>Needs NVIDIA's newer personal-AI tools; health data needs care.</p>
-    </div>
+    <div><div class="lbl">How it works</div>
+      <p>A family caregiver leaves short voice notes ("slept badly, skipped lunch, a bit confused"). A private, always-on assistant remembers everything, spots changes over weeks, and writes a <b>one-page brief for the next doctor visit</b>.</p></div>
+    <div><div class="lbl">Why</div><ul><li>Deepest real-life pain</li><li>Exactly the Personal AI brief: memory + privacy</li></ul>
+      <div class="lbl">Watch out</div><p>New NVIDIA agent tools to learn; health data needs care.</p></div>
   </div>
 </div>
+
+<div class="card">
+  <div class="head"><h3>4 · Life Admin</h3><span class="score">45 / 60</span></div>
+  <span class="pill pa">Personal AI</span><span class="pill f">Everyday life</span>
+  <p class="one">"Never miss a return window, renewal or warranty again."</p>
+  <div class="cols">
+    <div><div class="lbl">How it works</div>
+      <p>It reads your receipts and confirmation emails, then keeps one timeline of every deadline: returns closing, subscriptions renewing, passport or licence expiring, warranties you can still claim. It nudges you in time and <b>drafts the cancel / return / renew message</b> for you.</p></div>
+    <div><div class="lbl">Why</div><ul><li>Everyone has this problem</li><li>Uses memory + skills + tools, as the track asks</li></ul>
+      <div class="lbl">Watch out</div><p>Needs email access; less novel.</p></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="head"><h3>5 · Coach's Assistant</h3><span class="score">45 / 60</span></div>
+  <span class="pill">Apps &amp; Agents</span><span class="pill f">Sports</span>
+  <p class="one">"For the volunteer coach: talk after the game, get the practice plan and the parent update."</p>
+  <div class="cols">
+    <div><div class="lbl">How it works</div>
+      <p>After a youth or amateur game, the coach records a 2-minute voice note and adds the basic stats. The agent tracks each player's progress over the season and writes <b>next practice's plan, each player's focus area, and the weekly parent email</b>.</p></div>
+    <div><div class="lbl">Why</div><ul><li>Light build, fun demo</li><li>Huge, overlooked audience of volunteer coaches</li></ul>
+      <div class="lbl">Watch out</div><p>Lower "impact" score with judges than health or education.</p></div>
+  </div>
+</div>
+
+<p class="muted">Also considered: Shop Brain (owner's know-how → staff training app, 46/60). Left out to avoid a second small-business idea.</p>
 
 </body>
 </html>
