@@ -1,132 +1,110 @@
-# NVDA Hackathon: Ideation v2 (from scratch)
+# NVDA Hackathon: Ideation v3 (broad sweep)
 
 **Event:** Nebius x NVIDIA Global AI Hackathon (Devpost)
 **Deadline:** Oct 30, 2026, 10:00 AM PT (from search results quoting Devpost; verify on the site)
 **Status:** ideation only. No code until the idea is locked.
 
-## 0. Why v1 (Receipts) was dropped
+## 0. What went wrong in v1 and v2
+- **v1 (Receipts, a finance claim auditor):** clever, but nobody would use it weekly.
+- **v2 (Invoice Watch):** practical, but 4 of the top 5 were the *same pattern*: read a document, find a discrepancy, draft a letter to recover money. That was anchoring, not a broad search.
 
-Receipts was clever but failed the "who uses this every week?" test. Checking a finfluencer claim is something people *should* do but almost never *would* do. Judges score **Potential Impact** and **Quality of Idea**, and a clever tool without a recurring pain loses both.
+## 1. Method for v3
+I swept **12 domains**, and for each one asked which *interaction pattern* fits best, so the shortlist covers different shapes, not five versions of one. The patterns:
+- **Write-run-test** (code that proves itself)
+- **Vision** (photos and handwriting)
+- **Voice** (spoken notes)
+- **Background agent** (watches and acts)
+- **Research** (live web)
 
-## 1. New filter: every idea must pass all five
+Filter for every idea:
+- A named user with a recurring pain
+- Explainable in one sentence
+- A visible outcome on screen
+- Not cliché
+- Shippable solo by Oct 28 on Token Factory + Nemotron with a hosted URL
 
-1. **A real person, a real recurring pain.** The user can be named ("a restaurant owner", "a renter"), and the problem shows up weekly or monthly.
-2. **Explainable in one sentence** to a non-technical judge.
-3. **Money or time recovered is visible on screen** ("found $412").
-4. **Niche, not cliché.** Not a chatbot, RAG-over-docs, tutor, meeting summarizer, or resume tool.
-5. **Shippable solo in about 12 days** on Token Factory + Nemotron, with a hosted demo URL.
+## 2. Broad longlist (24 ideas, 12 domains)
 
-## 2. Official rules that shape the idea (from Devpost text)
-
-- Must run on **Nebius Token Factory or AI Cloud** and use **≥1 NVIDIA open model** (Nemotron).
-- **Best Apps & Agents** track explicitly wants: Nemotron 3 **Ultra** for heavy reasoning, **Nano/Super** for fast calls, and optionally **Serverless Endpoints** (app) and **Serverless Jobs** (background work).
-- **Personal AI** track expects NemoClaw / OpenShell / Hermes Agent tooling. These are new to us, so that track is riskier.
-- Required: working **demo URL**, public **YouTube video ≤3 min** showing Token Factory + Nemotron, **public repo with OSS license**, README with Nemotron/Token Factory/Nebius usage, **feedback**, and a disclosure of any pre-existing code.
-- Judging (equal weight): Technological Implementation · Design · Potential Impact · Quality of Idea.
-
-## 3. Longlist (fresh)
-
-| # | Idea | Who | One sentence | Verdict |
+| Domain | Idea | Pattern | One sentence | Verdict |
 |---|---|---|---|---|
-| A | **Invoice Watch** | Independent restaurant / café owner | Snap your supplier invoices; it catches price creep, short shipments and billing errors, and writes the credit request. | ✅ Top 5 |
-| B | **Deposit Defender** | Renters | Walk-through photos at move-in and move-out; it builds the evidence pack and the letter to get your deposit back. | ✅ Top 5 |
-| C | **Sheet Lint** | Anyone running a business on spreadsheets | A linter for spreadsheets: it writes and runs checks that find hard-coded overrides, broken ranges and double-counts. | ✅ Top 5 |
-| D | **Money Left Behind** | Busy households | Reads your receipts and finds return windows, price drops and warranty claims you're about to miss. | ✅ Top 5 |
-| E | **Grant Scout** | 1-5 person nonprofits | Finds grants you actually qualify for this month and pre-drafts the application. | ✅ Top 5 |
-| F | Finance claim auditor (old v1 pick, Receipts) | Retail investors | Turns finance claims into backtests. | ❌ low recurring use |
-| G | Job-site safety spotter from photos | Small contractors | Flags safety violations in site photos. | ❌ liability, hard to verify |
-| H | Parking-ticket contester | Drivers | Drafts parking-ticket appeals. | ❌ DoNotPay did it, and it went badly |
-| I | Insurance denial appeals (old #2, Denied) | Patients | Drafts appeals for denied health-insurance claims. | ❌ already exists as open source; private data |
-| J | Freelancer late-invoice chaser | Freelancers | Sends escalating reminders for unpaid invoices. | ❌ useful but low tech showcase |
-| K | School-email digest for parents | Parents | Digests school emails for parents. | ❌ Personal-AI cliché |
-| L | Rec-league stat keeper from phone video | Amateur sports | Keeps stats from phone video. | ❌ video pipeline too hard in 12 days |
+| **Accessibility** | **Curb Cut** | write-run-test | Point it at your website; it finds accessibility failures, fixes the source code, and proves the fix by re-running the audit. | ✅ |
+| Accessibility | "Explain this letter" in your language | vision + voice | Explains official letters in the reader's own language. | ❌ done often |
+| **Education** | **Misconception Map** | vision | Snap a class set of quiz answers; it groups wrong answers by the *misunderstanding* behind them and writes tomorrow's reteach plan. | ✅ |
+| Education | AI tutor | chat | A chat tutor. | ❌ cliché |
+| **Health / care** | **Caregiver Log** | voice + background | A family caregiver talks for 30 seconds a day; it spots patterns (sleep, falls, missed meds) and writes a one-page brief for the next doctor visit. | ✅ |
+| Health | Insurance denial appeals | document | Drafts appeals for denied claims. | ❌ already exists |
+| Health | Physio form-checker via webcam | real-time vision | Checks exercise form on camera. | ❌ real-time reliability risk |
+| **Small business** | Invoice Watch (v2 pick) | vision + document | Catches supplier overcharges on invoices. | ✅ kept as benchmark |
+| Small business | Sheet Lint (spreadsheet linter) | write-run-test | Finds errors in business spreadsheets. | ❌ less emotional |
+| **Dev tools** | Flaky Test Hunter | write-run-test | Runs the suite repeatedly, isolates flaky tests, finds the root cause. | ⚠️ judges are devs, but narrow impact |
+| Dev tools | Dependency-upgrade agent | write-run-test | Upgrades a library and fixes what breaks. | ❌ crowded (Dependabot, Copilot) |
+| **Civic** | 311 Fix-it | vision + research | Photo of a pothole or broken light → right agency, filled form, follow-up tracked. | ⚠️ |
+| Civic | City-council watcher | research | Alerts you when council agendas affect you. | ❌ messy data |
+| **Personal finance** | Trade-journal coach (uses your `habibi` trades) | background | Reads your trade log and names the habit that costs you money. | ⚠️ small audience |
+| Personal finance | Finance claim auditor (v1 pick, Receipts) | write-run-test | Turns finance claims into backtests. | ❌ low recurring use |
+| **Sports** | Youth-coach scouting reports from box scores | research | Writes scouting reports from public box scores. | ❌ thin data |
+| Sports | Rec-league stats from phone video | video | Keeps stats from phone video. | ❌ too hard in 12 days |
+| **Housing** | Deposit Defender | vision | Builds the evidence pack to get a rental deposit back. | ❌ same document pattern, used once per move |
+| **Climate / energy** | Utility bill + rebate stacker | document | Finds energy rebates from your utility bill. | ❌ same document pattern |
+| Climate | Home energy waste finder | data | Spots what's wasting power at home. | ❌ needs smart-meter data |
+| **Research / science** | Paper figure → data → re-plot | vision + code | Pulls data out of paper figures and re-plots it. | ❌ too niche |
+| **Work / ops** | SOP from screen recording | video | Turns a screen recording into a written procedure. | ❌ video pipeline too heavy |
+| **Personal AI** | Promise tracker ("you told Sam you'd send X") | background | Tracks commitments you made in your messages. | ⚠️ needs private message access |
+| **Physical AI** | Anything | sim/hardware | Robotics or sensor projects. | ❌ no hardware or time |
 
-## 4. Top 5 scored (1-10 each, /60)
+## 3. Top 5 across different patterns (1-10 each, /60)
 
-**Feasibility** = shippable solo by Oct 28 · **Real pain** = how often and how badly it hurts · **Explain** = one-sentence clarity · **Stand-out** = memorable among ~hundreds · **Tech** = makes Nemotron tiers, Token Factory and Serverless do real work · **Demo** = lands in 3 min
+| Idea | Pattern | Feasibility | Real pain | Explain | Stand-out | Tech | Demo | **Total** |
+|---|---|---|---|---|---|---|---|---|
+| **Curb Cut** (a11y fixer) | write-run-test | 8 | 8 | 9 | 8 | **10** | 9 | **52** |
+| Invoice Watch | vision + document | 8 | 9 | 9 | 8 | 8 | 9 | **51** |
+| **Misconception Map** | vision | 7 | 8 | **10** | **9** | 7 | 9 | **50** |
+| Caregiver Log | voice + background | 6 | **9** | 9 | 7 | 6 | 7 | **44** |
+| 311 Fix-it | vision + research | 7 | 6 | 9 | 6 | 6 | 7 | **41** |
 
-| Idea | Feasibility | Real pain | Explain | Stand-out | Tech | Demo | **Total** |
-|---|---|---|---|---|---|---|---|
-| **A. Invoice Watch** | 8 | **9** | **9** | 8 | 8 | **9** | **51** |
-| B. Deposit Defender | 7 | 8 | **10** | 8 | 7 | 9 | **49** |
-| C. Sheet Lint | 8 | 7 | 9 | 7 | **9** | 7 | **47** |
-| D. Money Left Behind | 6 | 7 | 9 | 6 | 6 | 7 | **41** |
-| E. Grant Scout | 8 | 7 | 8 | 5 | 6 | 6 | **40** |
-| *(old) Receipts* | 8 | 4 | 6 | 8 | 9 | 8 | *43* |
+The top three are within 2 points of each other, so the scores alone don't decide. Here's the honest case for each.
 
-**B. Deposit Defender (49).** Easiest to explain of all ("get your deposit back"). The risk is that the vision model has to spot real damage differences between two photo sets reliably. If it misses a scratch on camera, the demo dies. It also gets used once per move, not weekly.
+### Curb Cut: accessibility fixer that proves its fixes (52)
+- **User:** web devs, agencies and small businesses. Many sites fail basic accessibility checks, which locks out people with disabilities and creates legal exposure (ADA demand letters are common in the US).
+- **What it does:**
+  1. Crawls the site and runs an automated accessibility audit (axe-core) in a sandbox.
+  2. Nemotron writes source-level fixes: alt text from the actual image, labels, contrast, focus order, ARIA.
+  3. Re-runs the audit to *prove* each fix, then opens a PR.
+- **Why it stands out:** today's "AI accessibility" market is mostly overlay widgets that critics say don't really fix anything. Curb Cut **fixes the code itself and proves it**. The name comes from the curb-cut effect: accessibility helps everyone.
+- **Stack fit:** this is word for word what the Coding track asks for ("write, run, and test code"):
+  - Nano VL writes alt text from the actual images.
+  - Super writes the code fixes.
+  - Ultra reviews the diff.
+  - Serverless Jobs runs the crawls.
+- **Demo:** score 54 → 96, then a screen reader reading a page that was gibberish before and makes sense after.
+- **Risk:** the Coding track is the most crowded. Complex JavaScript frameworks are harder to fix, so the demo targets static or React sites.
 
-**C. Sheet Lint (47).** Best tech fit (it's literally "agents that write, run and test code"), and spreadsheet errors are a well-documented, expensive problem. But "your cell B14 is hard-coded" is less emotional on screen, and the Coding track is the most crowded.
+### Misconception Map: for teachers (50)
+- **User:** K-12 teachers, every week. Grading tells a teacher *who* got it wrong, not *why*.
+- **What it does:**
+  1. The teacher photographs or uploads a class set of answers (handwritten or a Google Forms export).
+  2. The model groups wrong answers by underlying misconception, e.g. "11 students think 1/3 > 1/2 because 3 > 2".
+  3. It writes a 10-minute reteach plan and 3 targeted practice questions per group.
+- **Why it stands out:** it's the most creative and most human of the set, it is not a tutor chatbot, and the teacher stays in charge.
+- **Risk:** reading handwriting is the hardest technical part. Mitigation: support typed and Forms exports first, handwriting second. Real student data needs care, so demo with synthetic quizzes.
 
-**D. Money Left Behind (41).** A clear pain, but it needs email/receipt access and retailer policy data that varies by store. Too much plumbing for the time we have.
+### Invoice Watch: restaurant supplier leaks (51)
+- Still a strong option. It's the most practical and has the clearest dollar figure, but it's the least exciting to engineers judging tech.
 
-**E. Grant Scout (40).** Practical, but it looks like a search-and-summarize app. Low stand-out.
+## 4. Recommendation
+**Curb Cut** if you want the best mix of **feasible + technically impressive + real impact**. The proof loop (audit → fix → re-audit) is deterministic, so the demo can't be faked or fall apart, and it matches the track brief exactly.
 
-## 5. The pick: **Invoice Watch** (working name)
+**Misconception Map** if you want the most **creative and emotional** story and are OK with handwriting risk.
 
-> **"Your suppliers raise prices a little at a time. Snap the invoice. We catch it and get your money back."**
+## 5. Decisions needed from you
+1. Curb Cut, Misconception Map, or Invoice Watch? (Or is there a domain you care about that I should dig into further, like sports or healthcare?)
+2. Solo or team?
+3. OK to create a new public repo for the submission?
 
-### The use case, plainly
-An independent restaurant owner receives 10-30 supplier invoices a week (produce, meat, dairy, dry goods). Prices change constantly, and errors happen: a case of tomatoes billed at a new price nobody agreed to, 9 cases delivered but 10 billed, a "fuel surcharge" that wasn't there last month, a contracted price ignored. Owners are too busy to compare line by line, and independent restaurants run on thin margins, so these small leaks matter. **Nobody checks, so nobody gets the money back.**
+Build plan, stack and submission checklist get written once the idea is locked.
 
-### What the user does (30 seconds a day)
-1. Takes a photo of each invoice (or forwards the PDF email).
-2. Gets a weekly "leak report" plus instant alerts on big ones.
-3. Taps **"Send credit request"** to send a pre-written, polite, evidence-backed email to the supplier rep.
-
-### What the agent does
-| Step | Model / service | Job |
-|---|---|---|
-| Read invoice photo/PDF → line items (item, pack size, qty, unit price, fees) | **Nemotron Nano VL/Omni** (multimodal) | Fast extraction, many calls |
-| Normalize items across suppliers and wording ("TOM ROMA 25#" = "Roma tomatoes 25 lb") | **Nemotron Super** | Fuzzy matching against the restaurant's item catalog |
-| Detect leaks: price creep vs. last N invoices or the agreed price list, qty mismatches, new fees, math errors, duplicate invoices | Plain Python rules + **Super** for edge cases | Deterministic checks keep it trustworthy |
-| Explain + prioritize ("$412 this month, 70% from 3 items") and draft the credit request | **Nemotron Ultra** | One heavy reasoning call per report |
-| Nightly reconciliation across all invoices | **Nebius Serverless Jobs** | Background processing |
-| Web app + public demo URL | **Nebius Serverless Endpoints** | Hosting |
-| *(Optional)* "Is this price above market?" check vs. public wholesale prices | Tavily | Extra context, not core |
-
-### Why this one
-- **Real, recurring, painful, and measurable**: the output is a dollar figure.
-- **One-sentence explainable** to any judge, technical or not.
-- **Niche and not cliché.** Most hackathon AI is for knowledge workers; this is for a kitchen.
-- **Uses the stack the way the track text asks**: Nano for volume, Super for matching, Ultra for reasoning, Serverless Jobs + Endpoints. That's straight from the Apps & Agents brief.
-- **Clear demo arc**: drop in 4 weeks of invoices → a line chart of creeping prices → "$412 found" → one-tap credit email.
-- **Extends naturally** to any small business with recurring suppliers (salons, clinics, contractors), which makes a strong "potential impact" slide.
-
-### Risks and mitigations
-| Risk | Mitigation |
-|---|---|
-| Invoice photos are messy | Demo with clean PDFs + 2 real phone photos, and show a correction UI for low-confidence lines. |
-| No real invoices to test on | Generate a realistic synthetic dataset (3 suppliers × 6 weeks, with planted errors). **Best case: ask one local restaurant or café for 3-4 real invoices** (with permission, redacted). That one real data point makes the pitch much stronger. |
-| False alarms annoy users | Thresholds + "why flagged" evidence on every alert. Nothing is sent without the owner's tap. |
-| Item matching errors | A catalog built on first upload, the user confirms matches once, and the system remembers them. |
-
-## 6. Build plan (Oct 16-30)
-
-| Dates | Milestone |
-|---|---|
-| Oct 16 | Lock the idea. Nebius Builder Program sign-up (credits). First Nemotron call on Token Factory. Confirm which Nemotron VL/Omni model is available for image input. |
-| Oct 17-18 | Synthetic invoice dataset with planted errors; (ideally) 3-4 real invoices. |
-| Oct 19-21 | Extraction (Nano VL) → item normalization (Super) → SQLite price history. |
-| Oct 22-23 | Leak detectors + Ultra report + credit-request drafting. **End-to-end works by Oct 23.** |
-| Oct 24-25 | Deploy on Serverless Endpoints; nightly job on Serverless Jobs. **Public URL live.** |
-| Oct 26-27 | UI polish: upload, price-creep chart, leak list, one-tap email. |
-| Oct 28 | Feature freeze. README (setup, Nemotron/Token Factory/Nebius section), LICENSE, `FEEDBACK.md`. |
-| Oct 29 | ≤3-min YouTube video + Devpost text. |
-| **Oct 30, before 10 AM PT** | Submit. |
-
-### Submission checklist
-- [ ] Track: Best Apps & Agents
-- [ ] Description (what / why / how)
-- [ ] Demo URL (Serverless Endpoint)
-- [ ] Public YouTube video ≤3 min showing Token Factory + Nemotron
-- [ ] New public repo with an OSS LICENSE visible at the top (not this profile repo)
-- [ ] README with setup + Nemotron / Token Factory / Nebius usage
-- [ ] Feedback on Token Factory / NVIDIA models
-- [ ] City selection if attending a Builders & Brews event
-
-## 7. Decisions needed from you
-1. Invoice Watch, or the runner-up **Deposit Defender**?
-2. Do you know a restaurant, café or food truck that would share 3-4 invoices?
-3. Solo or team?
-4. OK to create a new public repo for the submission?
+## Appendix: official rules that shape the idea
+- Must run on **Nebius Token Factory or AI Cloud** and use **≥1 NVIDIA open model** (Nemotron).
+- Apps & Agents track wants Ultra for heavy reasoning, Nano/Super for fast calls, and optionally Serverless Endpoints and Jobs. The Coding track wants agents that write, run and test code in Token Factory.
+- Required: working demo URL, public YouTube video ≤3 min showing Token Factory + Nemotron, public repo with an OSS license, README with Nemotron/Token Factory/Nebius usage, feedback, and a disclosure of pre-existing code.
+- Judging (equal weight): Technological Implementation · Design · Potential Impact · Quality of Idea.
