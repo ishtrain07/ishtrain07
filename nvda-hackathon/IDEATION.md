@@ -1,110 +1,135 @@
-# NVDA Hackathon: Ideation v3 (broad sweep)
+# NVDA Hackathon: Final Idea (v4, SME focus)
 
-**Event:** Nebius x NVIDIA Global AI Hackathon (Devpost)
-**Deadline:** Oct 30, 2026, 10:00 AM PT (from search results quoting Devpost; verify on the site)
-**Status:** ideation only. No code until the idea is locked.
+**Event:** Nebius x NVIDIA Global AI Hackathon (Devpost) · **Track:** Best Apps & Agents
+**Deadline:** Oct 30, 2026, 10:00 AM PT (from search results quoting Devpost; verify on the site) · **Internal freeze:** Oct 28
+**Team:** Ish (ML/data, backend, agent pipeline) + co-founder (idea, UX/UI, story, video)
 
-## 0. What went wrong in v1 and v2
-- **v1 (Receipts, a finance claim auditor):** clever, but nobody would use it weekly.
-- **v2 (Invoice Watch):** practical, but 4 of the top 5 were the *same pattern*: read a document, find a discrepancy, draft a letter to recover money. That was anchoring, not a broad search.
+## 1. Constraints we're optimizing for
+1. **Helps SMEs** (small and medium businesses).
+2. **Easy to implement:** no OCR, no telephony, no hardware, no private data access.
+3. **Design is 25% of the score**, and the co-founder is a UI person, so pick something whose value *shows* in an interface.
+4. Explainable to a non-technical judge in one sentence.
+5. Uses the stack the way the brief asks: Nemotron **Nano/Super for fast calls, Ultra for heavy reasoning**, **Serverless Endpoints/Jobs**, plus **Tavily** (bonus prize).
 
-## 1. Method for v3
-I swept **12 domains**, and for each one asked which *interaction pattern* fits best, so the shortlist covers different shapes, not five versions of one. The patterns:
-- **Write-run-test** (code that proves itself)
-- **Vision** (photos and handwriting)
-- **Voice** (spoken notes)
-- **Background agent** (watches and acts)
-- **Research** (live web)
+## 2. SME sweep (by business function, not by document type)
 
-Filter for every idea:
-- A named user with a recurring pain
-- Explainable in one sentence
-- A visible outcome on screen
-- Not cliché
-- Shippable solo by Oct 28 on Token Factory + Nemotron with a hosted URL
-
-## 2. Broad longlist (24 ideas, 12 domains)
-
-| Domain | Idea | Pattern | One sentence | Verdict |
+| Function | Idea | One sentence | Easy? | Verdict |
 |---|---|---|---|---|
-| **Accessibility** | **Curb Cut** | write-run-test | Point it at your website; it finds accessibility failures, fixes the source code, and proves the fix by re-running the audit. | ✅ |
-| Accessibility | "Explain this letter" in your language | vision + voice | Explains official letters in the reader's own language. | ❌ done often |
-| **Education** | **Misconception Map** | vision | Snap a class set of quiz answers; it groups wrong answers by the *misunderstanding* behind them and writes tomorrow's reteach plan. | ✅ |
-| Education | AI tutor | chat | A chat tutor. | ❌ cliché |
-| **Health / care** | **Caregiver Log** | voice + background | A family caregiver talks for 30 seconds a day; it spots patterns (sleep, falls, missed meds) and writes a one-page brief for the next doctor visit. | ✅ |
-| Health | Insurance denial appeals | document | Drafts appeals for denied claims. | ❌ already exists |
-| Health | Physio form-checker via webcam | real-time vision | Checks exercise form on camera. | ❌ real-time reliability risk |
-| **Small business** | Invoice Watch (v2 pick) | vision + document | Catches supplier overcharges on invoices. | ✅ kept as benchmark |
-| Small business | Sheet Lint (spreadsheet linter) | write-run-test | Finds errors in business spreadsheets. | ❌ less emotional |
-| **Dev tools** | Flaky Test Hunter | write-run-test | Runs the suite repeatedly, isolates flaky tests, finds the root cause. | ⚠️ judges are devs, but narrow impact |
-| Dev tools | Dependency-upgrade agent | write-run-test | Upgrades a library and fixes what breaks. | ❌ crowded (Dependabot, Copilot) |
-| **Civic** | 311 Fix-it | vision + research | Photo of a pothole or broken light → right agency, filled form, follow-up tracked. | ⚠️ |
-| Civic | City-council watcher | research | Alerts you when council agendas affect you. | ❌ messy data |
-| **Personal finance** | Trade-journal coach (uses your `habibi` trades) | background | Reads your trade log and names the habit that costs you money. | ⚠️ small audience |
-| Personal finance | Finance claim auditor (v1 pick, Receipts) | write-run-test | Turns finance claims into backtests. | ❌ low recurring use |
-| **Sports** | Youth-coach scouting reports from box scores | research | Writes scouting reports from public box scores. | ❌ thin data |
-| Sports | Rec-league stats from phone video | video | Keeps stats from phone video. | ❌ too hard in 12 days |
-| **Housing** | Deposit Defender | vision | Builds the evidence pack to get a rental deposit back. | ❌ same document pattern, used once per move |
-| **Climate / energy** | Utility bill + rebate stacker | document | Finds energy rebates from your utility bill. | ❌ same document pattern |
-| Climate | Home energy waste finder | data | Spots what's wasting power at home. | ❌ needs smart-meter data |
-| **Research / science** | Paper figure → data → re-plot | vision + code | Pulls data out of paper figures and re-plots it. | ❌ too niche |
-| **Work / ops** | SOP from screen recording | video | Turns a screen recording into a written procedure. | ❌ video pipeline too heavy |
-| **Personal AI** | Promise tracker ("you told Sam you'd send X") | background | Tracks commitments you made in your messages. | ⚠️ needs private message access |
-| **Physical AI** | Anything | sim/hardware | Robotics or sensor projects. | ❌ no hardware or time |
+| **Getting found** | **Mentioned** | Customers now ask AI "who's the best X near me?" It checks whether AI recommends you, shows who it recommends instead and why, and writes the fixes. | ✅ API calls only | 🏆 **PICK** |
+| Getting found | Google Business Profile optimizer | Improves your Google listing. | ✅ | ❌ classic SEO, commodity |
+| Sales | Missed-call → text-back → booking for trades | Texts back missed callers and books the job. | ❌ telephony | ❌ |
+| Sales | Voice-to-quote for tradespeople | Turns a spoken job description into a quote. | ✅ | ⚠️ useful but small |
+| Sales | Tender Scout: public contracts matched + drafted | Finds public tenders that fit you and drafts the response. | ⚠️ messy per-country data | ⚠️ |
+| Customer | Review auto-responder | Writes replies to reviews. | ✅ | ❌ cliché |
+| Customer | Mystery-shopper agent tests your own inbox/chat | Contacts your business as a customer and scores the response. | ⚠️ | ❌ niche |
+| Operations | Shop Brain: owner talks, it becomes SOPs and a training app | Turns what's in the owner's head into a training manual. | ⚠️ speech + UI heavy | 🥈 runner-up |
+| Operations | Reorder / dead-stock agent from POS export | Tells a small retailer what to reorder and what to discount. | ✅ | ❌ low stand-out |
+| Compliance | Licence and filing deadline calendar | Lists every filing and renewal deadline for your business. | ⚠️ accuracy is risky | ❌ |
+| Compliance | Kitchen health-inspection pre-check from photos | Flags likely violations before the inspector does. | ⚠️ vision reliability | ❌ |
+| Finance | Invoice Watch (supplier overcharges) | Catches suppliers overcharging. | ⚠️ OCR | ❌ less UI-driven, OCR risk |
+| Finance | Cash-flow forecaster from bank CSV | Forecasts cash from bank exports. | ✅ | ❌ commodity |
+| Procurement | Supplier quote comparator | Puts competing quotes side by side. | ⚠️ | ❌ document pattern again |
+| Hiring | Job-post writer and screener | Writes job posts and screens applicants. | ✅ | ❌ cliché |
 
-## 3. Top 5 across different patterns (1-10 each, /60)
+### Final scoring (1-10, /60)
 
-| Idea | Pattern | Feasibility | Real pain | Explain | Stand-out | Tech | Demo | **Total** |
-|---|---|---|---|---|---|---|---|---|
-| **Curb Cut** (a11y fixer) | write-run-test | 8 | 8 | 9 | 8 | **10** | 9 | **52** |
-| Invoice Watch | vision + document | 8 | 9 | 9 | 8 | 8 | 9 | **51** |
-| **Misconception Map** | vision | 7 | 8 | **10** | **9** | 7 | 9 | **50** |
-| Caregiver Log | voice + background | 6 | **9** | 9 | 7 | 6 | 7 | **44** |
-| 311 Fix-it | vision + research | 7 | 6 | 9 | 6 | 6 | 7 | **41** |
+| Idea | Easy to build | SME pain | Explain | Stand-out | Design showcase | Stack + Tavily fit | **Total** |
+|---|---|---|---|---|---|---|---|
+| **Mentioned** | **9** | 8 | **10** | **9** | **9** | **10** | **55** |
+| Shop Brain | 6 | 8 | 9 | 7 | 9 | 7 | 46 |
+| Invoice Watch | 6 | 9 | 9 | 8 | 6 | 7 | 45 |
+| Tender Scout | 6 | 7 | 8 | 7 | 6 | 9 | 43 |
+| Voice-to-quote | 8 | 7 | 9 | 5 | 7 | 6 | 42 |
 
-The top three are within 2 points of each other, so the scores alone don't decide. Here's the honest case for each.
+## 3. ✅ COMMITTED: **Mentioned** (working name)
 
-### Curb Cut: accessibility fixer that proves its fixes (52)
-- **User:** web devs, agencies and small businesses. Many sites fail basic accessibility checks, which locks out people with disabilities and creates legal exposure (ADA demand letters are common in the US).
-- **What it does:**
-  1. Crawls the site and runs an automated accessibility audit (axe-core) in a sandbox.
-  2. Nemotron writes source-level fixes: alt text from the actual image, labels, contrast, focus order, ARIA.
-  3. Re-runs the audit to *prove* each fix, then opens a PR.
-- **Why it stands out:** today's "AI accessibility" market is mostly overlay widgets that critics say don't really fix anything. Curb Cut **fixes the code itself and proves it**. The name comes from the curb-cut effect: accessibility helps everyone.
-- **Stack fit:** this is word for word what the Coding track asks for ("write, run, and test code"):
-  - Nano VL writes alt text from the actual images.
-  - Super writes the code fixes.
-  - Ultra reviews the diff.
-  - Serverless Jobs runs the crawls.
-- **Demo:** score 54 → 96, then a screen reader reading a page that was gibberish before and makes sense after.
-- **Risk:** the Coding track is the most crowded. Complex JavaScript frameworks are harder to fix, so the demo targets static or React sites.
+> **"Your customers stopped Googling. They ask AI. Does it mention you?"**
 
-### Misconception Map: for teachers (50)
-- **User:** K-12 teachers, every week. Grading tells a teacher *who* got it wrong, not *why*.
-- **What it does:**
-  1. The teacher photographs or uploads a class set of answers (handwritten or a Google Forms export).
-  2. The model groups wrong answers by underlying misconception, e.g. "11 students think 1/3 > 1/2 because 3 > 2".
-  3. It writes a 10-minute reteach plan and 3 targeted practice questions per group.
-- **Why it stands out:** it's the most creative and most human of the set, it is not a tutor chatbot, and the teacher stays in charge.
-- **Risk:** reading handwriting is the hardest technical part. Mitigation: support typed and Forms exports first, handwriting second. Real student data needs care, so demo with synthetic quizzes.
+### The problem
+Discovery is shifting from a list of 10 blue links to **one AI answer**: "best bakery in Leslieville", "emergency plumber near me open now", "affordable physio in Brampton that takes walk-ins". An AI answer names 3-5 businesses, and **if you're not one of them, you don't exist**.
+- Big brands pay for enterprise "AI visibility" tools. A bakery, plumber or dental clinic has no idea whether AI recommends them, or why not.
+- What AI answers draw on is often fixable: missing hours, no menu or prices online, no FAQ, thin reviews, no structured data, inconsistent name/address. SMEs just can't see it.
 
-### Invoice Watch: restaurant supplier leaks (51)
-- Still a strong option. It's the most practical and has the clearest dollar figure, but it's the least exciting to engineers judging tech.
+### What the owner does (2 minutes)
+1. Enters **business name + city + category** (and their website, optional).
+2. Watches a live scan: "Asking 25 customer questions the way your customers ask them…"
+3. Gets a **Visibility Score**, a **competitor leaderboard**, the reasons behind it, and a list of **ready-to-paste fixes**.
+4. Optionally gets a weekly re-check email: "You now appear in 9/25 answers, up from 3."
 
-## 4. Recommendation
-**Curb Cut** if you want the best mix of **feasible + technically impressive + real impact**. The proof loop (audit → fix → re-audit) is deterministic, so the demo can't be faked or fall apart, and it matches the track brief exactly.
+### What the agent does
+| Step | Nebius / NVIDIA piece | Detail |
+|---|---|---|
+| 1. Generate realistic customer questions | **Nemotron Nano** | 25 queries across intents: "best", "cheap", "open now", "kid-friendly", "near [neighbourhood]", "vs [competitor]". |
+| 2. Research the web like an AI assistant does | **Tavily** | Live search per query; collect the sources an AI answer would use. |
+| 3. Simulate the AI answer | **Nemotron Super** | Answer each query from those sources the way an assistant would, naming 3-5 businesses. |
+| 4. Score | Python | Mention rate, rank position, share of voice vs competitors, which queries you win or lose. |
+| 5. Diagnose *why* | **Nemotron Ultra** | Compare your web footprint against the winners: "They list prices and hours, have an FAQ answering 'gluten-free?', and are on 4 directories you're missing." |
+| 6. Write the fixes | **Nemotron Super** | Paste-ready FAQ copy, Google Business description, schema.org JSON-LD, a review-request message for customers, and the directory listings to claim. |
+| 7. Weekly re-scan | **Nebius Serverless Jobs** | Background monitoring with a trend line. |
+| App + demo URL | **Nebius Serverless Endpoints** | FastAPI backend + web UI. |
 
-**Misconception Map** if you want the most **creative and emotional** story and are OK with handwriting risk.
+**The honest framing (an answer for judges):** we don't scrape ChatGPT. We run a *transparent, reproducible AI-search panel*: live web retrieval (Tavily) + an open model (Nemotron) answering the way assistants do. Because it's open and repeatable, a business can see exactly which sources drove each answer. Proprietary assistants can't show you that.
 
-## 5. Decisions needed from you
-1. Curb Cut, Misconception Map, or Invoice Watch? (Or is there a domain you care about that I should dig into further, like sports or healthcare?)
-2. Solo or team?
-3. OK to create a new public repo for the submission?
+### Why this is the one
+- **SME pain that's real and timely:** AI search is reshaping local discovery right now.
+- **Easiest build of all candidates:** text in, text out, API calls, no OCR, phones, video or private data. A working core in ~4 days.
+- **Built for a design-led team:** the scorecard, the competitor leaderboard and "here's what AI says about you" are inherently visual. The co-founder's work *is* the product.
+- **Tavily is load-bearing,** so we're a strong contender for **Best Use of Tavily** on top of the main prizes.
+- **Every Nemotron tier has a real job** (Nano = volume, Super = answers and fixes, Ultra = diagnosis), exactly as the Apps & Agents brief describes.
+- **Demo moment:** type in a real local business → "AI mentions you in **3 of 25** answers. It recommends *these* 4 competitors instead, and here's why" → tap "Fix it" → paste-ready fixes.
 
-Build plan, stack and submission checklist get written once the idea is locked.
+### Risks and mitigations
+| Risk | Mitigation |
+|---|---|
+| "It's just SEO" | It's an agent that *simulates the new channel, explains why, and writes the fixes*. SEO tools rank keywords; this measures whether AI recommends you. |
+| Results vary run to run | Fixed seeds/temperature 0 for scoring, 25 queries for statistical stability, and confidence shown on the score. |
+| Simulated answer ≠ ChatGPT's answer | State it openly. Position it as a transparent panel and show the sources behind every answer. |
+| Tavily / Token Factory rate limits or cost | Cache per business, Nano for the bulk, Ultra called once per report. |
+| Demo business looks bad on camera | Use a willing real business (a friend's café/shop), or one that's clearly public and well known, framed positively. |
 
-## Appendix: official rules that shape the idea
-- Must run on **Nebius Token Factory or AI Cloud** and use **≥1 NVIDIA open model** (Nemotron).
-- Apps & Agents track wants Ultra for heavy reasoning, Nano/Super for fast calls, and optionally Serverless Endpoints and Jobs. The Coding track wants agents that write, run and test code in Token Factory.
+## 4. Who does what
+
+| Ish (pipeline + infra) | Co-founder (product + UI + story) |
+|---|---|
+| Token Factory setup, Nemotron Nano/Super/Ultra calls | Name, brand, landing page |
+| Query generator, Tavily retrieval, answer simulator | Flow: input → live scan → score → leaderboard → fixes |
+| Scoring + diagnosis + fix generation (JSON contracts for the UI) | Scorecard, competitor leaderboard, "what AI says about you" view, fix cards with copy buttons |
+| FastAPI on Serverless Endpoints; weekly re-scan on Serverless Jobs | Recruit 2-3 real local businesses for the demo + a quote |
+| README (setup, Nemotron/Token Factory/Nebius section), FEEDBACK.md | 3-min video script, Devpost description, thumbnail |
+
+**Contract between us (agree on Day 1):** a single JSON report schema (`score`, `queries[]`, `competitors[]`, `reasons[]`, `fixes[]`). The co-founder builds the UI against mock JSON from Day 1, so the two of us never block each other.
+
+## 5. Build plan
+
+| Dates | Ish | Co-founder |
+|---|---|---|
+| Oct 16 | Builder Program credits (Token Factory + Tavily); first Nemotron call; draft JSON schema | Name + brand; wireframes; pick 3 demo businesses |
+| Oct 17-19 | Query gen → Tavily → answer simulation → mention scoring (CLI) | UI on mock JSON: input + live scan + scorecard |
+| Oct 20-22 | Ultra diagnosis + fix generation; caching. **End-to-end via CLI by Oct 22.** | Leaderboard + fix cards; landing page |
+| Oct 23-24 | FastAPI + streaming progress; **deploy on Serverless Endpoints** | Wire UI to the real API |
+| Oct 25-26 | Weekly re-scan on Serverless Jobs; harden; rate limits | Polish, mobile, empty/error states |
+| Oct 27 | Run the 3 real businesses; fix rough edges | Collect quotes/reactions from those owners |
+| Oct 28 | **Feature freeze.** README, LICENSE (MIT), FEEDBACK.md | Video script + storyboard |
+| Oct 29 | Support video recording | Record/edit ≤3-min video → YouTube; Devpost text |
+| **Oct 30, before 10 AM PT** | Submit together | |
+
+### Submission checklist
+- [ ] Track: Best Apps & Agents
+- [ ] Description (what / why / how)
+- [ ] Demo URL (Nebius Serverless Endpoint)
+- [ ] Public YouTube video ≤3 min showing Token Factory + Nemotron (show the Nano/Super/Ultra trace)
+- [ ] New public repo with an MIT LICENSE visible at the top
+- [ ] README: setup, run, how Nemotron / Token Factory / Tavily / Serverless are used
+- [ ] Feedback on Token Factory / NVIDIA models
+- [ ] City selection if attending a Builders & Brews event
+
+## 6. Last decisions (small)
+1. Final name: *Mentioned* is a placeholder; the co-founder decides.
+2. New public repo name (e.g. `mentioned-ai`), plus both of you added as collaborators.
+3. Which 3 real local businesses do we demo with?
+
+## Appendix: official rules
+- Must run on **Nebius Token Factory or AI Cloud** and use **≥1 NVIDIA open model**.
 - Required: working demo URL, public YouTube video ≤3 min showing Token Factory + Nemotron, public repo with an OSS license, README with Nemotron/Token Factory/Nebius usage, feedback, and a disclosure of pre-existing code.
 - Judging (equal weight): Technological Implementation · Design · Potential Impact · Quality of Idea.
+- Earlier rounds: v1 Receipts (no recurring use), v2 Invoice Watch (too narrow a pattern), v3 broad sweep (Curb Cut / Misconception Map). All dropped in favour of an SME focus.
