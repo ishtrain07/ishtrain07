@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16 14:56 ET (position check)",
+ "generated_at": "2026-10-16 15:27 ET (position check)",
  "date": "2026-10-16",
  "mode": "plan",
  "regime": {
@@ -171,10 +171,10 @@
  "account": {
   "cash": 1614.5,
   "realized": 0.0,
-  "unrealized": -76.54,
-  "market_value": 808.96,
-  "equity": 2423.46,
-  "return_pct": -3.06
+  "unrealized": -73.3,
+  "market_value": 812.19,
+  "equity": 2426.69,
+  "return_pct": -2.93
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -201,14 +201,14 @@
      "shares": 0.6059
     }
    ],
-   "price": 306.97,
-   "value": 185.99,
-   "pnl": -14.06,
-   "pnl_pct": -7.03,
+   "price": 307.33,
+   "value": 186.21,
+   "pnl": -13.84,
+   "pnl_pct": -6.92,
    "days_held": 13,
    "active_stop": 303.76,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-1.0%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-1.2%)"
   },
   {
    "ticker": "CRWD",
@@ -232,10 +232,10 @@
      "shares": 1.1075
     }
    ],
-   "price": 226.76,
-   "value": 251.14,
-   "pnl": -51.01,
-   "pnl_pct": -16.88,
+   "price": 227.58,
+   "value": 252.04,
+   "pnl": -50.1,
+   "pnl_pct": -16.58,
    "days_held": 5,
    "active_stop": 250.99,
    "action": "SELL ALL",
@@ -263,14 +263,14 @@
      "shares": 0.7
     }
    ],
-   "price": 531.19,
-   "value": 371.83,
-   "pnl": -11.47,
-   "pnl_pct": -2.99,
+   "price": 534.2,
+   "value": 373.94,
+   "pnl": -9.36,
+   "pnl_pct": -2.44,
    "days_held": 1,
    "active_stop": 525.15,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 525.15 (-1.1%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 525.15 (-1.7%)"
   }
  ],
  "closed": [],
@@ -279,7 +279,7 @@
    "ticker": "CRWD",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 250.99",
-   "price": 226.76,
+   "price": 227.58,
    "shares": 1.1075
   }
  ],
@@ -375,9 +375,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -1.34,
+  "spy_return_pct": -1.1,
   "base": 771.35,
-  "last": 761.05,
+  "last": 762.84,
   "since": "2026-09-28"
  },
  "anomalies": {
@@ -387,8 +387,8 @@
     "type": "lost_50dma",
     "label": "Closed below its 50-day average (was above yesterday)",
     "held": true,
-    "price": 531.36,
-    "day_pct": -5.49,
+    "price": 534.37,
+    "day_pct": -4.96,
     "n": 1122,
     "avg_pct": 0.35,
     "down_pct": 49.1,
@@ -400,8 +400,8 @@
     "type": "lost_50dma",
     "label": "Closed below its 50-day average (was above yesterday)",
     "held": true,
-    "price": 226.71,
-    "day_pct": -7.3,
+    "price": 227.58,
+    "day_pct": -6.95,
     "n": 1122,
     "avg_pct": 0.35,
     "down_pct": 49.1,
@@ -413,8 +413,8 @@
     "type": "lost_50dma",
     "label": "Closed below its 50-day average (was above yesterday)",
     "held": true,
-    "price": 306.67,
-    "day_pct": -8.48,
+    "price": 307.33,
+    "day_pct": -8.28,
     "n": 1122,
     "avg_pct": 0.35,
     "down_pct": 49.1,
