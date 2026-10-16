@@ -1,0 +1,56 @@
+{
+ "buys": [],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "CRWD",
+   "score": 88.1,
+   "price": 244.57,
+   "setup": "momentum",
+   "rsi": 47,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "PANW",
+   "score": 87.2,
+   "price": 370.27,
+   "setup": "momentum",
+   "rsi": 45,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "MRVL",
+   "score": 86.7,
+   "price": 241.24,
+   "setup": "momentum",
+   "rsi": 43,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "ALAB",
+   "score": 84.5,
+   "price": 301.98,
+   "setup": "momentum",
+   "rsi": 41,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "SMCI",
+   "score": 84.5,
+   "price": 35.09,
+   "setup": "momentum",
+   "rsi": 36,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 771.79,
+  "spy_sma50": 767.47,
+  "spy_sma200": 721.47,
+  "vix": 15.98
+ }
+}
