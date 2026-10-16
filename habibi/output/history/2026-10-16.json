@@ -3,54 +3,54 @@
  "backups": [],
  "watch": [
   {
-   "ticker": "CRWD",
-   "score": 88.1,
-   "price": 244.57,
+   "ticker": "MA",
+   "score": 83.2,
+   "price": 613.91,
    "setup": "momentum",
-   "rsi": 47,
+   "rsi": 73,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "PANW",
-   "score": 87.2,
-   "price": 370.27,
+   "ticker": "XOM",
+   "score": 83.1,
+   "price": 177.6,
    "setup": "momentum",
-   "rsi": 45,
+   "rsi": 72,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "MRVL",
-   "score": 86.7,
-   "price": 241.24,
-   "setup": "momentum",
-   "rsi": 43,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "ALAB",
-   "score": 84.5,
-   "price": 301.98,
-   "setup": "momentum",
-   "rsi": 41,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "SMCI",
-   "score": 84.5,
-   "price": 35.09,
+   "ticker": "QQQ",
+   "score": 82.4,
+   "price": 711.61,
    "setup": "momentum",
    "rsi": 36,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "SPY",
+   "score": 82.4,
+   "price": 763.03,
+   "setup": "momentum",
+   "rsi": 44,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "AAPL",
+   "score": 81.6,
+   "price": 342.73,
+   "setup": "momentum",
+   "rsi": 61,
    "action": "next in line if a holding drops out"
   }
  ],
  "regime": {
-  "light": "GREEN",
-  "risk_mult": 1.0,
-  "max_new": 4,
-  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
-  "spy": 771.79,
-  "spy_sma50": 767.47,
-  "spy_sma200": 721.47,
-  "vix": 15.98
+  "light": "YELLOW",
+  "risk_mult": 0.5,
+  "max_new": 2,
+  "message": "Market is choppy (below 50-day or VIX elevated). Half size, A-grade setups only.",
+  "spy": 763.03,
+  "spy_sma50": 767.4,
+  "spy_sma200": 721.88,
+  "vix": 19.33
  }
 }
