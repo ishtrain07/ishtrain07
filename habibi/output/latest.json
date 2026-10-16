@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16 08:59 ET",
+ "generated_at": "2026-10-16 09:01 ET (position check)",
  "date": "2026-10-16",
  "mode": "plan",
  "regime": {
@@ -393,19 +393,6 @@
     "down_pct": 46.9,
     "edge_pct": 1.75,
     "verdict": "positive"
-   },
-   {
-    "ticker": "SNOW",
-    "type": "rank_drop",
-    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
-    "held": true,
-    "price": 335.07,
-    "day_pct": -0.0,
-    "n": 630,
-    "avg_pct": 0.52,
-    "down_pct": 50.2,
-    "edge_pct": 0.05,
-    "verdict": "neutral"
    },
    {
     "ticker": "ALAB",
@@ -4901,5 +4888,23 @@
    "weight": 0.0,
    "recent_ic": -0.03
   }
- ]
+ ],
+ "analyst": {
+  "date": "2026-10-16",
+  "text": "Calmer morning. The market light is GREEN (VIX 16.0), Asia and Europe were up overnight, and Nasdaq futures are -0.3%. Chips bounced yesterday afternoon. 10 trading days left.\nNo new buys from the system today, because all of this week's picks are now held.\nAMD (held, #2): +2.7% at $562, stop $525. Yesterday's half-size entry worked. Adding the second half (about 0.7 sh) is optional while it holds above about $560, with the same $525 stop.\nCRWD (held): back up to #4, but still below its 8% stop ($244.69 vs $250.99), so the system still says SELL. If holding, exit if it closes below about $232.\nSNOW (held): +1.5%, ranked #13 (rank warning). Likely sold at Monday's review.\nAMD, DELL, MRVL and ALAB were flagged for opening more than 5% lower. Historically that has been a mildly positive signal (dip buyers).\nSystem simulated -9.2%, you -0.7%, S&P +0.1%. Weekly review is Monday Oct 19.",
+  "cautions": [
+   {
+    "ticker": "CRWD",
+    "why": "Still below its 8% stop ($250.99). The system says sell. If holding, use a firm exit below ~$232."
+   },
+   {
+    "ticker": "SNOW",
+    "why": "Rank warning (#13). Likely sold at Monday's review."
+   },
+   {
+    "ticker": "AMD",
+    "why": "Volatile all week. Keep the $525 stop. Earnings Nov 3."
+   }
+  ]
+ }
 }
