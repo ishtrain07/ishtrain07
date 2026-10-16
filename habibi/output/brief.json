@@ -1,9 +1,9 @@
 {
- "date": "2026-10-15",
- "text": "Risk-off morning. Nasdaq futures are -1.2% and the Nikkei fell 4.9% overnight, led by chip stocks. The market light is still GREEN (VIX 17.5), but semis are getting hit. 11 trading days left.\nSELL: CRWD hit its 8% stop yesterday ($250.99) and is at about $249 premarket. Sell all 5 CDRs at the open. This is the priority today.\nBUY: AMD (#2) is down about 6% from Tuesday, at about $571. The plan says 1.45 sh, limit $573.67, stop $525. With chips falling overseas, I'd buy half (about 0.7 sh) at the limit and add the rest only once it stabilizes.\nSNOW (held): +1.5%, ranked #18 (rank warning). Expect it to go at Monday's review. Selling today is reasonable too.\nThe new top 5 are DELL, AMD, MU, MRVL and ALAB, all AI hardware. That concentration is why the system's simulated account (-7.9%) is getting hit.\nYou -0.9%, S&P -0.2%. Staying mostly in cash has protected you this week.",
+ "date": "2026-10-16",
+ "text": "Calmer morning. The market light is GREEN (VIX 16.0), Asia and Europe were up overnight, and Nasdaq futures are -0.3%. Chips bounced yesterday afternoon. 10 trading days left.\nNo new buys from the system today, because all of this week's picks are now held.\nAMD (held, #2): +2.7% at $562, stop $525. Yesterday's half-size entry worked. Adding the second half (about 0.7 sh) is optional while it holds above about $560, with the same $525 stop.\nCRWD (held): back up to #4, but still below its 8% stop ($244.69 vs $250.99), so the system still says SELL. If holding, exit if it closes below about $232.\nSNOW (held): +1.5%, ranked #13 (rank warning). Likely sold at Monday's review.\nAMD, DELL, MRVL and ALAB were flagged for opening more than 5% lower. Historically that has been a mildly positive signal (dip buyers).\nSystem simulated -9.2%, you -0.7%, S&P +0.1%. Weekly review is Monday Oct 19.",
  "cautions": [
-  {"ticker": "CRWD", "why": "Below its 8% stop. Sell all 5 CDRs at the open."},
-  {"ticker": "AMD", "why": "Overnight chip selloff (Nikkei -4.9%, Nasdaq futures -1.2%). Consider half size. Earnings Nov 3."},
-  {"ticker": "SNOW", "why": "Rank warning (#18). Gain is down to ~1.5%. Will likely be sold Monday."}
+  {"ticker": "CRWD", "why": "Still below its 8% stop ($250.99). The system says sell. If holding, use a firm exit below ~$232."},
+  {"ticker": "SNOW", "why": "Rank warning (#13). Likely sold at Monday's review."},
+  {"ticker": "AMD", "why": "Volatile all week. Keep the $525 stop. Earnings Nov 3."}
  ]
 }
