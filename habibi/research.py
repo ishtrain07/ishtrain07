@@ -21,6 +21,16 @@ from .universe import SECTOR_ETF, UNIVERSE
 OUT = Path(__file__).parent / "output"
 CFG = json.loads((Path(__file__).parent / "config.json").read_text())
 
+# Sector groups for the concentration cap: universe sectors, with the sector ETFs mapped to
+# what they actually hold (SMH is a semis basket, QQQ is mostly tech).
+RESEARCH_SECTOR = {**UNIVERSE, "SMH": "Semis", "QQQ": "Tech"}
+# Coarser theme groups: the live weakness is one AI-hardware trade spread over several GICS
+# sectors (chips, networking/servers, power and cooling), so group those together.
+AI_HARDWARE = {"NVDA", "AVGO", "AMD", "TSM", "MU", "QCOM", "ARM", "LRCX", "AMAT", "KLAC", "MRVL", "ASML",
+               "INTC", "CRDO", "ALAB", "ON", "SMH", "ANET", "DELL", "SMCI", "CLS", "CIEN", "NBIS",
+               "VRT", "GEV", "ETN", "PWR", "CEG", "VST", "NRG"}
+THEME = {t: ("AIHardware" if t in AI_HARDWARE else sec) for t, sec in RESEARCH_SECTOR.items()}
+
 
 def precompute(feats, days):
     """Scored universe for each date (the expensive part, shared by all variants)."""
@@ -130,7 +140,8 @@ def swing_sim(feats, pre, v, start=None, end=None):
 # ------------------------------------------------------------- momentum rotation
 def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_col="momentum",
                  exit_below_ema20=False, entry_green_only=False, dd_brake=None, cool_days=5, max_rsi=80,
-                 initial_frac=1.0, add_gain=None, cost=0.0, hold_rank=None):
+                 initial_frac=1.0, add_gain=None, cost=0.0, hold_rank=None, sector_cap=None,
+                 sector_map=None, profit_take=None, pt_frac=0.5, signal_lag=0, return_curve=False):
     """Weekly: hold the top-N ranked names (eligible, regime not RED), equal weight.
 
     exit_below_ema20: daily exit when a holding closes below its 20-EMA.
@@ -141,16 +152,32 @@ def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_
     cost: fraction lost on every buy and every sell (e.g. 0.015 = Wealthsimple's 1.5% FX fee).
     hold_rank: keep a holding while it ranks within this many (default top_n); new buys still
     come from the top-N. A buffer above top_n cuts turnover.
+    sector_cap: at most this many names per group in the target (groups from sector_map,
+    default RESEARCH_SECTOR). Applied in rank order, kept holdings first.
+    profit_take: sell pt_frac of a holding once its high reaches entry * (1 + profit_take)
+    (filled at the target, or at the open on a gap up), then move the remainder's stop to
+    breakeven (effective from the next bar: intraday order is unknown).
+    signal_lag: 1 = rank on the previous day's snapshot and trade at today's close (strict
+    no-look-ahead check); 0 = rank and trade on the same close (original behaviour).
+    Trade "ret" is net of costs and blends any partial sale.
     """
+    smap = sector_map or RESEARCH_SECTOR
     dates = [d for d in pre if (start is None or d >= start) and (end is None or d <= end)]
     cash, hold, curve, trades, last_week = 1.0, {}, [], [], None
     peak, cool = 1.0, 0
     target = []
+    traded = 0.0
+    all_dates = list(pre)
+    prev_of = {d: all_dates[i - 1] for i, d in enumerate(all_dates) if i > 0}
 
     def sell(t, px, why):
-        nonlocal cash
-        cash += hold[t]["sh"] * px * (1 - cost)
-        trades.append({"r": px / hold[t]["entry"] - 1, "ret": px / hold[t]["entry"] - 1, "why": why, "days": 0})
+        nonlocal cash, traded
+        h = hold[t]
+        proceeds = h["sh"] * px * (1 - cost)
+        cash += proceeds
+        traded += h["sh"] * px
+        trades.append({"r": px / h["entry"] - 1, "ret": (h["proceeds"] + proceeds) / h["basis"] - 1,
+                       "why": why, "days": 0})
         del hold[t]
 
     for d in dates:
@@ -158,10 +185,22 @@ def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_
             b = bar(feats, t, d)
             if b is None:
                 continue
-            if b.Low <= hold[t]["stop"]:
-                sell(t, min(hold[t]["stop"], b.Open), "stop")
-            elif exit_below_ema20 and b.Close < b.ema20:
+            h = hold[t]
+            if b.Low <= h["stop"]:
+                sell(t, min(h["stop"], b.Open), "stop")
+                continue
+            if exit_below_ema20 and b.Close < b.ema20:
                 sell(t, b.Close, "ema20")
+                continue
+            if profit_take and not h["half"] and b.High >= h["entry"] * (1 + profit_take):
+                px = max(h["entry"] * (1 + profit_take), b.Open)
+                sh = h["sh"] * pt_frac
+                cash += sh * px * (1 - cost)
+                traded += sh * px
+                h["proceeds"] += sh * px * (1 - cost)
+                h["sh"] -= sh
+                h["half"] = True
+                h["stop"] = max(h["stop"], h["entry"])
         if add_gain:
             for t, h in hold.items():
                 px = last_close(feats, t, d)
@@ -170,6 +209,8 @@ def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_
                     add_sh = amt * (1 - cost) / px
                     h["entry"] = (h["entry"] * h["sh"] + amt) / (h["sh"] + add_sh)
                     h["sh"] += add_sh
+                    h["basis"] += amt
+                    traded += amt
                     h["stop"] = max(h["stop"], h["entry"] * (1 - stop_pct))
                     h["added"] = True
                     cash -= amt
@@ -187,16 +228,23 @@ def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_
         if week == last_week:
             continue
         last_week = week
-        regime, sc = pre[d]
+        sig_d = prev_of.get(d) if signal_lag else d
+        if sig_d is None:
+            continue
+        regime, sc = pre[sig_d]
         ok = sc.eligible & (sc.rsi < max_rsi)
         if exit_below_ema20:
             ok &= sc.Close > sc.ema20
         ranked = list(sc[ok].sort_values(rank_col, ascending=False).index)
+        if signal_lag:  # must still have a bar today to trade it
+            ranked = [t for t in ranked if bar(feats, t, d) is not None]
         if regime == "RED":
             target = []
         else:
             keep = [t for t in ranked[:hold_rank or top_n] if t in hold][:top_n]
             target = keep + [t for t in ranked if t not in keep][:top_n - len(keep)]
+            if sector_cap:
+                target = capped_target(keep, ranked, top_n, sector_cap, smap)
         for t in list(hold):
             if t not in target:
                 sell(t, last_close(feats, t, d), "rotate")
@@ -208,9 +256,47 @@ def rotation_sim(feats, pre, top_n=4, stop_pct=0.10, start=None, end=None, rank_
             for t in new:
                 px = last_close(feats, t, d)
                 amt = per * initial_frac
-                hold[t] = {"sh": amt * (1 - cost) / px, "entry": px, "stop": px * (1 - stop_pct), "full": per, "added": initial_frac >= 1}
+                hold[t] = {"sh": amt * (1 - cost) / px, "entry": px, "stop": px * (1 - stop_pct), "full": per,
+                           "added": initial_frac >= 1, "half": False, "basis": amt, "proceeds": 0.0}
                 cash -= amt
-    return stats(curve, trades)
+                traded += amt
+    if return_curve:
+        return curve
+    return stats(curve, trades, traded)
+
+
+def capped_target(keep, ranked, top_n, cap, smap):
+    """Top-N target with at most `cap` names per group: kept holdings first (in rank order), then
+    the best-ranked names whose group still has room."""
+    out, n = [], {}
+    for t in keep + [t for t in ranked if t not in keep]:
+        if len(out) >= top_n:
+            break
+        g = smap.get(t, t)
+        if n.get(g, 0) < cap:
+            out.append(t)
+            n[g] = n.get(g, 0) + 1
+    return out
+
+
+def horizon_dist(curve_or_series, h=10):
+    """Distribution of h-trading-day returns and in-window drawdowns over all rolling windows."""
+    eq = curve_or_series if isinstance(curve_or_series, pd.Series) else \
+        pd.Series([e for _, e in curve_or_series], index=[d for d, _ in curve_or_series])
+    v = eq.values
+    rets, dds = [], []
+    for i in range(len(v) - h):
+        w = v[i:i + h + 1]
+        rets.append(w[-1] / w[0] - 1)
+        dds.append((w / np.maximum.accumulate(w) - 1).min())
+    if not rets:
+        return {}
+    r, dd = np.array(rets) * 100, np.array(dds) * 100
+    q = lambda a, p: round(float(np.percentile(a, p)), 1)
+    return {"windows": len(r), "mean": round(float(r.mean()), 2), "median": q(r, 50), "p5": q(r, 5),
+            "p25": q(r, 25), "p75": q(r, 75), "p95": q(r, 95), "p_loss": round(float((r < 0).mean() * 100), 1),
+            "p_gain5": round(float((r >= 5).mean() * 100), 1), "p_lose5": round(float((r <= -5).mean() * 100), 1),
+            "dd_median": q(dd, 50), "dd_p5": q(dd, 5), "dd_worst": round(float(dd.min()), 1)}
 
 
 def buy_hold(feats, t, start, end):
@@ -219,15 +305,25 @@ def buy_hold(feats, t, start, end):
     return stats(curve, [])
 
 
-def stats(curve, trades):
+def stats(curve, trades, traded=None):
     if not curve:
         return {}
     eq = pd.Series([e for _, e in curve], index=[d for d, _ in curve])
     dd = float((eq / eq.cummax() - 1).min())
+    n = len(eq)
+    yrs = max(n - 1, 1) / 252
+    dr = eq.pct_change().dropna()
+    sharpe = float(dr.mean() / dr.std() * np.sqrt(252)) if len(dr) > 1 and dr.std() > 0 else None
+    m = eq.resample("ME").last()
+    monthly = pd.concat([pd.Series([eq.iloc[0]]), m.reset_index(drop=True)]).pct_change().dropna()
     w25 = (eq.shift(-25) / eq - 1).dropna()
     tr = pd.DataFrame(trades)
     return {
         "total_pct": round(float(eq.iloc[-1] / eq.iloc[0] - 1) * 100, 1),
+        "cagr_pct": round(float((eq.iloc[-1] / eq.iloc[0]) ** (1 / yrs) - 1) * 100, 1),
+        "sharpe": round(sharpe, 2) if sharpe is not None else None,
+        "worst_month_pct": round(float(monthly.min()) * 100, 1) if len(monthly) else None,
+        "turnover_x_yr": round(float(traded / eq.mean() / yrs), 1) if traded is not None else None,
         "max_dd_pct": round(dd * 100, 1),
         "trades": int(len(tr)),
         "win_rate": round(float((tr.ret > 0).mean() * 100), 1) if len(tr) else None,
@@ -278,6 +374,72 @@ VARIANTS = {
                                         "pos_cap": 0.35, "hold": 20, "t1_r": None, "t2_r": None,
                                         "trail_atr": 3.0, "exit_below_sma50": True},
 }
+
+
+# ------------------------------------------------------------- 2026-10 sector cap / profit-take study
+SLIP = 0.0005                     # slippage per side on top of the spread/commission cost
+COST_USD, COST_FX = 0.001 + SLIP, 0.015 + SLIP
+BASELINE = dict(top_n=3, rank_col="adaptive", stop_pct=0.08, dd_brake=0.10, hold_rank=5, cost=COST_USD)
+CAP_VARIANTS = {
+    "S1 sector cap 1": dict(sector_cap=1),
+    "S2 sector cap 2": dict(sector_cap=2),
+    "S3 AI-hardware theme cap 1": dict(sector_cap=1, sector_map=THEME),
+    "S4 AI-hardware theme cap 2": dict(sector_cap=2, sector_map=THEME),
+}
+PT_VARIANTS = {
+    "P1 sell half at +5%, stop to breakeven": dict(profit_take=0.05),
+    "P2 sell half at +8%, stop to breakeven": dict(profit_take=0.08),
+}
+
+
+def pick_best(results, names, period="half1"):
+    """Best variant by in-sample (half1) Sharpe only, so half2 stays out-of-sample."""
+    return max(names, key=lambda n: results[n][period].get("sharpe") or -9)
+
+
+def sector_study(feats, pre, periods):
+    """Baseline (live rules) vs sector caps, partial profit-take and the combination.
+
+    The 'best' cap and profit-take are chosen on half1 only; half2 is the out-of-sample test.
+    """
+    run = lambda kw: {k: rotation_sim(feats, pre, start=a, end=b, **kw) for k, (a, b) in periods.items()}
+    out = {"baseline": "top3 adaptive, hold while top-5, 8% stop, 10% brake, 0.1%+0.05% slip per side",
+           "selection": "best cap / profit-take by half1 Sharpe; half2 is out-of-sample", "results": {}}
+    r = out["results"]
+    r["S0 baseline (live rules)"] = run(BASELINE)
+    r["S0L baseline, signal lagged 1 day"] = run(dict(BASELINE, signal_lag=1))
+    for name, kw in {**CAP_VARIANTS, **PT_VARIANTS}.items():
+        r[name] = run(dict(BASELINE, **kw))
+    cap, pt = pick_best(r, list(CAP_VARIANTS)), pick_best(r, list(PT_VARIANTS))
+    combo = dict(BASELINE, **CAP_VARIANTS[cap], **PT_VARIANTS[pt])
+    out["picked"] = {"cap": cap, "profit_take": pt}
+    r["C1 combined: best cap + best profit-take"] = run(combo)
+    r["C1L combined, signal lagged 1 day"] = run(dict(combo, signal_lag=1))
+    best = max(["S0 baseline (live rules)", cap, pt, "C1 combined: best cap + best profit-take"],
+               key=lambda n: r[n]["half1"].get("sharpe") or -9)
+    best_kw = {"S0 baseline (live rules)": BASELINE, cap: dict(BASELINE, **CAP_VARIANTS[cap]),
+               pt: dict(BASELINE, **PT_VARIANTS[pt]), "C1 combined: best cap + best profit-take": combo}[best]
+    out["picked"]["overall"] = best
+    r["X0 baseline at 1.5% FX per side"] = run(dict(BASELINE, cost=COST_FX))
+    r["X1 best at 1.5% FX per side"] = run(dict(best_kw, cost=COST_FX))
+    for t in ("SPY", "QQQ"):
+        r[f"Z buy & hold {t}"] = {k: buy_hold(feats, t, a, b) for k, (a, b) in periods.items()}
+    # 10-trading-day horizon: every rolling 2-week window over the full period
+    a, b = periods["full"]
+    spy = feats["SPY"].Close.loc[a:b]
+    out["horizon10"] = {
+        "baseline": horizon_dist(curve_of(feats, pre, BASELINE, a, b)),
+        "best": horizon_dist(curve_of(feats, pre, best_kw, a, b)),
+        "SPY": horizon_dist(spy / spy.iloc[0]),
+    }
+    for name, v in r.items():
+        print(name, v["half1"].get("sharpe"), v["half2"].get("sharpe"), v["full"])
+    print("picked", out["picked"], "horizon10", out["horizon10"])
+    return out
+
+
+def curve_of(feats, pre, kw, start, end):
+    return rotation_sim(feats, pre, start=start, end=end, return_curve=True, **kw)
 
 
 def main():
@@ -341,6 +503,7 @@ def main():
         print(name, res["results"][name]["full"])
     for t in ("SPY", "QQQ"):
         res["results"][f"Z buy & hold {t}"] = {k: buy_hold(feats, t, a, b) for k, (a, b) in periods.items()}
+    res["sector_study"] = sector_study(feats, pre, periods)
     res["learned_weights_now"] = adaptive.explain_today(m)
     OUT.mkdir(exist_ok=True)
     (OUT / "research.json").write_text(json.dumps(res, indent=1, default=str))
