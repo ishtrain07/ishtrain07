@@ -65,8 +65,9 @@ def normalize_ingredients(raw: object) -> list[dict]:
             out[key]["grams"] += grams
         else:
             out[key] = {"item": key, "grams": grams, "matched": food is not None}
-    for ing in out.values():
-        ing["grams"] = round(ing["grams"], 1) if ing["grams"] < 10 else round(ing["grams"])
+    for ing in out.values():  # keep within the API's (0, 5000] bounds so recipes round-trip
+        grams = min(ing["grams"], 5000.0)
+        ing["grams"] = max(0.1, round(grams, 1)) if grams < 10 else round(grams)
     return list(out.values())[:40]
 
 

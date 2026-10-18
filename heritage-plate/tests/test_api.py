@@ -119,3 +119,13 @@ def test_unknown_ingredient_from_model_disables_percent_claim(client, monkeypatc
     _fake_model(monkeypatch, {"ingredients": [{"item": "cauliflower rice pilaf mix", "grams": 300}], "changes": [{"what": "swap"}]})
     recipe = {"name": "Rice", "servings": 2, "ingredients": [{"item": "white rice", "grams": 200}]}
     assert client.post("/api/adapt", json={"recipe": recipe}).json()["recipe"]["comparable"] is False
+
+
+def test_tiny_and_merged_amounts_round_trip(client):
+    recipe = {"name": "Dal", "servings": 4, "ingredients": [
+        {"item": "toor dal", "grams": 200}, {"item": "hing", "grams": 0.04},
+        {"item": "rice", "grams": 4000}, {"item": "chawal", "grams": 3000}]}
+    adapted = client.post("/api/adapt", json={"recipe": recipe}).json()["recipe"]
+    grams = {i["item"]: i["grams"] for i in adapted["original"]["ingredients"]}
+    assert grams["hing"] == 0.1 and grams["white rice"] == 5000
+    assert client.post("/api/plan", json={"recipes": [adapted]}).status_code == 200

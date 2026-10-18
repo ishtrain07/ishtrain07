@@ -76,6 +76,7 @@ const TIERS = {
   ultra: { name: "Nemotron Ultra", job: "Plans the week and writes the note for your parent." },
 };
 const ADAPT_CONCURRENCY = 3;
+const MAX_DISHES = 30; // matches the /api/plan limit
 const LOWER_IS_BETTER = new Set(["kcal", "net_carbs_g", "fat_g", "sat_fat_g", "sodium_mg"]);
 
 // USDA names come in capitals ("BUTTER OIL,ANHYDROUS"); make them easier to read.
@@ -100,7 +101,13 @@ const state = {
   plan: null,
   planStale: false,
   adaptRun: 0,           // bumps to cancel a running "make every dish lighter"
+  cookbookVersion: 0,    // bumps whenever the dishes change; late /api/plan replies are dropped
 };
+
+function markCookbookChanged() {
+  state.cookbookVersion += 1;
+  if (state.plan) state.planStale = true;
+}
 
 // ---------- helpers ----------
 function uid() {
@@ -161,7 +168,6 @@ function readableError(detail, status) {
   }
   if (detail && typeof detail === "object") return detail.msg ? String(detail.msg) : "Something in the request wasn't right.";
   if (typeof detail === "string" && detail) {
-    if (status === 502) return `The AI model didn't answer properly (${detail}). Please try again.`;
     return detail;
   }
   if (status === 502) return "The AI model didn't answer properly. Please try again.";
@@ -204,14 +210,15 @@ function current(entry) { return entry.adapted || entry.base; }
 function findEntry(id) { return state.recipes.find((e) => e.id === id); }
 
 // Elapsed-seconds feedback so waits never feel frozen.
-function ticker(el, textFn) {
+// The message is written once (announced once); only an aria-hidden seconds counter updates.
+function ticker(el, html) {
   const start = Date.now();
-  const draw = () => {
+  el.innerHTML = `${html} <span class="secs" aria-hidden="true"></span>`;
+  const secs = el.querySelector(".secs");
+  const t = setInterval(() => {
     const s = Math.floor((Date.now() - start) / 1000);
-    el.innerHTML = textFn(s);
-  };
-  draw();
-  const t = setInterval(draw, 1000);
+    if (s >= 2) secs.textContent = `${s}s`;
+  }, 1000);
   return () => clearInterval(t);
 }
 
@@ -301,7 +308,7 @@ function setCondition(value) {
     e.adapted = null; e.status = "idle"; e.error = "";
   });
   $("adaptProgress").hidden = true;
-  if (state.plan) state.planStale = true;
+  markCookbookChanged();
   syncControls();
   renderCookbook();
   renderPlan();
@@ -349,7 +356,7 @@ async function loadFamily(id, btn) {
     state.language = fam.language;
     state.parentName = String(fam.parent || "").split(",")[0].trim().slice(0, 20);
     state.recipes = (fam.recipes || []).map((r) => ({ id: String(r.id || uid()), base: r, adapted: null, status: "idle", error: "" }));
-    state.plan = null; state.planStale = false;
+    state.plan = null; state.planStale = false; state.cookbookVersion += 1;
     $("adaptProgress").hidden = true;
     $("parseMsg").textContent = "";
     syncControls();
@@ -566,21 +573,24 @@ async function adaptOne(id) {
   const e = findEntry(id);
   if (!e || e.adapted || e.status === "busy") return "skip";
   const condition = state.condition;
+  const token = {};
+  e.req = token;
   e.status = "busy"; e.error = "";
   renderCard(id);
+  const stale = () => findEntry(id) !== e || state.condition !== condition || e.req !== token;
   try {
     const { recipe } = await api("/api/adapt", { recipe: baseFields(e.base), condition, cuisine: state.cuisine });
-    // Drop the reply if the dish was removed/replaced or the health focus changed meanwhile.
-    if (findEntry(id) !== e || state.condition !== condition) return "stale";
+    // Drop the reply if the dish was removed/replaced, the health focus changed, or a newer request started.
+    if (stale()) return "stale";
     if (recipe.condition && recipe.condition !== condition) return "stale";
     e.adapted = { ...recipe, condition, id: e.id };
     e.status = "idle";
-    if (state.plan) state.planStale = true;
+    markCookbookChanged();
     renderCard(id);
     renderPlanStale();
     return "ok";
   } catch (err) {
-    if (findEntry(id) !== e || state.condition !== condition) return "stale";
+    if (stale()) return "stale";
     e.status = "error"; e.error = err.message;
     renderCard(id);
     return "fail";
@@ -609,7 +619,14 @@ async function adaptAll(btn) {
         draw();
       }
     };
-    await Promise.all(Array.from({ length: Math.min(ADAPT_CONCURRENCY, ids.length) }, worker));
+    // Release the button as soon as the run is cancelled (family switch, condition change),
+    // instead of waiting up to a minute for old in-flight replies.
+    const finished = Promise.all(Array.from({ length: Math.min(ADAPT_CONCURRENCY, ids.length) }, worker));
+    let poll;
+    const cancelled = new Promise((resolve) => {
+      poll = setInterval(() => { if (run !== state.adaptRun) resolve(); }, 200);
+    });
+    await Promise.race([finished, cancelled]).finally(() => clearInterval(poll));
   });
   if (run !== state.adaptRun) return;
   const ok = ids.length - failed;
@@ -632,13 +649,18 @@ async function parseRecipe(btn) {
     return;
   }
   const servings = Math.min(20, Math.max(1, Math.round(num($("servings").value) || 4)));
-  const stop = ticker(msg, (s) => `Nemotron Nano is reading your recipe and matching it to food tables<span class="dots"></span>${s >= 2 ? ` ${s}s` : ""}`);
+  if (state.recipes.length >= MAX_DISHES) {
+    msg.className = "msg error";
+    msg.textContent = `The cookbook holds up to ${MAX_DISHES} dishes. Remove one to add another.`;
+    return;
+  }
+  const stop = ticker(msg, `Nemotron Nano is reading your recipe and matching it to food tables<span class="dots"></span>`);
   try {
     const { recipe } = await busy(btn, "Reading…", () => api("/api/parse", { text, servings, cuisine: state.cuisine }));
     stop();
     const id = uid();
     state.recipes.unshift({ id, base: { ...recipe, id }, adapted: null, status: "idle", error: "" });
-    if (state.plan) state.planStale = true;
+    markCookbookChanged();
     $("recipeText").value = "";
     msg.className = "msg ok";
     const unc = recipe.nutrition?.uncounted?.length;
@@ -779,13 +801,19 @@ async function makePlan(btn) {
   const holder = document.createElement("p");
   holder.className = "working";
   out.prepend(holder);
-  const stop = ticker(holder, (s) => `<span class="spinner" aria-hidden="true"></span><span>Nemotron Ultra is planning 7 days and the shopping list<span class="dots"></span>${s >= 2 ? ` ${s}s` : ""}</span>`);
+  const stop = ticker(holder, `<span class="spinner" aria-hidden="true"></span><span>Nemotron Ultra is planning 7 days and the shopping list<span class="dots"></span></span>`);
   const condition = state.condition;
+  const version = state.cookbookVersion;
   try {
     const recipes = state.recipes.map((e) => baseFields(current(e)));
     const { plan } = await busy(btn, "Planning…", () => api("/api/plan", { recipes, condition, language: state.language }));
     stop();
-    if (state.condition !== condition) { holder.remove(); return; }
+    // Drop a late reply if the cookbook or health focus changed while Ultra was planning.
+    if (state.condition !== condition || state.cookbookVersion !== version) {
+      holder.remove();
+      if (state.condition === condition) announce('Your dishes changed while planning. Tap "Make our week" again.');
+      return;
+    }
     state.plan = plan; state.planStale = false;
     renderPlan();
     $("s4").focus({ preventScroll: true });
@@ -832,7 +860,7 @@ $("startOwn").addEventListener("click", () => {
   const hadDemo = Boolean(state.family);
   state.adaptRun += 1;
   if (hadDemo) {
-    state.family = null; state.recipes = []; state.plan = null; state.parentName = "";
+    state.family = null; state.recipes = []; state.plan = null; state.parentName = ""; state.cookbookVersion += 1;
     $("adaptProgress").hidden = true;
     renderFamilies(); renderCookbook(); renderPlan(); syncControls();
   }
@@ -859,7 +887,7 @@ $("cookbook").addEventListener("click", (e) => {
     const entry = findEntry(u.dataset.undo);
     if (entry) {
       entry.adapted = null; entry.status = "idle";
-      if (state.plan) state.planStale = true;
+      markCookbookChanged();
       renderCard(entry.id); renderPlanStale();
       announce(`${entry.base.name}: showing the original recipe.`);
     }
@@ -869,7 +897,7 @@ $("cookbook").addEventListener("click", (e) => {
   if (rm) {
     const entry = findEntry(rm.dataset.remove);
     state.recipes = state.recipes.filter((x) => x.id !== rm.dataset.remove);
-    if (state.plan) state.planStale = true;
+    markCookbookChanged();
     renderCookbook(); renderPlanStale();
     $("s3").focus({ preventScroll: true });
     if (entry) announce(`Removed ${entry.base.name}.`);

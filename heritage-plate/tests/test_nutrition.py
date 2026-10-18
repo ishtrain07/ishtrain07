@@ -53,3 +53,9 @@ def test_unit_words_inside_names_still_match():
     assert nutrition.match("green gram").name == "mung beans"
     assert nutrition.match("salt to taste").name == "salt"
     assert nutrition.match("peanut butter") is None
+
+
+def test_cooked_foods_are_not_counted_as_raw():
+    # The table holds raw weights; cooked rice would be ~3x overstated, so leave it uncounted.
+    assert nutrition.match("cooked white rice") is None
+    assert nutrition.match("green chillies").name == "green chili"

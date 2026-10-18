@@ -35,8 +35,8 @@ class Food:
 
 
 # Quantity, unit and preparation words that can surround an ingredient name.
-FILLER = set(
-    ["a", "an", "the", "of", "some", "few", "little", "bit", "half", "whole", "fresh", "chopped", "sliced", "diced", "minced", "grated", "boiled", "raw", "dry", "dried", "cooked", "big", "small", "medium", "large", "cup", "cups", "katori", "katoris", "bowl", "bowls", "tbsp", "tsp", "tablespoon", "tablespoons", "teaspoon", "teaspoons", "spoon", "spoons", "g", "gm", "gms", "gram", "grams", "kg", "ml", "l", "litre", "liter", "handful", "handfuls", "pinch", "bunch", "bunches", "piece", "pieces", "clove", "cloves", "can", "cans", "packet", "pack", "slice", "slices", "sheet", "sheets", "stick", "sticks", "to", "taste", "as", "needed"]
+FILLER = frozenset(
+    ["a", "an", "the", "of", "some", "few", "little", "bit", "half", "whole", "fresh", "chopped", "sliced", "diced", "minced", "grated", "boiled", "raw", "dry", "dried", "big", "small", "medium", "large", "cup", "cups", "katori", "katoris", "bowl", "bowls", "tbsp", "tsp", "tablespoon", "tablespoons", "teaspoon", "teaspoons", "spoon", "spoons", "g", "gm", "gms", "gram", "grams", "kg", "ml", "l", "litre", "liter", "handful", "handfuls", "pinch", "bunch", "bunches", "piece", "pieces", "clove", "cloves", "can", "cans", "packet", "pack", "slice", "slices", "sheet", "sheets", "stick", "sticks", "to", "taste", "as", "needed"]
 )
 # Colour/variety words that don't change the food much ("red onion" is still onion).
 SAFE_ADJECTIVES = {"red", "white", "yellow", "purple", "baby", "ripe", "organic", "frozen", "plain", "unsalted", "salted", "lean", "skinless", "boneless"}
