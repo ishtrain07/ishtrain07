@@ -217,6 +217,10 @@ def _mock_adapt(recipe: dict, condition: str) -> dict:
                 moved = scale(meat, 0.6)
                 add(extra, moved * (1.0 if extra == "mushrooms" else 0.5))
                 changes.append({"what": f"Use 40% less {meat}, bulk it up with {extra}", "why": "Less saturated fat, same hearty dish."})
+        if ings.get("coconut milk"):
+            moved = scale("coconut milk", 0.5)
+            add("yogurt", moved * 0.5)
+            changes.append({"what": "Use half the coconut milk; thicken with a little yogurt", "why": "Coconut milk is very high in saturated fat."})
         for cheese in ("cheddar cheese", "mozzarella cheese", "parmesan cheese", "queso fresco", "paneer"):
             if ings.get(cheese):
                 scale(cheese, 0.7)
@@ -250,9 +254,10 @@ def adapt_recipe(recipe: dict, condition: str, cuisine: str) -> tuple[dict, list
     after = nutrition.per_serving(ingredients, recipe["servings"])
     # If the model introduced ingredients we can't count, the comparison would flatter it.
     new_unknowns = sorted(set(after["uncounted"]) - set(before["uncounted"]))
+    raw_changes = data.get("changes")
     changes = [
-        {"what": str(c.get("what", ""))[:200], "why": str(c.get("why", ""))[:240]}
-        for c in data.get("changes", []) if isinstance(c, dict) and c.get("what")
+        {"what": str(c.get("what") or "")[:200], "why": str(c.get("why") or "")[:240]}
+        for c in (raw_changes if isinstance(raw_changes, list) else []) if isinstance(c, dict) and c.get("what")
     ][:5]
     adapted = {
         **recipe,
@@ -260,7 +265,7 @@ def adapt_recipe(recipe: dict, condition: str, cuisine: str) -> tuple[dict, list
         "nutrition": after,
         "sources": nutrition.sources_for(ingredients),
         "changes": changes,
-        "cooking_tip": str(data.get("cooking_tip", ""))[:240],
+        "cooking_tip": str(data.get("cooking_tip") or "")[:240],
         "original": {"ingredients": recipe["ingredients"], "nutrition": before},
         "delta": {k: round(after[k] - before[k], 1) for k in ("net_carbs_g", "sat_fat_g", "fat_g", "sodium_mg", "kcal")},
         "focus": FOCUS_KEY[condition],
@@ -296,6 +301,7 @@ def _valid_schedule(days: object, recipes: list[dict]) -> list[dict] | None:
         return None
     mains = sum(1 for r in recipes if r["meal"] != "dessert")
     clean, desserts = [], 0
+    meal_slots = ("breakfast", "lunch", "dinner")
     for i, day in enumerate(days):
         if not isinstance(day, dict):
             return None
@@ -312,6 +318,8 @@ def _valid_schedule(days: object, recipes: list[dict]) -> list[dict] | None:
             desserts += 1
             if recipes[slots["dessert"]]["meal"] != "dessert":
                 return None
+        if mains and any(recipes[slots[s]]["meal"] == "dessert" for s in meal_slots):
+            return None
         if mains > 1 and slots["lunch"] == slots["dinner"]:
             return None
         clean.append({"day": DAYS[i], **slots})
@@ -356,7 +364,8 @@ def make_plan(recipes: list[dict], condition: str, language: str) -> tuple[dict,
         system = prompts.PLAN.format(condition=CONDITIONS[condition], language=language)
         focus = FOCUS_KEY[condition]
         menu = [{"id": i, "name": r["name"], "meal": r["meal"], focus: r["nutrition"][focus]} for i, r in enumerate(recipes)]
-        data, trace = llm.chat_json("ultra", system, json.dumps(menu), step="Plan the week", max_tokens=3000)
+        data, trace = llm.chat_json("ultra", system, json.dumps(menu), step="Plan the week", max_tokens=8000)
+        trace = {**trace}  # don't mutate the cached copy
         days = _valid_schedule(data.get("days"), recipes)
         message = str(data.get("message_for_parent", ""))[:800]
         raw_tips = data.get("tips")

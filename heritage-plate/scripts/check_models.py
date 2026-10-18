@@ -11,7 +11,7 @@ import time
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from app import llm  # noqa: E402
+from app import llm
 
 if not os.getenv("NEBIUS_API_KEY"):
     sys.exit("Set NEBIUS_API_KEY first.")
@@ -23,7 +23,7 @@ try:
     print("NVIDIA models visible to this key:")
     for model_id in nvidia:
         print("  ", model_id)
-except Exception as exc:  # listing is optional
+except Exception as exc:  # noqa: BLE001 - listing is optional
     print("Could not list models:", exc)
 
 print("\nPinging configured tiers:")
@@ -35,5 +35,5 @@ for tier, model in llm.MODELS.items():
         )
         ms = round((time.perf_counter() - started) * 1000)
         print(f"  {tier:5} OK   {model}  ({ms} ms): {resp.choices[0].message.content!r}")
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001 - report every failure
         print(f"  {tier:5} FAIL {model}: {exc}")

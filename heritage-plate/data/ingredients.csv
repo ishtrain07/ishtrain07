@@ -48,7 +48,7 @@ mozzarella cheese,mozzarella,dairy,150,USDA,01026
 queso fresco,fresh cheese|queso blanco,dairy,100,USDA,01228
 khoa,mawa|khoya,dairy,100,IFCT,L004
 ghee,clarified butter|desi ghee,fat,30,USDA,01003
-butter,makhan|makkhan,fat,20,USDA,01001
+butter,makhan|makkhan|unsalted butter|salted butter,fat,20,USDA,01145
 vegetable oil,oil|sunflower oil|refined oil|cooking oil,fat,30,USDA,04582
 canola oil,rapeseed oil,fat,30,USDA,04582
 olive oil,extra virgin olive oil|evoo,fat,30,USDA,04053

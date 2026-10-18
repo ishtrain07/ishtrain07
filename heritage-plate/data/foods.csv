@@ -48,7 +48,7 @@ mozzarella cheese,mozzarella,dairy,150,300.0,2.19,0.0,22.17,22.35,13.15,627.0,US
 queso fresco,fresh cheese|queso blanco,dairy,100,299.0,2.98,0.0,18.09,23.82,12.94,751.0,USDA SR28,01228,"CHEESE,FRSH,QUESO FRESCO"
 khoa,mawa|khoya,dairy,100,315.97,16.53,0.0,16.34,20.62,12.94,48.1,IFCT 2017,L004,Khoa
 ghee,clarified butter|desi ghee,fat,30,876.0,0.0,0.0,0.28,99.48,61.92,2.0,USDA SR28,01003,"BUTTER OIL,ANHYDROUS"
-butter,makhan|makkhan,fat,20,717.0,0.06,0.0,0.85,81.11,51.37,643.0,USDA SR28,01001,"BUTTER,WITH SALT"
+butter,makhan|makkhan|unsalted butter|salted butter,fat,20,717.0,0.06,0.0,0.85,81.11,50.49,11.0,USDA SR28,01145,"BUTTER,WITHOUT SALT"
 vegetable oil,oil|sunflower oil|refined oil|cooking oil,fat,30,884.0,0.0,0.0,0.0,100.0,7.37,0.0,USDA SR28,04582,"OIL,CANOLA"
 canola oil,rapeseed oil,fat,30,884.0,0.0,0.0,0.0,100.0,7.37,0.0,USDA SR28,04582,"OIL,CANOLA"
 olive oil,extra virgin olive oil|evoo,fat,30,884.0,0.0,0.0,0.0,100.0,13.81,2.0,USDA SR28,04053,"OIL,OLIVE,SALAD OR COOKING"

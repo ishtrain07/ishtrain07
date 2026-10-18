@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import logging
+import os
 import time
 from collections import defaultdict, deque
 from functools import lru_cache
@@ -17,6 +19,7 @@ from pydantic import BaseModel, Field, field_validator
 from . import engine, llm, nutrition
 
 ROOT = Path(__file__).resolve().parent.parent
+log = logging.getLogger("heritage_plate")
 app = FastAPI(title="Heritage Plate", version="0.2.0")
 
 Condition = Literal["diabetes", "bp", "cholesterol"]
@@ -38,9 +41,8 @@ class Recipe(BaseModel):
 
     def build(self) -> dict:
         """Recompute nutrition server-side; client-sent numbers are ignored."""
-        recipe = engine.build_recipe(
-            self.name, self.servings, [i.model_dump() for i in self.ingredients], self.source_text, self.meal
-        )
+        ingredients = engine.normalize_ingredients([i.model_dump() for i in self.ingredients])
+        recipe = engine.build_recipe(self.name, self.servings, ingredients, self.source_text, self.meal)
         return {**recipe, "id": self.id}
 
 
@@ -73,15 +75,27 @@ class PlanIn(BaseModel):
         return _language(value)
 
 
-# Simple per-IP limit on model-backed endpoints (protects credits on a public demo URL).
-RATE_LIMIT, RATE_WINDOW_S = 60, 600
+# Simple per-client limit on model-backed endpoints (protects credits on a public demo URL).
+RATE_LIMIT, RATE_WINDOW_S, MAX_CLIENTS = 60, 600, 10_000
+# Set TRUST_PROXY=1 when deployed behind a proxy that sets X-Forwarded-For (e.g. a hosted endpoint).
+TRUST_PROXY = os.getenv("TRUST_PROXY", "0") == "1"
 _hits: dict[str, deque] = defaultdict(deque)
 
 
+def _client_id(request: Request) -> str:
+    if TRUST_PROXY:
+        forwarded = request.headers.get("x-forwarded-for", "")
+        if forwarded:
+            return forwarded.split(",")[0].strip()
+    return request.client.host if request.client else "unknown"
+
+
 def _rate_limit(request: Request) -> None:
-    ip = request.client.host if request.client else "unknown"
     now = time.monotonic()
-    hits = _hits[ip]
+    if len(_hits) > MAX_CLIENTS:  # drop idle clients so memory stays bounded
+        for key in [k for k, v in _hits.items() if not v or now - v[-1] > RATE_WINDOW_S]:
+            del _hits[key]
+    hits = _hits[_client_id(request)]
     while hits and now - hits[0] > RATE_WINDOW_S:
         hits.popleft()
     if len(hits) >= RATE_LIMIT:
@@ -93,7 +107,8 @@ def _guard(fn, *args):
     try:
         return fn(*args)
     except llm.LLMError as exc:
-        raise HTTPException(status_code=502, detail=str(exc)) from exc
+        log.warning("model call failed: %s", exc)
+        raise HTTPException(status_code=502, detail="The AI model didn't respond properly. Please try again.") from exc
 
 
 @lru_cache

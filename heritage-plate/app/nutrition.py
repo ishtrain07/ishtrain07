@@ -12,9 +12,11 @@ from __future__ import annotations
 
 import csv
 import re
+import unicodedata
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
+from types import MappingProxyType
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 NUTRIENTS = ("kcal", "carbs_g", "fiber_g", "protein_g", "fat_g", "sat_fat_g", "sodium_mg")
@@ -26,14 +28,23 @@ class Food:
     aliases: tuple[str, ...]
     category: str
     default_g: float
-    per100: dict[str, float]
+    per100: MappingProxyType  # read-only nutrient -> value per 100 g
     source: str
     source_id: str
     source_desc: str
 
 
+# Quantity, unit and preparation words that can surround an ingredient name.
+FILLER = set(
+    ["a", "an", "the", "of", "some", "few", "little", "bit", "half", "whole", "fresh", "chopped", "sliced", "diced", "minced", "grated", "boiled", "raw", "dry", "dried", "cooked", "big", "small", "medium", "large", "cup", "cups", "katori", "katoris", "bowl", "bowls", "tbsp", "tsp", "tablespoon", "tablespoons", "teaspoon", "teaspoons", "spoon", "spoons", "g", "gm", "gms", "gram", "grams", "kg", "ml", "l", "litre", "liter", "handful", "handfuls", "pinch", "bunch", "bunches", "piece", "pieces", "clove", "cloves", "can", "cans", "packet", "pack", "slice", "slices", "sheet", "sheets", "stick", "sticks", "to", "taste", "as", "needed"]
+)
+# Colour/variety words that don't change the food much ("red onion" is still onion).
+SAFE_ADJECTIVES = {"red", "white", "yellow", "purple", "baby", "ripe", "organic", "frozen", "plain", "unsalted", "salted", "lean", "skinless", "boneless"}
+
+
 def normalize(text: str) -> str:
-    """Lowercase, strip punctuation and collapse whitespace."""
+    """Lowercase, fold accents (azúcar -> azucar), strip punctuation, collapse spaces."""
+    text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode()
     return re.sub(r"\s+", " ", re.sub(r"[^a-z ]", " ", text.lower())).strip()
 
 
@@ -47,7 +58,7 @@ def foods() -> dict[str, Food]:
                 aliases=tuple(a.strip() for a in row["aliases"].split("|") if a.strip()),
                 category=row["category"],
                 default_g=float(row["default_g"]),
-                per100={k: float(row[k]) for k in NUTRIENTS},
+                per100=MappingProxyType({k: float(row[k]) for k in NUTRIENTS}),
                 source=row["source"],
                 source_id=row["source_id"],
                 source_desc=row["source_desc"],
@@ -80,14 +91,22 @@ def canonical_names() -> list[str]:
 
 @lru_cache(maxsize=2048)
 def match(item: str) -> Food | None:
-    """Map a free-text ingredient name to a food in the table, or None."""
-    text = normalize(item)
+    """Map an ingredient name to a food in the table, or None.
+
+    Strict on purpose: after dropping quantities and units, the remaining words
+    must be a known name (optionally with a colour/variety word in front).
+    "peanut butter" or "rice flour" stay unmatched instead of being counted as
+    butter or flour; unmatched items are shown to the user as "not counted".
+    """
     index = _alias_index()
-    if text in index:
-        return foods()[index[text]]
-    for alias, pattern in _alias_patterns():  # longest alias wins
-        if pattern.search(text):
-            return foods()[index[alias]]
+    words = [w for w in normalize(item).split() if w not in FILLER]
+    core = " ".join(words)
+    if core in index:
+        return foods()[index[core]]
+    if len(words) >= 2 and words[0] in SAFE_ADJECTIVES:
+        rest = " ".join(words[1:])
+        if rest in index:
+            return foods()[index[rest]]
     return None
 
 

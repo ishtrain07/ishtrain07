@@ -88,3 +88,34 @@ def test_extract_json_handles_reasoning_and_trailing_text():
     assert llm.extract_json('```json\n{"a": {"b": 2}}\n``` done') == {"a": {"b": 2}}
     with pytest.raises(ValueError):
         llm.extract_json("no json here")
+
+
+def _fake_model(monkeypatch, reply):
+    monkeypatch.setattr(llm, "is_live", lambda: True)
+    monkeypatch.setattr(llm, "chat_json", lambda *a, **k: (reply, {"step": "x", "tier": "super", "model": "fake", "ms": 1, "tokens": 1, "fallback": False, "cached": False}))
+
+
+def test_null_fields_from_model_do_not_crash(client, monkeypatch):
+    _fake_model(monkeypatch, {"ingredients": None, "changes": None, "cooking_tip": None})
+    recipe = {"name": "Rice", "servings": 2, "ingredients": [{"item": "white rice", "grams": 200}]}
+    res = client.post("/api/adapt", json={"recipe": recipe})
+    assert res.status_code == 200
+    assert res.json()["recipe"]["cooking_tip"] == "" and res.json()["recipe"]["changes"] == []
+
+
+def test_model_schedule_with_dessert_for_lunch_is_replaced(client, monkeypatch):
+    days = [{"day": d, "breakfast": 0, "lunch": 0, "dinner": 1, "dessert": 0} for d in "MTWTFSS"]
+    _fake_model(monkeypatch, {"days": days, "message_for_parent": "hi", "tips": "not a list"})
+    recipes = [
+        {"name": "Kheer", "servings": 4, "meal": "dessert", "ingredients": [{"item": "sugar", "grams": 100}]},
+        {"name": "Dal", "servings": 4, "ingredients": [{"item": "toor dal", "grams": 200}]},
+    ]
+    plan = client.post("/api/plan", json={"recipes": recipes}).json()["plan"]
+    assert all(d["lunch"] != "Kheer" and d["breakfast"] != "Kheer" for d in plan["days"])
+    assert isinstance(plan["tips"], list) and len(plan["tips"]) == 3
+
+
+def test_unknown_ingredient_from_model_disables_percent_claim(client, monkeypatch):
+    _fake_model(monkeypatch, {"ingredients": [{"item": "cauliflower rice pilaf mix", "grams": 300}], "changes": [{"what": "swap"}]})
+    recipe = {"name": "Rice", "servings": 2, "ingredients": [{"item": "white rice", "grams": 200}]}
+    assert client.post("/api/adapt", json={"recipe": recipe}).json()["recipe"]["comparable"] is False
