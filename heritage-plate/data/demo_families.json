@@ -1,0 +1,93 @@
+[
+  {
+    "id": "gill",
+    "family": "The Gill family",
+    "parent": "Mum, 64 (type 2 diabetes)",
+    "cuisine": "south_asian",
+    "condition": "diabetes",
+    "language": "Punjabi",
+    "recipes": [
+      {"name": "Mum's aloo paratha", "servings": 4, "meal": "breakfast",
+       "source_text": "3 katori atta, 2 big boiled aloo, one onion, hari mirch, masala, and ghee on top, as much as you like.",
+       "ingredients": [{"item": "atta", "grams": 300}, {"item": "aloo", "grams": 300}, {"item": "onion", "grams": 110}, {"item": "green chili", "grams": 10}, {"item": "masala", "grams": 6}, {"item": "ghee", "grams": 40}, {"item": "salt", "grams": 6}]},
+      {"name": "Sunday rajma chawal", "servings": 4,
+       "source_text": "2 katori rajma soaked overnight, 1.5 cups basmati, onion-tomato tadka with adrak lahsun, 2 spoons oil.",
+       "ingredients": [{"item": "rajma", "grams": 200}, {"item": "basmati rice", "grams": 280}, {"item": "onion", "grams": 150}, {"item": "tomato", "grams": 200}, {"item": "ginger", "grams": 10}, {"item": "garlic", "grams": 10}, {"item": "vegetable oil", "grams": 26}, {"item": "masala", "grams": 8}, {"item": "salt", "grams": 7}]},
+      {"name": "Dal tadka with roti", "servings": 4,
+       "source_text": "2 katori toor dal, tamatar, pyaz, lahsun tadka in ghee, 8 rotis from 2.5 katori atta.",
+       "ingredients": [{"item": "toor dal", "grams": 200}, {"item": "atta", "grams": 250}, {"item": "tomato", "grams": 120}, {"item": "onion", "grams": 110}, {"item": "garlic", "grams": 10}, {"item": "ghee", "grams": 30}, {"item": "jeera", "grams": 4}, {"item": "salt", "grams": 6}]},
+      {"name": "Palak paneer", "servings": 4,
+       "source_text": "Two bunches palak, 250 g paneer, one onion, one tomato, a spoon of butter and oil.",
+       "ingredients": [{"item": "spinach", "grams": 450}, {"item": "paneer", "grams": 250}, {"item": "onion", "grams": 110}, {"item": "tomato", "grams": 120}, {"item": "butter", "grams": 15}, {"item": "vegetable oil", "grams": 20}, {"item": "masala", "grams": 5}, {"item": "salt", "grams": 6}]},
+      {"name": "Rice kheer", "servings": 6, "meal": "dessert",
+       "source_text": "1 litre doodh, half katori chawal, 1 katori cheeni, a few kaju.",
+       "ingredients": [{"item": "milk", "grams": 1000}, {"item": "rice", "grams": 60}, {"item": "sugar", "grams": 120}, {"item": "cashews", "grams": 20}]}
+    ]
+  },
+  {
+    "id": "chen",
+    "family": "The Chen family",
+    "parent": "Dad, 70 (high blood pressure)",
+    "cuisine": "east_asian",
+    "condition": "bp",
+    "language": "Mandarin",
+    "recipes": [
+      {"name": "Dad's tomato egg stir-fry", "servings": 3,
+       "source_text": "4 eggs, 3 tomatoes, a spoon of sugar, 2 spoons soy sauce, spring onion, a little oil.",
+       "ingredients": [{"item": "egg", "grams": 200}, {"item": "tomato", "grams": 360}, {"item": "sugar", "grams": 10}, {"item": "soy sauce", "grams": 32}, {"item": "spring onion", "grams": 20}, {"item": "vegetable oil", "grams": 26}, {"item": "salt", "grams": 3}]},
+      {"name": "Mapo tofu with rice", "servings": 4,
+       "source_text": "One block tofu, 200 g pork mince, chili, 3 spoons soy sauce, garlic, ginger, rice for four.",
+       "ingredients": [{"item": "tofu", "grams": 400}, {"item": "pork", "grams": 200}, {"item": "chili powder", "grams": 5}, {"item": "soy sauce", "grams": 48}, {"item": "garlic", "grams": 12}, {"item": "ginger", "grams": 10}, {"item": "vegetable oil", "grams": 26}, {"item": "white rice", "grams": 300}, {"item": "salt", "grams": 4}]},
+      {"name": "Bok choy with oyster sauce", "servings": 4,
+       "source_text": "Two bunches bok choy, garlic, 2 spoons oyster sauce, a little oil.",
+       "ingredients": [{"item": "bok choy", "grams": 500}, {"item": "garlic", "grams": 12}, {"item": "oyster sauce", "grams": 36}, {"item": "vegetable oil", "grams": 13}, {"item": "salt", "grams": 2}]},
+      {"name": "Morning congee", "servings": 4, "meal": "breakfast",
+       "source_text": "1 cup rice cooked soft, ginger, spring onion, a pinch of salt, soy sauce to serve.",
+       "ingredients": [{"item": "white rice", "grams": 185}, {"item": "ginger", "grams": 10}, {"item": "spring onion", "grams": 20}, {"item": "salt", "grams": 4}, {"item": "soy sauce", "grams": 16}]}
+    ]
+  },
+  {
+    "id": "rossi",
+    "family": "The Rossi family",
+    "parent": "Nonna, 72 (high cholesterol)",
+    "cuisine": "continental",
+    "condition": "cholesterol",
+    "language": "Italian",
+    "recipes": [
+      {"name": "Nonna's lasagne", "servings": 6,
+       "source_text": "500 g beef mince, pasta sheets, tomatoes, a big handful of mozzarella and parmesan, cream for the white sauce.",
+       "ingredients": [{"item": "ground beef", "grams": 500}, {"item": "pasta", "grams": 300}, {"item": "tomato", "grams": 600}, {"item": "mozzarella", "grams": 200}, {"item": "parmesan", "grams": 60}, {"item": "heavy cream", "grams": 200}, {"item": "onion", "grams": 110}, {"item": "olive oil", "grams": 26}, {"item": "salt", "grams": 6}]},
+      {"name": "Spaghetti carbonara", "servings": 4,
+       "source_text": "400 g spaghetti, 150 g bacon, 3 eggs, parmesan, black pepper.",
+       "ingredients": [{"item": "spaghetti", "grams": 400}, {"item": "bacon", "grams": 150}, {"item": "egg", "grams": 150}, {"item": "parmesan", "grams": 60}, {"item": "salt", "grams": 4}]},
+      {"name": "Minestrone", "servings": 6,
+       "source_text": "Carrot, celery, onion, zucchini, a can of beans, tomatoes, a little pasta, olive oil.",
+       "ingredients": [{"item": "carrot", "grams": 150}, {"item": "celery", "grams": 100}, {"item": "onion", "grams": 110}, {"item": "zucchini", "grams": 250}, {"item": "kidney beans", "grams": 120}, {"item": "tomato", "grams": 400}, {"item": "pasta", "grams": 100}, {"item": "olive oil", "grams": 26}, {"item": "salt", "grams": 6}]},
+      {"name": "Buttered toast and eggs", "servings": 2, "meal": "breakfast",
+       "source_text": "4 slices white bread, butter, 3 eggs scrambled with a splash of cream.",
+       "ingredients": [{"item": "white bread", "grams": 120}, {"item": "butter", "grams": 20}, {"item": "egg", "grams": 150}, {"item": "heavy cream", "grams": 30}, {"item": "salt", "grams": 2}]}
+    ]
+  },
+  {
+    "id": "reyes",
+    "family": "The Reyes family",
+    "parent": "Lola, 68 (type 2 diabetes)",
+    "cuisine": "latin_american",
+    "condition": "diabetes",
+    "language": "Spanish",
+    "recipes": [
+      {"name": "Arroz con pollo", "servings": 6,
+       "source_text": "2 cups rice, a whole chicken in pieces, peppers, onion, peas, tomato, oil.",
+       "ingredients": [{"item": "white rice", "grams": 370}, {"item": "chicken", "grams": 900}, {"item": "bell pepper", "grams": 150}, {"item": "onion", "grams": 110}, {"item": "green peas", "grams": 100}, {"item": "tomato", "grams": 150}, {"item": "vegetable oil", "grams": 30}, {"item": "salt", "grams": 7}]},
+      {"name": "Black beans and plantains", "servings": 4,
+       "source_text": "Two cups black beans, 2 ripe plantains fried, onion, garlic, cumin.",
+       "ingredients": [{"item": "black beans", "grams": 300}, {"item": "plantain", "grams": 360}, {"item": "onion", "grams": 110}, {"item": "garlic", "grams": 10}, {"item": "cumin", "grams": 4}, {"item": "vegetable oil", "grams": 40}, {"item": "salt", "grams": 5}]},
+      {"name": "Huevos rancheros", "servings": 2, "meal": "breakfast",
+       "source_text": "4 flour tortillas, 4 eggs, salsa with tomato and chili, a little queso fresco.",
+       "ingredients": [{"item": "flour tortilla", "grams": 180}, {"item": "egg", "grams": 200}, {"item": "tomato", "grams": 200}, {"item": "green chili", "grams": 10}, {"item": "queso fresco", "grams": 40}, {"item": "vegetable oil", "grams": 13}]},
+      {"name": "Flan", "servings": 8, "meal": "dessert",
+       "source_text": "1 cup sugar for caramel, 4 eggs, milk, condensed milk.",
+       "ingredients": [{"item": "sugar", "grams": 300}, {"item": "egg", "grams": 200}, {"item": "whole milk", "grams": 500}]}
+    ]
+  }
+]

@@ -1,48 +1,133 @@
-name,aliases,category,default_g,kcal,carbs_g,fiber_g,protein_g,fat_g,sodium_mg
-whole wheat flour,atta|wheat flour|chapati flour|roti flour|gehun ka atta,grain,300,340,72.0,10.7,13.2,2.5,2
-white rice,rice|chawal|basmati|basmati rice|sona masoori,grain,300,360,79.0,1.3,7.1,0.7,5
-brown rice,brown basmati,grain,300,367,76.2,3.4,7.5,2.7,7
-semolina,sooji|suji|rava|rawa,grain,200,360,72.8,3.9,12.7,1.1,1
-flattened rice,poha|pohe|aval|chivda,grain,250,346,76.9,2.0,6.6,1.2,10
-rolled oats,oats|oatmeal,grain,150,379,67.7,10.1,13.2,6.5,6
-pearl millet flour,bajra|bajra atta|bajra flour,grain,250,361,61.8,11.5,11.6,5.0,10
-finger millet flour,ragi|ragi flour|nachni,grain,250,320,66.8,11.2,7.2,1.9,11
-sorghum flour,jowar|jowar atta|jowar flour,grain,250,334,67.7,10.2,10.0,1.7,6
-gram flour,besan|chickpea flour,legume,150,387,57.8,10.8,22.4,6.7,64
-toor dal,arhar dal|tuvar dal|pigeon pea|arhar,legume,200,343,62.8,15.0,21.7,1.5,17
-moong dal,mung dal|yellow moong|green gram,legume,200,347,62.6,16.3,23.9,1.2,15
-masoor dal,red lentils|lentils|masoor,legume,200,352,63.4,10.7,24.6,1.1,6
-chana dal,split chickpeas|bengal gram,legume,200,360,60.0,17.0,20.0,5.0,24
-chickpeas,chole|kabuli chana|garbanzo|chana,legume,250,364,60.7,12.2,19.3,6.0,24
-kidney beans,rajma|red kidney beans,legume,250,333,60.0,15.2,23.6,0.8,12
-paneer,cottage cheese,dairy,250,296,3.4,0.0,18.9,23.0,22
-whole milk,milk|doodh,dairy,500,61,4.8,0.0,3.2,3.3,43
-yogurt,curd|dahi|plain yogurt,dairy,250,61,4.7,0.0,3.5,3.3,46
-ghee,clarified butter|desi ghee,fat,30,900,0.0,0.0,0.0,100.0,2
-vegetable oil,oil|mustard oil|sunflower oil|canola oil|refined oil,fat,30,884,0.0,0.0,0.0,100.0,0
-butter,makhan|makkhan,fat,20,717,0.1,0.0,0.9,81.1,11
-potato,aloo|potatoes|alu,vegetable,300,77,17.5,2.2,2.0,0.1,6
-onion,pyaaz|pyaz|onions,vegetable,100,40,9.3,1.7,1.1,0.1,4
-tomato,tamatar|tomatoes,vegetable,150,18,3.9,1.2,0.9,0.2,5
-spinach,palak,vegetable,400,23,3.6,2.2,2.9,0.4,79
-cauliflower,gobi|phool gobi|riced cauliflower,vegetable,300,25,5.0,2.0,1.9,0.3,30
-green peas,matar|peas,vegetable,100,81,14.5,5.7,5.4,0.4,5
-carrot,gajar|carrots,vegetable,100,41,9.6,2.8,0.9,0.2,69
-okra,bhindi|ladyfinger,vegetable,300,33,7.5,3.2,1.9,0.2,7
-eggplant,baingan|brinjal|aubergine,vegetable,300,25,5.9,3.0,1.0,0.2,2
-cabbage,patta gobi|band gobi,vegetable,300,25,5.8,2.5,1.3,0.1,18
-bottle gourd,lauki|doodhi|ghiya,vegetable,400,14,3.4,0.5,0.6,0.0,2
-green chili,hari mirch|chili|chilli|green chilli,vegetable,10,40,9.5,1.5,2.0,0.2,7
-garlic,lahsun|lehsun,vegetable,10,149,33.1,2.1,6.4,0.5,17
-ginger,adrak,vegetable,10,80,17.8,2.0,1.8,0.8,13
-lemon juice,nimbu|lime juice|lemon,vegetable,15,22,6.9,0.3,0.4,0.2,1
-grated coconut,coconut|nariyal,fat,50,354,15.2,9.0,3.3,33.5,20
-peanuts,moongphali|groundnuts|mungfali,nuts,40,567,16.1,8.5,25.8,49.2,18
-cashews,kaju,nuts,20,553,30.2,3.3,18.2,43.9,12
-sugar,cheeni|chini|white sugar,sweetener,50,387,100.0,0.0,0.0,0.0,1
-jaggery,gur|gud,sweetener,50,383,98.0,0.0,0.4,0.1,30
-chicken,murgh|chicken breast|chicken thigh,protein,500,143,0.0,0.0,21.0,6.0,77
-egg,eggs|anda|ande,protein,100,143,0.7,0.0,12.6,9.5,142
-fish,machli|machhi|white fish,protein,500,96,0.0,0.0,20.0,1.7,60
-spices,masala|garam masala|haldi|turmeric|jeera|cumin|dhaniya|coriander powder|red chili powder|mirch powder,spice,10,320,50.0,25.0,12.0,10.0,60
-salt,namak,spice,8,0,0.0,0.0,0.0,0.0,38758
+name,aliases,category,default_g,kcal,carbs_g,fiber_g,protein_g,fat_g,sat_fat_g,sodium_mg,source,source_id,source_desc
+whole wheat flour,atta|wheat flour|chapati flour|roti flour|gehun ka atta,grain,300,320.27,75.53,11.36,10.57,1.53,0.21,2.04,IFCT 2017,A019,"Wheat flour, atta"
+all-purpose flour,maida|plain flour|white flour|flour,grain,250,364.0,76.31,2.7,10.33,0.98,0.15,2.0,USDA SR28,20081,"WHEAT FLR,WHITE,ALL-PURPOSE,ENR,BLEACHED"
+white rice,rice|chawal|basmati|basmati rice|sona masoori|jasmine rice|long grain rice,grain,300,356.36,81.05,2.81,7.94,0.52,0.18,2.34,IFCT 2017,A015,"Rice, raw, milled"
+brown rice,brown basmati,grain,300,353.73,79.23,4.43,9.16,1.24,0.35,3.64,IFCT 2017,A013,"Rice, raw, brown"
+glutinous rice,sticky rice|sweet rice|malagkit|mochi rice,grain,250,370.0,81.68,2.8,6.81,0.55,0.11,7.0,USDA SR28,20054,"RICE,WHITE,GLUTINOUS,UNENR,UNCKD"
+semolina,sooji|suji|rava|rawa,grain,200,333.65,78.15,9.72,11.38,0.74,0.09,2.31,IFCT 2017,A022,"Wheat, semolina"
+flattened rice,poha|pohe|aval|chivda,grain,250,353.73,80.21,3.46,7.44,1.14,0.28,2.58,IFCT 2017,A011,Rice flakes
+rolled oats,oats|oatmeal,grain,150,379.0,67.7,10.1,13.15,6.52,1.11,6.0,USDA SR28,08120,"CEREALS,OATS,REG & QUICK,NOT FORT,DRY"
+pearl millet flour,bajra|bajra atta|bajra flour|pearl millet,grain,250,347.99,73.27,11.49,10.96,5.43,0.88,4.11,IFCT 2017,A003,Bajra
+finger millet flour,ragi|ragi flour|nachni|finger millet,grain,250,320.75,78.0,11.18,7.16,1.92,0.32,4.75,IFCT 2017,A010,Ragi
+sorghum flour,jowar|jowar atta|jowar flour|sorghum,grain,250,334.13,77.9,10.22,9.97,1.73,0.16,5.42,IFCT 2017,A005,Jowar
+quinoa,,grain,200,368.0,64.16,7.0,14.12,6.07,0.71,5.0,USDA SR28,20035,"QUINOA,UNCKD"
+barley,pearl barley|jau,grain,150,352.0,77.72,15.6,9.91,1.16,0.24,9.0,USDA SR28,20005,"BARLEY,PEARLED,RAW"
+bulgur,bulgur wheat|burghul|dalia,grain,200,342.0,75.87,12.5,12.29,1.33,0.23,17.0,USDA SR28,20012,"BULGUR,DRY"
+couscous,,grain,200,376.0,77.43,5.0,12.76,0.64,0.12,10.0,USDA SR28,20028,"COUSCOUS,DRY"
+cornmeal,polenta|masa|makki ka atta|corn flour|maize flour,grain,250,370.0,79.45,3.9,7.11,1.75,0.22,7.0,USDA SR28,20422,"CORNMEAL,DEGERMED,UNENR,YEL"
+pasta,spaghetti|penne|macaroni|fusilli,grain,400,371.0,74.67,3.2,13.04,1.51,0.28,6.0,USDA SR28,20120,"PASTA,DRY,ENR"
+egg noodles,noodles|lo mein|hakka noodles|ramen noodles|pancit canton,grain,300,384.0,71.27,3.3,14.16,4.44,1.18,21.0,USDA SR28,20409,"NOODLES,EGG,DRY,UNENR"
+rice noodles,rice vermicelli|pho noodles|pad thai noodles|bihon|sevai,grain,250,364.0,80.18,1.6,5.95,0.56,0.15,182.0,USDA SR28,20133,"RICE NOODLES,DRY"
+glass noodles,cellophane noodles|mung bean noodles|sotanghon|japchae noodles,grain,150,351.0,86.09,0.5,0.16,0.06,0.02,10.0,USDA SR28,16082,"NOODLES,CHINESE,CELLOPHANE OR LONG RICE (MUNG BNS),DEHYD"
+white bread,bread|sandwich bread|pav,grain,200,266.0,49.42,2.7,8.85,3.33,0.7,490.0,USDA SR28,18069,"BREAD,WHITE,COMMLY PREP (INCL SOFT BREAD CRUMBS)"
+whole wheat bread,brown bread|whole grain bread,grain,200,252.0,42.71,6.0,12.45,3.5,0.72,455.0,USDA SR28,18075,"BREAD,WHOLE-WHEAT,COMM. PREPARED"
+pita bread,pita|pitta,grain,200,275.0,55.7,2.2,9.1,1.2,0.17,536.0,USDA SR28,18041,"BREAD,PITA,WHITE,ENRICHED"
+corn tortilla,corn tortillas|tortilla de maiz,grain,200,218.0,44.64,6.3,5.7,2.85,0.45,45.0,USDA SR28,18363,"TORTILLAS,RTB OR -FRY,CORN"
+flour tortilla,flour tortillas|wrap,grain,200,306.0,49.38,3.5,8.2,7.99,2.92,736.0,USDA SR28,18364,"TORTILLAS,RTB OR -FRY,FLR,REFR"
+cornstarch,corn starch|cornflour|arrowroot,grain,20,381.0,91.27,0.9,0.26,0.05,0.01,9.0,USDA SR28,20027,CORNSTARCH
+gram flour,besan|chickpea flour,legume,150,387.0,57.82,10.8,22.39,6.69,0.69,64.0,USDA SR28,16157,CHICKPEA FLOUR (BESAN)
+toor dal,arhar dal|tuvar dal|pigeon pea|arhar|red gram,legume,200,330.78,64.29,9.06,21.7,1.56,0.26,18.01,IFCT 2017,B021,"Red gram, dal"
+moong dal,mung dal|yellow moong|green gram dal,legume,200,325.76,61.96,9.37,23.88,1.35,0.25,10.14,IFCT 2017,B010,"Green gram, dal"
+masoor dal,red lentils|lentils|masoor|lentil,legume,200,322.42,62.96,10.43,24.35,0.75,0.09,10.27,IFCT 2017,B013,Lentil dal
+chana dal,split chickpeas|bengal gram dal,legume,200,329.11,61.87,15.15,21.55,5.31,0.47,20.83,IFCT 2017,B001,"Bengal gram, dal"
+chickpeas,chole|kabuli chana|garbanzo|garbanzo beans|chana|hummus beans,legume,250,378.0,62.95,12.2,20.47,6.04,0.6,24.0,USDA SR28,16056,"CHICKPEAS (GARBANZO BNS,BENGAL GM),MATURE SEEDS,RAW"
+kidney beans,rajma|red kidney beans|red beans,legume,250,299.24,65.18,16.57,19.91,1.77,0.26,10.45,IFCT 2017,B020,"Rajmah, red"
+black beans,frijoles negros|turtle beans,legume,250,341.0,62.36,15.5,21.6,1.42,0.37,5.0,USDA SR28,16014,"BEANS,BLACK,MATURE SEEDS,RAW"
+pinto beans,frijoles,legume,250,347.0,62.55,15.5,21.42,1.23,0.23,12.0,USDA SR28,16042,"BEANS,PINTO,MATURE SEEDS,RAW"
+mung beans,whole moong|sabut moong|green gram,legume,200,347.0,62.62,16.3,23.86,1.15,0.35,15.0,USDA SR28,16080,"MUNG BNS,MATURE SEEDS,RAW"
+soybeans,soya beans,legume,200,446.0,30.16,9.3,36.49,19.94,2.88,2.0,USDA SR28,16108,"SOYBEANS,MATURE SEEDS,RAW"
+tofu,bean curd|tahu,legume,350,144.0,2.78,2.3,17.27,8.72,1.26,14.0,USDA SR28,16426,"TOFU,RAW,FIRM,PREP W/CA SULFATE"
+paneer,cottage cheese|indian cottage cheese,dairy,250,257.89,12.41,0.0,18.86,14.78,8.85,18.04,IFCT 2017,L003,Paneer
+whole milk,milk|doodh,dairy,500,72.9,4.94,0.0,3.26,4.48,2.71,25.46,IFCT 2017,L002,"Milk, whole, Cow"
+yogurt,curd|dahi|plain yogurt|greek yogurt|laban,dairy,250,61.0,4.66,0.0,3.47,3.25,2.1,46.0,USDA SR28,01116,"YOGURT,PLN,WHL MILK,8 GRAMS PROT PER 8 OZ"
+heavy cream,cream|malai|double cream|whipping cream,dairy,100,340.0,2.74,0.0,2.84,36.08,23.03,27.0,USDA SR28,01053,"CREAM,FLUID,HVY WHIPPING"
+sour cream,crema,dairy,100,198.0,4.63,0.0,2.44,19.35,10.14,31.0,USDA SR28,01056,"CREAM,SOUR,CULTURED"
+cheddar cheese,cheddar|cheese,dairy,100,404.0,3.09,0.0,22.87,33.31,18.87,653.0,USDA SR28,01009,"CHEESE,CHEDDAR"
+parmesan cheese,parmesan|parmigiano,dairy,40,420.0,13.91,0.0,28.42,27.84,15.37,1804.0,USDA SR28,01032,"CHEESE,PARMESAN,GRATED"
+mozzarella cheese,mozzarella,dairy,150,300.0,2.19,0.0,22.17,22.35,13.15,627.0,USDA SR28,01026,"CHEESE,MOZZARELLA,WHL MILK"
+queso fresco,fresh cheese|queso blanco,dairy,100,299.0,2.98,0.0,18.09,23.82,12.94,751.0,USDA SR28,01228,"CHEESE,FRSH,QUESO FRESCO"
+khoa,mawa|khoya,dairy,100,315.97,16.53,0.0,16.34,20.62,12.94,48.1,IFCT 2017,L004,Khoa
+ghee,clarified butter|desi ghee,fat,30,876.0,0.0,0.0,0.28,99.48,61.92,2.0,USDA SR28,01003,"BUTTER OIL,ANHYDROUS"
+butter,makhan|makkhan,fat,20,717.0,0.06,0.0,0.85,81.11,51.37,643.0,USDA SR28,01001,"BUTTER,WITH SALT"
+vegetable oil,oil|sunflower oil|refined oil|cooking oil,fat,30,884.0,0.0,0.0,0.0,100.0,7.37,0.0,USDA SR28,04582,"OIL,CANOLA"
+canola oil,rapeseed oil,fat,30,884.0,0.0,0.0,0.0,100.0,7.37,0.0,USDA SR28,04582,"OIL,CANOLA"
+olive oil,extra virgin olive oil|evoo,fat,30,884.0,0.0,0.0,0.0,100.0,13.81,2.0,USDA SR28,04053,"OIL,OLIVE,SALAD OR COOKING"
+sesame oil,til oil|gingelly oil,fat,15,884.0,0.0,0.0,0.0,100.0,14.2,0.0,USDA SR28,04058,"OIL,SESAME,SALAD OR COOKING"
+mustard oil,sarson ka tel,fat,30,884.0,0.0,0.0,0.0,100.0,11.58,0.0,USDA SR28,04583,"OIL,MUSTARD"
+coconut oil,,fat,30,892.0,0.0,0.0,0.0,99.06,82.47,0.0,USDA SR28,04047,"OIL,COCNT"
+groundnut oil,peanut oil,fat,30,884.0,0.0,0.0,0.0,100.0,16.9,0.0,USDA SR28,04042,"OIL,PNUT,SALAD OR COOKING"
+coconut milk,nariyal doodh|gata|santan,fat,200,197.0,2.81,0.0,2.02,21.33,18.91,13.0,USDA SR28,12118,"COCONUT MILK,CND (LIQ EXPRESSED FROM GRATED MEAT&H2O)"
+grated coconut,coconut|nariyal|fresh coconut,fat,50,408.94,16.72,10.42,3.84,41.38,28.05,8.12,IFCT 2017,H007,"Coconut, kernel, fresh"
+potato,aloo|potatoes|alu|patatas,vegetable,300,69.79,16.6,1.71,1.54,0.23,0.04,4.11,IFCT 2017,F006,"Potato, brown skin, big"
+sweet potato,shakarkandi|camote|kamote|yam,vegetable,300,86.0,20.12,3.0,1.57,0.05,0.02,55.0,USDA SR28,11507,"SWEET POTATO,RAW,UNPREP"
+cassava,yuca|tapioca|kamoteng kahoy|manioc,vegetable,300,160.0,38.06,1.8,1.36,0.28,0.07,14.0,USDA SR28,11134,"CASSAVA,RAW"
+plantain,plantains|platano|green banana|kacha kela,vegetable,300,122.0,31.89,2.3,1.3,0.37,0.14,4.0,USDA SR28,09277,"PLANTAINS,RAW"
+onion,pyaaz|pyaz|onions|sibuyas|cebolla,vegetable,100,48.04,12.01,2.45,1.5,0.24,0.06,5.5,IFCT 2017,G017,"Onion, big"
+spring onion,scallion|scallions|green onion|hara pyaz,vegetable,30,32.0,7.34,2.6,1.83,0.19,0.03,16.0,USDA SR28,11291,"ONIONS,SPRING OR SCALLIONS (INCL TOPS&BULB),RAW"
+tomato,tamatar|tomatoes|kamatis|tomate,vegetable,150,18.0,3.89,1.2,0.88,0.2,0.03,5.0,USDA SR28,11529,"TOMATOES,RED,RIPE,RAW,YEAR RND AVERAGE"
+spinach,palak|espinaca,vegetable,400,24.38,4.43,2.38,2.14,0.64,0.18,42.55,IFCT 2017,C033,Spinach
+fenugreek leaves,methi|methi leaves,vegetable,100,34.42,7.07,4.9,3.68,0.83,0.2,47.01,IFCT 2017,C020,Fenugreek leaves
+mustard greens,sarson|sarson ka saag|mustard leaves,vegetable,400,30.35,6.33,3.92,3.52,0.51,0.14,19.14,IFCT 2017,C026,Mustard leaves
+cauliflower,gobi|phool gobi|riced cauliflower|cauliflower rice,vegetable,300,22.94,5.74,3.71,2.15,0.44,0.12,30.72,IFCT 2017,D036,Cauliflower
+broccoli,,vegetable,250,34.0,6.64,2.6,2.82,0.37,0.04,33.0,USDA SR28,11090,"BROCCOLI,RAW"
+green peas,matar|peas|petits pois,vegetable,100,81.26,18.2,6.32,7.25,0.13,0.02,3.66,IFCT 2017,D061,"Peas, fresh"
+carrot,gajar|carrots|zanahoria,vegetable,100,41.0,9.58,2.8,0.93,0.24,0.04,69.0,USDA SR28,11124,"CARROTS,RAW"
+okra,bhindi|ladyfinger|ladies finger|gumbo,vegetable,300,27.49,7.7,4.08,2.08,0.22,0.07,7.37,IFCT 2017,D056,Ladies finger
+eggplant,baingan|brinjal|aubergine|talong,vegetable,300,27.25,7.06,3.57,1.77,0.39,0.09,3.15,IFCT 2017,D010,Brinjal-1
+cabbage,patta gobi|band gobi|repolyo,vegetable,300,21.51,6.01,2.76,1.36,0.12,0.05,14.98,IFCT 2017,C015,"Cabbage, green"
+napa cabbage,chinese cabbage|wombok|pechay baguio,vegetable,300,16.0,3.23,1.2,1.2,0.2,0.04,9.0,USDA SR28,11119,"CABBAGE,CHINESE (PE-TSAI),RAW"
+bok choy,pak choi|pechay|bok choi,vegetable,250,13.0,2.18,1.0,1.5,0.2,0.03,65.0,USDA SR28,11116,"CABBAGE,CHINESE (PAK-CHOI),RAW"
+bottle gourd,lauki|doodhi|ghiya|upo,vegetable,400,10.99,3.8,2.12,0.53,0.13,0.04,1.46,IFCT 2017,D007,"Bottle gourd, elongate, pale green"
+bitter gourd,karela|bitter melon|ampalaya,vegetable,250,20.79,6.6,3.78,1.44,0.24,0.14,13.09,IFCT 2017,D004,"Bitter gourd, jagged, teeth ridges, elongate"
+zucchini,courgette|summer squash,vegetable,300,17.0,3.11,1.0,1.21,0.32,0.08,8.0,USDA SR28,11477,"SQUASH,SMMR,ZUCCHINI,INCL SKN,RAW"
+bell pepper,capsicum|shimla mirch|red pepper|pimiento,vegetable,150,31.0,6.03,2.1,0.99,0.3,0.03,4.0,USDA SR28,11821,"PEPPERS,SWT,RED,RAW"
+green beans,french beans|string beans|sitaw|habichuelas,vegetable,200,31.0,6.97,2.7,1.83,0.22,0.05,6.0,USDA SR28,11052,"BEANS,SNAP,GREEN,RAW"
+mushrooms,mushroom|button mushrooms|khumb,vegetable,200,27.49,5.09,3.11,3.68,0.42,0.06,7.72,IFCT 2017,J001,"Button mushroom, fresh"
+shiitake,shiitake mushrooms,vegetable,100,34.0,6.79,2.5,2.24,0.49,0.0,9.0,USDA SR28,11238,"MUSHROOMS,SHIITAKE,RAW"
+bean sprouts,mung bean sprouts|togue,vegetable,150,30.0,5.94,1.8,3.04,0.18,0.05,6.0,USDA SR28,11043,"MUNG BNS,MATURE SEEDS,SPROUTED,RAW"
+celery,,vegetable,80,16.0,2.97,1.6,0.69,0.17,0.04,80.0,USDA SR28,11143,"CELERY,RAW"
+lettuce,romaine|cos lettuce,vegetable,150,17.0,3.29,2.1,1.23,0.3,0.04,8.0,USDA SR28,11251,"LETTUCE,COS OR ROMAINE,RAW"
+cucumber,kheera|pipino|pepino,vegetable,200,15.0,3.63,0.5,0.65,0.11,0.04,2.0,USDA SR28,11205,"CUCUMBER,WITH PEEL,RAW"
+avocado,aguacate|butter fruit,vegetable,150,160.0,8.53,6.7,2.0,14.66,2.13,7.0,USDA SR28,09037,"AVOCADOS,RAW,ALL COMM VAR"
+kimchi,,vegetable,150,15.0,2.4,1.6,1.1,0.5,0.07,498.0,USDA SR28,11118,"CABBAGE,KIMCHI"
+green chili,hari mirch|chili|chilli|green chilli|jalapeno|serrano|siling haba,vegetable,10,45.65,11.18,4.86,2.62,0.73,0.13,3.32,IFCT 2017,G001,"Chillies, green-1"
+garlic,lahsun|lehsun|bawang|ajo,vegetable,10,123.8,27.15,5.22,6.92,0.16,0.03,9.42,IFCT 2017,G011,"Garlic, big clove"
+ginger,adrak|luya|jengibre,vegetable,10,54.97,14.33,5.36,2.22,0.85,0.23,10.03,IFCT 2017,G014,"Ginger, fresh"
+lemongrass,tanglad|sereh,vegetable,15,99.0,25.31,0.0,1.82,0.49,0.12,6.0,USDA SR28,11972,"LEMON GRASS (CITRONELLA),RAW"
+coriander leaves,cilantro|dhaniya patta|hara dhaniya|kinchay,vegetable,20,23.0,3.67,2.8,2.13,0.52,0.01,46.0,USDA SR28,11165,"CORIANDER (CILANTRO) LEAVES,RAW"
+parsley,flat leaf parsley,vegetable,20,36.0,6.33,3.3,2.97,0.79,0.13,56.0,USDA SR28,11297,"PARSLEY,FRSH"
+lemon juice,nimbu|lemon|nimbu ras,vegetable,15,22.0,6.9,0.3,0.35,0.24,0.04,1.0,USDA SR28,09152,"LEMON JUICE,RAW"
+lime juice,lime|calamansi|kalamansi|limon,vegetable,15,25.0,8.42,0.4,0.42,0.07,0.01,2.0,USDA SR28,09160,"LIME JUICE,RAW"
+banana,bananas|kela|saging,fruit,120,89.0,22.84,2.6,1.09,0.33,0.11,1.0,USDA SR28,09040,"BANANAS,RAW"
+mango,aam|mangga,fruit,200,60.0,14.98,1.6,0.82,0.38,0.09,1.0,USDA SR28,09176,"MANGOS,RAW"
+apple,apples|seb,fruit,150,52.0,13.81,2.4,0.26,0.17,0.03,1.0,USDA SR28,09003,"APPLES,RAW,WITH SKIN"
+peanuts,moongphali|groundnuts|mungfali|mani|cacahuates,nuts,40,520.08,27.65,10.38,23.65,39.63,8.14,12.21,IFCT 2017,H012,Ground nut
+cashews,kaju,nuts,20,582.7,29.32,3.86,18.78,45.2,7.82,9.0,IFCT 2017,H005,Cashew nut
+tahini,sesame paste,nuts,30,592.0,21.5,4.7,17.4,53.01,7.42,35.0,USDA SR28,12698,"SESAME BUTTER,TAHINI,KRNLS UNSPEC"
+sugar,cheeni|chini|white sugar|asukal|azucar,sweetener,50,387.0,99.98,0.0,0.0,0.0,0.0,1.0,USDA SR28,19335,"SUGARS,GRANULATED"
+brown sugar,muscovado|panela|piloncillo,sweetener,50,380.0,98.09,0.0,0.12,0.0,0.0,28.0,USDA SR28,19334,"SUGARS,BROWN"
+jaggery,gur|gud,sweetener,50,353.73,84.87,0.0,1.85,0.16,0.07,25.38,IFCT 2017,I001,"Jaggery, cane"
+honey,shahad|miel,sweetener,30,304.0,82.4,0.2,0.3,0.0,0.0,4.0,USDA SR28,19296,HONEY
+chicken,murgh|chicken thigh|chicken breast|manok|pollo,protein,500,121.0,0.0,0.0,19.66,4.12,1.1,95.0,USDA SR28,05096,"CHICKEN,BROILERS OR FRYERS,DK MEAT,THIGH,MEAT ONLY,RAW"
+goat meat,mutton|bakra|goat|kambing|cabrito,protein,500,188.1,0.0,0.0,20.33,11.94,5.44,47.31,IFCT 2017,O001,"Goat, shoulder, meat"
+lamb,ground lamb|lamb mince|keema,protein,500,282.0,0.0,0.0,16.56,23.41,10.19,59.0,USDA SR28,17224,"LAMB,GROUND,RAW"
+ground beef,beef mince|minced beef|beef|carne molida,protein,500,254.0,0.0,0.0,17.17,20.0,7.58,66.0,USDA SR28,23572,"BEEF,GROUND,80% LN MEAT / 20% FAT,RAW"
+pork,ground pork|pork mince|baboy|cerdo,protein,500,263.0,0.0,0.0,16.88,21.19,7.87,56.0,USDA SR28,10219,"PORK,FRESH,GROUND,RAW"
+bacon,,protein,100,417.0,1.28,0.0,12.62,39.69,13.3,662.0,USDA SR28,10123,"PORK,CURED,BACON,UNPREP"
+egg,eggs|anda|ande|itlog|huevo,protein,100,134.8,0.0,0.0,13.28,9.15,2.96,123.0,IFCT 2017,M001,"Egg, poultry, whole, raw"
+fish,machli|machhi|white fish|rohu|isda|pescado,protein,500,102.29,0.0,0.0,19.71,2.39,2.05,35.56,IFCT 2017,S006,Rohu
+salmon,,protein,400,208.0,0.0,0.0,20.42,13.42,3.05,59.0,USDA SR28,15236,"SALMON,ATLANTIC,FARMED,RAW"
+cod,,protein,400,82.0,0.0,0.0,17.81,0.67,0.13,54.0,USDA SR28,15015,"COD,ATLANTIC,RAW"
+shrimp,prawns|jhinga|hipon|camarones,protein,300,85.0,0.0,0.0,20.1,0.51,0.1,119.0,USDA SR28,15270,"CRUSTACEANS,SHRIMP,RAW (NOT PREVIOUSLY FROZEN)"
+soy sauce,shoyu|toyo|light soy sauce,sauce,30,53.0,4.93,0.8,8.14,0.57,0.07,5493.0,USDA SR28,16123,SOY SAU MADE FROM SOY&WHEAT (SHOYU)
+fish sauce,patis|nam pla|nuoc mam,sauce,15,35.0,3.64,0.0,5.06,0.01,0.0,7851.0,USDA SR28,06179,"SAUCE,FISH,READY-TO-SERVE"
+oyster sauce,,sauce,20,51.0,10.92,0.3,1.35,0.25,0.04,2733.0,USDA SR28,06176,"SAUCE,OYSTER,RTS"
+hoisin sauce,hoisin,sauce,20,220.0,44.08,2.8,3.31,3.39,0.57,1615.0,USDA SR28,06175,"SAUCE,HOISIN,RTS"
+miso,miso paste,sauce,30,198.0,25.37,5.4,12.79,6.01,1.02,3728.0,USDA SR28,16112,MISO
+vinegar,sirka|suka|white vinegar|cider vinegar,sauce,15,21.0,0.93,0.0,0.0,0.0,0.0,5.0,USDA SR28,02048,"VINEGAR,CIDER"
+spices,masala|garam masala|curry powder|sabzi masala|chaat masala,spice,10,325.0,55.83,53.2,14.29,14.01,1.65,52.0,USDA SR28,02015,CURRY POWDER
+cumin,jeera|zeera|comino|cumin seeds,spice,5,375.0,44.24,10.5,17.81,22.27,1.53,168.0,USDA SR28,02014,CUMIN SEED
+turmeric,haldi|luyang dilaw,spice,3,312.0,67.14,22.7,9.68,3.25,1.84,27.0,USDA SR28,02043,"TURMERIC,GROUND"
+chili powder,red chili powder|lal mirch|mirch powder|paprika|chile powder,spice,5,282.0,49.7,34.8,13.46,14.28,2.46,2867.0,USDA SR28,02009,CHILI POWDER
+cinnamon,dalchini|canela,spice,3,247.0,80.59,53.1,3.99,1.24,0.34,10.0,USDA SR28,02010,"CINNAMON,GROUND"
+salt,namak|asin|sal,spice,8,0.0,0.0,0.0,0.0,0.0,0.0,38758.0,USDA SR28,02047,"SALT,TABLE"

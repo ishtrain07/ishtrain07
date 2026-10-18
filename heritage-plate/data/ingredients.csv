@@ -1,0 +1,133 @@
+name,aliases,category,default_g,source,source_id
+whole wheat flour,atta|wheat flour|chapati flour|roti flour|gehun ka atta,grain,300,IFCT,A019
+all-purpose flour,maida|plain flour|white flour|flour,grain,250,USDA,20081
+white rice,rice|chawal|basmati|basmati rice|sona masoori|jasmine rice|long grain rice,grain,300,IFCT,A015
+brown rice,brown basmati,grain,300,IFCT,A013
+glutinous rice,sticky rice|sweet rice|malagkit|mochi rice,grain,250,USDA,20054
+semolina,sooji|suji|rava|rawa,grain,200,IFCT,A022
+flattened rice,poha|pohe|aval|chivda,grain,250,IFCT,A011
+rolled oats,oats|oatmeal,grain,150,USDA,08120
+pearl millet flour,bajra|bajra atta|bajra flour|pearl millet,grain,250,IFCT,A003
+finger millet flour,ragi|ragi flour|nachni|finger millet,grain,250,IFCT,A010
+sorghum flour,jowar|jowar atta|jowar flour|sorghum,grain,250,IFCT,A005
+quinoa,,grain,200,USDA,20035
+barley,pearl barley|jau,grain,150,USDA,20005
+bulgur,bulgur wheat|burghul|dalia,grain,200,USDA,20012
+couscous,,grain,200,USDA,20028
+cornmeal,polenta|masa|makki ka atta|corn flour|maize flour,grain,250,USDA,20422
+pasta,spaghetti|penne|macaroni|fusilli,grain,400,USDA,20120
+egg noodles,noodles|lo mein|hakka noodles|ramen noodles|pancit canton,grain,300,USDA,20409
+rice noodles,rice vermicelli|pho noodles|pad thai noodles|bihon|sevai,grain,250,USDA,20133
+glass noodles,cellophane noodles|mung bean noodles|sotanghon|japchae noodles,grain,150,USDA,16082
+white bread,bread|sandwich bread|pav,grain,200,USDA,18069
+whole wheat bread,brown bread|whole grain bread,grain,200,USDA,18075
+pita bread,pita|pitta,grain,200,USDA,18041
+corn tortilla,corn tortillas|tortilla de maiz,grain,200,USDA,18363
+flour tortilla,flour tortillas|wrap,grain,200,USDA,18364
+cornstarch,corn starch|cornflour|arrowroot,grain,20,USDA,20027
+gram flour,besan|chickpea flour,legume,150,USDA,16157
+toor dal,arhar dal|tuvar dal|pigeon pea|arhar|red gram,legume,200,IFCT,B021
+moong dal,mung dal|yellow moong|green gram dal,legume,200,IFCT,B010
+masoor dal,red lentils|lentils|masoor|lentil,legume,200,IFCT,B013
+chana dal,split chickpeas|bengal gram dal,legume,200,IFCT,B001
+chickpeas,chole|kabuli chana|garbanzo|garbanzo beans|chana|hummus beans,legume,250,USDA,16056
+kidney beans,rajma|red kidney beans|red beans,legume,250,IFCT,B020
+black beans,frijoles negros|turtle beans,legume,250,USDA,16014
+pinto beans,frijoles,legume,250,USDA,16042
+mung beans,whole moong|sabut moong|green gram,legume,200,USDA,16080
+soybeans,soya beans,legume,200,USDA,16108
+tofu,bean curd|tahu,legume,350,USDA,16426
+paneer,cottage cheese|indian cottage cheese,dairy,250,IFCT,L003
+whole milk,milk|doodh,dairy,500,IFCT,L002
+yogurt,curd|dahi|plain yogurt|greek yogurt|laban,dairy,250,USDA,01116
+heavy cream,cream|malai|double cream|whipping cream,dairy,100,USDA,01053
+sour cream,crema,dairy,100,USDA,01056
+cheddar cheese,cheddar|cheese,dairy,100,USDA,01009
+parmesan cheese,parmesan|parmigiano,dairy,40,USDA,01032
+mozzarella cheese,mozzarella,dairy,150,USDA,01026
+queso fresco,fresh cheese|queso blanco,dairy,100,USDA,01228
+khoa,mawa|khoya,dairy,100,IFCT,L004
+ghee,clarified butter|desi ghee,fat,30,USDA,01003
+butter,makhan|makkhan,fat,20,USDA,01001
+vegetable oil,oil|sunflower oil|refined oil|cooking oil,fat,30,USDA,04582
+canola oil,rapeseed oil,fat,30,USDA,04582
+olive oil,extra virgin olive oil|evoo,fat,30,USDA,04053
+sesame oil,til oil|gingelly oil,fat,15,USDA,04058
+mustard oil,sarson ka tel,fat,30,USDA,04583
+coconut oil,,fat,30,USDA,04047
+groundnut oil,peanut oil,fat,30,USDA,04042
+coconut milk,nariyal doodh|gata|santan,fat,200,USDA,12118
+grated coconut,coconut|nariyal|fresh coconut,fat,50,IFCT,H007
+potato,aloo|potatoes|alu|patatas,vegetable,300,IFCT,F006
+sweet potato,shakarkandi|camote|kamote|yam,vegetable,300,USDA,11507
+cassava,yuca|tapioca|kamoteng kahoy|manioc,vegetable,300,USDA,11134
+plantain,plantains|platano|green banana|kacha kela,vegetable,300,USDA,09277
+onion,pyaaz|pyaz|onions|sibuyas|cebolla,vegetable,100,IFCT,G017
+spring onion,scallion|scallions|green onion|hara pyaz,vegetable,30,USDA,11291
+tomato,tamatar|tomatoes|kamatis|tomate,vegetable,150,USDA,11529
+spinach,palak|espinaca,vegetable,400,IFCT,C033
+fenugreek leaves,methi|methi leaves,vegetable,100,IFCT,C020
+mustard greens,sarson|sarson ka saag|mustard leaves,vegetable,400,IFCT,C026
+cauliflower,gobi|phool gobi|riced cauliflower|cauliflower rice,vegetable,300,IFCT,D036
+broccoli,,vegetable,250,USDA,11090
+green peas,matar|peas|petits pois,vegetable,100,IFCT,D061
+carrot,gajar|carrots|zanahoria,vegetable,100,USDA,11124
+okra,bhindi|ladyfinger|ladies finger|gumbo,vegetable,300,IFCT,D056
+eggplant,baingan|brinjal|aubergine|talong,vegetable,300,IFCT,D010
+cabbage,patta gobi|band gobi|repolyo,vegetable,300,IFCT,C015
+napa cabbage,chinese cabbage|wombok|pechay baguio,vegetable,300,USDA,11119
+bok choy,pak choi|pechay|bok choi,vegetable,250,USDA,11116
+bottle gourd,lauki|doodhi|ghiya|upo,vegetable,400,IFCT,D007
+bitter gourd,karela|bitter melon|ampalaya,vegetable,250,IFCT,D004
+zucchini,courgette|summer squash,vegetable,300,USDA,11477
+bell pepper,capsicum|shimla mirch|red pepper|pimiento,vegetable,150,USDA,11821
+green beans,french beans|string beans|sitaw|habichuelas,vegetable,200,USDA,11052
+mushrooms,mushroom|button mushrooms|khumb,vegetable,200,IFCT,J001
+shiitake,shiitake mushrooms,vegetable,100,USDA,11238
+bean sprouts,mung bean sprouts|togue,vegetable,150,USDA,11043
+celery,,vegetable,80,USDA,11143
+lettuce,romaine|cos lettuce,vegetable,150,USDA,11251
+cucumber,kheera|pipino|pepino,vegetable,200,USDA,11205
+avocado,aguacate|butter fruit,vegetable,150,USDA,09037
+kimchi,,vegetable,150,USDA,11118
+green chili,hari mirch|chili|chilli|green chilli|jalapeno|serrano|siling haba,vegetable,10,IFCT,G001
+garlic,lahsun|lehsun|bawang|ajo,vegetable,10,IFCT,G011
+ginger,adrak|luya|jengibre,vegetable,10,IFCT,G014
+lemongrass,tanglad|sereh,vegetable,15,USDA,11972
+coriander leaves,cilantro|dhaniya patta|hara dhaniya|kinchay,vegetable,20,USDA,11165
+parsley,flat leaf parsley,vegetable,20,USDA,11297
+lemon juice,nimbu|lemon|nimbu ras,vegetable,15,USDA,09152
+lime juice,lime|calamansi|kalamansi|limon,vegetable,15,USDA,09160
+banana,bananas|kela|saging,fruit,120,USDA,09040
+mango,aam|mangga,fruit,200,USDA,09176
+apple,apples|seb,fruit,150,USDA,09003
+peanuts,moongphali|groundnuts|mungfali|mani|cacahuates,nuts,40,IFCT,H012
+cashews,kaju,nuts,20,IFCT,H005
+tahini,sesame paste,nuts,30,USDA,12698
+sugar,cheeni|chini|white sugar|asukal|azucar,sweetener,50,USDA,19335
+brown sugar,muscovado|panela|piloncillo,sweetener,50,USDA,19334
+jaggery,gur|gud,sweetener,50,IFCT,I001
+honey,shahad|miel,sweetener,30,USDA,19296
+chicken,murgh|chicken thigh|chicken breast|manok|pollo,protein,500,USDA,05096
+goat meat,mutton|bakra|goat|kambing|cabrito,protein,500,IFCT,O001
+lamb,ground lamb|lamb mince|keema,protein,500,USDA,17224
+ground beef,beef mince|minced beef|beef|carne molida,protein,500,USDA,23572
+pork,ground pork|pork mince|baboy|cerdo,protein,500,USDA,10219
+bacon,,protein,100,USDA,10123
+egg,eggs|anda|ande|itlog|huevo,protein,100,IFCT,M001
+fish,machli|machhi|white fish|rohu|isda|pescado,protein,500,IFCT,S006
+salmon,,protein,400,USDA,15236
+cod,,protein,400,USDA,15015
+shrimp,prawns|jhinga|hipon|camarones,protein,300,USDA,15270
+soy sauce,shoyu|toyo|light soy sauce,sauce,30,USDA,16123
+fish sauce,patis|nam pla|nuoc mam,sauce,15,USDA,06179
+oyster sauce,,sauce,20,USDA,06176
+hoisin sauce,hoisin,sauce,20,USDA,06175
+miso,miso paste,sauce,30,USDA,16112
+vinegar,sirka|suka|white vinegar|cider vinegar,sauce,15,USDA,02048
+spices,masala|garam masala|curry powder|sabzi masala|chaat masala,spice,10,USDA,02015
+cumin,jeera|zeera|comino|cumin seeds,spice,5,USDA,02014
+turmeric,haldi|luyang dilaw,spice,3,USDA,02043
+chili powder,red chili powder|lal mirch|mirch powder|paprika|chile powder,spice,5,USDA,02009
+cinnamon,dalchini|canela,spice,3,USDA,02010
+salt,namak|asin|sal,spice,8,USDA,02047
