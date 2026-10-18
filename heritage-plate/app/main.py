@@ -76,7 +76,8 @@ class PlanIn(BaseModel):
 
 
 # Simple per-client limit on model-backed endpoints (protects credits on a public demo URL).
-RATE_LIMIT, RATE_WINDOW_S, MAX_CLIENTS = 60, 600, 10_000
+RATE_LIMIT = int(os.getenv("RATE_LIMIT", "200"))  # model-backed requests per client per window
+RATE_WINDOW_S, MAX_CLIENTS = 600, 10_000
 # Set TRUST_PROXY=1 when deployed behind a proxy that sets X-Forwarded-For (e.g. a hosted endpoint).
 TRUST_PROXY = os.getenv("TRUST_PROXY", "0") == "1"
 _hits: dict[str, deque] = defaultdict(deque)

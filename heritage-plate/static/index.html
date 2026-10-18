@@ -3,93 +3,210 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Heritage Plate</title>
+  <meta name="description" content="Keep the family's food. Fix the numbers. Heritage Plate adapts your family recipes for diabetes, blood pressure or cholesterol.">
+  <meta name="theme-color" content="#fbf6ee">
+  <title>Heritage Plate: keep the family's food, fix the numbers</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
+  <a class="skip" href="#start">Skip to the app</a>
+
   <header class="top">
     <div class="wrap top-inner">
-      <div>
-        <h1>Heritage Plate</h1>
-        <p class="tagline">Keep the family's food. Fix the numbers.</p>
-      </div>
-      <span id="mode" class="badge">…</span>
+      <a class="brand" href="#" aria-label="Heritage Plate, home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <circle cx="20" cy="20" r="18" fill="#fff" stroke="#a63f14" stroke-width="2.5"/>
+          <circle cx="20" cy="20" r="11.5" fill="#f6e3c8"/>
+          <path d="M14 23c3-7 9-9 13-9-1 6-5 11-12 11" fill="#2e6b45"/>
+          <path d="M15 24c3-3 6-5 9-7" stroke="#f6e3c8" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span>Heritage Plate</span>
+      </a>
+      <span id="mode" class="badge" role="status">Checking…</span>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="intro" aria-label="How it works">
-      <p><b>Doctor said "change your diet", but nobody wants to give up home food?</b>
-        Add the dishes your family already cooks. We keep each dish and make it lighter for Mum or Dad,
-        show exactly how much it helps, and plan the week.</p>
-      <ol class="how">
-        <li><b>Tell us who</b> you're cooking for</li>
-        <li><b>Add recipes</b> in your own words</li>
-        <li><b>See the lighter version</b>, with the numbers</li>
-        <li><b>Get the week's plan</b> and shopping list</li>
-      </ol>
-    </section>
-
-    <section class="card" aria-labelledby="s1">
-      <h2 id="s1"><span class="step">1</span> Who are we cooking for?</h2>
-      <div class="row">
-        <label>Health focus
-          <select id="condition">
-            <option value="diabetes">Type 2 diabetes</option>
-            <option value="bp">High blood pressure</option>
-            <option value="cholesterol">High cholesterol</option>
-          </select>
-        </label>
-        <label>Parent's language
-          <select id="language">
-            <option>English</option><option>Punjabi</option><option>Hindi</option>
-            <option>Gujarati</option><option>Urdu</option><option>Tamil</option><option>Bengali</option>
-          </select>
-        </label>
-        <button id="loadDemo" class="ghost">Load demo family</button>
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">For families cooking for an ageing parent</p>
+          <h1 id="heroTitle">Keep the family's food.<br><span class="accent">Fix the numbers.</span></h1>
+          <p class="lede">Type or say your family recipes the way you cook them at home. We make each dish
+            lighter for diabetes, blood pressure or cholesterol, <b>keep it the same dish</b>, and show the
+            real numbers from published food tables.</p>
+          <ol class="how" aria-label="How it works">
+            <li><span class="how-n" aria-hidden="true">1</span><span><b>Tell us who</b> you're cooking for</span></li>
+            <li><span class="how-n" aria-hidden="true">2</span><span><b>Add recipes</b> in your own words</span></li>
+            <li><span class="how-n" aria-hidden="true">3</span><span><b>See the lighter version</b>, with before and after numbers</span></li>
+            <li><span class="how-n" aria-hidden="true">4</span><span><b>Get the week</b>: meals, shopping list and a note for your parent</span></li>
+          </ol>
+        </div>
+        <figure class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 320 300" focusable="false">
+            <ellipse cx="160" cy="276" rx="120" ry="12" fill="#ecdcc4"/>
+            <circle cx="160" cy="150" r="128" fill="#fff" stroke="#e7d6bd" stroke-width="3"/>
+            <circle cx="160" cy="150" r="104" fill="#fbf1e2"/>
+            <circle cx="112" cy="110" r="38" fill="#e9a23b"/>
+            <circle cx="112" cy="110" r="38" fill="none" stroke="#c9861f" stroke-width="3"/>
+            <circle cx="102" cy="100" r="5" fill="#fff3d6" opacity=".8"/>
+            <circle cx="120" cy="118" r="4" fill="#fff3d6" opacity=".7"/>
+            <circle cx="208" cy="112" r="34" fill="#2e6b45"/>
+            <circle cx="208" cy="112" r="34" fill="none" stroke="#24563a" stroke-width="3"/>
+            <path d="M193 116c8-14 20-18 30-18-3 13-12 22-27 22" fill="#5c9a6f"/>
+            <circle cx="160" cy="196" r="44" fill="#f4ead8" stroke="#e2cfae" stroke-width="3"/>
+            <g fill="#fff" stroke="#e8dcc6" stroke-width="1.2">
+              <ellipse cx="146" cy="186" rx="6" ry="3"/><ellipse cx="164" cy="182" rx="6" ry="3"/>
+              <ellipse cx="176" cy="196" rx="6" ry="3"/><ellipse cx="150" cy="204" rx="6" ry="3"/>
+              <ellipse cx="168" cy="210" rx="6" ry="3"/><ellipse cx="138" cy="198" rx="6" ry="3"/>
+            </g>
+            <circle cx="252" cy="190" r="14" fill="#a63f14"/>
+            <circle cx="70" cy="184" r="12" fill="#d9732e"/>
+          </svg>
+          <figcaption class="sr-only">A family plate</figcaption>
+        </figure>
       </div>
-      <p class="hint">Just exploring? "Load demo family" fills in six dishes so you can try every step.</p>
     </section>
 
-    <section class="card" aria-labelledby="s2">
-      <h2 id="s2"><span class="step">2</span> Add a family recipe, the way it's said at home</h2>
-      <p class="hint">Write it the way you'd text it to a sibling: the dish name, then what goes in.
-        Home measures like katori, cups, "a handful" or "a little ghee" are fine. Or tap Speak.</p>
-      <textarea id="recipeText" rows="3" placeholder="e.g. Masoor dal: 1 katori masoor, half onion, tamatar, a little ghee, jeera"></textarea>
-      <div class="row">
-        <button id="mic" class="ghost" type="button" title="Speak the recipe">🎙 Speak</button>
-        <label class="small">Serves <input id="servings" type="number" min="1" max="20" value="4"></label>
-        <button id="parse">Read my recipe</button>
+    <!-- Pick a family -->
+    <section id="start" class="wrap start" aria-labelledby="startTitle" tabindex="-1">
+      <h2 id="startTitle" class="section-title">Try it with a family, or start your own</h2>
+      <p class="hint">Each demo family has real home recipes. Pick one to see every step in about a minute.</p>
+      <div id="families" class="families" aria-live="polite">
+        <div class="family skeleton" aria-hidden="true"></div>
+        <div class="family skeleton" aria-hidden="true"></div>
+        <div class="family skeleton" aria-hidden="true"></div>
+        <div class="family skeleton" aria-hidden="true"></div>
       </div>
-      <p id="parseMsg" class="msg" role="status"></p>
+      <button id="startOwn" class="btn btn-quiet start-own" type="button">Start with our own recipes</button>
     </section>
 
-    <section aria-labelledby="s3">
-      <div class="section-head">
-        <h2 id="s3"><span class="step">3</span> Family cookbook</h2>
-        <button id="adaptAll" class="ghost" disabled>Adapt all</button>
-      </div>
-      <p id="focusHint" class="hint"></p>
-      <div id="cookbook" class="grid"><p class="empty">No recipes yet. Add one above or load the demo family.</p></div>
-    </section>
+    <div class="wrap flow">
+      <!-- Step 1 -->
+      <section class="panel" aria-labelledby="s1">
+        <h2 id="s1" class="step-title" tabindex="-1"><span class="step" aria-hidden="true">1</span> Who are we cooking for?</h2>
+        <fieldset class="conditions">
+          <legend>Their health focus</legend>
+          <label class="cond">
+            <input type="radio" name="condition" value="diabetes" checked>
+            <span class="cond-body">
+              <span class="cond-name">Type 2 diabetes</span>
+              <span class="cond-desc">We lower <b>net carbs</b>: the carbs that turn into blood sugar.</span>
+            </span>
+          </label>
+          <label class="cond">
+            <input type="radio" name="condition" value="bp">
+            <span class="cond-body">
+              <span class="cond-name">High blood pressure</span>
+              <span class="cond-desc">We lower <b>sodium</b>: mostly salt and salty sauces.</span>
+            </span>
+          </label>
+          <label class="cond">
+            <input type="radio" name="condition" value="cholesterol">
+            <span class="cond-body">
+              <span class="cond-name">High cholesterol</span>
+              <span class="cond-desc">We lower <b>saturated fat</b>: from ghee, butter, cream, fatty meat.</span>
+            </span>
+          </label>
+        </fieldset>
+        <div class="fields">
+          <label class="field">
+            <span class="field-label">The family's cooking</span>
+            <select id="cuisine"></select>
+          </label>
+          <label class="field">
+            <span class="field-label">Parent's language</span>
+            <select id="language"></select>
+          </label>
+          <label class="field">
+            <span class="field-label">What do you call them? <span class="opt">(optional)</span></span>
+            <input id="parentName" type="text" maxlength="20" autocomplete="off" placeholder="Mum, Dad, Nani, Lola…">
+          </label>
+        </div>
+      </section>
 
-    <section aria-labelledby="s4">
-      <div class="section-head">
-        <h2 id="s4"><span class="step">4</span> Our week</h2>
-        <button id="plan" disabled>Make our week</button>
-      </div>
-      <div id="planOut"></div>
-    </section>
+      <!-- Step 2 -->
+      <section class="panel" aria-labelledby="s2">
+        <h2 id="s2" class="step-title" tabindex="-1"><span class="step" aria-hidden="true">2</span> Add a family recipe, the way it's said at home</h2>
+        <p class="hint">Write the dish name, then what goes in. Home measures like a katori, a cup, a spoon or
+          "a little oil" are fine. We'll work out the grams.</p>
+        <label class="sr-only" for="recipeText">Recipe, in your own words</label>
+        <textarea id="recipeText" rows="4" maxlength="2000"></textarea>
+        <div class="add-row">
+          <button id="mic" class="btn btn-quiet mic" type="button" aria-pressed="false" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-2.1a7 7 0 0 0 6-6.9h-2Z" fill="currentColor"/></svg>
+            <span class="mic-label">Speak it</span>
+          </button>
+          <div class="stepper" role="group" aria-labelledby="servesLabel">
+            <span id="servesLabel" class="stepper-label">Serves</span>
+            <button type="button" class="stepper-btn" data-step="-1" aria-label="One fewer serving">−</button>
+            <input id="servings" type="number" min="1" max="20" value="4" inputmode="numeric" aria-labelledby="servesLabel">
+            <button type="button" class="stepper-btn" data-step="1" aria-label="One more serving">+</button>
+          </div>
+          <button id="parse" class="btn btn-primary" type="button">Read my recipe</button>
+        </div>
+        <p id="micHint" class="hint small" hidden></p>
+        <p id="parseMsg" class="msg" role="status" aria-live="polite"></p>
+      </section>
 
-    <details class="card trace">
-      <summary>Under the hood: which Nemotron model did what</summary>
-      <ol id="trace"></ol>
-    </details>
+      <!-- Step 3 -->
+      <section class="cookbook-section" aria-labelledby="s3">
+        <div class="section-head">
+          <h2 id="s3" class="step-title" tabindex="-1"><span class="step" aria-hidden="true">3</span> <span id="cookbookTitle">Family cookbook</span></h2>
+          <button id="adaptAll" class="btn btn-primary" type="button" disabled>Make every dish lighter</button>
+        </div>
+        <p id="focusHint" class="hint"></p>
+        <p id="adaptProgress" class="progress-line" role="status" aria-live="polite" hidden></p>
+        <div id="summary" aria-live="polite"></div>
+        <div id="cookbook" class="grid"></div>
+      </section>
 
-    <p class="disclaimer">General healthy-eating guidance, not medical advice. Nutrition values are approximate,
-      computed from a food-composition table (not by AI). Check changes with your doctor or dietitian.</p>
+      <!-- Step 4 -->
+      <section class="week-section" aria-labelledby="s4">
+        <div class="section-head">
+          <h2 id="s4" class="step-title" tabindex="-1"><span class="step" aria-hidden="true">4</span> Our week</h2>
+          <button id="plan" class="btn btn-primary" type="button" disabled>Make our week</button>
+        </div>
+        <p class="hint" id="planHint">A 7-day plan using your dishes, a shopping list, and a short note for your parent in their language.</p>
+        <div id="planOut" aria-live="polite"></div>
+      </section>
+
+      <!-- Explainers -->
+      <section class="explain" aria-labelledby="howCalc">
+        <h2 id="howCalc" class="section-title">How we calculate</h2>
+        <ul class="explain-grid">
+          <li><b>Numbers come from food tables, not AI.</b> Every value is computed from published tables:
+            IFCT 2017 (Indian Food Composition Tables) and USDA SR28. Tap "Where the numbers come from" on any dish to see the exact entries.</li>
+          <li><b>AI does the cooking ideas.</b> NVIDIA Nemotron reads your recipe into ingredients and grams,
+            suggests swaps that keep the dish recognisable, and plans the week.</li>
+          <li><b>Good estimates, not lab tests.</b> We count raw weights. Home measures like "1 katori" or "a little ghee"
+            become estimated grams, so treat numbers as close guides.</li>
+          <li><b>Honest about gaps.</b> If an ingredient isn't in our tables we say so and don't count it.
+            If a swap adds something we can't count, we don't claim a "% less".</li>
+        </ul>
+        <p class="disclaimer"><b>Not medical advice.</b> This is general healthy-eating guidance. Please check changes
+          with your parent's doctor or dietitian, especially if they take insulin or blood-pressure medicine.</p>
+      </section>
+
+      <details class="panel hood" id="hood">
+        <summary><span>Under the hood: which Nemotron model did what</span></summary>
+        <div class="tiers" id="tiers"></div>
+        <h3 class="hood-sub">This session</h3>
+        <ol id="trace" class="trace"><li class="muted">Nothing yet. Read, adapt or plan a recipe and each AI step appears here.</li></ol>
+      </details>
+    </div>
   </main>
 
+  <footer class="foot">
+    <div class="wrap">
+      <p>Heritage Plate. Keep the family's food. Fix the numbers.</p>
+    </div>
+  </footer>
+
+  <div id="announce" class="sr-only" aria-live="polite"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
   <script src="/static/app.js"></script>
 </body>
 </html>

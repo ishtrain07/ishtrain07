@@ -99,14 +99,22 @@ def match(item: str) -> Food | None:
     butter or flour; unmatched items are shown to the user as "not counted".
     """
     index = _alias_index()
-    words = [w for w in normalize(item).split() if w not in FILLER]
-    core = " ".join(words)
-    if core in index:
-        return foods()[index[core]]
-    if len(words) >= 2 and words[0] in SAFE_ADJECTIVES:
-        rest = " ".join(words[1:])
-        if rest in index:
-            return foods()[index[rest]]
+    words = normalize(item).split()
+    # Peel filler words off the front one at a time, checking at each step, so
+    # "1 cup gram flour" stops at "gram flour" even though "gram" is also a unit.
+    while words:
+        trimmed = list(words)
+        while len(trimmed) > 1 and trimmed[-1] in FILLER:  # "onions chopped", "salt to taste"
+            trimmed.pop()
+        for candidate in (words, trimmed):
+            core = " ".join(candidate)
+            if core in index:
+                return foods()[index[core]]
+            if len(candidate) >= 2 and candidate[0] in SAFE_ADJECTIVES and " ".join(candidate[1:]) in index:
+                return foods()[index[" ".join(candidate[1:])]]
+        if words[0] not in FILLER:
+            return None
+        words.pop(0)
     return None
 
 

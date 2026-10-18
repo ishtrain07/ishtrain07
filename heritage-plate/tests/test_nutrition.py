@@ -45,3 +45,11 @@ def test_values_match_source_records():
 def test_finds_repeated_and_overlapping_mentions():
     names = [f.name for f, _ in nutrition.find_mentions("brown rice, then plain rice and soy sauce")]
     assert names == ["brown rice", "white rice", "soy sauce"]
+
+
+def test_unit_words_inside_names_still_match():
+    assert nutrition.match("gram flour").name == "gram flour"
+    assert nutrition.match("1 cup gram flour").name == "gram flour"
+    assert nutrition.match("green gram").name == "mung beans"
+    assert nutrition.match("salt to taste").name == "salt"
+    assert nutrition.match("peanut butter") is None
