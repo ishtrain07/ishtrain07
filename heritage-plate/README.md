@@ -43,7 +43,7 @@ pip install -r requirements.txt
 cp .env.example .env               # add NEBIUS_API_KEY for live mode
 export $(grep -v '^#' .env | xargs)
 uvicorn app.main:app --reload
-# open http://localhost:8000 → "Load demo family" → "Adapt all" → "Make our week"
+# open http://localhost:8000 → pick a demo family → "Make every dish lighter" → "Make our week"
 ```
 
 - **Demo mode** (no key, or `MOCK=1`): deterministic swap rules stand in for the models, so the whole flow works offline. Four demo families are included: Gill (South Asian, diabetes), Chen (East Asian, blood pressure), Rossi (Continental, cholesterol) and Reyes (Latin American, diabetes).
