@@ -1,0 +1,48 @@
+name,aliases,category,default_g,kcal,carbs_g,fiber_g,protein_g,fat_g,sodium_mg
+whole wheat flour,atta|wheat flour|chapati flour|roti flour|gehun ka atta,grain,300,340,72.0,10.7,13.2,2.5,2
+white rice,rice|chawal|basmati|basmati rice|sona masoori,grain,300,360,79.0,1.3,7.1,0.7,5
+brown rice,brown basmati,grain,300,367,76.2,3.4,7.5,2.7,7
+semolina,sooji|suji|rava|rawa,grain,200,360,72.8,3.9,12.7,1.1,1
+flattened rice,poha|pohe|aval|chivda,grain,250,346,76.9,2.0,6.6,1.2,10
+rolled oats,oats|oatmeal,grain,150,379,67.7,10.1,13.2,6.5,6
+pearl millet flour,bajra|bajra atta|bajra flour,grain,250,361,61.8,11.5,11.6,5.0,10
+finger millet flour,ragi|ragi flour|nachni,grain,250,320,66.8,11.2,7.2,1.9,11
+sorghum flour,jowar|jowar atta|jowar flour,grain,250,334,67.7,10.2,10.0,1.7,6
+gram flour,besan|chickpea flour,legume,150,387,57.8,10.8,22.4,6.7,64
+toor dal,arhar dal|tuvar dal|pigeon pea|arhar,legume,200,343,62.8,15.0,21.7,1.5,17
+moong dal,mung dal|yellow moong|green gram,legume,200,347,62.6,16.3,23.9,1.2,15
+masoor dal,red lentils|lentils|masoor,legume,200,352,63.4,10.7,24.6,1.1,6
+chana dal,split chickpeas|bengal gram,legume,200,360,60.0,17.0,20.0,5.0,24
+chickpeas,chole|kabuli chana|garbanzo|chana,legume,250,364,60.7,12.2,19.3,6.0,24
+kidney beans,rajma|red kidney beans,legume,250,333,60.0,15.2,23.6,0.8,12
+paneer,cottage cheese,dairy,250,296,3.4,0.0,18.9,23.0,22
+whole milk,milk|doodh,dairy,500,61,4.8,0.0,3.2,3.3,43
+yogurt,curd|dahi|plain yogurt,dairy,250,61,4.7,0.0,3.5,3.3,46
+ghee,clarified butter|desi ghee,fat,30,900,0.0,0.0,0.0,100.0,2
+vegetable oil,oil|mustard oil|sunflower oil|canola oil|refined oil,fat,30,884,0.0,0.0,0.0,100.0,0
+butter,makhan|makkhan,fat,20,717,0.1,0.0,0.9,81.1,11
+potato,aloo|potatoes|alu,vegetable,300,77,17.5,2.2,2.0,0.1,6
+onion,pyaaz|pyaz|onions,vegetable,100,40,9.3,1.7,1.1,0.1,4
+tomato,tamatar|tomatoes,vegetable,150,18,3.9,1.2,0.9,0.2,5
+spinach,palak,vegetable,400,23,3.6,2.2,2.9,0.4,79
+cauliflower,gobi|phool gobi|riced cauliflower,vegetable,300,25,5.0,2.0,1.9,0.3,30
+green peas,matar|peas,vegetable,100,81,14.5,5.7,5.4,0.4,5
+carrot,gajar|carrots,vegetable,100,41,9.6,2.8,0.9,0.2,69
+okra,bhindi|ladyfinger,vegetable,300,33,7.5,3.2,1.9,0.2,7
+eggplant,baingan|brinjal|aubergine,vegetable,300,25,5.9,3.0,1.0,0.2,2
+cabbage,patta gobi|band gobi,vegetable,300,25,5.8,2.5,1.3,0.1,18
+bottle gourd,lauki|doodhi|ghiya,vegetable,400,14,3.4,0.5,0.6,0.0,2
+green chili,hari mirch|chili|chilli|green chilli,vegetable,10,40,9.5,1.5,2.0,0.2,7
+garlic,lahsun|lehsun,vegetable,10,149,33.1,2.1,6.4,0.5,17
+ginger,adrak,vegetable,10,80,17.8,2.0,1.8,0.8,13
+lemon juice,nimbu|lime juice|lemon,vegetable,15,22,6.9,0.3,0.4,0.2,1
+grated coconut,coconut|nariyal,fat,50,354,15.2,9.0,3.3,33.5,20
+peanuts,moongphali|groundnuts|mungfali,nuts,40,567,16.1,8.5,25.8,49.2,18
+cashews,kaju,nuts,20,553,30.2,3.3,18.2,43.9,12
+sugar,cheeni|chini|white sugar,sweetener,50,387,100.0,0.0,0.0,0.0,1
+jaggery,gur|gud,sweetener,50,383,98.0,0.0,0.4,0.1,30
+chicken,murgh|chicken breast|chicken thigh,protein,500,143,0.0,0.0,21.0,6.0,77
+egg,eggs|anda|ande,protein,100,143,0.7,0.0,12.6,9.5,142
+fish,machli|machhi|white fish,protein,500,96,0.0,0.0,20.0,1.7,60
+spices,masala|garam masala|haldi|turmeric|jeera|cumin|dhaniya|coriander powder|red chili powder|mirch powder,spice,10,320,50.0,25.0,12.0,10.0,60
+salt,namak,spice,8,0,0.0,0.0,0.0,0.0,38758

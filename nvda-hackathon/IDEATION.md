@@ -133,3 +133,18 @@ Discovery is shifting from a list of 10 blue links to **one AI answer**: "best b
 - Required: working demo URL, public YouTube video ≤3 min showing Token Factory + Nemotron, public repo with an OSS license, README with Nemotron/Token Factory/Nebius usage, feedback, and a disclosure of pre-existing code.
 - Judging (equal weight): Technological Implementation · Design · Potential Impact · Quality of Idea.
 - Earlier rounds: v1 Receipts (no recurring use), v2 Invoice Watch (too narrow a pattern), v3 broad sweep (Curb Cut / Misconception Map). All dropped in favour of an SME focus.
+
+---
+
+## v5: Final decision, **Heritage Plate** (Oct 18)
+
+After six rounds (Receipts → Invoice Watch → Curb Cut / Misconception Map → Mentioned → Access Check → passion round), we committed to **Heritage Plate**: health + culture, for a parent we know, used daily. Track: **Best Apps & Agents**.
+
+- **Why it won:** it was the idea-validator's #1 in the passion round (47/60). Its open space is that existing apps (Sugar.fit, Fitterfly) serve users in India, not diaspora families eating their own cuisine.
+- **Why the others dropped out:** Mentioned overlaps with BrightLocal / Yext. QuoteCheck, Am I Covered?, Money Guardian and Check-in Companion all already exist. Finance ideas felt saturated.
+- **What makes it more than a prompt:** nutrition numbers come from a food-composition table in code, not the model. The before/after per dish is reproducible.
+- **Moat (to validate):**
+  - a growing library of real family recipes with checked nutrition
+  - swap rules for each cuisine that families actually keep cooking
+  - distribution through diaspora communities, dietitians and clinics
+- **Prototype:** `heritage-plate/` (FastAPI + plain JS). Nemotron Nano reads recipes, Super adapts them, and Ultra plans the week (falls back to Super). Demo mode works without an API key.
