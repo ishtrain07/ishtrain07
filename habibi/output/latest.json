@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19 08:59 ET",
+ "generated_at": "2026-10-19 09:02 ET (position check)",
  "date": "2026-10-19",
  "mode": "plan",
  "regime": {
@@ -171,9 +171,9 @@
  "account": {
   "cash": 1614.5,
   "realized": 0.0,
-  "unrealized": -77.8,
-  "market_value": 807.68,
-  "equity": 2422.18,
+  "unrealized": -77.81,
+  "market_value": 807.67,
+  "equity": 2422.17,
   "return_pct": -3.11
  },
  "drawdown_state": "OK",
@@ -207,8 +207,8 @@
    "pnl_pct": -7.11,
    "days_held": 14,
    "active_stop": 303.76,
-   "action": "SELL ALL",
-   "why": "rotated out: fell below #5 on the ranking this week"
+   "action": "HOLD",
+   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-1.0%)"
   },
   {
    "ticker": "CRWD",
@@ -232,10 +232,10 @@
      "shares": 1.1075
     }
    ],
-   "price": 227.3,
-   "value": 251.73,
-   "pnl": -50.41,
-   "pnl_pct": -16.68,
+   "price": 227.29,
+   "value": 251.72,
+   "pnl": -50.42,
+   "pnl_pct": -16.69,
    "days_held": 6,
    "active_stop": 250.99,
    "action": "SELL ALL",
@@ -269,8 +269,8 @@
    "pnl_pct": -3.44,
    "days_held": 2,
    "active_stop": 525.15,
-   "action": "SELL ALL",
-   "why": "rotated out: fell below #5 on the ranking this week"
+   "action": "HOLD",
+   "why": "held while it stays top-5; reviewed every Monday; stop 525.15 (-0.7%)"
   }
  ],
  "closed": [],
@@ -279,22 +279,8 @@
    "ticker": "CRWD",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 250.99",
-   "price": 227.3,
+   "price": 227.29,
    "shares": 1.1075
-  },
-  {
-   "ticker": "SNOW",
-   "action": "SELL ALL",
-   "why": "rotated out: fell below #5 on the ranking this week",
-   "price": 306.7,
-   "shares": 0.6059
-  },
-  {
-   "ticker": "AMD",
-   "action": "SELL ALL",
-   "why": "rotated out: fell below #5 on the ranking this week",
-   "price": 528.75,
-   "shares": 0.7
   }
  ],
  "trading_days_left": 9,
@@ -305,9 +291,9 @@
   "account": {
    "cash": 108.22,
    "realized": -248.78,
-   "unrealized": -11.66,
-   "market_value": 2331.33,
-   "equity": 2439.55,
+   "unrealized": -11.88,
+   "market_value": 2331.11,
+   "equity": 2439.33,
    "return_pct": -9.65
   },
   "record": {
@@ -326,15 +312,15 @@
     "avg_cost": 404.62,
     "first_buy": "2026-10-19",
     "stop": 372.25,
-    "t1": 424.85,
-    "t2": 445.08,
+    "t1": 418.07,
+    "t2": 433.53,
     "hold_days": 60,
     "sell_by": "2027-01-14",
     "partial": false,
-    "system_pick": false,
+    "system_pick": true,
     "mode": "momentum",
-    "plan_entry": null,
-    "plan_date": null,
+    "plan_entry": 402.61,
+    "plan_date": "2026-10-19",
     "fills": [
      {
       "date": "2026-10-19",
@@ -342,9 +328,9 @@
       "shares": 1.93
      }
     ],
-    "price": 402.61,
-    "value": 777.04,
-    "pnl": -3.88,
+    "price": 402.58,
+    "value": 776.98,
+    "pnl": -3.94,
     "pnl_pct": -0.5,
     "days_held": 0,
     "active_stop": 372.25,
@@ -357,15 +343,15 @@
     "avg_cost": 620.51,
     "first_buy": "2026-10-19",
     "stop": 570.87,
-    "t1": 651.54,
-    "t2": 682.56,
+    "t1": 640.28,
+    "t2": 663.15,
     "hold_days": 60,
     "sell_by": "2027-01-14",
     "partial": false,
-    "system_pick": false,
+    "system_pick": true,
     "mode": "momentum",
-    "plan_entry": null,
-    "plan_date": null,
+    "plan_entry": 617.42,
+    "plan_date": "2026-10-19",
     "fills": [
      {
       "date": "2026-10-19",
@@ -373,9 +359,9 @@
       "shares": 1.26
      }
     ],
-    "price": 617.42,
-    "value": 777.95,
-    "pnl": -3.89,
+    "price": 617.38,
+    "value": 777.9,
+    "pnl": -3.94,
     "pnl_pct": -0.5,
     "days_held": 0,
     "active_stop": 570.87,
@@ -388,15 +374,15 @@
     "avg_cost": 286.85,
     "first_buy": "2026-10-19",
     "stop": 263.9,
-    "t1": 301.19,
-    "t2": 315.54,
+    "t1": 299.83,
+    "t2": 314.24,
     "hold_days": 60,
     "sell_by": "2027-01-14",
     "partial": false,
-    "system_pick": false,
+    "system_pick": true,
     "mode": "momentum",
-    "plan_entry": null,
-    "plan_date": null,
+    "plan_entry": 285.42,
+    "plan_date": "2026-10-19",
     "fills": [
      {
       "date": "2026-10-19",
@@ -404,10 +390,10 @@
       "shares": 2.72
      }
     ],
-    "price": 285.42,
-    "value": 776.34,
-    "pnl": -3.89,
-    "pnl_pct": -0.5,
+    "price": 285.38,
+    "value": 776.23,
+    "pnl": -4.0,
+    "pnl_pct": -0.51,
     "days_held": 0,
     "active_stop": 263.9,
     "action": "HOLD",
@@ -470,35 +456,7 @@
     "pnl_pct": -10.57
    }
   ],
-  "orders_today": [
-   {
-    "date": "2026-10-19",
-    "ticker": "V",
-    "side": "BUY",
-    "shares": 1.93,
-    "price": 404.62,
-    "fees": 0,
-    "note": "new"
-   },
-   {
-    "date": "2026-10-19",
-    "ticker": "MA",
-    "side": "BUY",
-    "shares": 1.26,
-    "price": 620.51,
-    "fees": 0,
-    "note": "new"
-   },
-   {
-    "date": "2026-10-19",
-    "ticker": "ABBV",
-    "side": "BUY",
-    "shares": 2.72,
-    "price": 286.85,
-    "fees": 0,
-    "note": "new"
-   }
-  ],
+  "orders_today": [],
   "executed": true
  },
  "record": {
@@ -532,19 +490,6 @@
     "verdict": "neutral"
    },
    {
-    "ticker": "AMD",
-    "type": "rank_drop",
-    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
-    "held": true,
-    "price": 528.75,
-    "day_pct": -5.95,
-    "n": 628,
-    "avg_pct": 0.49,
-    "down_pct": 50.5,
-    "edge_pct": 0.05,
-    "verdict": "neutral"
-   },
-   {
     "ticker": "CRWD",
     "type": "lost_50dma",
     "label": "Closed below its 50-day average (was above yesterday)",
@@ -555,19 +500,6 @@
     "avg_pct": 0.35,
     "down_pct": 49.1,
     "edge_pct": -0.09,
-    "verdict": "neutral"
-   },
-   {
-    "ticker": "CRWD",
-    "type": "rank_drop",
-    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
-    "held": true,
-    "price": 227.39,
-    "day_pct": -7.02,
-    "n": 628,
-    "avg_pct": 0.49,
-    "down_pct": 50.5,
-    "edge_pct": 0.05,
     "verdict": "neutral"
    },
    {
@@ -5187,5 +5119,23 @@
    "weight": 0.0,
    "recent_ic": -0.037
   }
- ]
+ ],
+ "analyst": {
+  "date": "2026-10-19",
+  "text": "Weekly review. The market light is YELLOW (VIX 18.6, S&P below its 50-day average), so the engine is buying at half size, A-grade setups only. Nasdaq futures are +1.3% this morning. 9 trading days left, but everything must be sold by Fri Oct 23.\nSELL ALL at the open: CRWD (below its 8% stop), SNOW and AMD (both rotated out of the top 5). A tech bounce at the open is a good time to exit.\nLeadership has rotated from AI hardware and cyber to Financials, Healthcare and Energy: V, MA, ABBV, MSFT, XOM.\nEngine buys V, MA and ABBV. V and MA are the same trade (card networks), so I'd use XOM (Energy, #5) in place of MA to spread across 3 sectors.\nDeadline rules for this week: about $650 per name, -4% stop, take profit at +4%, sell everything by Fri Oct 23. All earnings dates are after Oct 23 (V Oct 27, ABBV Oct 30, XOM Oct 30). Fed decision Oct 28.\nThe research run found that none of the tested rule changes held up out-of-sample. The edge mostly disappears when trades happen a day later, so expect modest results.\nYou -3.1%, system simulated -9.7%, S&P -1.1% since Sep 28.",
+  "cautions": [
+   {
+    "ticker": "MA",
+    "why": "Same trade as V (card networks), so it doubles up on Financials. I suggest XOM (Energy) in its place."
+   },
+   {
+    "ticker": "V",
+    "why": "RSI ~73, extended after a strong month. Use the limit and don't chase."
+   },
+   {
+    "ticker": "ABBV",
+    "why": "Last quarter's report (Jul 31) reportedly cut guidance. Earnings Oct 30, after our Oct 23 exit."
+   }
+  ]
+ }
 }
