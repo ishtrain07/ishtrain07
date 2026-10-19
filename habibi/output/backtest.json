@@ -1,16 +1,16 @@
 {
- "n": 814,
- "win_rate": 47.7,
+ "n": 807,
+ "win_rate": 47.6,
  "avg_r": 0.03,
- "avg_win_pct": 6.03,
- "avg_loss_pct": -5.06,
+ "avg_win_pct": 6.01,
+ "avg_loss_pct": -5.07,
  "avg_days": 5.0,
- "total_return_pct": 23.2,
+ "total_return_pct": 14.5,
  "max_drawdown_pct": -41.8,
- "p_25d_gain_20pct": 18.6,
- "p_25d_gain_10pct": 27.4,
- "p_25d_loss": 55.5,
- "median_25d_pct": -1.9,
+ "p_25d_gain_20pct": 17.6,
+ "p_25d_gain_10pct": 26.5,
+ "p_25d_loss": 55.9,
+ "median_25d_pct": -2.3,
  "by_setup": {
   "breakout": {
    "n": 196,
@@ -18,84 +18,45 @@
    "avg_r": 0.07
   },
   "pullback": {
-   "n": 618,
-   "win_rate": 46.4,
+   "n": 611,
+   "win_rate": 46.3,
    "avg_r": 0.02
   }
  },
  "exit_reasons": {
-  "time stop": 355,
-  "stop": 349,
-  "trail/breakeven": 56,
-  "target 2": 54
+  "time stop": 352,
+  "stop": 348,
+  "trail/breakeven": 55,
+  "target 2": 52
  },
- "from": "2025-08-20",
+ "from": "2025-08-22",
  "to": "2026-10-14",
  "recent": [
   {
+   "exit_date": "2026-10-08",
+   "exit_price": 358.62,
+   "pnl_per_share": -31.18399902343748,
+   "r": -1.0,
+   "days": 2,
+   "exit_reason": "stop",
+   "date": "2026-10-06",
+   "ticker": "ALAB",
+   "setup": "breakout",
+   "entry": 389.8,
+   "ret_pct": -7.999999999999995
+  },
+  {
    "exit_date": "2026-10-15",
    "exit_price": 342.0,
-   "pnl_per_share": 11.045331784556822,
-   "r": 1.20752117397818,
+   "pnl_per_share": 11.045331784553582,
+   "r": 1.207521173978396,
    "days": 7,
    "exit_reason": "time stop",
    "date": "2026-10-06",
    "ticker": "AAPL",
    "setup": "pullback",
    "entry": 333.63,
-   "ret_pct": 3.3106530056960835
-  },
-  {
-   "exit_date": "2026-10-12",
-   "exit_price": 263.99,
-   "pnl_per_share": -22.955786132812477,
-   "r": -1.0,
-   "days": 4,
-   "exit_reason": "stop",
-   "date": "2026-10-06",
-   "ticker": "MRVL",
-   "setup": "breakout",
-   "entry": 286.95,
-   "ret_pct": -7.999999999999992
-  },
-  {
-   "exit_date": "2026-10-13",
-   "exit_price": 201.63,
-   "pnl_per_share": -13.725076321758337,
-   "r": -1.0,
-   "days": 5,
-   "exit_reason": "stop",
-   "date": "2026-10-06",
-   "ticker": "ANET",
-   "setup": "breakout",
-   "entry": 215.36,
-   "ret_pct": -6.373085198207703
-  },
-  {
-   "exit_date": "2026-10-16",
-   "exit_price": 29.58,
-   "pnl_per_share": 1.530327700357196,
-   "r": 1.550321182868166,
-   "days": 7,
-   "exit_reason": "time stop",
-   "date": "2026-10-07",
-   "ticker": "PFE",
-   "setup": "pullback",
-   "entry": 28.0,
-   "ret_pct": 5.465456072704272
-  },
-  {
-   "exit_date": "2026-10-08",
-   "exit_price": 27.92,
-   "pnl_per_share": -1.6163942900741617,
-   "r": -1.0,
-   "days": 1,
-   "exit_reason": "stop",
-   "date": "2026-10-07",
-   "ticker": "HIMS",
-   "setup": "pullback",
-   "entry": 29.54,
-   "ret_pct": -5.471883006017523
+   "ret_pct": 3.3106530056951127
   },
   {
    "exit_date": "2026-10-08",
@@ -112,6 +73,32 @@
   },
   {
    "exit_date": "2026-10-16",
+   "exit_price": 29.58,
+   "pnl_per_share": 1.5303277003571747,
+   "r": 1.550321182868189,
+   "days": 7,
+   "exit_reason": "time stop",
+   "date": "2026-10-07",
+   "ticker": "PFE",
+   "setup": "pullback",
+   "entry": 28.0,
+   "ret_pct": 5.465456072704195
+  },
+  {
+   "exit_date": "2026-10-08",
+   "exit_price": 27.92,
+   "pnl_per_share": -1.6163942900741617,
+   "r": -1.0,
+   "days": 1,
+   "exit_reason": "stop",
+   "date": "2026-10-07",
+   "ticker": "HIMS",
+   "setup": "pullback",
+   "entry": 29.54,
+   "ret_pct": -5.471883006017523
+  },
+  {
+   "exit_date": "2026-10-16",
    "exit_price": 186.37,
    "pnl_per_share": -12.412512559429018,
    "r": -1.0,
@@ -122,6 +109,19 @@
    "setup": "breakout",
    "entry": 198.78,
    "ret_pct": -6.244346833511397
+  },
+  {
+   "exit_date": "2026-10-19",
+   "exit_price": 242.12,
+   "pnl_per_share": 14.05920750589857,
+   "r": 1.5283831903365406,
+   "days": 7,
+   "exit_reason": "time stop",
+   "date": "2026-10-08",
+   "ticker": "CRM",
+   "setup": "pullback",
+   "entry": 227.8,
+   "ret_pct": 6.171732799627846
   },
   {
    "exit_date": "2026-10-14",
@@ -165,7 +165,7 @@
   {
    "exit_date": "2026-10-14",
    "exit_price": 221.94,
-   "pnl_per_share": -6.577696589957668,
+   "pnl_per_share": -6.577696589975119,
    "r": -1.0,
    "days": 1,
    "exit_reason": "stop",
@@ -173,7 +173,7 @@
    "ticker": "NVDA",
    "setup": "pullback",
    "entry": 228.52,
-   "ret_pct": -2.878389842018023
+   "ret_pct": -2.8783898420256597
   },
   {
    "exit_date": "2026-10-14",
