@@ -1,9 +1,9 @@
 {
- "date": "2026-10-16",
- "text": "Calmer morning. The market light is GREEN (VIX 16.0), Asia and Europe were up overnight, and Nasdaq futures are -0.3%. Chips bounced yesterday afternoon. 10 trading days left.\nNo new buys from the system today, because all of this week's picks are now held.\nAMD (held, #2): +2.7% at $562, stop $525. Yesterday's half-size entry worked. Adding the second half (about 0.7 sh) is optional while it holds above about $560, with the same $525 stop.\nCRWD (held): back up to #4, but still below its 8% stop ($244.69 vs $250.99), so the system still says SELL. If holding, exit if it closes below about $232.\nSNOW (held): +1.5%, ranked #13 (rank warning). Likely sold at Monday's review.\nAMD, DELL, MRVL and ALAB were flagged for opening more than 5% lower. Historically that has been a mildly positive signal (dip buyers).\nSystem simulated -9.2%, you -0.7%, S&P +0.1%. Weekly review is Monday Oct 19.",
+ "date": "2026-10-19",
+ "text": "Weekly review. The market light is YELLOW (VIX 18.6, S&P below its 50-day average), so the engine is buying at half size, A-grade setups only. Nasdaq futures are +1.3% this morning. 9 trading days left, but everything must be sold by Fri Oct 23.\nSELL ALL at the open: CRWD (below its 8% stop), SNOW and AMD (both rotated out of the top 5). A tech bounce at the open is a good time to exit.\nLeadership has rotated from AI hardware and cyber to Financials, Healthcare and Energy: V, MA, ABBV, MSFT, XOM.\nEngine buys V, MA and ABBV. V and MA are the same trade (card networks), so I'd use XOM (Energy, #5) in place of MA to spread across 3 sectors.\nDeadline rules for this week: about $650 per name, -4% stop, take profit at +4%, sell everything by Fri Oct 23. All earnings dates are after Oct 23 (V Oct 27, ABBV Oct 30, XOM Oct 30). Fed decision Oct 28.\nThe research run found that none of the tested rule changes held up out-of-sample. The edge mostly disappears when trades happen a day later, so expect modest results.\nYou -3.1%, system simulated -9.7%, S&P -1.1% since Sep 28.",
  "cautions": [
-  {"ticker": "CRWD", "why": "Still below its 8% stop ($250.99). The system says sell. If holding, use a firm exit below ~$232."},
-  {"ticker": "SNOW", "why": "Rank warning (#13). Likely sold at Monday's review."},
-  {"ticker": "AMD", "why": "Volatile all week. Keep the $525 stop. Earnings Nov 3."}
+  {"ticker": "MA", "why": "Same trade as V (card networks), so it doubles up on Financials. I suggest XOM (Energy) in its place."},
+  {"ticker": "V", "why": "RSI ~73, extended after a strong month. Use the limit and don't chase."},
+  {"ticker": "ABBV", "why": "Last quarter's report (Jul 31) reportedly cut guidance. Earnings Oct 30, after our Oct 23 exit."}
  ]
 }
