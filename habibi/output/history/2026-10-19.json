@@ -1,0 +1,162 @@
+{
+ "buys": [
+  {
+   "ticker": "V",
+   "name": "Visa Inc.",
+   "sector": "Financials",
+   "price": 402.61,
+   "score": 63.8,
+   "momentum": 81,
+   "rs": 84,
+   "trend": 100,
+   "fund": 72,
+   "rsi": 74,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 26.824785,
+   "next_earnings": "2026-10-27",
+   "entry": 402.61,
+   "limit": 404.62,
+   "stop": 370.4,
+   "t1": 418.07,
+   "t2": 433.53,
+   "stop_pct": -8.0,
+   "t1_pct": 3.8,
+   "t2_pct": 7.7,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-26",
+   "shares": 1.7,
+   "dollars": 684.44,
+   "risk_dollars": 54.75,
+   "reason": [
+    "#1 on the learning model ranking: 6-mo +27%, 3-mo +12%, 1-mo +9%",
+    "stronger than 84% of the universe vs the S&P; above its 200-day average",
+    "revenue +14% y/y"
+   ],
+   "news": []
+  },
+  {
+   "ticker": "MA",
+   "name": "Mastercard Incorporated",
+   "sector": "Financials",
+   "price": 617.42,
+   "score": 63.1,
+   "momentum": 79,
+   "rs": 85,
+   "trend": 100,
+   "fund": 72,
+   "rsi": 75,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 26.746975,
+   "next_earnings": "2026-10-29",
+   "entry": 617.42,
+   "limit": 620.51,
+   "stop": 568.03,
+   "t1": 640.28,
+   "t2": 663.15,
+   "stop_pct": -8.0,
+   "t1_pct": 3.7,
+   "t2_pct": 7.4,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-26",
+   "shares": 1.11,
+   "dollars": 685.34,
+   "risk_dollars": 54.83,
+   "reason": [
+    "#2 on the learning model ranking: 6-mo +19%, 3-mo +13%, 1-mo +9%",
+    "stronger than 85% of the universe vs the S&P; above its 200-day average",
+    "revenue +14% y/y"
+   ],
+   "news": []
+  },
+  {
+   "ticker": "ABBV",
+   "name": "AbbVie Inc.",
+   "sector": "Health",
+   "price": 285.42,
+   "score": 75.5,
+   "momentum": 87,
+   "rs": 86,
+   "trend": 100,
+   "fund": 50,
+   "rsi": 72,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 17.602926,
+   "next_earnings": "2026-10-30",
+   "entry": 285.42,
+   "limit": 286.85,
+   "stop": 262.59,
+   "t1": 299.83,
+   "t2": 314.24,
+   "stop_pct": -8.0,
+   "t1_pct": 5.0,
+   "t2_pct": 10.1,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-26",
+   "shares": 2.39,
+   "dollars": 682.15,
+   "risk_dollars": 54.57,
+   "reason": [
+    "#3 on the learning model ranking: 6-mo +39%, 3-mo +13%, 1-mo +9%",
+    "stronger than 86% of the universe vs the S&P; above its 200-day average",
+    "fwd P/E 18"
+   ],
+   "news": []
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "MSFT",
+   "score": 86.1,
+   "price": 529.05,
+   "setup": "momentum",
+   "rsi": 57,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "XOM",
+   "score": 84.6,
+   "price": 178.98,
+   "setup": "momentum",
+   "rsi": 73,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "CVX",
+   "score": 84.5,
+   "price": 224.99,
+   "setup": "momentum",
+   "rsi": 71,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "SPY",
+   "score": 84.3,
+   "price": 763.25,
+   "setup": "momentum",
+   "rsi": 44,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "AAPL",
+   "score": 83.2,
+   "price": 343.46,
+   "setup": "momentum",
+   "rsi": 62,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "YELLOW",
+  "risk_mult": 0.5,
+  "max_new": 2,
+  "message": "Market is choppy (below 50-day or VIX elevated). Half size, A-grade setups only.",
+  "spy": 763.25,
+  "spy_sma50": 767.4,
+  "spy_sma200": 721.88,
+  "vix": 18.63
+ }
+}
