@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20 08:58 ET",
+ "generated_at": "2026-10-20 09:01 ET (position check)",
  "date": "2026-10-20",
  "mode": "plan",
  "regime": {
@@ -476,34 +476,7 @@
   "since": "2026-09-28"
  },
  "anomalies": {
-  "flags": [
-   {
-    "ticker": "AMD",
-    "type": "rank_drop",
-    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
-    "held": true,
-    "price": 538.05,
-    "day_pct": 1.76,
-    "n": 627,
-    "avg_pct": 0.4,
-    "down_pct": 50.9,
-    "edge_pct": -0.02,
-    "verdict": "neutral"
-   },
-   {
-    "ticker": "CRWD",
-    "type": "rank_drop",
-    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
-    "held": true,
-    "price": 228.1,
-    "day_pct": 0.31,
-    "n": 627,
-    "avg_pct": 0.4,
-    "down_pct": 50.9,
-    "edge_pct": -0.02,
-    "verdict": "neutral"
-   }
-  ],
+  "flags": [],
   "rank_trends": [
    {
     "ticker": "AMD",
@@ -5035,5 +5008,23 @@
    "weight": 0.0,
    "recent_ic": -0.037
   }
- ]
+ ],
+ "analyst": {
+  "date": "2026-10-20",
+  "text": "Soft open. The market light is YELLOW (VIX 18.7), Asia and Europe were down about 1% overnight, and Nasdaq futures are -0.5%. 4 trading days left before the Fri Oct 23 sell-by.\nYesterday's orders weren't placed, so the plan carries over. SELL ALL CRWD (below its 8% stop), SNOW and AMD (both out of the top 5 at Monday's review).\nBUY the leaders from 3 sectors at about $650 each: V (#1, Financials), ABBV (#5, Healthcare), XOM (#6, Energy). -4% stops, take profit at +4%, all sold by Friday.\nThe engine itself only lists V as a catch-up buy today. The other two follow the deadline plan, which spreads the money across sectors.\nAll three report earnings after Oct 23. The Fed decision is Oct 28.\nYou -2.6%, system simulated -9.9%, S&P -0.6% since Sep 28.",
+  "cautions": [
+   {
+    "ticker": "CRWD",
+    "why": "Down ~16%, below its stop for 5 sessions. Sell at the open."
+   },
+   {
+    "ticker": "V",
+    "why": "Extended after a strong month (RSI ~73). Use the limit and don't chase."
+   },
+   {
+    "ticker": "ABBV",
+    "why": "Last quarter reportedly cut guidance. Its next report (Oct 30) is after our exit."
+   }
+  ]
+ }
 }
