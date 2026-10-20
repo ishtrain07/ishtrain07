@@ -1,0 +1,93 @@
+{
+ "buys": [
+  {
+   "ticker": "V",
+   "name": "Visa Inc.",
+   "sector": "Financials",
+   "price": 402.92,
+   "score": 71.2,
+   "momentum": 83,
+   "rs": 86,
+   "trend": 100,
+   "fund": 72,
+   "rsi": 74,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 26.819084,
+   "next_earnings": "2026-10-27",
+   "entry": 402.92,
+   "limit": 404.93,
+   "stop": 370.69,
+   "t1": 418.2,
+   "t2": 433.47,
+   "stop_pct": -8.0,
+   "t1_pct": 3.8,
+   "t2_pct": 7.6,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-27",
+   "shares": 2.01,
+   "dollars": 809.87,
+   "risk_dollars": 64.79,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "#1 on the learning model ranking: 6-mo +29%, 3-mo +13%, 1-mo +9%",
+    "stronger than 86% of the universe vs the S&P; above its 200-day average",
+    "revenue +14% y/y"
+   ],
+   "news": []
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "MSFT",
+   "score": 92.5,
+   "price": 533.52,
+   "setup": "momentum",
+   "rsi": 60,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "ABBV",
+   "score": 91.2,
+   "price": 282.68,
+   "setup": "momentum",
+   "rsi": 68,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "XOM",
+   "score": 91.2,
+   "price": 178.28,
+   "setup": "momentum",
+   "rsi": 71,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "SPY",
+   "score": 89.8,
+   "price": 766.48,
+   "setup": "momentum",
+   "rsi": 47,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "AAPL",
+   "score": 88.5,
+   "price": 342.94,
+   "setup": "momentum",
+   "rsi": 61,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "YELLOW",
+  "risk_mult": 0.5,
+  "max_new": 2,
+  "message": "Market is choppy (below 50-day or VIX elevated). Half size, A-grade setups only.",
+  "spy": 766.48,
+  "spy_sma50": 767.3,
+  "spy_sma200": 722.33,
+  "vix": 18.74
+ }
+}
