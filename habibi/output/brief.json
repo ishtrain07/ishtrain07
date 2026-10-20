@@ -1,9 +1,9 @@
 {
- "date": "2026-10-19",
- "text": "Weekly review. The market light is YELLOW (VIX 18.6, S&P below its 50-day average), so the engine is buying at half size, A-grade setups only. Nasdaq futures are +1.3% this morning. 9 trading days left, but everything must be sold by Fri Oct 23.\nSELL ALL at the open: CRWD (below its 8% stop), SNOW and AMD (both rotated out of the top 5). A tech bounce at the open is a good time to exit.\nLeadership has rotated from AI hardware and cyber to Financials, Healthcare and Energy: V, MA, ABBV, MSFT, XOM.\nEngine buys V, MA and ABBV. V and MA are the same trade (card networks), so I'd use XOM (Energy, #5) in place of MA to spread across 3 sectors.\nDeadline rules for this week: about $650 per name, -4% stop, take profit at +4%, sell everything by Fri Oct 23. All earnings dates are after Oct 23 (V Oct 27, ABBV Oct 30, XOM Oct 30). Fed decision Oct 28.\nThe research run found that none of the tested rule changes held up out-of-sample. The edge mostly disappears when trades happen a day later, so expect modest results.\nYou -3.1%, system simulated -9.7%, S&P -1.1% since Sep 28.",
+ "date": "2026-10-20",
+ "text": "Soft open. The market light is YELLOW (VIX 18.7), Asia and Europe were down about 1% overnight, and Nasdaq futures are -0.5%. 4 trading days left before the Fri Oct 23 sell-by.\nYesterday's orders weren't placed, so the plan carries over. SELL ALL CRWD (below its 8% stop), SNOW and AMD (both out of the top 5 at Monday's review).\nBUY the leaders from 3 sectors at about $650 each: V (#1, Financials), ABBV (#5, Healthcare), XOM (#6, Energy). -4% stops, take profit at +4%, all sold by Friday.\nThe engine itself only lists V as a catch-up buy today. The other two follow the deadline plan, which spreads the money across sectors.\nAll three report earnings after Oct 23. The Fed decision is Oct 28.\nYou -2.6%, system simulated -9.9%, S&P -0.6% since Sep 28.",
  "cautions": [
-  {"ticker": "MA", "why": "Same trade as V (card networks), so it doubles up on Financials. I suggest XOM (Energy) in its place."},
-  {"ticker": "V", "why": "RSI ~73, extended after a strong month. Use the limit and don't chase."},
-  {"ticker": "ABBV", "why": "Last quarter's report (Jul 31) reportedly cut guidance. Earnings Oct 30, after our Oct 23 exit."}
+  {"ticker": "CRWD", "why": "Down ~16%, below its stop for 5 sessions. Sell at the open."},
+  {"ticker": "V", "why": "Extended after a strong month (RSI ~73). Use the limit and don't chase."},
+  {"ticker": "ABBV", "why": "Last quarter reportedly cut guidance. Its next report (Oct 30) is after our exit."}
  ]
 }
