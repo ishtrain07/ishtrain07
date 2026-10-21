@@ -64,7 +64,7 @@ const SPEECH_LANG = {
   Portuguese: "pt-BR", Italian: "it-IT", French: "fr-FR", Polish: "pl-PL",
 };
 
-const FAMILY_COLORS = ["#a63f14", "#2a6640", "#1f4277", "#7a4f00"];
+const FAMILY_SHADES = 4; // .avatar.fam-1 … fam-4, coloured by theme tokens
 const DAY_NAMES = { Mon: "Monday", Tue: "Tuesday", Wed: "Wednesday", Thu: "Thursday", Fri: "Friday", Sat: "Saturday", Sun: "Sunday" };
 const SHOP_GROUPS = {
   grain: "Grains and flour", legume: "Beans and lentils", vegetable: "Vegetables", fruit: "Fruit", dairy: "Dairy",
@@ -376,7 +376,7 @@ function renderFamilies() {
     const on = state.family?.id === f.id;
     return `
       <button type="button" class="family" data-family="${esc(f.id)}" aria-pressed="${on}">
-        <span class="avatar" style="background:${FAMILY_COLORS[i % FAMILY_COLORS.length]}" aria-hidden="true">${esc(initial)}</span>
+        <span class="avatar fam-${(i % FAMILY_SHADES) + 1}" aria-hidden="true">${esc(initial)}</span>
         <span class="family-text">
           <span class="family-name">${esc(String(f.family || "").replace(/^The\s+/i, "").replace(/\s+family$/i, ""))} family</span>
           <span class="family-meta">${esc(who)} · ${esc(CONDITIONS[f.condition]?.short || f.condition)}</span>
@@ -1018,6 +1018,80 @@ $("planOut").addEventListener("keydown", (e) => {
   selectTab(keys[i], true);
 });
 
+// ---------- theme ----------
+// System / Light / Dark. "System" means no data-theme attribute, so the CSS follows the device.
+// A data-theme set by a host page before we load is respected; storage is optional.
+const THEME_KEY = "hp-theme";
+const THEME_MODES = ["system", "light", "dark"];
+const darkQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+
+function readStoredTheme() {
+  try { const v = window.localStorage.getItem(THEME_KEY); return THEME_MODES.includes(v) ? v : null; } catch { return null; }
+}
+function storeTheme(mode) {
+  try { window.localStorage.setItem(THEME_KEY, mode); } catch { /* storage blocked: the choice lasts for this visit */ }
+}
+function currentThemeMode() {
+  const v = document.documentElement.getAttribute("data-theme");
+  return v === "light" || v === "dark" ? v : "system";
+}
+function systemIsDark() { return Boolean(darkQuery && darkQuery.matches); }
+function effectiveTheme(mode = currentThemeMode()) { return mode === "system" ? (systemIsDark() ? "dark" : "light") : mode; }
+// From System, go to the opposite of what is showing, so every tap changes something.
+function nextThemeMode(mode) {
+  if (mode === "system") return systemIsDark() ? "light" : "dark";
+  if (mode === "light") return systemIsDark() ? "dark" : "system";
+  return systemIsDark() ? "system" : "light";
+}
+const THEME_WORDS = { system: "System", light: "Light", dark: "Dark" };
+
+function syncThemeUI() {
+  const btn = $("themeToggle");
+  const mode = currentThemeMode();
+  if (btn) {
+    const next = nextThemeMode(mode);
+    btn.dataset.mode = mode;
+    const now = mode === "system" ? `system (${effectiveTheme(mode)})` : THEME_WORDS[mode].toLowerCase();
+    btn.setAttribute("aria-label", `Colour theme: ${now}. Switch to ${THEME_WORDS[next].toLowerCase()}`);
+    btn.title = `Theme: ${THEME_WORDS[mode]}. Tap for ${THEME_WORDS[next]}`;
+  }
+  const bg = getComputedStyle(document.documentElement).getPropertyValue("--bg").trim();
+  if (bg) document.querySelectorAll('meta[name="theme-color"]').forEach((m) => { m.setAttribute("content", bg); });
+}
+
+function applyTheme(mode) {
+  const root = document.documentElement;
+  if (mode === "light" || mode === "dark") root.setAttribute("data-theme", mode);
+  else root.removeAttribute("data-theme");
+  syncThemeUI();
+}
+
+function setupTheme() {
+  const external = document.documentElement.hasAttribute("data-theme");
+  const stored = readStoredTheme();
+  if (!external && stored) applyTheme(stored); else syncThemeUI();
+  $("themeToggle")?.addEventListener("click", () => {
+    const mode = nextThemeMode(currentThemeMode());
+    applyTheme(mode);
+    storeTheme(mode);
+    announce(`${THEME_WORDS[mode]} theme${mode === "system" ? `, following your device (${effectiveTheme(mode)})` : ""}.`);
+  });
+  // Keep the button honest if a host page changes data-theme, or the device switches.
+  try {
+    new MutationObserver(syncThemeUI).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  } catch { /* very old browser: the button still works */ }
+  if (darkQuery) {
+    if (typeof darkQuery.addEventListener === "function") darkQuery.addEventListener("change", syncThemeUI);
+    else if (typeof darkQuery.addListener === "function") darkQuery.addListener(syncThemeUI);
+  }
+}
+
+function setupWhy() {
+  // Open on wide screens; stays a one-line summary on phones so it never pushes the app down.
+  const more = $("whyMore");
+  if (more && window.matchMedia && window.matchMedia("(min-width: 760px)").matches) more.open = true;
+}
+
 // ---------- start ----------
 async function loadFamilies() {
   const box = $("families");
@@ -1030,6 +1104,8 @@ async function loadFamilies() {
 }
 
 async function init() {
+  setupTheme();
+  setupWhy();
   fillSelects();
   renderCookbook();
   renderTiers();
