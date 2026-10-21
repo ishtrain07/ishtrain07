@@ -1,9 +1,8 @@
 {
- "date": "2026-10-20",
- "text": "Soft open. The market light is YELLOW (VIX 18.7), Asia and Europe were down about 1% overnight, and Nasdaq futures are -0.5%. 4 trading days left before the Fri Oct 23 sell-by.\nYesterday's orders weren't placed, so the plan carries over. SELL ALL CRWD (below its 8% stop), SNOW and AMD (both out of the top 5 at Monday's review).\nBUY the leaders from 3 sectors at about $650 each: V (#1, Financials), ABBV (#5, Healthcare), XOM (#6, Energy). -4% stops, take profit at +4%, all sold by Friday.\nThe engine itself only lists V as a catch-up buy today. The other two follow the deadline plan, which spreads the money across sectors.\nAll three report earnings after Oct 23. The Fed decision is Oct 28.\nYou -2.6%, system simulated -9.9%, S&P -0.6% since Sep 28.",
+ "date": "2026-10-21",
+ "text": "The market light is back to GREEN (VIX 17.2), and Nasdaq futures are +0.6%. Only 3 trading days remain before the Fri Oct 23 sell-by.\nPlan: SELL ALL three holdings today and hold cash. CRWD is below its 8% stop. SNOW and AMD were rotated out at Monday's review. A green open is a good time to exit.\nThe engine lists V (#1) as a buy. I recommend skipping it: a 3-day hold has no reliable edge (our research showed 10-day outcomes are close to a coin flip), and the money is needed by Oct 30.\nSelling at current prices leaves about $2,434, about -2.6% since Sep 28. Over the same period the system's simulated account is -8.8% and the S&P 500 is -0.3%.\nAfter the deadline: restart only with money that has no near-term need. Either rebuild the strategy around next-day execution, or use an S&P 500 ETF.",
  "cautions": [
-  {"ticker": "CRWD", "why": "Down ~16%, below its stop for 5 sessions. Sell at the open."},
-  {"ticker": "V", "why": "Extended after a strong month (RSI ~73). Use the limit and don't chase."},
-  {"ticker": "ABBV", "why": "Last quarter reportedly cut guidance. Its next report (Oct 30) is after our exit."}
+  {"ticker": "V", "why": "Engine buy, but skip it. Only 3 days to the sell-by, so a short hold carries too much risk for the money needed by Oct 30."},
+  {"ticker": "CRWD", "why": "Down ~17%, below its stop for a week. Sell today."}
  ]
 }
