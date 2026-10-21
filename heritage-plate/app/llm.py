@@ -31,8 +31,18 @@ class LLMError(RuntimeError):
     pass
 
 
+# When the key is a network secret (injected into outbound requests by a proxy),
+# the app never sees it: set HP_LIVE=1 and a placeholder is sent instead.
+PLACEHOLDER_KEY = "injected-by-network-secret"
+
+
 def is_live() -> bool:
-    return bool(os.getenv("NEBIUS_API_KEY")) and os.getenv("MOCK", "0") != "1"
+    has_key = bool(os.getenv("NEBIUS_API_KEY")) or os.getenv("HP_LIVE", "0") == "1"
+    return has_key and os.getenv("MOCK", "0") != "1"
+
+
+def tracing_enabled() -> bool:
+    return os.getenv("LANGSMITH_TRACING", "").lower() == "true"
 
 
 @lru_cache
@@ -40,7 +50,23 @@ def _client():
     from openai import OpenAI
 
     # No SDK retries: chat_json owns retries so the deadline is a real ceiling.
-    return OpenAI(base_url=BASE_URL, api_key=os.environ["NEBIUS_API_KEY"], timeout=CALL_TIMEOUT_S, max_retries=0)
+    client = OpenAI(
+        base_url=BASE_URL,
+        api_key=os.getenv("NEBIUS_API_KEY") or PLACEHOLDER_KEY,
+        timeout=CALL_TIMEOUT_S,
+        max_retries=0,
+    )
+    if tracing_enabled():
+        # Optional LangSmith tracing: every Nemotron call becomes a trace (model, tokens, latency).
+        # Configure with LANGSMITH_TRACING=true, LANGSMITH_ENDPOINT, LANGSMITH_PROJECT, LANGSMITH_API_KEY.
+        try:
+            from langsmith.wrappers import wrap_openai
+
+            os.environ.setdefault("LANGSMITH_API_KEY", PLACEHOLDER_KEY)
+            client = wrap_openai(client)
+        except ImportError:
+            pass
+    return client
 
 
 def extract_json(text: str) -> dict:

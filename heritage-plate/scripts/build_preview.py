@@ -21,10 +21,10 @@ os.environ["MOCK"] = "1"
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from fastapi.testclient import TestClient  # noqa: E402
+from fastapi.testclient import TestClient
 
-from app import engine, nutrition  # noqa: E402
-from app.main import app  # noqa: E402
+from app import engine, nutrition
+from app.main import app
 
 CONDITIONS = ("diabetes", "bp", "cholesterol")
 
@@ -148,7 +148,7 @@ using numbers precomputed by the real engine. Adding your own recipes and live N
 def build(out: Path) -> None:
     static = ROOT / "static"
     html = (static / "index.html").read_text(encoding="utf-8")
-    body = re.search(r"<body>(.*)</body>", html, re.S).group(1)
+    body = re.search(r"<body>(.*)</body>", html, re.DOTALL).group(1)
     body = re.sub(r'\s*<script src="/static/app.js"></script>', "", body)
     body = body.replace('<main id="main">', BANNER + '\n  <main id="main">', 1)
     css = (static / "styles.css").read_text(encoding="utf-8")

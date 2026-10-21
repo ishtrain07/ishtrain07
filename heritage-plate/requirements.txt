@@ -3,3 +3,4 @@ uvicorn[standard]>=0.29
 openai>=1.30
 pytest>=8
 httpx>=0.27
+langsmith>=0.1  # optional: tracing when LANGSMITH_TRACING=true

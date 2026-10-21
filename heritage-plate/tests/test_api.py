@@ -129,3 +129,12 @@ def test_tiny_and_merged_amounts_round_trip(client):
     grams = {i["item"]: i["grams"] for i in adapted["original"]["ingredients"]}
     assert grams["hing"] == 0.1 and grams["white rice"] == 5000
     assert client.post("/api/plan", json={"recipes": [adapted]}).status_code == 200
+
+
+def test_live_mode_with_network_secret_flag(monkeypatch):
+    monkeypatch.delenv("NEBIUS_API_KEY", raising=False)
+    monkeypatch.setenv("MOCK", "0")
+    monkeypatch.setenv("HP_LIVE", "1")
+    assert llm.is_live()
+    monkeypatch.setenv("MOCK", "1")
+    assert not llm.is_live()

@@ -13,8 +13,8 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from app import llm
 
-if not os.getenv("NEBIUS_API_KEY"):
-    sys.exit("Set NEBIUS_API_KEY first.")
+if not llm.is_live():
+    sys.exit("Set NEBIUS_API_KEY, or HP_LIVE=1 when the key is a network secret.")
 
 client = llm._client()
 print(f"Base URL: {llm.BASE_URL}\n")
