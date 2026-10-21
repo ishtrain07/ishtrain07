@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21 08:58 ET",
+ "generated_at": "2026-10-21 09:00 ET (position check)",
  "date": "2026-10-21",
  "mode": "plan",
  "regime": {
@@ -475,34 +475,7 @@
   "since": "2026-09-28"
  },
  "anomalies": {
-  "flags": [
-   {
-    "ticker": "AMD",
-    "type": "rank_drop",
-    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
-    "held": true,
-    "price": 534.74,
-    "day_pct": -0.62,
-    "n": 627,
-    "avg_pct": 0.35,
-    "down_pct": 51.0,
-    "edge_pct": -0.05,
-    "verdict": "neutral"
-   },
-   {
-    "ticker": "CRWD",
-    "type": "rank_drop",
-    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
-    "held": true,
-    "price": 227.37,
-    "day_pct": -0.32,
-    "n": 627,
-    "avg_pct": 0.35,
-    "down_pct": 51.0,
-    "edge_pct": -0.05,
-    "verdict": "neutral"
-   }
-  ],
+  "flags": [],
   "rank_trends": [
    {
     "ticker": "SNOW",
@@ -5039,5 +5012,19 @@
    "weight": 0.0,
    "recent_ic": -0.038
   }
- ]
+ ],
+ "analyst": {
+  "date": "2026-10-21",
+  "text": "The market light is back to GREEN (VIX 17.2), and Nasdaq futures are +0.6%. Only 3 trading days remain before the Fri Oct 23 sell-by.\nPlan: SELL ALL three holdings today and hold cash. CRWD is below its 8% stop. SNOW and AMD were rotated out at Monday's review. A green open is a good time to exit.\nThe engine lists V (#1) as a buy. I recommend skipping it: a 3-day hold has no reliable edge (our research showed 10-day outcomes are close to a coin flip), and the money is needed by Oct 30.\nSelling at current prices leaves about $2,434, about -2.6% since Sep 28. Over the same period the system's simulated account is -8.8% and the S&P 500 is -0.3%.\nAfter the deadline: restart only with money that has no near-term need. Either rebuild the strategy around next-day execution, or use an S&P 500 ETF.",
+  "cautions": [
+   {
+    "ticker": "V",
+    "why": "Engine buy, but skip it. Only 3 days to the sell-by, so a short hold carries too much risk for the money needed by Oct 30."
+   },
+   {
+    "ticker": "CRWD",
+    "why": "Down ~17%, below its stop for a week. Sell today."
+   }
+  ]
+ }
 }
