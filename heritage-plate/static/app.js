@@ -8,29 +8,30 @@ function esc(s) {
 }
 
 // ---------- constants ----------
+// `nutrient` is the plain-words name shown next to every number.
 const CONDITIONS = {
   diabetes: {
-    label: "Type 2 diabetes", key: "net_carbs_g", nutrient: "net carbs", unit: "g",
-    plain: "Net carbs are the carbs that turn into blood sugar (total carbs minus fibre).",
+    label: "Type 2 diabetes", short: "Diabetes", key: "net_carbs_g", nutrient: "sugar-raising carbs", unit: "g",
+    hint: "We lower the carbs that raise blood sugar.",
   },
   bp: {
-    label: "High blood pressure", key: "sodium_mg", nutrient: "sodium", unit: "mg",
-    plain: "Sodium mostly comes from salt and salty sauces. Less sodium helps blood pressure.",
+    label: "High blood pressure", short: "Blood pressure", key: "sodium_mg", nutrient: "salt (sodium)", unit: "mg",
+    hint: "We lower salt (sodium), mostly from salt and salty sauces.",
   },
   cholesterol: {
-    label: "High cholesterol", key: "sat_fat_g", nutrient: "saturated fat", unit: "g",
-    plain: "Saturated fat comes from ghee, butter, cream and fatty meat. Less of it helps cholesterol.",
+    label: "High cholesterol", short: "Cholesterol", key: "sat_fat_g", nutrient: "saturated fat", unit: "g",
+    hint: "We lower saturated fat, mostly from ghee, butter, cream and fatty meat.",
   },
 };
 
 const NUTRIENTS = [
   ["kcal", "Energy", "kcal"],
-  ["net_carbs_g", "Net carbs", "g"],
+  ["net_carbs_g", "Sugar-raising carbs", "g"],
   ["fiber_g", "Fibre", "g"],
   ["protein_g", "Protein", "g"],
   ["fat_g", "Fat", "g"],
   ["sat_fat_g", "Saturated fat", "g"],
-  ["sodium_mg", "Sodium", "mg"],
+  ["sodium_mg", "Salt (sodium)", "mg"],
 ];
 
 const DEFAULT_CUISINES = {
@@ -70,10 +71,10 @@ const SHOP_GROUPS = {
   protein: "Meat, fish and eggs", fat: "Oils and fats", nuts: "Nuts", sauce: "Sauces", sweetener: "Sugar and sweeteners",
   spice: "Spices", other: "Other",
 };
-const TIERS = {
-  nano: { name: "Nemotron Nano", job: "Reads your recipe and turns home measures into ingredients and grams." },
-  super: { name: "Nemotron Super", job: "Suggests swaps that keep the dish recognisable but lighter." },
-  ultra: { name: "Nemotron Ultra", job: "Plans the week and writes the note for your parent." },
+const MODELS = {
+  nano: { name: "Nemotron Nano", job: "Reads your recipe into ingredients and grams." },
+  super: { name: "Nemotron Super", job: "Suggests swaps that keep the dish familiar." },
+  ultra: { name: "Nemotron Ultra", job: "Plans the week and writes the note." },
 };
 const ADAPT_CONCURRENCY = 3;
 const MAX_DISHES = 30; // matches the /api/plan limit
@@ -93,13 +94,17 @@ const state = {
   cuisine: "south_asian",
   language: "English",
   parentName: "",
+  started: false,        // a family was picked or "use your own recipes" was chosen
+  own: false,
   family: null,          // {id, family, parent, ...} when a demo family is loaded
   families: [],
-  recipes: [],           // [{id, base, adapted, status: idle|busy|error, error}]
+  familiesLoaded: false,
+  recipes: [],           // [{id, base, adapted, status: idle|busy|error, error, open}]
   trace: [],
   health: null,
   plan: null,
   planStale: false,
+  weekTab: "meals",
   adaptRun: 0,           // bumps to cancel a running "make every dish lighter"
   cookbookVersion: 0,    // bumps whenever the dishes change; late /api/plan replies are dropped
 };
@@ -153,6 +158,11 @@ function toast(text) {
   t.hidden = false;
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => { t.hidden = true; }, 2600);
+}
+
+function scrollToEl(el) {
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  el.scrollIntoView({ block: "start", behavior: reduce ? "auto" : "smooth" });
 }
 
 function readableError(detail, status) {
@@ -245,12 +255,12 @@ function renderTiers() {
   const models = state.health?.models || {};
   const counts = { nano: 0, super: 0, ultra: 0 };
   state.trace.forEach((t) => { if (t.tier in counts) counts[t.tier] += 1; });
-  $("tiers").innerHTML = Object.entries(TIERS).map(([k, t]) => `
+  $("tiers").innerHTML = Object.entries(MODELS).map(([k, t]) => `
     <div class="tier">
-      <div class="tier-name"><span class="tchip ${k}">${esc(k)}</span>${esc(t.name)}</div>
-      <div class="tier-job">${esc(t.job)}</div>
+      <p class="tier-name">${esc(t.name)}</p>
+      <p class="tier-job">${esc(t.job)}</p>
       ${models[k] ? `<code>${esc(models[k])}</code>` : ""}
-      <div class="tier-count">${counts[k]} call${counts[k] === 1 ? "" : "s"} this session</div>
+      <p class="tier-count">${counts[k]} call${counts[k] === 1 ? "" : "s"} so far</p>
     </div>`).join("");
 }
 
@@ -265,7 +275,7 @@ function renderTrace() {
     const flags = [];
     if (t.cached) flags.push("from cache");
     if (t.fallback) flags.push("used backup rules");
-    return `<li><span class="tchip ${tier}">${esc(t.tier)}</span><b>${esc(t.step)}</b>: <code>${esc(t.model)}</code>${bits.length ? ` · ${esc(bits.join(", "))}` : ""}${flags.length ? ` <span class="tflag">(${esc(flags.join(", "))})</span>` : ""}</li>`;
+    return `<li><b>${esc(t.step)}</b> <span class="muted">· ${esc(MODELS[tier].name)}</span>${bits.length ? ` <span class="muted">· ${esc(bits.join(", "))}</span>` : ""}${flags.length ? ` <span class="tflag">(${esc(flags.join(", "))})</span>` : ""}<br><code>${esc(t.model)}</code></li>`;
   }).join("");
 }
 
@@ -289,13 +299,15 @@ function syncControls() {
   $("language").value = state.language;
   $("parentName").value = state.parentName;
   $("recipeText").placeholder = PLACEHOLDERS[state.cuisine] || PLACEHOLDERS.other;
-  updateFocusHint();
+  $("focusHint").textContent = CONDITIONS[state.condition].hint;
+  renderNames();
   updateMicHint();
 }
 
-function updateFocusHint() {
-  const c = CONDITIONS[state.condition];
-  $("focusHint").innerHTML = `Cooking for <b>${esc(c.label.toLowerCase())}</b>. ${esc(c.plain)} Lower per serving is better.`;
+// Everywhere the parent's name or language shows, without re-rendering the dish cards.
+function renderNames() {
+  $("aboutSummary").innerHTML = `For <b>${esc(parentWord())}</b> · note in ${esc(state.language)}`;
+  document.querySelectorAll(".parent-word").forEach((el) => { el.textContent = parentWord(); });
 }
 
 function setCondition(value) {
@@ -305,66 +317,102 @@ function setCondition(value) {
   let reset = 0;
   state.recipes.forEach((e) => {
     if (e.adapted || e.status !== "idle") reset += 1;
-    e.adapted = null; e.status = "idle"; e.error = "";
+    e.adapted = null; e.status = "idle"; e.error = ""; e.open = false;
   });
   $("adaptProgress").hidden = true;
   markCookbookChanged();
   syncControls();
   renderCookbook();
   renderPlan();
-  announce(`Now cooking for ${CONDITIONS[value].label}.${reset ? " Dishes are back to their originals; make them lighter again for this focus." : ""}`);
+  announce(`Now cooking for ${CONDITIONS[value].label}.${reset ? " Dishes are back to their originals; make them lighter again." : ""}`);
+}
+
+// ---------- steps ----------
+function stepState() {
+  const n = state.recipes.length;
+  const allLighter = n > 0 && state.recipes.every((e) => e.adapted);
+  const done = { 1: state.started, 2: allLighter, 3: Boolean(state.plan && !state.planStale) };
+  const unlocked = { 1: true, 2: state.started, 3: n > 0 };
+  let currentStep = 3;
+  for (const s of [1, 2, 3]) { if (!done[s]) { currentStep = s; break; } }
+  return { done, unlocked, currentStep };
+}
+
+function renderSteps() {
+  const { done, unlocked, currentStep } = stepState();
+  $("stepDishes").hidden = !unlocked[2];
+  $("stepWeek").hidden = !unlocked[3];
+  document.querySelectorAll("[data-goto]").forEach((b) => {
+    const s = Number(b.dataset.goto);
+    b.disabled = !unlocked[s];
+    b.classList.toggle("is-done", done[s]);
+    if (s === currentStep) b.setAttribute("aria-current", "step"); else b.removeAttribute("aria-current");
+    const n = b.querySelector(".step-n");
+    n.textContent = done[s] ? "✓" : String(s);
+    b.setAttribute("aria-label", `Step ${s}: ${b.textContent.replace(/^[✓\d]/, "").trim()}${done[s] ? ", done" : unlocked[s] ? "" : ", not yet"}`);
+  });
+}
+
+function goToStep(s) {
+  const heading = $(`s${s}`);
+  const sec = s === 1 ? $("start") : s === 2 ? $("stepDishes") : $("stepWeek");
+  if (!heading || sec.hidden) return;
+  scrollToEl(sec);
+  heading.focus({ preventScroll: true });
 }
 
 // ---------- families ----------
 function renderFamilies() {
   const box = $("families");
   if (!state.families.length) {
-    box.innerHTML = `<p class="msg error">Demo families couldn't load. You can still add your own recipes below.</p>`;
+    box.innerHTML = state.familiesLoaded
+      ? `<div class="empty"><p>The demo families couldn't load.</p><button type="button" class="btn btn-quiet btn-small" data-retry>Try again</button></div>`
+      : box.innerHTML;
     return;
   }
   box.innerHTML = state.families.map((f, i) => {
     const initial = (f.family || "?").replace(/^The\s+/i, "").charAt(0).toUpperCase();
-    const who = String(f.parent || "").split("(")[0].trim();
+    const who = String(f.parent || "").split(/[,(]/)[0].trim();
+    const on = state.family?.id === f.id;
     return `
-      <button type="button" class="family" data-family="${esc(f.id)}" aria-pressed="${state.family?.id === f.id}">
-        <span class="family-top">
-          <span class="avatar" style="background:${FAMILY_COLORS[i % FAMILY_COLORS.length]}" aria-hidden="true">${esc(initial)}</span>
-          <span>
-            <span class="family-name">${esc(f.family)}</span><br>
-            <span class="family-parent">Cooking for ${esc(who)}</span>
-          </span>
+      <button type="button" class="family" data-family="${esc(f.id)}" aria-pressed="${on}">
+        <span class="avatar" style="background:${FAMILY_COLORS[i % FAMILY_COLORS.length]}" aria-hidden="true">${esc(initial)}</span>
+        <span class="family-text">
+          <span class="family-name">${esc(String(f.family || "").replace(/^The\s+/i, "").replace(/\s+family$/i, ""))} family</span>
+          <span class="family-meta">${esc(who)} · ${esc(CONDITIONS[f.condition]?.short || f.condition)}</span>
+          <span class="family-sub">${esc(shortCuisine(f.cuisine))} · ${esc(f.language)}</span>
         </span>
-        <span class="family-meta">
-          <span class="pill">${esc(shortCuisine(f.cuisine))}</span>
-          <span class="pill cond-${esc(f.condition)}">${esc(CONDITIONS[f.condition]?.label || f.condition)}</span>
-          <span class="pill">${esc(f.language)}</span>
-        </span>
-        <span class="family-cta">${state.family?.id === f.id ? "Loaded" : "Cook with this family"} <span aria-hidden="true">→</span></span>
+        <span class="family-check" aria-hidden="true">${on ? "✓" : ""}</span>
       </button>`;
   }).join("");
 }
 
 async function loadFamily(id, btn) {
-  const cta = btn.querySelector(".family-cta");
-  if (cta) cta.textContent = "Loading…";
+  btn.classList.add("is-loading");
+  btn.setAttribute("aria-busy", "true");
+  const check = btn.querySelector(".family-check");
+  if (check) check.innerHTML = `<span class="spinner" aria-hidden="true"></span>`;
   try {
     const fam = await api(`/api/demo/${encodeURIComponent(id)}`);
     state.adaptRun += 1;
     state.family = fam;
+    state.started = true; state.own = false;
     state.condition = fam.condition in CONDITIONS ? fam.condition : "diabetes";
     state.cuisine = fam.cuisine;
     state.language = fam.language;
     state.parentName = String(fam.parent || "").split(",")[0].trim().slice(0, 20);
-    state.recipes = (fam.recipes || []).map((r) => ({ id: String(r.id || uid()), base: r, adapted: null, status: "idle", error: "" }));
+    state.recipes = (fam.recipes || []).map((r) => ({ id: String(r.id || uid()), base: r, adapted: null, status: "idle", error: "", open: false }));
     state.plan = null; state.planStale = false; state.cookbookVersion += 1;
     $("adaptProgress").hidden = true;
     $("parseMsg").textContent = "";
+    $("addBox").open = false;
+    $("about").open = false;
+    $("startOwn").setAttribute("aria-pressed", "false");
     syncControls();
     renderFamilies();
     renderCookbook();
     renderPlan();
-    $("s3").scrollIntoView({ block: "start" });
-    $("s3").focus({ preventScroll: true });
+    goToStep(2);
     announce(`Loaded ${fam.family}: ${state.recipes.length} dishes, cooking for ${fam.parent}.`);
   } catch (err) {
     renderFamilies();
@@ -374,59 +422,48 @@ async function loadFamily(id, btn) {
 
 // ---------- cookbook ----------
 function refreshButtons() {
+  const n = state.recipes.length;
   const anyBusy = state.recipes.some((e) => e.status === "busy");
   const todo = state.recipes.some((e) => !e.adapted && e.status !== "busy");
+  const allLighter = n > 0 && state.recipes.every((e) => e.adapted);
+  $("adaptBar").hidden = n === 0;
   const all = $("adaptAll");
   if (!all.hasAttribute("aria-busy")) {
     all.disabled = !todo;
-    all.textContent = state.recipes.length && !todo && !anyBusy ? "Every dish is lighter" : "Make every dish lighter";
+    const finished = n && !todo && !anyBusy;
+    all.textContent = finished ? "✓ Every dish is lighter" : "Make every dish lighter";
+    all.classList.toggle("btn-primary", !finished);
+    all.classList.toggle("btn-done", Boolean(finished));
   }
   const plan = $("plan");
-  if (!plan.hasAttribute("aria-busy")) plan.disabled = state.recipes.length === 0;
-  $("cookbookTitle").textContent = state.recipes.length
-    ? `Family cookbook (${state.recipes.length} dish${state.recipes.length === 1 ? "" : "es"})`
-    : "Family cookbook";
+  if (!plan.hasAttribute("aria-busy")) {
+    plan.disabled = n === 0;
+    const fresh = state.plan && !state.planStale;
+    plan.textContent = state.plan ? (state.planStale ? "Update our week" : "Plan again") : "Plan our week";
+    // One loud button at a time: the week button gets loud once the dishes are done.
+    const loud = !fresh && (allLighter || state.planStale || (!todo && !anyBusy));
+    plan.classList.toggle("btn-primary", Boolean(loud));
+    plan.classList.toggle("btn-quiet", !loud);
+  }
+  renderSteps();
   return anyBusy;
 }
 
-function compareBlock(r) {
+function focusNumbers(r) {
   const c = CONDITIONS[r.condition] || CONDITIONS[state.condition];
   const key = r.focus || c.key;
-  const meta = NUTRIENTS.find((n) => n[0] === key) || [key, c.nutrient, c.unit];
-  const unit = meta[2];
+  const meta = NUTRIENTS.find((x) => x[0] === key) || [key, c.nutrient, c.unit];
   const before = num(r.original?.nutrition?.[key]);
   const after = num(r.nutrition?.[key]);
-  const max = Math.max(before, after, 0.0001);
   const pct = before > 0 ? Math.round(((before - after) / before) * 100) : 0;
-  const nutrient = meta[1].toLowerCase();
-  let verdict = "";
-  if (r.comparable === false) {
-    verdict = `<p class="note">The new version uses something that isn't in our food tables yet, so we don't claim a "% less" for this dish.</p>`;
-  } else if (pct > 0) {
-    verdict = `<p class="win"><span class="win-pct">${pct}%</span><span>less ${esc(nutrient)} per serving, same dish</span></p>`;
-  } else {
-    verdict = `<p class="note">This dish was already light on ${esc(nutrient)}, so the changes are mostly about cooking habits.</p>`;
-  }
-  return `
-    <div class="compare">
-      <p class="compare-title">${esc(meta[1])} per serving <small>${esc(c.plain)}</small></p>
-      <div class="ba" role="img" aria-label="${esc(`${meta[1]} per serving: before ${fmt(before, unit)} ${unit}, now ${fmt(after, unit)} ${unit}`)}">
-        <span class="ba-label">Before</span>
-        <span class="ba-bar"><span style="width:${(before / max) * 100}%"></span></span>
-        <span class="ba-val before">${esc(fmt(before, unit))} ${esc(unit)}</span>
-        <span class="ba-label now">Now</span>
-        <span class="ba-bar now"><span style="width:${Math.max(2, (after / max) * 100)}%"></span></span>
-        <span class="ba-val now">${esc(fmt(after, unit))} ${esc(unit)}</span>
-      </div>
-      ${verdict}
-    </div>`;
+  return { unit: meta[2], label: c.nutrient, before, after, pct };
 }
 
 function ingredientsBlock(r) {
   const orig = r.original?.ingredients;
   const unc = new Set(r.nutrition?.uncounted || []);
   const row = (g, extra = "") => {
-    const notCounted = g.matched === false || unc.has(g.item) ? `<span class="ing-unc">(not in tables, not counted)</span>` : "";
+    const notCounted = g.matched === false || unc.has(g.item) ? `<span class="ing-unc">not counted</span>` : "";
     return `<li><span>${esc(g.item)}${extra}${notCounted}</span>`;
   };
   if (!orig) {
@@ -458,13 +495,13 @@ function sourcesBlock(r) {
   const head = o ? `<tr><th scope="col">Per serving</th><th scope="col">Before</th><th scope="col">Now</th></tr>` : `<tr><th scope="col">Per serving</th><th scope="col">Amount</th></tr>`;
   const sources = (r.sources || []).map((s) => `
     <li><span>${esc(s.item)}<br><span class="muted">${esc(readableRecord(s.record))}</span></span>
-      <span class="src-id"><span class="src-tag">${esc(s.source)}</span>${esc(s.id)}</span></li>`).join("");
+      <span class="src-id">${esc(s.source)} ${esc(s.id)}</span></li>`).join("");
   const unc = n.uncounted?.length ? `<p class="small-print">Not counted (not in our tables yet): ${esc(n.uncounted.join(", "))}.</p>` : "";
   return `
     <table class="nut-table"><caption class="sr-only">Nutrition per serving</caption><thead>${head}</thead><tbody>${rows}</tbody></table>
     <ul class="src-list">${sources || `<li class="muted">No sources listed.</li>`}</ul>
     ${unc}
-    <p class="small-print">Computed by our code from published food tables (IFCT 2017, USDA SR28) using raw weights. The AI doesn't produce these numbers.</p>`;
+    <p class="small-print">Worked out by our code from food tables, using raw weights. Not by the AI.</p>`;
 }
 
 function dishCard(e) {
@@ -473,55 +510,74 @@ function dishCard(e) {
   const c = CONDITIONS[state.condition];
   const adapted = Boolean(e.adapted);
   const meal = r.meal === "dessert" ? "Sweet" : r.meal === "breakfast" ? "Breakfast" : "Main";
-  const uncounted = !adapted && n.uncounted?.length
-    ? `<p class="warn">Not counted yet (not in our food tables): ${esc(n.uncounted.join(", "))}.</p>` : "";
+  const isBusy = e.status === "busy";
 
-  let body;
+  let numbers, badge = "";
   if (adapted) {
-    body = `
-      ${compareBlock(r)}
-      ${r.changes?.length ? `<div><p class="changes-title">What we changed</p><ul class="changes">${r.changes.map((ch) => `
-        <li><span class="tick" aria-hidden="true">✓</span><span>${esc(ch.what)}<span class="why">Why: ${esc(ch.why)}</span></span></li>`).join("")}</ul></div>` : ""}
-      ${r.cooking_tip ? `<p class="tip"><b>Cooking tip:</b> ${esc(r.cooking_tip)}</p>` : ""}
-      <div class="small-stats">
-        <span class="pill">≈ ${esc(fmt(n.kcal, "kcal"))} kcal</span>
-        <span class="pill">${esc(fmt(n.protein_g, "g"))} g protein</span>
-        <span class="pill">serves ${esc(r.servings)}</span>
-      </div>`;
+    const f = focusNumbers(r);
+    const width = f.before > 0 ? Math.max(3, Math.min(100, (f.after / f.before) * 100)) : 100;
+    numbers = `
+      <p class="nums"><span class="sr-only">${esc(f.label)} per serving: was </span><span class="nums-was">${esc(fmt(f.before, f.unit))}</span><span class="nums-arrow" aria-hidden="true">→</span><span class="sr-only"> now </span><span class="nums-now">${esc(fmt(f.after, f.unit))} ${esc(f.unit)}</span></p>
+      <p class="nums-label" aria-hidden="true">${esc(f.label)} per serving</p>
+      <span class="bar" aria-hidden="true"><span style="width:${width}%"></span></span>`;
+    if (r.comparable === false) badge = `<span class="tag tag-quiet">No % shown</span>`;
+    else if (f.pct > 0) badge = `<span class="tag tag-win">${f.pct}% less</span>`;
+    else badge = `<span class="tag tag-quiet">Already light</span>`;
   } else {
-    body = `
-      <div class="stat-row">
-        <span><span class="stat-big">${esc(fmt(n[c.key], c.unit))}</span> <span class="stat-unit">${esc(c.unit)}</span></span>
-        <span class="stat-label">${esc(c.nutrient)} per serving now</span>
-      </div>
-      <div class="small-stats">
-        <span class="pill">≈ ${esc(fmt(n.kcal, "kcal"))} kcal</span>
-        <span class="pill">${esc(fmt(n.protein_g, "g"))} g protein</span>
-        <span class="pill">serves ${esc(r.servings)}</span>
-      </div>
-      ${uncounted}
-      ${e.status === "busy" ? `<p class="working"><span class="spinner" aria-hidden="true"></span><span>Nemotron Super is making it lighter<span class="dots"></span></span></p>` : ""}
-      ${e.status === "error" ? `<p class="msg error" role="alert">${esc(e.error)}</p>` : ""}`;
+    numbers = `
+      <p class="nums"><span class="nums-now plain">${esc(fmt(n[c.key], c.unit))} ${esc(c.unit)}</span></p>
+      <p class="nums-label">${esc(c.nutrient)} per serving</p>`;
   }
 
-  const action = adapted
-    ? `<span class="pill good">Lighter for ${esc(parentWord())}</span><button type="button" class="btn-link" data-undo="${esc(e.id)}">Show original</button>`
-    : `<button type="button" class="btn btn-primary btn-small" data-adapt="${esc(e.id)}" ${e.status === "busy" ? "disabled aria-busy=\"true\"" : ""}>${e.status === "error" ? "Try again" : `Make it lighter for ${esc(parentWord())}`}</button>
-       <button type="button" class="btn-link" data-remove="${esc(e.id)}" aria-label="Remove ${esc(r.name)}">Remove</button>`;
+  let status = "";
+  if (isBusy) status = `<p class="working"><span class="spinner" aria-hidden="true"></span><span>Making it lighter<span class="dots"></span></span></p>`;
+  else if (e.status === "error") status = `<p class="msg error" role="alert">${esc(e.error)}</p>`;
+
+  const adaptBtn = adapted ? "" : `
+    <button type="button" class="btn btn-quiet btn-small" data-adapt="${esc(e.id)}" ${isBusy ? "disabled aria-busy=\"true\"" : ""}>${e.status === "error" ? "Try again" : "Make it lighter"}</button>`;
+
+  let detail;
+  if (adapted) {
+    const why = r.comparable === false
+      ? `<p class="small-print">The new version uses something not in our food tables, so we don't claim a "% less".</p>` : "";
+    detail = `
+      ${r.changes?.length ? `<ul class="changes">${r.changes.map((ch) => `
+        <li><span class="tick" aria-hidden="true">✓</span><span>${esc(ch.what)}<span class="why">${esc(ch.why)}</span></span></li>`).join("")}</ul>` : ""}
+      ${r.cooking_tip ? `<p class="tip"><b>Tip:</b> ${esc(r.cooking_tip)}</p>` : ""}
+      ${why}
+      <h4 class="more-h">Ingredients, before and after</h4>
+      ${ingredientsBlock(r)}
+      <details class="sub"><summary>Where the numbers come from</summary>${sourcesBlock(r)}</details>
+      <button type="button" class="btn-link" data-undo="${esc(e.id)}">Show the original</button>`;
+  } else {
+    const unc = n.uncounted?.length ? `<p class="small-print">Not counted yet (not in our tables): ${esc(n.uncounted.join(", "))}.</p>` : "";
+    detail = `
+      ${e.base.source_text ? `<p class="quote">“${esc(e.base.source_text)}”</p>` : ""}
+      <h4 class="more-h">Ingredients · serves ${esc(r.servings)}</h4>
+      ${ingredientsBlock(r)}
+      ${unc}
+      <details class="sub"><summary>Where the numbers come from</summary>${sourcesBlock(r)}</details>
+      <button type="button" class="btn-link danger" data-remove="${esc(e.id)}" aria-label="Remove ${esc(r.name)}">Remove this dish</button>`;
+  }
 
   return `
-    <article class="dish${adapted ? " is-adapted" : ""}" data-card="${esc(e.id)}" aria-busy="${e.status === "busy"}">
-      <div class="dish-head">
-        <div class="dish-tags"><span class="pill">${esc(meal)}</span>${adapted ? `<span class="pill good">Adapted for ${esc(CONDITIONS[r.condition]?.label.toLowerCase() || "")}</span>` : ""}</div>
+    <article class="dish${adapted ? " is-adapted" : ""}" data-card="${esc(e.id)}" aria-busy="${isBusy}">
+      <div class="dish-main">
+        <div class="dish-top">
+          <p class="dish-meal">${esc(meal)}</p>
+          ${badge}
+        </div>
         <h3 tabindex="-1">${esc(r.name)}</h3>
-        ${e.base.source_text ? `<p class="quote">“${esc(e.base.source_text)}”</p>` : ""}
+        ${numbers}
+        ${status}
+        ${adaptBtn}
       </div>
-      <div class="dish-body">${body}</div>
-      <details class="more"><summary>Ingredients (${esc((r.ingredients || []).length)})${adapted ? " · before and after" : ""}</summary>
-        <div class="more-body">${ingredientsBlock(r)}</div></details>
-      <details class="more"><summary>Where the numbers come from</summary>
-        <div class="more-body">${sourcesBlock(r)}</div></details>
-      <div class="dish-actions">${action}</div>
+      <div class="dish-foot">
+        <details class="more" data-more="${esc(e.id)}" ${e.open ? "open" : ""}>
+          <summary>${adapted ? "See what changed" : "See the recipe"}</summary>
+          <div class="more-body">${detail}</div>
+        </details>
+      </div>
     </article>`;
 }
 
@@ -537,8 +593,8 @@ function renderSummary() {
   const avg = pcts.length ? Math.round(pcts.reduce((s, x) => s + x, 0) / pcts.length) : 0;
   $("summary").innerHTML = avg > 0 ? `
     <div class="summary">
-      <span class="summary-big">${avg}% less ${esc(c.nutrient)}</span>
-      <span>on average per serving, across ${done.length} of ${state.recipes.length} dish${state.recipes.length === 1 ? "" : "es"}. Same family food, lighter for ${esc(parentWord())}.</span>
+      <span class="summary-big">${avg}% less</span>
+      <span class="summary-text">${esc(c.nutrient)} on average<br><span class="muted">${done.length} of ${state.recipes.length} dish${state.recipes.length === 1 ? "" : "es"}, same family food</span></span>
     </div>` : "";
 }
 
@@ -546,7 +602,7 @@ function renderCookbook() {
   const box = $("cookbook");
   box.innerHTML = state.recipes.length
     ? state.recipes.map(dishCard).join("")
-    : `<div class="empty"><p><b>No dishes yet.</b></p><p>Pick a demo family above, or add your first family recipe in step 2.</p></div>`;
+    : `<div class="empty"><p><b>No dishes yet.</b> Add your first family recipe below.</p></div>`;
   renderSummary();
   refreshButtons();
 }
@@ -584,7 +640,7 @@ async function adaptOne(id) {
     if (stale()) return "stale";
     if (recipe.condition && recipe.condition !== condition) return "stale";
     e.adapted = { ...recipe, condition, id: e.id };
-    e.status = "idle";
+    e.status = "idle"; e.open = false;
     markCookbookChanged();
     renderCard(id);
     renderPlanStale();
@@ -607,10 +663,10 @@ async function adaptAll(btn) {
     if (run !== state.adaptRun) return;
     prog.hidden = false;
     prog.className = "progress-line";
-    prog.textContent = `Making ${ids.length} dish${ids.length === 1 ? "" : "es"} lighter… ${done} of ${ids.length} done${failed ? `, ${failed} couldn't be changed` : ""}.`;
+    prog.textContent = `${done} of ${ids.length} dishes done${failed ? `, ${failed} couldn't be changed` : ""}…`;
   };
   draw();
-  await busy(btn, "Working…", async () => {
+  await busy(btn, "Making them lighter…", async () => {
     const worker = async () => {
       while (i < ids.length && run === state.adaptRun) {
         const id = ids[i++];
@@ -630,11 +686,15 @@ async function adaptAll(btn) {
   });
   if (run !== state.adaptRun) return;
   const ok = ids.length - failed;
-  prog.className = failed ? "progress-line has-fail" : "progress-line done";
-  prog.textContent = failed
-    ? `${ok} of ${ids.length} dishes made lighter. ${failed} couldn't be changed: tap "Try again" on ${failed === 1 ? "that dish" : "those dishes"}.`
-    : `All ${ids.length} dishes are lighter for ${parentWord()}. Next: make your week below.`;
-  announce(prog.textContent);
+  if (failed) {
+    prog.className = "progress-line has-fail";
+    prog.textContent = `${ok} of ${ids.length} dishes are lighter. Tap "Try again" on the ${failed === 1 ? "other one" : `other ${failed}`}.`;
+    announce(prog.textContent);
+  } else {
+    // The done button and the summary already say it; keep the screen quiet.
+    prog.hidden = true;
+    announce(`All ${ids.length} dishes are lighter. Next: plan the week.`);
+  }
 }
 
 // ---------- add a recipe ----------
@@ -654,17 +714,18 @@ async function parseRecipe(btn) {
     msg.textContent = `The cookbook holds up to ${MAX_DISHES} dishes. Remove one to add another.`;
     return;
   }
-  const stop = ticker(msg, `Nemotron Nano is reading your recipe and matching it to food tables<span class="dots"></span>`);
+  const stop = ticker(msg, `<span class="spinner" aria-hidden="true"></span><span>Reading your recipe<span class="dots"></span></span>`);
+  msg.className = "msg working";
   try {
     const { recipe } = await busy(btn, "Reading…", () => api("/api/parse", { text, servings, cuisine: state.cuisine }));
     stop();
     const id = uid();
-    state.recipes.unshift({ id, base: { ...recipe, id }, adapted: null, status: "idle", error: "" });
+    state.recipes.unshift({ id, base: { ...recipe, id }, adapted: null, status: "idle", error: "", open: false });
     markCookbookChanged();
     $("recipeText").value = "";
     msg.className = "msg ok";
     const unc = recipe.nutrition?.uncounted?.length;
-    msg.textContent = `Added “${recipe.name}” with ${recipe.ingredients.length} ingredients${unc ? ` (${unc} not in our food tables yet)` : ""}. It's at the top of your cookbook.`;
+    msg.textContent = `Added “${recipe.name}” to the top of the list${unc ? ` (${unc} ingredient${unc === 1 ? "" : "s"} not counted)` : ""}.`;
     renderCookbook();
     renderPlanStale();
   } catch (err) {
@@ -679,9 +740,8 @@ const voice = { rec: null, listening: false };
 
 function updateMicHint() {
   if (!voice.rec) return;
-  const code = SPEECH_LANG[state.language] || "en-IN";
   $("micHint").hidden = false;
-  $("micHint").textContent = `Voice typing listens in ${state.language} (${code}). The words appear in the box so you can fix anything before reading the recipe.`;
+  $("micHint").textContent = `Voice typing listens in ${state.language}. Check the words before adding.`;
 }
 
 function setupVoice() {
@@ -739,61 +799,69 @@ function setupVoice() {
 function renderPlanStale() {
   const el = document.querySelector("#planOut .stale");
   if (el) el.hidden = !state.planStale;
+  refreshButtons();
 }
 
-function dishLabel(name, slot) {
-  if (!name) return `<span class="none">${slot === "dessert" ? "No sweet today" : "Your choice"}</span>`;
+function dishLabel(name) {
+  if (!name) return `<span class="none">Your choice</span>`;
   const e = state.recipes.find((x) => current(x).name === name);
-  return `${esc(name)}${e?.adapted ? `<span class="lite">lighter</span>` : ""}`;
+  // Lighter is the normal case, so only flag the exceptions.
+  return `${esc(name)}${e && !e.adapted ? ` <span class="orig">original</span>` : ""}`;
 }
+
+const WEEK_TABS = [["meals", "Meals"], ["shop", "Shopping list"], ["tips", "Tips"]];
 
 function renderPlan() {
   const out = $("planOut");
   const plan = state.plan;
-  if (!plan) { out.innerHTML = ""; return; }
-  const slots = [["breakfast", "Breakfast"], ["lunch", "Lunch"], ["dinner", "Dinner"], ["dessert", "Sweet treat"]];
+  renderNames();
+  if (!plan) { out.innerHTML = ""; refreshButtons(); return; }
+  const slots = [["breakfast", "Breakfast"], ["lunch", "Lunch"], ["dinner", "Dinner"], ["dessert", "Sweet"]];
   const days = plan.days || [];
   const groups = {};
-  (plan.shopping_list || []).forEach((s) => { (groups[s.category in SHOP_GROUPS ? s.category : "other"] ||= []).push(s); });
+  const shopping = plan.shopping_list || [];
+  shopping.forEach((s) => { (groups[s.category in SHOP_GROUPS ? s.category : "other"] ||= []).push(s); });
   const unadapted = state.recipes.filter((e) => !e.adapted).length;
+  const tab = WEEK_TABS.some(([k]) => k === state.weekTab) ? state.weekTab : "meals";
+
+  const meals = `<ol class="days" aria-label="Meals for the week">
+    ${days.map((d) => `<li class="day"><h4 class="day-name">${esc(DAY_NAMES[d.day] || d.day)}</h4><dl class="day-meals">
+      ${slots.filter(([k]) => k !== "dessert" || d[k]).map(([k, l]) => `<div><dt>${l}</dt><dd>${dishLabel(d[k])}</dd></div>`).join("")}</dl></li>`).join("")}
+  </ol>`;
+  const shop = `
+    <div class="panel-head"><p class="muted">Raw weights for the whole week. Tick as you shop.</p>
+      <button type="button" class="btn btn-quiet btn-small" data-copy="shop">Copy list</button></div>
+    ${Object.keys(SHOP_GROUPS).filter((k) => groups[k]).map((k) => `
+      <div class="shop-group"><h4>${esc(SHOP_GROUPS[k])}</h4>
+        <ul class="shop">${groups[k].map((s) => `<li><label><input type="checkbox"><span class="shop-item"><span>${esc(s.item)}</span><span class="shop-qty">${esc(grams(s.grams))}</span></span></label></li>`).join("")}</ul>
+      </div>`).join("")}`;
+  const tips = `<ul class="tips">${(plan.tips || []).map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
+  const panels = { meals, shop, tips };
 
   out.innerHTML = `
-    <p class="msg error stale" ${state.planStale ? "" : "hidden"}>Your cookbook changed since this plan was made. Tap "Make our week" again to include the changes.</p>
-    ${unadapted ? `<p class="hint">${unadapted} dish${unadapted === 1 ? " is" : "es are"} still the original version. Make ${unadapted === 1 ? "it" : "them"} lighter first, then remake the week.</p>` : ""}
-    <div class="letter">
-      <p class="letter-label">A note for ${esc(parentWord())} · ${esc(plan.language)}</p>
+    <p class="msg warn stale" ${state.planStale ? "" : "hidden"}>Your dishes changed. Tap "Update our week" to include them.</p>
+    ${unadapted ? `<p class="hint">${unadapted} dish${unadapted === 1 ? " is" : "es are"} still the original. Make ${unadapted === 1 ? "it" : "them"} lighter, then plan again.</p>` : ""}
+    <article class="letter" aria-labelledby="noteTitle">
+      <h3 id="noteTitle" class="letter-label">A note for ${esc(parentWord())} <span class="muted">· ${esc(plan.language)}</span></h3>
       <p class="letter-text" id="parentMsg">${esc(plan.message_for_parent)}</p>
-      <div class="copy-row"><button type="button" class="btn btn-quiet btn-small" data-copy="parentMsg">Copy the note</button>
-        <span class="muted">Paste it into WhatsApp or a text message.</span></div>
+      <button type="button" class="btn btn-quiet btn-small" data-copy="parentMsg">Copy the note</button>
+    </article>
+    <div class="tabs" role="tablist" aria-label="Your week">
+      ${WEEK_TABS.map(([k, l]) => `<button type="button" role="tab" id="tab-${k}" aria-controls="panel-${k}" aria-selected="${k === tab}" tabindex="${k === tab ? 0 : -1}" data-tab="${k}">${l}${k === "shop" ? ` <span class="count">${shopping.length}</span>` : ""}</button>`).join("")}
     </div>
+    ${WEEK_TABS.map(([k]) => `<div class="tab-panel" role="tabpanel" id="panel-${k}" aria-labelledby="tab-${k}" tabindex="0" ${k === tab ? "" : "hidden"}>${panels[k]}</div>`).join("")}`;
+  refreshButtons();
+}
 
-    <ol class="week-cards" aria-label="Meals for the week">
-      ${days.map((d) => `<li class="day"><h3>${esc(DAY_NAMES[d.day] || d.day)}</h3><dl>
-        ${slots.map(([k, l]) => `<dt>${l}</dt><dd>${dishLabel(d[k], k)}</dd>`).join("")}</dl></li>`).join("")}
-    </ol>
-    <div class="week-table-wrap">
-      <table class="week-table">
-        <caption class="sr-only">Meals for the week</caption>
-        <thead><tr><th scope="col">Day</th>${slots.map(([, l]) => `<th scope="col">${l}</th>`).join("")}</tr></thead>
-        <tbody>${days.map((d) => `<tr><th scope="row">${esc(DAY_NAMES[d.day] || d.day)}</th>${slots.map(([k]) => `<td>${dishLabel(d[k], k)}</td>`).join("")}</tr>`).join("")}</tbody>
-      </table>
-    </div>
-
-    <div class="week-cols">
-      <section class="panel" aria-labelledby="shopTitle">
-        <h3 id="shopTitle">Shopping list for the week</h3>
-        <p class="hint small">Raw weights for every dish in the plan. Tick things off as you shop.</p>
-        ${Object.keys(SHOP_GROUPS).filter((k) => groups[k]).map((k) => `
-          <div class="shop-group"><h4>${esc(SHOP_GROUPS[k])}</h4>
-            <ul class="shop">${groups[k].map((s) => `<li><label><input type="checkbox"><span class="shop-item"><span>${esc(s.item)}</span><span class="shop-qty">${esc(grams(s.grams))}</span></span></label></li>`).join("")}</ul>
-          </div>`).join("")}
-        <div class="copy-row" style="margin-top:14px"><button type="button" class="btn btn-quiet btn-small" data-copy="shop">Copy the list</button></div>
-      </section>
-      <section class="panel" aria-labelledby="tipsTitle">
-        <h3 id="tipsTitle">Tips for the week</h3>
-        <ul class="tips">${(plan.tips || []).map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
-      </section>
-    </div>`;
+function selectTab(k, focus) {
+  state.weekTab = k;
+  document.querySelectorAll("#planOut [role=tab]").forEach((t) => {
+    const on = t.dataset.tab === k;
+    t.setAttribute("aria-selected", String(on));
+    t.tabIndex = on ? 0 : -1;
+    if (on && focus) t.focus();
+  });
+  document.querySelectorAll("#planOut [role=tabpanel]").forEach((p) => { p.hidden = p.id !== `panel-${k}`; });
 }
 
 async function makePlan(btn) {
@@ -801,7 +869,7 @@ async function makePlan(btn) {
   const holder = document.createElement("p");
   holder.className = "working";
   out.prepend(holder);
-  const stop = ticker(holder, `<span class="spinner" aria-hidden="true"></span><span>Nemotron Ultra is planning 7 days and the shopping list<span class="dots"></span></span>`);
+  const stop = ticker(holder, `<span class="spinner" aria-hidden="true"></span><span>Planning 7 days and the shopping list<span class="dots"></span></span>`);
   const condition = state.condition;
   const version = state.cookbookVersion;
   try {
@@ -811,13 +879,13 @@ async function makePlan(btn) {
     // Drop a late reply if the cookbook or health focus changed while Ultra was planning.
     if (state.condition !== condition || state.cookbookVersion !== version) {
       holder.remove();
-      if (state.condition === condition) announce('Your dishes changed while planning. Tap "Make our week" again.');
+      if (state.condition === condition) announce('Your dishes changed while planning. Tap "Plan our week" again.');
       return;
     }
-    state.plan = plan; state.planStale = false;
+    state.plan = plan; state.planStale = false; state.weekTab = "meals";
     renderPlan();
-    $("s4").focus({ preventScroll: true });
-    announce("Your week is ready, with a shopping list and a note for your parent.");
+    $("s3").focus({ preventScroll: true });
+    announce("Your week is ready, with a note for your parent and a shopping list.");
   } catch (err) {
     stop();
     holder.className = "msg error";
@@ -844,29 +912,37 @@ async function copyText(text) {
 // ---------- events ----------
 document.querySelectorAll('input[name="condition"]').forEach((r) => r.addEventListener("change", () => setCondition(r.value)));
 $("cuisine").addEventListener("change", (e) => { state.cuisine = e.target.value; syncControls(); });
-$("language").addEventListener("change", (e) => { state.language = e.target.value; updateMicHint(); });
+$("language").addEventListener("change", (e) => { state.language = e.target.value; renderNames(); updateMicHint(); });
 $("parentName").addEventListener("input", (e) => {
   state.parentName = e.target.value.slice(0, 20);
   clearTimeout(state._nameTimer);
-  state._nameTimer = setTimeout(() => { renderCookbook(); if (state.plan) renderPlan(); }, 400);
+  state._nameTimer = setTimeout(() => { renderNames(); renderSummary(); if (state.plan) renderPlan(); }, 300);
 });
 
+document.querySelectorAll("[data-goto]").forEach((b) => b.addEventListener("click", () => goToStep(Number(b.dataset.goto))));
+
 $("families").addEventListener("click", (e) => {
+  if (e.target.closest("[data-retry]")) { loadFamilies(); return; }
   const btn = e.target.closest("[data-family]");
-  if (btn) loadFamily(btn.dataset.family, btn);
+  if (btn && !btn.hasAttribute("aria-busy")) loadFamily(btn.dataset.family, btn);
 });
 
 $("startOwn").addEventListener("click", () => {
   const hadDemo = Boolean(state.family);
   state.adaptRun += 1;
+  state.started = true; state.own = true;
   if (hadDemo) {
-    state.family = null; state.recipes = []; state.plan = null; state.parentName = ""; state.cookbookVersion += 1;
+    state.family = null; state.recipes = []; state.plan = null; state.planStale = false; state.parentName = ""; state.cookbookVersion += 1;
     $("adaptProgress").hidden = true;
-    renderFamilies(); renderCookbook(); renderPlan(); syncControls();
+    renderFamilies(); syncControls(); renderCookbook(); renderPlan();
   }
-  $("s1").scrollIntoView({ block: "start" });
-  $("s1").focus({ preventScroll: true });
-  announce(hadDemo ? "Cleared the demo dishes. Tell us who you're cooking for, then add your first recipe." : "Tell us who you're cooking for, then add your first recipe.");
+  $("startOwn").setAttribute("aria-pressed", "true");
+  refreshButtons();
+  $("about").open = true;
+  $("addBox").open = true;
+  scrollToEl($("stepDishes"));
+  $("parentName").focus({ preventScroll: true });
+  announce(hadDemo ? "Cleared the demo dishes. Tell us about them, then add your first recipe." : "Tell us about them, then add your first recipe.");
 });
 
 document.querySelectorAll(".stepper-btn").forEach((b) => b.addEventListener("click", () => {
@@ -879,6 +955,14 @@ $("recipeText").addEventListener("keydown", (e) => {
   if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); $("parse").click(); }
 });
 
+// Remember which cards are expanded so a re-render doesn't snap them shut.
+$("cookbook").addEventListener("toggle", (e) => {
+  const d = e.target;
+  if (!d.matches || !d.matches("details[data-more]")) return;
+  const entry = findEntry(d.dataset.more);
+  if (entry) entry.open = d.open;
+}, true);
+
 $("cookbook").addEventListener("click", (e) => {
   const a = e.target.closest("[data-adapt]");
   if (a) { adaptOne(a.dataset.adapt); return; }
@@ -886,9 +970,10 @@ $("cookbook").addEventListener("click", (e) => {
   if (u) {
     const entry = findEntry(u.dataset.undo);
     if (entry) {
-      entry.adapted = null; entry.status = "idle";
+      entry.adapted = null; entry.status = "idle"; entry.open = false;
       markCookbookChanged();
       renderCard(entry.id); renderPlanStale();
+      document.querySelector(`[data-card="${CSS.escape(entry.id)}"] [data-adapt]`)?.focus({ preventScroll: true });
       announce(`${entry.base.name}: showing the original recipe.`);
     }
     return;
@@ -899,7 +984,7 @@ $("cookbook").addEventListener("click", (e) => {
     state.recipes = state.recipes.filter((x) => x.id !== rm.dataset.remove);
     markCookbookChanged();
     renderCookbook(); renderPlanStale();
-    $("s3").focus({ preventScroll: true });
+    $("s2").focus({ preventScroll: true });
     if (entry) announce(`Removed ${entry.base.name}.`);
   }
 });
@@ -908,6 +993,8 @@ $("adaptAll").addEventListener("click", (e) => adaptAll(e.currentTarget));
 $("plan").addEventListener("click", (e) => makePlan(e.currentTarget));
 
 $("planOut").addEventListener("click", async (e) => {
+  const t = e.target.closest("[data-tab]");
+  if (t) { selectTab(t.dataset.tab, false); return; }
   const b = e.target.closest("[data-copy]");
   if (!b) return;
   let text = "";
@@ -917,7 +1004,31 @@ $("planOut").addEventListener("click", async (e) => {
   toast(ok ? "Copied. Paste it anywhere." : "Couldn't copy. Please select the text and copy it.");
 });
 
+$("planOut").addEventListener("keydown", (e) => {
+  const t = e.target.closest("[role=tab]");
+  if (!t) return;
+  const keys = WEEK_TABS.map(([k]) => k);
+  let i = keys.indexOf(t.dataset.tab);
+  if (e.key === "ArrowRight") i = (i + 1) % keys.length;
+  else if (e.key === "ArrowLeft") i = (i - 1 + keys.length) % keys.length;
+  else if (e.key === "Home") i = 0;
+  else if (e.key === "End") i = keys.length - 1;
+  else return;
+  e.preventDefault();
+  selectTab(keys[i], true);
+});
+
 // ---------- start ----------
+async function loadFamilies() {
+  const box = $("families");
+  box.innerHTML = Array.from({ length: 4 }, () => `<div class="family skeleton" aria-hidden="true"></div>`).join("");
+  try {
+    state.families = await api("/api/demo");
+  } catch { state.families = []; }
+  state.familiesLoaded = true;
+  renderFamilies();
+}
+
 async function init() {
   fillSelects();
   renderCookbook();
@@ -938,10 +1049,7 @@ async function init() {
     b.textContent = "Server offline";
     b.classList.add("off");
   }
-  try {
-    state.families = await api("/api/demo");
-  } catch { state.families = []; }
-  renderFamilies();
+  await loadFamilies();
 }
 
 init();
