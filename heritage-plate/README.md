@@ -47,11 +47,17 @@ uvicorn app.main:app --reload
 ```
 
 - **Demo mode** (no key, or `MOCK=1`): deterministic swap rules stand in for the models, so the whole flow works offline. Four demo families are included: Gill (South Asian, diabetes), Chen (East Asian, blood pressure), Rossi (Continental, cholesterol) and Reyes (Latin American, diabetes).
-- **Settings:** `RATE_LIMIT` (model-backed requests per client per 10 minutes, default 200), `TRUST_PROXY=1` when deployed behind a proxy that sets `X-Forwarded-For`, and `LLM_TIMEOUT_S` / `LLM_DEADLINE_S`.
+- **Settings:** `RATE_LIMIT` (model-backed requests per client per 10 minutes, default 200), `TRUST_PROXY=1` when deployed behind a proxy that sets `X-Forwarded-For`, and `LLM_TIMEOUT_S` / `LLM_TIMEOUT_ULTRA_S` (default 60, Ultra reasons first) / `LLM_DEADLINE_S`.
 - **Live mode:** set `NEBIUS_API_KEY`. Check the base URL and model IDs first:
 
 ```bash
 python scripts/check_models.py
+```
+
+Then run the whole demo (4 families + one typed recipe) live and get latency, tokens, cost and whether Ultra fell back:
+
+```bash
+HP_LIVE=1 HP_PRICE_NANO=in,out HP_PRICE_SUPER=in,out HP_PRICE_ULTRA=in,out python scripts/live_run.py   # USD per 1M tokens
 ```
 
 ## Tests
@@ -69,7 +75,7 @@ app/llm.py         Token Factory client, JSON parsing, Ultra → Super fallback,
 app/prompts.py     system prompts per Nemotron tier
 app/nutrition.py   deterministic nutrition math over data/foods.csv
 data/              ingredients.csv (curated), foods.csv (generated), demo_families.json (fictional)
-scripts/           build_foods.py (rebuild food table), check_models.py (verify Token Factory models)
+scripts/           build_foods.py (rebuild food table), check_models.py (verify Token Factory models), live_run.py (live latency/tokens/cost)
 static/            single-page UI (plain HTML/CSS/JS)
 ```
 

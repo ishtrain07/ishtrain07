@@ -17,6 +17,8 @@ MODELS = {
     "ultra": os.getenv("NEMOTRON_ULTRA", "nvidia/nemotron-3-ultra-550b-a55b"),
 }
 CALL_TIMEOUT_S = float(os.getenv("LLM_TIMEOUT_S", "30"))
+# Ultra reasons before answering; 30 s would time it out and always fall back to Super.
+TIER_TIMEOUT_S = {"ultra": float(os.getenv("LLM_TIMEOUT_ULTRA_S", "60"))}
 DEADLINE_S = float(os.getenv("LLM_DEADLINE_S", "90"))  # whole chat_json call, retries included
 # Nano and Super do structured, well-specified jobs; skip their reasoning traces to save tokens.
 NO_THINK_TIERS = {"nano", "super"}
@@ -118,18 +120,21 @@ def chat_json(tier: str, system: str, user: str, *, step: str, max_tokens: int =
     for current in tiers:
         model = MODELS[current]
         messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]
-        tokens = 0
+        tokens = prompt_tokens = completion_tokens = 0
+        timeout = TIER_TIMEOUT_S.get(current, CALL_TIMEOUT_S)
         for _attempt in range(2):
             remaining = DEADLINE_S - (time.perf_counter() - started_all)
             if remaining < 2:
                 raise LLMError(f"{step}: timed out after {DEADLINE_S:.0f}s")
             try:
-                resp = _create(model, messages, max_tokens, current in NO_THINK_TIERS, min(CALL_TIMEOUT_S, remaining))
+                resp = _create(model, messages, max_tokens, current in NO_THINK_TIERS, min(timeout, remaining))
             except Exception as exc:  # noqa: BLE001 - any API/network error: try the next tier
                 last_error = exc
                 break
             usage = getattr(resp, "usage", None)
             tokens += getattr(usage, "total_tokens", 0) or 0
+            prompt_tokens += getattr(usage, "prompt_tokens", 0) or 0
+            completion_tokens += getattr(usage, "completion_tokens", 0) or 0
             choice = resp.choices[0] if resp.choices else None
             content = (choice.message.content or "") if choice else ""
             try:
@@ -152,6 +157,8 @@ def chat_json(tier: str, system: str, user: str, *, step: str, max_tokens: int =
                 "model": model,
                 "ms": round((time.perf_counter() - started_all) * 1000),
                 "tokens": tokens or None,
+                "prompt_tokens": prompt_tokens or None,
+                "completion_tokens": completion_tokens or None,
                 "fallback": current != tier,
                 "cached": False,
             }
