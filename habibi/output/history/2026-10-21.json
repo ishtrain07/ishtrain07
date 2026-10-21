@@ -1,0 +1,93 @@
+{
+ "buys": [
+  {
+   "ticker": "V",
+   "name": "Visa Inc.",
+   "sector": "Financials",
+   "price": 406.57,
+   "score": 65.5,
+   "momentum": 84,
+   "rs": 84,
+   "trend": 100,
+   "fund": 72,
+   "rsi": 76,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 27.062035,
+   "next_earnings": "2026-10-27",
+   "entry": 406.57,
+   "limit": 408.6,
+   "stop": 374.04,
+   "t1": 421.66,
+   "t2": 436.75,
+   "stop_pct": -8.0,
+   "t1_pct": 3.7,
+   "t2_pct": 7.4,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-28",
+   "shares": 2.0,
+   "dollars": 813.14,
+   "risk_dollars": 65.05,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "#1 on the learning model ranking: 6-mo +32%, 3-mo +15%, 1-mo +10%",
+    "stronger than 84% of the universe vs the S&P; above its 200-day average",
+    "revenue +14% y/y"
+   ],
+   "news": []
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "ABBV",
+   "score": 91.6,
+   "price": 289.08,
+   "setup": "momentum",
+   "rsi": 72,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "CVX",
+   "score": 91.6,
+   "price": 225.71,
+   "setup": "momentum",
+   "rsi": 71,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "SPY",
+   "score": 89.8,
+   "price": 769.05,
+   "setup": "momentum",
+   "rsi": 50,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "XOM",
+   "score": 89.8,
+   "price": 177.86,
+   "setup": "momentum",
+   "rsi": 70,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "AAPL",
+   "score": 87.2,
+   "price": 339.5,
+   "setup": "momentum",
+   "rsi": 56,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 769.05,
+  "spy_sma50": 767.26,
+  "spy_sma200": 722.78,
+  "vix": 17.18
+ }
+}
