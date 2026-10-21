@@ -40,17 +40,9 @@
  "backups": [],
  "watch": [
   {
-   "ticker": "ABBV",
-   "score": 91.6,
-   "price": 289.08,
-   "setup": "momentum",
-   "rsi": 72,
-   "action": "next in line if a holding drops out"
-  },
-  {
    "ticker": "CVX",
-   "score": 91.6,
-   "price": 225.71,
+   "score": 91.2,
+   "price": 226.35,
    "setup": "momentum",
    "rsi": 71,
    "action": "next in line if a holding drops out"
@@ -58,25 +50,33 @@
   {
    "ticker": "SPY",
    "score": 89.8,
-   "price": 769.05,
+   "price": 773.91,
    "setup": "momentum",
-   "rsi": 50,
+   "rsi": 55,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "XOM",
-   "score": 89.8,
-   "price": 177.86,
+   "ticker": "ABBV",
+   "score": 88.9,
+   "price": 283.42,
    "setup": "momentum",
-   "rsi": 70,
+   "rsi": 64,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "AAPL",
-   "score": 87.2,
-   "price": 339.5,
+   "score": 88.5,
+   "price": 344.46,
    "setup": "momentum",
-   "rsi": 56,
+   "rsi": 61,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "XOM",
+   "score": 88.1,
+   "price": 177.55,
+   "setup": "momentum",
+   "rsi": 69,
    "action": "next in line if a holding drops out"
   }
  ],
@@ -85,9 +85,9 @@
   "risk_mult": 1.0,
   "max_new": 4,
   "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
-  "spy": 769.05,
-  "spy_sma50": 767.26,
-  "spy_sma200": 722.78,
-  "vix": 17.18
+  "spy": 773.91,
+  "spy_sma50": 767.37,
+  "spy_sma200": 723.24,
+  "vix": 16.62
  }
 }
