@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mentioned: Hackathon Synopsis</title>
+<style>
+  @page { size: Letter; margin: 0.45in 0.55in; }
+  :root { --ink:#16181d; --muted:#5b6170; --line:#e3e5ea; --accent:#76b900; --accent-ink:#3d6100; --soft:#f4f8ec; }
+  * { box-sizing: border-box; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: var(--ink); font-size: 9.6pt; line-height: 1.36; margin: 0; background:#fff; }
+  .eyebrow { font-size: 8.5pt; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  h1 { font-size: 22pt; margin: 4px 0 2px; letter-spacing: -.01em; }
+  .tag { font-size: 13pt; color: var(--accent-ink); margin: 0 0 14px; font-weight: 600; }
+  h2 { font-size: 11pt; margin: 11px 0 5px; padding-bottom: 4px; border-bottom: 2px solid var(--accent); }
+  p { margin: 0 0 8px; }
+  ul, ol { margin: 0 0 8px; padding-left: 18px; }
+  li { margin-bottom: 3px; }
+  .callout { background: var(--soft); border-left: 4px solid var(--accent); padding: 7px 10px; margin: 6px 0; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 4px 0 8px; }
+  th, td { text-align: left; padding: 3px 5px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 8.5pt; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  td.n, th.n { text-align: right; white-space: nowrap; }
+  tr.win td { background: var(--soft); font-weight: 700; }
+  .card { border: 1px solid var(--line); border-radius: 6px; padding: 7px 10px; margin-bottom: 6px; break-inside: avoid; }
+  .card h3 { margin: 0 0 3px; font-size: 11pt; display: flex; justify-content: space-between; }
+  .score { color: var(--accent-ink); }
+  .muted { color: var(--muted); font-size: 9pt; }
+  .pagebreak { break-before: page; }
+</style>
+</head>
+<body>
+
+<div class="eyebrow">Nebius × NVIDIA Global AI Hackathon · Best Apps &amp; Agents track · Ish + co-founder</div>
+<h1>Mentioned <span style="font-weight:400;color:var(--muted);font-size:13pt">(working name)</span></h1>
+<p class="tag">Customers now ask AI who to hire. Mentioned tells a small business whether AI recommends it, and how to fix it if not.</p>
+
+<h2>The problem</h2>
+<p>People increasingly ask an AI assistant instead of scrolling Google: <em>"best bakery near me"</em>, <em>"plumber open now in Brampton"</em>. The AI gives <strong>one answer naming 3-5 businesses</strong>. If a business isn't named, it never gets the call. Big brands pay for tools that track this. A café, plumber or dental clinic has no idea where it stands, or why.</p>
+
+<h2>How it helps an SME (concrete example)</h2>
+<div class="callout">
+  <strong>Maria's Bakery, Toronto.</strong> She types in her name, city and "bakery". Two minutes later:
+  <ul style="margin-top:6px">
+    <li><strong>Score:</strong> AI mentions her in <strong>3 of 25</strong> customer questions. A competitor appears in 19.</li>
+    <li><strong>Why:</strong> the competitor lists prices and hours, has an FAQ answering "gluten-free?", and is on 4 local directories Maria isn't.</li>
+    <li><strong>Fixes, ready to paste:</strong> FAQ text for her site, a better Google Business description, structured data her web person can drop in, a review-request text for her customers, and the 4 directories to claim.</li>
+    <li><strong>Weekly re-check:</strong> "You now appear in 9 of 25 answers."</li>
+  </ul>
+  She gets something to <em>do</em> in an afternoon, not a report she can't act on.
+</div>
+
+<div class="grid">
+<div>
+<h2>How it works</h2>
+<ol>
+  <li><strong>Ask:</strong> NVIDIA Nemotron Nano writes 25 realistic customer questions.</li>
+  <li><strong>Search:</strong> Tavily searches the live web for each one, the way AI assistants do.</li>
+  <li><strong>Answer:</strong> Nemotron Super answers each question from those sources and names businesses.</li>
+  <li><strong>Diagnose:</strong> Nemotron Ultra compares the business with the winners and explains the gap.</li>
+  <li><strong>Fix:</strong> it generates paste-ready fixes. A weekly re-scan runs on Nebius Serverless Jobs.</li>
+</ol>
+<p class="muted">Runs on Nebius Token Factory + Serverless Endpoints. It is a transparent, repeatable panel that shows the sources behind every answer. We do not claim to show ChatGPT's exact answer.</p>
+</div>
+<div>
+<h2>Scope &amp; potential</h2>
+<ul>
+  <li><strong>Large market:</strong> almost every local business depends on being found, and AI answers are becoming a front door.</li>
+  <li><strong>Recurring value:</strong> AI answers change, so a monthly monitoring subscription is natural, like SEO tools today.</li>
+  <li><strong>Channel:</strong> marketing agencies and web designers who serve hundreds of SMEs can resell it.</li>
+  <li><strong>Expands to:</strong> multi-location chains, e-commerce products ("best running shoes under $100"), and tracking which fixes actually moved the score.</li>
+</ul>
+<h2>Honest risks</h2>
+<ul>
+  <li>Hard to prove it brings revenue. V1 shows visibility, not sales.</li>
+  <li>SEO incumbents will add "AI visibility" features. Our edge is SME-simple and fix-first.</li>
+  <li>A simulated answer can differ from a real assistant's, so we show sources and confidence.</li>
+</ul>
+</div>
+</div>
+
+<div class="pagebreak"></div>
+
+<h2 style="margin-top:0">All ideas, ranked on one scale (/60)</h2>
+<p class="muted">Each scored 1-10 on: Easy to build · Real pain · Easy to explain · Stand-out · Design showcase (good UI matters, 25% of judging) · Fit with Nebius/NVIDIA stack + Tavily bonus.</p>
+<table>
+  <thead><tr><th>#</th><th>Idea</th><th>Who it helps</th><th class="n">Build</th><th class="n">Pain</th><th class="n">Explain</th><th class="n">Stand-out</th><th class="n">Design</th><th class="n">Stack</th><th class="n">Total</th></tr></thead>
+  <tbody>
+    <tr class="win"><td>1</td><td>Mentioned (AI visibility)</td><td>Local SMEs</td><td class="n">9</td><td class="n">8</td><td class="n">10</td><td class="n">9</td><td class="n">9</td><td class="n">10</td><td class="n">55</td></tr>
+    <tr><td>2</td><td>Curb Cut (website accessibility fixer)</td><td>SME websites, disabled users</td><td class="n">8</td><td class="n">8</td><td class="n">9</td><td class="n">8</td><td class="n">7</td><td class="n">8</td><td class="n">48</td></tr>
+    <tr><td>3</td><td>Misconception Map</td><td>Teachers</td><td class="n">6</td><td class="n">8</td><td class="n">10</td><td class="n">9</td><td class="n">8</td><td class="n">6</td><td class="n">47</td></tr>
+    <tr><td>4</td><td>Shop Brain (owner's know-how → training app)</td><td>SMEs with staff turnover</td><td class="n">6</td><td class="n">8</td><td class="n">9</td><td class="n">7</td><td class="n">9</td><td class="n">7</td><td class="n">46</td></tr>
+    <tr><td>5</td><td>Invoice Watch (supplier overcharges)</td><td>Restaurants</td><td class="n">6</td><td class="n">9</td><td class="n">9</td><td class="n">8</td><td class="n">6</td><td class="n">7</td><td class="n">45</td></tr>
+    <tr><td>6</td><td>Deposit Defender</td><td>Renters</td><td class="n">7</td><td class="n">7</td><td class="n">10</td><td class="n">7</td><td class="n">8</td><td class="n">6</td><td class="n">45</td></tr>
+    <tr><td>7</td><td>Sheet Lint (spreadsheet error finder)</td><td>SMEs on spreadsheets</td><td class="n">8</td><td class="n">7</td><td class="n">9</td><td class="n">7</td><td class="n">6</td><td class="n">7</td><td class="n">44</td></tr>
+    <tr><td>8</td><td>Tender Scout (public contracts)</td><td>Small B2B firms</td><td class="n">6</td><td class="n">7</td><td class="n">8</td><td class="n">7</td><td class="n">6</td><td class="n">9</td><td class="n">43</td></tr>
+    <tr><td>9</td><td>Caregiver Log</td><td>Family caregivers</td><td class="n">6</td><td class="n">9</td><td class="n">9</td><td class="n">7</td><td class="n">7</td><td class="n">5</td><td class="n">43</td></tr>
+    <tr><td>10</td><td>Receipts (finance claim checker)</td><td>Retail investors</td><td class="n">8</td><td class="n">4</td><td class="n">6</td><td class="n">8</td><td class="n">8</td><td class="n">9</td><td class="n">43</td></tr>
+    <tr><td>11</td><td>Voice-to-quote</td><td>Tradespeople</td><td class="n">8</td><td class="n">7</td><td class="n">9</td><td class="n">5</td><td class="n">7</td><td class="n">6</td><td class="n">42</td></tr>
+    <tr><td>12</td><td>311 Fix-it</td><td>Residents</td><td class="n">7</td><td class="n">6</td><td class="n">9</td><td class="n">6</td><td class="n">7</td><td class="n">7</td><td class="n">42</td></tr>
+    <tr><td>13</td><td>Grant Scout</td><td>Small nonprofits</td><td class="n">8</td><td class="n">7</td><td class="n">8</td><td class="n">5</td><td class="n">6</td><td class="n">8</td><td class="n">42</td></tr>
+  </tbody>
+</table>
+
+<h2>Backup ideas (if we don't go with Mentioned)</h2>
+
+<div class="card">
+  <h3><span>Curb Cut: website accessibility fixer</span><span class="score">48 / 60</span></h3>
+  <p>Point it at a small business website. It finds accessibility failures, fixes the actual code (alt text, labels, contrast), and proves each fix by re-running the audit.</p>
+  <p class="muted"><strong>SME angle:</strong> small businesses get accessibility legal demand letters and lock out disabled customers. <strong>Strength:</strong> a measurable before/after score, and it matches the Coding track brief exactly. <strong>Weakness:</strong> most crowded track; less visual.</p>
+</div>
+
+<div class="card">
+  <h3><span>Shop Brain: owner's know-how → staff training app</span><span class="score">46 / 60</span></h3>
+  <p>The owner talks through "how we open the shop" for 5 minutes. It becomes step-by-step checklists, a quiz for new hires, and answers in the staff member's own language.</p>
+  <p class="muted"><strong>SME angle:</strong> high staff turnover, and training lives in the owner's head. <strong>Strength:</strong> very visual and human. <strong>Weakness:</strong> needs speech-to-text and more UI; parts feel like a chatbot.</p>
+</div>
+
+<div class="card">
+  <h3><span>Invoice Watch: catches supplier overcharges</span><span class="score">45 / 60</span></h3>
+  <p>Snap supplier invoices. It catches price creep, short deliveries and new fees, then drafts the credit request.</p>
+  <p class="muted"><strong>SME angle:</strong> thin restaurant margins, and nobody checks invoices line by line. <strong>Strength:</strong> clear dollar figure recovered. <strong>Weakness:</strong> reading photos is error-prone; needs real invoices.</p>
+</div>
+
+
+</body>
+</html>

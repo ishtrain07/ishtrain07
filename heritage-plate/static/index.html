@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Keep the family's food. Fix the numbers. Heritage Plate makes your family recipes lighter for diabetes, blood pressure or cholesterol.">
+  <meta name="theme-color" content="#fbf6ee">
+  <title>Heritage Plate: keep the family's food, fix the numbers</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <a class="skip" href="#start">Skip to the app</a>
+
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="brand" href="#" aria-label="Heritage Plate, home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <circle cx="20" cy="20" r="18" fill="#fff" stroke="#a63f14" stroke-width="2.5"/>
+          <circle cx="20" cy="20" r="11.5" fill="#f6e3c8"/>
+          <path d="M14 23c3-7 9-9 13-9-1 6-5 11-12 11" fill="#2e6b45"/>
+          <path d="M15 24c3-3 6-5 9-7" stroke="#f6e3c8" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span>Heritage Plate</span>
+      </a>
+      <span id="mode" class="badge" role="status">Checking…</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="wrap">
+        <h1 id="heroTitle">Keep the family's food.<br><span class="accent">Fix the numbers.</span></h1>
+        <p class="lede">Your family recipes, made lighter for diabetes, blood pressure or cholesterol.</p>
+      </div>
+    </section>
+
+    <nav class="wrap steps" aria-label="Your progress">
+      <ol>
+        <li><button type="button" class="step-pill" data-goto="1"><span class="step-n" aria-hidden="true">1</span><span>Family</span></button></li>
+        <li><button type="button" class="step-pill" data-goto="2"><span class="step-n" aria-hidden="true">2</span><span>Lighter</span></button></li>
+        <li><button type="button" class="step-pill" data-goto="3"><span class="step-n" aria-hidden="true">3</span><span>Week</span></button></li>
+      </ol>
+    </nav>
+
+    <div class="wrap flow">
+      <!-- Step 1: pick a family -->
+      <section id="start" class="step-sec" aria-labelledby="s1" tabindex="-1">
+        <h2 id="s1" class="sec-title" tabindex="-1">Pick a family to try</h2>
+        <div id="families" class="families">
+          <div class="family skeleton" aria-hidden="true"></div>
+          <div class="family skeleton" aria-hidden="true"></div>
+          <div class="family skeleton" aria-hidden="true"></div>
+          <div class="family skeleton" aria-hidden="true"></div>
+        </div>
+        <button id="startOwn" class="btn-link start-own" type="button" aria-pressed="false">Or use your own recipes <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Step 2: make the dishes lighter -->
+      <section id="stepDishes" class="step-sec reveal" aria-labelledby="s2" hidden>
+        <h2 id="s2" class="sec-title" tabindex="-1">Make the dishes lighter</h2>
+
+        <fieldset class="seg">
+          <legend class="sr-only">Health focus</legend>
+          <label><input type="radio" name="condition" value="diabetes" checked><span>Diabetes</span></label>
+          <label><input type="radio" name="condition" value="bp"><span>Blood pressure</span></label>
+          <label><input type="radio" name="condition" value="cholesterol"><span>Cholesterol</span></label>
+        </fieldset>
+        <p id="focusHint" class="focus-hint"></p>
+
+        <details id="about" class="about">
+          <summary><span id="aboutSummary">About them</span><span class="about-edit" aria-hidden="true">Edit</span></summary>
+          <div class="fields">
+            <label class="field">
+              <span class="field-label">What you call them</span>
+              <input id="parentName" type="text" maxlength="20" autocomplete="off" placeholder="Mum, Dad, Nani, Lola…">
+            </label>
+            <label class="field">
+              <span class="field-label">Their language</span>
+              <select id="language"></select>
+            </label>
+            <label class="field">
+              <span class="field-label">Your family's cooking</span>
+              <select id="cuisine"></select>
+            </label>
+          </div>
+        </details>
+
+        <div id="adaptBar" class="action-bar" hidden>
+          <button id="adaptAll" class="btn btn-primary btn-wide" type="button" disabled>Make every dish lighter</button>
+        </div>
+        <p id="adaptProgress" class="progress-line" role="status" aria-live="polite" hidden></p>
+        <div id="summary"></div>
+        <div id="cookbook" class="dish-list"></div>
+
+        <details id="addBox" class="add">
+          <summary><span class="add-plus" aria-hidden="true">+</span> Add a family recipe</summary>
+          <div class="add-body">
+            <label class="field-label" for="recipeText">Dish name, then what goes in. Home measures are fine.</label>
+            <textarea id="recipeText" rows="4" maxlength="2000"></textarea>
+            <div class="add-row">
+              <button id="mic" class="btn btn-quiet mic" type="button" aria-pressed="false" hidden>
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-2.1a7 7 0 0 0 6-6.9h-2Z" fill="currentColor"/></svg>
+                <span class="mic-label">Speak it</span>
+              </button>
+              <div class="stepper" role="group" aria-labelledby="servesLabel">
+                <span id="servesLabel" class="stepper-label">Serves</span>
+                <button type="button" class="stepper-btn" data-step="-1" aria-label="One fewer serving">−</button>
+                <input id="servings" type="number" min="1" max="20" value="4" inputmode="numeric" aria-labelledby="servesLabel">
+                <button type="button" class="stepper-btn" data-step="1" aria-label="One more serving">+</button>
+              </div>
+              <button id="parse" class="btn btn-primary" type="button">Add recipe</button>
+            </div>
+            <p id="micHint" class="hint" hidden></p>
+            <p id="parseMsg" class="msg" role="status" aria-live="polite"></p>
+          </div>
+        </details>
+      </section>
+
+      <!-- Step 3: the week -->
+      <section id="stepWeek" class="step-sec reveal" aria-labelledby="s3" hidden>
+        <h2 id="s3" class="sec-title" tabindex="-1">Plan the week</h2>
+        <p class="sec-sub">7 days of meals, a shopping list and a note for <span class="parent-word">Mum or Dad</span>.</p>
+        <div class="action-bar">
+          <button id="plan" class="btn btn-primary btn-wide" type="button" disabled>Plan our week</button>
+        </div>
+        <div id="planOut"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <details class="fold">
+        <summary>How we work out the numbers</summary>
+        <ul class="fold-list">
+          <li><b>From food tables, not AI.</b> Every number is computed from published tables (IFCT 2017 and USDA SR28). Each dish shows its sources.</li>
+          <li><b>AI suggests the cooking.</b> NVIDIA Nemotron reads your recipe, suggests swaps that keep the dish familiar, and plans the week.</li>
+          <li><b>Close estimates.</b> Home measures like "1 katori" become estimated grams, so treat numbers as a guide.</li>
+          <li><b>Honest about gaps.</b> If an ingredient isn't in our tables we say so and don't count it, and we don't claim a "% less".</li>
+        </ul>
+      </details>
+      <details class="fold" id="hood">
+        <summary>Under the hood: which AI model did what</summary>
+        <div class="tiers" id="tiers"></div>
+        <h3 class="hood-sub">This session</h3>
+        <ol id="trace" class="trace"><li class="muted">Nothing yet.</li></ol>
+      </details>
+      <p class="disclaimer"><b>Not medical advice.</b> Check changes with their doctor, especially if they take insulin or blood-pressure medicine.</p>
+    </div>
+  </footer>
+
+  <div id="announce" class="sr-only" aria-live="polite"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
