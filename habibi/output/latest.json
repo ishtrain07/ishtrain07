@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21 15:28 ET (position check)",
+ "generated_at": "2026-10-21 15:30 ET (position check)",
  "date": "2026-10-21",
  "mode": "plan",
  "regime": {
@@ -171,10 +171,10 @@
  "account": {
   "cash": 1614.5,
   "realized": 0.0,
-  "unrealized": -36.07,
-  "market_value": 849.43,
-  "equity": 2463.93,
-  "return_pct": -1.44
+  "unrealized": -35.71,
+  "market_value": 849.79,
+  "equity": 2464.29,
+  "return_pct": -1.43
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -201,14 +201,14 @@
      "shares": 0.6059
     }
    ],
-   "price": 322.99,
-   "value": 195.7,
-   "pnl": -4.35,
-   "pnl_pct": -2.17,
+   "price": 323.43,
+   "value": 195.97,
+   "pnl": -4.08,
+   "pnl_pct": -2.04,
    "days_held": 16,
    "active_stop": 303.76,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-6.0%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-6.1%)"
   },
   {
    "ticker": "CRWD",
@@ -232,10 +232,10 @@
      "shares": 1.1075
     }
    ],
-   "price": 239.35,
-   "value": 265.08,
-   "pnl": -37.07,
-   "pnl_pct": -12.27,
+   "price": 239.53,
+   "value": 265.28,
+   "pnl": -36.87,
+   "pnl_pct": -12.2,
    "days_held": 8,
    "active_stop": 250.99,
    "action": "SELL ALL",
@@ -263,10 +263,10 @@
      "shares": 0.7
     }
    ],
-   "price": 555.21,
-   "value": 388.65,
-   "pnl": 5.35,
-   "pnl_pct": 1.4,
+   "price": 555.06,
+   "value": 388.54,
+   "pnl": 5.24,
+   "pnl_pct": 1.37,
    "days_held": 4,
    "active_stop": 525.15,
    "action": "HOLD",
@@ -279,7 +279,7 @@
    "ticker": "CRWD",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 250.99",
-   "price": 239.35,
+   "price": 239.53,
    "shares": 1.1075
   }
  ],
@@ -291,10 +291,10 @@
   "account": {
    "cash": 108.22,
    "realized": -248.78,
-   "unrealized": 0.34,
-   "market_value": 2343.33,
-   "equity": 2451.55,
-   "return_pct": -9.2
+   "unrealized": 1.83,
+   "market_value": 2344.82,
+   "equity": 2453.04,
+   "return_pct": -9.15
   },
   "record": {
    "trades": 6,
@@ -328,10 +328,10 @@
       "shares": 1.93
      }
     ],
-    "price": 407.55,
-    "value": 786.57,
-    "pnl": 5.65,
-    "pnl_pct": 0.72,
+    "price": 407.9,
+    "value": 787.25,
+    "pnl": 6.33,
+    "pnl_pct": 0.81,
     "days_held": 2,
     "active_stop": 372.25,
     "action": "HOLD",
@@ -359,14 +359,14 @@
       "shares": 1.26
      }
     ],
-    "price": 621.34,
-    "value": 782.89,
-    "pnl": 1.05,
-    "pnl_pct": 0.13,
+    "price": 621.8,
+    "value": 783.47,
+    "pnl": 1.63,
+    "pnl_pct": 0.21,
     "days_held": 2,
     "active_stop": 570.87,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 570.87 (-8.1%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 570.87 (-8.2%)"
    },
    {
     "ticker": "ABBV",
@@ -390,14 +390,14 @@
       "shares": 2.72
      }
     ],
-    "price": 284.51,
-    "value": 773.87,
-    "pnl": -6.36,
-    "pnl_pct": -0.82,
+    "price": 284.6,
+    "value": 774.1,
+    "pnl": -6.13,
+    "pnl_pct": -0.79,
     "days_held": 2,
     "active_stop": 263.9,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 263.90 (-7.2%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 263.90 (-7.3%)"
    }
   ],
   "closed": [
@@ -469,9 +469,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": 0.19,
+  "spy_return_pct": 0.23,
   "base": 771.35,
-  "last": 772.78,
+  "last": 773.12,
   "since": "2026-09-28"
  },
  "anomalies": {
