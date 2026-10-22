@@ -3,7 +3,8 @@
 One container (FastAPI + static UI) on port `8000`, health check at `/api/health`.
 The front end and the API share one origin, so CORS needs no setup.
 
-- **Path A (recommended, about 30 to 45 min):** Nebius **Serverless AI Endpoint** (a container on a CPU VM, managed HTTPS URL).
+- **Quickest (about 15 min, no Docker on your laptop):** a Nebius VM that builds the app itself with `scripts/deploy_vm.sh`. See below.
+- **Path A (about 30 to 45 min):** Nebius **Serverless AI Endpoint** (a container on a CPU VM, managed HTTPS URL).
 - **Path B (fallback, about 30 min):** a small Nebius **Compute** CPU VM running Docker with Caddy for automatic HTTPS.
 - **Backup:** a `MOCK=1` copy of the app, or the single-file preview from `scripts/build_preview.py`.
 
@@ -11,7 +12,26 @@ The front end and the API share one origin, so CORS needs no setup.
 
 ---
 
-## 0. Prerequisites (both paths)
+## Quickest: one script on a Nebius VM
+
+1. **Create the VM** in the Nebius console: Compute → Virtual machines → Create.
+   - Platform: a CPU platform (e.g. `cpu-d3`), preset `2vcpu-8gb` or `4vcpu-16gb`.
+   - Boot image: Ubuntu 22.04 or 24.04, disk 20–30 GB.
+   - Network: tick **Public IP**.
+   - Access: add your SSH public key (`cat ~/.ssh/id_ed25519.pub`) and a username, e.g. `demo`.
+2. **Open ports 80 and 443** to the internet if your security group blocks them (Caddy needs 80 to get the HTTPS certificate).
+3. **SSH in and run one command** (it asks for your Nebius key with hidden input; the LangSmith key is optional):
+   ```bash
+   ssh demo@<VM public IP>
+   curl -fsSL https://raw.githubusercontent.com/ishtrain07/ishtrain07/claude/stoic-wozniak-8ie5mb/heritage-plate/scripts/deploy_vm.sh | sudo bash
+   ```
+   It prints `"mode":"live"` and the URL, `https://<ip-with-dashes>.sslip.io`.
+4. **Redeploy after any code change or rename:** run the same command again. The URL stays the same. To change keys: `sudo rm /opt/heritage-plate/hp.env` and rerun.
+5. **Stop paying:** stop the VM in the console when you're not testing.
+
+---
+
+## 0. Prerequisites (Paths A and B)
 
 ```bash
 nebius version                      # the nebius/skills guide asks for CLI >= 0.12.277
@@ -75,7 +95,7 @@ nebius ai endpoint create \
   --preset 4vcpu-16gb \
   --container-port 8000 \
   --subnet-id "$SUBNET_ID" \
-  --env RATE_LIMIT=40 \
+  --env RATE_LIMIT=100 \
   --env LANGSMITH_TRACING=true \
   --env LANGSMITH_ENDPOINT=https://apac.api.smith.langchain.com \
   --env LANGSMITH_PROJECT=heritage-plate \
@@ -178,7 +198,7 @@ docker save heritage-plate:latest | gzip | ssh demo@$VM_IP 'gunzip | docker load
 ssh demo@$VM_IP
 cat > hp.env <<'EOF'
 NEBIUS_API_KEY=<real key>
-RATE_LIMIT=40
+RATE_LIMIT=100
 LANGSMITH_TRACING=true
 LANGSMITH_ENDPOINT=https://apac.api.smith.langchain.com
 LANGSMITH_PROJECT=heritage-plate
@@ -206,7 +226,7 @@ Cost: same Compute price as Path A. Run `nebius compute instance stop` or `delet
 
 ## Pre-demo checklist
 
-- [ ] `RATE_LIMIT` is set (Dockerfile default 40 per client per 10 min). Raise it if several judges or teammates share one NAT IP. `TRUST_PROXY=1` is already set in the image.
+- [ ] `RATE_LIMIT` is set (Dockerfile default 100 per client per 10 min, plus `MAX_CALLS_PER_HOUR=600` across everyone). Raise it if several judges or teammates share one NAT IP. `TRUST_PROXY=1` is already set in the image.
 - [ ] `curl $URL/api/health` shows **`"mode": "live"`** and the expected Nemotron model IDs. `"mock"` means `NEBIUS_API_KEY` didn't arrive.
 - [ ] Warm-up: in the browser, open one family, run "Make every dish lighter" and then "Plan our week" end to end. Confirm "Under the hood" shows live tiers and latencies.
 - [ ] Check it on a phone over mobile data (not office Wi-Fi), with the real public URL.
