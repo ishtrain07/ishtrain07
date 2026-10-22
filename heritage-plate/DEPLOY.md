@@ -3,7 +3,8 @@
 One container (FastAPI + static UI) on port `8000`, health check at `/api/health`.
 The front end and the API share one origin, so CORS needs no setup.
 
-- **Free, no terminal (recommended if you only have Token Factory credit):** a Hugging Face Space built from `deploy/hf-space/`. The models still run on Nebius Token Factory.
+- **Free, no terminal (recommended if you only have Token Factory credit):** Render free web service, built from this repo's `heritage-plate/Dockerfile`. The models still run on Nebius Token Factory. Steps below.
+- (Hugging Face Docker Spaces now need a paid plan; `deploy/hf-space/` is kept for anyone with PRO.)
 - **Quickest on Nebius AI Cloud (needs AI Cloud billing, about 15 min):** a Nebius VM that builds the app itself with `scripts/deploy_vm.sh`. See below.
 - **Path A (about 30 to 45 min):** Nebius **Serverless AI Endpoint** (a container on a CPU VM, managed HTTPS URL).
 - **Path B (fallback, about 30 min):** a small Nebius **Compute** CPU VM running Docker with Caddy for automatic HTTPS.
@@ -13,7 +14,20 @@ The front end and the API share one origin, so CORS needs no setup.
 
 ---
 
-## Quickest: one script on a Nebius VM
+## Free: Render web service
+
+1. render.com → sign up (GitHub login is easiest).
+2. **New → Web Service → Public Git Repository**: `https://github.com/ishtrain07/ishtrain07` → Connect.
+3. Settings: **Branch** `claude/stoic-wozniak-8ie5mb` · **Root Directory** `heritage-plate` · **Language** Docker · **Instance type** Free.
+4. **Environment variables**: `NEBIUS_API_KEY` = your Token Factory key. Optional: `LANGSMITH_TRACING=true`, `LANGSMITH_ENDPOINT=https://apac.api.smith.langchain.com`, `LANGSMITH_PROJECT=heritage-plate`, `LANGSMITH_API_KEY`.
+5. **Advanced → Health Check Path**: `/api/health`. Then **Deploy Web Service** (first build takes a few minutes).
+6. URL: `https://<name>.onrender.com`. Check `/api/health` shows `"mode":"live"`.
+
+Free services sleep after 15 minutes without traffic and take about a minute to wake. To keep it awake for judges, add a free uptime ping (e.g. cron-job.org or UptimeRobot) to `https://<name>.onrender.com/api/health` every 10 minutes; one always-on service fits in the 750 free hours a month. Redeploys happen automatically on every push to the branch, and the URL never changes.
+
+---
+
+## Quickest on Nebius AI Cloud: one script on a Nebius VM
 
 1. **Create the VM** in the Nebius console: Compute → Virtual machines → Create.
    - Platform: a CPU platform (e.g. `cpu-d3`), preset `2vcpu-8gb` or `4vcpu-16gb`.
