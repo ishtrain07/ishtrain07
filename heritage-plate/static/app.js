@@ -437,7 +437,8 @@ function refreshButtons() {
   }
   const plan = $("plan");
   if (!plan.hasAttribute("aria-busy")) {
-    plan.disabled = n === 0;
+    // Wait for dishes still being made lighter, or their late replies would make the new week stale.
+    plan.disabled = n === 0 || anyBusy || all.hasAttribute("aria-busy");
     const fresh = state.plan && !state.planStale;
     plan.textContent = state.plan ? (state.planStale ? "Update our week" : "Plan again") : "Plan our week";
     // One loud button at a time: the week button gets loud once the dishes are done.

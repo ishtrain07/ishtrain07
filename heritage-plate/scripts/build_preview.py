@@ -11,6 +11,7 @@ Usage:  python scripts/build_preview.py <out.html>
 
 from __future__ import annotations
 
+import base64
 import json
 import os
 import re
@@ -152,6 +153,12 @@ def build(out: Path) -> None:
     body = re.sub(r'\s*<script src="/static/app.js"></script>', "", body)
     body = body.replace('<main id="main">', BANNER + '\n  <main id="main">', 1)
     css = (static / "styles.css").read_text(encoding="utf-8")
+    # One self-contained file: embed the self-hosted fonts as data URIs.
+    css = re.sub(
+        r'url\("fonts/([\w.-]+\.woff2)"\)',
+        lambda m: 'url("data:font/woff2;base64,' + base64.b64encode((static / "fonts" / m.group(1)).read_bytes()).decode() + '")',
+        css,
+    )
     css += """
 :root { color-scheme: light; }
 .preview-banner { background: var(--saffron-soft); color: var(--warn-ink); border-bottom: 1px solid var(--line);
@@ -160,7 +167,8 @@ def build(out: Path) -> None:
 """
     data = json.dumps(precompute(), separators=(",", ":")).replace("</", "<\\/")
     app_js = (static / "app.js").read_text(encoding="utf-8").replace("</script", "<\\/script")
-    page = f"""<title>Heritage Plate</title>
+    page = f"""<meta charset="utf-8">
+<title>Heritage Plate</title>
 <meta name="description" content="Keep the family's food. Fix the numbers.">
 <style>
 {css}
