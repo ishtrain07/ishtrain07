@@ -1,0 +1,93 @@
+{
+ "buys": [
+  {
+   "ticker": "MA",
+   "name": "Mastercard Incorporated",
+   "sector": "Financials",
+   "price": 622.62,
+   "score": 64.6,
+   "momentum": 81,
+   "rs": 85,
+   "trend": 100,
+   "fund": 72,
+   "rsi": 76,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 26.990648,
+   "next_earnings": "2026-10-29",
+   "entry": 622.62,
+   "limit": 625.73,
+   "stop": 572.81,
+   "t1": 644.56,
+   "t2": 666.49,
+   "stop_pct": -8.0,
+   "t1_pct": 3.5,
+   "t2_pct": 7.0,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-29",
+   "shares": 1.32,
+   "dollars": 821.86,
+   "risk_dollars": 65.75,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "#2 on the learning model ranking: 6-mo +22%, 3-mo +18%, 1-mo +12%",
+    "stronger than 85% of the universe vs the S&P; above its 200-day average",
+    "revenue +14% y/y"
+   ],
+   "news": []
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "SPY",
+   "score": 89.8,
+   "price": 773.09,
+   "setup": "momentum",
+   "rsi": 54,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "ABBV",
+   "score": 89.8,
+   "price": 284.8,
+   "setup": "momentum",
+   "rsi": 65,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "AAPL",
+   "score": 88.1,
+   "price": 343.99,
+   "setup": "momentum",
+   "rsi": 61,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "XOM",
+   "score": 87.6,
+   "price": 178.09,
+   "setup": "momentum",
+   "rsi": 70,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "QQQ",
+   "score": 86.7,
+   "price": 725.2,
+   "setup": "momentum",
+   "rsi": 46,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 773.09,
+  "spy_sma50": 767.35,
+  "spy_sma200": 723.24,
+  "vix": 18.01
+ }
+}
