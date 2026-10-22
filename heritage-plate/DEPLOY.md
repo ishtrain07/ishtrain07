@@ -14,6 +14,17 @@ The front end and the API share one origin, so CORS needs no setup.
 
 ---
 
+## Free: Vercel (FastAPI as a Vercel Function)
+
+1. vercel.com → sign up with GitHub → **Add New → Project** → import `ishtrain07/ishtrain07`.
+2. **Root Directory**: `heritage-plate` (Framework: FastAPI / Other). Add env `NEBIUS_API_KEY` (and `TRUST_PROXY=1`).
+3. After the first deploy: **Settings → Environments → Production → Branch Tracking** = `claude/stoic-wozniak-8ie5mb`, then redeploy. (Preview deployments of other branches are behind Vercel login by default.)
+4. `vercel.json` gives the function 120 s and bundles `static/` and `data/`.
+
+Netlify is not an option: its functions don't run Python.
+
+---
+
 ## Free: Render web service
 
 1. render.com → sign up (GitHub login is easiest).
