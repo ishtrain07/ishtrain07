@@ -6,7 +6,8 @@ mock mode: every dish x every health focus. The week plan and shopping list are
 recomputed in the browser with a direct port of the engine's mock schedule, and
 tests/test_preview.py checks that port against the Python output.
 
-Usage:  python scripts/build_preview.py <out.html>
+Usage:  python scripts/build_preview.py <out.html> [--standalone]
+        --standalone wraps it as a full HTML document for plain static hosts.
 """
 
 from __future__ import annotations
@@ -146,7 +147,7 @@ BANNER = """<div class="preview-banner" role="note">Preview of demo mode: the fo
 using numbers precomputed by the real engine. Adding your own recipes and live Nemotron need the full app.</div>"""
 
 
-def build(out: Path) -> None:
+def build(out: Path, standalone: bool = False) -> None:
     static = ROOT / "static"
     html = (static / "index.html").read_text(encoding="utf-8")
     body = re.search(r"<body>(.*)</body>", html, re.DOTALL).group(1)
@@ -178,9 +179,16 @@ def build(out: Path) -> None:
 <script>{SHIM}</script>
 <script>{app_js}</script>
 """
+    if standalone:  # plain static hosts (e.g. a Hugging Face Static Space) need a full document
+        page = page.replace('<meta charset="utf-8">\n', "", 1)
+        cut = page.index("</style>") + len("</style>")
+        page = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+                '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+                f"{page[:cut]}\n</head>\n<body>\n{page[cut:]}\n</body>\n</html>\n")
     out.write_text(page, encoding="utf-8")
     print(f"Wrote {out} ({len(page) // 1024} KB)")
 
 
 if __name__ == "__main__":
-    build(Path(sys.argv[1] if len(sys.argv) > 1 else "preview.html"))
+    args = [a for a in sys.argv[1:] if a != "--standalone"]
+    build(Path(args[0] if args else "preview.html"), standalone="--standalone" in sys.argv)
