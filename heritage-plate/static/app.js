@@ -366,7 +366,7 @@ function renderFamilies() {
   const box = $("families");
   if (!state.families.length) {
     box.innerHTML = state.familiesLoaded
-      ? `<div class="empty"><p>The demo families couldn't load.</p><button type="button" class="btn btn-quiet btn-small" data-retry>Try again</button></div>`
+      ? `<div class="empty" role="alert"><p><b>The demo families didn't load</b></p><p>Check the connection, then try again.</p><button type="button" class="btn btn-quiet btn-small" data-retry>Try again</button></div>`
       : box.innerHTML;
     return;
   }
@@ -516,21 +516,25 @@ function dishCard(e) {
   if (adapted) {
     const f = focusNumbers(r);
     const width = f.before > 0 ? Math.max(3, Math.min(100, (f.after / f.before) * 100)) : 100;
+    const beforeW = f.after > f.before && f.after > 0 ? Math.max(3, (f.before / f.after) * 100) : 100;
     numbers = `
-      <p class="nums"><span class="sr-only">${esc(f.label)} per serving: was </span><span class="nums-was">${esc(fmt(f.before, f.unit))}</span><span class="nums-arrow" aria-hidden="true">→</span><span class="sr-only"> now </span><span class="nums-now">${esc(fmt(f.after, f.unit))} ${esc(f.unit)}</span></p>
+      <p class="nums"><span class="sr-only">${esc(f.label)} per serving: was </span><span class="nums-was">${esc(fmt(f.before, f.unit))}</span><span class="nums-arrow" aria-hidden="true">→</span><span class="sr-only"> now </span><span class="nums-now">${esc(fmt(f.after, f.unit))}<span class="nums-unit"> ${esc(f.unit)}</span></span></p>
       <p class="nums-label" aria-hidden="true">${esc(f.label)} per serving</p>
-      <span class="bar" aria-hidden="true"><span style="width:${width}%"></span></span>`;
+      <div class="cmp" aria-hidden="true">
+        <div class="cmp-row"><span>Before</span><span class="cmp-bar"><span style="width:${beforeW}%"></span></span><span class="cmp-v">${esc(fmt(f.before, f.unit))} ${esc(f.unit)}</span></div>
+        <div class="cmp-row is-now"><span>Now</span><span class="cmp-bar"><span style="width:${width}%"></span></span><span class="cmp-v">${esc(fmt(f.after, f.unit))} ${esc(f.unit)}</span></div>
+      </div>`;
     if (r.comparable === false) badge = `<span class="tag tag-quiet">No % shown</span>`;
     else if (f.pct > 0) badge = `<span class="tag tag-win">${f.pct}% less</span>`;
     else badge = `<span class="tag tag-quiet">Already light</span>`;
   } else {
     numbers = `
-      <p class="nums"><span class="nums-now plain">${esc(fmt(n[c.key], c.unit))} ${esc(c.unit)}</span></p>
+      <p class="nums"><span class="nums-now plain">${esc(fmt(n[c.key], c.unit))}<span class="nums-unit"> ${esc(c.unit)}</span></span></p>
       <p class="nums-label">${esc(c.nutrient)} per serving</p>`;
   }
 
   let status = "";
-  if (isBusy) status = `<p class="working"><span class="spinner" aria-hidden="true"></span><span>Making it lighter<span class="dots"></span></span></p>`;
+  if (isBusy) status = `<p class="working"><span class="spinner" aria-hidden="true"></span><span>Making it lighter<span class="dots"></span><span class="working-sub">Keeping the taste, trimming the ${esc(c.nutrient)}</span></span></p>`;
   else if (e.status === "error") status = `<p class="msg error" role="alert">${esc(e.error)}</p>`;
 
   const adaptBtn = adapted ? "" : `
@@ -602,7 +606,7 @@ function renderCookbook() {
   const box = $("cookbook");
   box.innerHTML = state.recipes.length
     ? state.recipes.map(dishCard).join("")
-    : `<div class="empty"><p><b>No dishes yet.</b> Add your first family recipe below.</p></div>`;
+    : `<div class="empty"><span class="empty-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 11h16a8 8 0 0 1-16 0Z"/><path d="M9 7c0-1.5 1-2 1-3.5M13 7c0-1.5 1-2 1-3.5"/></svg></span><p><b>No dishes yet</b></p><p>Add the first family recipe below, the way you'd say it at home.</p></div>`;
   renderSummary();
   refreshButtons();
 }
@@ -663,7 +667,8 @@ async function adaptAll(btn) {
     if (run !== state.adaptRun) return;
     prog.hidden = false;
     prog.className = "progress-line";
-    prog.textContent = `${done} of ${ids.length} dishes done${failed ? `, ${failed} couldn't be changed` : ""}…`;
+    const pct = Math.round(((done + failed) / ids.length) * 100);
+    prog.innerHTML = `<span>${done} of ${ids.length} dishes done${failed ? `, ${failed} couldn't be changed` : ""}…</span><span class="prog-bar" aria-hidden="true"><span style="width:${pct}%"></span></span>`;
   };
   draw();
   await busy(btn, "Making them lighter…", async () => {
@@ -869,13 +874,22 @@ async function makePlan(btn) {
   const holder = document.createElement("p");
   holder.className = "working";
   out.prepend(holder);
-  const stop = ticker(holder, `<span class="spinner" aria-hidden="true"></span><span>Planning 7 days and the shopping list<span class="dots"></span></span>`);
+  const stop = ticker(holder, `<span class="spinner" aria-hidden="true"></span><span>Planning 7 days, the shopping list and a note in ${esc(state.language)}<span class="dots"></span></span>`);
+  let skel = null;
+  if (!state.plan) {
+    skel = document.createElement("div");
+    skel.className = "plan-skel";
+    skel.setAttribute("aria-hidden", "true");
+    skel.innerHTML = `<span class="sk-letter"></span><span class="sk-tabs"></span>${"<span class=\"sk-row\"></span>".repeat(3)}`;
+    holder.after(skel);
+  }
   const condition = state.condition;
   const version = state.cookbookVersion;
   try {
     const recipes = state.recipes.map((e) => baseFields(current(e)));
     const { plan } = await busy(btn, "Planning…", () => api("/api/plan", { recipes, condition, language: state.language }));
     stop();
+    skel?.remove();
     // Drop a late reply if the cookbook or health focus changed while Ultra was planning.
     if (state.condition !== condition || state.cookbookVersion !== version) {
       holder.remove();
@@ -888,6 +902,7 @@ async function makePlan(btn) {
     announce("Your week is ready, with a note for your parent and a shopping list.");
   } catch (err) {
     stop();
+    skel?.remove();
     holder.className = "msg error";
     holder.setAttribute("role", "alert");
     holder.textContent = err.message;

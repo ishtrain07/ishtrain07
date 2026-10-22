@@ -4,11 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Keep the family's food. Fix the numbers. Heritage Plate makes your family recipes lighter for diabetes, blood pressure or cholesterol.">
-  <meta name="theme-color" content="#fbf6ee" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#1c1612" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f7f1e7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#16110d" media="(prefers-color-scheme: dark)">
   <meta name="color-scheme" content="light dark">
   <title>Heritage Plate: keep the family's food, fix the numbers</title>
   <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/static/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/static/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
@@ -38,9 +40,30 @@
 
   <main id="main">
     <section class="hero" aria-labelledby="heroTitle">
-      <div class="wrap">
-        <h1 id="heroTitle">Keep the family's food.<br><span class="accent">Fix the numbers.</span></h1>
-        <p class="lede">Your family recipes, made lighter for diabetes, blood pressure or cholesterol.</p>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">For families cooking for a parent</p>
+          <h1 id="heroTitle">Keep the family's food.<br><span class="accent">Fix the numbers.</span></h1>
+          <p class="lede">Your family recipes, made lighter for diabetes, blood pressure or cholesterol, so they still taste like home.</p>
+          <ul class="hero-facts" aria-label="What you get">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Any cuisine</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>A note in their language</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Numbers from food tables</li>
+          </ul>
+        </div>
+        <figure class="hero-card" aria-label="Example result: Mum's aloo paratha has 62 grams of sugar-raising carbs per serving before and 47 grams after, 25 percent less.">
+          <div aria-hidden="true">
+            <div class="hc-top"><span class="hc-kicker">Example · Breakfast</span><span class="tag tag-win">25% less</span></div>
+            <p class="hc-name">Mum's aloo paratha</p>
+            <p class="nums"><span class="nums-was">62</span><span class="nums-arrow">→</span><span class="nums-now">47<span class="nums-unit">g</span></span></p>
+            <p class="nums-label">sugar-raising carbs per serving</p>
+            <div class="cmp">
+              <div class="cmp-row"><span>Before</span><span class="cmp-bar"><span style="width:100%"></span></span><span class="cmp-v">62 g</span></div>
+              <div class="cmp-row is-now"><span>Now</span><span class="cmp-bar"><span style="width:76%"></span></span><span class="cmp-v">47 g</span></div>
+            </div>
+            <p class="hc-swap"><span class="tick">✓</span><span>Half the potato swapped for cauliflower. Same paratha, same Sunday.</span></p>
+          </div>
+        </figure>
       </div>
     </section>
 
@@ -55,6 +78,7 @@
     <div class="wrap flow">
       <!-- Step 1: pick a family -->
       <section id="start" class="step-sec" aria-labelledby="s1" tabindex="-1">
+        <p class="eyebrow">Step 1 of 3</p>
         <h2 id="s1" class="sec-title" tabindex="-1">Pick a family to try</h2>
         <div id="families" class="families">
           <div class="family skeleton" aria-hidden="true"></div>
@@ -94,6 +118,7 @@
 
       <!-- Step 2: make the dishes lighter -->
       <section id="stepDishes" class="step-sec reveal" aria-labelledby="s2" hidden>
+        <p class="eyebrow">Step 2 of 3</p>
         <h2 id="s2" class="sec-title" tabindex="-1">Make the dishes lighter</h2>
 
         <fieldset class="seg">
@@ -155,6 +180,7 @@
 
       <!-- Step 3: the week -->
       <section id="stepWeek" class="step-sec reveal" aria-labelledby="s3" hidden>
+        <p class="eyebrow">Step 3 of 3</p>
         <h2 id="s3" class="sec-title" tabindex="-1">Plan the week</h2>
         <p class="sec-sub">7 days of meals, a shopping list and a note for <span class="parent-word">Mum or Dad</span>.</p>
         <div class="action-bar">
