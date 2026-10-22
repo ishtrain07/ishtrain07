@@ -47,7 +47,7 @@ uvicorn app.main:app --reload
 ```
 
 - **Demo mode** (no key, or `MOCK=1`): deterministic swap rules stand in for the models, so the whole flow works offline. Four demo families are included: Gill (South Asian, diabetes), Chen (East Asian, blood pressure), Rossi (Continental, cholesterol) and Reyes (Latin American, diabetes).
-- **Settings:** `RATE_LIMIT` (model-backed requests per client per 10 minutes, default 200), `TRUST_PROXY=1` when deployed behind a proxy that sets `X-Forwarded-For`, and `LLM_TIMEOUT_S` / `LLM_TIMEOUT_ULTRA_S` (default 60, Ultra reasons first) / `LLM_DEADLINE_S`.
+- **Settings:** `RATE_LIMIT` (model-backed requests per client per 10 minutes, default 200), `MAX_CALLS_PER_HOUR` (all model calls across all users, default 600), `TRUST_PROXY=1` when deployed behind a proxy that sets `X-Forwarded-For`, and `LLM_TIMEOUT_S` (default 30) / `LLM_TIMEOUT_ULTRA_S` (default 60, Ultra reasons first) / `LLM_DEADLINE_S` (default 90).
 - **Live mode:** set `NEBIUS_API_KEY`. Check the base URL and model IDs first:
 
 ```bash

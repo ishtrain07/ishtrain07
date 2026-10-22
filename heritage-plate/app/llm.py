@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import threading
 import time
 from collections import OrderedDict
 from functools import lru_cache
@@ -25,6 +26,11 @@ NO_THINK_TIERS = {"nano", "super"}
 
 CACHE_SIZE = 512
 _cache: OrderedDict[str, tuple[dict, dict]] = OrderedDict()
+_cache_lock = threading.Lock()
+# Process-wide cap on paid model calls per hour: the real guard on credits for a public URL.
+MAX_CALLS_PER_HOUR = int(os.getenv("MAX_CALLS_PER_HOUR", "600"))
+_calls: list[float] = []
+_calls_lock = threading.Lock()
 # Flipped off the first time the endpoint rejects chat_template_kwargs.
 _send_template_kwargs = True
 
@@ -74,13 +80,39 @@ def _client():
 def extract_json(text: str) -> dict:
     """Parse the first JSON object after any reasoning trace."""
     text = text.rsplit("</think>", 1)[-1]
+    decoder = json.JSONDecoder()
     start = text.find("{")
-    if start == -1:
-        raise ValueError("no JSON object in model output")
-    data, _ = json.JSONDecoder().raw_decode(text, start)
-    if not isinstance(data, dict):
-        raise ValueError("model output is not a JSON object")  # noqa: TRY004 - callers handle ValueError
-    return data
+    while start != -1:  # a stray brace in leading prose shouldn't cost a retry
+        try:
+            data, _ = decoder.raw_decode(text, start)
+        except json.JSONDecodeError:
+            start = text.find("{", start + 1)
+            continue
+        if isinstance(data, dict):
+            return data
+        start = text.find("{", start + 1)
+    raise ValueError("no JSON object in model output")
+
+
+def _take_budget() -> None:
+    now = time.monotonic()
+    with _calls_lock:
+        while _calls and now - _calls[0] > 3600:
+            _calls.pop(0)
+        if len(_calls) >= MAX_CALLS_PER_HOUR:
+            raise LLMError("hourly model budget used up; try again later")
+        _calls.append(now)
+
+
+def _transient(exc: Exception) -> bool:
+    from openai import (
+        APIConnectionError,
+        APITimeoutError,
+        InternalServerError,
+        RateLimitError,
+    )
+
+    return isinstance(exc, (APIConnectionError, APITimeoutError, InternalServerError, RateLimitError))
 
 
 def _create(model: str, messages: list[dict], max_tokens: int, no_think: bool, timeout: float):
@@ -92,9 +124,9 @@ def _create(model: str, messages: list[dict], max_tokens: int, no_think: bool, t
         kwargs["extra_body"] = {"chat_template_kwargs": {"enable_thinking": False}}
     try:
         return _client().chat.completions.create(**kwargs)
-    except BadRequestError:
+    except BadRequestError as exc:
         # Some gateways reject chat_template_kwargs; stop sending it and retry once.
-        if "extra_body" not in kwargs:
+        if "extra_body" not in kwargs or not any(k in str(exc) for k in ("chat_template_kwargs", "enable_thinking")):
             raise
         _send_template_kwargs = False
         kwargs.pop("extra_body")
@@ -109,9 +141,12 @@ def chat_json(tier: str, system: str, user: str, *, step: str, max_tokens: int =
     served from an in-memory cache.
     """
     key = hashlib.sha256(json.dumps([tier, system, user, max_tokens]).encode()).hexdigest()
-    if key in _cache:
-        _cache.move_to_end(key)
-        data, trace = _cache[key]
+    with _cache_lock:
+        hit = _cache.get(key)
+        if hit:
+            _cache.move_to_end(key)
+    if hit:
+        data, trace = hit
         return data, {**trace, "cached": True, "ms": 0}
 
     started_all = time.perf_counter()
@@ -122,14 +157,24 @@ def chat_json(tier: str, system: str, user: str, *, step: str, max_tokens: int =
         messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]
         tokens = prompt_tokens = completion_tokens = 0
         timeout = TIER_TIMEOUT_S.get(current, CALL_TIMEOUT_S)
-        for _attempt in range(2):
+        retried = False
+        attempt = 0
+        while attempt < 2:
+            attempt += 1
             remaining = DEADLINE_S - (time.perf_counter() - started_all)
             if remaining < 2:
                 raise LLMError(f"{step}: timed out after {DEADLINE_S:.0f}s")
+            _take_budget()
             try:
                 resp = _create(model, messages, max_tokens, current in NO_THINK_TIERS, min(timeout, remaining))
-            except Exception as exc:  # noqa: BLE001 - any API/network error: try the next tier
+            except Exception as exc:  # noqa: BLE001 - any API/network error: retry once if brief, else next tier
                 last_error = exc
+                # Ultra has Super behind it; Nano and Super get one quick retry on a transient error.
+                if current != "ultra" and not retried and _transient(exc) and remaining > 5:
+                    retried = True
+                    attempt -= 1
+                    time.sleep(0.8)
+                    continue
                 break
             usage = getattr(resp, "usage", None)
             tokens += getattr(usage, "total_tokens", 0) or 0
@@ -163,8 +208,9 @@ def chat_json(tier: str, system: str, user: str, *, step: str, max_tokens: int =
                 "cached": False,
             }
             if not trace["fallback"]:  # don't pin a temporary Ultra failure in the cache
-                _cache[key] = (data, trace)
-                if len(_cache) > CACHE_SIZE:
-                    _cache.popitem(last=False)
+                with _cache_lock:
+                    _cache[key] = (data, trace)
+                    if len(_cache) > CACHE_SIZE:
+                        _cache.popitem(last=False)
             return data, trace
     raise LLMError(f"{step}: Nemotron call failed ({last_error})")

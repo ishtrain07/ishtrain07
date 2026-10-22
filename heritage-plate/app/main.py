@@ -137,7 +137,7 @@ def _families() -> list[dict]:
 
 
 @app.get("/api/health")
-def health():
+async def health():
     return {
         "ok": True,
         "mode": "live" if llm.is_live() else "mock",
@@ -149,12 +149,12 @@ def health():
 
 
 @app.get("/api/demo")
-def demo_list():
+async def demo_list():
     return [{k: f[k] for k in ("id", "family", "parent", "cuisine", "condition", "language")} for f in _families()]
 
 
 @app.get("/api/demo/{family_id}")
-def demo(family_id: str):
+async def demo(family_id: str):
     for fam in _families():
         if fam["id"] == family_id:
             return fam

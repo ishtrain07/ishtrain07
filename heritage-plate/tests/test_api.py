@@ -138,3 +138,38 @@ def test_live_mode_with_network_secret_flag(monkeypatch):
     assert llm.is_live()
     monkeypatch.setenv("MOCK", "1")
     assert not llm.is_live()
+
+
+def _reply(content):
+    from types import SimpleNamespace as NS
+
+    return NS(choices=[NS(finish_reason="stop", message=NS(content=content))], usage=None)
+
+
+def test_extract_json_skips_stray_brace_in_prose():
+    assert llm.extract_json('Note {not json} then {"a": 1}') == {"a": 1}
+
+
+def test_transient_error_is_retried_once_on_same_tier(monkeypatch):
+    import httpx
+    from openai import APIConnectionError
+
+    calls = []
+
+    def fake_create(model, *a):
+        calls.append(model)
+        if len(calls) == 1:
+            raise APIConnectionError(request=httpx.Request("POST", "http://x"))
+        return _reply('{"ok": true}')
+
+    monkeypatch.setattr(llm, "_create", fake_create)
+    monkeypatch.setattr(llm.time, "sleep", lambda s: None)
+    data, trace = llm.chat_json("super", "sys-retry", "user", step="t")
+    assert data == {"ok": True} and len(calls) == 2 and trace["tier"] == "super"
+
+
+def test_hourly_budget_stops_model_calls(monkeypatch):
+    monkeypatch.setattr(llm, "MAX_CALLS_PER_HOUR", 0)
+    monkeypatch.setattr(llm, "_create", lambda *a: _reply('{"ok": true}'))
+    with pytest.raises(llm.LLMError, match="budget"):
+        llm.chat_json("nano", "sys-budget", "user", step="t")

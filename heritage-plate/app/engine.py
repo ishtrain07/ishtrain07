@@ -251,7 +251,9 @@ def adapt_recipe(recipe: dict, condition: str, cuisine: str) -> tuple[dict, list
     else:
         data, trace = _mock_adapt({**recipe, "nutrition": before}, condition), _mock_trace("Adapt dish", "super")
 
-    ingredients = normalize_ingredients(data.get("ingredients")) or recipe["ingredients"]
+    ingredients = normalize_ingredients(data.get("ingredients"))
+    if not ingredients:  # unusable reply: keep the dish and don't show changes that weren't applied
+        ingredients, data = recipe["ingredients"], {}
     after = nutrition.per_serving(ingredients, recipe["servings"])
     # If the model introduced ingredients we can't count, the comparison would flatter it.
     new_unknowns = sorted(set(after["uncounted"]) - set(before["uncounted"]))
