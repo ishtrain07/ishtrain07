@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-22 08:59 ET",
+ "generated_at": "2026-10-22 09:01 ET (position check)",
  "date": "2026-10-22",
  "mode": "plan",
  "regime": {
@@ -475,21 +475,7 @@
   "since": "2026-09-28"
  },
  "anomalies": {
-  "flags": [
-   {
-    "ticker": "AMD",
-    "type": "rank_drop",
-    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
-    "held": true,
-    "price": 552.72,
-    "day_pct": 3.36,
-    "n": 629,
-    "avg_pct": 0.32,
-    "down_pct": 51.4,
-    "edge_pct": -0.07,
-    "verdict": "neutral"
-   }
-  ],
+  "flags": [],
   "rank_trends": [
    {
     "ticker": "SNOW",
@@ -5030,5 +5016,19 @@
    "weight": 0.0,
    "recent_ic": -0.047
   }
- ]
+ ],
+ "analyst": {
+  "date": "2026-10-22",
+  "text": "Risk-off morning. Nasdaq futures are -1.6% and S&P futures -0.9%. Asia fell about 3% overnight. The light is still GREEN (VIX 18.0), but tech is likely to open lower. 2 trading days remain before the Fri Oct 23 sell-by.\nPlan: SELL ALL three holdings today at the open. Yesterday's bounce took the account to $2,464. Futures point to giving some of that back, and waiting for Friday adds risk to money that's needed by Oct 30.\nThe engine lists MA as a buy. Skip it, because a 1\u20132 day hold has no edge.\nAt yesterday's close: CRWD -12.3%, SNOW -2.2%, AMD +0.9%. Account $2,462 (-1.5%) vs system simulated -9.1% and S&P +0.2% since Sep 28.\nAfter selling, withdraw the cash so it arrives before Oct 30.",
+  "cautions": [
+   {
+    "ticker": "MA",
+    "why": "Engine buy, but skip it. Only 2 days left before the sell-by."
+   },
+   {
+    "ticker": "CRWD",
+    "why": "Below its stop. Nasdaq futures -1.6%. Sell at the open."
+   }
+  ]
+ }
 }
