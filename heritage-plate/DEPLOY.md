@@ -3,7 +3,8 @@
 One container (FastAPI + static UI) on port `8000`, health check at `/api/health`.
 The front end and the API share one origin, so CORS needs no setup.
 
-- **Quickest (about 15 min, no Docker on your laptop):** a Nebius VM that builds the app itself with `scripts/deploy_vm.sh`. See below.
+- **Free, no terminal (recommended if you only have Token Factory credit):** a Hugging Face Space built from `deploy/hf-space/`. The models still run on Nebius Token Factory.
+- **Quickest on Nebius AI Cloud (needs AI Cloud billing, about 15 min):** a Nebius VM that builds the app itself with `scripts/deploy_vm.sh`. See below.
 - **Path A (about 30 to 45 min):** Nebius **Serverless AI Endpoint** (a container on a CPU VM, managed HTTPS URL).
 - **Path B (fallback, about 30 min):** a small Nebius **Compute** CPU VM running Docker with Caddy for automatic HTTPS.
 - **Backup:** a `MOCK=1` copy of the app, or the single-file preview from `scripts/build_preview.py`.
