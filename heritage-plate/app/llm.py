@@ -14,7 +14,7 @@ BASE_URL = os.getenv("NEBIUS_BASE_URL", "https://api.tokenfactory.us-central1.ne
 MODELS = {
     "nano": os.getenv("NEMOTRON_NANO", "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B"),
     "super": os.getenv("NEMOTRON_SUPER", "nvidia/nemotron-3-super-120b-a12b"),
-    "ultra": os.getenv("NEMOTRON_ULTRA", "nvidia/nemotron-3-ultra-550b-a55b"),
+    "ultra": os.getenv("NEMOTRON_ULTRA", "nvidia/Nemotron-3-Ultra-550b-a55b"),
 }
 CALL_TIMEOUT_S = float(os.getenv("LLM_TIMEOUT_S", "30"))
 # Ultra reasons before answering; 30 s would time it out and always fall back to Super.
