@@ -1,8 +1,8 @@
 {
- "date": "2026-10-22",
- "text": "Risk-off morning. Nasdaq futures are -1.6% and S&P futures -0.9%. Asia fell about 3% overnight. The light is still GREEN (VIX 18.0), but tech is likely to open lower. 2 trading days remain before the Fri Oct 23 sell-by.\nPlan: SELL ALL three holdings today at the open. Yesterday's bounce took the account to $2,464. Futures point to giving some of that back, and waiting for Friday adds risk to money that's needed by Oct 30.\nThe engine lists MA as a buy. Skip it, because a 1–2 day hold has no edge.\nAt yesterday's close: CRWD -12.3%, SNOW -2.2%, AMD +0.9%. Account $2,462 (-1.5%) vs system simulated -9.1% and S&P +0.2% since Sep 28.\nAfter selling, withdraw the cash so it arrives before Oct 30.",
+ "date": "2026-10-23",
+ "text": "SELL-BY DAY. Sell all three holdings at the open, then start the withdrawal for Oct 30.\nMarket light YELLOW (VIX 20.0). S&P futures -0.5%, Nasdaq futures -0.3%.\nAMD is below its stop ($507.76 vs $525.15). CRWD is below its stop ($238.03, -12.8%). SNOW is at $313.95 (-4.9%).\nNo buys today or until the withdrawal is done.\nFinal tally at current prices: about $2,424, -3.0% since Sep 28. Over the same period the system's simulated account is -8.1% and the S&P 500 is -1.0%.\nLesson for the next round: concentration in one theme (AI hardware and cyber) caused most of the loss. Our research also showed the edge mostly disappears with next-day execution. Rebuild before restarting with any money that has no near-term need.",
  "cautions": [
-  {"ticker": "MA", "why": "Engine buy, but skip it. Only 2 days left before the sell-by."},
-  {"ticker": "CRWD", "why": "Below its stop. Nasdaq futures -1.6%. Sell at the open."}
+  {"ticker": "AMD", "why": "Below its stop. Sell at the open."},
+  {"ticker": "CRWD", "why": "Below its stop. Sell at the open."}
  ]
 }
