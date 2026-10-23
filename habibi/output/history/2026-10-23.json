@@ -1,0 +1,93 @@
+{
+ "buys": [
+  {
+   "ticker": "MA",
+   "name": "Mastercard Incorporated",
+   "sector": "Financials",
+   "price": 633.21,
+   "score": 66.1,
+   "momentum": 82,
+   "rs": 86,
+   "trend": 100,
+   "fund": 72,
+   "rsi": 80,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 27.44924,
+   "next_earnings": "2026-10-29",
+   "entry": 633.21,
+   "limit": 636.38,
+   "stop": 582.55,
+   "t1": 655.28,
+   "t2": 677.36,
+   "stop_pct": -8.0,
+   "t1_pct": 3.5,
+   "t2_pct": 7.0,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-10-30",
+   "shares": 1.28,
+   "dollars": 810.51,
+   "risk_dollars": 64.84,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "#1 on the learning model ranking: 6-mo +26%, 3-mo +18%, 1-mo +13%",
+    "stronger than 86% of the universe vs the S&P; above its 200-day average",
+    "revenue +14% y/y"
+   ],
+   "news": []
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "ABBV",
+   "score": 88.9,
+   "price": 285.19,
+   "setup": "momentum",
+   "rsi": 66,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "CVX",
+   "score": 88.9,
+   "price": 226.68,
+   "setup": "momentum",
+   "rsi": 72,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "XOM",
+   "score": 86.3,
+   "price": 178.23,
+   "setup": "momentum",
+   "rsi": 70,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "COST",
+   "score": 84.1,
+   "price": 1018.21,
+   "setup": "momentum",
+   "rsi": 79,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "ABNB",
+   "score": 81.9,
+   "price": 175.76,
+   "setup": "momentum",
+   "rsi": 61,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "YELLOW",
+  "risk_mult": 0.5,
+  "max_new": 2,
+  "message": "Market is choppy (below 50-day or VIX elevated). Half size, A-grade setups only.",
+  "spy": 763.96,
+  "spy_sma50": 767.22,
+  "spy_sma200": 723.62,
+  "vix": 20.0
+ }
+}
