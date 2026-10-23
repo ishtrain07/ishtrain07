@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23 08:59 ET",
+ "generated_at": "2026-10-23 09:01 ET (position check)",
  "date": "2026-10-23",
  "mode": "plan",
  "regime": {
@@ -507,19 +507,6 @@
     "avg_pct": 0.23,
     "down_pct": 49.4,
     "edge_pct": -0.14,
-    "verdict": "neutral"
-   },
-   {
-    "ticker": "AMD",
-    "type": "rank_drop",
-    "label": "Fell out of the model's top 5 (was top 3 within the last 5 days)",
-    "held": true,
-    "price": 507.93,
-    "day_pct": -8.1,
-    "n": 628,
-    "avg_pct": 0.32,
-    "down_pct": 51.4,
-    "edge_pct": -0.05,
     "verdict": "neutral"
    }
   ],
@@ -5063,5 +5050,19 @@
    "weight": 0.0,
    "recent_ic": -0.052
   }
- ]
+ ],
+ "analyst": {
+  "date": "2026-10-23",
+  "text": "SELL-BY DAY. Sell all three holdings at the open, then start the withdrawal for Oct 30.\nMarket light YELLOW (VIX 20.0). S&P futures -0.5%, Nasdaq futures -0.3%.\nAMD is below its stop ($507.76 vs $525.15). CRWD is below its stop ($238.03, -12.8%). SNOW is at $313.95 (-4.9%).\nNo buys today or until the withdrawal is done.\nFinal tally at current prices: about $2,424, -3.0% since Sep 28. Over the same period the system's simulated account is -8.1% and the S&P 500 is -1.0%.\nLesson for the next round: concentration in one theme (AI hardware and cyber) caused most of the loss. Our research also showed the edge mostly disappears with next-day execution. Rebuild before restarting with any money that has no near-term need.",
+  "cautions": [
+   {
+    "ticker": "AMD",
+    "why": "Below its stop. Sell at the open."
+   },
+   {
+    "ticker": "CRWD",
+    "why": "Below its stop. Sell at the open."
+   }
+  ]
+ }
 }
