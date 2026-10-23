@@ -40,43 +40,43 @@
  "backups": [],
  "watch": [
   {
-   "ticker": "ABBV",
-   "score": 88.9,
-   "price": 285.19,
+   "ticker": "AAPL",
+   "score": 90.3,
+   "price": 346.23,
    "setup": "momentum",
-   "rsi": 66,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "CVX",
-   "score": 88.9,
-   "price": 226.68,
-   "setup": "momentum",
-   "rsi": 72,
+   "rsi": 62,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "XOM",
-   "score": 86.3,
-   "price": 178.23,
+   "score": 89.6,
+   "price": 182.21,
+   "setup": "momentum",
+   "rsi": 75,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "SPY",
+   "score": 88.8,
+   "price": 760.88,
+   "setup": "momentum",
+   "rsi": 43,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "COST",
+   "score": 82.4,
+   "price": 1004.83,
    "setup": "momentum",
    "rsi": 70,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "COST",
-   "score": 84.1,
-   "price": 1018.21,
-   "setup": "momentum",
-   "rsi": 79,
-   "action": "next in line if a holding drops out"
-  },
-  {
    "ticker": "ABNB",
-   "score": 81.9,
-   "price": 175.76,
+   "score": 81.0,
+   "price": 173.65,
    "setup": "momentum",
-   "rsi": 61,
+   "rsi": 57,
    "action": "next in line if a holding drops out"
   }
  ],
@@ -85,9 +85,9 @@
   "risk_mult": 0.5,
   "max_new": 2,
   "message": "Market is choppy (below 50-day or VIX elevated). Half size, A-grade setups only.",
-  "spy": 763.96,
-  "spy_sma50": 767.22,
-  "spy_sma200": 723.62,
-  "vix": 20.0
+  "spy": 760.88,
+  "spy_sma50": 766.92,
+  "spy_sma200": 724.01,
+  "vix": 20.19
  }
 }
