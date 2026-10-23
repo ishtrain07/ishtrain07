@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23 15:28 ET (position check)",
+ "generated_at": "2026-10-23 15:29 ET (position check)",
  "date": "2026-10-23",
  "mode": "plan",
  "regime": {
@@ -171,10 +171,10 @@
  "account": {
   "cash": 1614.5,
   "realized": 0.0,
-  "unrealized": -44.8,
-  "market_value": 840.7,
-  "equity": 2455.2,
-  "return_pct": -1.79
+  "unrealized": -44.61,
+  "market_value": 840.89,
+  "equity": 2455.39,
+  "return_pct": -1.78
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -204,7 +204,7 @@
    "price": 323.95,
    "value": 196.28,
    "pnl": -3.77,
-   "pnl_pct": -1.88,
+   "pnl_pct": -1.89,
    "days_held": 18,
    "active_stop": 303.76,
    "action": "HOLD",
@@ -232,14 +232,14 @@
      "shares": 1.1075
     }
    ],
-   "price": 255.72,
-   "value": 283.21,
-   "pnl": -18.94,
-   "pnl_pct": -6.27,
+   "price": 255.83,
+   "value": 283.33,
+   "pnl": -18.82,
+   "pnl_pct": -6.23,
    "days_held": 10,
    "active_stop": 250.99,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 250.99 (-1.8%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 250.99 (-1.9%)"
   },
   {
    "ticker": "AMD",
@@ -263,10 +263,10 @@
      "shares": 0.7
     }
    ],
-   "price": 516.01,
-   "value": 361.21,
-   "pnl": -22.09,
-   "pnl_pct": -5.76,
+   "price": 516.11,
+   "value": 361.28,
+   "pnl": -22.02,
+   "pnl_pct": -5.75,
    "days_held": 6,
    "active_stop": 525.15,
    "action": "SELL ALL",
@@ -279,7 +279,7 @@
    "ticker": "AMD",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 525.15",
-   "price": 516.01,
+   "price": 516.11,
    "shares": 0.7
   }
  ],
@@ -291,9 +291,9 @@
   "account": {
    "cash": 108.22,
    "realized": -248.78,
-   "unrealized": 4.68,
-   "market_value": 2347.67,
-   "equity": 2455.89,
+   "unrealized": 4.63,
+   "market_value": 2347.62,
+   "equity": 2455.84,
    "return_pct": -9.04
   },
   "record": {
@@ -328,10 +328,10 @@
       "shares": 1.93
      }
     ],
-    "price": 408.16,
-    "value": 787.75,
-    "pnl": 6.83,
-    "pnl_pct": 0.87,
+    "price": 408.17,
+    "value": 787.77,
+    "pnl": 6.85,
+    "pnl_pct": 0.88,
     "days_held": 4,
     "active_stop": 372.25,
     "action": "HOLD",
@@ -359,9 +359,9 @@
       "shares": 1.26
      }
     ],
-    "price": 621.74,
-    "value": 783.39,
-    "pnl": 1.55,
+    "price": 621.77,
+    "value": 783.43,
+    "pnl": 1.59,
     "pnl_pct": 0.2,
     "days_held": 4,
     "active_stop": 570.87,
@@ -390,14 +390,14 @@
       "shares": 2.72
      }
     ],
-    "price": 285.49,
-    "value": 776.53,
-    "pnl": -3.7,
-    "pnl_pct": -0.47,
+    "price": 285.45,
+    "value": 776.42,
+    "pnl": -3.81,
+    "pnl_pct": -0.49,
     "days_held": 4,
     "active_stop": 263.9,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 263.90 (-7.6%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 263.90 (-7.5%)"
    }
   ],
   "closed": [
