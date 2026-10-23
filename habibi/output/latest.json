@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23 16:35 ET (position check)",
+ "generated_at": "2026-10-23 18:26 ET (position check)",
  "date": "2026-10-23",
  "mode": "plan",
  "regime": {
@@ -171,10 +171,10 @@
  "account": {
   "cash": 1614.5,
   "realized": 0.0,
-  "unrealized": -41.13,
-  "market_value": 844.37,
-  "equity": 2458.87,
-  "return_pct": -1.65
+  "unrealized": -41.12,
+  "market_value": 844.38,
+  "equity": 2458.88,
+  "return_pct": -1.64
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -232,10 +232,10 @@
      "shares": 1.1075
     }
    ],
-   "price": 257.58,
-   "value": 285.27,
-   "pnl": -16.88,
-   "pnl_pct": -5.59,
+   "price": 257.59,
+   "value": 285.28,
+   "pnl": -16.87,
+   "pnl_pct": -5.58,
    "days_held": 10,
    "active_stop": 250.99,
    "action": "HOLD",
