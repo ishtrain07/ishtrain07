@@ -1,188 +1,188 @@
 {
  "periods": {
   "full": [
-   "2024-11-15",
-   "2026-10-16"
+   "2024-11-22",
+   "2026-10-23"
   ],
   "half1": [
-   "2024-11-15",
-   "2025-11-03"
+   "2024-11-22",
+   "2025-11-10"
   ],
   "half2": [
-   "2025-11-03",
-   "2026-10-16"
+   "2025-11-10",
+   "2026-10-23"
   ]
  },
  "results": {
   "A current rules": {
    "full": {
-    "total_pct": 12.5,
-    "max_dd_pct": -16.9,
-    "trades": 322,
-    "win_rate": 49.7,
-    "avg_r": 0.06,
+    "total_pct": 11.0,
+    "max_dd_pct": -17.7,
+    "trades": 320,
+    "win_rate": 50.0,
+    "avg_r": 0.07,
     "p25_20": 0.0,
     "p25_10": 2.6,
-    "p25_loss": 43.1,
-    "med25": 0.6
+    "p25_loss": 40.2,
+    "med25": 1.0
    },
    "half1": {
-    "total_pct": 3.2,
-    "max_dd_pct": -16.9,
-    "trades": 148,
-    "win_rate": 53.4,
-    "avg_r": 0.04,
+    "total_pct": -4.1,
+    "max_dd_pct": -17.7,
+    "trades": 149,
+    "win_rate": 52.3,
+    "avg_r": -0.0,
     "p25_20": 0.0,
     "p25_10": 0.9,
-    "p25_loss": 49.5,
-    "med25": 0.0
+    "p25_loss": 44.4,
+    "med25": 0.2
    },
    "half2": {
-    "total_pct": 12.2,
-    "max_dd_pct": -15.7,
-    "trades": 175,
-    "win_rate": 46.9,
-    "avg_r": 0.09,
+    "total_pct": 22.8,
+    "max_dd_pct": -11.8,
+    "trades": 171,
+    "win_rate": 48.0,
+    "avg_r": 0.14,
     "p25_20": 0.0,
     "p25_10": 10.7,
-    "p25_loss": 33.5,
-    "med25": 3.0
+    "p25_loss": 31.6,
+    "med25": 3.1
    }
   },
   "B current, hold 15, trail 3ATR, no T2": {
    "full": {
-    "total_pct": 20.8,
+    "total_pct": 10.9,
     "max_dd_pct": -18.0,
-    "trades": 194,
-    "win_rate": 44.3,
-    "avg_r": 0.14,
+    "trades": 191,
+    "win_rate": 44.0,
+    "avg_r": 0.09,
     "p25_20": 0.0,
-    "p25_10": 6.8,
-    "p25_loss": 46.2,
-    "med25": 0.3
+    "p25_10": 6.6,
+    "p25_loss": 48.6,
+    "med25": 0.2
    },
    "half1": {
-    "total_pct": 21.8,
+    "total_pct": 2.1,
     "max_dd_pct": -14.4,
-    "trades": 88,
-    "win_rate": 43.2,
-    "avg_r": 0.16,
+    "trades": 92,
+    "win_rate": 43.5,
+    "avg_r": 0.06,
     "p25_20": 0.0,
-    "p25_10": 12.0,
-    "p25_loss": 44.0,
-    "med25": 0.4
+    "p25_10": 11.6,
+    "p25_loss": 49.1,
+    "med25": 0.1
    },
    "half2": {
-    "total_pct": -2.8,
-    "max_dd_pct": -16.9,
-    "trades": 104,
-    "win_rate": 42.3,
-    "avg_r": 0.04,
+    "total_pct": 12.3,
+    "max_dd_pct": -11.2,
+    "trades": 99,
+    "win_rate": 41.4,
+    "avg_r": 0.09,
     "p25_20": 0.0,
-    "p25_10": 2.3,
-    "p25_loss": 42.3,
-    "med25": 0.7
+    "p25_10": 2.8,
+    "p25_loss": 40.5,
+    "med25": 1.3
    }
   },
   "C breakouts only": {
    "full": {
-    "total_pct": -7.3,
-    "max_dd_pct": -19.7,
-    "trades": 217,
-    "win_rate": 49.8,
-    "avg_r": 0.01,
+    "total_pct": -8.9,
+    "max_dd_pct": -19.4,
+    "trades": 218,
+    "win_rate": 49.5,
+    "avg_r": -0.01,
     "p25_20": 0.0,
     "p25_10": 0.2,
     "p25_loss": 47.7,
     "med25": 0.0
    },
    "half1": {
-    "total_pct": -2.4,
-    "max_dd_pct": -19.7,
-    "trades": 102,
-    "win_rate": 52.0,
-    "avg_r": -0.01,
+    "total_pct": -8.0,
+    "max_dd_pct": -19.4,
+    "trades": 106,
+    "win_rate": 51.9,
+    "avg_r": -0.02,
     "p25_20": 0.0,
     "p25_10": 0.5,
-    "p25_loss": 50.0,
-    "med25": -0.0
+    "p25_loss": 47.7,
+    "med25": 0.0
    },
    "half2": {
-    "total_pct": -1.8,
-    "max_dd_pct": -11.9,
-    "trades": 114,
-    "win_rate": 47.4,
-    "avg_r": 0.01,
+    "total_pct": -1.0,
+    "max_dd_pct": -13.8,
+    "trades": 112,
+    "win_rate": 47.3,
+    "avg_r": -0.01,
     "p25_20": 0.0,
     "p25_10": 0.0,
     "p25_loss": 42.3,
-    "med25": 0.9
+    "med25": 1.0
    }
   },
   "D breakouts, let winners run": {
    "full": {
-    "total_pct": 18.2,
-    "max_dd_pct": -20.9,
-    "trades": 125,
-    "win_rate": 43.2,
-    "avg_r": 0.17,
+    "total_pct": 8.6,
+    "max_dd_pct": -21.7,
+    "trades": 127,
+    "win_rate": 40.2,
+    "avg_r": 0.09,
     "p25_20": 0.2,
-    "p25_10": 8.8,
-    "p25_loss": 40.4,
-    "med25": 0.7
+    "p25_10": 7.0,
+    "p25_loss": 43.3,
+    "med25": 0.2
    },
    "half1": {
-    "total_pct": 10.3,
+    "total_pct": -4.7,
     "max_dd_pct": -19.0,
-    "trades": 53,
-    "win_rate": 45.3,
-    "avg_r": 0.23,
+    "trades": 57,
+    "win_rate": 38.6,
+    "avg_r": 0.04,
     "p25_20": 0.0,
-    "p25_10": 3.7,
-    "p25_loss": 40.7,
+    "p25_10": 0.0,
+    "p25_loss": 42.6,
     "med25": 0.0
    },
    "half2": {
-    "total_pct": 15.0,
-    "max_dd_pct": -20.4,
-    "trades": 71,
-    "win_rate": 42.3,
-    "avg_r": 0.17,
+    "total_pct": 13.7,
+    "max_dd_pct": -21.7,
+    "trades": 70,
+    "win_rate": 41.4,
+    "avg_r": 0.12,
     "p25_20": 0.5,
     "p25_10": 14.9,
-    "p25_loss": 36.7,
-    "med25": 2.0
+    "p25_loss": 38.6,
+    "med25": 1.9
    }
   },
   "E leader pullbacks": {
    "full": {
-    "total_pct": -15.1,
+    "total_pct": -13.8,
     "max_dd_pct": -22.0,
-    "trades": 246,
-    "win_rate": 43.5,
+    "trades": 242,
+    "win_rate": 43.8,
     "avg_r": -0.01,
     "p25_20": 0.0,
     "p25_10": 4.6,
     "p25_loss": 50.5,
-    "med25": -0.1
+    "med25": -0.0
    },
    "half1": {
-    "total_pct": -1.2,
+    "total_pct": -6.2,
     "max_dd_pct": -15.8,
-    "trades": 105,
-    "win_rate": 45.7,
-    "avg_r": 0.0,
+    "trades": 104,
+    "win_rate": 45.2,
+    "avg_r": -0.04,
     "p25_20": 0.0,
     "p25_10": 0.0,
-    "p25_loss": 36.1,
-    "med25": 0.5
+    "p25_loss": 35.2,
+    "med25": 0.8
    },
    "half2": {
-    "total_pct": -13.5,
-    "max_dd_pct": -18.4,
-    "trades": 140,
-    "win_rate": 41.4,
-    "avg_r": -0.03,
+    "total_pct": -6.8,
+    "max_dd_pct": -17.0,
+    "trades": 137,
+    "win_rate": 42.3,
+    "avg_r": 0.01,
     "p25_20": 0.0,
     "p25_10": 9.8,
     "p25_loss": 60.5,
@@ -191,173 +191,173 @@
   },
   "F leader pullbacks, let run": {
    "full": {
-    "total_pct": 39.4,
+    "total_pct": 21.1,
     "max_dd_pct": -30.2,
-    "trades": 161,
-    "win_rate": 29.8,
-    "avg_r": 0.25,
+    "trades": 157,
+    "win_rate": 29.3,
+    "avg_r": 0.14,
     "p25_20": 1.3,
-    "p25_10": 19.6,
-    "p25_loss": 45.1,
-    "med25": 1.4
+    "p25_10": 17.8,
+    "p25_loss": 46.6,
+    "med25": 0.7
    },
    "half1": {
-    "total_pct": 42.0,
+    "total_pct": 11.2,
     "max_dd_pct": -18.8,
-    "trades": 66,
-    "win_rate": 33.3,
-    "avg_r": 0.42,
+    "trades": 65,
+    "win_rate": 32.3,
+    "avg_r": 0.13,
     "p25_20": 0.0,
-    "p25_10": 21.8,
-    "p25_loss": 33.8,
-    "med25": 2.8
+    "p25_10": 17.1,
+    "p25_loss": 39.4,
+    "med25": 1.4
    },
    "half2": {
-    "total_pct": -3.0,
+    "total_pct": 11.2,
     "max_dd_pct": -30.2,
-    "trades": 95,
-    "win_rate": 25.3,
-    "avg_r": 0.07,
+    "trades": 91,
+    "win_rate": 26.4,
+    "avg_r": 0.11,
     "p25_20": 2.8,
-    "p25_10": 19.5,
-    "p25_loss": 50.2,
-    "med25": -0.1
+    "p25_10": 20.5,
+    "p25_loss": 47.9,
+    "med25": 1.6
    }
   },
   "G leaders any setup, let run": {
    "full": {
-    "total_pct": -6.1,
-    "max_dd_pct": -29.0,
-    "trades": 179,
-    "win_rate": 29.1,
-    "avg_r": 0.04,
+    "total_pct": -10.0,
+    "max_dd_pct": -30.1,
+    "trades": 177,
+    "win_rate": 29.4,
+    "avg_r": 0.0,
     "p25_20": 1.1,
     "p25_10": 10.5,
-    "p25_loss": 46.6,
+    "p25_loss": 47.3,
     "med25": 0.0
    },
    "half1": {
-    "total_pct": 12.2,
-    "max_dd_pct": -26.6,
-    "trades": 79,
-    "win_rate": 29.1,
-    "avg_r": 0.09,
+    "total_pct": -5.3,
+    "max_dd_pct": -25.3,
+    "trades": 81,
+    "win_rate": 28.4,
+    "avg_r": -0.05,
     "p25_20": 0.9,
     "p25_10": 6.9,
-    "p25_loss": 33.3,
-    "med25": 0.8
+    "p25_loss": 35.6,
+    "med25": 0.6
    },
    "half2": {
-    "total_pct": -15.1,
-    "max_dd_pct": -29.0,
-    "trades": 99,
-    "win_rate": 28.3,
-    "avg_r": -0.03,
+    "total_pct": -1.9,
+    "max_dd_pct": -30.1,
+    "trades": 94,
+    "win_rate": 29.8,
+    "avg_r": 0.03,
     "p25_20": 1.4,
     "p25_10": 15.3,
-    "p25_loss": 54.9,
-    "med25": -1.4
+    "p25_loss": 53.0,
+    "med25": -0.8
    }
   },
   "H leaders, wide stop, let run": {
    "full": {
-    "total_pct": 10.5,
-    "max_dd_pct": -17.4,
-    "trades": 133,
-    "win_rate": 33.1,
-    "avg_r": 0.11,
+    "total_pct": 1.4,
+    "max_dd_pct": -18.7,
+    "trades": 134,
+    "win_rate": 32.1,
+    "avg_r": 0.05,
     "p25_20": 0.0,
     "p25_10": 4.0,
-    "p25_loss": 39.8,
-    "med25": 1.2
+    "p25_loss": 41.5,
+    "med25": 0.8
    },
    "half1": {
-    "total_pct": 23.7,
+    "total_pct": 4.2,
     "max_dd_pct": -15.3,
-    "trades": 56,
-    "win_rate": 35.7,
-    "avg_r": 0.13,
+    "trades": 60,
+    "win_rate": 33.3,
+    "avg_r": 0.01,
     "p25_20": 0.0,
     "p25_10": 7.4,
-    "p25_loss": 32.9,
-    "med25": 1.4
+    "p25_loss": 34.7,
+    "med25": 1.2
    },
    "half2": {
-    "total_pct": -8.7,
-    "max_dd_pct": -17.4,
-    "trades": 74,
-    "win_rate": 29.7,
-    "avg_r": 0.03,
+    "total_pct": -0.0,
+    "max_dd_pct": -18.7,
+    "trades": 71,
+    "win_rate": 32.4,
+    "avg_r": 0.09,
     "p25_20": 0.0,
     "p25_10": 0.9,
     "p25_loss": 41.9,
-    "med25": 1.3
+    "med25": 1.2
    }
   },
   "I leaders, 3 positions, risk 2%": {
    "full": {
-    "total_pct": 12.3,
-    "max_dd_pct": -29.1,
-    "trades": 134,
-    "win_rate": 31.3,
-    "avg_r": 0.08,
+    "total_pct": -3.8,
+    "max_dd_pct": -30.5,
+    "trades": 132,
+    "win_rate": 31.1,
+    "avg_r": 0.01,
     "p25_20": 2.0,
     "p25_10": 11.9,
-    "p25_loss": 42.2,
-    "med25": 0.9
+    "p25_loss": 43.5,
+    "med25": 0.7
    },
    "half1": {
-    "total_pct": 30.7,
-    "max_dd_pct": -23.2,
+    "total_pct": 2.0,
+    "max_dd_pct": -23.8,
     "trades": 62,
-    "win_rate": 30.6,
-    "avg_r": 0.16,
+    "win_rate": 29.0,
+    "avg_r": -0.02,
     "p25_20": 3.2,
     "p25_10": 14.4,
-    "p25_loss": 30.6,
-    "med25": 1.6
+    "p25_loss": 33.8,
+    "med25": 1.1
    },
    "half2": {
-    "total_pct": -15.7,
-    "max_dd_pct": -29.1,
-    "trades": 74,
-    "win_rate": 31.1,
-    "avg_r": -0.04,
+    "total_pct": -12.5,
+    "max_dd_pct": -30.5,
+    "trades": 73,
+    "win_rate": 28.8,
+    "avg_r": -0.07,
     "p25_20": 0.9,
-    "p25_10": 10.7,
-    "p25_loss": 49.3,
-    "med25": 0.2
+    "p25_10": 11.6,
+    "p25_loss": 56.7,
+    "med25": -1.6
    }
   },
   "R momentum rotation top3 weekly": {
    "full": {
-    "total_pct": 48.3,
+    "total_pct": 39.5,
     "max_dd_pct": -47.8,
-    "trades": 98,
-    "win_rate": 37.8,
-    "avg_r": 0.02,
-    "p25_20": 13.4,
-    "p25_10": 33.6,
-    "p25_loss": 39.6,
-    "med25": 5.0
+    "trades": 97,
+    "win_rate": 38.1,
+    "avg_r": 0.01,
+    "p25_20": 13.2,
+    "p25_10": 32.7,
+    "p25_loss": 40.4,
+    "med25": 4.2
    },
    "half1": {
-    "total_pct": 21.2,
+    "total_pct": 2.5,
     "max_dd_pct": -47.7,
     "trades": 43,
-    "win_rate": 39.5,
+    "win_rate": 41.9,
     "avg_r": -0.01,
-    "p25_20": 6.0,
-    "p25_10": 27.3,
-    "p25_loss": 40.7,
-    "med25": 2.9
+    "p25_20": 5.6,
+    "p25_10": 25.5,
+    "p25_loss": 41.7,
+    "med25": 2.6
    },
    "half2": {
-    "total_pct": 15.0,
+    "total_pct": 33.8,
     "max_dd_pct": -47.8,
-    "trades": 59,
-    "win_rate": 30.5,
-    "avg_r": 0.01,
+    "trades": 56,
+    "win_rate": 32.1,
+    "avg_r": 0.02,
     "p25_20": 21.4,
     "p25_10": 40.9,
     "p25_loss": 34.4,
@@ -366,185 +366,185 @@
   },
   "R momentum rotation top4 weekly": {
    "full": {
-    "total_pct": 56.1,
+    "total_pct": 51.5,
     "max_dd_pct": -43.9,
-    "trades": 119,
-    "win_rate": 37.0,
+    "trades": 117,
+    "win_rate": 37.6,
     "avg_r": 0.02,
     "p25_20": 10.1,
-    "p25_10": 33.0,
-    "p25_loss": 38.9,
-    "med25": 4.8
+    "p25_10": 32.3,
+    "p25_loss": 40.0,
+    "med25": 4.4
    },
    "half1": {
-    "total_pct": 33.7,
-    "max_dd_pct": -42.1,
-    "trades": 52,
-    "win_rate": 38.5,
-    "avg_r": 0.01,
+    "total_pct": 20.0,
+    "max_dd_pct": -41.9,
+    "trades": 51,
+    "win_rate": 41.2,
+    "avg_r": 0.0,
     "p25_20": 5.1,
-    "p25_10": 31.5,
+    "p25_10": 30.6,
     "p25_loss": 39.8,
-    "med25": 3.6
+    "med25": 3.1
    },
    "half2": {
-    "total_pct": 15.6,
+    "total_pct": 30.9,
     "max_dd_pct": -43.9,
-    "trades": 72,
-    "win_rate": 30.6,
-    "avg_r": 0.01,
+    "trades": 69,
+    "win_rate": 31.9,
+    "avg_r": 0.02,
     "p25_20": 17.7,
     "p25_10": 39.5,
-    "p25_loss": 34.9,
+    "p25_loss": 34.0,
     "med25": 6.8
    }
   },
   "R momentum rotation top5 weekly": {
    "full": {
-    "total_pct": 75.5,
+    "total_pct": 67.1,
     "max_dd_pct": -44.9,
-    "trades": 143,
-    "win_rate": 40.6,
+    "trades": 141,
+    "win_rate": 38.3,
     "avg_r": 0.03,
     "p25_20": 12.3,
-    "p25_10": 32.1,
-    "p25_loss": 34.3,
-    "med25": 5.6
+    "p25_10": 31.2,
+    "p25_loss": 35.2,
+    "med25": 5.1
    },
    "half1": {
-    "total_pct": 37.8,
-    "max_dd_pct": -40.1,
-    "trades": 62,
-    "win_rate": 43.5,
-    "avg_r": 0.01,
+    "total_pct": 25.5,
+    "max_dd_pct": -39.9,
+    "trades": 60,
+    "win_rate": 38.3,
+    "avg_r": -0.0,
     "p25_20": 7.9,
-    "p25_10": 28.2,
-    "p25_loss": 36.1,
-    "med25": 4.3
+    "p25_10": 26.9,
+    "p25_loss": 35.6,
+    "med25": 4.4
    },
    "half2": {
-    "total_pct": 16.1,
+    "total_pct": 25.5,
     "max_dd_pct": -44.9,
-    "trades": 91,
-    "win_rate": 31.9,
-    "avg_r": 0.01,
+    "trades": 89,
+    "win_rate": 32.6,
+    "avg_r": 0.02,
     "p25_20": 20.5,
     "p25_10": 37.2,
-    "p25_loss": 34.4,
+    "p25_loss": 33.5,
     "med25": 6.4
    }
   },
   "R2 top3 risk-adjusted momentum": {
    "full": {
-    "total_pct": 70.3,
+    "total_pct": 65.2,
     "max_dd_pct": -42.3,
-    "trades": 128,
-    "win_rate": 50.0,
+    "trades": 126,
+    "win_rate": 48.4,
     "avg_r": 0.02,
     "p25_20": 12.3,
-    "p25_10": 33.8,
-    "p25_loss": 38.7,
-    "med25": 4.1
+    "p25_10": 33.6,
+    "p25_loss": 39.8,
+    "med25": 3.7
    },
    "half1": {
-    "total_pct": 20.1,
+    "total_pct": 12.1,
     "max_dd_pct": -35.7,
     "trades": 60,
-    "win_rate": 51.7,
-    "avg_r": 0.01,
+    "win_rate": 46.7,
+    "avg_r": 0.0,
     "p25_20": 7.4,
-    "p25_10": 28.2,
-    "p25_loss": 39.4,
-    "med25": 2.5
+    "p25_10": 27.8,
+    "p25_loss": 41.7,
+    "med25": 1.6
    },
    "half2": {
-    "total_pct": 36.4,
+    "total_pct": 48.1,
     "max_dd_pct": -42.3,
-    "trades": 69,
-    "win_rate": 47.8,
+    "trades": 67,
+    "win_rate": 49.3,
     "avg_r": 0.02,
     "p25_20": 18.1,
-    "p25_10": 41.9,
-    "p25_loss": 33.0,
-    "med25": 7.9
+    "p25_10": 43.3,
+    "p25_loss": 32.6,
+    "med25": 8.1
    }
   },
   "R3 top3, 7% stop, exit < 20-EMA": {
    "full": {
-    "total_pct": 27.3,
+    "total_pct": 25.1,
     "max_dd_pct": -53.4,
     "trades": 152,
     "win_rate": 30.3,
-    "avg_r": 0.01,
-    "p25_20": 13.8,
-    "p25_10": 22.6,
-    "p25_loss": 45.9,
-    "med25": 0.9
+    "avg_r": 0.0,
+    "p25_20": 13.6,
+    "p25_10": 21.8,
+    "p25_loss": 46.2,
+    "med25": 0.6
    },
    "half1": {
-    "total_pct": 74.0,
+    "total_pct": 49.3,
     "max_dd_pct": -31.9,
-    "trades": 65,
-    "win_rate": 38.5,
+    "trades": 66,
+    "win_rate": 39.4,
     "avg_r": 0.02,
-    "p25_20": 14.4,
-    "p25_10": 27.3,
-    "p25_loss": 35.2,
-    "med25": 3.5
+    "p25_20": 13.9,
+    "p25_10": 25.5,
+    "p25_loss": 37.0,
+    "med25": 3.1
    },
    "half2": {
-    "total_pct": -26.4,
+    "total_pct": -13.3,
     "max_dd_pct": -53.4,
-    "trades": 88,
-    "win_rate": 21.6,
+    "trades": 86,
+    "win_rate": 22.1,
     "avg_r": -0.01,
     "p25_20": 14.9,
     "p25_10": 20.5,
-    "p25_loss": 52.6,
-    "med25": -0.5
+    "p25_loss": 50.7,
+    "med25": -0.1
    }
   },
   "R4 top3 risk-adj, 7% stop, exit < 20-EMA": {
    "full": {
-    "total_pct": 56.0,
+    "total_pct": 49.0,
     "max_dd_pct": -47.9,
-    "trades": 152,
-    "win_rate": 42.8,
+    "trades": 151,
+    "win_rate": 41.1,
     "avg_r": 0.01,
     "p25_20": 11.2,
-    "p25_10": 24.0,
-    "p25_loss": 43.5,
-    "med25": 1.2
+    "p25_10": 23.7,
+    "p25_loss": 44.2,
+    "med25": 0.9
    },
    "half1": {
-    "total_pct": 48.1,
+    "total_pct": 39.4,
     "max_dd_pct": -24.0,
     "trades": 67,
-    "win_rate": 47.8,
-    "avg_r": 0.02,
+    "win_rate": 43.3,
+    "avg_r": 0.01,
     "p25_20": 8.3,
-    "p25_10": 29.2,
-    "p25_loss": 40.7,
-    "med25": 1.3
+    "p25_10": 28.7,
+    "p25_loss": 43.1,
+    "med25": 1.0
    },
    "half2": {
-    "total_pct": -1.0,
+    "total_pct": 6.5,
     "max_dd_pct": -47.9,
-    "trades": 87,
-    "win_rate": 36.8,
-    "avg_r": 0.0,
+    "trades": 85,
+    "win_rate": 37.6,
+    "avg_r": 0.01,
     "p25_20": 15.3,
     "p25_10": 21.4,
-    "p25_loss": 43.3,
+    "p25_loss": 42.8,
     "med25": 1.8
    }
   },
   "R5 R4 + 10% drawdown brake": {
    "full": {
-    "total_pct": 23.6,
+    "total_pct": 17.3,
     "max_dd_pct": -40.1,
-    "trades": 159,
-    "win_rate": 41.5,
+    "trades": 158,
+    "win_rate": 39.9,
     "avg_r": 0.01,
     "p25_20": 8.1,
     "p25_10": 22.4,
@@ -552,441 +552,441 @@
     "med25": -0.0
    },
    "half1": {
-    "total_pct": 15.3,
-    "max_dd_pct": -22.9,
+    "total_pct": 8.7,
+    "max_dd_pct": -23.0,
     "trades": 73,
-    "win_rate": 45.2,
-    "avg_r": 0.01,
+    "win_rate": 41.1,
+    "avg_r": 0.0,
     "p25_20": 1.9,
     "p25_10": 23.1,
-    "p25_loss": 47.2,
-    "med25": 0.1
+    "p25_loss": 48.6,
+    "med25": 0.0
    },
    "half2": {
-    "total_pct": 0.2,
+    "total_pct": 14.8,
     "max_dd_pct": -40.1,
-    "trades": 88,
-    "win_rate": 36.4,
-    "avg_r": 0.0,
+    "trades": 84,
+    "win_rate": 39.3,
+    "avg_r": 0.01,
     "p25_20": 15.3,
     "p25_10": 24.2,
-    "p25_loss": 47.4,
-    "med25": 0.8
+    "p25_loss": 43.3,
+    "med25": 2.1
    }
   },
   "R6 R3 + 10% drawdown brake": {
    "full": {
-    "total_pct": 54.4,
+    "total_pct": 39.9,
     "max_dd_pct": -48.4,
-    "trades": 154,
-    "win_rate": 37.7,
+    "trades": 156,
+    "win_rate": 38.5,
     "avg_r": 0.01,
-    "p25_20": 13.0,
-    "p25_10": 25.9,
-    "p25_loss": 46.8,
-    "med25": 0.5
+    "p25_20": 12.7,
+    "p25_10": 25.1,
+    "p25_loss": 47.0,
+    "med25": 0.3
    },
    "half1": {
-    "total_pct": 88.1,
+    "total_pct": 55.1,
     "max_dd_pct": -22.7,
-    "trades": 65,
-    "win_rate": 46.2,
+    "trades": 67,
+    "win_rate": 47.8,
     "avg_r": 0.02,
-    "p25_20": 12.0,
-    "p25_10": 28.7,
-    "p25_loss": 40.3,
-    "med25": 1.6
+    "p25_20": 11.6,
+    "p25_10": 27.3,
+    "p25_loss": 39.4,
+    "med25": 1.8
    },
    "half2": {
-    "total_pct": -25.4,
+    "total_pct": -15.3,
     "max_dd_pct": -48.4,
     "trades": 91,
-    "win_rate": 27.5,
-    "avg_r": -0.01,
+    "win_rate": 30.8,
+    "avg_r": -0.0,
     "p25_20": 15.3,
     "p25_10": 23.7,
-    "p25_loss": 59.1,
-    "med25": -3.6
+    "p25_loss": 56.3,
+    "med25": -2.4
    }
   },
   "R7 top4 risk-adj, 8% stop, green entries, brake 12%": {
    "full": {
-    "total_pct": 23.0,
+    "total_pct": 19.7,
     "max_dd_pct": -37.1,
-    "trades": 134,
-    "win_rate": 40.3,
+    "trades": 131,
+    "win_rate": 38.9,
     "avg_r": 0.01,
     "p25_20": 8.6,
     "p25_10": 14.7,
-    "p25_loss": 42.0,
+    "p25_loss": 42.6,
     "med25": 0.0
    },
    "half1": {
-    "total_pct": -14.3,
-    "max_dd_pct": -30.3,
-    "trades": 60,
-    "win_rate": 41.7,
+    "total_pct": -16.8,
+    "max_dd_pct": -33.2,
+    "trades": 59,
+    "win_rate": 37.3,
     "avg_r": -0.01,
     "p25_20": 1.4,
     "p25_10": 5.1,
-    "p25_loss": 45.8,
+    "p25_loss": 47.2,
     "med25": 0.0
    },
    "half2": {
-    "total_pct": 45.5,
+    "total_pct": 52.7,
     "max_dd_pct": -31.8,
-    "trades": 74,
-    "win_rate": 39.2,
-    "avg_r": 0.02,
+    "trades": 72,
+    "win_rate": 40.3,
+    "avg_r": 0.03,
     "p25_20": 16.7,
-    "p25_10": 26.0,
+    "p25_10": 28.4,
     "p25_loss": 31.2,
-    "med25": 4.5
+    "med25": 4.6
    }
   },
   "R8 top3 momentum, 8% stop, brake 10%": {
    "full": {
-    "total_pct": 70.3,
-    "max_dd_pct": -49.3,
+    "total_pct": 53.0,
+    "max_dd_pct": -51.1,
     "trades": 126,
     "win_rate": 38.9,
-    "avg_r": 0.02,
+    "avg_r": 0.01,
     "p25_20": 11.0,
-    "p25_10": 27.9,
-    "p25_loss": 39.6,
-    "med25": 1.4
+    "p25_10": 27.0,
+    "p25_loss": 40.2,
+    "med25": 1.3
    },
    "half1": {
-    "total_pct": 75.6,
+    "total_pct": 44.8,
     "max_dd_pct": -19.7,
-    "trades": 55,
-    "win_rate": 40.0,
-    "avg_r": 0.03,
+    "trades": 57,
+    "win_rate": 42.1,
+    "avg_r": 0.02,
     "p25_20": 7.4,
-    "p25_10": 31.9,
-    "p25_loss": 26.9,
-    "med25": 4.2
+    "p25_10": 30.1,
+    "p25_loss": 28.2,
+    "med25": 3.4
    },
    "half2": {
-    "total_pct": -8.3,
-    "max_dd_pct": -49.3,
-    "trades": 74,
-    "win_rate": 33.8,
+    "total_pct": -4.0,
+    "max_dd_pct": -51.1,
+    "trades": 75,
+    "win_rate": 34.7,
     "avg_r": 0.0,
     "p25_20": 15.8,
-    "p25_10": 27.0,
-    "p25_loss": 47.9,
-    "med25": 0.8
+    "p25_10": 25.1,
+    "p25_loss": 50.2,
+    "med25": -0.2
    }
   },
   "L1 LEARNING model top3 weekly, 10% stop": {
    "full": {
-    "total_pct": 74.8,
+    "total_pct": 66.9,
     "max_dd_pct": -39.6,
-    "trades": 167,
+    "trades": 165,
     "win_rate": 49.1,
     "avg_r": 0.01,
     "p25_20": 9.9,
     "p25_10": 24.2,
-    "p25_loss": 39.3,
-    "med25": 1.9
+    "p25_loss": 40.2,
+    "med25": 1.8
    },
    "half1": {
-    "total_pct": 9.4,
-    "max_dd_pct": -31.0,
-    "trades": 70,
-    "win_rate": 44.3,
-    "avg_r": 0.0,
+    "total_pct": 7.8,
+    "max_dd_pct": -30.9,
+    "trades": 68,
+    "win_rate": 44.1,
+    "avg_r": -0.0,
     "p25_20": 2.8,
     "p25_10": 19.9,
-    "p25_loss": 40.7,
+    "p25_loss": 42.1,
     "med25": 0.5
    },
    "half2": {
-    "total_pct": 53.1,
+    "total_pct": 54.0,
     "max_dd_pct": -39.6,
-    "trades": 98,
-    "win_rate": 50.0,
+    "trades": 97,
+    "win_rate": 49.5,
     "avg_r": 0.02,
     "p25_20": 18.1,
     "p25_10": 30.2,
-    "p25_loss": 37.2,
+    "p25_loss": 38.1,
     "med25": 3.4
    }
   },
   "L2 LEARNING model top3 weekly, 8% stop, brake 10%": {
    "full": {
-    "total_pct": 76.2,
+    "total_pct": 64.0,
     "max_dd_pct": -35.2,
-    "trades": 174,
-    "win_rate": 45.4,
+    "trades": 172,
+    "win_rate": 45.3,
     "avg_r": 0.01,
     "p25_20": 9.2,
     "p25_10": 21.1,
-    "p25_loss": 42.6,
-    "med25": 1.0
+    "p25_loss": 44.0,
+    "med25": 0.8
    },
    "half1": {
-    "total_pct": 26.9,
+    "total_pct": 25.2,
     "max_dd_pct": -26.3,
-    "trades": 74,
-    "win_rate": 47.3,
+    "trades": 72,
+    "win_rate": 47.2,
     "avg_r": 0.01,
     "p25_20": 1.4,
     "p25_10": 19.4,
-    "p25_loss": 33.8,
-    "med25": 2.4
+    "p25_loss": 36.1,
+    "med25": 2.0
    },
    "half2": {
-    "total_pct": 34.3,
+    "total_pct": 29.3,
     "max_dd_pct": -35.2,
     "trades": 102,
-    "win_rate": 43.1,
+    "win_rate": 42.2,
     "avg_r": 0.01,
     "p25_20": 18.1,
     "p25_10": 25.1,
-    "p25_loss": 47.9,
-    "med25": 0.8
+    "p25_loss": 48.4,
+    "med25": 0.3
    }
   },
   "L3 LEARNING model top4 weekly": {
    "full": {
-    "total_pct": 102.1,
+    "total_pct": 92.6,
     "max_dd_pct": -35.8,
-    "trades": 199,
-    "win_rate": 50.8,
+    "trades": 196,
+    "win_rate": 50.0,
     "avg_r": 0.02,
     "p25_20": 9.2,
     "p25_10": 24.8,
-    "p25_loss": 32.3,
-    "med25": 3.3
+    "p25_loss": 33.4,
+    "med25": 3.2
    },
    "half1": {
-    "total_pct": 30.8,
+    "total_pct": 24.7,
     "max_dd_pct": -28.7,
-    "trades": 79,
-    "win_rate": 51.9,
+    "trades": 77,
+    "win_rate": 49.4,
     "avg_r": 0.01,
     "p25_20": 1.9,
     "p25_10": 21.8,
-    "p25_loss": 32.9,
-    "med25": 2.8
+    "p25_loss": 33.8,
+    "med25": 2.6
    },
    "half2": {
-    "total_pct": 49.3,
+    "total_pct": 53.5,
     "max_dd_pct": -35.8,
-    "trades": 121,
+    "trades": 119,
     "win_rate": 47.9,
     "avg_r": 0.02,
     "p25_20": 17.7,
-    "p25_10": 30.2,
-    "p25_loss": 30.2,
+    "p25_10": 30.7,
+    "p25_loss": 30.7,
     "med25": 4.8
    }
   },
   "L0 equal-weight factors, no learning (control)": {
    "full": {
-    "total_pct": 65.9,
+    "total_pct": 66.2,
     "max_dd_pct": -26.9,
     "trades": 197,
     "win_rate": 51.3,
     "avg_r": 0.01,
     "p25_20": 7.9,
     "p25_10": 21.1,
-    "p25_loss": 38.9,
+    "p25_loss": 38.5,
     "med25": 2.8
    },
    "half1": {
-    "total_pct": 20.2,
+    "total_pct": 22.4,
     "max_dd_pct": -26.9,
-    "trades": 99,
-    "win_rate": 52.5,
+    "trades": 98,
+    "win_rate": 52.0,
     "avg_r": 0.01,
     "p25_20": 0.0,
-    "p25_10": 19.0,
-    "p25_loss": 43.1,
-    "med25": 1.4
+    "p25_10": 19.9,
+    "p25_loss": 42.1,
+    "med25": 1.6
    },
    "half2": {
-    "total_pct": 38.1,
+    "total_pct": 38.9,
     "max_dd_pct": -23.4,
-    "trades": 98,
-    "win_rate": 50.0,
+    "trades": 99,
+    "win_rate": 50.5,
     "avg_r": 0.01,
     "p25_20": 16.7,
     "p25_10": 23.3,
-    "p25_loss": 35.3,
+    "p25_loss": 32.1,
     "med25": 3.6
    }
   },
   "L4 L2 + staged entry (50% now, add 50% at +4%)": {
    "full": {
-    "total_pct": 17.7,
+    "total_pct": 12.1,
     "max_dd_pct": -35.3,
-    "trades": 177,
-    "win_rate": 39.0,
+    "trades": 175,
+    "win_rate": 38.9,
     "avg_r": -0.01,
     "p25_20": 7.3,
     "p25_10": 15.4,
-    "p25_loss": 53.0,
-    "med25": -0.5
+    "p25_loss": 54.1,
+    "med25": -0.8
    },
    "half1": {
-    "total_pct": 6.5,
-    "max_dd_pct": -18.0,
-    "trades": 70,
-    "win_rate": 41.4,
+    "total_pct": 0.3,
+    "max_dd_pct": -20.0,
+    "trades": 69,
+    "win_rate": 40.6,
     "avg_r": -0.01,
     "p25_20": 0.9,
     "p25_10": 11.6,
-    "p25_loss": 46.8,
+    "p25_loss": 49.1,
     "med25": 0.0
    },
    "half2": {
-    "total_pct": 17.0,
+    "total_pct": 19.0,
     "max_dd_pct": -27.9,
     "trades": 107,
     "win_rate": 38.3,
     "avg_r": -0.01,
     "p25_20": 14.4,
     "p25_10": 20.9,
-    "p25_loss": 51.2,
+    "p25_loss": 52.1,
     "med25": -0.9
    }
   },
   "L5 L2 + staged entry (50% now, add at +2%)": {
    "full": {
-    "total_pct": 26.6,
+    "total_pct": 19.1,
     "max_dd_pct": -34.5,
-    "trades": 180,
-    "win_rate": 38.9,
-    "avg_r": -0.0,
+    "trades": 178,
+    "win_rate": 38.8,
+    "avg_r": -0.01,
     "p25_20": 8.4,
     "p25_10": 15.6,
-    "p25_loss": 51.9,
-    "med25": -0.4
+    "p25_loss": 53.0,
+    "med25": -0.8
    },
    "half1": {
-    "total_pct": 13.2,
-    "max_dd_pct": -16.0,
-    "trades": 73,
-    "win_rate": 43.8,
-    "avg_r": -0.0,
+    "total_pct": 6.2,
+    "max_dd_pct": -16.8,
+    "trades": 72,
+    "win_rate": 43.1,
+    "avg_r": -0.01,
     "p25_20": 0.9,
     "p25_10": 11.6,
-    "p25_loss": 43.5,
+    "p25_loss": 45.8,
     "med25": 0.3
    },
    "half2": {
-    "total_pct": 20.1,
+    "total_pct": 21.0,
     "max_dd_pct": -28.6,
     "trades": 105,
     "win_rate": 35.2,
     "avg_r": -0.0,
     "p25_20": 16.7,
     "p25_10": 21.4,
-    "p25_loss": 52.6,
-    "med25": -0.4
+    "p25_loss": 52.1,
+    "med25": -1.0
    }
   },
   "L6 L2 concentrated: top 2": {
    "full": {
-    "total_pct": 76.5,
+    "total_pct": 69.2,
     "max_dd_pct": -37.1,
-    "trades": 130,
-    "win_rate": 50.0,
+    "trades": 131,
+    "win_rate": 50.4,
     "avg_r": 0.01,
     "p25_20": 10.8,
     "p25_10": 23.7,
-    "p25_loss": 39.8,
-    "med25": 2.4
+    "p25_loss": 40.9,
+    "med25": 1.8
    },
    "half1": {
-    "total_pct": 14.8,
+    "total_pct": 12.3,
     "max_dd_pct": -34.3,
     "trades": 54,
     "win_rate": 53.7,
-    "avg_r": 0.0,
+    "avg_r": 0.01,
     "p25_20": 0.9,
     "p25_10": 12.5,
-    "p25_loss": 40.7,
-    "med25": 0.5
+    "p25_loss": 41.7,
+    "med25": 0.2
    },
    "half2": {
-    "total_pct": 49.5,
+    "total_pct": 47.6,
     "max_dd_pct": -37.1,
-    "trades": 76,
-    "win_rate": 46.1,
+    "trades": 77,
+    "win_rate": 46.8,
     "avg_r": 0.01,
     "p25_20": 21.9,
-    "p25_10": 37.2,
-    "p25_loss": 39.5,
-    "med25": 4.5
+    "p25_10": 36.3,
+    "p25_loss": 41.9,
+    "med25": 3.8
    }
   },
   "L7 L2 top 2 + staged entry": {
    "full": {
-    "total_pct": 33.0,
+    "total_pct": 28.5,
     "max_dd_pct": -30.2,
-    "trades": 130,
-    "win_rate": 40.8,
+    "trades": 129,
+    "win_rate": 40.3,
     "avg_r": -0.01,
     "p25_20": 5.7,
     "p25_10": 13.8,
-    "p25_loss": 45.7,
-    "med25": 0.2
+    "p25_loss": 46.8,
+    "med25": 0.1
    },
    "half1": {
-    "total_pct": 9.6,
+    "total_pct": 6.5,
     "max_dd_pct": -17.9,
     "trades": 53,
     "win_rate": 43.4,
     "avg_r": -0.01,
     "p25_20": 0.0,
     "p25_10": 4.6,
-    "p25_loss": 45.8,
-    "med25": 0.1
+    "p25_loss": 48.1,
+    "med25": 0.0
    },
    "half2": {
-    "total_pct": 19.8,
+    "total_pct": 20.8,
     "max_dd_pct": -30.2,
-    "trades": 77,
-    "win_rate": 37.7,
+    "trades": 76,
+    "win_rate": 38.2,
     "avg_r": -0.01,
     "p25_20": 12.1,
     "p25_10": 23.7,
-    "p25_loss": 46.0,
-    "med25": 1.4
+    "p25_loss": 47.0,
+    "med25": 0.9
    }
   },
   "F1 L2 + 1.5% FX fee each way (no USD account)": {
    "full": {
-    "total_pct": -73.3,
-    "max_dd_pct": -76.4,
-    "trades": 181,
+    "total_pct": -75.0,
+    "max_dd_pct": -76.8,
+    "trades": 179,
     "win_rate": 43.6,
     "avg_r": 0.01,
     "p25_20": 6.8,
     "p25_10": 9.9,
     "p25_loss": 74.3,
-    "med25": -7.7
+    "med25": -7.8
    },
    "half1": {
     "total_pct": -43.6,
-    "max_dd_pct": -54.6,
-    "trades": 78,
-    "win_rate": 43.6,
+    "max_dd_pct": -54.5,
+    "trades": 76,
+    "win_rate": 43.4,
     "avg_r": 0.0,
     "p25_20": 0.0,
     "p25_10": 2.3,
     "p25_loss": 75.0,
-    "med25": -6.3
+    "med25": -6.4
    },
    "half2": {
-    "total_pct": -55.4,
-    "max_dd_pct": -59.9,
+    "total_pct": -58.1,
+    "max_dd_pct": -60.6,
     "trades": 106,
-    "win_rate": 41.5,
+    "win_rate": 40.6,
     "avg_r": 0.01,
     "p25_20": 14.4,
     "p25_10": 18.6,
@@ -996,182 +996,182 @@
   },
   "F2 L2 hold while top-5 + 1.5% FX fee": {
    "full": {
-    "total_pct": -43.7,
-    "max_dd_pct": -50.1,
-    "trades": 150,
-    "win_rate": 51.3,
+    "total_pct": -46.9,
+    "max_dd_pct": -50.8,
+    "trades": 148,
+    "win_rate": 51.4,
     "avg_r": 0.02,
     "p25_20": 2.6,
     "p25_10": 11.0,
-    "p25_loss": 67.5,
-    "med25": -3.6
+    "p25_loss": 68.1,
+    "med25": -3.8
    },
    "half1": {
-    "total_pct": -12.3,
-    "max_dd_pct": -31.2,
-    "trades": 59,
-    "win_rate": 54.2,
+    "total_pct": -12.0,
+    "max_dd_pct": -31.3,
+    "trades": 57,
+    "win_rate": 54.4,
     "avg_r": 0.02,
     "p25_20": 0.9,
     "p25_10": 9.7,
-    "p25_loss": 67.1,
+    "p25_loss": 67.6,
     "med25": -2.4
    },
    "half2": {
-    "total_pct": -41.0,
-    "max_dd_pct": -41.9,
-    "trades": 93,
-    "win_rate": 45.2,
+    "total_pct": -44.8,
+    "max_dd_pct": -44.8,
+    "trades": 94,
+    "win_rate": 44.7,
     "avg_r": 0.01,
     "p25_20": 4.7,
     "p25_10": 13.5,
     "p25_loss": 70.2,
-    "med25": -5.8
+    "med25": -6.0
    }
   },
   "F3 L2 + 0.1% cost (USD account, spread only)": {
    "full": {
-    "total_pct": 57.3,
+    "total_pct": 46.5,
     "max_dd_pct": -36.7,
-    "trades": 174,
-    "win_rate": 45.4,
+    "trades": 172,
+    "win_rate": 45.3,
     "avg_r": 0.01,
     "p25_20": 9.0,
     "p25_10": 20.0,
-    "p25_loss": 45.1,
-    "med25": 0.4
+    "p25_loss": 46.2,
+    "med25": 0.3
    },
    "half1": {
-    "total_pct": 21.1,
+    "total_pct": 19.5,
     "max_dd_pct": -27.0,
-    "trades": 74,
-    "win_rate": 47.3,
+    "trades": 72,
+    "win_rate": 47.2,
     "avg_r": 0.01,
     "p25_20": 0.9,
     "p25_10": 18.1,
-    "p25_loss": 37.0,
-    "med25": 1.9
+    "p25_loss": 39.4,
+    "med25": 1.6
    },
    "half2": {
-    "total_pct": 25.5,
+    "total_pct": 23.0,
     "max_dd_pct": -36.7,
-    "trades": 102,
-    "win_rate": 43.1,
+    "trades": 101,
+    "win_rate": 42.6,
     "avg_r": 0.01,
     "p25_20": 18.1,
     "p25_10": 24.2,
-    "p25_loss": 50.2,
-    "med25": -0.0
+    "p25_loss": 48.4,
+    "med25": 0.5
    }
   },
   "F4 L2 hold while top-4 + 0.1% cost": {
    "full": {
-    "total_pct": 76.4,
+    "total_pct": 64.3,
     "max_dd_pct": -33.9,
-    "trades": 161,
-    "win_rate": 46.6,
-    "avg_r": 0.02,
+    "trades": 159,
+    "win_rate": 46.5,
+    "avg_r": 0.01,
     "p25_20": 10.5,
-    "p25_10": 21.1,
-    "p25_loss": 42.9,
-    "med25": 0.9
+    "p25_10": 20.4,
+    "p25_loss": 44.0,
+    "med25": 0.8
    },
    "half1": {
-    "total_pct": 23.1,
+    "total_pct": 21.4,
     "max_dd_pct": -22.3,
-    "trades": 63,
+    "trades": 61,
     "win_rate": 50.8,
     "avg_r": 0.01,
     "p25_20": 1.4,
-    "p25_10": 15.7,
-    "p25_loss": 40.7,
-    "med25": 0.6
+    "p25_10": 14.4,
+    "p25_loss": 42.6,
+    "med25": 0.3
    },
    "half2": {
-    "total_pct": 44.6,
+    "total_pct": 41.8,
     "max_dd_pct": -33.9,
-    "trades": 99,
-    "win_rate": 42.4,
+    "trades": 98,
+    "win_rate": 41.8,
     "avg_r": 0.02,
     "p25_20": 20.9,
     "p25_10": 28.8,
-    "p25_loss": 40.9,
-    "med25": 1.6
+    "p25_loss": 39.1,
+    "med25": 2.3
    }
   },
   "F5 L2 hold while top-5 + 0.1% cost": {
    "full": {
-    "total_pct": 86.5,
+    "total_pct": 82.0,
     "max_dd_pct": -33.9,
-    "trades": 148,
-    "win_rate": 45.9,
+    "trades": 145,
+    "win_rate": 46.9,
     "avg_r": 0.02,
     "p25_20": 12.3,
-    "p25_10": 21.5,
-    "p25_loss": 39.1,
-    "med25": 1.7
+    "p25_10": 21.3,
+    "p25_loss": 39.8,
+    "med25": 1.6
    },
    "half1": {
-    "total_pct": 29.7,
-    "max_dd_pct": -20.7,
-    "trades": 57,
-    "win_rate": 47.4,
+    "total_pct": 34.0,
+    "max_dd_pct": -19.5,
+    "trades": 54,
+    "win_rate": 50.0,
     "avg_r": 0.01,
     "p25_20": 6.0,
-    "p25_10": 17.1,
-    "p25_loss": 39.4,
+    "p25_10": 16.7,
+    "p25_loss": 39.8,
     "med25": 1.0
    },
    "half2": {
-    "total_pct": 35.4,
+    "total_pct": 35.9,
     "max_dd_pct": -33.9,
     "trades": 93,
     "win_rate": 41.9,
     "avg_r": 0.02,
     "p25_20": 20.0,
     "p25_10": 28.4,
-    "p25_loss": 40.5,
-    "med25": 2.0
+    "p25_loss": 37.7,
+    "med25": 2.6
    }
   },
   "F6 L2 hold while top-6 + 0.1% cost": {
    "full": {
-    "total_pct": 14.4,
+    "total_pct": 7.1,
     "max_dd_pct": -35.4,
-    "trades": 132,
-    "win_rate": 43.9,
+    "trades": 130,
+    "win_rate": 43.8,
     "avg_r": 0.01,
     "p25_20": 9.0,
     "p25_10": 19.8,
-    "p25_loss": 46.4,
+    "p25_loss": 47.0,
     "med25": 0.3
    },
    "half1": {
-    "total_pct": 3.0,
-    "max_dd_pct": -26.2,
-    "trades": 53,
-    "win_rate": 41.5,
-    "avg_r": 0.0,
+    "total_pct": 2.1,
+    "max_dd_pct": -26.3,
+    "trades": 51,
+    "win_rate": 41.2,
+    "avg_r": -0.0,
     "p25_20": 6.5,
     "p25_10": 16.7,
-    "p25_loss": 53.2,
-    "med25": -0.8
+    "p25_loss": 53.7,
+    "med25": -0.9
    },
    "half2": {
-    "total_pct": 4.6,
+    "total_pct": 5.0,
     "max_dd_pct": -35.4,
     "trades": 81,
     "win_rate": 42.0,
     "avg_r": 0.01,
     "p25_20": 12.6,
     "p25_10": 25.1,
-    "p25_loss": 41.4,
-    "med25": 1.8
+    "p25_loss": 38.6,
+    "med25": 1.9
    }
   },
   "Z buy & hold SPY": {
    "full": {
-    "total_pct": 33.3,
+    "total_pct": 30.6,
     "max_dd_pct": -18.8,
     "trades": 0,
     "win_rate": null,
@@ -1182,18 +1182,18 @@
     "med25": 1.6
    },
    "half1": {
-    "total_pct": 18.1,
+    "total_pct": 15.8,
     "max_dd_pct": -18.8,
     "trades": 0,
     "win_rate": null,
     "avg_r": null,
     "p25_20": 0.0,
     "p25_10": 4.6,
-    "p25_loss": 30.1,
-    "med25": 2.4
+    "p25_loss": 29.6,
+    "med25": 2.3
    },
    "half2": {
-    "total_pct": 12.9,
+    "total_pct": 12.7,
     "max_dd_pct": -8.9,
     "trades": 0,
     "win_rate": null,
@@ -1201,23 +1201,23 @@
     "p25_20": 0.0,
     "p25_10": 4.7,
     "p25_loss": 34.0,
-    "med25": 1.4
+    "med25": 1.3
    }
   },
   "Z buy & hold QQQ": {
    "full": {
-    "total_pct": 44.4,
+    "total_pct": 40.7,
     "max_dd_pct": -22.8,
     "trades": 0,
     "win_rate": null,
     "avg_r": null,
     "p25_20": 2.0,
     "p25_10": 11.0,
-    "p25_loss": 34.7,
-    "med25": 1.8
+    "p25_loss": 35.2,
+    "med25": 1.7
    },
    "half1": {
-    "total_pct": 28.0,
+    "total_pct": 23.9,
     "max_dd_pct": -22.8,
     "trades": 0,
     "win_rate": null,
@@ -1225,18 +1225,18 @@
     "p25_20": 1.9,
     "p25_10": 9.7,
     "p25_loss": 27.3,
-    "med25": 3.0
+    "med25": 2.9
    },
    "half2": {
-    "total_pct": 12.8,
+    "total_pct": 13.6,
     "max_dd_pct": -11.7,
     "trades": 0,
     "win_rate": null,
     "avg_r": null,
     "p25_20": 2.3,
     "p25_10": 13.5,
-    "p25_loss": 40.5,
-    "med25": 0.8
+    "p25_loss": 40.9,
+    "med25": 0.9
    }
   }
  },
@@ -1245,49 +1245,49 @@
    "factor": "Momentum / volatility (6-3-1 month)",
    "key": "risk_adj_mom",
    "weight": 50.0,
-   "recent_ic": -0.05
+   "recent_ic": -0.038
   },
   {
    "factor": "Low volatility",
    "key": "low_vol",
-   "weight": 40.6,
-   "recent_ic": 0.019
+   "weight": 47.1,
+   "recent_ic": 0.104
   },
   {
-   "factor": "Short-term dip (5-day loser)",
-   "key": "reversal_5",
-   "weight": 9.4,
-   "recent_ic": 0.004
+   "factor": "Closeness to 52-week high",
+   "key": "near_high",
+   "weight": 2.9,
+   "recent_ic": 0.006
   },
   {
    "factor": "6-month momentum",
    "key": "mom_126",
    "weight": 0.0,
-   "recent_ic": -0.031
+   "recent_ic": -0.036
   },
   {
    "factor": "1-month momentum",
    "key": "mom_21",
    "weight": 0.0,
-   "recent_ic": -0.106
+   "recent_ic": -0.114
   },
   {
    "factor": "3-month strength vs S&P",
    "key": "rs_63",
    "weight": 0.0,
-   "recent_ic": -0.082
-  },
-  {
-   "factor": "Closeness to 52-week high",
-   "key": "near_high",
-   "weight": 0.0,
-   "recent_ic": -0.025
+   "recent_ic": -0.043
   },
   {
    "factor": "Trend alignment (20/50/200 day)",
    "key": "trend",
    "weight": 0.0,
-   "recent_ic": -0.055
+   "recent_ic": -0.015
+  },
+  {
+   "factor": "Short-term dip (5-day loser)",
+   "key": "reversal_5",
+   "weight": 0.0,
+   "recent_ic": -0.091
   },
   {
    "factor": "Volume surge",
