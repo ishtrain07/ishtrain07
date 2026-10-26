@@ -1,0 +1,162 @@
+{
+ "buys": [
+  {
+   "ticker": "CVX",
+   "name": "Chevron Corporation",
+   "sector": "Energy",
+   "price": 232.6,
+   "score": 79.4,
+   "momentum": 84,
+   "rs": 91,
+   "trend": 100,
+   "fund": 80,
+   "rsi": 75,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 14.799501,
+   "next_earnings": "2026-10-30",
+   "entry": 232.6,
+   "limit": 233.77,
+   "stop": 214.0,
+   "t1": 243.09,
+   "t2": 253.58,
+   "stop_pct": -8.0,
+   "t1_pct": 4.5,
+   "t2_pct": 9.0,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-11-02",
+   "shares": 3.37,
+   "dollars": 783.88,
+   "risk_dollars": 62.71,
+   "reason": [
+    "#2 on the learning model ranking: 6-mo +28%, 3-mo +25%, 1-mo +14%",
+    "stronger than 91% of the universe vs the S&P; above its 200-day average",
+    "revenue +54% y/y"
+   ],
+   "news": []
+  },
+  {
+   "ticker": "ABBV",
+   "name": "AbbVie Inc.",
+   "sector": "Health",
+   "price": 285.53,
+   "score": 80.7,
+   "momentum": 86,
+   "rs": 73,
+   "trend": 100,
+   "fund": 50,
+   "rsi": 66,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 17.665785,
+   "next_earnings": "2026-10-30",
+   "entry": 285.53,
+   "limit": 286.96,
+   "stop": 262.69,
+   "t1": 299.66,
+   "t2": 313.8,
+   "stop_pct": -8.0,
+   "t1_pct": 4.9,
+   "t2_pct": 9.9,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-11-02",
+   "shares": 2.75,
+   "dollars": 785.21,
+   "risk_dollars": 62.82,
+   "reason": [
+    "#3 on the learning model ranking: 6-mo +47%, 3-mo +9%, 1-mo +9%",
+    "stronger than 73% of the universe vs the S&P; above its 200-day average",
+    "fwd P/E 18"
+   ],
+   "news": []
+  },
+  {
+   "ticker": "XOM",
+   "name": "ExxonMobil Holdings Corporation",
+   "sector": "Energy",
+   "price": 184.44,
+   "score": 70.6,
+   "momentum": 82,
+   "rs": 86,
+   "trend": 100,
+   "fund": 80,
+   "rsi": 77,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 15.025885,
+   "next_earnings": "2026-10-30",
+   "entry": 184.44,
+   "limit": 185.36,
+   "stop": 169.68,
+   "t1": 192.98,
+   "t2": 201.53,
+   "stop_pct": -8.0,
+   "t1_pct": 4.6,
+   "t2_pct": 9.3,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-11-02",
+   "shares": 4.26,
+   "dollars": 785.71,
+   "risk_dollars": 62.86,
+   "reason": [
+    "#5 on the learning model ranking: 6-mo +26%, 3-mo +21%, 1-mo +15%",
+    "stronger than 86% of the universe vs the S&P; above its 200-day average",
+    "revenue +44% y/y"
+   ],
+   "news": []
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "AAPL",
+   "score": 89.6,
+   "price": 342.96,
+   "setup": "momentum",
+   "rsi": 56,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "SPY",
+   "score": 88.6,
+   "price": 765.0,
+   "setup": "momentum",
+   "rsi": 47,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "QQQ",
+   "score": 83.1,
+   "price": 712.88,
+   "setup": "momentum",
+   "rsi": 42,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "COST",
+   "score": 81.1,
+   "price": 1001.7,
+   "setup": "momentum",
+   "rsi": 68,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "KMI",
+   "score": 79.4,
+   "price": 34.01,
+   "setup": "momentum",
+   "rsi": 61,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "YELLOW",
+  "risk_mult": 0.5,
+  "max_new": 2,
+  "message": "Market is choppy (below 50-day or VIX elevated). Half size, A-grade setups only.",
+  "spy": 765.0,
+  "spy_sma50": 766.71,
+  "spy_sma200": 724.41,
+  "vix": 18.43
+ }
+}
