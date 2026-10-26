@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23 18:26 ET (position check)",
+ "generated_at": "2026-10-26 11:29 ET (position check)",
  "date": "2026-10-23",
  "mode": "plan",
  "regime": {
@@ -171,10 +171,10 @@
  "account": {
   "cash": 1614.5,
   "realized": 0.0,
-  "unrealized": -41.12,
-  "market_value": 844.38,
-  "equity": 2458.88,
-  "return_pct": -1.64
+  "unrealized": -19.97,
+  "market_value": 865.53,
+  "equity": 2480.03,
+  "return_pct": -0.8
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -201,14 +201,14 @@
      "shares": 0.6059
     }
    ],
-   "price": 325.62,
-   "value": 197.29,
-   "pnl": -2.76,
-   "pnl_pct": -1.38,
-   "days_held": 18,
+   "price": 335.36,
+   "value": 203.19,
+   "pnl": 3.14,
+   "pnl_pct": 1.57,
+   "days_held": 19,
    "active_stop": 303.76,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-6.7%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-9.4%)"
   },
   {
    "ticker": "CRWD",
@@ -232,14 +232,14 @@
      "shares": 1.1075
     }
    ],
-   "price": 257.59,
-   "value": 285.28,
-   "pnl": -16.87,
-   "pnl_pct": -5.58,
-   "days_held": 10,
+   "price": 262.27,
+   "value": 290.46,
+   "pnl": -11.69,
+   "pnl_pct": -3.87,
+   "days_held": 11,
    "active_stop": 250.99,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 250.99 (-2.6%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 250.99 (-4.3%)"
   },
   {
    "ticker": "AMD",
@@ -263,26 +263,18 @@
      "shares": 0.7
     }
    ],
-   "price": 516.87,
-   "value": 361.81,
-   "pnl": -21.49,
-   "pnl_pct": -5.61,
-   "days_held": 6,
+   "price": 531.25,
+   "value": 371.88,
+   "pnl": -11.42,
+   "pnl_pct": -2.98,
+   "days_held": 7,
    "active_stop": 525.15,
-   "action": "SELL ALL",
-   "why": "hit the 8% stop at 525.15"
+   "action": "HOLD",
+   "why": "held while it stays top-5; reviewed every Monday; stop 525.15 (-1.1%)"
   }
  ],
  "closed": [],
- "alerts": [
-  {
-   "ticker": "AMD",
-   "action": "SELL ALL",
-   "why": "hit the 8% stop at 525.15",
-   "price": 516.87,
-   "shares": 0.7
-  }
- ],
+ "alerts": [],
  "trading_days_left": 5,
  "system_paper": {},
  "strategy": "momentum",
@@ -291,10 +283,10 @@
   "account": {
    "cash": 108.22,
    "realized": -248.78,
-   "unrealized": 7.01,
-   "market_value": 2349.99,
-   "equity": 2458.21,
-   "return_pct": -8.96
+   "unrealized": -13.18,
+   "market_value": 2329.8,
+   "equity": 2438.02,
+   "return_pct": -9.7
   },
   "record": {
    "trades": 6,
@@ -328,14 +320,14 @@
       "shares": 1.93
      }
     ],
-    "price": 407.94,
-    "value": 787.32,
-    "pnl": 6.41,
-    "pnl_pct": 0.82,
-    "days_held": 4,
+    "price": 403.23,
+    "value": 778.23,
+    "pnl": -2.68,
+    "pnl_pct": -0.34,
+    "days_held": 5,
     "active_stop": 372.25,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 372.25 (-8.7%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 372.25 (-7.7%)"
    },
    {
     "ticker": "MA",
@@ -359,14 +351,14 @@
       "shares": 1.26
      }
     ],
-    "price": 623.47,
-    "value": 785.57,
-    "pnl": 3.73,
-    "pnl_pct": 0.48,
-    "days_held": 4,
+    "price": 612.78,
+    "value": 772.1,
+    "pnl": -9.74,
+    "pnl_pct": -1.25,
+    "days_held": 5,
     "active_stop": 570.87,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 570.87 (-8.4%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 570.87 (-6.8%)"
    },
    {
     "ticker": "ABBV",
@@ -390,14 +382,14 @@
       "shares": 2.72
      }
     ],
-    "price": 285.7,
-    "value": 777.1,
-    "pnl": -3.13,
-    "pnl_pct": -0.4,
-    "days_held": 4,
+    "price": 286.57,
+    "value": 779.47,
+    "pnl": -0.76,
+    "pnl_pct": -0.1,
+    "days_held": 5,
     "active_stop": 263.9,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 263.90 (-7.6%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 263.90 (-7.9%)"
    }
   ],
   "closed": [
@@ -469,9 +461,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -1.48,
+  "spy_return_pct": -0.58,
   "base": 771.35,
-  "last": 759.97,
+  "last": 766.9,
   "since": "2026-09-28"
  },
  "anomalies": {
