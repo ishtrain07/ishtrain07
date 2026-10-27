@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-27 16:11 ET (position check)",
+ "generated_at": "2026-10-27 17:26 ET (position check)",
  "date": "2026-10-27",
  "mode": "plan",
  "regime": {
@@ -171,9 +171,9 @@
  "account": {
   "cash": 1614.5,
   "realized": 0.0,
-  "unrealized": 8.1,
-  "market_value": 893.6,
-  "equity": 2508.1,
+  "unrealized": 7.99,
+  "market_value": 893.49,
+  "equity": 2507.99,
   "return_pct": 0.32
  },
  "drawdown_state": "OK",
@@ -201,14 +201,14 @@
      "shares": 0.6059
     }
    ],
-   "price": 337.43,
-   "value": 204.45,
-   "pnl": 4.4,
-   "pnl_pct": 2.2,
+   "price": 337.25,
+   "value": 204.34,
+   "pnl": 4.29,
+   "pnl_pct": 2.14,
    "days_held": 20,
    "active_stop": 303.76,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-10.0%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-9.9%)"
   },
   {
    "ticker": "CRWD",
@@ -283,9 +283,9 @@
   "account": {
    "cash": 108.22,
    "realized": -248.78,
-   "unrealized": -19.83,
-   "market_value": 2323.15,
-   "equity": 2431.37,
+   "unrealized": -19.97,
+   "market_value": 2323.03,
+   "equity": 2431.25,
    "return_pct": -9.95
   },
   "record": {
@@ -320,10 +320,10 @@
       "shares": 1.93
      }
     ],
-    "price": 401.94,
-    "value": 775.74,
-    "pnl": -5.17,
-    "pnl_pct": -0.66,
+    "price": 401.79,
+    "value": 775.45,
+    "pnl": -5.46,
+    "pnl_pct": -0.7,
     "days_held": 6,
     "active_stop": 372.25,
     "action": "HOLD",
@@ -351,10 +351,10 @@
       "shares": 1.26
      }
     ],
-    "price": 609.78,
-    "value": 768.32,
-    "pnl": -13.52,
-    "pnl_pct": -1.73,
+    "price": 609.95,
+    "value": 768.54,
+    "pnl": -13.31,
+    "pnl_pct": -1.7,
     "days_held": 6,
     "active_stop": 570.87,
     "action": "HOLD",
@@ -382,9 +382,9 @@
       "shares": 2.72
      }
     ],
-    "price": 286.43,
-    "value": 779.09,
-    "pnl": -1.14,
+    "price": 286.41,
+    "value": 779.04,
+    "pnl": -1.2,
     "pnl_pct": -0.15,
     "days_held": 6,
     "active_stop": 263.9,
@@ -461,9 +461,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -0.21,
+  "spy_return_pct": -0.22,
   "base": 771.35,
-  "last": 769.71,
+  "last": 769.66,
   "since": "2026-09-28"
  },
  "anomalies": {
