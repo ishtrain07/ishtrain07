@@ -3,54 +3,54 @@
  "backups": [],
  "watch": [
   {
-   "ticker": "COST",
-   "score": 81.6,
-   "price": 1005.16,
+   "ticker": "JPM",
+   "score": 77.0,
+   "price": 336.33,
    "setup": "momentum",
-   "rsi": 70,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "ABNB",
-   "score": 79.0,
-   "price": 171.05,
-   "setup": "momentum",
-   "rsi": 53,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "KMI",
-   "score": 78.9,
-   "price": 33.94,
-   "setup": "momentum",
-   "rsi": 61,
+   "rsi": 49,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "VRTX",
-   "score": 76.9,
-   "price": 517.49,
+   "score": 76.7,
+   "price": 517.41,
    "setup": "momentum",
    "rsi": 52,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "JPM",
-   "score": 75.9,
-   "price": 334.04,
+   "ticker": "KMI",
+   "score": 76.6,
+   "price": 33.83,
    "setup": "momentum",
-   "rsi": 46,
+   "rsi": 60,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "ABNB",
+   "score": 75.9,
+   "price": 168.41,
+   "setup": "momentum",
+   "rsi": 49,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "COST",
+   "score": 72.9,
+   "price": 991.0,
+   "setup": "momentum",
+   "rsi": 62,
    "action": "next in line if a holding drops out"
   }
  ],
  "regime": {
-  "light": "YELLOW",
-  "risk_mult": 0.5,
-  "max_new": 2,
-  "message": "Market is choppy (below 50-day or VIX elevated). Half size, A-grade setups only.",
-  "spy": 765.37,
-  "spy_sma50": 766.72,
-  "spy_sma200": 724.41,
-  "vix": 17.88
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 769.1,
+  "spy_sma50": 766.68,
+  "spy_sma200": 724.81,
+  "vix": 17.76
  }
 }
