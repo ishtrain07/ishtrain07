@@ -1,0 +1,56 @@
+{
+ "buys": [],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "KMI",
+   "score": 76.5,
+   "price": 33.85,
+   "setup": "momentum",
+   "rsi": 60,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "ABNB",
+   "score": 76.2,
+   "price": 168.82,
+   "setup": "momentum",
+   "rsi": 50,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "JPM",
+   "score": 75.9,
+   "price": 335.79,
+   "setup": "momentum",
+   "rsi": 49,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "COST",
+   "score": 74.2,
+   "price": 992.13,
+   "setup": "momentum",
+   "rsi": 62,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "UNH",
+   "score": 71.7,
+   "price": 410.39,
+   "setup": "momentum",
+   "rsi": 60,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 769.66,
+  "spy_sma50": 766.7,
+  "spy_sma200": 724.81,
+  "vix": 17.41
+ }
+}
