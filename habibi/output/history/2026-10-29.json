@@ -1,0 +1,56 @@
+{
+ "buys": [],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "QQQ",
+   "score": 82.1,
+   "price": 725.61,
+   "setup": "momentum",
+   "rsi": 50,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "JPM",
+   "score": 77.3,
+   "price": 339.3,
+   "setup": "momentum",
+   "rsi": 54,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "FTNT",
+   "score": 75.1,
+   "price": 174.08,
+   "setup": "momentum",
+   "rsi": 46,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "SNOW",
+   "score": 75.1,
+   "price": 339.91,
+   "setup": "momentum",
+   "rsi": 54,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "KMI",
+   "score": 75.0,
+   "price": 33.56,
+   "setup": "momentum",
+   "rsi": 57,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 772.31,
+  "spy_sma50": 766.83,
+  "spy_sma200": 725.23,
+  "vix": 17.09
+ }
+}
