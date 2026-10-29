@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29 09:00 ET",
+ "generated_at": "2026-10-29 11:45 ET (position check)",
  "date": "2026-10-29",
  "mode": "plan",
  "regime": {
@@ -170,10 +170,10 @@
  "account": {
   "cash": 1614.5,
   "realized": 0.0,
-  "unrealized": 20.9,
-  "market_value": 906.39,
-  "equity": 2520.89,
-  "return_pct": 0.84
+  "unrealized": -0.36,
+  "market_value": 885.14,
+  "equity": 2499.64,
+  "return_pct": -0.01
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -200,14 +200,14 @@
      "shares": 0.6059
     }
    ],
-   "price": 339.93,
-   "value": 205.96,
-   "pnl": 5.91,
-   "pnl_pct": 2.96,
+   "price": 328.89,
+   "value": 199.28,
+   "pnl": -0.77,
+   "pnl_pct": -0.39,
    "days_held": 22,
    "active_stop": 303.76,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-10.6%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-7.6%)"
   },
   {
    "ticker": "CRWD",
@@ -231,14 +231,14 @@
      "shares": 1.1075
     }
    ],
-   "price": 266.73,
-   "value": 295.4,
-   "pnl": -6.74,
-   "pnl_pct": -2.23,
+   "price": 257.02,
+   "value": 284.65,
+   "pnl": -17.5,
+   "pnl_pct": -5.79,
    "days_held": 14,
    "active_stop": 250.99,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 250.99 (-5.9%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 250.99 (-2.3%)"
   },
   {
    "ticker": "AMD",
@@ -262,14 +262,14 @@
      "shares": 0.7
     }
    ],
-   "price": 578.61,
-   "value": 405.03,
-   "pnl": 21.73,
-   "pnl_pct": 5.67,
+   "price": 573.16,
+   "value": 401.21,
+   "pnl": 17.91,
+   "pnl_pct": 4.67,
    "days_held": 10,
    "active_stop": 525.15,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 525.15 (-9.2%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 525.15 (-8.4%)"
   }
  ],
  "closed": [],
@@ -282,10 +282,10 @@
   "account": {
    "cash": 108.22,
    "realized": -248.78,
-   "unrealized": -20.3,
-   "market_value": 2322.69,
-   "equity": 2430.91,
-   "return_pct": -9.97
+   "unrealized": 40.58,
+   "market_value": 2383.57,
+   "equity": 2491.79,
+   "return_pct": -7.71
   },
   "record": {
    "trades": 6,
@@ -319,14 +319,14 @@
       "shares": 1.93
      }
     ],
-    "price": 401.04,
-    "value": 774.01,
-    "pnl": -6.91,
-    "pnl_pct": -0.88,
+    "price": 410.78,
+    "value": 792.81,
+    "pnl": 11.89,
+    "pnl_pct": 1.52,
     "days_held": 8,
     "active_stop": 372.25,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 372.25 (-7.2%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 372.25 (-9.4%)"
    },
    {
     "ticker": "MA",
@@ -350,14 +350,14 @@
       "shares": 1.26
      }
     ],
-    "price": 610.94,
-    "value": 769.78,
-    "pnl": -12.06,
-    "pnl_pct": -1.54,
+    "price": 637.1,
+    "value": 802.75,
+    "pnl": 20.91,
+    "pnl_pct": 2.67,
     "days_held": 8,
     "active_stop": 570.87,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 570.87 (-6.6%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 570.87 (-10.4%)"
    },
    {
     "ticker": "ABBV",
@@ -381,14 +381,14 @@
       "shares": 2.72
      }
     ],
-    "price": 286.36,
-    "value": 778.9,
-    "pnl": -1.33,
-    "pnl_pct": -0.17,
+    "price": 289.71,
+    "value": 788.01,
+    "pnl": 7.78,
+    "pnl_pct": 1.0,
     "days_held": 8,
     "active_stop": 263.9,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 263.90 (-7.8%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 263.90 (-8.9%)"
    }
   ],
   "closed": [
@@ -460,13 +460,27 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": 0.12,
+  "spy_return_pct": -0.2,
   "base": 771.35,
-  "last": 772.31,
+  "last": 769.84,
   "since": "2026-09-28"
  },
  "anomalies": {
-  "flags": [],
+  "flags": [
+   {
+    "ticker": "SNOW",
+    "type": "lost_50dma",
+    "label": "Closed below its 50-day average (was above yesterday)",
+    "held": true,
+    "price": 328.89,
+    "day_pct": -3.24,
+    "n": 1153,
+    "avg_pct": 0.22,
+    "down_pct": 49.8,
+    "edge_pct": -0.16,
+    "verdict": "neutral"
+   }
+  ],
   "rank_trends": [
    {
     "ticker": "SNOW",
