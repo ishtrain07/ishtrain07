@@ -4,42 +4,42 @@
  "watch": [
   {
    "ticker": "MSFT",
-   "score": 85.9,
-   "price": 522.37,
+   "score": 86.4,
+   "price": 519.49,
    "setup": "momentum",
-   "rsi": 49,
+   "rsi": 47,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "COST",
-   "score": 84.8,
-   "price": 1014.46,
+   "ticker": "SPY",
+   "score": 84.6,
+   "price": 753.79,
    "setup": "momentum",
-   "rsi": 67,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "JPM",
-   "score": 84.4,
-   "price": 341.25,
-   "setup": "momentum",
-   "rsi": 55,
+   "rsi": 39,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "LLY",
-   "score": 82.6,
-   "price": 1443.29,
+   "score": 83.4,
+   "price": 1423.77,
    "setup": "momentum",
-   "rsi": 80,
+   "rsi": 78,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "KMI",
-   "score": 81.1,
-   "price": 34.06,
+   "ticker": "WMT",
+   "score": 81.3,
+   "price": 123.95,
    "setup": "momentum",
-   "rsi": 61,
+   "rsi": 73,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "RTX",
+   "score": 80.9,
+   "price": 200.77,
+   "setup": "momentum",
+   "rsi": 62,
    "action": "next in line if a holding drops out"
   }
  ],
@@ -48,9 +48,9 @@
   "risk_mult": 0.5,
   "max_new": 2,
   "message": "Market is choppy (below 50-day or VIX elevated). Half size, A-grade setups only.",
-  "spy": 760.57,
-  "spy_sma50": 766.87,
-  "spy_sma200": 726.01,
-  "vix": 18.69
+  "spy": 753.79,
+  "spy_sma50": 766.74,
+  "spy_sma200": 725.97,
+  "vix": 22.1
  }
 }
