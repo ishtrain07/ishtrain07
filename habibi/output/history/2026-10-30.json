@@ -1,0 +1,56 @@
+{
+ "buys": [],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "MSFT",
+   "score": 85.9,
+   "price": 522.37,
+   "setup": "momentum",
+   "rsi": 49,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "COST",
+   "score": 84.8,
+   "price": 1014.46,
+   "setup": "momentum",
+   "rsi": 67,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "JPM",
+   "score": 84.4,
+   "price": 341.25,
+   "setup": "momentum",
+   "rsi": 55,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "LLY",
+   "score": 82.6,
+   "price": 1443.29,
+   "setup": "momentum",
+   "rsi": 80,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "KMI",
+   "score": 81.1,
+   "price": 34.06,
+   "setup": "momentum",
+   "rsi": 61,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "YELLOW",
+  "risk_mult": 0.5,
+  "max_new": 2,
+  "message": "Market is choppy (below 50-day or VIX elevated). Half size, A-grade setups only.",
+  "spy": 760.57,
+  "spy_sma50": 766.87,
+  "spy_sma200": 726.01,
+  "vix": 18.69
+ }
+}
