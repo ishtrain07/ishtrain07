@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-30 14:31 ET",
+ "generated_at": "2026-10-30 15:28 ET (position check)",
  "date": "2026-10-30",
  "mode": "plan",
  "regime": {
@@ -170,10 +170,10 @@
  "account": {
   "cash": 1614.5,
   "realized": 0.0,
-  "unrealized": -84.81,
-  "market_value": 800.68,
-  "equity": 2415.18,
-  "return_pct": -3.39
+  "unrealized": -76.42,
+  "market_value": 809.08,
+  "equity": 2423.58,
+  "return_pct": -3.06
  },
  "drawdown_state": "OK",
  "drawdown_msg": "",
@@ -200,10 +200,10 @@
      "shares": 0.6059
     }
    ],
-   "price": 297.56,
-   "value": 180.29,
-   "pnl": -19.76,
-   "pnl_pct": -9.88,
+   "price": 302.33,
+   "value": 183.18,
+   "pnl": -16.87,
+   "pnl_pct": -8.43,
    "days_held": 23,
    "active_stop": 303.76,
    "action": "SELL ALL",
@@ -231,10 +231,10 @@
      "shares": 1.1075
     }
    ],
-   "price": 246.82,
-   "value": 273.36,
-   "pnl": -28.79,
-   "pnl_pct": -9.53,
+   "price": 249.38,
+   "value": 276.19,
+   "pnl": -25.96,
+   "pnl_pct": -8.59,
    "days_held": 15,
    "active_stop": 250.99,
    "action": "SELL ALL",
@@ -262,10 +262,10 @@
      "shares": 0.7
     }
    ],
-   "price": 495.76,
-   "value": 347.03,
-   "pnl": -36.26,
-   "pnl_pct": -9.46,
+   "price": 499.58,
+   "value": 349.71,
+   "pnl": -33.59,
+   "pnl_pct": -8.76,
    "days_held": 11,
    "active_stop": 525.15,
    "action": "SELL ALL",
@@ -278,21 +278,21 @@
    "ticker": "SNOW",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 303.76",
-   "price": 297.56,
+   "price": 302.33,
    "shares": 0.6059
   },
   {
    "ticker": "CRWD",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 250.99",
-   "price": 246.82,
+   "price": 249.38,
    "shares": 1.1075
   },
   {
    "ticker": "AMD",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 525.15",
-   "price": 495.76,
+   "price": 499.58,
    "shares": 0.7
   }
  ],
@@ -304,10 +304,10 @@
   "account": {
    "cash": 108.22,
    "realized": -248.78,
-   "unrealized": 65.24,
-   "market_value": 2408.22,
-   "equity": 2516.44,
-   "return_pct": -6.8
+   "unrealized": 60.68,
+   "market_value": 2403.68,
+   "equity": 2511.9,
+   "return_pct": -6.97
   },
   "record": {
    "trades": 6,
@@ -341,14 +341,14 @@
       "shares": 1.93
      }
     ],
-    "price": 415.25,
-    "value": 801.43,
-    "pnl": 20.52,
-    "pnl_pct": 2.63,
+    "price": 414.27,
+    "value": 799.55,
+    "pnl": 18.63,
+    "pnl_pct": 2.39,
     "days_held": 9,
     "active_stop": 372.25,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 372.25 (-10.4%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 372.25 (-10.1%)"
    },
    {
     "ticker": "MA",
@@ -372,10 +372,10 @@
       "shares": 1.26
      }
     ],
-    "price": 638.62,
-    "value": 804.66,
-    "pnl": 22.82,
-    "pnl_pct": 2.92,
+    "price": 638.58,
+    "value": 804.61,
+    "pnl": 22.77,
+    "pnl_pct": 2.91,
     "days_held": 9,
     "active_stop": 570.87,
     "action": "HOLD",
@@ -403,14 +403,14 @@
       "shares": 2.72
      }
     ],
-    "price": 294.9,
-    "value": 802.13,
-    "pnl": 21.9,
-    "pnl_pct": 2.81,
+    "price": 293.94,
+    "value": 799.52,
+    "pnl": 19.28,
+    "pnl_pct": 2.47,
     "days_held": 9,
     "active_stop": 263.9,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 263.90 (-10.5%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 263.90 (-10.2%)"
    }
   ],
   "closed": [
@@ -482,9 +482,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -2.28,
+  "spy_return_pct": -2.35,
   "base": 771.35,
-  "last": 753.79,
+  "last": 753.21,
   "since": "2026-09-28"
  },
  "anomalies": {
@@ -494,8 +494,8 @@
     "type": "big_drop",
     "label": "Unusually large one-day drop (>3x its normal daily move)",
     "held": true,
-    "price": 495.49,
-    "day_pct": -12.52,
+    "price": 499.82,
+    "day_pct": -11.76,
     "n": 175,
     "avg_pct": 1.29,
     "down_pct": 46.3,
@@ -507,8 +507,8 @@
     "type": "gap_down",
     "label": "Gapped down more than 5% at the open",
     "held": true,
-    "price": 495.49,
-    "day_pct": -12.52,
+    "price": 499.82,
+    "day_pct": -11.76,
     "n": 342,
     "avg_pct": 2.07,
     "down_pct": 47.1,
@@ -520,8 +520,8 @@
     "type": "gap_down",
     "label": "Gapped down more than 5% at the open",
     "held": true,
-    "price": 298.02,
-    "day_pct": -9.76,
+    "price": 302.18,
+    "day_pct": -8.5,
     "n": 342,
     "avg_pct": 2.07,
     "down_pct": 47.1,
@@ -533,8 +533,8 @@
     "type": "lost_50dma",
     "label": "Closed below its 50-day average (was above yesterday)",
     "held": true,
-    "price": 495.49,
-    "day_pct": -12.52,
+    "price": 499.82,
+    "day_pct": -11.76,
     "n": 1146,
     "avg_pct": 0.2,
     "down_pct": 50.1,
