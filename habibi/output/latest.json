@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-30 17:39 ET (position check)",
+ "generated_at": "2026-10-30 19:04 ET (position check)",
  "date": "2026-10-30",
  "mode": "plan",
  "regime": {
@@ -200,14 +200,14 @@
      "shares": 0.6059
     }
    ],
-   "price": 306.06,
+   "price": 306.05,
    "value": 185.44,
    "pnl": -14.61,
-   "pnl_pct": -7.3,
+   "pnl_pct": -7.31,
    "days_held": 23,
    "active_stop": 303.76,
    "action": "HOLD",
-   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-0.8%)"
+   "why": "held while it stays top-5; reviewed every Monday; stop 303.76 (-0.7%)"
   },
   {
    "ticker": "CRWD",
