@@ -1,35 +1,35 @@
 {
- "n": 808,
- "win_rate": 47.4,
- "avg_r": 0.01,
- "avg_win_pct": 5.92,
+ "n": 800,
+ "win_rate": 47.2,
+ "avg_r": 0.0,
+ "avg_win_pct": 5.88,
  "avg_loss_pct": -5.3,
  "avg_days": 5.0,
- "total_return_pct": -14.4,
- "max_drawdown_pct": -49.8,
- "p_25d_gain_20pct": 16.7,
- "p_25d_gain_10pct": 26.4,
- "p_25d_loss": 55.8,
- "median_25d_pct": -2.3,
+ "total_return_pct": -19.2,
+ "max_drawdown_pct": -48.3,
+ "p_25d_gain_20pct": 14.8,
+ "p_25d_gain_10pct": 25.1,
+ "p_25d_loss": 56.8,
+ "median_25d_pct": -2.7,
  "by_setup": {
   "breakout": {
-   "n": 200,
-   "win_rate": 52.0,
-   "avg_r": 0.05
+   "n": 197,
+   "win_rate": 51.8,
+   "avg_r": 0.04
   },
   "pullback": {
-   "n": 608,
-   "win_rate": 45.9,
+   "n": 603,
+   "win_rate": 45.8,
    "avg_r": -0.01
   }
  },
  "exit_reasons": {
-  "stop": 353,
-  "time stop": 352,
+  "stop": 350,
+  "time stop": 348,
   "trail/breakeven": 53,
-  "target 2": 50
+  "target 2": 49
  },
- "from": "2025-09-04",
+ "from": "2025-09-08",
  "to": "2026-10-29",
  "recent": [
   {
@@ -126,7 +126,7 @@
   {
    "exit_date": "2026-10-30",
    "exit_price": 411.27,
-   "pnl_per_share": -25.59656788063171,
+   "pnl_per_share": -25.59656788063097,
    "r": -1.0,
    "days": 3,
    "exit_reason": "stop",
@@ -134,7 +134,7 @@
    "ticker": "TSM",
    "setup": "pullback",
    "entry": 436.87,
-   "ret_pct": -5.8590812293633485
+   "ret_pct": -5.859081229363179
   },
   {
    "exit_date": "2026-10-30",
@@ -205,7 +205,7 @@
    "exit_date": "2026-10-29",
    "exit_price": 230.16,
    "pnl_per_share": -11.949996948242188,
-   "r": -1.4003721008683636,
+   "r": -1.4003721008691985,
    "days": 1,
    "exit_reason": "stop",
    "date": "2026-10-28",
