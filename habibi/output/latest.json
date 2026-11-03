@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03 16:12 ET (position check)",
+ "generated_at": "2026-11-03 17:28 ET (position check)",
  "date": "2026-11-03",
  "mode": "plan",
  "regime": {
@@ -199,7 +199,7 @@
      "shares": 0.6059
     }
    ],
-   "price": 295.03,
+   "price": 295.04,
    "value": 178.76,
    "pnl": -21.29,
    "pnl_pct": -10.64,
@@ -277,7 +277,7 @@
    "ticker": "SNOW",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 303.76",
-   "price": 295.03,
+   "price": 295.04,
    "shares": 0.6059
   },
   {
@@ -303,9 +303,9 @@
   "account": {
    "cash": 108.22,
    "realized": -248.78,
-   "unrealized": 61.58,
-   "market_value": 2404.56,
-   "equity": 2512.78,
+   "unrealized": 61.77,
+   "market_value": 2404.75,
+   "equity": 2512.97,
    "return_pct": -6.93
   },
   "record": {
@@ -340,10 +340,10 @@
       "shares": 1.93
      }
     ],
-    "price": 420.36,
-    "value": 811.29,
-    "pnl": 30.38,
-    "pnl_pct": 3.89,
+    "price": 420.38,
+    "value": 811.33,
+    "pnl": 30.42,
+    "pnl_pct": 3.9,
     "days_held": 11,
     "active_stop": 372.25,
     "action": "HOLD",
@@ -371,10 +371,10 @@
       "shares": 1.26
      }
     ],
-    "price": 647.17,
-    "value": 815.43,
-    "pnl": 33.59,
-    "pnl_pct": 4.3,
+    "price": 647.31,
+    "value": 815.61,
+    "pnl": 33.77,
+    "pnl_pct": 4.32,
     "days_held": 11,
     "active_stop": 570.87,
     "action": "HOLD",
@@ -402,9 +402,9 @@
       "shares": 2.72
      }
     ],
-    "price": 285.97,
-    "value": 777.84,
-    "pnl": -2.39,
+    "price": 285.96,
+    "value": 777.81,
+    "pnl": -2.42,
     "pnl_pct": -0.31,
     "days_held": 11,
     "active_stop": 263.9,
@@ -481,9 +481,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -2.19,
+  "spy_return_pct": -2.2,
   "base": 771.35,
-  "last": 754.42,
+  "last": 754.35,
   "since": "2026-09-28"
  },
  "anomalies": {
