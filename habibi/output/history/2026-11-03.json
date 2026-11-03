@@ -1,0 +1,129 @@
+{
+ "buys": [
+  {
+   "ticker": "V",
+   "name": "Visa Inc.",
+   "sector": "Financials",
+   "price": 425.51,
+   "score": 67.6,
+   "momentum": 92,
+   "rs": 88,
+   "trend": 100,
+   "fund": 72,
+   "rsi": 75,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 24.84054,
+   "next_earnings": "2027-01-26",
+   "entry": 425.51,
+   "limit": 427.64,
+   "stop": 391.47,
+   "t1": 442.62,
+   "t2": 459.73,
+   "stop_pct": -8.0,
+   "t1_pct": 4.0,
+   "t2_pct": 8.0,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-11-10",
+   "shares": 1.76,
+   "dollars": 748.9,
+   "risk_dollars": 59.91,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "#1 on the learning model ranking: 6-mo +31%, 3-mo +15%, 1-mo +18%",
+    "stronger than 88% of the universe vs the S&P; above its 200-day average",
+    "revenue +13% y/y"
+   ],
+   "news": []
+  },
+  {
+   "ticker": "MA",
+   "name": "Mastercard Incorporated",
+   "sector": "Financials",
+   "price": 658.1,
+   "score": 68.0,
+   "momentum": 93,
+   "rs": 89,
+   "trend": 100,
+   "fund": 72,
+   "rsi": 76,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 28.449333,
+   "next_earnings": "2027-01-28",
+   "entry": 658.1,
+   "limit": 661.39,
+   "stop": 605.45,
+   "t1": 686.0,
+   "t2": 713.91,
+   "stop_pct": -8.0,
+   "t1_pct": 4.2,
+   "t2_pct": 8.5,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-11-10",
+   "shares": 1.14,
+   "dollars": 750.23,
+   "risk_dollars": 60.02,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "#2 on the learning model ranking: 6-mo +31%, 3-mo +15%, 1-mo +19%",
+    "stronger than 89% of the universe vs the S&P; above its 200-day average",
+    "revenue +14% y/y"
+   ],
+   "news": []
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "CVX",
+   "score": 91.8,
+   "price": 227.77,
+   "setup": "momentum",
+   "rsi": 59,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "COST",
+   "score": 90.8,
+   "price": 1040.55,
+   "setup": "momentum",
+   "rsi": 73,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "AAPL",
+   "score": 89.8,
+   "price": 338.32,
+   "setup": "momentum",
+   "rsi": 48,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "XOM",
+   "score": 86.7,
+   "price": 179.67,
+   "setup": "momentum",
+   "rsi": 57,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "WMT",
+   "score": 86.0,
+   "price": 127.69,
+   "setup": "momentum",
+   "rsi": 78,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "YELLOW",
+  "risk_mult": 0.5,
+  "max_new": 2,
+  "message": "Market is choppy (below 50-day or VIX elevated). Half size, A-grade setups only.",
+  "spy": 752.1,
+  "spy_sma50": 766.54,
+  "spy_sma200": 726.31,
+  "vix": 20.8
+ }
+}

@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-02 20:41 ET (position check)",
- "date": "2026-11-02",
+ "generated_at": "2026-11-03 08:59 ET",
+ "date": "2026-11-03",
  "mode": "plan",
  "regime": {
   "light": "YELLOW",
@@ -10,24 +10,24 @@
   "spy": 752.1,
   "spy_sma50": 766.54,
   "spy_sma200": 726.31,
-  "vix": 21.15
+  "vix": 20.8
  },
  "macro": [
   {
    "ticker": "ES=F",
    "label": "S&P 500 futures",
-   "last": 7587.25,
-   "d1": -0.35,
-   "d5": -1.65,
-   "m1": -2.44
+   "last": 7585.0,
+   "d1": 0.14,
+   "d5": -2.23,
+   "m1": -3.08
   },
   {
    "ticker": "NQ=F",
    "label": "Nasdaq 100 futures",
-   "last": 28223.75,
-   "d1": -1.09,
-   "d5": -4.12,
-   "m1": -9.14
+   "last": 28330.75,
+   "d1": 0.72,
+   "d5": -4.97,
+   "m1": -9.54
   },
   {
    "ticker": "SPY",
@@ -56,123 +56,123 @@
   {
    "ticker": "^VIX",
    "label": "VIX (fear)",
-   "last": 21.15,
-   "d1": 8.91,
-   "d5": 15.01,
-   "m1": 38.14
+   "last": 20.8,
+   "d1": -1.65,
+   "d5": 18.72,
+   "m1": 34.02
   },
   {
    "ticker": "^TNX",
    "label": "US 10Y yield",
-   "last": 4.89,
-   "d1": -0.71,
-   "d5": -1.85,
-   "m1": -7.26
+   "last": 4.9,
+   "d1": 0.08,
+   "d5": -1.9,
+   "m1": -7.78
   },
   {
    "ticker": "DX-Y.NYB",
    "label": "US Dollar index",
    "last": 101.78,
-   "d1": -0.1,
-   "d5": -0.18,
-   "m1": -0.15
+   "d1": 0.03,
+   "d5": -0.52,
+   "m1": -0.38
   },
   {
    "ticker": "CL=F",
    "label": "WTI crude",
-   "last": 96.26,
-   "d1": -7.55,
-   "d5": -5.4,
-   "m1": 5.65
+   "last": 94.58,
+   "d1": -1.95,
+   "d5": -5.33,
+   "m1": 5.76
   },
   {
    "ticker": "GC=F",
    "label": "Gold",
-   "last": 3956.6,
-   "d1": 1.48,
-   "d5": -2.03,
-   "m1": -4.94
+   "last": 3973.5,
+   "d1": 0.1,
+   "d5": -2.48,
+   "m1": -4.41
   },
   {
    "ticker": "BTC-USD",
    "label": "Bitcoin",
-   "last": 76727.89,
-   "d1": -1.94,
-   "d5": -5.59,
-   "m1": -6.16
+   "last": 77333.07,
+   "d1": 0.86,
+   "d5": -0.57,
+   "m1": -6.93
   },
   {
    "ticker": "^N225",
    "label": "Nikkei (Japan)",
-   "last": 63290.11,
-   "d1": -2.12,
-   "d5": 0.95,
-   "m1": -5.19
+   "last": 63081.86,
+   "d1": -0.33,
+   "d5": 1.43,
+   "m1": -8.52
   },
   {
    "ticker": "^HSI",
    "label": "Hang Seng (HK)",
-   "last": 23294.42,
-   "d1": 1.46,
-   "d5": 0.87,
-   "m1": -5.01
+   "last": 23525.97,
+   "d1": 0.57,
+   "d5": 2.1,
+   "m1": -1.86
   },
   {
    "ticker": "^GDAXI",
    "label": "DAX (Germany)",
-   "last": 25981.09,
-   "d1": 0.63,
-   "d5": 2.24,
-   "m1": 2.97
+   "last": 26030.48,
+   "d1": 0.19,
+   "d5": 1.72,
+   "m1": 3.07
   },
   {
    "ticker": "^FTSE",
    "label": "FTSE 100 (UK)",
-   "last": 10761.33,
-   "d1": 0.29,
-   "d5": -0.06,
-   "m1": 2.86
+   "last": 10721.68,
+   "d1": -0.37,
+   "d5": 0.33,
+   "m1": 2.13
   },
   {
    "ticker": "^NSEI",
    "label": "Nifty 50 (India)",
-   "last": 23053.1,
-   "d1": 0.51,
-   "d5": 2.0,
-   "m1": 1.48
+   "last": 23810.85,
+   "d1": 1.58,
+   "d5": 4.66,
+   "m1": 6.19
   },
   {
    "ticker": "USDCAD=X",
    "label": "USD/CAD",
    "last": 1.4,
-   "d1": -0.03,
-   "d5": -0.22,
-   "m1": -1.68
+   "d1": 0.09,
+   "d5": -0.21,
+   "m1": -1.9
   },
   {
    "ticker": "USDINR=X",
    "label": "USD/INR",
-   "last": 94.89,
-   "d1": -0.28,
-   "d5": -0.05,
-   "m1": -1.39
+   "last": 94.78,
+   "d1": -0.13,
+   "d5": -0.43,
+   "m1": -1.6
   }
  ],
  "macro_read": [
-  "VIX 21.1: elevated, expect bigger swings; size down.",
-  "10Y yield 4.89% (-7.3% over a month): falling yields support growth/tech.",
-  "Dollar -0.1% over a month: neutral.",
-  "Oil moved -5.4% this week: watch energy and inflation expectations.",
-  "Global overnight: Nikkei -2.1%, Hang Seng +1.5%, DAX +0.6%, Nifty 50 +0.5%.",
-  "US futures: S&P 500 futures -0.35%, Nasdaq 100 futures -1.09%.",
+  "VIX 20.8: elevated, expect bigger swings; size down.",
+  "10Y yield 4.90% (-7.8% over a month): falling yields support growth/tech.",
+  "Dollar -0.4% over a month: neutral.",
+  "Oil moved -5.3% this week: watch energy and inflation expectations.",
+  "Global overnight: Nikkei -0.3%, Hang Seng +0.6%, DAX +0.2%, Nifty 50 +1.6%.",
+  "US futures: S&P 500 futures +0.14%, Nasdaq 100 futures +0.72%.",
   "Market is choppy (below 50-day or VIX elevated). Half size, A-grade setups only."
  ],
  "account": {
   "cash": 1614.5,
   "realized": 0.0,
-  "unrealized": -114.86,
-  "market_value": 770.64,
-  "equity": 2385.14,
+  "unrealized": -114.8,
+  "market_value": 770.7,
+  "equity": 2385.2,
   "return_pct": -4.59
  },
  "drawdown_state": "OK",
@@ -204,7 +204,7 @@
    "value": 176.03,
    "pnl": -24.02,
    "pnl_pct": -12.01,
-   "days_held": 24,
+   "days_held": 25,
    "active_stop": 303.76,
    "action": "SELL ALL",
    "why": "hit the 8% stop at 303.76"
@@ -235,7 +235,7 @@
    "value": 267.92,
    "pnl": -34.23,
    "pnl_pct": -11.33,
-   "days_held": 16,
+   "days_held": 17,
    "active_stop": 250.99,
    "action": "SELL ALL",
    "why": "hit the 8% stop at 250.99"
@@ -262,11 +262,11 @@
      "shares": 0.7
     }
    ],
-   "price": 466.7,
-   "value": 326.69,
-   "pnl": -56.61,
-   "pnl_pct": -14.77,
-   "days_held": 12,
+   "price": 466.79,
+   "value": 326.75,
+   "pnl": -56.55,
+   "pnl_pct": -14.75,
+   "days_held": 13,
    "active_stop": 525.15,
    "action": "SELL ALL",
    "why": "hit the 8% stop at 525.15"
@@ -292,7 +292,7 @@
    "ticker": "AMD",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 525.15",
-   "price": 466.7,
+   "price": 466.79,
    "shares": 0.7
   }
  ],
@@ -304,9 +304,9 @@
   "account": {
    "cash": 108.22,
    "realized": -248.78,
-   "unrealized": 93.06,
-   "market_value": 2436.04,
-   "equity": 2544.26,
+   "unrealized": 93.04,
+   "market_value": 2436.02,
+   "equity": 2544.24,
    "return_pct": -5.77
   },
   "record": {
@@ -341,11 +341,11 @@
       "shares": 1.93
      }
     ],
-    "price": 425.52,
-    "value": 821.25,
-    "pnl": 40.34,
-    "pnl_pct": 5.17,
-    "days_held": 10,
+    "price": 425.51,
+    "value": 821.23,
+    "pnl": 40.32,
+    "pnl_pct": 5.16,
+    "days_held": 11,
     "active_stop": 372.25,
     "action": "HOLD",
     "why": "held while it stays top-5; reviewed every Monday; stop 372.25 (-12.5%)"
@@ -376,7 +376,7 @@
     "value": 829.39,
     "pnl": 47.55,
     "pnl_pct": 6.08,
-    "days_held": 10,
+    "days_held": 11,
     "active_stop": 570.87,
     "action": "HOLD",
     "why": "held while it stays top-5; reviewed every Monday; stop 570.87 (-13.3%)"
@@ -407,7 +407,7 @@
     "value": 785.4,
     "pnl": 5.17,
     "pnl_pct": 0.66,
-    "days_held": 10,
+    "days_held": 11,
     "active_stop": 263.9,
     "action": "HOLD",
     "why": "held while it stays top-5; reviewed every Monday; stop 263.90 (-8.6%)"
@@ -482,73 +482,20 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -2.03,
+  "spy_return_pct": -2.5,
   "base": 771.35,
-  "last": 755.72,
+  "last": 752.1,
   "since": "2026-09-28"
  },
  "anomalies": {
-  "flags": [
-   {
-    "ticker": "AMD",
-    "type": "big_drop",
-    "label": "Unusually large one-day drop (>3x its normal daily move)",
-    "held": true,
-    "price": 504.8,
-    "day_pct": -10.88,
-    "n": 177,
-    "avg_pct": 1.33,
-    "down_pct": 46.3,
-    "edge_pct": 0.96,
-    "verdict": "positive"
-   },
-   {
-    "ticker": "AMD",
-    "type": "gap_down",
-    "label": "Gapped down more than 5% at the open",
-    "held": true,
-    "price": 504.8,
-    "day_pct": -10.88,
-    "n": 341,
-    "avg_pct": 2.05,
-    "down_pct": 46.9,
-    "edge_pct": 1.68,
-    "verdict": "positive"
-   },
-   {
-    "ticker": "SNOW",
-    "type": "gap_down",
-    "label": "Gapped down more than 5% at the open",
-    "held": true,
-    "price": 306.08,
-    "day_pct": -7.32,
-    "n": 341,
-    "avg_pct": 2.05,
-    "down_pct": 46.9,
-    "edge_pct": 1.68,
-    "verdict": "positive"
-   },
-   {
-    "ticker": "AMD",
-    "type": "lost_50dma",
-    "label": "Closed below its 50-day average (was above yesterday)",
-    "held": true,
-    "price": 504.8,
-    "day_pct": -10.88,
-    "n": 1145,
-    "avg_pct": 0.19,
-    "down_pct": 50.0,
-    "edge_pct": -0.19,
-    "verdict": "neutral"
-   }
-  ],
+  "flags": [],
   "rank_trends": [
    {
     "ticker": "CRWD",
     "held": true,
-    "rank": 34,
+    "rank": 35,
     "rank_5d_ago": 29,
-    "change": -5,
+    "change": -6,
     "path": [
      47,
      46,
@@ -559,7 +506,7 @@
      18,
      25,
      32,
-     34
+     35
     ],
     "warning": true
    },
@@ -586,9 +533,9 @@
    {
     "ticker": "AMD",
     "held": true,
-    "rank": 65,
+    "rank": 66,
     "rank_5d_ago": 48,
-    "change": -17,
+    "change": -18,
     "path": [
      53,
      49,
@@ -599,7 +546,7 @@
      33,
      39,
      59,
-     65
+     66
     ],
     "warning": true
    },
@@ -2459,7 +2406,7 @@
    "t1_pct": 4.0,
    "t2_pct": 8.0,
    "hold_days": 60,
-   "sell_by": "reviewed 2026-11-09",
+   "sell_by": "reviewed 2026-11-10",
    "shares": 1.76,
    "dollars": 748.9,
    "risk_dollars": 59.91,
@@ -2484,7 +2431,7 @@
    "rsi": 76,
    "setup": "momentum",
    "kind": "new",
-   "fwd_pe": 28.456089,
+   "fwd_pe": 28.449333,
    "next_earnings": "2027-01-28",
    "entry": 658.1,
    "limit": 661.39,
@@ -2495,7 +2442,7 @@
    "t1_pct": 4.2,
    "t2_pct": 8.5,
    "hold_days": 60,
-   "sell_by": "reviewed 2026-11-09",
+   "sell_by": "reviewed 2026-11-10",
    "shares": 1.14,
    "dollars": 750.23,
    "risk_dollars": 60.02,
@@ -2520,10 +2467,18 @@
   },
   {
    "ticker": "COST",
-   "score": 90.9,
+   "score": 90.8,
    "price": 1040.55,
    "setup": "momentum",
    "rsi": 73,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "AAPL",
+   "score": 89.8,
+   "price": 338.32,
+   "setup": "momentum",
+   "rsi": 48,
    "action": "next in line if a holding drops out"
   },
   {
@@ -2536,18 +2491,10 @@
   },
   {
    "ticker": "WMT",
-   "score": 85.9,
+   "score": 86.0,
    "price": 127.69,
    "setup": "momentum",
    "rsi": 78,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "JPM",
-   "score": 84.9,
-   "price": 340.58,
-   "setup": "momentum",
-   "rsi": 54,
    "action": "next in line if a holding drops out"
   }
  ],
@@ -2567,9 +2514,9 @@
    "ticker": "KMI",
    "name": "Kinder Morgan, Inc.",
    "price": 32.71,
-   "rank": 25,
-   "ret63": 4.2,
-   "fwd_pe": 21.136225,
+   "rank": 22,
+   "ret63": 5.2,
+   "fwd_pe": 21.181803,
    "revenue_growth": 0.093
   },
   {
@@ -2578,7 +2525,7 @@
    "price": 33.42,
    "rank": 32,
    "ret63": -1.2,
-   "fwd_pe": 18.992952,
+   "fwd_pe": 19.256586,
    "revenue_growth": 0.231
   }
  ],
@@ -2608,8 +2555,8 @@
    "ret126": 30.8,
    "rsi": 76,
    "gate": "pass",
-   "fwd_pe": 28.456089,
-   "analyst_target": 701.9841
+   "fwd_pe": 28.449333,
+   "analyst_target": 706.0381
   },
   {
    "ticker": "PFE",
@@ -2622,7 +2569,7 @@
    "ret126": 20.6,
    "rsi": 68,
    "gate": "revenue growth 3% too weak",
-   "fwd_pe": 10.624146,
+   "fwd_pe": 10.624001,
    "analyst_target": 29.25962
   },
   {
@@ -2636,8 +2583,8 @@
    "ret126": 40.6,
    "rsi": 63,
    "gate": "pass",
-   "fwd_pe": 17.861141,
-   "analyst_target": 298.5
+   "fwd_pe": 17.849783,
+   "analyst_target": 305.57693
   },
   {
    "ticker": "CVX",
@@ -2650,8 +2597,8 @@
    "ret126": 20.6,
    "rsi": 59,
    "gate": "pass",
-   "fwd_pe": 14.034147,
-   "analyst_target": 234.08333
+   "fwd_pe": 14.321284,
+   "analyst_target": 241.66667
   },
   {
    "ticker": "COST",
@@ -2678,7 +2625,7 @@
    "ret126": 22.4,
    "rsi": 48,
    "gate": "pass",
-   "fwd_pe": 35.394196,
+   "fwd_pe": 31.606789,
    "analyst_target": 332.3858
   },
   {
@@ -2693,7 +2640,7 @@
    "rsi": 57,
    "gate": "pass",
    "fwd_pe": 14.955949,
-   "analyst_target": 179.7143
+   "analyst_target": 182.04762
   },
   {
    "ticker": "WMT",
@@ -2738,24 +2685,10 @@
    "analyst_target": 379.0
   },
   {
-   "ticker": "MSFT",
-   "name": "Microsoft Corporation",
-   "rank": 12,
-   "status": "#12",
-   "price": 507.12,
-   "ret21": -2.0,
-   "ret63": 3.1,
-   "ret126": 23.1,
-   "rsi": 40,
-   "gate": "pass",
-   "fwd_pe": 20.973286,
-   "analyst_target": 633.2829
-  },
-  {
    "ticker": "PYPL",
    "name": "PayPal Holdings, Inc.",
-   "rank": 13,
-   "status": "#13",
+   "rank": 12,
+   "status": "#12",
    "price": 58.78,
    "ret21": 11.3,
    "ret63": 0.7,
@@ -2766,24 +2699,24 @@
    "analyst_target": 57.10152
   },
   {
-   "ticker": "LLY",
-   "name": "Eli Lilly and Company",
-   "rank": 14,
-   "status": "#14",
-   "price": 1410.99,
-   "ret21": 23.5,
-   "ret63": 26.7,
-   "ret126": 46.2,
-   "rsi": 76,
+   "ticker": "MSFT",
+   "name": "Microsoft Corporation",
+   "rank": 13,
+   "status": "#13",
+   "price": 507.12,
+   "ret21": -2.0,
+   "ret63": 3.1,
+   "ret126": 23.1,
+   "rsi": 40,
    "gate": "pass",
-   "fwd_pe": 28.355759,
-   "analyst_target": 1421.0565
+   "fwd_pe": 20.973286,
+   "analyst_target": 633.1266
   },
   {
    "ticker": "SPY",
    "name": "State Street SPDR S&P 500 ETF T",
-   "rank": 15,
-   "status": "#15",
+   "rank": 14,
+   "status": "#14",
    "price": 752.1,
    "ret21": -2.3,
    "ret63": -2.3,
@@ -2796,8 +2729,8 @@
   {
    "ticker": "ABNB",
    "name": "Airbnb, Inc.",
-   "rank": 16,
-   "status": "#16",
+   "rank": 15,
+   "status": "#15",
    "price": 171.11,
    "ret21": 5.3,
    "ret63": 14.1,
@@ -2806,6 +2739,20 @@
    "gate": "pass",
    "fwd_pe": 27.557585,
    "analyst_target": 183.9545
+  },
+  {
+   "ticker": "LLY",
+   "name": "Eli Lilly and Company",
+   "rank": 16,
+   "status": "#16",
+   "price": 1410.99,
+   "ret21": 23.5,
+   "ret63": 26.7,
+   "ret126": 46.2,
+   "rsi": 76,
+   "gate": "pass",
+   "fwd_pe": 28.134003,
+   "analyst_target": 1426.9186
   },
   {
    "ticker": "VRTX",
@@ -2818,7 +2765,7 @@
    "ret126": 28.7,
    "rsi": 64,
    "gate": "pass",
-   "fwd_pe": 27.090366,
+   "fwd_pe": 27.119732,
    "analyst_target": 571.4643
   },
   {
@@ -2878,10 +2825,24 @@
    "analyst_target": 365.78708
   },
   {
-   "ticker": "SPOT",
-   "name": "Spotify Technology S.A.",
+   "ticker": "KMI",
+   "name": "Kinder Morgan, Inc.",
    "rank": 22,
    "status": "#22",
+   "price": 32.71,
+   "ret21": 6.2,
+   "ret63": 5.2,
+   "ret126": 2.6,
+   "rsi": 50,
+   "gate": "pass",
+   "fwd_pe": 21.181803,
+   "analyst_target": 37.54545
+  },
+  {
+   "ticker": "SPOT",
+   "name": "Spotify Technology S.A.",
+   "rank": 23,
+   "status": "#23",
    "price": 594.04,
    "ret21": 25.6,
    "ret63": 24.2,
@@ -2889,13 +2850,13 @@
    "rsi": 65,
    "gate": "pass",
    "fwd_pe": 34.70329,
-   "analyst_target": 643.617
+   "analyst_target": 643.90533
   },
   {
    "ticker": "IBM",
    "name": "International Business Machines",
-   "rank": 23,
-   "status": "#23",
+   "rank": 24,
+   "status": "#24",
    "price": 252.51,
    "ret21": 13.4,
    "ret63": 8.2,
@@ -2908,8 +2869,8 @@
   {
    "ticker": "CCL",
    "name": "Carnival Corporation Ltd.",
-   "rank": 24,
-   "status": "#24",
+   "rank": 25,
+   "status": "#25",
    "price": 30.05,
    "ret21": 16.7,
    "ret63": 2.1,
@@ -2918,20 +2879,6 @@
    "gate": "revenue growth 4% too weak",
    "fwd_pe": 11.671218,
    "analyst_target": 33.48889
-  },
-  {
-   "ticker": "KMI",
-   "name": "Kinder Morgan, Inc.",
-   "rank": 25,
-   "status": "#25",
-   "price": 32.71,
-   "ret21": 5.3,
-   "ret63": 4.2,
-   "ret126": 1.7,
-   "rsi": 48,
-   "gate": "pass",
-   "fwd_pe": 21.136225,
-   "analyst_target": 37.54545
   },
   {
    "ticker": "UNH",
@@ -2958,7 +2905,7 @@
    "ret126": -3.4,
    "rsi": 57,
    "gate": "pass",
-   "fwd_pe": 35.08404,
+   "fwd_pe": 35.037136,
    "analyst_target": 482.63333
   },
   {
@@ -3014,7 +2961,7 @@
    "ret126": 22.5,
    "rsi": 40,
    "gate": "pass",
-   "fwd_pe": 14.122807,
+   "fwd_pe": 14.115984,
    "analyst_target": 287.0836
   },
   {
@@ -3028,7 +2975,7 @@
    "ret126": 13.6,
    "rsi": 60,
    "gate": "pass",
-   "fwd_pe": 18.992952,
+   "fwd_pe": 19.256586,
    "analyst_target": 38.81481
   },
   {
@@ -3043,7 +2990,7 @@
    "rsi": 46,
    "gate": "pass",
    "fwd_pe": 150.14592,
-   "analyst_target": 247.25
+   "analyst_target": 248.45
   },
   {
    "ticker": "SHOP",
@@ -3098,7 +3045,7 @@
    "ret126": 22.1,
    "rsi": 38,
    "gate": "pass",
-   "fwd_pe": 75.87967,
+   "fwd_pe": 76.320984,
    "analyst_target": 212.50357
   },
   {
@@ -3141,13 +3088,27 @@
    "rsi": 51,
    "gate": "pass",
    "fwd_pe": 9.168054,
-   "analyst_target": 272.31375
+   "analyst_target": 268.30423
+  },
+  {
+   "ticker": "AMZN",
+   "name": "Amazon.com, Inc.",
+   "rank": 41,
+   "status": "#41",
+   "price": 245.63,
+   "ret21": -2.3,
+   "ret63": -11.5,
+   "ret126": -9.7,
+   "rsi": 44,
+   "gate": "pass",
+   "fwd_pe": 22.502865,
+   "analyst_target": 327.0762
   },
   {
    "ticker": "MU",
    "name": "Micron Technology, Inc.",
-   "rank": 41,
-   "status": "#41",
+   "rank": 42,
+   "status": "#42",
    "price": 833.59,
    "ret21": -22.4,
    "ret63": -6.6,
@@ -3160,8 +3121,8 @@
   {
    "ticker": "DASH",
    "name": "DoorDash, Inc.",
-   "rank": 42,
-   "status": "#42",
+   "rank": 43,
+   "status": "#43",
    "price": 190.07,
    "ret21": 0.5,
    "ret63": -6.1,
@@ -3170,20 +3131,6 @@
    "gate": "pass",
    "fwd_pe": 23.707691,
    "analyst_target": 251.234
-  },
-  {
-   "ticker": "AMZN",
-   "name": "Amazon.com, Inc.",
-   "rank": 43,
-   "status": "#43",
-   "price": 245.63,
-   "ret21": -2.3,
-   "ret63": -11.5,
-   "ret126": -9.7,
-   "rsi": 44,
-   "gate": "pass",
-   "fwd_pe": 22.502865,
-   "analyst_target": 327.09344
   },
   {
    "ticker": "AFRM",
@@ -3197,35 +3144,35 @@
    "rsi": 51,
    "gate": "pass",
    "fwd_pe": 14.669439,
-   "analyst_target": 97.84235
-  },
-  {
-   "ticker": "AMD",
-   "name": "Advanced Micro Devices, Inc.",
-   "rank": 45,
-   "status": "#45",
-   "price": 466.84,
-   "ret21": -26.4,
-   "ret63": -10.0,
-   "ret126": 36.7,
-   "rsi": 35,
-   "gate": "pass",
-   "fwd_pe": 29.158802,
-   "analyst_target": 645.82446
+   "analyst_target": 97.87176
   },
   {
    "ticker": "DELL",
    "name": "Dell Technologies Inc.",
-   "rank": 46,
-   "status": "#46",
+   "rank": 45,
+   "status": "#45",
    "price": 392.78,
    "ret21": -30.1,
    "ret63": -15.8,
    "ret126": 86.2,
    "rsi": 32,
    "gate": "pass",
-   "fwd_pe": 12.978795,
+   "fwd_pe": 12.96293,
    "analyst_target": 595.0
+  },
+  {
+   "ticker": "AMD",
+   "name": "Advanced Micro Devices, Inc.",
+   "rank": 46,
+   "status": "#46",
+   "price": 466.84,
+   "ret21": -26.4,
+   "ret63": -10.0,
+   "ret126": 36.7,
+   "rsi": 35,
+   "gate": "pass",
+   "fwd_pe": 29.051035,
+   "analyst_target": 646.74286
   },
   {
    "ticker": "DDOG",
@@ -3239,7 +3186,7 @@
    "rsi": 34,
    "gate": "pass",
    "fwd_pe": 72.42904,
-   "analyst_target": 295.12384
+   "analyst_target": 295.54935
   },
   {
    "ticker": "NET",
@@ -3267,7 +3214,7 @@
    "rsi": 35,
    "gate": "pass",
    "fwd_pe": 12.689115,
-   "analyst_target": 154.9641
+   "analyst_target": 154.23682
   },
   {
    "ticker": "ALAB",
@@ -3281,7 +3228,7 @@
    "rsi": 32,
    "gate": "pass",
    "fwd_pe": 35.324337,
-   "analyst_target": 382.6778
+   "analyst_target": 387.56723
   },
   {
    "ticker": "AMAT",
@@ -3295,7 +3242,7 @@
    "rsi": 33,
    "gate": "pass",
    "fwd_pe": 20.183279,
-   "analyst_target": 627.5405
+   "analyst_target": 626.86487
   },
   {
    "ticker": "ANET",
@@ -3351,7 +3298,7 @@
    "rsi": 36,
    "gate": "pass",
    "fwd_pe": 24.164175,
-   "analyst_target": 2146.8208
+   "analyst_target": 2147.7825
   },
   {
    "ticker": "AVGO",
@@ -3415,10 +3362,10 @@
    "rank": null,
    "status": "excluded: below 200-day average or illiquid",
    "price": 120.14,
-   "ret21": 7.5,
-   "ret63": -12.4,
-   "ret126": -1.4,
-   "rsi": 56,
+   "ret21": 8.5,
+   "ret63": -11.6,
+   "ret126": -0.5,
+   "rsi": 57,
    "gate": "pass",
    "fwd_pe": 16.282553,
    "analyst_target": 138.86365
@@ -3429,10 +3376,10 @@
    "rank": null,
    "status": "excluded: below 200-day average or illiquid",
    "price": 123.1,
-   "ret21": -4.2,
-   "ret63": -10.1,
-   "ret126": -1.5,
-   "rsi": 44,
+   "ret21": -3.7,
+   "ret63": -9.6,
+   "ret126": -1.0,
+   "rsi": 45,
    "gate": "pass",
    "fwd_pe": 9.415332,
    "analyst_target": 150.83333
@@ -3448,8 +3395,8 @@
    "ret126": -29.6,
    "rsi": 23,
    "gate": "pass",
-   "fwd_pe": 19.043882,
-   "analyst_target": 859.52924
+   "fwd_pe": 19.017649,
+   "analyst_target": 838.37537
   },
   {
    "ticker": "CAVA",
@@ -3476,7 +3423,7 @@
    "ret126": -19.6,
    "rsi": 44,
    "gate": "pass",
-   "fwd_pe": 19.185263,
+   "fwd_pe": 19.149729,
    "analyst_target": 339.2452
   },
   {
@@ -3533,7 +3480,7 @@
    "rsi": 30,
    "gate": "revenue growth -34% too weak",
    "fwd_pe": 55.76527,
-   "analyst_target": 203.62059
+   "analyst_target": 198.44412
   },
   {
    "ticker": "CPNG",
@@ -3602,7 +3549,7 @@
    "ret126": 12.1,
    "rsi": 56,
    "gate": "revenue growth -2% too weak",
-   "fwd_pe": 6.5963063,
+   "fwd_pe": 6.5944767,
    "analyst_target": 15.25222
   },
   {
@@ -3616,7 +3563,7 @@
    "ret126": 13.8,
    "rsi": 33,
    "gate": "pass",
-   "fwd_pe": 14.707016,
+   "fwd_pe": 14.711071,
    "analyst_target": 78.75
   },
   {
@@ -3631,7 +3578,7 @@
    "rsi": 24,
    "gate": "pass",
    "fwd_pe": 32.401917,
-   "analyst_target": 145.98611
+   "analyst_target": 145.95946
   },
   {
    "ticker": "GE",
@@ -3658,7 +3605,7 @@
    "ret126": -19.6,
    "rsi": 42,
    "gate": "pass",
-   "fwd_pe": 33.305832,
+   "fwd_pe": 33.2737,
    "analyst_target": 1188.9227
   },
   {
@@ -3672,8 +3619,8 @@
    "ret126": -27.1,
    "rsi": 21,
    "gate": "pass",
-   "fwd_pe": 18.377178,
-   "analyst_target": 406.54807
+   "fwd_pe": 18.068762,
+   "analyst_target": 402.7264
   },
   {
    "ticker": "GRAB",
@@ -3742,7 +3689,7 @@
    "ret126": -37.4,
    "rsi": 23,
    "gate": "pass",
-   "fwd_pe": 33.20175,
+   "fwd_pe": 33.297985,
    "analyst_target": 93.88372
   },
   {
@@ -3826,8 +3773,8 @@
    "ret126": 4.8,
    "rsi": 29,
    "gate": "pass",
-   "fwd_pe": 23.38989,
-   "analyst_target": 340.56198
+   "fwd_pe": 23.29627,
+   "analyst_target": 333.09097
   },
   {
    "ticker": "MS",
@@ -3905,9 +3852,9 @@
    "rank": null,
    "status": "excluded: below 200-day average or illiquid",
    "price": 94.62,
-   "ret21": -0.6,
-   "ret63": -19.2,
-   "ret126": -38.7,
+   "ret21": -0.1,
+   "ret63": -18.8,
+   "ret126": -38.4,
    "rsi": 41,
    "gate": "pass",
    "fwd_pe": 8.948203,
@@ -3953,7 +3900,7 @@
    "rsi": 57,
    "gate": "pass",
    "fwd_pe": 11.7602215,
-   "analyst_target": 45.10584
+   "analyst_target": 45.104286
   },
   {
    "ticker": "ON",
@@ -3981,7 +3928,7 @@
    "rsi": 64,
    "gate": "pass",
    "fwd_pe": 17.184172,
-   "analyst_target": 44.133373
+   "analyst_target": 44.115047
   },
   {
    "ticker": "ORCL",
@@ -3995,7 +3942,7 @@
    "rsi": 38,
    "gate": "pass",
    "fwd_pe": 10.764348,
-   "analyst_target": 235.55951
+   "analyst_target": 234.10103
   },
   {
    "ticker": "PINS",
@@ -4009,7 +3956,7 @@
    "rsi": 46,
    "gate": "pass",
    "fwd_pe": 8.91689,
-   "analyst_target": 25.61111
+   "analyst_target": 25.36111
   },
   {
    "ticker": "PWR",
@@ -4022,7 +3969,7 @@
    "ret126": -18.0,
    "rsi": 49,
    "gate": "pass",
-   "fwd_pe": 28.951168,
+   "fwd_pe": 28.9154,
    "analyst_target": 765.8683
   },
   {
@@ -4036,8 +3983,8 @@
    "ret126": -2.9,
    "rsi": 37,
    "gate": "pass",
-   "fwd_pe": 15.935816,
-   "analyst_target": 196.3
+   "fwd_pe": 15.952929,
+   "analyst_target": 195.96667
   },
   {
    "ticker": "RDDT",
@@ -4050,8 +3997,8 @@
    "ret126": -46.2,
    "rsi": 17,
    "gate": "pass",
-   "fwd_pe": 9.869356,
-   "analyst_target": 165.84666
+   "fwd_pe": 9.796731,
+   "analyst_target": 158.84666
   },
   {
    "ticker": "SMCI",
@@ -4135,7 +4082,7 @@
    "rsi": 43,
    "gate": "pass",
    "fwd_pe": 15.135152,
-   "analyst_target": 100.85522
+   "analyst_target": 100.76826
   },
   {
    "ticker": "VRT",
@@ -4148,7 +4095,7 @@
    "ret126": -32.2,
    "rsi": 48,
    "gate": "pass",
-   "fwd_pe": 23.016798,
+   "fwd_pe": 23.724005,
    "analyst_target": 339.07144
   },
   {
@@ -4162,7 +4109,7 @@
    "ret126": -16.1,
    "rsi": 39,
    "gate": "revenue growth -6% too weak",
-   "fwd_pe": 14.121965,
+   "fwd_pe": 14.025674,
    "analyst_target": 205.40909
   }
  ],
@@ -4208,14 +4155,14 @@
    "setup": "extended",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 28.456089,
+   "fwd_pe": 28.449333,
    "next_earnings": "2027-01-28",
    "range_lo": 686.0,
    "range_hi": 713.91,
    "range_lo_pct": 4.2,
    "range_hi_pct": 8.5,
-   "analyst_target": 701.98,
-   "analyst_upside": 6.7
+   "analyst_target": 706.04,
+   "analyst_upside": 7.3
   },
   {
    "rank": 3,
@@ -4230,7 +4177,7 @@
    "setup": "breakout",
    "triggered": true,
    "eligible": true,
-   "fwd_pe": 10.624146,
+   "fwd_pe": 10.624001,
    "next_earnings": "2026-11-03",
    "range_lo": 32.0,
    "range_hi": 33.32,
@@ -4252,14 +4199,14 @@
    "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 17.861141,
+   "fwd_pe": 17.849783,
    "next_earnings": null,
    "range_lo": 303.56,
    "range_hi": 318.28,
    "range_lo_pct": 5.1,
    "range_hi_pct": 10.2,
-   "analyst_target": 298.5,
-   "analyst_upside": 3.3
+   "analyst_target": 305.58,
+   "analyst_upside": 5.8
   },
   {
    "rank": 5,
@@ -4274,14 +4221,14 @@
    "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 14.034147,
+   "fwd_pe": 14.321284,
    "next_earnings": "2027-01-29",
    "range_lo": 238.57,
    "range_hi": 249.37,
    "range_lo_pct": 4.7,
    "range_hi_pct": 9.5,
-   "analyst_target": 234.08,
-   "analyst_upside": 2.8
+   "analyst_target": 241.67,
+   "analyst_upside": 6.1
   },
   {
    "rank": 6,
@@ -4318,8 +4265,8 @@
    "setup": "pullback",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 35.394196,
-   "next_earnings": "2026-11-02",
+   "fwd_pe": 31.606789,
+   "next_earnings": "2027-01-28",
    "range_lo": 354.01,
    "range_hi": 369.7,
    "range_lo_pct": 4.6,
@@ -4346,8 +4293,8 @@
    "range_hi": 198.57,
    "range_lo_pct": 5.3,
    "range_hi_pct": 10.5,
-   "analyst_target": 179.71,
-   "analyst_upside": 0.0
+   "analyst_target": 182.05,
+   "analyst_upside": 1.3
   },
   {
    "rank": 9,
@@ -4364,8 +4311,8 @@
    "eligible": true,
    "fwd_pe": 39.576004,
    "next_earnings": "2026-11-19",
-   "range_lo": 133.42,
-   "range_hi": 139.16,
+   "range_lo": 133.43,
+   "range_hi": 139.17,
    "range_lo_pct": 4.5,
    "range_hi_pct": 9.0,
    "analyst_target": 127.47,
@@ -4387,7 +4334,7 @@
    "fwd_pe": 13.317922,
    "next_earnings": "2027-01-14",
    "range_lo": 354.6,
-   "range_hi": 368.61,
+   "range_hi": 368.62,
    "range_lo_pct": 4.1,
    "range_hi_pct": 8.2,
    "analyst_target": 373.48,
@@ -4417,28 +4364,6 @@
   },
   {
    "rank": 12,
-   "ticker": "MSFT",
-   "name": "Microsoft Corporation",
-   "sector": "Tech",
-   "score": 58.5,
-   "price": 507.12,
-   "ret21": -2.0,
-   "ret63": 3.1,
-   "rsi": 40,
-   "setup": "none",
-   "triggered": false,
-   "eligible": true,
-   "fwd_pe": 20.973286,
-   "next_earnings": "2027-01-27",
-   "range_lo": 535.72,
-   "range_hi": 564.33,
-   "range_lo_pct": 5.6,
-   "range_hi_pct": 11.3,
-   "analyst_target": 633.28,
-   "analyst_upside": 24.9
-  },
-  {
-   "rank": 13,
    "ticker": "PYPL",
    "name": "PayPal Holdings, Inc.",
    "sector": "Financials",
@@ -4460,29 +4385,29 @@
    "analyst_upside": -2.9
   },
   {
-   "rank": 14,
-   "ticker": "LLY",
-   "name": "Eli Lilly and Company",
-   "sector": "Health",
-   "score": 77.7,
-   "price": 1410.99,
-   "ret21": 23.5,
-   "ret63": 26.7,
-   "rsi": 76,
-   "setup": "extended",
+   "rank": 13,
+   "ticker": "MSFT",
+   "name": "Microsoft Corporation",
+   "sector": "Tech",
+   "score": 58.5,
+   "price": 507.12,
+   "ret21": -2.0,
+   "ret63": 3.1,
+   "rsi": 40,
+   "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 28.355759,
-   "next_earnings": null,
-   "range_lo": 1509.81,
-   "range_hi": 1608.63,
-   "range_lo_pct": 7.0,
-   "range_hi_pct": 14.0,
-   "analyst_target": 1421.06,
-   "analyst_upside": 0.7
+   "fwd_pe": 20.973286,
+   "next_earnings": "2027-01-27",
+   "range_lo": 535.72,
+   "range_hi": 564.33,
+   "range_lo_pct": 5.6,
+   "range_hi_pct": 11.3,
+   "analyst_target": 633.13,
+   "analyst_upside": 24.8
   },
   {
-   "rank": 15,
+   "rank": 14,
    "ticker": "SPY",
    "name": "State Street SPDR S&P 500 ETF T",
    "sector": "ETF",
@@ -4504,7 +4429,7 @@
    "analyst_upside": null
   },
   {
-   "rank": 16,
+   "rank": 15,
    "ticker": "ABNB",
    "name": "Airbnb, Inc.",
    "sector": "ConsDisc",
@@ -4526,6 +4451,28 @@
    "analyst_upside": 7.5
   },
   {
+   "rank": 16,
+   "ticker": "LLY",
+   "name": "Eli Lilly and Company",
+   "sector": "Health",
+   "score": 77.7,
+   "price": 1410.99,
+   "ret21": 23.5,
+   "ret63": 26.7,
+   "rsi": 76,
+   "setup": "extended",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 28.134003,
+   "next_earnings": null,
+   "range_lo": 1510.62,
+   "range_hi": 1610.25,
+   "range_lo_pct": 7.1,
+   "range_hi_pct": 14.1,
+   "analyst_target": 1426.92,
+   "analyst_upside": 1.1
+  },
+  {
    "rank": 17,
    "ticker": "VRTX",
    "name": "Vertex Pharmaceuticals Incorpor",
@@ -4538,8 +4485,8 @@
    "setup": "breakout",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 27.090366,
-   "next_earnings": "2026-11-02",
+   "fwd_pe": 27.119732,
+   "next_earnings": null,
    "range_lo": 588.52,
    "range_hi": 623.89,
    "range_lo_pct": 6.4,
@@ -4637,6 +4584,28 @@
   },
   {
    "rank": 22,
+   "ticker": "KMI",
+   "name": "Kinder Morgan, Inc.",
+   "sector": "Energy",
+   "score": 72.8,
+   "price": 32.71,
+   "ret21": 6.2,
+   "ret63": 5.2,
+   "rsi": 50,
+   "setup": "pullback",
+   "triggered": false,
+   "eligible": true,
+   "fwd_pe": 21.181803,
+   "next_earnings": "2027-01-27",
+   "range_lo": 34.53,
+   "range_hi": 36.34,
+   "range_lo_pct": 5.6,
+   "range_hi_pct": 11.1,
+   "analyst_target": 37.55,
+   "analyst_upside": 14.8
+  },
+  {
+   "rank": 23,
    "ticker": "SPOT",
    "name": "Spotify Technology S.A.",
    "sector": "Comm",
@@ -4654,11 +4623,11 @@
    "range_hi": 691.83,
    "range_lo_pct": 8.2,
    "range_hi_pct": 16.5,
-   "analyst_target": 643.62,
-   "analyst_upside": 8.3
+   "analyst_target": 643.91,
+   "analyst_upside": 8.4
   },
   {
-   "rank": 23,
+   "rank": 24,
    "ticker": "IBM",
    "name": "International Business Machines",
    "sector": "Tech",
@@ -4680,7 +4649,7 @@
    "analyst_upside": 2.7
   },
   {
-   "rank": 24,
+   "rank": 25,
    "ticker": "CCL",
    "name": "Carnival Corporation Ltd.",
    "sector": "ConsDisc",
@@ -4696,32 +4665,10 @@
    "next_earnings": "2026-12-18",
    "range_lo": 32.23,
    "range_hi": 34.41,
-   "range_lo_pct": 7.2,
+   "range_lo_pct": 7.3,
    "range_hi_pct": 14.5,
    "analyst_target": 33.49,
    "analyst_upside": 11.4
-  },
-  {
-   "rank": 25,
-   "ticker": "KMI",
-   "name": "Kinder Morgan, Inc.",
-   "sector": "Energy",
-   "score": 72.0,
-   "price": 32.71,
-   "ret21": 5.3,
-   "ret63": 4.2,
-   "rsi": 48,
-   "setup": "pullback",
-   "triggered": false,
-   "eligible": true,
-   "fwd_pe": 21.136225,
-   "next_earnings": "2027-01-27",
-   "range_lo": 34.59,
-   "range_hi": 36.47,
-   "range_lo_pct": 5.7,
-   "range_hi_pct": 11.5,
-   "analyst_target": 37.55,
-   "analyst_upside": 14.8
   },
   {
    "rank": 26,
@@ -4758,7 +4705,7 @@
    "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 35.08404,
+   "fwd_pe": 35.037136,
    "next_earnings": "2027-01-21",
    "range_lo": 466.17,
    "range_hi": 495.47,
@@ -4816,7 +4763,7 @@
    "ticker": "QQQ",
    "name": "Invesco QQQ Trust, Series 1",
    "sector": "ETF",
-   "score": 40.5,
+   "score": 40.2,
    "price": 681.09,
    "ret21": -9.1,
    "ret63": -5.8,
@@ -4846,7 +4793,7 @@
    "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 14.122807,
+   "fwd_pe": 14.115984,
    "next_earnings": "2026-12-02",
    "range_lo": 246.08,
    "range_hi": 265.99,
@@ -4868,7 +4815,7 @@
    "setup": "breakout",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 18.992952,
+   "fwd_pe": 19.256586,
    "next_earnings": "2026-11-03",
    "range_lo": 36.24,
    "range_hi": 39.07,
@@ -4896,8 +4843,8 @@
    "range_hi": 301.08,
    "range_lo_pct": 12.3,
    "range_hi_pct": 24.5,
-   "analyst_target": 247.25,
-   "analyst_upside": 2.2
+   "analyst_target": 248.45,
+   "analyst_upside": 2.7
   },
   {
    "rank": 34,
@@ -4936,8 +4883,8 @@
    "eligible": true,
    "fwd_pe": 72.08751,
    "next_earnings": "2026-11-19",
-   "range_lo": 395.25,
-   "range_hi": 438.77,
+   "range_lo": 395.26,
+   "range_hi": 438.81,
    "range_lo_pct": 12.4,
    "range_hi_pct": 24.8,
    "analyst_target": 398.52,
@@ -4978,8 +4925,8 @@
    "setup": "none",
    "triggered": false,
    "eligible": true,
-   "fwd_pe": 75.87967,
-   "next_earnings": "2026-11-02",
+   "fwd_pe": 76.320984,
+   "next_earnings": "2027-02-01",
    "range_lo": 197.04,
    "range_hi": 215.74,
    "range_lo_pct": 10.5,
@@ -5002,10 +4949,10 @@
    "eligible": true,
    "fwd_pe": 39.800312,
    "next_earnings": "2026-11-24",
-   "range_lo": 252.5,
-   "range_hi": 281.21,
-   "range_lo_pct": 12.8,
-   "range_hi_pct": 25.7,
+   "range_lo": 252.66,
+   "range_hi": 281.54,
+   "range_lo_pct": 12.9,
+   "range_hi_pct": 25.8,
    "analyst_target": 235.19,
    "analyst_upside": 5.1
   },
@@ -5050,8 +4997,8 @@
    "range_hi": 291.04,
    "range_lo_pct": 7.9,
    "range_hi_pct": 15.7,
-   "analyst_target": 272.31,
-   "analyst_upside": 8.3
+   "analyst_target": 268.3,
+   "analyst_upside": 6.7
   }
  ],
  "learned": [
@@ -5064,19 +5011,19 @@
   {
    "factor": "Low volatility",
    "key": "low_vol",
-   "weight": 47.7,
+   "weight": 47.6,
    "recent_ic": 0.088
   },
   {
    "factor": "Closeness to 52-week high",
    "key": "near_high",
-   "weight": 1.3,
-   "recent_ic": 0.002
+   "weight": 1.4,
+   "recent_ic": 0.003
   },
   {
    "factor": "Volume surge",
    "key": "volume_surge",
-   "weight": 1.0,
+   "weight": 1.1,
    "recent_ic": 0.002
   },
   {
@@ -5107,7 +5054,7 @@
    "factor": "Short-term dip (5-day loser)",
    "key": "reversal_5",
    "weight": 0.0,
-   "recent_ic": -0.024
+   "recent_ic": -0.025
   }
  ]
 }

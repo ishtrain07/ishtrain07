@@ -1,8 +1,8 @@
 {
  "AAPL": {
   "name": "Apple Inc.",
-  "forward_pe": 35.394196,
-  "trailing_pe": 38.798164,
+  "forward_pe": 31.606789,
+  "trailing_pe": 37.674835,
   "revenue_growth": 0.164,
   "earnings_growth": 0.287,
   "profit_margin": 0.27618998,
@@ -10,7 +10,7 @@
   "target_mean": 332.3858,
   "recommendation": "buy",
   "quote_type": "EQUITY",
-  "next_earnings": "2026-11-02"
+  "next_earnings": "2027-01-28"
  },
  "MSFT": {
   "name": "Microsoft Corporation",
@@ -20,7 +20,7 @@
   "earnings_growth": 0.323,
   "profit_margin": 0.41169998,
   "market_cap": 3765971714048,
-  "target_mean": 633.2829,
+  "target_mean": 633.1266,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": "2027-01-27"
@@ -46,20 +46,20 @@
   "earnings_growth": -0.031,
   "profit_margin": 0.16900998,
   "market_cap": 2656031211520,
-  "target_mean": 327.09344,
+  "target_mean": 327.0762,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": null
  },
  "GOOGL": {
   "name": "Alphabet Inc.",
-  "forward_pe": 18.377178,
+  "forward_pe": 18.068762,
   "trailing_pe": 14.568668,
   "revenue_growth": 0.247,
   "earnings_growth": -0.253,
   "profit_margin": 0.50031,
   "market_cap": 3429902843904,
-  "target_mean": 406.54807,
+  "target_mean": 402.7264,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": null
@@ -98,14 +98,14 @@
   "earnings_growth": 0.545,
   "profit_margin": 0.2636,
   "market_cap": 361415573504,
-  "target_mean": 235.55951,
+  "target_mean": 234.10103,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-12-14"
  },
  "CRM": {
   "name": "Salesforce, Inc.",
-  "forward_pe": 14.122807,
+  "forward_pe": 14.115984,
   "trailing_pe": 20.693502,
   "revenue_growth": 0.108,
   "earnings_growth": 1.189,
@@ -124,7 +124,7 @@
   "earnings_growth": 0.105,
   "profit_margin": 0.28048,
   "market_cap": 97872125952,
-  "target_mean": 272.31375,
+  "target_mean": 268.30423,
   "recommendation": "hold",
   "quote_type": "EQUITY",
   "next_earnings": "2026-12-09"
@@ -157,7 +157,7 @@
  },
  "PLTR": {
   "name": "Palantir Technologies Inc.",
-  "forward_pe": 75.87967,
+  "forward_pe": 76.320984,
   "trailing_pe": 153.74138,
   "revenue_growth": 0.928,
   "earnings_growth": 2.154,
@@ -166,7 +166,7 @@
   "target_mean": 212.50357,
   "recommendation": "buy",
   "quote_type": "EQUITY",
-  "next_earnings": "2026-11-02"
+  "next_earnings": "2027-02-01"
  },
  "SHOP": {
   "name": "Shopify Inc.",
@@ -175,7 +175,7 @@
   "revenue_growth": 0.337,
   "earnings_growth": 0.681,
   "profit_margin": 0.1453,
-  "market_cap": 202719608832,
+  "market_cap": 200999518208,
   "target_mean": 176.875,
   "recommendation": "buy",
   "quote_type": "EQUITY",
@@ -184,12 +184,12 @@
  "CRWD": {
   "name": "CrowdStrike Holdings, Inc.",
   "forward_pe": 150.14592,
-  "trailing_pe": 4030.1667,
+  "trailing_pe": 4836.1997,
   "revenue_growth": 0.258,
   "earnings_growth": null,
   "profit_margin": 0.00834,
   "market_cap": 247597678592,
-  "target_mean": 247.25,
+  "target_mean": 248.45,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-12-01"
@@ -241,7 +241,7 @@
   "earnings_growth": 14.985,
   "profit_margin": 0.044770002,
   "market_cap": 77596114944,
-  "target_mean": 295.12384,
+  "target_mean": 295.54935,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-04"
@@ -279,7 +279,7 @@
   "revenue_growth": 0.528,
   "earnings_growth": 0.57,
   "profit_margin": 0.64575994,
-  "market_cap": 76879757312,
+  "market_cap": 76584771584,
   "target_mean": 448.4326,
   "recommendation": "buy",
   "quote_type": "EQUITY",
@@ -300,7 +300,7 @@
  },
  "DELL": {
   "name": "Dell Technologies Inc.",
-  "forward_pe": 12.978795,
+  "forward_pe": 12.96293,
   "trailing_pe": 22.836046,
   "revenue_growth": 0.577,
   "earnings_growth": 2.729,
@@ -314,12 +314,12 @@
  "FTNT": {
   "name": "Fortinet, Inc.",
   "forward_pe": 32.401917,
-  "trailing_pe": 41.2451,
+  "trailing_pe": 44.440144,
   "revenue_growth": 0.205,
   "earnings_growth": 0.387,
   "profit_margin": 0.28959998,
   "market_cap": 92727721984,
-  "target_mean": 145.98611,
+  "target_mean": 145.95946,
   "recommendation": "hold",
   "quote_type": "EQUITY",
   "next_earnings": null
@@ -331,7 +331,7 @@
   "revenue_growth": 0.305,
   "earnings_growth": null,
   "profit_margin": 0.02116,
-  "market_cap": 26577121280,
+  "market_cap": 26618232832,
   "target_mean": 452.50278,
   "recommendation": "buy",
   "quote_type": "EQUITY",
@@ -345,7 +345,7 @@
   "earnings_growth": -0.268,
   "profit_margin": 0.09507,
   "market_cap": 12458792960,
-  "target_mean": 154.9641,
+  "target_mean": 154.23682,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-05"
@@ -365,13 +365,13 @@
  },
  "AMD": {
   "name": "Advanced Micro Devices, Inc.",
-  "forward_pe": 29.158802,
+  "forward_pe": 29.051035,
   "trailing_pe": 119.091835,
   "revenue_growth": 0.501,
   "earnings_growth": 1.595,
   "profit_margin": 0.15577,
   "market_cap": 762104643584,
-  "target_mean": 645.82446,
+  "target_mean": 646.74286,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-03"
@@ -404,13 +404,13 @@
  },
  "QCOM": {
   "name": "QUALCOMM Incorporated",
-  "forward_pe": 15.935816,
+  "forward_pe": 15.952929,
   "trailing_pe": 18.759258,
   "revenue_growth": -0.04,
   "earnings_growth": -0.23,
   "profit_margin": 0.21013,
   "market_cap": 173075431424,
-  "target_mean": 196.3,
+  "target_mean": 195.96667,
   "recommendation": "hold",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-04"
@@ -449,7 +449,7 @@
   "earnings_growth": 0.428,
   "profit_margin": 0.30052,
   "market_cap": 297226043392,
-  "target_mean": 627.5405,
+  "target_mean": 626.86487,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-12"
@@ -469,13 +469,13 @@
  },
  "MRVL": {
   "name": "Marvell Technology, Inc.",
-  "forward_pe": 23.38989,
+  "forward_pe": 23.29627,
   "trailing_pe": 56.38487,
   "revenue_growth": 0.365,
   "earnings_growth": 0.5,
   "profit_margin": 0.27934998,
-  "market_cap": 154046971904,
-  "target_mean": 340.56198,
+  "market_cap": 154228867072,
+  "target_mean": 333.09097,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-12-01"
@@ -488,7 +488,7 @@
   "earnings_growth": 1.359,
   "profit_margin": 0.34135,
   "market_cap": 588201394176,
-  "target_mean": 2146.8208,
+  "target_mean": 2147.7825,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": "2027-01-27"
@@ -514,7 +514,7 @@
   "earnings_growth": 0.855,
   "profit_margin": 0.17345,
   "market_cap": 136259182592,
-  "target_mean": 100.85522,
+  "target_mean": 100.76826,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-04"
@@ -526,21 +526,21 @@
   "revenue_growth": 0.163,
   "earnings_growth": -0.245,
   "profit_margin": 0.15726,
-  "market_cap": 122125238272,
-  "target_mean": 643.617,
+  "market_cap": 122146537472,
+  "target_mean": 643.90533,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": null
  },
  "RDDT": {
   "name": "Reddit, Inc.",
-  "forward_pe": 9.869356,
+  "forward_pe": 9.796731,
   "trailing_pe": 18.565306,
   "revenue_growth": 0.53,
   "earnings_growth": 0.749,
   "profit_margin": 0.32105,
   "market_cap": 17565736960,
-  "target_mean": 165.84666,
+  "target_mean": 158.84666,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": null
@@ -578,7 +578,7 @@
   "revenue_growth": 0.059,
   "earnings_growth": -0.091,
   "profit_margin": 0.03,
-  "market_cap": 1016167137280,
+  "market_cap": 1013060075520,
   "target_mean": 127.475,
   "recommendation": "buy",
   "quote_type": "EQUITY",
@@ -631,7 +631,7 @@
   "earnings_growth": null,
   "profit_margin": 0.12303001,
   "market_cap": 11871305728,
-  "target_mean": 44.133373,
+  "target_mean": 44.115047,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-10"
@@ -682,7 +682,7 @@
   "revenue_growth": 0.081,
   "earnings_growth": 1.3,
   "profit_margin": 0.25527,
-  "market_cap": 115524747264,
+  "market_cap": 119137566720,
   "target_mean": 232.7143,
   "recommendation": "buy",
   "quote_type": "EQUITY",
@@ -742,13 +742,13 @@
  },
  "MA": {
   "name": "Mastercard Incorporated",
-  "forward_pe": 28.456089,
+  "forward_pe": 28.449333,
   "trailing_pe": 34.437466,
   "revenue_growth": 0.14,
   "earnings_growth": 0.217,
   "profit_margin": 0.46732,
   "market_cap": 573320986624,
-  "target_mean": 701.9841,
+  "target_mean": 706.0381,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": "2027-01-28"
@@ -774,7 +774,7 @@
   "earnings_growth": 0.674,
   "profit_margin": -0.12894,
   "market_cap": 36492341248,
-  "target_mean": 203.62059,
+  "target_mean": 198.44412,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": null
@@ -821,7 +821,7 @@
  "BX": {
   "name": "Blackstone Inc.",
   "forward_pe": 16.282553,
-  "trailing_pe": 26.75724,
+  "trailing_pe": 26.404394,
   "revenue_growth": -0.005,
   "earnings_growth": 0.037,
   "profit_margin": 0.22993,
@@ -833,20 +833,20 @@
  },
  "LLY": {
   "name": "Eli Lilly and Company",
-  "forward_pe": 28.355759,
+  "forward_pe": 28.134003,
   "trailing_pe": 45.796494,
   "revenue_growth": 0.386,
   "earnings_growth": 0.163,
   "profit_margin": 0.31898,
   "market_cap": 1256832368640,
-  "target_mean": 1421.0565,
+  "target_mean": 1426.9186,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": null
  },
  "ISRG": {
   "name": "Intuitive Surgical, Inc.",
-  "forward_pe": 35.08404,
+  "forward_pe": 35.037136,
   "trailing_pe": 52.825874,
   "revenue_growth": 0.217,
   "earnings_growth": -0.236,
@@ -872,29 +872,29 @@
  },
  "ABBV": {
   "name": "AbbVie Inc.",
-  "forward_pe": 17.861141,
+  "forward_pe": 17.849783,
   "trailing_pe": 49.628864,
   "revenue_growth": 0.103,
   "earnings_growth": 22.821,
   "profit_margin": 0.15666,
   "market_cap": 510414159872,
-  "target_mean": 298.5,
+  "target_mean": 305.57693,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": null
  },
  "VRTX": {
   "name": "Vertex Pharmaceuticals Incorpor",
-  "forward_pe": 27.090366,
+  "forward_pe": 27.119732,
   "trailing_pe": 32.216076,
   "revenue_growth": 0.125,
   "earnings_growth": 0.08,
   "profit_margin": 0.34997,
-  "market_cap": 140201918464,
+  "market_cap": 140112904192,
   "target_mean": 571.4643,
   "recommendation": "buy",
   "quote_type": "EQUITY",
-  "next_earnings": "2026-11-02"
+  "next_earnings": null
  },
  "HIMS": {
   "name": "Hims & Hers Health, Inc.",
@@ -924,7 +924,7 @@
  },
  "GEV": {
   "name": "GE Vernova Inc.",
-  "forward_pe": 33.305832,
+  "forward_pe": 33.2737,
   "trailing_pe": 22.637175,
   "revenue_growth": 0.268,
   "earnings_growth": 1.933,
@@ -937,20 +937,20 @@
  },
  "CAT": {
   "name": "Caterpillar, Inc.",
-  "forward_pe": 19.043882,
+  "forward_pe": 19.017649,
   "trailing_pe": 24.082418,
   "revenue_growth": 0.173,
   "earnings_growth": 0.461,
   "profit_margin": 0.15212,
   "market_cap": 282065698816,
-  "target_mean": 859.52924,
+  "target_mean": 838.37537,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2027-01-28"
  },
  "VRT": {
   "name": "Vertiv Holdings, LLC",
-  "forward_pe": 23.016798,
+  "forward_pe": 23.724005,
   "trailing_pe": 41.91402,
   "revenue_growth": 0.612,
   "earnings_growth": 0.912,
@@ -981,7 +981,7 @@
   "revenue_growth": 0.214,
   "earnings_growth": -0.159,
   "profit_margin": 0.12752,
-  "market_cap": 142181597184,
+  "market_cap": 142144978944,
   "target_mean": 485.47192,
   "recommendation": "buy",
   "quote_type": "EQUITY",
@@ -1002,7 +1002,7 @@
  },
  "PWR": {
   "name": "Quanta Services, Inc.",
-  "forward_pe": 28.951168,
+  "forward_pe": 28.9154,
   "trailing_pe": 56.21538,
   "revenue_growth": 0.574,
   "earnings_growth": 1.031,
@@ -1015,7 +1015,7 @@
  },
  "CEG": {
   "name": "Constellation Energy Corporatio",
-  "forward_pe": 19.185263,
+  "forward_pe": 19.149729,
   "trailing_pe": 25.14663,
   "revenue_growth": 0.23,
   "earnings_growth": -0.468,
@@ -1028,7 +1028,7 @@
  },
  "VST": {
   "name": "Vistra Corp.",
-  "forward_pe": 14.121965,
+  "forward_pe": 14.025674,
   "trailing_pe": 22.699833,
   "revenue_growth": -0.055,
   "earnings_growth": -0.062,
@@ -1060,27 +1060,27 @@
   "earnings_growth": 1.114,
   "profit_margin": 0.10463,
   "market_cap": 732873949184,
-  "target_mean": 179.7143,
+  "target_mean": 182.04762,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2027-01-29"
  },
  "CVX": {
   "name": "Chevron Corporation",
-  "forward_pe": 14.034147,
+  "forward_pe": 14.321284,
   "trailing_pe": 16.723202,
   "revenue_growth": 0.348,
   "earnings_growth": 1.78,
   "profit_margin": 0.11919,
   "market_cap": 444379299840,
-  "target_mean": 234.08333,
+  "target_mean": 241.66667,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2027-01-29"
  },
  "FCX": {
   "name": "Freeport-McMoRan, Inc.",
-  "forward_pe": 14.707016,
+  "forward_pe": 14.711071,
   "trailing_pe": 26.457983,
   "revenue_growth": 0.082,
   "earnings_growth": 0.761,
@@ -1093,7 +1093,7 @@
  },
  "INTC": {
   "name": "Intel Corporation",
-  "forward_pe": 33.20175,
+  "forward_pe": 33.297985,
   "trailing_pe": null,
   "revenue_growth": 0.209,
   "earnings_growth": -0.327,
@@ -1119,7 +1119,7 @@
  },
  "F": {
   "name": "Ford Motor Company",
-  "forward_pe": 6.5963063,
+  "forward_pe": 6.5944767,
   "trailing_pe": null,
   "revenue_growth": -0.02,
   "earnings_growth": -0.167,
@@ -1197,7 +1197,7 @@
  },
  "PFE": {
   "name": "Pfizer, Inc.",
-  "forward_pe": 10.624146,
+  "forward_pe": 10.624001,
   "trailing_pe": 40.355263,
   "revenue_growth": 0.026,
   "earnings_growth": null,
@@ -1210,7 +1210,7 @@
  },
  "KMI": {
   "name": "Kinder Morgan, Inc.",
-  "forward_pe": 21.136225,
+  "forward_pe": 21.181803,
   "trailing_pe": 20.191357,
   "revenue_growth": 0.093,
   "earnings_growth": 0.216,
@@ -1255,7 +1255,7 @@
   "earnings_growth": 21.869,
   "profit_margin": 0.45289,
   "market_cap": 24827455488,
-  "target_mean": 97.84235,
+  "target_mean": 97.87176,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-05"
@@ -1267,7 +1267,7 @@
   "revenue_growth": 0.932,
   "earnings_growth": 4.347,
   "profit_margin": 0.0571,
-  "market_cap": 19998025728,
+  "market_cap": 19690815488,
   "target_mean": 43.26667,
   "recommendation": "hold",
   "quote_type": "EQUITY",
@@ -1294,7 +1294,7 @@
   "earnings_growth": 1.862,
   "profit_margin": 0.30742002,
   "market_cap": 39844323328,
-  "target_mean": 382.6778,
+  "target_mean": 387.56723,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-03"
@@ -1315,11 +1315,11 @@
  "NBIS": {
   "name": "Nebius Group N.V.",
   "forward_pe": -39.298687,
-  "trailing_pe": 110.46094,
+  "trailing_pe": 120.84616,
   "revenue_growth": 4.54,
   "earnings_growth": null,
   "profit_margin": 0.03129,
-  "market_cap": 38437609472,
+  "market_cap": 35898667008,
   "target_mean": 281.0,
   "recommendation": "buy",
   "quote_type": "EQUITY",
@@ -1336,7 +1336,7 @@
   "target_mean": 5.49,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
-  "next_earnings": "2026-11-02"
+  "next_earnings": null
  },
  "PINS": {
   "name": "Pinterest, Inc.",
@@ -1346,7 +1346,7 @@
   "earnings_growth": -0.708,
   "profit_margin": 0.0381,
   "market_cap": 11647943680,
-  "target_mean": 25.61111,
+  "target_mean": 25.36111,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": null
@@ -1358,7 +1358,7 @@
   "revenue_growth": 0.039,
   "earnings_growth": null,
   "profit_margin": -0.02163,
-  "market_cap": 26423420928,
+  "market_cap": 26387443712,
   "target_mean": 23.33889,
   "recommendation": "buy",
   "quote_type": "EQUITY",
@@ -1366,7 +1366,7 @@
  },
  "TOST": {
   "name": "Toast, Inc.",
-  "forward_pe": 18.992952,
+  "forward_pe": 19.256586,
   "trailing_pe": 42.303795,
   "revenue_growth": 0.231,
   "earnings_growth": 1.0,
@@ -1398,7 +1398,7 @@
   "earnings_growth": -0.206,
   "profit_margin": 0.35347,
   "market_cap": 178412208128,
-  "target_mean": 45.10584,
+  "target_mean": 45.104286,
   "recommendation": "hold",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-04"
@@ -1414,7 +1414,7 @@
   "target_mean": 101.16,
   "recommendation": "buy",
   "quote_type": "EQUITY",
-  "next_earnings": "2026-11-02"
+  "next_earnings": null
  },
  "QQQ": {
   "name": "Invesco QQQ Trust, Series 1",
