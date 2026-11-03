@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02 18:59 ET (position check)",
+ "generated_at": "2026-11-02 20:41 ET (position check)",
  "date": "2026-11-02",
  "mode": "plan",
  "regime": {
@@ -482,13 +482,66 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -2.5,
+  "spy_return_pct": -2.03,
   "base": 771.35,
-  "last": 752.1,
+  "last": 755.72,
   "since": "2026-09-28"
  },
  "anomalies": {
-  "flags": [],
+  "flags": [
+   {
+    "ticker": "AMD",
+    "type": "big_drop",
+    "label": "Unusually large one-day drop (>3x its normal daily move)",
+    "held": true,
+    "price": 504.8,
+    "day_pct": -10.88,
+    "n": 177,
+    "avg_pct": 1.33,
+    "down_pct": 46.3,
+    "edge_pct": 0.96,
+    "verdict": "positive"
+   },
+   {
+    "ticker": "AMD",
+    "type": "gap_down",
+    "label": "Gapped down more than 5% at the open",
+    "held": true,
+    "price": 504.8,
+    "day_pct": -10.88,
+    "n": 341,
+    "avg_pct": 2.05,
+    "down_pct": 46.9,
+    "edge_pct": 1.68,
+    "verdict": "positive"
+   },
+   {
+    "ticker": "SNOW",
+    "type": "gap_down",
+    "label": "Gapped down more than 5% at the open",
+    "held": true,
+    "price": 306.08,
+    "day_pct": -7.32,
+    "n": 341,
+    "avg_pct": 2.05,
+    "down_pct": 46.9,
+    "edge_pct": 1.68,
+    "verdict": "positive"
+   },
+   {
+    "ticker": "AMD",
+    "type": "lost_50dma",
+    "label": "Closed below its 50-day average (was above yesterday)",
+    "held": true,
+    "price": 504.8,
+    "day_pct": -10.88,
+    "n": 1145,
+    "avg_pct": 0.19,
+    "down_pct": 50.0,
+    "edge_pct": -0.19,
+    "verdict": "neutral"
+   }
+  ],
   "rank_trends": [
    {
     "ticker": "CRWD",
