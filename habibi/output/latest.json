@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04 15:28 ET (position check)",
+ "generated_at": "2026-11-04 16:26 ET (position check)",
  "date": "2026-11-04",
  "mode": "plan",
  "regime": {
@@ -170,9 +170,9 @@
  "account": {
   "cash": 1614.5,
   "realized": 0.0,
-  "unrealized": -100.44,
-  "market_value": 785.06,
-  "equity": 2399.56,
+  "unrealized": -100.38,
+  "market_value": 785.12,
+  "equity": 2399.62,
   "return_pct": -4.02
  },
  "drawdown_state": "OK",
@@ -200,10 +200,10 @@
      "shares": 0.6059
     }
    ],
-   "price": 290.54,
-   "value": 176.04,
-   "pnl": -24.01,
-   "pnl_pct": -12.0,
+   "price": 290.5,
+   "value": 176.01,
+   "pnl": -24.04,
+   "pnl_pct": -12.02,
    "days_held": 26,
    "active_stop": 303.76,
    "action": "SELL ALL",
@@ -231,10 +231,10 @@
      "shares": 1.1075
     }
    ],
-   "price": 244.45,
-   "value": 270.72,
-   "pnl": -31.43,
-   "pnl_pct": -10.4,
+   "price": 241.0,
+   "value": 266.91,
+   "pnl": -35.24,
+   "pnl_pct": -11.66,
    "days_held": 18,
    "active_stop": 250.99,
    "action": "SELL ALL",
@@ -262,10 +262,10 @@
      "shares": 0.7
     }
    ],
-   "price": 483.28,
-   "value": 338.3,
-   "pnl": -45.0,
-   "pnl_pct": -11.74,
+   "price": 488.85,
+   "value": 342.2,
+   "pnl": -41.1,
+   "pnl_pct": -10.72,
    "days_held": 14,
    "active_stop": 525.15,
    "action": "SELL ALL",
@@ -278,21 +278,21 @@
    "ticker": "SNOW",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 303.76",
-   "price": 290.54,
+   "price": 290.5,
    "shares": 0.6059
   },
   {
    "ticker": "CRWD",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 250.99",
-   "price": 244.45,
+   "price": 241.0,
    "shares": 1.1075
   },
   {
    "ticker": "AMD",
    "action": "SELL ALL",
    "why": "hit the 8% stop at 525.15",
-   "price": 483.28,
+   "price": 488.85,
    "shares": 0.7
   }
  ],
@@ -304,10 +304,10 @@
   "account": {
    "cash": 108.22,
    "realized": -248.78,
-   "unrealized": 139.27,
-   "market_value": 2482.26,
-   "equity": 2590.48,
-   "return_pct": -4.06
+   "unrealized": 149.43,
+   "market_value": 2492.41,
+   "equity": 2600.63,
+   "return_pct": -3.68
   },
   "record": {
    "trades": 6,
@@ -341,14 +341,14 @@
       "shares": 1.93
      }
     ],
-    "price": 434.45,
-    "value": 838.5,
-    "pnl": 57.58,
-    "pnl_pct": 7.37,
+    "price": 436.66,
+    "value": 842.75,
+    "pnl": 61.84,
+    "pnl_pct": 7.92,
     "days_held": 12,
     "active_stop": 372.25,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 372.25 (-14.3%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 372.25 (-14.8%)"
    },
    {
     "ticker": "MA",
@@ -372,14 +372,14 @@
       "shares": 1.26
      }
     ],
-    "price": 671.43,
-    "value": 846.01,
-    "pnl": 64.17,
-    "pnl_pct": 8.21,
+    "price": 672.69,
+    "value": 847.59,
+    "pnl": 65.75,
+    "pnl_pct": 8.41,
     "days_held": 12,
     "active_stop": 570.87,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 570.87 (-15.0%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 570.87 (-15.1%)"
    },
    {
     "ticker": "ABBV",
@@ -403,14 +403,14 @@
       "shares": 2.72
      }
     ],
-    "price": 293.29,
-    "value": 797.75,
-    "pnl": 17.52,
-    "pnl_pct": 2.25,
+    "price": 294.88,
+    "value": 802.07,
+    "pnl": 21.84,
+    "pnl_pct": 2.8,
     "days_held": 12,
     "active_stop": 263.9,
     "action": "HOLD",
-    "why": "held while it stays top-5; reviewed every Monday; stop 263.90 (-10.0%)"
+    "why": "held while it stays top-5; reviewed every Monday; stop 263.90 (-10.5%)"
    }
   ],
   "closed": [
@@ -482,13 +482,27 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -0.46,
+  "spy_return_pct": -0.59,
   "base": 771.35,
-  "last": 767.78,
+  "last": 766.82,
   "since": "2026-09-28"
  },
  "anomalies": {
-  "flags": [],
+  "flags": [
+   {
+    "ticker": "CRWD",
+    "type": "lost_50dma",
+    "label": "Closed below its 50-day average (was above yesterday)",
+    "held": true,
+    "price": 241.0,
+    "day_pct": -1.5,
+    "n": 1131,
+    "avg_pct": 0.12,
+    "down_pct": 50.5,
+    "edge_pct": -0.23,
+    "verdict": "neutral"
+   }
+  ],
   "rank_trends": [
    {
     "ticker": "CRWD",
