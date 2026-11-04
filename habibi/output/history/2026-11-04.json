@@ -108,54 +108,54 @@
  "backups": [],
  "watch": [
   {
-   "ticker": "CVX",
-   "score": 91.6,
-   "price": 225.27,
+   "ticker": "COST",
+   "score": 89.3,
+   "price": 1049.88,
    "setup": "momentum",
-   "rsi": 55,
+   "rsi": 70,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "MSFT",
+   "score": 87.3,
+   "price": 558.91,
+   "setup": "momentum",
+   "rsi": 65,
    "action": "next in line if a holding drops out"
   },
   {
    "ticker": "AAPL",
    "score": 87.1,
-   "price": 331.9,
+   "price": 352.72,
    "setup": "momentum",
-   "rsi": 42,
+   "rsi": 60,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "COST",
-   "score": 87.1,
-   "price": 1019.26,
+   "ticker": "CVX",
+   "score": 86.7,
+   "price": 216.86,
    "setup": "momentum",
-   "rsi": 63,
+   "rsi": 45,
    "action": "next in line if a holding drops out"
   },
   {
-   "ticker": "XOM",
-   "score": 86.4,
-   "price": 177.46,
+   "ticker": "PYPL",
+   "score": 86.2,
+   "price": 60.24,
    "setup": "momentum",
-   "rsi": 53,
-   "action": "next in line if a holding drops out"
-  },
-  {
-   "ticker": "MSFT",
-   "score": 84.5,
-   "price": 520.99,
-   "setup": "momentum",
-   "rsi": 49,
+   "rsi": 68,
    "action": "next in line if a holding drops out"
   }
  ],
  "regime": {
-  "light": "YELLOW",
-  "risk_mult": 0.5,
-  "max_new": 2,
-  "message": "Market is choppy (below 50-day or VIX elevated). Half size, A-grade setups only.",
-  "spy": 754.35,
-  "spy_sma50": 766.4,
-  "spy_sma200": 726.65,
-  "vix": 18.14
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 767.8,
+  "spy_sma50": 766.47,
+  "spy_sma200": 727.13,
+  "vix": 16.83
  }
 }
