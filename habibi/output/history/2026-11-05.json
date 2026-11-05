@@ -1,0 +1,161 @@
+{
+ "buys": [
+  {
+   "ticker": "V",
+   "name": "Visa Inc.",
+   "sector": "Financials",
+   "price": 436.57,
+   "score": 71.7,
+   "momentum": 94,
+   "rs": 94,
+   "trend": 100,
+   "fund": 72,
+   "rsi": 76,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 25.490728,
+   "next_earnings": "2027-01-26",
+   "entry": 436.57,
+   "limit": 438.75,
+   "stop": 401.64,
+   "t1": 455.0,
+   "t2": 473.44,
+   "stop_pct": -8.0,
+   "t1_pct": 4.2,
+   "t2_pct": 8.4,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-11-12",
+   "shares": 1.71,
+   "dollars": 746.53,
+   "risk_dollars": 59.72,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "#1 on the learning model ranking: 6-mo +37%, 3-mo +18%, 1-mo +18%",
+    "stronger than 94% of the universe vs the S&P; above its 200-day average",
+    "revenue +13% y/y"
+   ],
+   "news": [
+    {
+     "title": "Visa Just Raised Its Dividend 16%. Is It a Better Buy Than Mastercard?",
+     "url": "https://247wallst.com/investing/2026/11/05/visa-just-raised-its-dividend-16-is-it-a-better-buy-than-mastercard/",
+     "source": "24/7 Wall St."
+    },
+    {
+     "title": "Does AI Truly Understand What Shoppers Want? Visa Put It To The Test.",
+     "url": "https://wwd.com/sourcing-journal/industry-news/ai-agent-visa-commerce-test-benchmark-1239400761/",
+     "source": "Sourcing Journal"
+    },
+    {
+     "title": "Visa sees US holiday retail sales growing 4.5%, fastest pace since 2021",
+     "url": "https://finance.yahoo.com/economy/articles/visa-sees-us-holiday-retail-125652129.html",
+     "source": "Reuters"
+    }
+   ]
+  },
+  {
+   "ticker": "MA",
+   "name": "Mastercard Incorporated",
+   "sector": "Financials",
+   "price": 672.68,
+   "score": 71.2,
+   "momentum": 93,
+   "rs": 92,
+   "trend": 100,
+   "fund": 72,
+   "rsi": 75,
+   "setup": "momentum",
+   "kind": "new",
+   "fwd_pe": 29.054928,
+   "next_earnings": "2027-01-28",
+   "entry": 672.68,
+   "limit": 676.04,
+   "stop": 618.87,
+   "t1": 702.81,
+   "t2": 732.95,
+   "stop_pct": -8.0,
+   "t1_pct": 4.5,
+   "t2_pct": 9.0,
+   "hold_days": 60,
+   "sell_by": "reviewed 2026-11-12",
+   "shares": 1.11,
+   "dollars": 746.67,
+   "risk_dollars": 59.73,
+   "reason": [
+    "catch-up: on this week's list (set at the Monday review); you don't hold it yet",
+    "#2 on the learning model ranking: 6-mo +37%, 3-mo +17%, 1-mo +19%",
+    "stronger than 92% of the universe vs the S&P; above its 200-day average",
+    "revenue +14% y/y"
+   ],
+   "news": [
+    {
+     "title": "Visa Just Raised Its Dividend 16%. Is It a Better Buy Than Mastercard?",
+     "url": "https://247wallst.com/investing/2026/11/05/visa-just-raised-its-dividend-16-is-it-a-better-buy-than-mastercard/",
+     "source": "24/7 Wall St."
+    },
+    {
+     "title": "Visa sees US holiday retail sales growing 4.5%, fastest pace since 2021",
+     "url": "https://finance.yahoo.com/economy/articles/visa-sees-us-holiday-retail-125652129.html",
+     "source": "Reuters"
+    },
+    {
+     "title": "Mastercard Got Targets Up to $765 After Q3. Why One Firm Still Says Hold at $535",
+     "url": "https://www.tikr.com/blog/mastercard-got-targets-up-to-765-after-q3-why-one-firm-still-says-hold-at-535?ref=yahoofinance&tlnk=yf-261105-98f8q26x",
+     "source": "TIKR"
+    }
+   ]
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "COST",
+   "score": 89.0,
+   "price": 1046.47,
+   "setup": "momentum",
+   "rsi": 69,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "CVX",
+   "score": 87.4,
+   "price": 216.96,
+   "setup": "momentum",
+   "rsi": 45,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "MSFT",
+   "score": 86.9,
+   "price": 555.8,
+   "setup": "momentum",
+   "rsi": 64,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "AAPL",
+   "score": 86.8,
+   "price": 349.51,
+   "setup": "momentum",
+   "rsi": 58,
+   "action": "next in line if a holding drops out"
+  },
+  {
+   "ticker": "PYPL",
+   "score": 86.3,
+   "price": 60.2,
+   "setup": "momentum",
+   "rsi": 68,
+   "action": "next in line if a holding drops out"
+  }
+ ],
+ "regime": {
+  "light": "GREEN",
+  "risk_mult": 1.0,
+  "max_new": 4,
+  "message": "Uptrend confirmed and volatility calm. Full risk allowed.",
+  "spy": 766.81,
+  "spy_sma50": 766.45,
+  "spy_sma200": 727.12,
+  "vix": 16.73
+ }
+}
