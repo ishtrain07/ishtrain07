@@ -108,6 +108,10 @@ def active_sim(feats, pre, dates, p):
         ok = sc.eligible & (sc.rsi < p.get("max_rsi", 80)) & sc[p["rank_col"]].notna()
         if not p.get("etfs", True):
             ok &= ~pd.Series([is_etf(t) for t in sc.index], index=sc.index)
+        if p.get("etfs_only"):
+            ok &= pd.Series([is_etf(t) for t in sc.index], index=sc.index)
+        if p.get("excluded"):
+            ok &= ~sc.index.isin(p["excluded"])
         ranked = sc[ok].sort_values(p["rank_col"], ascending=False)
         order = list(ranked.index)
         sells, why = set(), {}
@@ -239,6 +243,10 @@ VARIANTS.update({
     "R15 risk-adj: RED market -> cash": dict(R, red_to_cash=True),
     "R16 risk-adj: top 6": dict(R, top_n=6),
     "R17 risk-adj: no stop at all": dict(R, stop_atr=None, stop_floor=None),
+    "S0 CHOSEN: risk-adj, top5, hold top-8, 3xATR stop, half at +25%, trend exit": dict(R, hold_rank=8),
+    "S1 CHOSEN minus the 15 biggest winners (hindsight-bias check)": dict(R, hold_rank=8, exclude_winners=15),
+    "S2 CHOSEN minus the 30 biggest winners (harsher check)": dict(R, hold_rank=8, exclude_winners=30),
+    "S3 sector/asset ETFs only, top 3": dict(R, hold_rank=5, top_n=3, etfs_only=True),
 })
 
 
@@ -264,8 +272,15 @@ def main():
     res = {"periods": {k: [str(v[0].date()), str(v[-1].date())] for k, v in periods.items()},
            "notes": "signal at Friday close, fill next open, 0.1% cost each way; account = core SPY + active",
            "results": {}}
+    d0, d1 = dates[0], dates[-1]
+    total = {t: float(feats[t].Close.loc[d1] / feats[t].Close.loc[:d0].iloc[-1] - 1)
+             for t in UNIVERSE if t in feats and d1 in feats[t].index and len(feats[t].Close.loc[:d0])}
+    winners = sorted(total, key=total.get, reverse=True)
+    res["biggest_winners"] = {t: round(total[t] * 100) for t in winners[:30]}
     for name, over in VARIANTS.items():
         p = {**BASE, **over}
+        if p.get("exclude_winners"):
+            p["excluded"] = set(winners[:p["exclude_winners"]])
         row = {}
         for k, ds in periods.items():
             act, tr = active_sim(feats, pre, ds, p)
