@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06 08:33 ET",
+ "generated_at": "2026-11-06 08:39 ET",
  "date": "2026-11-06",
  "mode": "plan",
  "regime": {
@@ -10,24 +10,24 @@
   "spy": 733.0,
   "spy_sma50": 765.83,
   "spy_sma200": 727.39,
-  "vix": 27.38
+  "vix": 27.05
  },
  "macro": [
   {
    "ticker": "ES=F",
    "label": "S&P 500 futures",
-   "last": 7398.25,
-   "d1": 0.21,
-   "d5": -2.83,
-   "m1": -5.35
+   "last": 7404.0,
+   "d1": 0.28,
+   "d5": -2.76,
+   "m1": -5.27
   },
   {
    "ticker": "NQ=F",
    "label": "Nasdaq 100 futures",
-   "last": 27160.0,
-   "d1": 1.53,
-   "d5": -4.82,
-   "m1": -12.3
+   "last": 27170.5,
+   "d1": 1.56,
+   "d5": -4.78,
+   "m1": -12.27
   },
   {
    "ticker": "SPY",
@@ -56,50 +56,50 @@
   {
    "ticker": "^VIX",
    "label": "VIX (fear)",
-   "last": 27.38,
-   "d1": -2.84,
-   "d5": 40.99,
-   "m1": 77.68
+   "last": 27.05,
+   "d1": -4.01,
+   "d5": 39.29,
+   "m1": 75.54
   },
   {
    "ticker": "^TNX",
    "label": "US 10Y yield",
-   "last": 4.84,
-   "d1": -1.16,
-   "d5": -3.05,
-   "m1": -8.34
+   "last": 4.87,
+   "d1": 0.76,
+   "d5": -1.12,
+   "m1": -6.82
   },
   {
    "ticker": "DX-Y.NYB",
    "label": "US Dollar index",
-   "last": 102.02,
-   "d1": 0.46,
-   "d5": 0.14,
-   "m1": -0.12
+   "last": 102.07,
+   "d1": 0.51,
+   "d5": 0.18,
+   "m1": -0.07
   },
   {
    "ticker": "CL=F",
    "label": "WTI crude",
-   "last": 90.83,
-   "d1": 0.34,
-   "d5": -12.76,
-   "m1": -0.72
+   "last": 90.88,
+   "d1": 0.4,
+   "d5": -12.72,
+   "m1": -0.67
   },
   {
    "ticker": "GC=F",
    "label": "Gold",
-   "last": 4076.2,
-   "d1": -0.91,
-   "d5": 4.55,
-   "m1": -1.94
+   "last": 4072.2,
+   "d1": -1.0,
+   "d5": 4.44,
+   "m1": -2.04
   },
   {
    "ticker": "BTC-USD",
    "label": "Bitcoin",
-   "last": 75941.48,
-   "d1": -0.0,
-   "d5": -2.95,
-   "m1": -6.82
+   "last": 75661.39,
+   "d1": -0.37,
+   "d5": -3.31,
+   "m1": -7.16
   },
   {
    "ticker": "^N225",
@@ -120,18 +120,18 @@
   {
    "ticker": "^GDAXI",
    "label": "DAX (Germany)",
-   "last": 25704.38,
-   "d1": -2.36,
-   "d5": -0.44,
-   "m1": 3.62
+   "last": 25744.11,
+   "d1": -2.21,
+   "d5": -0.29,
+   "m1": 3.78
   },
   {
    "ticker": "^FTSE",
    "label": "FTSE 100 (UK)",
-   "last": 10567.9,
-   "d1": -1.99,
-   "d5": -1.51,
-   "m1": 1.21
+   "last": 10578.68,
+   "d1": -1.89,
+   "d5": -1.41,
+   "m1": 1.31
   },
   {
    "ticker": "^NSEI",
@@ -145,9 +145,9 @@
    "ticker": "USDCAD=X",
    "label": "USD/CAD",
    "last": 1.41,
-   "d1": 0.86,
-   "d5": 0.76,
-   "m1": -1.16
+   "d1": 0.89,
+   "d5": 0.79,
+   "m1": -1.13
   },
   {
    "ticker": "USDINR=X",
@@ -159,19 +159,19 @@
   }
  ],
  "macro_read": [
-  "VIX 27.4: elevated, expect bigger swings; size down.",
-  "10Y yield 4.84% (-8.3% over a month): falling yields support growth/tech.",
+  "VIX 27.1: elevated, expect bigger swings; size down.",
+  "10Y yield 4.87% (-6.8% over a month): falling yields support growth/tech.",
   "Dollar -0.1% over a month: neutral.",
-  "Oil moved -12.8% this week: watch energy and inflation expectations.",
-  "Global overnight: Nikkei -6.0%, Hang Seng -1.3%, DAX -2.4%, Nifty 50 +2.0%.",
-  "US futures: S&P 500 futures +0.21%, Nasdaq 100 futures +1.53%.",
+  "Oil moved -12.7% this week: watch energy and inflation expectations.",
+  "Global overnight: Nikkei -6.0%, Hang Seng -1.3%, DAX -2.2%, Nifty 50 +2.0%.",
+  "US futures: S&P 500 futures +0.28%, Nasdaq 100 futures +1.56%.",
   "Choppy market (below the 50-day or VIX elevated): weekly buys continue at normal size; the ranking already favours steadier names. New buys stop only if the light turns RED."
  ],
  "macro_tilts": [
   "Money is flowing into Healthcare, Consumer staples, Financials and out of Industrials, Technology, Chips (1- and 3-month sector returns).",
   "Falling long-term rates usually help growth stocks, utilities and real-asset sectors.",
   "Fear is elevated: expect bigger daily swings. The ranking already favours steadier names (gains are divided by volatility); new buys stop only if the market light turns RED.",
-  "USD/CAD 1.41 (-1.2% over a month): new CAD money is best put into CAD-hedged versions (CDRs, VSP) to skip the FX fee."
+  "USD/CAD 1.41 (-1.1% over a month): new CAD money is best put into CAD-hedged versions (CDRs, VSP) to skip the FX fee."
  ],
  "sector_heat": [
   {
@@ -485,7 +485,8 @@
    "why": "weekly review: now #23, outside the top 8 for 1 review(s) in a row; the money moves to a stronger name",
    "price": 217.2,
    "shares": 1.1075,
-   "rule": "weekly review"
+   "rule": "weekly review",
+   "units_note": "you hold 5 CRWD CDRs (CAD): sell 5 CDRs (all of them)"
   },
   {
    "ticker": "AMD",
@@ -3696,7 +3697,7 @@
       "p3m_gain10": 28.4,
       "p3m_gain20": 3.2,
       "p3m_loss": 33.4,
-      "med3m": 5.8,
+      "med3m": 5.9,
       "worst3m": -21.8,
       "p6m_gain10": 57.0,
       "p6m_gain20": 29.4,
@@ -7586,7 +7587,7 @@
      }
     }
    },
-   "S0 CHOSEN: risk-adj, top5, hold top-8, 3xATR stop, half at +25%, trend exit": {
+   "S0 risk-adj, top5, hold top-8, 3xATR stop, half at +25%, trend exit, tech max 2": {
     "full": {
      "active_only": {
       "total_pct": 41.4,
@@ -9555,7 +9556,7 @@
      }
     }
    },
-   "T3 S0, tech+chips max 3 combined (2 per sector)": {
+   "T3 CHOSEN: S0 with tech+chips max 3 combined (2 per sector)": {
     "full": {
      "active_only": {
       "total_pct": 80.0,
@@ -10540,203 +10541,6 @@
      }
     }
    },
-   "T3d T3 + dividend payers only for non-tech (TFSA note: US dividends lose 15% withholding)": {
-    "full": {
-     "active_only": {
-      "total_pct": 80.0,
-      "max_dd_pct": -19.9,
-      "p3m_gain10": 57.2,
-      "p3m_gain20": 7.3,
-      "p3m_loss": 19.7,
-      "med3m": 11.2,
-      "worst3m": -17.8,
-      "p6m_gain10": 84.8,
-      "p6m_gain20": 57.5,
-      "p6m_loss": 1.9,
-      "med6m": 22.5,
-      "worst6m": -8.0,
-      "trades": 149,
-      "win_rate": 47.7,
-      "exits": {
-       "rotate": 95,
-       "stop": 52,
-       "trend": 2
-      }
-     },
-     "20_80": {
-      "total_pct": 68.4,
-      "max_dd_pct": -17.9,
-      "p3m_gain10": 50.1,
-      "p3m_gain20": 5.5,
-      "p3m_loss": 19.0,
-      "med3m": 10.0,
-      "worst3m": -14.3,
-      "p6m_gain10": 86.4,
-      "p6m_gain20": 48.4,
-      "p6m_loss": 1.3,
-      "med6m": 19.2,
-      "worst6m": -5.4
-     },
-     "30_70": {
-      "total_pct": 62.7,
-      "max_dd_pct": -18.0,
-      "p3m_gain10": 46.9,
-      "p3m_gain20": 3.7,
-      "p3m_loss": 19.5,
-      "med3m": 9.3,
-      "worst3m": -12.5,
-      "p6m_gain10": 85.6,
-      "p6m_gain20": 45.2,
-      "p6m_loss": 1.1,
-      "med6m": 17.6,
-      "worst6m": -4.2
-     },
-     "40_60": {
-      "total_pct": 57.1,
-      "max_dd_pct": -18.1,
-      "p3m_gain10": 43.7,
-      "p3m_gain20": 2.1,
-      "p3m_loss": 20.6,
-      "med3m": 8.6,
-      "worst3m": -10.7,
-      "p6m_gain10": 84.5,
-      "p6m_gain20": 39.3,
-      "p6m_loss": 0.8,
-      "med6m": 15.9,
-      "worst6m": -3.4
-     }
-    },
-    "half1": {
-     "active_only": {
-      "total_pct": 60.7,
-      "max_dd_pct": -17.8,
-      "p3m_gain10": 66.0,
-      "p3m_gain20": 6.9,
-      "p3m_loss": 7.4,
-      "med3m": 12.2,
-      "worst3m": -12.7,
-      "p6m_gain10": 93.6,
-      "p6m_gain20": 61.6,
-      "p6m_loss": 0.8,
-      "med6m": 22.8,
-      "worst6m": -2.4,
-      "trades": 60,
-      "win_rate": 53.3,
-      "exits": {
-       "rotate": 33,
-       "stop": 26,
-       "trend": 1
-      }
-     },
-     "20_80": {
-      "total_pct": 50.4,
-      "max_dd_pct": -17.9,
-      "p3m_gain10": 59.6,
-      "p3m_gain20": 4.3,
-      "p3m_loss": 8.0,
-      "med3m": 11.1,
-      "worst3m": -10.9,
-      "p6m_gain10": 92.0,
-      "p6m_gain20": 48.8,
-      "p6m_loss": 0.8,
-      "med6m": 19.4,
-      "worst6m": -1.1
-     },
-     "30_70": {
-      "total_pct": 45.5,
-      "max_dd_pct": -18.0,
-      "p3m_gain10": 55.3,
-      "p3m_gain20": 3.7,
-      "p3m_loss": 9.6,
-      "med3m": 10.7,
-      "worst3m": -10.0,
-      "p6m_gain10": 91.2,
-      "p6m_gain20": 44.8,
-      "p6m_loss": 0.8,
-      "med6m": 17.6,
-      "worst6m": -0.4
-     },
-     "40_60": {
-      "total_pct": 40.6,
-      "max_dd_pct": -18.1,
-      "p3m_gain10": 51.6,
-      "p3m_gain20": 3.2,
-      "p3m_loss": 14.4,
-      "med3m": 10.3,
-      "worst3m": -9.0,
-      "p6m_gain10": 87.2,
-      "p6m_gain20": 38.4,
-      "p6m_loss": 0.0,
-      "med6m": 16.0,
-      "worst6m": 0.3
-     }
-    },
-    "half2": {
-     "active_only": {
-      "total_pct": 9.4,
-      "max_dd_pct": -19.9,
-      "p3m_gain10": 38.0,
-      "p3m_gain20": 10.7,
-      "p3m_loss": 37.4,
-      "med3m": 6.3,
-      "worst3m": -17.8,
-      "p6m_gain10": 66.1,
-      "p6m_gain20": 31.5,
-      "p6m_loss": 4.8,
-      "med6m": 12.7,
-      "worst6m": -8.0,
-      "trades": 88,
-      "win_rate": 40.9,
-      "exits": {
-       "rotate": 61,
-       "stop": 26,
-       "trend": 1
-      }
-     },
-     "20_80": {
-      "total_pct": 9.8,
-      "max_dd_pct": -16.6,
-      "p3m_gain10": 34.2,
-      "p3m_gain20": 7.5,
-      "p3m_loss": 36.4,
-      "med3m": 4.6,
-      "worst3m": -14.3,
-      "p6m_gain10": 73.4,
-      "p6m_gain20": 29.0,
-      "p6m_loss": 3.2,
-      "med6m": 12.8,
-      "worst6m": -5.4
-     },
-     "30_70": {
-      "total_pct": 10.0,
-      "max_dd_pct": -14.9,
-      "p3m_gain10": 32.1,
-      "p3m_gain20": 5.3,
-      "p3m_loss": 35.8,
-      "med3m": 3.9,
-      "worst3m": -12.5,
-      "p6m_gain10": 74.2,
-      "p6m_gain20": 26.6,
-      "p6m_loss": 2.4,
-      "med6m": 13.1,
-      "worst6m": -4.2
-     },
-     "40_60": {
-      "total_pct": 10.1,
-      "max_dd_pct": -13.3,
-      "p3m_gain10": 30.5,
-      "p3m_gain20": 1.6,
-      "p3m_loss": 33.2,
-      "med3m": 3.7,
-      "worst3m": -10.7,
-      "p6m_gain10": 76.6,
-      "p6m_gain20": 21.8,
-      "p6m_loss": 2.4,
-      "med6m": 13.3,
-      "worst6m": -3.4
-     }
-    }
-   },
    "Z buy & hold SPY": {
     "full": {
      "20_80": {
@@ -11695,7 +11499,7 @@
    "range_hi": 715.86,
    "range_lo_pct": 8.3,
    "range_hi_pct": 16.5,
-   "analyst_target": 641.35,
+   "analyst_target": 641.27,
    "analyst_upside": 4.4,
    "cdr": false
   },
@@ -12453,27 +12257,7 @@
     "revenue +45% y/y",
     "fwd P/E 24 is cheap for its growth"
    ],
-   "status": "waiting: needs to close above its 50-day ($547.37, +35.4% away) and rank back inside the top 8 (now unranked: below its 200-day)",
-   "ready": false,
-   "held": true,
-   "cdr": true
-  },
-  {
-   "ticker": "CRWD",
-   "name": "CrowdStrike Holdings, Inc.",
-   "sector": "Technology",
-   "price": 217.2,
-   "off_high_pct": -24.3,
-   "revenue_growth_pct": 25.8,
-   "fwd_pe": 134.9,
-   "peg": 5.23,
-   "analyst_upside_pct": 14.4,
-   "quality": 47,
-   "quality_notes": [
-    "revenue +26% y/y",
-    "expensive (fwd P/E 135)"
-   ],
-   "status": "waiting: needs to close above its 50-day ($244.00, +12.3% away) and rank back inside the top 8 (now #23)",
+   "status": "waiting: needs to climb back into the top 5 (now unranked: below its 200-day average); first sign: a close above its 50-day ($547.37, +35.4% away)",
    "ready": false,
    "held": true,
    "cdr": true
@@ -12493,90 +12277,30 @@
     "revenue +35% y/y",
     "unprofitable"
    ],
-   "status": "waiting: needs to close above its 50-day ($329.18, +22.1% away) and rank back inside the top 8 (now #26)",
+   "status": "waiting: needs to climb back into the top 5 (now #26); first sign: a close above its 50-day ($329.18, +22.1% away)",
    "ready": false,
    "held": true,
    "cdr": true
   },
   {
-   "ticker": "NVDA",
-   "name": "NVIDIA Corporation",
-   "sector": "Chips",
-   "price": 181.6,
-   "off_high_pct": -25.4,
-   "revenue_growth_pct": 105.9,
-   "fwd_pe": 11.4,
-   "peg": 0.11,
-   "analyst_upside_pct": 80.1,
+   "ticker": "AFRM",
+   "name": "Affirm Holdings, Inc.",
+   "sector": "Financials",
+   "price": 69.66,
+   "off_high_pct": -23.0,
+   "revenue_growth_pct": 35.2,
+   "fwd_pe": 13.9,
+   "peg": 0.39,
+   "analyst_upside_pct": 40.5,
    "quality": 90,
    "quality_notes": [
-    "revenue +106% y/y",
-    "fwd P/E 11 is cheap for its growth"
+    "revenue +35% y/y",
+    "fwd P/E 14 is cheap for its growth"
    ],
-   "status": "waiting: needs to close above its 50-day ($220.59, +21.5% away) and rank back inside the top 8 (now unranked: below its 200-day)",
-   "ready": false,
-   "held": false,
-   "cdr": true
-  },
-  {
-   "ticker": "AVGO",
-   "name": "Broadcom Inc.",
-   "sector": "Chips",
-   "price": 291.53,
-   "off_high_pct": -40.9,
-   "revenue_growth_pct": 85.5,
-   "fwd_pe": 15.0,
-   "peg": 0.18,
-   "analyst_upside_pct": 80.7,
-   "quality": 90,
-   "quality_notes": [
-    "revenue +86% y/y",
-    "fwd P/E 15 is cheap for its growth"
-   ],
-   "status": "waiting: needs to close above its 50-day ($349.23, +19.8% away) and rank back inside the top 8 (now unranked: below its 200-day)",
-   "ready": false,
-   "held": false,
-   "cdr": true
-  },
-  {
-   "ticker": "TSM",
-   "name": "Taiwan Semiconductor Manufactur",
-   "sector": "Chips",
-   "price": 353.1,
-   "off_high_pct": -27.6,
-   "revenue_growth_pct": 50.9,
-   "fwd_pe": 15.1,
-   "peg": 0.3,
-   "analyst_upside_pct": 66.2,
-   "quality": 90,
-   "quality_notes": [
-    "revenue +51% y/y",
-    "fwd P/E 15 is cheap for its growth"
-   ],
-   "status": "waiting: needs to close above its 50-day ($432.39, +22.5% away) and rank back inside the top 8 (now unranked: below its 200-day)",
+   "status": "waiting: needs to climb back into the top 5 (now #66); first sign: a close above its 50-day ($72.73, +4.4% away)",
    "ready": false,
    "held": false,
    "cdr": false
-  },
-  {
-   "ticker": "MU",
-   "name": "Micron Technology, Inc.",
-   "sector": "Chips",
-   "price": 656.39,
-   "off_high_pct": -47.7,
-   "revenue_growth_pct": 379.3,
-   "fwd_pe": 3.2,
-   "peg": 0.01,
-   "analyst_upside_pct": 138.0,
-   "quality": 90,
-   "quality_notes": [
-    "revenue +379% y/y",
-    "fwd P/E 3 is cheap for its growth"
-   ],
-   "status": "waiting: needs to close above its 50-day ($966.44, +47.2% away) and rank back inside the top 8 (now unranked: below its 200-day)",
-   "ready": false,
-   "held": false,
-   "cdr": true
   },
   {
    "ticker": "PLTR",
@@ -12593,47 +12317,127 @@
     "revenue +96% y/y",
     "fwd P/E 62 is cheap for its growth"
    ],
-   "status": "waiting: needs to close above its 50-day ($186.39, +20.3% away) and rank back inside the top 8 (now #64)",
+   "status": "waiting: needs to climb back into the top 5 (now #64); first sign: a close above its 50-day ($186.39, +20.3% away)",
    "ready": false,
    "held": false,
    "cdr": true
   },
   {
-   "ticker": "NET",
-   "name": "Cloudflare, Inc.",
-   "sector": "Technology",
-   "price": 244.51,
-   "off_high_pct": -34.0,
-   "revenue_growth_pct": 39.2,
-   "fwd_pe": 144.5,
-   "peg": 3.69,
-   "analyst_upside_pct": 41.2,
-   "quality": 45,
+   "ticker": "SOFI",
+   "name": "SoFi Technologies, Inc.",
+   "sector": "Financials",
+   "price": 16.04,
+   "off_high_pct": -51.0,
+   "revenue_growth_pct": 43.9,
+   "fwd_pe": 17.8,
+   "peg": 0.41,
+   "analyst_upside_pct": 29.9,
+   "quality": 90,
    "quality_notes": [
-    "revenue +39% y/y",
-    "unprofitable"
+    "revenue +44% y/y",
+    "fwd P/E 18 is cheap for its growth"
    ],
-   "status": "waiting: needs to close above its 50-day ($319.00, +30.5% away) and rank back inside the top 8 (now unranked: below its 200-day)",
+   "status": "waiting: needs to climb back into the top 5 (now unranked: below its 200-day average); first sign: a close above its 50-day ($16.41, +2.3% away)",
    "ready": false,
    "held": false,
    "cdr": false
   },
   {
-   "ticker": "PANW",
-   "name": "Palo Alto Networks, Inc.",
+   "ticker": "APP",
+   "name": "Applovin Corporation",
    "sector": "Technology",
-   "price": 314.67,
-   "off_high_pct": -27.2,
-   "revenue_growth_pct": 34.5,
-   "fwd_pe": 64.5,
-   "peg": 1.87,
-   "analyst_upside_pct": 26.6,
-   "quality": 70,
+   "price": 356.1,
+   "off_high_pct": -51.7,
+   "revenue_growth_pct": 55.5,
+   "fwd_pe": 17.8,
+   "peg": 0.32,
+   "analyst_upside_pct": 25.9,
+   "quality": 90,
    "quality_notes": [
-    "revenue +34% y/y",
-    "fwd P/E 64"
+    "revenue +56% y/y",
+    "fwd P/E 18 is cheap for its growth"
    ],
-   "status": "waiting: needs to close above its 50-day ($371.68, +18.1% away) and rank back inside the top 8 (now #36)",
+   "status": "waiting: needs to climb back into the top 5 (now unranked: below its 200-day average)",
+   "ready": false,
+   "held": false,
+   "cdr": false
+  },
+  {
+   "ticker": "SCCO",
+   "name": "Southern Copper Corporation",
+   "sector": "Materials",
+   "price": 165.38,
+   "off_high_pct": -24.3,
+   "revenue_growth_pct": 39.1,
+   "fwd_pe": 21.9,
+   "peg": 0.56,
+   "analyst_upside_pct": 5.8,
+   "quality": 90,
+   "quality_notes": [
+    "revenue +39% y/y",
+    "fwd P/E 22 is cheap for its growth"
+   ],
+   "status": "waiting: needs to climb back into the top 5 (now unranked: below its 200-day average); first sign: a close above its 50-day ($195.64, +18.3% away)",
+   "ready": false,
+   "held": false,
+   "cdr": false
+  },
+  {
+   "ticker": "ANET",
+   "name": "Arista Networks, Inc.",
+   "sector": "Technology",
+   "price": 159.16,
+   "off_high_pct": -26.8,
+   "revenue_growth_pct": 58.5,
+   "fwd_pe": 28.2,
+   "peg": 0.48,
+   "analyst_upside_pct": 54.2,
+   "quality": 90,
+   "quality_notes": [
+    "revenue +58% y/y",
+    "fwd P/E 28 is cheap for its growth"
+   ],
+   "status": "waiting: needs to climb back into the top 5 (now unranked: below its 200-day average); first sign: a close above its 50-day ($193.25, +21.4% away)",
+   "ready": false,
+   "held": false,
+   "cdr": true
+  },
+  {
+   "ticker": "NU",
+   "name": "Nu Holdings Ltd.",
+   "sector": "Financials",
+   "price": 11.74,
+   "off_high_pct": -38.1,
+   "revenue_growth_pct": 52.1,
+   "fwd_pe": 10.4,
+   "peg": 0.2,
+   "analyst_upside_pct": 60.1,
+   "quality": 90,
+   "quality_notes": [
+    "revenue +52% y/y",
+    "fwd P/E 10 is cheap for its growth"
+   ],
+   "status": "waiting: needs to climb back into the top 5 (now unranked: below its 200-day average); first sign: a close above its 50-day ($14.07, +19.8% away)",
+   "ready": false,
+   "held": false,
+   "cdr": false
+  },
+  {
+   "ticker": "TSM",
+   "name": "Taiwan Semiconductor Manufactur",
+   "sector": "Chips",
+   "price": 353.1,
+   "off_high_pct": -27.6,
+   "revenue_growth_pct": 50.9,
+   "fwd_pe": 15.1,
+   "peg": 0.3,
+   "analyst_upside_pct": 66.2,
+   "quality": 90,
+   "quality_notes": [
+    "revenue +51% y/y",
+    "fwd P/E 15 is cheap for its growth"
+   ],
+   "status": "waiting: needs to climb back into the top 5 (now unranked: below its 200-day average); first sign: a close above its 50-day ($432.39, +22.5% away)",
    "ready": false,
    "held": false,
    "cdr": false
