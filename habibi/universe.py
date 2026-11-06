@@ -58,6 +58,21 @@ UNIVERSE = {
     "UAL": "Industrials", "CCL": "ConsDisc", "AFRM": "Financials", "SMCI": "Tech", "CRDO": "Semis",
     "ALAB": "Semis", "CIEN": "Tech", "NBIS": "Tech", "GRAB": "Tech", "PINS": "Comm",
     "CPNG": "ConsDisc", "TOST": "Tech", "CLS": "Tech", "NVO": "Health", "ON": "Semis",
+    # Diversifiers beyond tech (added for the growth engine): defensives, cyclicals, financials, energy
+    "BSX": "Health", "SYK": "Health", "TMO": "Health", "MCK": "Health", "JNJ": "Health",
+    "URI": "Industrials", "HWM": "Industrials", "TT": "Industrials", "PH": "Industrials",
+    "LMT": "Industrials", "GD": "Industrials", "WM": "Industrials", "RKLB": "Industrials",
+    "KKR": "Financials", "APO": "Financials", "SCHW": "Financials", "BRK-B": "Financials",
+    "PGR": "Financials", "SPGI": "Financials", "ICE": "Financials",
+    "TJX": "ConsDisc", "ORLY": "ConsDisc", "MCD": "ConsDisc",
+    "PG": "ConsStap", "KO": "ConsStap", "PM": "ConsStap",
+    "COP": "Energy", "EOG": "Energy", "SLB": "Energy",
+    "NEM": "Materials", "LIN": "Materials", "SCCO": "Materials",
+    "NEE": "Utilities", "SO": "Utilities", "TMUS": "Comm",
+    # Sector / asset ETFs: the engine can rotate into a whole sector when it leads
+    "XLF": "Financials", "XLE": "Energy", "XLV": "Health", "XLI": "Industrials",
+    "XLU": "Utilities", "XLP": "ConsStap", "XLB": "Materials", "XLY": "ConsDisc",
+    "XLC": "Comm", "XLK": "Tech", "GLD": "Gold", "EFA": "Intl", "EEM": "Intl",
     # ETFs (lower-volatility options when single stocks are messy)
     "QQQ": "ETF", "SPY": "ETF", "SMH": "ETF", "IWM": "ETF",
 }
