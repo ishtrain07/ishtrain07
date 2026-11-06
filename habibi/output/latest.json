@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06 07:45 ET",
+ "generated_at": "2026-11-06 07:47 ET",
  "date": "2026-11-06",
  "mode": "plan",
  "regime": {
@@ -10,24 +10,24 @@
   "spy": 733.0,
   "spy_sma50": 765.83,
   "spy_sma200": 727.39,
-  "vix": 26.56
+  "vix": 26.8
  },
  "macro": [
   {
    "ticker": "ES=F",
    "label": "S&P 500 futures",
-   "last": 7395.0,
-   "d1": 0.16,
-   "d5": -2.88,
-   "m1": -5.39
+   "last": 7398.5,
+   "d1": 0.21,
+   "d5": -2.83,
+   "m1": -5.34
   },
   {
    "ticker": "NQ=F",
    "label": "Nasdaq 100 futures",
-   "last": 27129.0,
-   "d1": 1.41,
-   "d5": -4.92,
-   "m1": -12.4
+   "last": 27154.25,
+   "d1": 1.5,
+   "d5": -4.84,
+   "m1": -12.32
   },
   {
    "ticker": "SPY",
@@ -56,10 +56,10 @@
   {
    "ticker": "^VIX",
    "label": "VIX (fear)",
-   "last": 26.56,
-   "d1": -5.75,
-   "d5": 36.77,
-   "m1": 72.36
+   "last": 26.8,
+   "d1": -4.9,
+   "d5": 38.0,
+   "m1": 73.91
   },
   {
    "ticker": "^TNX",
@@ -72,34 +72,34 @@
   {
    "ticker": "DX-Y.NYB",
    "label": "US Dollar index",
-   "last": 102.0,
-   "d1": 0.44,
-   "d5": 0.11,
-   "m1": -0.14
+   "last": 101.98,
+   "d1": 0.42,
+   "d5": 0.1,
+   "m1": -0.16
   },
   {
    "ticker": "CL=F",
    "label": "WTI crude",
-   "last": 90.74,
-   "d1": 0.24,
-   "d5": -12.85,
-   "m1": -0.82
+   "last": 90.45,
+   "d1": -0.08,
+   "d5": -13.13,
+   "m1": -1.14
   },
   {
    "ticker": "GC=F",
    "label": "Gold",
-   "last": 4074.2,
-   "d1": -0.96,
-   "d5": 4.5,
-   "m1": -1.99
+   "last": 4075.4,
+   "d1": -0.93,
+   "d5": 4.53,
+   "m1": -1.96
   },
   {
    "ticker": "BTC-USD",
    "label": "Bitcoin",
-   "last": 76083.18,
-   "d1": 0.19,
-   "d5": -2.77,
-   "m1": -6.65
+   "last": 76052.61,
+   "d1": 0.15,
+   "d5": -2.81,
+   "m1": -6.68
   },
   {
    "ticker": "^N225",
@@ -120,18 +120,18 @@
   {
    "ticker": "^GDAXI",
    "label": "DAX (Germany)",
-   "last": 25752.1,
-   "d1": -2.18,
-   "d5": -0.26,
-   "m1": 3.81
+   "last": 25727.8,
+   "d1": -2.27,
+   "d5": -0.35,
+   "m1": 3.71
   },
   {
    "ticker": "^FTSE",
    "label": "FTSE 100 (UK)",
-   "last": 10568.36,
-   "d1": -1.99,
-   "d5": -1.5,
-   "m1": 1.21
+   "last": 10564.2,
+   "d1": -2.03,
+   "d5": -1.54,
+   "m1": 1.17
   },
   {
    "ticker": "^NSEI",
@@ -145,9 +145,9 @@
    "ticker": "USDCAD=X",
    "label": "USD/CAD",
    "last": 1.41,
-   "d1": 0.62,
-   "d5": 0.52,
-   "m1": -1.39
+   "d1": 0.65,
+   "d5": 0.55,
+   "m1": -1.36
   },
   {
    "ticker": "USDINR=X",
@@ -159,12 +159,12 @@
   }
  ],
  "macro_read": [
-  "VIX 26.6: elevated, expect bigger swings; size down.",
+  "VIX 26.8: elevated, expect bigger swings; size down.",
   "10Y yield 4.84% (-8.3% over a month): falling yields support growth/tech.",
-  "Dollar -0.1% over a month: neutral.",
-  "Oil moved -12.8% this week: watch energy and inflation expectations.",
-  "Global overnight: Nikkei -6.0%, Hang Seng -1.3%, DAX -2.2%, Nifty 50 +2.0%.",
-  "US futures: S&P 500 futures +0.16%, Nasdaq 100 futures +1.41%.",
+  "Dollar -0.2% over a month: neutral.",
+  "Oil moved -13.1% this week: watch energy and inflation expectations.",
+  "Global overnight: Nikkei -6.0%, Hang Seng -1.3%, DAX -2.3%, Nifty 50 +2.0%.",
+  "US futures: S&P 500 futures +0.21%, Nasdaq 100 futures +1.50%.",
   "Market is choppy (below 50-day or VIX elevated). Half size, A-grade setups only."
  ],
  "account": {
@@ -3035,7 +3035,7 @@
    "rsi": 66,
    "gate": "pass",
    "fwd_pe": 35.896984,
-   "analyst_target": 642.49207
+   "analyst_target": 642.3485
   },
   {
    "ticker": "COP",
@@ -3399,7 +3399,7 @@
    "rsi": 66,
    "gate": "pass",
    "fwd_pe": 18.161959,
-   "analyst_target": 44.151184
+   "analyst_target": 44.139854
   },
   {
    "ticker": "URI",
@@ -3679,7 +3679,7 @@
    "rsi": 27,
    "gate": "pass",
    "fwd_pe": 21.398506,
-   "analyst_target": 2143.2222
+   "analyst_target": 2142.7434
   },
   {
    "ticker": "AVGO",
@@ -4421,7 +4421,7 @@
    "rsi": 53,
    "gate": "pass",
    "fwd_pe": 11.716611,
-   "analyst_target": 45.003376
+   "analyst_target": 44.99262
   },
   {
    "ticker": "ON",
@@ -5560,8 +5560,8 @@
    "range_hi": 715.86,
    "range_lo_pct": 8.3,
    "range_hi_pct": 16.5,
-   "analyst_target": 642.49,
-   "analyst_upside": 4.6
+   "analyst_target": 642.35,
+   "analyst_upside": 4.5
   },
   {
    "rank": 34,
