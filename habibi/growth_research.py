@@ -262,7 +262,7 @@ VARIANTS.update({
     "R15 risk-adj: RED market -> cash": dict(R, red_to_cash=True),
     "R16 risk-adj: top 6": dict(R, top_n=6),
     "R17 risk-adj: no stop at all": dict(R, stop_atr=None, stop_floor=None),
-    "S0 CHOSEN: risk-adj, top5, hold top-8, 3xATR stop, half at +25%, trend exit": dict(R, hold_rank=8),
+    "S0 risk-adj, top5, hold top-8, 3xATR stop, half at +25%, trend exit, tech max 2": dict(R, hold_rank=8),
     "S1 CHOSEN minus the 15 biggest winners (hindsight-bias check)": dict(R, hold_rank=8, exclude_winners=15),
     "S2 CHOSEN minus the 30 biggest winners (harsher check)": dict(R, hold_rank=8, exclude_winners=30),
     "S3 sector/asset ETFs only, top 3": dict(R, hold_rank=5, top_n=3, etfs_only=True),
@@ -272,12 +272,11 @@ VARIANTS.update({
     "S7 S6 minus the 15 biggest winners": dict(R, hold_rank=8, hold_ignores_rsi=True, exit_confirm=2, exclude_winners=15),
     "S8 S6 + YELLOW market = half-size new buys": dict(R, hold_rank=8, hold_ignores_rsi=True, exit_confirm=2, yellow_half=True),
     "T2 S0, tech+chips max 2 combined": dict(R, hold_rank=8, tech_like_max=2),
-    "T3 S0, tech+chips max 3 combined (2 per sector)": dict(R, hold_rank=8, tech_like_max=3),
+    "T3 CHOSEN: S0 with tech+chips max 3 combined (2 per sector)": dict(R, hold_rank=8, tech_like_max=3),
     "T4 S0, tech+chips max 4 (2 software + 2 chips)": dict(R, hold_rank=8, tech_like_max=4),
     "T3x T3 minus the 15 biggest winners": dict(R, hold_rank=8, tech_like_max=3, exclude_winners=15),
     "T4x T4 minus the 15 biggest winners": dict(R, hold_rank=8, tech_like_max=4, exclude_winners=15),
     "T3e T3 stocks only (no ETFs)": dict(R, hold_rank=8, tech_like_max=3, etfs=False),
-    "T3d T3 + dividend payers only for non-tech (TFSA note: US dividends lose 15% withholding)": dict(R, hold_rank=8, tech_like_max=3),
 })
 
 

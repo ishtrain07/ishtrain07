@@ -1,5 +1,5 @@
 {
-  "owner_note": "Growth engine since 2026-11-09: 20% index core + 80% active weekly picks. Edit core.pct / growth.* to change the rules.",
+  "owner_note": "Growth engine since 2026-11-09: 30% index core + 70% active weekly picks. Edit core.pct / growth.* to change the rules.",
   "strategy": "growth",
   "ranker": "adaptive",
   "momentum_stop_pct": 8,
@@ -36,7 +36,7 @@
   "phase_start": "2026-11-09",
   "core": {
     "ticker": "VOO",
-    "pct": 20,
+    "pct": 30,
     "name": "Vanguard S&P 500 ETF"
   },
   "growth": {
@@ -53,8 +53,9 @@
     "max_rsi": 80,
     "halt_pct": 12,
     "rethink_pct": 18,
-    "hold_ignores_rsi": true,
-    "exit_confirm": 2
+    "hold_ignores_rsi": false,
+    "exit_confirm": 1,
+    "tech_like_max": 3
   },
   "deploy": {
     "batches": 3

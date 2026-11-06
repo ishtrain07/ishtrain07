@@ -296,11 +296,14 @@ def test_growth_mode(sandbox):
     assert sum(b["dollars"] for b in rep["buys"]) <= rep["account"]["cash"] + sold_value + 1
     sectors = {}
     for t in kept + [b["ticker"] for b in active]:
-        s = run.UNIVERSE.get(t)
+        s = run.growth.cap_bucket(t)
         sectors[s] = sectors.get(s, 0) + 1
     assert max(sectors.values()) <= cfg["growth"]["max_per_sector"]
     assert rep["deploy"]["batches_left"] == cfg["deploy"]["batches"] - 1
     assert rep["sector_heat"] and rep["macro_tilts"] and rep["lesson"]["title"]
+    assert isinstance(rep["reentry"], list)
+    tech = [t for t in kept + [b["ticker"] for b in active] if run.growth.cap_bucket(t) in run.growth.TECH_LIKE]
+    assert len(tech) <= cfg["growth"]["tech_like_max"]
     assert rep["phase"]["checks"][0]["goal_pct"] == cfg["goal"]["low_pct"]
     assert rep["paper"]["positions"]                                  # paper account followed the plan
     # Wednesday-style rerun in the same week: no new decisions, only catch-ups of Monday's list
@@ -369,6 +372,7 @@ def test_growth_week_rules():
     growth.evaluate_growth(book2, feats, {}, {}, cfg, today, {}, "real")
     st2 = {}
     cfg["growth"]["trend_exit"] = False
+    cfg["growth"]["exit_confirm"] = 2
     p1 = growth.growth_plan(feats, {}, regime, cfg, book2, today, True, st2)
     rank_ok = worst not in p1["sells"]
     if worst in p1["warn"]:

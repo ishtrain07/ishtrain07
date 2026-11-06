@@ -20,7 +20,7 @@ import datetime as dt
 import numpy as np
 import pandas as pd
 
-from .strategy import (add_trading_days, quality_gate, score_snapshot, sector_strength, snapshot,
+from .strategy import (add_trading_days, fundamental_score, quality_gate, score_snapshot, sector_strength, snapshot,
                        trading_days_between, _ranking_table)
 from .universe import SECTOR_ETF, UNIVERSE
 
@@ -53,7 +53,7 @@ HEAT_ETFS = {**{k: v for k, v in SECTOR_ETF.items() if k != "ETF"}, "Gold": "GLD
 
 LESSONS = [
     ("Diversify the bets", "Our first three picks were all tech, so one bad day for tech hit everything at once. "
-                           "The new rules allow at most {max_per_sector} holdings per sector (chips and tech funds count as tech)."),
+                           "The new rules allow at most {max_per_sector} holdings per sector and at most {tech_like_max} across tech and chips combined."),
     ("Market move vs stock move", "If the whole market falls 3% and your stock falls 4%, only about 1% is about the company. "
                                   "A holding is only sold at the weekly review if it has ranked outside the top {hold_rank} for "
                                   "{exit_confirm} reviews in a row, or its trend is broken - one bad market week is not enough."),
@@ -416,6 +416,7 @@ def growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, key="r
                 "target_pct": pt, "rank": rank_of.get(t), "etf": t in ETFS, "cdr": t in CDR,
                 "weekly_move_pct": round(a * 5 ** 0.5 / px * 100, 1), "next_earnings": info.get("next_earnings"),
                 "fwd_pe": info.get("forward_pe"), "reason": why, "setup": "growth",
+                "quality": round(float(r.fund)) if "fund" in r else None,
                 "score": round(float(r.composite), 1) if "composite" in r else None,
                 "momentum": round(float(r.momentum)) if "momentum" in r else None,
                 "rsi": round(float(r.rsi)) if "rsi" in r else None,
@@ -510,13 +511,68 @@ def growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, key="r
     deploy = {"batches_total": cfg["deploy"]["batches"], "batches_left": dep.get("batches_left", 0),
               "done": dep.get("done", []), "this_batch": round(sum(o["dollars"] for o in orders), 2) if rebalance else 0,
               "cash_after": round(book["cash"] + freed - sum(o["dollars"] for o in orders), 2)}
+    reentry = reentry_watch(feats, funds, sc, hold_rank_of, g, held)
     rk = _ranking_table(sc.loc[ranked.index], funds)
     for x in rk:
         x["cdr"] = x["ticker"] in CDR
     return {"buys": orders, "sells": sells, "warn": warn, "watch": watch, "idea": idea, "avoid": avoid, "backups": [],
             "extended": [], "sleeves": sleeves, "deploy": deploy, "rebalance": rebalance,
             "target": [t for t in active_held if t not in sells] + buys, "rotate_out": list(sells),
-            "ranking": rk, "next_review": next_review(today)}
+            "ranking": rk, "next_review": next_review(today), "reentry": reentry}
+
+
+REENTRY_PRIORITY = ["AMD", "NVDA", "CRWD", "SNOW", "AVGO", "TSM", "MU", "PLTR", "NET", "PANW", "ANET", "META", "MSFT", "GOOGL", "AMZN"]
+
+
+def reentry_watch(feats, funds, sc, hold_rank_of, g, held, n=10):
+    """Quality companies that have fallen hard: fundamentals say 'good business', the trend says 'not yet'.
+
+    A name becomes a buy again only through the normal weekly ranking (back in the top hold_rank and above its
+    50-day average). This list shows how close each one is, so the decision is made by rules, not by fear or hype.
+    """
+    rows = []
+    for t in sc.index:
+        if t in ETFS or t not in feats:
+            continue
+        f = feats[t]
+        if len(f) < 200:
+            continue
+        info = (funds or {}).get(t) or {}
+        px = float(f.Close.iloc[-1])
+        hi = float(f.High.tail(252).max())
+        off = (px / hi - 1) * 100
+        if off > -15:
+            continue
+        good, why = quality_gate(info, px)
+        g_rev, pe, tgt = info.get("revenue_growth"), info.get("forward_pe"), info.get("target_mean")
+        if not good or (g_rev is not None and g_rev < 0.08):
+            continue
+        q, notes = fundamental_score(info)
+        sma50 = float(f.sma50.iloc[-1])
+        rank = hold_rank_of.get(t)
+        above = px > sma50
+        in_rank = rank is not None and rank <= g["hold_rank"]
+        if above and in_rank:
+            status, ready = f"RE-ENTRY SIGNAL: above its 50-day and ranked #{rank}; the weekly review can buy it", True
+        else:
+            need = []
+            if not above:
+                need.append(f"close above its 50-day (${sma50:,.2f}, {(sma50 / px - 1) * 100:+.1f}% away)")
+            if not in_rank:
+                need.append(f"rank back inside the top {g['hold_rank']} (now {'#' + str(rank) if rank else 'unranked: below its 200-day'})")
+            status, ready = "waiting: needs to " + " and ".join(need), False
+        peg = round(pe / (g_rev * 100), 2) if (pe and g_rev and g_rev > 0 and pe > 0) else None
+        rows.append({"ticker": t, "name": info.get("name", t), "sector": SECTOR_NAMES.get(UNIVERSE.get(t, ""), ""),
+                     "price": round(px, 2), "off_high_pct": round(off, 1), "revenue_growth_pct":
+                     round(g_rev * 100, 1) if g_rev is not None else None, "fwd_pe": round(pe, 1) if pe else None,
+                     "peg": peg, "analyst_upside_pct": round((tgt / px - 1) * 100, 1) if tgt else None,
+                     "quality": round(q), "quality_notes": notes[:2], "status": status, "ready": ready,
+                     "held": t in held, "cdr": t in CDR,
+                     "_prio": (0 if t in held else 1, REENTRY_PRIORITY.index(t) if t in REENTRY_PRIORITY else 99, -q)})
+    rows.sort(key=lambda x: x["_prio"])
+    for r in rows:
+        r.pop("_prio")
+    return rows[:n]
 
 
 def checkpoints(cfg, equity, state, spy_last):
@@ -541,6 +597,6 @@ def lesson(today, cfg):
     i = today.isocalendar()[1] % len(LESSONS)
     t, body = LESSONS[i]
     g = cfg["growth"]
-    return {"title": t, "body": body.format(max_per_sector=g["max_per_sector"], hold_rank=g["hold_rank"],
+    return {"title": t, "body": body.format(max_per_sector=g["max_per_sector"], tech_like_max=g.get("tech_like_max"), hold_rank=g["hold_rank"],
                                             exit_confirm=g.get("exit_confirm", 1), top_n=g["top_n"],
                                             stop_atr=g["stop_atr"], batches=cfg["deploy"]["batches"])}

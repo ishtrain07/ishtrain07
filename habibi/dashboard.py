@@ -547,6 +547,8 @@ def _growth_order(b, i):
         cells.append(("Take half at", f'<b class=pos>${b["target"]}</b>', f'+{b["target_pct"]}%'))
     if b.get("weekly_move_pct"):
         cells.append(("Normal week", f'<b>±{b["weekly_move_pct"]}%</b>', "expect this much noise"))
+    if b.get("quality") is not None and not b.get("etf"):
+        cells.append(("Business quality", f'<b>{b["quality"]}/100</b>', "growth, margins, valuation"))
     grid = '<div class="plan">' + "".join(f"<div><span>{k}</span><b>{v}</b>{s}</div>" for k, v, s in cells) + "</div>"
     extra = []
     if b.get("cdr"):
@@ -574,7 +576,7 @@ def render_growth(r):
 <style>{CSS}{GROWTH_CSS}</style></head><body><div class="wrap">
 <header><div><h1>Habibi Wealth Management</h1><div class="sub">Updated {e(r['generated_at'])} · weekly review Mondays · plans Mon/Wed/Fri 9:00 ET · midday alert check</div></div>
 <div class="light"><span class="dot {e(reg['light'])}"></span>Market {e(reg['light'])}</div></header>
-<nav><a href="#orders">This week</a><a href="#holdings">Holdings</a><a href="#macro">Macro &amp; sectors</a><a href="#learn">Learn</a><a href="#log">Log a trade</a></nav>
+<nav><a href="#orders">This week</a><a href="#holdings">Holdings</a><a href="#reentry">Re-entry</a><a href="#macro">Macro &amp; sectors</a><a href="#learn">Learn</a><a href="#log">Log a trade</a></nav>
 <div class="grid">
 <div class="card kpi"><div class="l">Account value</div><div class="v">${acct['equity']:,.2f}</div><div class="sub">cash ${acct['cash']:,.2f}</div></div>
 <div class="card kpi"><div class="l">Since the new plan ({e(ph.get('start'))})</div><div class="v">{pct(ph.get('return_pct'), 2)}</div>
@@ -643,6 +645,26 @@ def render_growth(r):
     else:
         out.append('<div class="card mute">No holdings yet. Log your fills below.</div>')
 
+    # ---- re-entry watchlist
+    re_rows = r.get("reentry") or []
+    if re_rows:
+        def cell(v, suf="%"):
+            return "-" if v is None else f"{v:+.0f}{suf}" if suf == "%" else f"{v}"
+        body = "".join(
+            f'<tr><td class="l"><b>{e(x["ticker"])}</b>{" <span class=tag>held</span>" if x["held"] else ""}'
+            f'<div class="note">{e(x["sector"])}</div></td><td>${x["price"]}</td><td class="neg">{x["off_high_pct"]:+.0f}%</td>'
+            f'<td>{cell(x["revenue_growth_pct"])}</td><td>{cell(x["fwd_pe"], "")}</td><td>{cell(x["peg"], "")}</td>'
+            f'<td>{cell(x["analyst_upside_pct"])}</td><td>{x["quality"]}</td>'
+            f'<td class="l" style="white-space:normal;min-width:220px">{"<b class=pos>" if x["ready"] else ""}{e(x["status"])}{"</b>" if x["ready"] else ""}</td></tr>'
+            for x in re_rows)
+        out.append('<h2 id="reentry">Re-entry watchlist: good businesses, falling prices</h2>'
+                   '<p class="note">Fundamentals tell us <b>whether</b> a company is worth owning; the trend tells us <b>when</b>. These names '
+                   'pass the business-quality check but have fallen 15%+ from their 1-year high. We do not catch falling knives and we do not '
+                   'panic-sell good companies forever: each one comes back automatically when it is above its 50-day average and ranks in the '
+                   'top 8 at a weekly review. PEG = forward P/E divided by revenue growth (under ~1.5 is reasonable for growth).</p>'
+                   '<div class="tbl"><table><tr><th class="l">Company</th><th>Price</th><th>From 1-yr high</th><th>Revenue growth</th>'
+                   f'<th>Fwd P/E</th><th>PEG</th><th>Analyst upside</th><th>Quality</th><th class="l">Re-entry status</th></tr>{body}</table></div>')
+
     # ---- macro and sectors
     heat = r.get("sector_heat") or []
     hrows = "".join(f'<tr><td class="l"><b>{h["rank"]}. {e(h["sector"])}</b> <span class="mute">{e(h["etf"])}</span></td>'
@@ -683,10 +705,10 @@ def _honest_line(rs):
     """One plain sentence next to the goals: what the hindsight-checked backtest really says."""
     res = (rs or {}).get("results", {})
     spy = (res.get("Z buy & hold SPY") or {}).get("full", {}).get("20_80", {}).get("total_pct")
-    s1 = next((v for k, v in res.items() if "biggest winners" in k and k.startswith("S")), None)
+    s1 = res.get("T3x T3 minus the 15 biggest winners") or next((v for k, v in res.items() if "biggest winners" in k), None)
     if spy is None or not s1:
         return ""
-    s1 = s1["full"]["20_80"]
+    s1 = s1["full"].get("30_70") or s1["full"]["20_80"]
     return (f'<div class="card order warn" style="margin-top:12px"><b>Honest expectation:</b> with hindsight removed (the 15 biggest '
             f'winners of the last 2 years taken out of the list), these rules made {s1["total_pct"]:+.0f}% over 2 years vs the S&amp;P 500\'s '
             f'{spy:+.0f}%, and lost money in {s1.get("p6m_loss")}% of 6-month windows. The big backtest wins came from catching a few '
@@ -699,8 +721,9 @@ def _growth_method(cfg):
 <li><b>Two parts.</b> {c['pct']}% in {e(c['ticker'])} (the S&amp;P 500), held long term and topped up toward its target from cash at weekly reviews.
 The other {100 - c['pct']}% is the active portfolio, reviewed once a week.</li>
 <li><b>Weekly review (Monday).</b> Every stock and sector ETF on the list is ranked by risk-adjusted momentum: its 6-, 3- and 1-month gains
-divided by how much it normally swings. We hold the top {g['top_n']}, at most {g['max_per_sector']} per sector, and keep a holding while it stays in the
-top {g['hold_rank']}. Chips and tech funds count as tech for the sector limit. Decisions use Friday's close; you place orders at Monday's open.</li>
+divided by how much it normally swings. Every stock must also pass a business-quality check (growing revenue, expected profits, sane valuation).
+We hold the top {g['top_n']}, at most {g['max_per_sector']} per sector and at most {g.get('tech_like_max')} across tech + chips combined, and keep a holding while it stays in the
+top {g['hold_rank']}. Decisions use Friday's close; you place orders at Monday's open.</li>
 <li><b>Size by swings.</b> Jumpier names get fewer dollars, so each holding can hurt about the same. No holding is more than {g['pos_cap_pct']}% of the active part.</li>
 <li><b>Exits.</b> Sell at the weekly review if it falls out of the top {g['hold_rank']}{', or closes below its 50-day average two weeks in a row' if g.get('trend_exit') else ''}.
 Sell half at +{g.get('profit_take_pct')}% and trail the rest. A rank exit needs {g.get('exit_confirm', 1)} weekly review(s) in a row outside the top {g['hold_rank']}. Emergency stop {g['stop_atr']:.0f} normal daily swings below entry (at most {g['stop_floor_pct']}%).
@@ -713,13 +736,14 @@ A drop that is just the market falling is never a sell signal.</li>
 def _growth_research(rs):
     rows = []
     for name, v in rs.get("results", {}).items():
-        if not (name.startswith("S") or name.startswith("Z") or name in ("G0 base: learning model top5, sector cap 2, 3xATR stop, 2-week trend exit, half at +25%",)):
+        if not (name[:2] in ("T2", "T3", "T4", "S1", "S3") or name.startswith("Z")):
             continue
-        f, h1, h2 = v["full"]["20_80"], v["half1"]["20_80"], v["half2"]["20_80"]
+        col = "30_70" if "30_70" in v["full"] else "20_80"
+        f, h1, h2 = v["full"][col], v["half1"][col], v["half2"][col]
         rows.append(f'<tr><td class="l" style="white-space:normal">{e(name)}</td><td>{pct(f.get("total_pct"))}</td><td>{pct(h1.get("total_pct"))}</td>'
                     f'<td>{pct(h2.get("total_pct"))}</td><td>{f.get("max_dd_pct")}%</td><td>{f.get("p6m_gain10")}%</td><td>{f.get("p6m_loss")}%</td></tr>')
     p = rs.get("periods", {}).get("full", ["", ""])
-    return ('<p class="note">Simulated 20% S&amp;P 500 + 80% active, decisions on Friday close, filled at Monday open, 0.1% cost each way, '
+    return ('<p class="note">Simulated 30% S&amp;P 500 + 70% active, decisions on Friday close, filled at Monday open, 0.1% cost each way, '
             f'{e(p[0])} to {e(p[1])}; results shown for each year, but the settings were chosen after seeing both years. <b>Big caveat:</b> '
             'the stock list was built in 2026, so it contains the stocks that went on to win (survivorship bias). With the 15 biggest winners '
             'removed, the rules fall well behind simply holding the S&amp;P 500. Read the "CHOSEN" row as a best case, not a forecast. '
