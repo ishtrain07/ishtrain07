@@ -69,10 +69,13 @@ def money(x):
     if x is None:
         return "-"
     cls = "pos" if x > 0 else "neg" if x < 0 else ""
-    return f'<span class="{cls}">{"+" if x > 0 else ""}${x:,.2f}</span>'
+    sign = "+" if x > 0 else "-" if x < 0 else ""
+    return f'<span class="{cls}">{sign}${abs(x):,.2f}</span>'
 
 
 def render(r):
+    if r.get("strategy") == "growth":
+        return render_growth(r)
     cfg = r["config"]
     acct = r["account"]
     goal = cfg["goal_return_pct"]
@@ -483,3 +486,269 @@ def _anomalies(an):
             + (f'<div class="tbl" style="margin-top:12px"><table><tr><th class="l">Rank trend (learning model)</th><th>Now</th><th>5-day change</th>'
                f'<th class="l">Path</th><th class="l"></th></tr>{trow}</table></div>' if trow else "")
             + '</details>')
+
+
+# ====================================================================== growth engine dashboard
+GROWTH_CSS = """
+.sleeve{display:flex;height:14px;border-radius:99px;overflow:hidden;background:var(--chip);margin:10px 0 6px}
+.sleeve i{display:block;height:100%}.s-core{background:#6366f1}.s-act{background:#0f7b4a}.s-cash{background:#c9c6bb}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--mute)}.legend b{color:var(--ink)}
+.sw{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.hold{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.hc h3{margin:0;font-size:17px;display:flex;justify-content:space-between;gap:8px}
+.hc .row{display:flex;justify-content:space-between;font-size:13px;padding:3px 0;border-bottom:1px dashed var(--line)}
+.hc .row:last-of-type{border-bottom:0}.hc .row span:first-child{color:var(--mute)}
+.split{font-size:12px;margin-top:8px;padding:8px;border-radius:8px;background:var(--chip)}
+.heat td.h{font-weight:600}.lesson{border-left:4px solid var(--acc)}
+.chk{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+"""
+
+
+def _heat_cell(x):
+    if x is None:
+        return "<td>-</td>"
+    a = min(abs(x) / 8, 1)
+    col = f"rgba(22,163,74,{0.12 + 0.5 * a:.2f})" if x > 0 else f"rgba(220,38,38,{0.12 + 0.5 * a:.2f})"
+    return f'<td class="h" style="background:{col}">{x:+.1f}%</td>'
+
+
+def _holding_card(p):
+    split = p.get("split") or {}
+    act = p.get("action", "HOLD")
+    cls = "sell" if act.startswith("SELL") else ""
+    sl = ""
+    if split:
+        sl = (f'<div class="split"><b>Last session {split["day_pct"]:+.1f}%</b> = market {split["day_market_pct"]:+.1f}% '
+              f'(beta {split["beta"]}) + stock-specific {split["day_specific_pct"]:+.1f}%. '
+              f'This week {split["week_pct"]:+.1f}% (market {split["week_market_pct"]:+.1f}%). '
+              f'<b>{e(split["verdict"]).capitalize()}.</b></div>')
+    rows = [("Shares", f'{p["shares"]}'), ("Avg cost → now", f'${p["avg_cost"]} → ${p["price"]}'),
+            ("P&amp;L", f'{money(p["pnl"])} ({pct(p["pnl_pct"])})')]
+    if p.get("sleeve") != "core":
+        rows += [("Emergency stop", f'${p["active_stop"]}' if p.get("active_stop") else "-"),
+                 ("Take half at", f'${p["t1"]}' if p.get("t1") else "-"),
+                 ("CAD-hedged CDR", "yes" if p.get("cdr") else "no")]
+    body = "".join(f'<div class="row"><span>{k}</span><span>{v}</span></div>' for k, v in rows)
+    tag = "CORE" if p.get("sleeve") == "core" else ("ON NOTICE" if p.get("on_notice") else e(act))
+    if p.get("data_warning"):
+        sl += f'<div class="split neg"><b>Data warning:</b> {e(p["data_warning"])}</div>'
+    return (f'<div class="card hc {"order " + cls if cls else ""}"><h3><span>{e(p["ticker"])}</span><span class="tag">{tag}</span></h3>'
+            f'{body}<div class="note" style="margin-top:6px">{e(p.get("why"))}</div>{sl}</div>')
+
+
+def _growth_order(b, i):
+    news = "".join(f'<li><a href="{e(n["url"])}" target="_blank" rel="noopener">{e(n["title"])}</a></li>'
+                   for n in b.get("news", []) if n.get("url"))
+    head = "CORE: " if b.get("kind", "").startswith("core") else ""
+    cells = [("Buy", f'<b>{b["shares"]} sh</b>', f'~${b["dollars"]:,.0f}'), ("Limit", f'<b>${b["limit"]}</b>', "skip if it opens above")]
+    if b.get("stop"):
+        cells.append(("Emergency stop", f'<b class=neg>${b["stop"]}</b>', f'{b["stop_pct"]}%'))
+    if b.get("target"):
+        cells.append(("Take half at", f'<b class=pos>${b["target"]}</b>', f'+{b["target_pct"]}%'))
+    if b.get("weekly_move_pct"):
+        cells.append(("Normal week", f'<b>±{b["weekly_move_pct"]}%</b>', "expect this much noise"))
+    if b.get("quality") is not None and not b.get("etf"):
+        cells.append(("Business quality", f'<b>{b["quality"]}/100</b>', "growth, margins, valuation"))
+    grid = '<div class="plan">' + "".join(f"<div><span>{k}</span><b>{v}</b>{s}</div>" for k, v, s in cells) + "</div>"
+    extra = []
+    if b.get("cdr"):
+        extra.append("CDR available")
+    if b.get("next_earnings"):
+        extra.append(f'earnings {e(b["next_earnings"])}')
+    return (f'<div class="card order"><h3><span>#{i} {head}BUY {e(b["ticker"])} <span class="mute" style="font-weight:400;font-size:14px">'
+            f'{e(b.get("name"))}</span></span><span class="tag">{e(b.get("sector"))}{" · rank #" + str(b["rank"]) if b.get("rank") else ""}</span></h3>'
+            + grid + '<b>Why</b><ul class="why">' + "".join(f"<li>{e(x)}</li>" for x in b.get("reason", [])[:4]) + '</ul>'
+            + ("<div class=note>" + " · ".join(extra) + "</div>" if extra else "")
+            + (f'<ul class="why news">{news}</ul>' if news else "") + '</div>')
+
+
+def render_growth(r):
+    cfg = r["config"]
+    acct, reg = r["account"], r["regime"]
+    ph = r.get("phase") or {}
+    sl = r.get("sleeves") or {}
+    pa = (r.get("paper") or {}).get("account") or {}
+    bm = (r.get("benchmark") or {}).get("spy_return_pct")
+    core_pct, act_pct, cash_pct = (sl.get("core", {}).get("pct", 0), sl.get("active", {}).get("pct", 0),
+                                   sl.get("cash", {}).get("pct", 0))
+    out = [f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Habibi Wealth Management</title>
+<style>{CSS}{GROWTH_CSS}</style></head><body><div class="wrap">
+<header><div><h1>Habibi Wealth Management</h1><div class="sub">Updated {e(r['generated_at'])} · weekly review Mondays · plans Mon/Wed/Fri 9:00 ET · midday alert check</div></div>
+<div class="light"><span class="dot {e(reg['light'])}"></span>Market {e(reg['light'])}</div></header>
+<nav><a href="#orders">This week</a><a href="#holdings">Holdings</a><a href="#reentry">Re-entry</a><a href="#macro">Macro &amp; sectors</a><a href="#learn">Learn</a><a href="#log">Log a trade</a></nav>
+<div class="grid">
+<div class="card kpi"><div class="l">Account value</div><div class="v">${acct['equity']:,.2f}</div><div class="sub">cash ${acct['cash']:,.2f}</div></div>
+<div class="card kpi"><div class="l">Since the new plan ({e(ph.get('start'))})</div><div class="v">{pct(ph.get('return_pct'), 2)}</div>
+<div class="sub">S&amp;P 500 {pct(ph.get('spy_return_pct'), 1)} · started at ${ph.get('start_equity', 0):,.0f}</div></div>
+<div class="card kpi"><div class="l">You vs system vs market (since {e(cfg['phase_start'])})</div><div class="v">{pct(ph.get('return_pct'), 1)} <span class="mute" style="font-size:15px">vs</span> {pct(pa.get('return_pct'), 1)}</div>
+<div class="sub">S&amp;P 500 {pct(ph.get('spy_return_pct'), 1)} · system = paper account on the same rules, same start · all-time since {e(cfg['start_date'])}: you {pct(acct['return_pct'], 1)}, S&amp;P 500 {pct(bm, 1)}</div></div>
+</div>
+<div class="card" style="margin-top:12px"><b>Where the money is</b> <span class="note">(target {cfg['core']['pct']}% index core / {100 - cfg['core']['pct']}% active)</span>
+<div class="sleeve"><i class="s-core" style="width:{core_pct}%"></i><i class="s-act" style="width:{act_pct}%"></i><i class="s-cash" style="width:{cash_pct}%"></i></div>
+<div class="legend"><span><i class="sw s-core"></i>Core {e(cfg['core']['ticker'])} <b>{core_pct}%</b></span><span><i class="sw s-act"></i>Active picks <b>{act_pct}%</b>
+({sl.get('active', {}).get('n', 0)} holdings)</span><span><i class="sw s-cash"></i>Cash <b>{cash_pct}%</b></span>
+<span>{'Cash deployment starts at the first weekly review' if r.get('preview') else 'Cash deployment: batch ' + str((r.get('deploy') or {}).get('batches_total', 0) - (r.get('deploy') or {}).get('batches_left', 0)) + ' of ' + str((r.get('deploy') or {}).get('batches_total', 0)) + ' done'}</span></div></div>"""]
+    checks = "".join(f'<div class="card kpi"><div class="l">{e(c["label"])} · {e(c["date"])}</div><div class="v">{c["progress"]:.0f}%</div>'
+                     f'<div class="bar"><i style="width:{c["progress"]:.0f}%"></i></div><div class="sub">goal +{c["goal_pct"]}%</div></div>'
+                     for c in ph.get("checks", []))
+    if checks:
+        out.append(f'<div class="chk" style="margin-top:12px">{checks}</div><p class="note">{e(ph.get("take_profit_rule"))} '
+                   'Goals are targets, not promises: markets can be down over any 3-6 month stretch.</p>')
+        out.append(_honest_line(r.get("growth_research")))
+    if r.get("preview"):
+        out.append(f'<div class="card order warn" style="margin-top:12px"><b>{e(r["preview"])}</b></div>')
+    if r.get("stale_note"):
+        out.append(f'<div class="card order warn" style="margin-top:12px">{e(r["stale_note"])}</div>')
+    out.append(f'<div class="headline"><b>Today:</b> {e(_headline(r))}<div class="note">{e(reg["message"])} Next weekly review: {e(r.get("next_review"))}.</div></div>')
+    if r.get("analyst"):
+        out.append(_analyst(r["analyst"]))
+    if r.get("drawdown_msg"):
+        out.append(f'<div class="card order sell" style="margin-top:12px"><b>{e(r["drawdown_msg"])}</b></div>')
+
+    # ---- this week's orders
+    out.append(f'<h2 id="orders">{"This week&#39;s orders (weekly review)" if r.get("rebalance") else "Open orders this week"}</h2><div class="stack">')
+    for a in r.get("alerts", []):
+        out.append(f'<div class="card order sell"><h3><span>SELL {e(a["ticker"])}</span><span class="tag">{e(a["action"])} · {e(a.get("rule", ""))}</span></h3>'
+                   f'<div>Sell <b>{a["shares"]}</b> shares at the open (~${a["price"]}). {e(a["why"])}'
+                   + (f' <b>{e(a["units_note"])}</b>' if a.get("units_note") else "") + '</div></div>')
+    for i, b in enumerate(r.get("buys", []), 1):
+        out.append(_growth_order(b, i))
+    if not r.get("alerts") and not r.get("buys"):
+        out.append(f'<div class="card order warn"><b>No orders today.</b> The plan is set at the weekly review ({e(r.get("next_review"))}). '
+                   'Between reviews we only act on real alerts, never on ordinary market swings.</div>')
+    out.append("</div>")
+    dep = r.get("deploy") or {}
+    if r.get("rebalance") and dep:
+        out.append(f'<p class="note">This batch: ${dep.get("this_batch", 0):,.0f}. Cash after these orders: about ${dep.get("cash_after", 0):,.0f}. '
+                   f'Batches left after this one: {dep.get("batches_left")}. New Canadian-dollar money: use CAD-hedged versions '
+                   f'(CDRs, or {e(r.get("cad_core"))} for the core) to avoid the ~1.5% currency fee.</p>')
+    idea = r.get("idea")
+    if idea:
+        out.append(f'<div class="card order warn" style="margin-top:12px"><h3><span>Idea of the week: {e(idea["ticker"])} '
+                   f'<span class="mute" style="font-weight:400;font-size:14px">{e(idea["name"])}</span></span><span class="tag">{e(idea["sector"])}</span></h3>'
+                   f'<div>${idea["price"]} · past 3 months {pct(idea["ret63"])} · RSI {idea["rsi"]}{" · CDR available" if idea.get("cdr") else ""}</div>'
+                   f'<div class="note">{e(idea["why"])}</div></div>')
+    if r.get("watch"):
+        out.append('<p class="note"><b>Next in line:</b> ' + ", ".join(
+            f'{e(w["ticker"])} (#{w["rank"]}, {e(w["sector"])})' for w in r["watch"]) + "</p>")
+    if r.get("avoid"):
+        out.append('<p class="note"><b>Skipped this week:</b> ' + "; ".join(
+            f'{e(x["ticker"])} ({e(x["why_not"])})' for x in r["avoid"][:6]) + "</p>")
+
+    # ---- holdings
+    out.append('<h2 id="holdings">Holdings</h2>')
+    if r.get("positions"):
+        out.append('<div class="hold">' + "".join(_holding_card(p) for p in r["positions"]) + "</div>")
+        out.append('<p class="note"><b>How to read the split:</b> a holding\'s move = what the market did (scaled by how much this stock usually '
+                   'moves with it, its beta) + the part that is about the company. Between reviews we never sell on market weather; at the weekly review the ranking decides, even after a market-wide drop.</p>')
+    else:
+        out.append('<div class="card mute">No holdings yet. Log your fills below.</div>')
+
+    # ---- re-entry watchlist
+    re_rows = r.get("reentry") or []
+    if re_rows:
+        def cell(v, suf="%"):
+            return "-" if v is None else f"{v:+.0f}{suf}" if suf == "%" else f"{v}"
+        body = "".join(
+            f'<tr><td class="l"><b>{e(x["ticker"])}</b>{" <span class=tag>held</span>" if x["held"] else ""}'
+            f'<div class="note">{e(x["sector"])}</div></td><td>${x["price"]}</td><td class="neg">{x["off_high_pct"]:+.0f}%</td>'
+            f'<td>{cell(x["revenue_growth_pct"])}</td><td>{cell(x["fwd_pe"], "")}</td><td>{cell(x["peg"], "")}</td>'
+            f'<td>{cell(x["analyst_upside_pct"])}</td><td>{x["quality"]}</td>'
+            f'<td class="l" style="white-space:normal;min-width:220px">{"<b class=pos>" if x["ready"] else ""}{e(x["status"])}{"</b>" if x["ready"] else ""}</td></tr>'
+            for x in re_rows)
+        out.append('<h2 id="reentry">Re-entry watchlist: good businesses, falling prices</h2>'
+                   '<p class="note">Fundamentals tell us <b>whether</b> a company is worth owning; the trend tells us <b>when</b>. These names '
+                   'pass the business-quality check (score 55+) but have fallen 15%+ from their 1-year high. We do not catch falling knives and we '
+                   'do not write good companies off forever: each one can be bought again when it ranks in the top 5 at a weekly review '
+                   '(a close back above its 50-day average is usually the first sign). PEG = forward P/E divided by revenue growth (under ~1.5 is reasonable for growth).</p>'
+                   '<div class="tbl"><table><tr><th class="l">Company</th><th>Price</th><th>From 1-yr high</th><th>Revenue growth</th>'
+                   f'<th>Fwd P/E</th><th>PEG</th><th>Analyst upside</th><th>Quality</th><th class="l">Re-entry status</th></tr>{body}</table></div>')
+
+    # ---- macro and sectors
+    heat = r.get("sector_heat") or []
+    hrows = "".join(f'<tr><td class="l"><b>{h["rank"]}. {e(h["sector"])}</b> <span class="mute">{e(h["etf"])}</span></td>'
+                    f'{_heat_cell(h["d1"])}{_heat_cell(h["w1"])}{_heat_cell(h["m1"])}{_heat_cell(h["m3"])}<td class="l">{e(h["trend"])}</td></tr>'
+                    for h in heat)
+    out.append('<h2 id="macro">Macro picture &amp; where money is moving</h2><div class="card"><ul class="why">' +
+               "".join(f"<li>{e(n)}</li>" for n in (r.get("macro_tilts") or [])) +
+               "".join(f"<li>{e(n)}</li>" for n in r.get("macro_read", [])) + "</ul></div>")
+    if hrows:
+        out.append('<div class="tbl heat" style="margin-top:12px"><table><tr><th class="l">Sector (ETF)</th><th>1D</th><th>1W</th><th>1M</th><th>3M</th>'
+                   f'<th class="l">Trend</th></tr>{hrows}</table></div>')
+    mrows = "".join(f'<tr><td class="l">{e(m["label"])}</td><td>{m["last"]:,}</td><td>{pct(m["d1"], 2)}</td>'
+                    f'<td>{pct(m["d5"])}</td><td>{pct(m["m1"])}</td></tr>' for m in r.get("macro", []))
+    out.append(f'<details class="sec"><summary>Global markets, rates, dollar, commodities</summary><div class="tbl"><table><tr><th class="l">Market</th>'
+               f'<th>Last</th><th>1D</th><th>5D</th><th>1M</th></tr>{mrows}</table></div></details>')
+    if r.get("anomalies"):
+        out.append(_anomalies(r["anomalies"]))
+
+    # ---- learn
+    les = r.get("lesson") or {}
+    gl = "".join(f'<tr><td class="l"><b>{e(k)}</b></td><td class="l" style="white-space:normal">{e(v)}</td></tr>' for k, v in r.get("glossary", []))
+    out.append(f'<h2 id="learn">Learn</h2><div class="card lesson"><b>Lesson of the week: {e(les.get("title"))}</b><div>{e(les.get("body"))}</div></div>')
+    out.append(f'<details class="sec"><summary>The rules, in plain English</summary>{_growth_method(cfg)}</details>')
+    out.append(f'<details class="sec"><summary>Glossary</summary><div class="tbl"><table>{gl}</table></div></details>')
+    out.append(_ranking(r))
+    if r.get("universe"):
+        out.append(_universe(r["universe"]))
+    out.append(f'<details class="sec"><summary>Trade journal (you and the system)</summary>{_tracking(r)}</details>')
+    if r.get("growth_research"):
+        out.append(f'<details class="sec"><summary>Backtest: how these rules did, and how much to trust it</summary>{_growth_research(r["growth_research"])}</details>')
+    out.append(_log_form(cfg))
+    out.append('<p class="note" style="margin-top:32px">Rules-based signals for personal use, not financial advice. '
+               'No strategy guarantees profits; every position can lose money.</p></div></body></html>')
+    return "\n".join(out)
+
+
+def _honest_line(rs):
+    """One plain sentence next to the goals: what the hindsight-checked backtest really says."""
+    res = (rs or {}).get("results", {})
+    spy = (res.get("Z buy & hold SPY") or {}).get("full", {}).get("20_80", {}).get("total_pct")
+    s1 = res.get("T3x T3 minus the 15 biggest winners") or next((v for k, v in res.items() if "biggest winners" in k), None)
+    if spy is None or not s1:
+        return ""
+    s1 = s1["full"].get("30_70") or s1["full"]["20_80"]
+    return (f'<div class="card order warn" style="margin-top:12px"><b>Honest expectation:</b> with hindsight removed (the 15 biggest '
+            f'winners of the last 2 years taken out of the list), these rules made {s1["total_pct"]:+.0f}% over 2 years vs the S&amp;P 500\'s '
+            f'{spy:+.0f}%, and lost money in {s1.get("p6m_loss")}% of 6-month windows. The big backtest wins came from catching a few '
+            'runaway stocks. Realistic expectation: anywhere from well behind the index to well ahead of it, with bigger swings; '
+            'beating it depends on catching the next big winners.</div>')
+
+
+def _growth_method(cfg):
+    g, c = cfg["growth"], cfg["core"]
+    return f"""<ol class="why">
+<li><b>Two parts.</b> {c['pct']}% in {e(c['ticker'])} (the S&amp;P 500), held long term and topped up toward its target from cash at weekly reviews.
+The other {100 - c['pct']}% is the active portfolio, reviewed once a week.</li>
+<li><b>Weekly review (Monday).</b> Every stock and sector ETF on the list is ranked by risk-adjusted momentum: its 6-, 3- and 1-month gains
+divided by how much it normally swings. Every stock must also pass a business-quality check (growing revenue, expected profits, sane valuation).
+We hold the top {g['top_n']}, at most {g['max_per_sector']} per sector and at most {g.get('tech_like_max')} across tech + chips combined, and keep a holding while it stays in the
+top {g['hold_rank']}. Decisions use Friday's close; you place orders at Monday's open.</li>
+<li><b>Size by swings.</b> Jumpier names get fewer dollars, so each holding can hurt about the same. No holding is more than {g['pos_cap_pct']}% of the active part.</li>
+<li><b>Exits.</b> Sell at the weekly review if it falls out of the top {g['hold_rank']}{', or closes below its 50-day average two weeks in a row' if g.get('trend_exit') else ''}.
+Sell half at +{g.get('profit_take_pct')}% and trail the rest. A rank exit needs {g.get('exit_confirm', 1)} weekly review(s) in a row outside the top {g['hold_rank']}. Emergency stop {g['stop_atr']:.0f} normal daily swings below entry (at most {g['stop_floor_pct']}%).
+Between reviews, a market-wide drop never triggers a sale (only the emergency stop can). At the weekly review a holding outside the top {g['hold_rank']} is sold even after a market-wide drop: rank is relative, so it means other names are holding up better. Waiting an extra week tested worse.</li>
+<li><b>Market light.</b> RED (S&amp;P 500 below its 200-day average or fear spiking) = no new buys. Holdings follow their own rules.</li>
+<li><b>Safety limits.</b> Down {g['halt_pct']}% since the new plan began = no new buys. Down {g['rethink_pct']}% = full review together. Nothing is ever sold automatically just because the account is down.</li>
+<li><b>New cash</b> goes in over {cfg['deploy']['batches']} weekly batches. No buys within 3 trading days of an earnings report.</li></ol>"""
+
+
+def _growth_research(rs):
+    rows = []
+    for name, v in rs.get("results", {}).items():
+        if not (name[:2] in ("T2", "T3", "T4", "S1", "S3") or name.startswith("Z")):
+            continue
+        col = "30_70" if "30_70" in v["full"] else "20_80"
+        f, h1, h2 = v["full"][col], v["half1"][col], v["half2"][col]
+        rows.append(f'<tr><td class="l" style="white-space:normal">{e(name)}</td><td>{pct(f.get("total_pct"))}</td><td>{pct(h1.get("total_pct"))}</td>'
+                    f'<td>{pct(h2.get("total_pct"))}</td><td>{f.get("max_dd_pct")}%</td><td>{f.get("p6m_gain10")}%</td><td>{f.get("p6m_loss")}%</td></tr>')
+    p = rs.get("periods", {}).get("full", ["", ""])
+    return ('<p class="note">Simulated 30% S&amp;P 500 + 70% active, decisions on Friday close, filled at Monday open, 0.1% cost each way, '
+            f'{e(p[0])} to {e(p[1])}; results shown for each year, but the settings were chosen after seeing both years. <b>Big caveat:</b> '
+            'the stock list was built in 2026, so it contains the stocks that went on to win (survivorship bias). With the 15 biggest winners '
+            'removed, the rules fall well behind simply holding the S&amp;P 500. Read the "CHOSEN" row as a best case and its "minus the 15 biggest winners" row as the sober case. '
+            'The sector-ETF-only version is less exposed to this bias (its list was also picked in 2026) and roughly matched the index '
+            'with a smaller worst drop.</p>'
+            '<div class="tbl"><table><tr><th class="l">Rulebook</th><th>2 years</th><th>Year 1</th><th>Year 2</th><th>Worst drop</th>'
+            f'<th>6-mo windows +10%</th><th>6-mo windows losing</th></tr>{"".join(rows)}</table></div>')
