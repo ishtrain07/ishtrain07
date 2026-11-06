@@ -159,7 +159,8 @@ def active_sim(feats, pre, dates, p):
                 if t in hold:
                     continue
                 s = bucket(t)
-                if sectors.get(s, 0) >= p.get("max_per_sector", 2):
+                from .growth import fits_caps
+                if not fits_caps(t, sectors, p.get("max_per_sector", 2), p.get("tech_like_max", 2)):
                     continue
                 sectors[s] = sectors.get(s, 0) + 1
                 buys.append(t)
@@ -270,6 +271,13 @@ VARIANTS.update({
     "S6 S0 + both (no-RSI holds, 2-week rank exit)": dict(R, hold_rank=8, hold_ignores_rsi=True, exit_confirm=2),
     "S7 S6 minus the 15 biggest winners": dict(R, hold_rank=8, hold_ignores_rsi=True, exit_confirm=2, exclude_winners=15),
     "S8 S6 + YELLOW market = half-size new buys": dict(R, hold_rank=8, hold_ignores_rsi=True, exit_confirm=2, yellow_half=True),
+    "T2 S0, tech+chips max 2 combined": dict(R, hold_rank=8, tech_like_max=2),
+    "T3 S0, tech+chips max 3 combined (2 per sector)": dict(R, hold_rank=8, tech_like_max=3),
+    "T4 S0, tech+chips max 4 (2 software + 2 chips)": dict(R, hold_rank=8, tech_like_max=4),
+    "T3x T3 minus the 15 biggest winners": dict(R, hold_rank=8, tech_like_max=3, exclude_winners=15),
+    "T4x T4 minus the 15 biggest winners": dict(R, hold_rank=8, tech_like_max=4, exclude_winners=15),
+    "T3e T3 stocks only (no ETFs)": dict(R, hold_rank=8, tech_like_max=3, etfs=False),
+    "T3d T3 + dividend payers only for non-tech (TFSA note: US dividends lose 15% withholding)": dict(R, hold_rank=8, tech_like_max=3),
 })
 
 
@@ -309,11 +317,14 @@ def main():
             act, tr = active_sim(feats, pre, ds, p)
             row[k] = {"active_only": stats(act, tr),
                       "20_80": stats(combine(act, spy, 0.20)),
+                      "30_70": stats(combine(act, spy, 0.30)),
                       "40_60": stats(combine(act, spy, 0.40))}
         res["results"][name] = row
-        print(name, row["full"]["20_80"], flush=True)
-    res["results"]["Z buy & hold SPY"] = {k: {"20_80": stats(spy.reindex(ds).ffill())} for k, ds in periods.items()}
-    res["results"]["Z buy & hold QQQ"] = {k: {"20_80": stats(feats["QQQ"].Close.reindex(ds).ffill())}
+        print(name, row["full"]["30_70"], flush=True)
+    res["results"]["Z buy & hold SPY"] = {k: {"20_80": stats(spy.reindex(ds).ffill()), "30_70": stats(spy.reindex(ds).ffill())}
+                                         for k, ds in periods.items()}
+    res["results"]["Z buy & hold QQQ"] = {k: {"20_80": stats(feats["QQQ"].Close.reindex(ds).ffill()),
+                                             "30_70": stats(feats["QQQ"].Close.reindex(ds).ffill())}
                                          for k, ds in periods.items()}
     OUT.mkdir(exist_ok=True)
     (OUT / "growth_research.json").write_text(json.dumps(res, indent=1, default=str))

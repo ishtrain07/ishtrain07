@@ -29,16 +29,24 @@ SECTOR_NAMES = {"Tech": "Technology", "Semis": "Chips", "Comm": "Communication",
                 "ConsStap": "Consumer staples", "Financials": "Financials", "Health": "Healthcare",
                 "Industrials": "Industrials", "Energy": "Energy", "Utilities": "Utilities", "Materials": "Materials",
                 "Gold": "Gold", "Intl": "International"}
-# The per-sector cap treats chips and tech/Nasdaq funds as tech, so "max 2 per sector" really means max 2 tech-like bets.
-CAP_BUCKET = {"Semis": "Tech"}
-ETF_BUCKET = {"SMH": "Tech", "QQQ": "Tech", "XLK": "Tech", "SPY": "Broad", "IWM": "Broad", "VOO": "Broad", "VTI": "Broad"}
+# Concentration limits: at most max_per_sector names per sector (chips and software are separate sectors),
+# and at most tech_like_max names across tech + chips + tech/Nasdaq funds combined.
+ETF_BUCKET = {"SMH": "Semis", "QQQ": "Tech", "XLK": "Tech", "SPY": "Broad", "IWM": "Broad", "VOO": "Broad", "VTI": "Broad"}
+TECH_LIKE = {"Tech", "Semis"}
 
 
 def cap_bucket(t):
-    if t in ETF_BUCKET:
-        return ETF_BUCKET[t]
-    s = UNIVERSE.get(t, "?")
-    return CAP_BUCKET.get(s, s)
+    return ETF_BUCKET.get(t) or UNIVERSE.get(t, "?")
+
+
+def fits_caps(t, counts, max_per_sector, tech_like_max):
+    """counts: {bucket: n} of names already kept/bought. True if adding t stays within both limits."""
+    b = cap_bucket(t)
+    if counts.get(b, 0) >= max_per_sector:
+        return False
+    if b in TECH_LIKE and tech_like_max is not None and sum(counts.get(x, 0) for x in TECH_LIKE) >= tech_like_max:
+        return False
+    return True
 
 
 HEAT_ETFS = {**{k: v for k, v in SECTOR_ETF.items() if k != "ETF"}, "Gold": "GLD", "Intl": "EFA"}
@@ -370,7 +378,7 @@ def growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, key="r
                 if t in held or t in blocked:
                     continue
                 s = cap_bucket(t)
-                if sectors.get(s, 0) >= g["max_per_sector"]:
+                if not fits_caps(t, sectors, g["max_per_sector"], g.get("tech_like_max")):
                     continue
                 sectors[s] = sectors.get(s, 0) + 1
                 buys.append(t)
