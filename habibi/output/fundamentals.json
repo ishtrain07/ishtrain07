@@ -631,7 +631,7 @@
   "earnings_growth": null,
   "profit_margin": 0.12303001,
   "market_cap": 12546419712,
-  "target_mean": 44.13554,
+  "target_mean": 44.121517,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-10"
@@ -1398,7 +1398,7 @@
   "earnings_growth": -0.158,
   "profit_margin": 0.33921,
   "market_cap": 177692573696,
-  "target_mean": 44.992752,
+  "target_mean": 44.98952,
   "recommendation": "none",
   "quote_type": "EQUITY",
   "next_earnings": "2027-02-03"
