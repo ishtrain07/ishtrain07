@@ -25,6 +25,12 @@ OUT = Path(__file__).parent / "output"
 ETF_SECTORS = {"Gold", "Intl"}
 
 
+def bucket(t):
+    """Sector bucket for the per-sector cap: chips and tech ETFs count as tech."""
+    from .growth import cap_bucket
+    return cap_bucket(t)
+
+
 def is_etf(t):
     return t in set(SECTOR_ETF.values()) | {"GLD", "EFA", "EEM", "QQQ", "SPY", "IWM", "SMH"}
 
@@ -35,6 +41,7 @@ def active_sim(feats, pre, dates, p):
     cost = p.get("cost", 0.001)
     cash, hold, curve, trades = 1.0, {}, [], []
     below = {}  # ticker -> consecutive weekly closes below its 50-day
+    out_wk = {}  # ticker -> consecutive weekly reviews ranked outside hold_rank
     pending = None  # orders decided at a signal close, filled at next open
 
     def px(t, d, field="Close"):
@@ -129,30 +136,41 @@ def active_sim(feats, pre, dates, p):
         if regime == "RED" and p.get("red_to_cash"):
             sells |= set(hold); why.update({t: "regime" for t in hold})
         hold_rank = p.get("hold_rank", p["top_n"])
+        hold_order = order
+        if p.get("hold_ignores_rsi"):
+            okh = sc.eligible & sc[p["rank_col"]].notna()
+            if p.get("excluded"):
+                okh &= ~sc.index.isin(p["excluded"])
+            hold_order = list(sc[okh].sort_values(p["rank_col"], ascending=False).index)
         for t in hold:
-            if t not in order[:hold_rank]:
-                sells.add(t); why.setdefault(t, "rotate")
+            if t not in hold_order[:hold_rank]:
+                out_wk[t] = out_wk.get(t, 0) + 1
+                if out_wk[t] >= p.get("exit_confirm", 1):
+                    sells.add(t); why.setdefault(t, "rotate")
+            else:
+                out_wk[t] = 0
         keep = [t for t in hold if t not in sells]
         buys = []
         if not (regime == "RED" and p.get("no_buys_red", True)):
-            sectors = pd.Series([UNIVERSE.get(t, "?") for t in keep]).value_counts().to_dict()
+            sectors = pd.Series([bucket(t) for t in keep]).value_counts().to_dict()
             for t in order:
                 if len(keep) + len(buys) >= p["top_n"]:
                     break
                 if t in hold:
                     continue
-                s = UNIVERSE.get(t, "?")
+                s = bucket(t)
                 if sectors.get(s, 0) >= p.get("max_per_sector", 2):
                     continue
                 sectors[s] = sectors.get(s, 0) + 1
                 buys.append(t)
         if buys:
+            ymult = 0.5 if (p.get("yellow_half") and regime == "YELLOW") else 1.0
             if p.get("sizing") == "invvol":
                 iv = {t: 1 / max(float(ranked.loc[t].atr / ranked.loc[t].Close), 1e-4) for t in buys}
                 avg = sum(iv.values()) / len(iv)
-                w = {t: min(iv[t] / avg / p["top_n"], p.get("pos_cap", 0.30)) for t in buys}
+                w = {t: ymult * min(iv[t] / avg / p["top_n"], p.get("pos_cap", 0.30)) for t in buys}
             else:
-                w = {t: 1 / p["top_n"] for t in buys}
+                w = {t: ymult / p["top_n"] for t in buys}
         pending = {"sell": sells, "why": why, "buy": [(t, w[t]) for t in buys] if buys else [],
                    "atr": {t: float(ranked.loc[t].atr) for t in buys}}
     return pd.Series([e for _, e in curve], index=[d for d, _ in curve]), trades
@@ -247,6 +265,11 @@ VARIANTS.update({
     "S1 CHOSEN minus the 15 biggest winners (hindsight-bias check)": dict(R, hold_rank=8, exclude_winners=15),
     "S2 CHOSEN minus the 30 biggest winners (harsher check)": dict(R, hold_rank=8, exclude_winners=30),
     "S3 sector/asset ETFs only, top 3": dict(R, hold_rank=5, top_n=3, etfs_only=True),
+    "S4 S0 + holds ranked without the RSI filter": dict(R, hold_rank=8, hold_ignores_rsi=True),
+    "S5 S0 + rank exit needs 2 weekly reviews in a row": dict(R, hold_rank=8, exit_confirm=2),
+    "S6 S0 + both (no-RSI holds, 2-week rank exit)": dict(R, hold_rank=8, hold_ignores_rsi=True, exit_confirm=2),
+    "S7 S6 minus the 15 biggest winners": dict(R, hold_rank=8, hold_ignores_rsi=True, exit_confirm=2, exclude_winners=15),
+    "S8 S6 + YELLOW market = half-size new buys": dict(R, hold_rank=8, hold_ignores_rsi=True, exit_confirm=2, yellow_half=True),
 })
 
 

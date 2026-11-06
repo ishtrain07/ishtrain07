@@ -29,24 +29,37 @@ SECTOR_NAMES = {"Tech": "Technology", "Semis": "Chips", "Comm": "Communication",
                 "ConsStap": "Consumer staples", "Financials": "Financials", "Health": "Healthcare",
                 "Industrials": "Industrials", "Energy": "Energy", "Utilities": "Utilities", "Materials": "Materials",
                 "Gold": "Gold", "Intl": "International"}
+# The per-sector cap treats chips and tech/Nasdaq funds as tech, so "max 2 per sector" really means max 2 tech-like bets.
+CAP_BUCKET = {"Semis": "Tech"}
+ETF_BUCKET = {"SMH": "Tech", "QQQ": "Tech", "XLK": "Tech", "SPY": "Broad", "IWM": "Broad", "VOO": "Broad", "VTI": "Broad"}
+
+
+def cap_bucket(t):
+    if t in ETF_BUCKET:
+        return ETF_BUCKET[t]
+    s = UNIVERSE.get(t, "?")
+    return CAP_BUCKET.get(s, s)
+
+
 HEAT_ETFS = {**{k: v for k, v in SECTOR_ETF.items() if k != "ETF"}, "Gold": "GLD", "Intl": "EFA"}
 
 LESSONS = [
     ("Diversify the bets", "Our first three picks were all tech, so one bad day for tech hit everything at once. "
-                           "The new rules allow at most 2 holdings per sector."),
+                           "The new rules allow at most {max_per_sector} holdings per sector (chips and tech funds count as tech)."),
     ("Market move vs stock move", "If the whole market falls 3% and your stock falls 4%, only about 1% is about the company. "
-                                  "We sell for company problems or broken trends, not for market weather."),
+                                  "A holding is only sold at the weekly review if it has ranked outside the top {hold_rank} for "
+                                  "{exit_confirm} reviews in a row, or its trend is broken - one bad market week is not enough."),
     ("Position sizing", "Jumpy stocks get a smaller dollar amount so each holding can hurt the account about the same. "
                         "That lets us own volatile winners without one of them sinking the account."),
     ("Why a weekly review", "Checking prices three times a day invites panic. Trends play out over weeks; a weekly decision "
                             "on Friday's close, placed at Monday's open, is calmer and tested better."),
     ("Momentum, adjusted for risk", "We rank by how much a stock has gained over 6, 3 and 1 months divided by how much it "
                                     "normally swings. Steady climbers rank above lottery tickets."),
-    ("The hold buffer", "We buy names in the top 5 but keep them until they fall out of the top 12. "
-                        "That stops us from selling a good holding just because it slipped to #6 for a week."),
-    ("Stops are insurance, not predictions", "The emergency stop sits about 3 normal daily swings below the entry. "
+    ("The hold buffer", "We buy names in the top {top_n} but keep them until they fall out of the top {hold_rank}. "
+                        "That stops us from selling a good holding just because it slipped a few places for a week."),
+    ("Stops are insurance, not predictions", "The emergency stop sits about {stop_atr:.0f} normal daily swings below the entry. "
                                              "It is there for disasters, so it should rarely fire."),
-    ("Cash in batches", "Putting money in over three weeks means one unlucky entry day cannot hurt much. "
+    ("Cash in batches", "Putting money in over {batches} weeks means one unlucky entry day cannot hurt much. "
                         "It costs a little upside when markets rise, and saves a lot of regret when they fall."),
     ("Sector rotation", "Money moves between sectors as the economy shifts. Falling interest rates tend to help tech and "
                         "utilities; rising oil helps energy. The sector heat map shows where the money is going."),
@@ -77,16 +90,10 @@ CAD_HEDGED_CORE = "VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-h
 
 # ------------------------------------------------------------------ helpers
 def _day_move(f, today, px=None):
-    """(move %, prev close) for the latest session: today's live price vs the prior close."""
+    """Latest session move in %: today's live price (if the bar is today's) vs the prior close."""
     c = f.Close
-    has_today = c.index[-1].date() == today
-    if has_today:
-        prev = float(c.iloc[-2])
-        last = float(px) if px is not None else float(c.iloc[-1])
-    else:
-        prev = float(c.iloc[-2])
-        last = float(c.iloc[-1])
-    return (last / prev - 1) * 100
+    last = float(px) if (px is not None and c.index[-1].date() == today) else float(c.iloc[-1])
+    return (last / float(c.iloc[-2]) - 1) * 100
 
 
 def beta(feats, t, n=120):
@@ -166,7 +173,8 @@ def macro_tilts(macro, heat):
         notes.append("A weaker dollar helps international stocks, gold and materials." if m["DX-Y.NYB"]["m1"] < 0
                      else "A stronger dollar is a headwind for international stocks, gold and US multinationals.")
     if "^VIX" in m and m["^VIX"]["last"] >= 24:
-        notes.append("Fear is elevated: the engine keeps new positions smaller and favours steadier names.")
+        notes.append("Fear is elevated: expect bigger daily swings. The ranking already favours steadier names "
+                     "(gains are divided by volatility); new buys stop only if the market light turns RED.")
     if "USDCAD=X" in m:
         notes.append(f"USD/CAD {m['USDCAD=X']['last']:.2f} ({m['USDCAD=X']['m1']:+.1f}% over a month): new CAD money is "
                      f"best put into CAD-hedged versions (CDRs, {CAD_HEDGED_CORE.split(' (')[0]}) to skip the FX fee.")
@@ -224,13 +232,20 @@ def evaluate_growth(book, feats, live, funds, cfg, today, state, key="real"):
     g = cfg["growth"]
     core = cfg["core"]["ticker"]
     stops = anchor_stops(book, feats, cfg, state, key)
-    week_sells = (state.get(key, {}).get("week") or {}).get("sells", {})
+    wk = state.get(key, {}).get("week") or {}
+    same_week = bool(wk.get("date")) and dt.date.fromisoformat(wk["date"]).isocalendar()[:2] == today.isocalendar()[:2]
+    week_sells = wk.get("sells", {}) if same_week else {}
     mv, alerts = 0.0, []
     for p in book["open"]:
         t = p["ticker"]
         f = feats.get(t)
         last = float(f.Close.iloc[-1]) if f is not None else p["avg_cost"]
         px = float((live or {}).get(t, last))
+        stale = f is None or (today - f.index[-1].date()).days > 5
+        p["data_warning"] = (f"no fresh price data for {t}: stop and P&L may be out of date" if stale else None)
+        units = (cfg.get("cdr_holdings") or {}).get(t)
+        if units:
+            p["cdr_units"] = units
         p.update({"price": round(px, 2), "value": round(px * p["shares"], 2),
                   "pnl": round((px - p["avg_cost"]) * p["shares"], 2),
                   "pnl_pct": round((px / p["avg_cost"] - 1) * 100, 2),
@@ -239,7 +254,7 @@ def evaluate_growth(book, feats, live, funds, cfg, today, state, key="real"):
                   "split": market_vs_stock(feats, t, today, live) if f is not None else None})
         mv += p["value"]
         if t == core:
-            p.update({"action": "HOLD", "why": "core index fund: held through ups and downs; rebalanced quarterly",
+            p.update({"action": "HOLD", "why": "core index fund: held through ups and downs; topped up toward its target share from cash at weekly reviews",
                       "active_stop": None, "t1": None, "t2": None, "rule": "core"})
             continue
         rec = stops.get(t, {})
@@ -266,8 +281,12 @@ def evaluate_growth(book, feats, live, funds, cfg, today, state, key="real"):
                    + (f"; take half at {target:.2f}" if target else ""))
         p.update({"action": act, "why": why, "rule": rule})
         if act != "HOLD":
-            alerts.append({"ticker": t, "action": act, "why": why, "price": p["price"], "rule": rule,
-                           "shares": p["shares"] if act == "SELL ALL" else round(p["shares"] / 2, 4)})
+            a = {"ticker": t, "action": act, "why": why, "price": p["price"], "rule": rule,
+                 "shares": p["shares"] if act == "SELL ALL" else round(p["shares"] / 2, 4)}
+            if units:
+                n = units if act == "SELL ALL" else max(1, int(units // 2))
+                a["units_note"] = f"you hold {units} {t} CDRs (CAD): sell {n} CDRs" + (" (all)" if act == "SELL ALL" else "")
+            alerts.append(a)
     equity = book["cash"] + mv
     book.update({"market_value": round(mv, 2), "equity": round(equity, 2),
                  "return_pct": round((equity / float(cfg["starting_capital_usd"]) - 1) * 100, 2),
@@ -297,6 +316,9 @@ def growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, key="r
     ranked = sc[ok].sort_values("risk_adj_mom", ascending=False)
     order = list(ranked.index)
     rank_of = {t: i + 1 for i, t in enumerate(order)}
+    # Holdings are judged on the same ranking but without the "overbought" entry filter (RSI is for buying, not selling).
+    okh = sc.eligible & sc.risk_adj_mom.notna() if g.get("hold_ignores_rsi", True) else ok
+    hold_rank_of = {t: i + 1 for i, t in enumerate(sc[okh].sort_values("risk_adj_mom", ascending=False).index)}
 
     blocked, avoid = {}, []
     for t in order[:40]:
@@ -311,9 +333,12 @@ def growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, key="r
     active_held = {t: p for t, p in held.items() if t != core_t}
     equity = book["equity"]
 
-    sells, buys = {}, []
+    sells, buys, warn = {}, [], {}
+    can_buy = not halted and regime["light"] != "RED"
     if rebalance:
         below = st.setdefault("below50", {})
+        out_wk = st.setdefault("out_weeks", {})
+        need = g.get("exit_confirm", 1)
         for t in active_held:
             r = sc.loc[t] if t in sc.index else None
             if r is None:
@@ -321,22 +346,30 @@ def growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, key="r
             below[t] = below.get(t, 0) + 1 if r.Close < r.sma50 else 0
             if g.get("trend_exit") and below[t] >= 2:
                 sells[t] = "trend broken: second weekly close below its 50-day average"
-            elif rank_of.get(t, 999) > g["hold_rank"]:
-                where = f"#{rank_of[t]}" if t in rank_of else "unranked (below its 200-day average or overbought)"
-                sells[t] = f"weekly review: now {where}, outside the top {g['hold_rank']}; the money moves to a stronger name"
-        for t in list(below):
-            if t not in active_held:
-                del below[t]
+            elif hold_rank_of.get(t, 999) > g["hold_rank"]:
+                out_wk[t] = out_wk.get(t, 0) + 1
+                where = f"#{hold_rank_of[t]}" if t in hold_rank_of else "below its 200-day average (a long-term downtrend)"
+                if out_wk[t] >= need:
+                    sells[t] = (f"weekly review: now {where}, outside the top {g['hold_rank']} for {out_wk[t]} review(s) in a row; "
+                                "the money moves to a stronger name")
+                else:
+                    warn[t] = (f"on notice: now {where}, outside the top {g['hold_rank']}. Sold at the next review only if "
+                               "it is still outside; one bad week is not enough")
+            else:
+                out_wk[t] = 0
+        for d in (below, out_wk):
+            for t in list(d):
+                if t not in active_held:
+                    del d[t]
         keep = [t for t in active_held if t not in sells]
-        can_buy = not halted and regime["light"] != "RED"
         if can_buy:
-            sectors = pd.Series([UNIVERSE.get(t, "?") for t in keep]).value_counts().to_dict()
+            sectors = pd.Series([cap_bucket(t) for t in keep]).value_counts().to_dict()
             for t in order:
                 if len(keep) + len(buys) >= g["top_n"]:
                     break
                 if t in held or t in blocked:
                     continue
-                s = UNIVERSE.get(t, "?")
+                s = cap_bucket(t)
                 if sectors.get(s, 0) >= g["max_per_sector"]:
                     continue
                 sectors[s] = sectors.get(s, 0) + 1
@@ -349,7 +382,8 @@ def growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, key="r
     cash_avail = max(book["cash"] + freed - reserve, 0)
     dep = st.setdefault("deploy", {"batches_left": cfg["deploy"]["batches"]})
     batches_left = max(dep.get("batches_left", 0), 0)
-    budget = cash_avail / batches_left if (rebalance and batches_left > 0) else cash_avail
+    idle = max(cash_avail - freed, 0)
+    budget = (freed + idle / batches_left) if (rebalance and batches_left > 0) else cash_avail
     core_val = held[core_t]["value"] if core_t in held else 0.0
     core_gap = max(equity * core_pct - core_val, 0)
     iv = {t: 1 / max(float(ranked.loc[t].atr / ranked.loc[t].Close), 1e-4) for t in buys}
@@ -411,7 +445,7 @@ def growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, key="r
         orders.append(make_order(t, dollars, "new", why))
 
     if rebalance:
-        st["week"] = {"date": today.isoformat(), "orders": orders, "sells": sells}
+        st["week"] = {"date": today.isoformat(), "orders": orders, "sells": sells, "warn": warn}
         if orders and batches_left > 0:
             dep["batches_left"] = batches_left - 1
             dep.setdefault("done", []).append(today.isoformat())
@@ -424,11 +458,13 @@ def growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, key="r
                 if t in held or t not in feats:
                     continue
                 px = float(feats[t].Close.iloc[-1])
-                if px > o["limit"] * 1.03 or (o["kind"] != "core" and rank_of.get(t, 999) > g["hold_rank"]):
+                if px > o["limit"] * 1.03:
+                    continue
+                if o["kind"] != "core" and (not can_buy or t in blocked or rank_of.get(t, 999) > g["hold_rank"]):
                     continue
                 o2 = dict(o, price=round(px, 2), entry=round(px, 2), limit=round(px * 1.01, 2),
                           shares=round(o["dollars"] / px, 4 if o["etf"] else 2), kind=o["kind"] + "-catchup")
-                o2["reason"] = ["catch-up: on Monday's list and not filled yet"] + list(o["reason"])
+                o2["reason"] = ["catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)"] + list(o["reason"])
                 orders.append(o2)
             sells = {t: w for t, w in (wk.get("sells") or {}).items() if t in held}
 
@@ -469,7 +505,7 @@ def growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, key="r
     rk = _ranking_table(sc.loc[ranked.index], funds)
     for x in rk:
         x["cdr"] = x["ticker"] in CDR
-    return {"buys": orders, "sells": sells, "watch": watch, "idea": idea, "avoid": avoid, "backups": [],
+    return {"buys": orders, "sells": sells, "warn": warn, "watch": watch, "idea": idea, "avoid": avoid, "backups": [],
             "extended": [], "sleeves": sleeves, "deploy": deploy, "rebalance": rebalance,
             "target": [t for t in active_held if t not in sells] + buys, "rotate_out": list(sells),
             "ranking": rk, "next_review": next_review(today)}
@@ -493,7 +529,10 @@ def checkpoints(cfg, equity, state, spy_last):
             "take_profit_rule": cfg["goal"].get("take_profit_rule")}
 
 
-def lesson(today):
+def lesson(today, cfg):
     i = today.isocalendar()[1] % len(LESSONS)
     t, body = LESSONS[i]
-    return {"title": t, "body": body}
+    g = cfg["growth"]
+    return {"title": t, "body": body.format(max_per_sector=g["max_per_sector"], hold_rank=g["hold_rank"],
+                                            exit_confirm=g.get("exit_confirm", 1), top_n=g["top_n"],
+                                            stop_atr=g["stop_atr"], batches=cfg["deploy"]["batches"])}

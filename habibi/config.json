@@ -40,7 +40,6 @@
     "name": "Vanguard S&P 500 ETF"
   },
   "growth": {
-    "rank": "risk_adj_mom",
     "top_n": 5,
     "hold_rank": 8,
     "max_per_sector": 2,
@@ -53,7 +52,9 @@
     "etfs": true,
     "max_rsi": 80,
     "halt_pct": 12,
-    "rethink_pct": 18
+    "rethink_pct": 18,
+    "hold_ignores_rsi": true,
+    "exit_confirm": 2
   },
   "deploy": {
     "batches": 3
@@ -63,5 +64,8 @@
     "high_pct": 20,
     "take_profit_rule": "At each check, if the account is up, withdraw half of the gain above +5%; the rest keeps compounding."
   },
-  "paper_growth_capital_usd": 2310
+  "paper_growth_capital_usd": 2310,
+  "cdr_holdings": {
+    "CRWD": 5
+  }
 }

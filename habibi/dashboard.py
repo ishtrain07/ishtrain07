@@ -69,7 +69,8 @@ def money(x):
     if x is None:
         return "-"
     cls = "pos" if x > 0 else "neg" if x < 0 else ""
-    return f'<span class="{cls}">{"+" if x > 0 else ""}${x:,.2f}</span>'
+    sign = "+" if x > 0 else "-" if x < 0 else ""
+    return f'<span class="{cls}">{sign}${abs(x):,.2f}</span>'
 
 
 def render(r):
@@ -528,7 +529,9 @@ def _holding_card(p):
                  ("Take half at", f'${p["t1"]}' if p.get("t1") else "-"),
                  ("CAD-hedged CDR", "yes" if p.get("cdr") else "no")]
     body = "".join(f'<div class="row"><span>{k}</span><span>{v}</span></div>' for k, v in rows)
-    tag = "CORE" if p.get("sleeve") == "core" else e(act)
+    tag = "CORE" if p.get("sleeve") == "core" else ("ON NOTICE" if p.get("on_notice") else e(act))
+    if p.get("data_warning"):
+        sl += f'<div class="split neg"><b>Data warning:</b> {e(p["data_warning"])}</div>'
     return (f'<div class="card hc {"order " + cls if cls else ""}"><h3><span>{e(p["ticker"])}</span><span class="tag">{tag}</span></h3>'
             f'{body}<div class="note" style="margin-top:6px">{e(p.get("why"))}</div>{sl}</div>')
 
@@ -576,8 +579,8 @@ def render_growth(r):
 <div class="card kpi"><div class="l">Account value</div><div class="v">${acct['equity']:,.2f}</div><div class="sub">cash ${acct['cash']:,.2f}</div></div>
 <div class="card kpi"><div class="l">Since the new plan ({e(ph.get('start'))})</div><div class="v">{pct(ph.get('return_pct'), 2)}</div>
 <div class="sub">S&amp;P 500 {pct(ph.get('spy_return_pct'), 1)} · started at ${ph.get('start_equity', 0):,.0f}</div></div>
-<div class="card kpi"><div class="l">You vs system vs market</div><div class="v">{pct(acct['return_pct'], 1)} <span class="mute" style="font-size:15px">vs</span> {pct(pa.get('return_pct'), 1)}</div>
-<div class="sub">since {e(cfg['start_date'])} · S&amp;P 500 {pct(bm, 1)} · system = paper account on the same rules (new rules from {e(cfg['phase_start'])})</div></div>
+<div class="card kpi"><div class="l">You vs system vs market (since {e(cfg['phase_start'])})</div><div class="v">{pct(ph.get('return_pct'), 1)} <span class="mute" style="font-size:15px">vs</span> {pct(pa.get('return_pct'), 1)}</div>
+<div class="sub">S&amp;P 500 {pct(ph.get('spy_return_pct'), 1)} · system = paper account on the same rules, same start · all-time since {e(cfg['start_date'])}: you {pct(acct['return_pct'], 1)}, S&amp;P 500 {pct(bm, 1)}</div></div>
 </div>
 <div class="card" style="margin-top:12px"><b>Where the money is</b> <span class="note">(target {cfg['core']['pct']}% index core / {100 - cfg['core']['pct']}% active)</span>
 <div class="sleeve"><i class="s-core" style="width:{core_pct}%"></i><i class="s-act" style="width:{act_pct}%"></i><i class="s-cash" style="width:{cash_pct}%"></i></div>
@@ -590,6 +593,11 @@ def render_growth(r):
     if checks:
         out.append(f'<div class="chk" style="margin-top:12px">{checks}</div><p class="note">{e(ph.get("take_profit_rule"))} '
                    'Goals are targets, not promises: markets can be down over any 3-6 month stretch.</p>')
+        out.append(_honest_line(r.get("growth_research")))
+    if r.get("preview"):
+        out.append(f'<div class="card order warn" style="margin-top:12px"><b>{e(r["preview"])}</b></div>')
+    if r.get("stale_note"):
+        out.append(f'<div class="card order warn" style="margin-top:12px">{e(r["stale_note"])}</div>')
     out.append(f'<div class="headline"><b>Today:</b> {e(_headline(r))}<div class="note">{e(reg["message"])} Next weekly review: {e(r.get("next_review"))}.</div></div>')
     if r.get("analyst"):
         out.append(_analyst(r["analyst"]))
@@ -600,7 +608,8 @@ def render_growth(r):
     out.append(f'<h2 id="orders">{"This week&#39;s orders (weekly review)" if r.get("rebalance") else "Open orders this week"}</h2><div class="stack">')
     for a in r.get("alerts", []):
         out.append(f'<div class="card order sell"><h3><span>SELL {e(a["ticker"])}</span><span class="tag">{e(a["action"])} · {e(a.get("rule", ""))}</span></h3>'
-                   f'<div>Sell <b>{a["shares"]}</b> shares at the open (~${a["price"]}). {e(a["why"])}</div></div>')
+                   f'<div>Sell <b>{a["shares"]}</b> shares at the open (~${a["price"]}). {e(a["why"])}'
+                   + (f' <b>{e(a["units_note"])}</b>' if a.get("units_note") else "") + '</div></div>')
     for i, b in enumerate(r.get("buys", []), 1):
         out.append(_growth_order(b, i))
     if not r.get("alerts") and not r.get("buys"):
@@ -670,17 +679,31 @@ def render_growth(r):
     return "\n".join(out)
 
 
+def _honest_line(rs):
+    """One plain sentence next to the goals: what the hindsight-checked backtest really says."""
+    res = (rs or {}).get("results", {})
+    spy = (res.get("Z buy & hold SPY") or {}).get("full", {}).get("20_80", {}).get("total_pct")
+    s1 = next((v for k, v in res.items() if "biggest winners" in k and k.startswith("S")), None)
+    if spy is None or not s1:
+        return ""
+    s1 = s1["full"]["20_80"]
+    return (f'<div class="card order warn" style="margin-top:12px"><b>Honest expectation:</b> with hindsight removed (the 15 biggest '
+            f'winners of the last 2 years taken out of the list), these rules made {s1["total_pct"]:+.0f}% over 2 years vs the S&amp;P 500\'s '
+            f'{spy:+.0f}%, and lost money in {s1.get("p6m_loss")}% of 6-month windows. The big backtest wins came from catching a few '
+            'runaway stocks. Realistic expectation: roughly index-like returns with bigger swings, better only if we catch the next big winners.</div>')
+
+
 def _growth_method(cfg):
     g, c = cfg["growth"], cfg["core"]
     return f"""<ol class="why">
-<li><b>Two parts.</b> {c['pct']}% in {e(c['ticker'])} (the S&amp;P 500), held long term and topped back up to target each quarter.
+<li><b>Two parts.</b> {c['pct']}% in {e(c['ticker'])} (the S&amp;P 500), held long term and topped up toward its target from cash at weekly reviews.
 The other {100 - c['pct']}% is the active portfolio, reviewed once a week.</li>
 <li><b>Weekly review (Monday).</b> Every stock and sector ETF on the list is ranked by risk-adjusted momentum: its 6-, 3- and 1-month gains
 divided by how much it normally swings. We hold the top {g['top_n']}, at most {g['max_per_sector']} per sector, and keep a holding while it stays in the
-top {g['hold_rank']}. Decisions use Friday's close; you place orders at Monday's open.</li>
+top {g['hold_rank']}. Chips and tech funds count as tech for the sector limit. Decisions use Friday's close; you place orders at Monday's open.</li>
 <li><b>Size by swings.</b> Jumpier names get fewer dollars, so each holding can hurt about the same. No holding is more than {g['pos_cap_pct']}% of the active part.</li>
 <li><b>Exits.</b> Sell at the weekly review if it falls out of the top {g['hold_rank']}{', or closes below its 50-day average two weeks in a row' if g.get('trend_exit') else ''}.
-Sell half at +{g.get('profit_take_pct')}% and trail the rest. Emergency stop {g['stop_atr']:.0f} normal daily swings below entry (at most {g['stop_floor_pct']}%).
+Sell half at +{g.get('profit_take_pct')}% and trail the rest. A rank exit needs {g.get('exit_confirm', 1)} weekly review(s) in a row outside the top {g['hold_rank']}. Emergency stop {g['stop_atr']:.0f} normal daily swings below entry (at most {g['stop_floor_pct']}%).
 A drop that is just the market falling is never a sell signal.</li>
 <li><b>Market light.</b> RED (S&amp;P 500 below its 200-day average or fear spiking) = no new buys. Holdings follow their own rules.</li>
 <li><b>Safety limits.</b> Down {g['halt_pct']}% since the new plan began = no new buys. Down {g['rethink_pct']}% = full review together. Nothing is ever sold automatically just because the account is down.</li>
@@ -697,8 +720,10 @@ def _growth_research(rs):
                     f'<td>{pct(h2.get("total_pct"))}</td><td>{f.get("max_dd_pct")}%</td><td>{f.get("p6m_gain10")}%</td><td>{f.get("p6m_loss")}%</td></tr>')
     p = rs.get("periods", {}).get("full", ["", ""])
     return ('<p class="note">Simulated 20% S&amp;P 500 + 80% active, decisions on Friday close, filled at Monday open, 0.1% cost each way, '
-            f'{e(p[0])} to {e(p[1])}, each year tested separately. <b>Big caveat:</b> the stock list was built in 2026, so it contains the stocks that '
-            'went on to win (survivorship bias). With the 15 biggest winners removed, the edge disappears and the result is roughly flat. '
-            'Read the top row as a best case, not a forecast. The sector-ETF-only version has no such bias.</p>'
+            f'{e(p[0])} to {e(p[1])}; results shown for each year, but the settings were chosen after seeing both years. <b>Big caveat:</b> '
+            'the stock list was built in 2026, so it contains the stocks that went on to win (survivorship bias). With the 15 biggest winners '
+            'removed, the rules fall well behind simply holding the S&amp;P 500. Read the "CHOSEN" row as a best case, not a forecast. '
+            'The sector-ETF-only version is less exposed to this bias (its list was also picked in 2026) and roughly matched the index '
+            'with a smaller worst drop.</p>'
             '<div class="tbl"><table><tr><th class="l">Rulebook</th><th>2 years</th><th>Year 1</th><th>Year 2</th><th>Worst drop</th>'
             f'<th>6-mo windows +10%</th><th>6-mo windows losing</th></tr>{"".join(rows)}</table></div>')

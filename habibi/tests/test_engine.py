@@ -331,3 +331,57 @@ def test_market_vs_stock_split():
     s = growth.market_vs_stock(feats, "AAPL", today)
     assert abs(s["beta"] - 1.5) < 0.05
     assert abs(s["day_specific_pct"]) < 0.2 and s["verdict"] == "moving with the market"
+
+
+def test_growth_preview_before_phase_start_saves_nothing(sandbox):
+    cfg = run.load_cfg()
+    cfg["phase_start"] = (dt.date.today() + dt.timedelta(days=3)).isoformat()
+    run.cmd_plan(cfg, Args())
+    rep = json.loads((sandbox / "output" / "latest.json").read_text())
+    assert rep["preview"] and "PREVIEW" in (sandbox / "docs" / "index.html").read_text()
+    assert not (sandbox / "output" / "growth_state.json").exists()
+    run.cmd_check(cfg, Args())
+    assert not (sandbox / "output" / "growth_state.json").exists()
+
+
+def test_growth_week_rules():
+    """Stale sells from last week are ignored; a rank exit needs two reviews; catch-ups respect a halt."""
+    from habibi import growth
+    from habibi.indicators import add_features
+    from habibi.portfolio import positions
+    from habibi.universe import UNIVERSE
+    feats = {t: add_features(df) for t, df in fake_prices(sorted(set(UNIVERSE) | {"SPY", "VOO"})).items()}
+    cfg = run.load_cfg()
+    today = dt.date.today()
+    cfg["phase_start"] = (today - dt.timedelta(days=30)).isoformat()
+    regime = {"light": "GREEN", "max_new": 4, "risk_mult": 1.0, "message": ""}
+    empty = pd.DataFrame(columns=["date", "ticker", "side", "shares", "price", "fees", "note"])
+    book = positions(empty, feats, {}, cfg)
+    growth.evaluate_growth(book, feats, {}, {}, cfg, today, {}, "real")
+    state = {}
+    plan = growth.growth_plan(feats, {}, regime, cfg, book, today, True, state)
+    pick = next(b["ticker"] for b in plan["buys"] if b["kind"] == "new")
+    # a holding that ranks badly: first review puts it on notice, the second sells it
+    worst = [t for t in UNIVERSE if t in feats and t not in {b["ticker"] for b in plan["buys"]}][-1]
+    tr = pd.DataFrame([{"date": today - dt.timedelta(days=20), "ticker": worst, "side": "BUY", "shares": 1.0,
+                        "price": float(feats[worst].Close.iloc[-20]), "fees": 0.0, "note": ""}])
+    book2 = positions(tr, feats, {}, cfg)
+    growth.evaluate_growth(book2, feats, {}, {}, cfg, today, {}, "real")
+    st2 = {}
+    cfg["growth"]["trend_exit"] = False
+    p1 = growth.growth_plan(feats, {}, regime, cfg, book2, today, True, st2)
+    rank_ok = worst not in p1["sells"]
+    if worst in p1["warn"]:
+        p2 = growth.growth_plan(feats, {}, regime, cfg, book2, today + dt.timedelta(days=7), True, st2)
+        assert worst in p2["sells"]
+    else:
+        assert rank_ok
+    # last week's sell list must not fire this week
+    st3 = {"real": {"week": {"date": (today - dt.timedelta(days=7)).isoformat(), "sells": {worst: "old reason"}}}}
+    book3 = positions(tr, feats, {}, cfg)
+    alerts = growth.evaluate_growth(book3, feats, {}, {}, cfg, today, st3, "real")
+    assert not [a for a in alerts if a["why"] == "old reason"]
+    # midweek catch-ups are dropped while halted
+    later = growth.growth_plan(feats, {}, regime, cfg, book, today, False, state, halted=True)
+    assert not [b for b in later["buys"] if b["kind"] == "new-catchup"]
+    assert pick

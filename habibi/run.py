@@ -96,7 +96,7 @@ def dispatch_alerts(alerts, cfg, today):
     wk = "W%d-%02d" % today.isocalendar()[:2]
     for a in alerts:
         # growth engine: one alert per holding/action per week (a weekly decision should not nag daily)
-        key = f"{today_s}|{a['ticker']}|{a['action']}" if not weekly else f"{today_s[:10]}|{a['ticker']}|{a['action']}|{wk}"
+        key = f"{today_s}|{a['ticker']}|{a['action']}" + (f"|{wk}" if weekly else "")
         if weekly and any(k.endswith(f"|{a['ticker']}|{a['action']}|{wk}") for k in sent):
             continue
         if key in sent:
@@ -307,10 +307,12 @@ def morning_message(rep):
              f"{rep['trading_days_left']} trading days to goal", ""]
     if rep["drawdown_msg"]:
         lines.append("!! " + rep["drawdown_msg"])
+    if rep.get("preview"):
+        lines.insert(0, rep["preview"])
     for a in rep["alerts"]:
-        lines.append(f"SELL {a['ticker']}: {a['action']} - {a['why']}")
+        lines.append(f"SELL {a['ticker']}: {a['action']} - {a['why']}" + (f" ({a['units_note']})" if a.get("units_note") else ""))
     for b in rep["buys"]:
-        lines.append(f"BUY {b['ticker']} {b['shares']} sh (~${b['dollars']:,.0f}) limit {b['limit']} | "
+        lines.append(("(only if not bought Monday) " if b["kind"].endswith("catchup") else "") + f"BUY {b['ticker']} {b['shares']} sh (~${b['dollars']:,.0f}) limit {b['limit']} | "
                      f"stop {b['stop']} | T1 {b['t1']} T2 {b['t2']} | sell by {b['sell_by']}")
     if not rep["buys"]:
         lines.append("No new buys today - cash is a position.")
@@ -401,7 +403,8 @@ def growth_dd(book, cfg, state):
     return "OK", ""
 
 
-def run_growth_paper(feats, funds, regime, cfg, today, history, live, state, execute, rebalance=False, plan_day=False):
+def run_growth_paper(feats, funds, regime, cfg, today, history, live, state, execute, rebalance=False, plan_day=False,
+                     halted=False):
     """The system's own paper account on the growth rules: buys at the limit, sells at the alert price."""
     path = growth_paper_path()
     pcfg = {**cfg, "starting_capital_usd": cfg.get("paper_growth_capital_usd", cfg["starting_capital_usd"])}
@@ -412,7 +415,7 @@ def run_growth_paper(feats, funds, regime, cfg, today, history, live, state, exe
     orders = [{"date": today.isoformat(), "ticker": a["ticker"], "side": "SELL", "shares": a["shares"],
                "price": a["price"], "fees": 0, "note": a["rule"]} for a in alerts]
     if plan_day:
-        plan = growth.growth_plan(feats, funds, regime, pcfg, book, today, rebalance, state, "paper")
+        plan = growth.growth_plan(feats, funds, regime, pcfg, book, today, rebalance, state, "paper", halted=halted)
         done = {o["ticker"] for o in orders}
         for t in plan["sells"]:
             p = next((p for p in book["open"] if p["ticker"] == t), None)
@@ -437,7 +440,7 @@ def run_growth_paper(feats, funds, regime, cfg, today, history, live, state, exe
 def _growth_extras(report, feats, cfg, today, state, book):
     spy = feats.get("SPY")
     report["phase"] = growth.checkpoints(cfg, book["equity"], state, float(spy.Close.iloc[-1]) if spy is not None else 0)
-    report["lesson"] = growth.lesson(today)
+    report["lesson"] = growth.lesson(today, cfg)
     report["glossary"] = growth.GLOSSARY
     report["cad_core"] = growth.CAD_HEDGED_CORE
 
@@ -455,6 +458,11 @@ def cmd_plan_growth(cfg, args):
     feats = build_features(prices)
     vix = feats.get("^VIX")
     regime = market_regime(feats["SPY"], float(vix.Close.iloc[-1]) if vix is not None else None)
+    regime["message"] = {
+        "GREEN": "Uptrend and calm volatility: normal weekly buying.",
+        "YELLOW": "Choppy market (below the 50-day or VIX elevated): weekly buys continue at normal size; the ranking "
+                  "already favours steadier names. New buys stop only if the light turns RED.",
+        "RED": "S&P 500 below its 200-day average or fear spiking: no new active buys; holdings follow their own rules."}[regime["light"]]
     funds_path = OUT / "fundamentals.json"
     if args.skip_fundamentals and funds_path.exists():
         funds = json.loads(funds_path.read_text())
@@ -463,6 +471,9 @@ def cmd_plan_growth(cfg, args):
         funds_path.write_text(json.dumps(funds, indent=1, default=str))
 
     state = load_growth_state()
+    preview = args.dry_run or today < dt.date.fromisoformat(cfg["phase_start"])
+    if preview:
+        state = json.loads(json.dumps(state))  # work on a copy: a preview never changes saved state
     history = load_history()
     book = positions(load_trades(ROOT / "trades.csv"), feats, history, cfg)
     paper_held = sorted(set(load_trades(growth_paper_path()).ticker)) if growth_paper_path().exists() and \
@@ -474,6 +485,11 @@ def cmd_plan_growth(cfg, args):
     dd_state, dd_msg = growth_dd(book, cfg, state)
     rebalance = growth_is_rebalance(today, state)
     plan = growth.growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, "real", halted=dd_state != "OK")
+    for t, why in plan.get("warn", {}).items():
+        p = next((p for p in book["open"] if p["ticker"] == t), None)
+        if p and p["action"] == "HOLD":
+            p["why"] = why + "; " + p["why"]
+            p["on_notice"] = True
     for t, why in plan["sells"].items():
         p = next((p for p in book["open"] if p["ticker"] == t), None)
         if p and not any(a["ticker"] == t and a["action"] == "SELL ALL" for a in alerts):
@@ -481,12 +497,12 @@ def cmd_plan_growth(cfg, args):
             alerts = [a for a in alerts if a["ticker"] != t]
             alerts.append({"ticker": t, "action": "SELL ALL", "why": why, "price": p["price"], "shares": p["shares"],
                            "rule": "weekly review"})
-    if rebalance and not args.dry_run:
+    if rebalance:
         state["last_rebalance"] = today.isoformat()
     for b in plan["buys"]:
         b["news"] = data.news(b["ticker"])
-    paper = run_growth_paper(feats, funds, regime, cfg, today, history, live, state, execute=not args.dry_run,
-                             rebalance=rebalance, plan_day=True)
+    paper = run_growth_paper(feats, funds, regime, cfg, today, history, live, state, execute=not preview,
+                             rebalance=rebalance, plan_day=True, halted=dd_state != "OK")
     macro = macro_table(feats)
     heat = growth.sector_heat(feats)
     research_path = OUT / "growth_research.json"
@@ -502,13 +518,16 @@ def cmd_plan_growth(cfg, args):
         "strategy": "growth", "paper": paper, "record": win_loss(book["closed"]), "benchmark": benchmark(feats, cfg),
         "anomalies": scan_anomalies(feats, None, book, paper, plan, cfg), "backtest": {}, "replay": None,
         "growth_research": research, "research": None, "config": cfg, **plan,
+        "preview": (f"PREVIEW ONLY - not advice yet. The new plan starts {cfg['phase_start']}; these are the orders the engine "
+                    "would give on today's data." if preview else None),
+        "plan_week": "W%d-%02d" % today.isocalendar()[:2],
     }
     _growth_extras(report, feats, cfg, today, state, book)
-    if not args.dry_run:
+    if not preview:
         save_history(today, plan, regime)
         save_growth_state(state)
     write_outputs(report)
-    if not args.no_notify:
+    if not args.no_notify and not preview:
         dispatch_alerts(alerts, cfg, today)
         notify.send_all(*growth_message(report), click=cfg.get("dashboard_url"), labels=["habibi", "daily-plan"])
 
@@ -547,6 +566,13 @@ def cmd_check_growth(cfg, args):
     prices = data.download_prices(sorted(set(held) | {"SPY", cfg["core"]["ticker"]}), period="1y")
     feats = build_features(prices)
     state = load_growth_state()
+    preview = args.dry_run or today < dt.date.fromisoformat(cfg["phase_start"])
+    if preview:
+        state = json.loads(json.dumps(state))
+    if report.get("plan_week") != "W%d-%02d" % today.isocalendar()[:2]:
+        # last plan is from an earlier week: its orders are stale; the next weekly review sets new ones
+        report.update({"buys": [], "rebalance": False, "sells": {}, "warn": {},
+                       "stale_note": "No weekly review has run yet this week; orders will appear after Monday's review."})
     history = load_history()
     book = positions(trades, feats, history, cfg)
     live = data.latest_prices(sorted(set(held) | {"SPY"}))
@@ -559,14 +585,19 @@ def cmd_check_growth(cfg, args):
                    "drawdown_state": dd_state, "drawdown_msg": dd_msg, "record": win_loss(book["closed"]),
                    "benchmark": benchmark(feats, cfg, live)})
     regime = report.get("regime") or {"light": "YELLOW", "max_new": 0, "risk_mult": 0}
-    report["paper"] = run_growth_paper(feats, funds, regime, cfg, today, history, live, state, execute=not args.dry_run)
+    for t, why in (report.get("warn") or {}).items():
+        p = next((p for p in book["open"] if p["ticker"] == t), None)
+        if p and p["action"] == "HOLD":
+            p["why"] = why + "; " + p["why"]
+            p["on_notice"] = True
+    report["paper"] = run_growth_paper(feats, funds, regime, cfg, today, history, live, state, execute=not preview)
     spy_px = float(live.get("SPY", feats["SPY"].Close.iloc[-1]))
     _growth_extras(report, feats, cfg, today, state, book)
     report["phase"] = growth.checkpoints(cfg, book["equity"], state, spy_px)
-    if not args.dry_run:
+    if not preview:
         save_growth_state(state)
     write_outputs(report)
-    if not args.no_notify:
+    if not args.no_notify and not preview:
         dispatch_alerts(alerts, cfg, today)
 
 
