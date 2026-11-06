@@ -1,11 +1,10 @@
 name: Habibi engine
 
 on:
+  # Plans (Mon/Wed/Fri) and the midday alert check are dispatched by the Claude routines.
+  # This one cron is a safety net that re-checks positions late in the day if a routine misses.
   schedule:
-    - cron: "0 13 * * 1-5"    # 09:00 ET (EDT) - morning research + orders
-    - cron: "30 15 * * 1-5"   # 11:30 ET - position check / sell alerts
-    - cron: "30 17 * * 1-5"   # 13:30 ET
-    - cron: "30 19 * * 1-5"   # 15:30 ET - last check before the close
+    - cron: "45 19 * * 1-5"   # ~14:45 ET (EST) / 15:45 ET (EDT): position check only
   workflow_dispatch:
     inputs:
       mode:
@@ -48,7 +47,6 @@ jobs:
         run: |
           MODE=check
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then MODE="${{ inputs.mode }}"; fi
-          if [ "${{ github.event.schedule }}" = "0 13 * * 1-5" ]; then MODE=plan; fi
           if [ "${{ github.event_name }}" = "push" ] && ! git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -qx habibi/trades.csv; then MODE=plan; fi
           if [ ! -f habibi/output/latest.json ]; then MODE=plan; fi
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"

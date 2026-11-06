@@ -1,6 +1,6 @@
 {
-  "owner_note": "Edit starting_capital_usd to the actual USD amount that lands in the account.",
-  "strategy": "momentum",
+  "owner_note": "Growth engine since 2026-11-09: 20% index core + 80% active weekly picks. Edit core.pct / growth.* to change the rules.",
+  "strategy": "growth",
   "ranker": "adaptive",
   "momentum_stop_pct": 8,
   "peak_brake_pct": 10,
@@ -12,7 +12,7 @@
   "starting_capital_usd": 2500,
   "paper_capital_usd": 2700,
   "start_date": "2026-09-28",
-  "goal_date": "2026-10-30",
+  "goal_date": "2027-05-09",
   "goal_return_pct": 20,
   "max_drawdown_halt_pct": 10,
   "max_drawdown_liquidate_pct": 13,
@@ -21,13 +21,47 @@
   "max_positions": 3,
   "hold_rank": 5,
   "max_per_sector": 2,
-  "min_cash_pct": 5,
+  "min_cash_pct": 2,
   "min_price": 5,
   "min_dollar_volume": 25000000,
   "buy_score_threshold": 65,
   "watch_score_threshold": 55,
-  "hold_days": {"pullback": 7, "breakout": 6},
+  "hold_days": {
+    "pullback": 7,
+    "breakout": 6
+  },
   "fractional_shares": true,
   "github_repo": "ishtrain07/ishtrain07",
-  "dashboard_url": "https://ishtrain07.github.io/ishtrain07/"
+  "dashboard_url": "https://ishtrain07.github.io/ishtrain07/",
+  "phase_start": "2026-11-09",
+  "core": {
+    "ticker": "VOO",
+    "pct": 20,
+    "name": "Vanguard S&P 500 ETF"
+  },
+  "growth": {
+    "rank": "risk_adj_mom",
+    "top_n": 5,
+    "hold_rank": 8,
+    "max_per_sector": 2,
+    "stop_atr": 3.0,
+    "stop_floor_pct": 30,
+    "profit_take_pct": 25,
+    "trail_atr": 3.0,
+    "trend_exit": true,
+    "pos_cap_pct": 30,
+    "etfs": true,
+    "max_rsi": 80,
+    "halt_pct": 12,
+    "rethink_pct": 18
+  },
+  "deploy": {
+    "batches": 3
+  },
+  "goal": {
+    "low_pct": 10,
+    "high_pct": 20,
+    "take_profit_rule": "At each check, if the account is up, withdraw half of the gain above +5%; the rest keeps compounding."
+  },
+  "paper_growth_capital_usd": 2310
 }

@@ -83,7 +83,11 @@ def positions(trades, feats, history, cfg):
         f = feats.get(tk)
         mode = "momentum" if (plan and plan.get("setup") == "momentum") or (
             not plan and cfg.get("strategy") == "momentum") else "swing"
-        if plan:
+        if plan and None in (plan.get("stop"), plan.get("t1"), plan.get("t2")):
+            plan_levels = None  # e.g. a growth-engine core (index) order: no stop/targets
+        else:
+            plan_levels = plan
+        if plan_levels:
             stop, t1, t2, hold = plan["stop"], plan["t1"], plan["t2"], plan["hold_days"]
             if mode == "momentum":
                 stop = max(stop, avg * (1 - cfg.get("momentum_stop_pct", 10) / 100))

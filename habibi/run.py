@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from . import adaptive, anomalies, data, notify
+from . import adaptive, anomalies, data, growth, notify
 from .paper import PATH as PAPER_PATH, run_paper, win_loss
 from .backtest import run_backtest
 from .dashboard import render
@@ -92,8 +92,13 @@ def sent_alerts():
 def dispatch_alerts(alerts, cfg, today):
     sent = sent_alerts()
     today_s = today.isoformat()
+    weekly = cfg.get("strategy") == "growth"
+    wk = "W%d-%02d" % today.isocalendar()[:2]
     for a in alerts:
-        key = f"{today_s}|{a['ticker']}|{a['action']}"
+        # growth engine: one alert per holding/action per week (a weekly decision should not nag daily)
+        key = f"{today_s}|{a['ticker']}|{a['action']}" if not weekly else f"{today_s[:10]}|{a['ticker']}|{a['action']}|{wk}"
+        if weekly and any(k.endswith(f"|{a['ticker']}|{a['action']}|{wk}") for k in sent):
+            continue
         if key in sent:
             continue
         title = f"SELL ALERT {a['ticker']}: {a['action']} ~{a['shares']} sh @ ~{a['price']}"
@@ -180,6 +185,8 @@ def save_history(today, ranked, regime):
 
 
 def cmd_plan(cfg, args):
+    if cfg.get("strategy") == "growth":
+        return cmd_plan_growth(cfg, args)
     now = dt.datetime.now(ET)
     today = now.date()
     tickers = sorted(set(all_price_tickers()) | set(load_trades(ROOT / "trades.csv").get("ticker", []))
@@ -315,6 +322,8 @@ def morning_message(rep):
 
 
 def cmd_check(cfg, args):
+    if cfg.get("strategy") == "growth" and (OUT / "latest.json").exists():
+        return cmd_check_growth(cfg, args)
     now = dt.datetime.now(ET)
     today = now.date()
     latest = OUT / "latest.json"
@@ -354,6 +363,208 @@ def cmd_check(cfg, args):
                                    "concentration": fresh["concentration"]}
         except Exception as e:
             print(f"anomaly check failed: {e}")
+    write_outputs(report)
+    if not args.no_notify:
+        dispatch_alerts(alerts, cfg, today)
+
+
+# ====================================================================== growth engine
+def growth_state_path():
+    return OUT / "growth_state.json"
+
+
+def load_growth_state():
+    p = growth_state_path()
+    return json.loads(p.read_text()) if p.exists() else {}
+
+
+def save_growth_state(state):
+    growth_state_path().write_text(json.dumps(state, indent=1, default=str))
+
+
+def growth_paper_path():
+    return OUT / "paper_growth.csv"
+
+
+def growth_dd(book, cfg, state):
+    """Loss limits measured from the growth phase start: halt new buys, then a full rethink (never auto-sell)."""
+    ph = (state.get("phase") or {}).get("equity")
+    if not ph:
+        return "OK", ""
+    r = (book["equity"] / ph - 1) * 100
+    if r <= -cfg["growth"]["rethink_pct"]:
+        return "RETHINK", (f"Account down {r:.1f}% since the new plan started: past the {cfg['growth']['rethink_pct']}% limit. "
+                           "No new buys; time for a full review of the plan together.")
+    if r <= -cfg["growth"]["halt_pct"]:
+        return "HALT", (f"Account down {r:.1f}% since the new plan started: no new buys until it recovers above "
+                        f"-{cfg['growth']['halt_pct']}%. Existing holdings follow their normal rules.")
+    return "OK", ""
+
+
+def run_growth_paper(feats, funds, regime, cfg, today, history, live, state, execute, rebalance=False, plan_day=False):
+    """The system's own paper account on the growth rules: buys at the limit, sells at the alert price."""
+    path = growth_paper_path()
+    pcfg = {**cfg, "starting_capital_usd": cfg.get("paper_growth_capital_usd", cfg["starting_capital_usd"])}
+    if not path.exists():
+        path.write_text("date,ticker,side,shares,price,fees,note\n")
+    book = positions(load_trades(path), feats, history, pcfg)
+    alerts = growth.evaluate_growth(book, feats, live, funds, pcfg, today, state, "paper")
+    orders = [{"date": today.isoformat(), "ticker": a["ticker"], "side": "SELL", "shares": a["shares"],
+               "price": a["price"], "fees": 0, "note": a["rule"]} for a in alerts]
+    if plan_day:
+        plan = growth.growth_plan(feats, funds, regime, pcfg, book, today, rebalance, state, "paper")
+        done = {o["ticker"] for o in orders}
+        for t in plan["sells"]:
+            p = next((p for p in book["open"] if p["ticker"] == t), None)
+            if p and t not in done:
+                orders.append({"date": today.isoformat(), "ticker": t, "side": "SELL", "shares": p["shares"],
+                               "price": p["price"], "fees": 0, "note": "weekly review"})
+        for b in plan["buys"]:
+            if b["shares"] > 0 and not b["kind"].endswith("catchup"):
+                orders.append({"date": today.isoformat(), "ticker": b["ticker"], "side": "BUY", "shares": b["shares"],
+                               "price": b["limit"], "fees": 0, "note": b["kind"]})
+    if execute and orders:
+        with path.open("a") as f:
+            for o in orders:
+                f.write(",".join(str(o[k]) for k in ("date", "ticker", "side", "shares", "price", "fees", "note")) + "\n")
+    book = positions(load_trades(path), feats, history, pcfg)
+    growth.evaluate_growth(book, feats, live, funds, pcfg, today, state, "paper")
+    return {"account": {k: book[k] for k in ("cash", "realized", "unrealized", "market_value", "equity", "return_pct")},
+            "record": win_loss(book["closed"]), "positions": book["open"], "closed": book["closed"],
+            "orders_today": orders, "executed": execute}
+
+
+def _growth_extras(report, feats, cfg, today, state, book):
+    spy = feats.get("SPY")
+    report["phase"] = growth.checkpoints(cfg, book["equity"], state, float(spy.Close.iloc[-1]) if spy is not None else 0)
+    report["lesson"] = growth.lesson(today)
+    report["glossary"] = growth.GLOSSARY
+    report["cad_core"] = growth.CAD_HEDGED_CORE
+
+
+def cmd_plan_growth(cfg, args):
+    now = dt.datetime.now(ET)
+    today = now.date()
+    core = cfg["core"]["ticker"]
+    tickers = sorted(set(all_price_tickers()) | {core, "GLD", "EFA", "EEM"}
+                     | set(load_trades(ROOT / "trades.csv").get("ticker", []))
+                     | (set(load_trades(growth_paper_path()).get("ticker", [])) if growth_paper_path().exists() else set()))
+    prices = data.download_prices(tickers, period="2y")
+    if "SPY" not in prices:
+        sys.exit("SPY data unavailable - aborting")
+    feats = build_features(prices)
+    vix = feats.get("^VIX")
+    regime = market_regime(feats["SPY"], float(vix.Close.iloc[-1]) if vix is not None else None)
+    funds_path = OUT / "fundamentals.json"
+    if args.skip_fundamentals and funds_path.exists():
+        funds = json.loads(funds_path.read_text())
+    else:
+        funds = data.fundamentals([t for t in UNIVERSE if t in feats])
+        funds_path.write_text(json.dumps(funds, indent=1, default=str))
+
+    state = load_growth_state()
+    history = load_history()
+    book = positions(load_trades(ROOT / "trades.csv"), feats, history, cfg)
+    paper_held = sorted(set(load_trades(growth_paper_path()).ticker)) if growth_paper_path().exists() and \
+        not load_trades(growth_paper_path()).empty else []
+    held_all = sorted({p["ticker"] for p in book["open"]} | set(paper_held) | {"SPY"})
+    live = data.latest_prices(held_all) if held_all else {}
+    alerts = growth.evaluate_growth(book, feats, live, funds, cfg, today, state, "real")
+    growth.checkpoints(cfg, book["equity"], state, float(feats["SPY"].Close.iloc[-1]))
+    dd_state, dd_msg = growth_dd(book, cfg, state)
+    rebalance = growth_is_rebalance(today, state)
+    plan = growth.growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, "real", halted=dd_state != "OK")
+    for t, why in plan["sells"].items():
+        p = next((p for p in book["open"] if p["ticker"] == t), None)
+        if p and not any(a["ticker"] == t and a["action"] == "SELL ALL" for a in alerts):
+            p.update({"action": "SELL ALL", "why": why, "rule": "weekly review"})
+            alerts = [a for a in alerts if a["ticker"] != t]
+            alerts.append({"ticker": t, "action": "SELL ALL", "why": why, "price": p["price"], "shares": p["shares"],
+                           "rule": "weekly review"})
+    if rebalance and not args.dry_run:
+        state["last_rebalance"] = today.isoformat()
+    for b in plan["buys"]:
+        b["news"] = data.news(b["ticker"])
+    paper = run_growth_paper(feats, funds, regime, cfg, today, history, live, state, execute=not args.dry_run,
+                             rebalance=rebalance, plan_day=True)
+    macro = macro_table(feats)
+    heat = growth.sector_heat(feats)
+    research_path = OUT / "growth_research.json"
+    research = json.loads(research_path.read_text()) if research_path.exists() else None
+    check3 = dt.date.fromisoformat(cfg["phase_start"]) + dt.timedelta(days=91)
+    report = {
+        "generated_at": now.strftime("%Y-%m-%d %H:%M ET"), "date": today.isoformat(), "mode": "plan",
+        "regime": regime, "macro": macro, "macro_read": macro_read(macro, regime, today),
+        "macro_tilts": growth.macro_tilts(macro, heat), "sector_heat": heat,
+        "account": {k: book[k] for k in ("cash", "realized", "unrealized", "market_value", "equity", "return_pct")},
+        "drawdown_state": dd_state, "drawdown_msg": dd_msg, "positions": book["open"], "closed": book["closed"],
+        "alerts": alerts, "trading_days_left": trading_days_between(today, check3), "system_paper": {},
+        "strategy": "growth", "paper": paper, "record": win_loss(book["closed"]), "benchmark": benchmark(feats, cfg),
+        "anomalies": scan_anomalies(feats, None, book, paper, plan, cfg), "backtest": {}, "replay": None,
+        "growth_research": research, "research": None, "config": cfg, **plan,
+    }
+    _growth_extras(report, feats, cfg, today, state, book)
+    if not args.dry_run:
+        save_history(today, plan, regime)
+        save_growth_state(state)
+    write_outputs(report)
+    if not args.no_notify:
+        dispatch_alerts(alerts, cfg, today)
+        notify.send_all(*growth_message(report), click=cfg.get("dashboard_url"), labels=["habibi", "daily-plan"])
+
+
+def growth_is_rebalance(today, state):
+    """Weekly review = the first plan run of each ISO week (Monday's run)."""
+    last = state.get("last_rebalance")
+    return not last or today.isocalendar()[:2] != dt.date.fromisoformat(last).isocalendar()[:2]
+
+
+def growth_message(rep):
+    ph = rep.get("phase") or {}
+    lines = [f"Market: {rep['regime']['light']} - {rep['regime']['message']}",
+             f"Account ${rep['account']['equity']:,.0f}; since the new plan: {ph.get('return_pct', 0):+.1f}% "
+             f"(S&P 500 {ph.get('spy_return_pct') or 0:+.1f}%)", ""]
+    if rep["drawdown_msg"]:
+        lines.append("!! " + rep["drawdown_msg"])
+    for a in rep["alerts"]:
+        lines.append(f"SELL {a['ticker']}: {a['action']} - {a['why']}")
+    for b in rep["buys"]:
+        lines.append(f"BUY {b['ticker']} {b['shares']} sh (~${b['dollars']:,.0f}) limit {b['limit']}"
+                     + (f" | stop {b['stop']}" if b.get("stop") else "") + (f" | take half at {b['target']}" if b.get("target") else ""))
+    if not rep["buys"] and not rep["alerts"]:
+        lines.append(f"No orders today. Next weekly review {rep.get('next_review')}.")
+    title = f"Habibi {rep['date']}: {len(rep['buys'])} buy, {len(rep['alerts'])} sell, market {rep['regime']['light']}"
+    return title, "\n".join(lines)
+
+
+def cmd_check_growth(cfg, args):
+    now = dt.datetime.now(ET)
+    today = now.date()
+    report = json.loads((OUT / "latest.json").read_text())
+    trades = load_trades(ROOT / "trades.csv")
+    pt = load_trades(growth_paper_path()) if growth_paper_path().exists() else trades.iloc[0:0]
+    held = sorted((set(trades.ticker) if not trades.empty else set()) | (set(pt.ticker) if not pt.empty else set()))
+    prices = data.download_prices(sorted(set(held) | {"SPY", cfg["core"]["ticker"]}), period="1y")
+    feats = build_features(prices)
+    state = load_growth_state()
+    history = load_history()
+    book = positions(trades, feats, history, cfg)
+    live = data.latest_prices(sorted(set(held) | {"SPY"}))
+    funds = json.loads((OUT / "fundamentals.json").read_text()) if (OUT / "fundamentals.json").exists() else {}
+    alerts = growth.evaluate_growth(book, feats, live, funds, cfg, today, state, "real")
+    dd_state, dd_msg = growth_dd(book, cfg, state)
+    report.update({"generated_at": now.strftime("%Y-%m-%d %H:%M ET") + " (position check)",
+                   "account": {k: book[k] for k in ("cash", "realized", "unrealized", "market_value", "equity", "return_pct")},
+                   "positions": book["open"], "closed": book["closed"], "alerts": alerts,
+                   "drawdown_state": dd_state, "drawdown_msg": dd_msg, "record": win_loss(book["closed"]),
+                   "benchmark": benchmark(feats, cfg, live)})
+    regime = report.get("regime") or {"light": "YELLOW", "max_new": 0, "risk_mult": 0}
+    report["paper"] = run_growth_paper(feats, funds, regime, cfg, today, history, live, state, execute=not args.dry_run)
+    spy_px = float(live.get("SPY", feats["SPY"].Close.iloc[-1]))
+    _growth_extras(report, feats, cfg, today, state, book)
+    report["phase"] = growth.checkpoints(cfg, book["equity"], state, spy_px)
+    if not args.dry_run:
+        save_growth_state(state)
     write_outputs(report)
     if not args.no_notify:
         dispatch_alerts(alerts, cfg, today)

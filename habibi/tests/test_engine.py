@@ -270,3 +270,64 @@ def test_catch_up_skips_names_that_left_top_n():
     plan = momentum_plan(feats, {}, regime, cfg, 1000, 1000, {}, today, False,
                          catch_up={seventh: 0.0, second: 0.0})
     assert [b["ticker"] for b in plan["buys"]] == [second]
+
+
+def test_growth_mode(sandbox):
+    cfg = run.load_cfg()
+    assert cfg["strategy"] == "growth"
+    today = dt.date.today()
+    cfg["phase_start"] = (today - dt.timedelta(days=2)).isoformat()   # AAPL/MSFT were bought before the phase
+    run.cmd_plan(cfg, Args())
+    rep = json.loads((sandbox / "output" / "latest.json").read_text())
+    assert rep["strategy"] == "growth" and rep["rebalance"] is True
+    held = {p["ticker"]: p for p in rep["positions"]}
+    assert set(held) == {"AAPL", "MSFT"}
+    for p in held.values():
+        assert p["split"] and {"day_market_pct", "day_specific_pct", "verdict"} <= set(p["split"])
+        assert p["stop_anchor"] == "phase start" and p["active_stop"] < p["price"] * 1.5
+    active = [b for b in rep["buys"] if b["kind"] == "new"]
+    core = [b for b in rep["buys"] if b["kind"] == "core"]
+    assert core and core[0]["ticker"] == cfg["core"]["ticker"]
+    kept = [t for t in held if t not in rep["sells"]]
+    assert len(active) + len(kept) <= cfg["growth"]["top_n"]
+    for b in active:
+        assert b["shares"] > 0 and b["stop"] < b["entry"] <= b["limit"] and b["target"] > b["entry"]
+    sold_value = sum(held[t]["value"] for t in rep["sells"])
+    assert sum(b["dollars"] for b in rep["buys"]) <= rep["account"]["cash"] + sold_value + 1
+    sectors = {}
+    for t in kept + [b["ticker"] for b in active]:
+        s = run.UNIVERSE.get(t)
+        sectors[s] = sectors.get(s, 0) + 1
+    assert max(sectors.values()) <= cfg["growth"]["max_per_sector"]
+    assert rep["deploy"]["batches_left"] == cfg["deploy"]["batches"] - 1
+    assert rep["sector_heat"] and rep["macro_tilts"] and rep["lesson"]["title"]
+    assert rep["phase"]["checks"][0]["goal_pct"] == cfg["goal"]["low_pct"]
+    assert rep["paper"]["positions"]                                  # paper account followed the plan
+    # Wednesday-style rerun in the same week: no new decisions, only catch-ups of Monday's list
+    run.cmd_plan(cfg, Args())
+    rep2 = json.loads((sandbox / "output" / "latest.json").read_text())
+    assert rep2["rebalance"] is False
+    assert {b["ticker"] for b in rep2["buys"]} <= {b["ticker"] for b in rep["buys"]}
+    assert all(b["kind"].endswith("catchup") for b in rep2["buys"])
+    assert not [o for o in rep2["paper"]["orders_today"] if o["side"] == "BUY"]
+    assert rep2["deploy"]["batches_left"] == rep["deploy"]["batches_left"]
+    run.cmd_check(cfg, Args())
+    html = (sandbox / "docs" / "index.html").read_text()
+    assert "Where the money is" in html and "Lesson of the week" in html
+    for bad in (">None<", "nan%", "undefined"):
+        assert bad not in html
+
+
+def test_market_vs_stock_split():
+    from habibi import growth
+    from habibi.indicators import add_features
+    prices = fake_prices(["SPY", "AAPL"])
+    # make AAPL = 1.5x SPY's daily moves, then a market-wide -3% day
+    spy = prices["SPY"].Close.copy()
+    r = spy.pct_change().fillna(0) * 1.5
+    prices["AAPL"]["Close"] = 100 * (1 + r).cumprod()
+    feats = {k: add_features(v) for k, v in prices.items()}
+    today = feats["SPY"].index[-1].date() + dt.timedelta(days=1)
+    s = growth.market_vs_stock(feats, "AAPL", today)
+    assert abs(s["beta"] - 1.5) < 0.05
+    assert abs(s["day_specific_pct"]) < 0.2 and s["verdict"] == "moving with the market"
