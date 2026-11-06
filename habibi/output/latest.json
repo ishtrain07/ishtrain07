@@ -1,33 +1,33 @@
 {
- "generated_at": "2026-11-06 07:57 ET",
+ "generated_at": "2026-11-06 08:12 ET",
  "date": "2026-11-06",
  "mode": "plan",
  "regime": {
   "light": "YELLOW",
   "risk_mult": 0.5,
   "max_new": 2,
-  "message": "Market is choppy (below 50-day or VIX elevated). Half size, A-grade setups only.",
+  "message": "Choppy market (below the 50-day or VIX elevated): weekly buys continue at normal size; the ranking already favours steadier names. New buys stop only if the light turns RED.",
   "spy": 733.0,
   "spy_sma50": 765.83,
   "spy_sma200": 727.39,
-  "vix": 26.91
+  "vix": 27.42
  },
  "macro": [
   {
    "ticker": "ES=F",
    "label": "S&P 500 futures",
-   "last": 7392.75,
-   "d1": 0.13,
-   "d5": -2.91,
-   "m1": -5.42
+   "last": 7389.0,
+   "d1": 0.08,
+   "d5": -2.96,
+   "m1": -5.47
   },
   {
    "ticker": "NQ=F",
    "label": "Nasdaq 100 futures",
-   "last": 27127.75,
-   "d1": 1.4,
-   "d5": -4.93,
-   "m1": -12.4
+   "last": 27102.0,
+   "d1": 1.31,
+   "d5": -5.02,
+   "m1": -12.49
   },
   {
    "ticker": "SPY",
@@ -56,10 +56,10 @@
   {
    "ticker": "^VIX",
    "label": "VIX (fear)",
-   "last": 26.91,
-   "d1": -4.51,
-   "d5": 38.57,
-   "m1": 74.63
+   "last": 27.42,
+   "d1": -2.7,
+   "d5": 41.19,
+   "m1": 77.94
   },
   {
    "ticker": "^TNX",
@@ -72,34 +72,34 @@
   {
    "ticker": "DX-Y.NYB",
    "label": "US Dollar index",
-   "last": 102.03,
-   "d1": 0.47,
-   "d5": 0.14,
-   "m1": -0.11
+   "last": 102.04,
+   "d1": 0.48,
+   "d5": 0.16,
+   "m1": -0.1
   },
   {
    "ticker": "CL=F",
    "label": "WTI crude",
-   "last": 90.37,
-   "d1": -0.17,
-   "d5": -13.21,
-   "m1": -1.22
+   "last": 90.49,
+   "d1": -0.03,
+   "d5": -13.09,
+   "m1": -1.09
   },
   {
    "ticker": "GC=F",
    "label": "Gold",
-   "last": 4072.3,
-   "d1": -1.0,
-   "d5": 4.45,
-   "m1": -2.04
+   "last": 4071.2,
+   "d1": -1.03,
+   "d5": 4.42,
+   "m1": -2.06
   },
   {
    "ticker": "BTC-USD",
    "label": "Bitcoin",
-   "last": 75922.57,
-   "d1": -0.03,
-   "d5": -2.97,
-   "m1": -6.84
+   "last": 75779.52,
+   "d1": -0.21,
+   "d5": -3.16,
+   "m1": -7.02
   },
   {
    "ticker": "^N225",
@@ -120,18 +120,18 @@
   {
    "ticker": "^GDAXI",
    "label": "DAX (Germany)",
-   "last": 25747.77,
-   "d1": -2.19,
-   "d5": -0.27,
-   "m1": 3.79
+   "last": 25705.96,
+   "d1": -2.35,
+   "d5": -0.43,
+   "m1": 3.62
   },
   {
    "ticker": "^FTSE",
    "label": "FTSE 100 (UK)",
-   "last": 10563.77,
-   "d1": -2.03,
-   "d5": -1.55,
-   "m1": 1.17
+   "last": 10559.77,
+   "d1": -2.07,
+   "d5": -1.58,
+   "m1": 1.13
   },
   {
    "ticker": "^NSEI",
@@ -145,9 +145,9 @@
    "ticker": "USDCAD=X",
    "label": "USD/CAD",
    "last": 1.41,
-   "d1": 0.63,
-   "d5": 0.53,
-   "m1": -1.39
+   "d1": 0.67,
+   "d5": 0.56,
+   "m1": -1.35
   },
   {
    "ticker": "USDINR=X",
@@ -159,18 +159,18 @@
   }
  ],
  "macro_read": [
-  "VIX 26.9: elevated, expect bigger swings; size down.",
+  "VIX 27.4: elevated, expect bigger swings; size down.",
   "10Y yield 4.84% (-8.3% over a month): falling yields support growth/tech.",
   "Dollar -0.1% over a month: neutral.",
-  "Oil moved -13.2% this week: watch energy and inflation expectations.",
-  "Global overnight: Nikkei -6.0%, Hang Seng -1.3%, DAX -2.2%, Nifty 50 +2.0%.",
-  "US futures: S&P 500 futures +0.13%, Nasdaq 100 futures +1.40%.",
-  "Market is choppy (below 50-day or VIX elevated). Half size, A-grade setups only."
+  "Oil moved -13.1% this week: watch energy and inflation expectations.",
+  "Global overnight: Nikkei -6.0%, Hang Seng -1.3%, DAX -2.4%, Nifty 50 +2.0%.",
+  "US futures: S&P 500 futures +0.08%, Nasdaq 100 futures +1.31%.",
+  "Choppy market (below the 50-day or VIX elevated): weekly buys continue at normal size; the ranking already favours steadier names. New buys stop only if the light turns RED."
  ],
  "macro_tilts": [
   "Money is flowing into Healthcare, Consumer staples, Financials and out of Industrials, Technology, Chips (1- and 3-month sector returns).",
   "Falling long-term rates usually help growth stocks, utilities and real-asset sectors.",
-  "Fear is elevated: the engine keeps new positions smaller and favours steadier names.",
+  "Fear is elevated: expect bigger daily swings. The ranking already favours steadier names (gains are divided by volatility); new buys stop only if the market light turns RED.",
   "USD/CAD 1.41 (-1.4% over a month): new CAD money is best put into CAD-hedged versions (CDRs, VSP) to skip the FX fee."
  ],
  "sector_heat": [
@@ -351,6 +351,7 @@
      "shares": 0.6059
     }
    ],
+   "data_warning": null,
    "price": 269.58,
    "value": 163.34,
    "pnl": -36.71,
@@ -370,9 +371,10 @@
    },
    "active_stop": 219.42,
    "stop_anchor": "phase start",
-   "action": "SELL ALL",
-   "why": "weekly review: now #26, outside the top 8; the money moves to a stronger name",
-   "rule": "weekly review"
+   "action": "HOLD",
+   "why": "on notice: now #26, outside the top 8. Sold at the next review only if it is still outside; one bad week is not enough; held while it ranks in the top 8; next review 2026-11-09; emergency stop 219.42 (-19%); take half at 412.71",
+   "rule": "hold",
+   "on_notice": true
   },
   {
    "ticker": "CRWD",
@@ -396,6 +398,8 @@
      "shares": 1.1075
     }
    ],
+   "data_warning": null,
+   "cdr_units": 5,
    "price": 217.2,
    "value": 240.55,
    "pnl": -61.6,
@@ -415,9 +419,10 @@
    },
    "active_stop": 174.53,
    "stop_anchor": "phase start",
-   "action": "SELL ALL",
-   "why": "weekly review: now #23, outside the top 8; the money moves to a stronger name",
-   "rule": "weekly review"
+   "action": "HOLD",
+   "why": "on notice: now #23, outside the top 8. Sold at the next review only if it is still outside; one bad week is not enough; held while it ranks in the top 8; next review 2026-11-09; emergency stop 174.53 (-20%); take half at 341.02",
+   "rule": "hold",
+   "on_notice": true
   },
   {
    "ticker": "AMD",
@@ -441,6 +446,7 @@
      "shares": 0.7
     }
    ],
+   "data_warning": null,
    "price": 402.51,
    "value": 281.76,
    "pnl": -101.54,
@@ -460,38 +466,14 @@
    },
    "active_stop": 298.91,
    "stop_anchor": "phase start",
-   "action": "SELL ALL",
-   "why": "weekly review: now unranked (below its 200-day average or overbought), outside the top 8; the money moves to a stronger name",
-   "rule": "weekly review"
+   "action": "HOLD",
+   "why": "on notice: now below its 200-day average (a long-term downtrend), outside the top 8. Sold at the next review only if it is still outside; one bad week is not enough; held while it ranks in the top 8; next review 2026-11-09; emergency stop 298.91 (-26%); take half at 684.46",
+   "rule": "hold",
+   "on_notice": true
   }
  ],
  "closed": [],
- "alerts": [
-  {
-   "ticker": "SNOW",
-   "action": "SELL ALL",
-   "why": "weekly review: now #26, outside the top 8; the money moves to a stronger name",
-   "price": 269.58,
-   "shares": 0.6059,
-   "rule": "weekly review"
-  },
-  {
-   "ticker": "CRWD",
-   "action": "SELL ALL",
-   "why": "weekly review: now #23, outside the top 8; the money moves to a stronger name",
-   "price": 217.2,
-   "shares": 1.1075,
-   "rule": "weekly review"
-  },
-  {
-   "ticker": "AMD",
-   "action": "SELL ALL",
-   "why": "weekly review: now unranked (below its 200-day average or overbought), outside the top 8; the money moves to a stronger name",
-   "price": 402.51,
-   "shares": 0.7,
-   "rule": "weekly review"
-  }
- ],
+ "alerts": [],
  "trading_days_left": 62,
  "system_paper": {},
  "strategy": "growth",
@@ -6909,7 +6891,6 @@
    "name": "Vanguard S&P 500 ETF"
   },
   "growth": {
-   "rank": "risk_adj_mom",
    "top_n": 5,
    "hold_rank": 8,
    "max_per_sector": 2,
@@ -6922,7 +6903,9 @@
    "etfs": true,
    "max_rsi": 80,
    "halt_pct": 12,
-   "rethink_pct": 18
+   "rethink_pct": 18,
+   "hold_ignores_rsi": true,
+   "exit_confirm": 2
   },
   "deploy": {
    "batches": 3
@@ -6932,7 +6915,10 @@
    "high_pct": 20,
    "take_profit_rule": "At each check, if the account is up, withdraw half of the gain above +5%; the rest keeps compounding."
   },
-  "paper_growth_capital_usd": 2310
+  "paper_growth_capital_usd": 2310,
+  "cdr_holdings": {
+   "CRWD": 5
+  }
  },
  "buys": [
   {
@@ -6943,8 +6929,8 @@
    "price": 673.97,
    "entry": 673.97,
    "limit": 680.71,
-   "shares": 0.223,
-   "dollars": 150.3,
+   "shares": 0.2984,
+   "dollars": 201.11,
    "stop": null,
    "stop_pct": null,
    "target": null,
@@ -6995,8 +6981,8 @@
    "price": 1072.0,
    "entry": 1072.0,
    "limit": 1082.72,
-   "shares": 0.09,
-   "dollars": 96.48,
+   "shares": 0.13,
+   "dollars": 139.36,
    "stop": 986.54,
    "stop_pct": -8.0,
    "target": 1340.0,
@@ -7023,7 +7009,7 @@
    "t2": 1199.39,
    "t1_pct": 25,
    "t2_pct": 11.9,
-   "risk_dollars": 7.69,
+   "risk_dollars": 11.11,
    "trend": null,
    "rs": null,
    "fund": null,
@@ -7053,8 +7039,8 @@
    "price": 422.59,
    "entry": 422.59,
    "limit": 426.82,
-   "shares": 0.3,
-   "dollars": 126.78,
+   "shares": 0.42,
+   "dollars": 177.49,
    "stop": 395.27,
    "stop_pct": -6.5,
    "target": 528.24,
@@ -7082,11 +7068,16 @@
    "t2": 463.31,
    "t1_pct": 25,
    "t2_pct": 9.6,
-   "risk_dollars": 8.19,
+   "risk_dollars": 11.47,
    "trend": null,
    "rs": null,
    "fund": null,
    "news": [
+    {
+     "title": "Top Funds Feast On Shell, Microsoft, Palantir And 24 More Stocks",
+     "url": "https://www.investors.com/etfs-and-funds/mutual-funds/best-mutual-funds-feast-on-shell-microsoft-palantir-lilly-apple-and-more-stocks-to-watch/?src=A00220&yptr=yahoo",
+     "source": "Investor's Business Daily"
+    },
     {
      "title": "Visa Has Grown Earnings per Share by 17% a Year for a Decade. Can the Stock Keep Compounding?",
      "url": "https://www.fool.com/investing/2026/11/06/visa-eps-17-a-year-decade-stock-compounding/",
@@ -7096,198 +7087,39 @@
      "title": "Financial Select Sector SPDR (XLF) Buys $70.9 Million More Berkshire on Nov. 4",
      "url": "https://finance.yahoo.com/markets/stocks/articles/financial-select-sector-spdr-xlf-110456567.html",
      "source": "GuruFocus.com"
-    },
-    {
-     "title": "Dow Jones Industrial Average ETF (DIA) Buys $96.4 Million More Goldman on Nov. 4",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/dow-jones-industrial-average-etf-110437188.html",
-     "source": "GuruFocus.com"
-    }
-   ]
-  },
-  {
-   "ticker": "ABBV",
-   "name": "AbbVie Inc.",
-   "sector": "Healthcare",
-   "kind": "new",
-   "price": 288.24,
-   "entry": 288.24,
-   "limit": 291.12,
-   "shares": 0.36,
-   "dollars": 103.77,
-   "stop": 265.54,
-   "stop_pct": -7.9,
-   "target": 360.3,
-   "target_pct": 25,
-   "rank": 3,
-   "etf": false,
-   "cdr": true,
-   "weekly_move_pct": 5.9,
-   "next_earnings": null,
-   "fwd_pe": 17.810776,
-   "reason": [
-    "#3 on risk-adjusted momentum: 6-mo +44%, 3-mo +18%, 1-mo +7%",
-    "Healthcare: keeps the portfolio to max 2 per sector",
-    "sized for its swings: a normal week moves it about 6%",
-    "fwd P/E 18",
-    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
-   ],
-   "setup": "growth",
-   "score": 91.3,
-   "momentum": 98,
-   "rsi": 57,
-   "sell_by": "reviewed 2026-11-09",
-   "hold_days": 60,
-   "t1": 360.3,
-   "t2": 322.08,
-   "t1_pct": 25,
-   "t2_pct": 11.7,
-   "risk_dollars": 8.17,
-   "trend": null,
-   "rs": null,
-   "fund": null,
-   "news": [
-    {
-     "title": "Healthcare Stocks Fall as Market Rout Spreads",
-     "url": "https://www.wsj.com/finance/stocks/healthcare-stocks-fall-as-market-rout-spreads-f789b5c8?siteid=yhoof2&yptr=yahoo",
-     "source": "The Wall Street Journal"
-    },
-    {
-     "title": "State Street Health Care SPDR (XLV) Adds Eli Lilly and J&J on Nov. 4",
-     "url": "https://finance.yahoo.com/healthcare/articles/state-street-health-care-spdr-110533851.html",
-     "source": "GuruFocus.com"
-    },
-    {
-     "title": "2 Defensive Healthcare Stocks Hitting New 52-Week Highs: ABBV & LLY",
-     "url": "https://finance.yahoo.com/healthcare/articles/2-defensive-healthcare-stocks-hitting-222200294.html",
-     "source": "Zacks"
-    }
-   ]
-  },
-  {
-   "ticker": "MA",
-   "name": "Mastercard Incorporated",
-   "sector": "Financials",
-   "kind": "new",
-   "price": 655.92,
-   "entry": 655.92,
-   "limit": 662.48,
-   "shares": 0.19,
-   "dollars": 124.62,
-   "stop": 612.35,
-   "stop_pct": -6.6,
-   "target": 819.9,
-   "target_pct": 25,
-   "rank": 4,
-   "etf": false,
-   "cdr": true,
-   "weekly_move_pct": 5.0,
-   "next_earnings": "2027-01-28",
-   "fwd_pe": 28.331017,
-   "reason": [
-    "#4 on risk-adjusted momentum: 6-mo +31%, 3-mo +17%, 1-mo +15%",
-    "Financials: keeps the portfolio to max 2 per sector",
-    "sized for its swings: a normal week moves it about 5%",
-    "revenue +14% y/y",
-    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
-   ],
-   "setup": "growth",
-   "score": 88.3,
-   "momentum": 95,
-   "rsi": 66,
-   "sell_by": "reviewed 2026-11-09",
-   "hold_days": 60,
-   "t1": 819.9,
-   "t2": 720.87,
-   "t1_pct": 25,
-   "t2_pct": 9.9,
-   "risk_dollars": 8.28,
-   "trend": null,
-   "rs": null,
-   "fund": null,
-   "news": [
-    {
-     "title": "Financial Select Sector SPDR (XLF) Buys $70.9 Million More Berkshire on Nov. 4",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/financial-select-sector-spdr-xlf-110456567.html",
-     "source": "GuruFocus.com"
-    },
-    {
-     "title": "US Fintech Weekly: Fiserv Bounces Post-Earnings, Crypto Brokers Suffer, And Federal Agencies Prepare Innovation Guidelines",
-     "url": "https://stocktwits.com/news-articles/markets/equity/us-fintech-weekly-fiserv-bounces-post-earnings-crypto-brokers-suffer-and-federal-agencies-prepare-innovation-guidelines/cNG1yBQR94Y",
-     "source": "Stocktwits"
-    },
-    {
-     "title": "GPN Q3 Earnings Beat Estimates on Genius Growth, Margins Rise",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/gpn-q3-earnings-beat-estimates-180300069.html",
-     "source": "Zacks"
-    }
-   ]
-  },
-  {
-   "ticker": "KO",
-   "name": "Coca-Cola Company (The)",
-   "sector": "Consumer staples",
-   "kind": "new",
-   "price": 95.73,
-   "entry": 95.73,
-   "limit": 96.69,
-   "shares": 1.57,
-   "dollars": 150.3,
-   "stop": 90.58,
-   "stop_pct": -5.4,
-   "target": 119.66,
-   "target_pct": 25,
-   "rank": 7,
-   "etf": false,
-   "cdr": true,
-   "weekly_move_pct": 4.0,
-   "next_earnings": null,
-   "fwd_pe": 27.13597,
-   "reason": [
-    "#7 on risk-adjusted momentum: 6-mo +24%, 3-mo +11%, 1-mo +12%",
-    "Consumer staples: keeps the portfolio to max 2 per sector",
-    "sized for its swings: a normal week moves it about 4%",
-    "fwd P/E 27",
-    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
-   ],
-   "setup": "growth",
-   "score": 85.9,
-   "momentum": 92,
-   "rsi": 65,
-   "sell_by": "reviewed 2026-11-09",
-   "hold_days": 60,
-   "t1": 119.66,
-   "t2": 103.41,
-   "t1_pct": 25,
-   "t2_pct": 8.0,
-   "risk_dollars": 8.09,
-   "trend": null,
-   "rs": null,
-   "fund": null,
-   "news": [
-    {
-     "title": "Coca-Cola Has Raised Its Dividend for 64 Straight Years. Here's What $10,000 Will Pay You in 2027.",
-     "url": "https://www.fool.com/investing/2026/11/06/coca-cola-has-raised-its-dividend-64-straight-year/",
-     "source": "Motley Fool"
-    },
-    {
-     "title": "If You Invested $300,000 in Coca-Cola, PepsiCo and Keurig Dr Pepper, Here\u2019s What They\u2019d Pay",
-     "url": "https://247wallst.com/investing/2026/11/06/if-you-invested-300000-in-coca-cola-pepsico-and-keurig-dr-pepper-heres-what-theyd-pay/",
-     "source": "24/7 Wall St."
-    },
-    {
-     "title": "Meet the Dividend King Stock That Yields Nearly Quadruple the Nasdaq-100. Here's Why It's a Buy in November.",
-     "url": "https://www.fool.com/investing/2026/11/06/meet-the-dividend-king-stock-that-yields-quadruple/",
-     "source": "Motley Fool"
     }
    ]
   }
  ],
- "sells": {
-  "SNOW": "weekly review: now #26, outside the top 8; the money moves to a stronger name",
-  "CRWD": "weekly review: now #23, outside the top 8; the money moves to a stronger name",
-  "AMD": "weekly review: now unranked (below its 200-day average or overbought), outside the top 8; the money moves to a stronger name"
+ "sells": {},
+ "warn": {
+  "SNOW": "on notice: now #26, outside the top 8. Sold at the next review only if it is still outside; one bad week is not enough",
+  "CRWD": "on notice: now #23, outside the top 8. Sold at the next review only if it is still outside; one bad week is not enough",
+  "AMD": "on notice: now below its 200-day average (a long-term downtrend), outside the top 8. Sold at the next review only if it is still outside; one bad week is not enough"
  },
  "watch": [
+  {
+   "ticker": "ABBV",
+   "rank": 3,
+   "price": 288.24,
+   "sector": "Healthcare",
+   "ret63": 17.9,
+   "rsi": 57,
+   "action": "next in line",
+   "score": 11.0,
+   "setup": "growth"
+  },
+  {
+   "ticker": "MA",
+   "rank": 4,
+   "price": 655.92,
+   "sector": "Financials",
+   "ret63": 16.7,
+   "rsi": 66,
+   "action": "next in line",
+   "score": 10.7,
+   "setup": "growth"
+  },
   {
    "ticker": "XLV",
    "rank": 5,
@@ -7297,6 +7129,17 @@
    "rsi": 63,
    "action": "next in line",
    "score": 10.5,
+   "setup": "growth"
+  },
+  {
+   "ticker": "KO",
+   "rank": 7,
+   "price": 95.73,
+   "sector": "Consumer staples",
+   "ret63": 10.6,
+   "rsi": 65,
+   "action": "next in line",
+   "score": 9.6,
    "setup": "growth"
   },
   {
@@ -7320,51 +7163,18 @@
    "action": "next in line",
    "score": 8.3,
    "setup": "growth"
-  },
-  {
-   "ticker": "LLY",
-   "rank": 10,
-   "price": 1364.73,
-   "sector": "Healthcare",
-   "ret63": 15.3,
-   "rsi": 63,
-   "action": "next in line",
-   "score": 8.0,
-   "setup": "growth"
-  },
-  {
-   "ticker": "PG",
-   "rank": 11,
-   "price": 167.1,
-   "sector": "Consumer staples",
-   "ret63": 15.4,
-   "rsi": 69,
-   "action": "next in line",
-   "score": 7.9,
-   "setup": "growth"
-  },
-  {
-   "ticker": "SPGI",
-   "rank": 12,
-   "price": 472.41,
-   "sector": "Financials",
-   "ret63": 16.0,
-   "rsi": 68,
-   "action": "next in line",
-   "score": 6.9,
-   "setup": "growth"
   }
  ],
  "idea": {
-  "ticker": "ABNB",
-  "name": "Airbnb, Inc.",
-  "price": 170.13,
-  "rank": 39,
-  "sector": "Consumer (discretionary)",
-  "rsi": 51,
-  "ret63": -4.5,
+  "ticker": "PM",
+  "name": "Philip Morris International Inc",
+  "price": 201.5,
+  "rank": 28,
+  "sector": "Consumer staples",
+  "rsi": 50,
+  "ret63": 6.3,
   "cdr": false,
-  "why": "#39 overall and from a sector we don't own yet; in an uptrend (above its 50-day) but not stretched (RSI 51). Optional: a half-size position, or watch it."
+  "why": "#28 overall and from a sector we don't own yet; in an uptrend (above its 50-day) but not stretched (RSI 50). Optional: a half-size position, or watch it."
  },
  "avoid": [
   {
@@ -7398,22 +7208,18 @@
   "done": [
    "2026-11-06"
   ],
-  "this_batch": 752.25,
-  "cash_after": 1547.9
+  "this_batch": 517.96,
+  "cash_after": 1096.54
  },
  "rebalance": true,
  "target": [
-  "MCK",
-  "V",
-  "ABBV",
-  "MA",
-  "KO"
- ],
- "rotate_out": [
   "SNOW",
   "CRWD",
-  "AMD"
+  "AMD",
+  "MCK",
+  "V"
  ],
+ "rotate_out": [],
  "ranking": [
   {
    "rank": 1,
@@ -7595,7 +7401,7 @@
    "range_hi": 715.86,
    "range_lo_pct": 8.3,
    "range_hi_pct": 16.5,
-   "analyst_target": 642.28,
+   "analyst_target": 641.85,
    "analyst_upside": 4.5,
    "cdr": false
   },
@@ -8337,6 +8143,8 @@
   }
  ],
  "next_review": "2026-11-09",
+ "preview": "PREVIEW ONLY - not advice yet. The new plan starts 2026-11-09; these are the orders the engine would give on today's data.",
+ "plan_week": "W2026-45",
  "phase": {
   "start": "2026-11-09",
   "start_equity": 2300.15,
@@ -8360,7 +8168,7 @@
  },
  "lesson": {
   "title": "The hold buffer",
-  "body": "We buy names in the top 5 but keep them until they fall out of the top 12. That stops us from selling a good holding just because it slipped to #6 for a week."
+  "body": "We buy names in the top 5 but keep them until they fall out of the top 8. That stops us from selling a good holding just because it slipped a few places for a week."
  },
  "glossary": [
   [
