@@ -216,10 +216,30 @@ VARIANTS = {
     "G14 rank: multi-factor composite (incl. sector tilt)": dict(rank_col="composite"),
     "G15 rank: learning model + sector/macro tilt": dict(rank_col="blend"),
     "G16 RED market -> active sleeve to cash": dict(red_to_cash=True),
-    "G17 old style: 8% stop, no trend exit, no profit-take, top3": dict(top_n=3, hold_rank=5, stop_atr=None,
+    "G17 old style: top3, no stop, rank-only exits, equal weight": dict(top_n=3, hold_rank=5, stop_atr=None,
                                                                         stop_floor=None, trend_exit=None,
                                                                         profit_take=None, sizing="equal"),
 }
+R = dict(rank_col="risk_adj_mom")
+VARIANTS.update({
+    "R1 risk-adj: no profit-take": dict(R, profit_take=None),
+    "R2 risk-adj: no trend exit": dict(R, trend_exit=None),
+    "R3 risk-adj: no profit-take, no trend exit": dict(R, profit_take=None, trend_exit=None),
+    "R4 risk-adj: top 4": dict(R, top_n=4),
+    "R5 risk-adj: top 4, no profit-take": dict(R, top_n=4, profit_take=None),
+    "R6 risk-adj: hold buffer top-8": dict(R, hold_rank=8),
+    "R7 risk-adj: hold buffer top-15": dict(R, hold_rank=15),
+    "R8 risk-adj: stocks only": dict(R, etfs=False),
+    "R9 risk-adj: 4xATR stop": dict(R, stop_atr=4.0),
+    "R10 risk-adj: 2.5xATR stop": dict(R, stop_atr=2.5),
+    "R11 risk-adj: 0.5% cost each way (stress)": dict(R, cost=0.005),
+    "R12 risk-adj: profit-take at +35%": dict(R, profit_take=0.35),
+    "R13 risk-adj: equal weight": dict(R, sizing="equal"),
+    "R14 risk-adj: max 1 per sector": dict(R, max_per_sector=1),
+    "R15 risk-adj: RED market -> cash": dict(R, red_to_cash=True),
+    "R16 risk-adj: top 6": dict(R, top_n=6),
+    "R17 risk-adj: no stop at all": dict(R, stop_atr=None, stop_floor=None),
+})
 
 
 def main():
