@@ -160,7 +160,7 @@ def active_sim(feats, pre, dates, p):
                     continue
                 s = bucket(t)
                 from .growth import fits_caps
-                if not fits_caps(t, sectors, p.get("max_per_sector", 2), p.get("tech_like_max", 2)):
+                if not fits_caps(t, sectors, p.get("max_per_sector", 2), p.get("tech_like_max")):
                     continue
                 sectors[s] = sectors.get(s, 0) + 1
                 buys.append(t)
@@ -262,9 +262,9 @@ VARIANTS.update({
     "R15 risk-adj: RED market -> cash": dict(R, red_to_cash=True),
     "R16 risk-adj: top 6": dict(R, top_n=6),
     "R17 risk-adj: no stop at all": dict(R, stop_atr=None, stop_floor=None),
-    "S0 risk-adj, top5, hold top-8, 3xATR stop, half at +25%, trend exit, tech max 2": dict(R, hold_rank=8),
-    "S1 CHOSEN minus the 15 biggest winners (hindsight-bias check)": dict(R, hold_rank=8, exclude_winners=15),
-    "S2 CHOSEN minus the 30 biggest winners (harsher check)": dict(R, hold_rank=8, exclude_winners=30),
+    "S0 risk-adj, top5, hold top-8, 3xATR stop, half at +25%, trend exit, tech max 2": dict(R, hold_rank=8, tech_like_max=2),
+    "S1 S0 minus the 15 biggest winners (hindsight-bias check)": dict(R, hold_rank=8, tech_like_max=2, exclude_winners=15),
+    "S2 S0 minus the 30 biggest winners (harsher check)": dict(R, hold_rank=8, tech_like_max=2, exclude_winners=30),
     "S3 sector/asset ETFs only, top 3": dict(R, hold_rank=5, top_n=3, etfs_only=True),
     "S4 S0 + holds ranked without the RSI filter": dict(R, hold_rank=8, hold_ignores_rsi=True),
     "S5 S0 + rank exit needs 2 weekly reviews in a row": dict(R, hold_rank=8, exit_confirm=2),

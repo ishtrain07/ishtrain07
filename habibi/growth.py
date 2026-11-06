@@ -55,8 +55,9 @@ LESSONS = [
     ("Diversify the bets", "Our first three picks were all tech, so one bad day for tech hit everything at once. "
                            "The new rules allow at most {max_per_sector} holdings per sector and at most {tech_like_max} across tech and chips combined."),
     ("Market move vs stock move", "If the whole market falls 3% and your stock falls 4%, only about 1% is about the company. "
-                                  "A holding is only sold at the weekly review if it has ranked outside the top {hold_rank} for "
-                                  "{exit_confirm} reviews in a row, or its trend is broken - one bad market week is not enough."),
+                                  "Between reviews, a market-wide drop never triggers a sale. At the weekly review, rank decides: a holding "
+                                  "outside the top {hold_rank} is sold even after a market drop, because it means other stocks are holding up "
+                                  "better. Waiting an extra week tested worse."),
     ("Position sizing", "Jumpy stocks get a smaller dollar amount so each holding can hurt the account about the same. "
                         "That lets us own volatile winners without one of them sinking the account."),
     ("Why a weekly review", "Checking prices three times a day invites panic. Trends play out over weeks; a weekly decision "
@@ -356,7 +357,13 @@ def growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, key="r
                 sells[t] = "trend broken: second weekly close below its 50-day average"
             elif hold_rank_of.get(t, 999) > g["hold_rank"]:
                 out_wk[t] = out_wk.get(t, 0) + 1
-                where = f"#{hold_rank_of[t]}" if t in hold_rank_of else "below its 200-day average (a long-term downtrend)"
+                r_ = sc.loc[t] if t in sc.index else None
+                if t in hold_rank_of:
+                    where = f"#{hold_rank_of[t]}"
+                elif r_ is not None and bool(r_.eligible) and float(r_.rsi) >= g.get("max_rsi", 80):
+                    where = f"overbought (RSI {float(r_.rsi):.0f}): taking the win per the tested rule, and"
+                else:
+                    where = "below its 200-day average (a long-term downtrend)"
                 if out_wk[t] >= need:
                     sells[t] = (f"weekly review: now {where}, outside the top {g['hold_rank']} for {out_wk[t]} review(s) in a row; "
                                 "the money moves to a stronger name")
@@ -521,9 +528,6 @@ def growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, key="r
             "ranking": rk, "next_review": next_review(today), "reentry": reentry}
 
 
-REENTRY_PRIORITY = ["AMD", "NVDA", "CRWD", "SNOW", "AVGO", "TSM", "MU", "PLTR", "NET", "PANW", "ANET", "META", "MSFT", "GOOGL", "AMZN"]
-
-
 def reentry_watch(feats, funds, sc, hold_rank_of, g, held, n=10):
     """Quality companies that have fallen hard: fundamentals say 'good business', the trend says 'not yet'.
 
@@ -548,19 +552,21 @@ def reentry_watch(feats, funds, sc, hold_rank_of, g, held, n=10):
         if not good or (g_rev is not None and g_rev < 0.08):
             continue
         q, notes = fundamental_score(info)
+        if q < 55:
+            continue
         sma50 = float(f.sma50.iloc[-1])
         rank = hold_rank_of.get(t)
         above = px > sma50
-        in_rank = rank is not None and rank <= g["hold_rank"]
-        if above and in_rank:
-            status, ready = f"RE-ENTRY SIGNAL: above its 50-day and ranked #{rank}; the weekly review can buy it", True
+        in_rank = rank is not None and rank <= g["top_n"]
+        if in_rank:
+            status, ready = (f"BUY ZONE: ranked #{rank}, inside the top {g['top_n']}: the weekly review buys it if a slot and the "
+                             "sector limits allow"), True
         else:
             need = []
+            need = [f"climb back into the top {g['top_n']} (now {'#' + str(rank) if rank else 'unranked: below its 200-day average'})"]
             if not above:
-                need.append(f"close above its 50-day (${sma50:,.2f}, {(sma50 / px - 1) * 100:+.1f}% away)")
-            if not in_rank:
-                need.append(f"rank back inside the top {g['hold_rank']} (now {'#' + str(rank) if rank else 'unranked: below its 200-day'})")
-            status, ready = "waiting: needs to " + " and ".join(need), False
+                need.append(f"first sign: a close above its 50-day (${sma50:,.2f}, {(sma50 / px - 1) * 100:+.1f}% away)")
+            status, ready = "waiting: needs to " + "; ".join(need), False
         peg = round(pe / (g_rev * 100), 2) if (pe and g_rev and g_rev > 0 and pe > 0) else None
         rows.append({"ticker": t, "name": info.get("name", t), "sector": SECTOR_NAMES.get(UNIVERSE.get(t, ""), ""),
                      "price": round(px, 2), "off_high_pct": round(off, 1), "revenue_growth_pct":
@@ -568,7 +574,7 @@ def reentry_watch(feats, funds, sc, hold_rank_of, g, held, n=10):
                      "peg": peg, "analyst_upside_pct": round((tgt / px - 1) * 100, 1) if tgt else None,
                      "quality": round(q), "quality_notes": notes[:2], "status": status, "ready": ready,
                      "held": t in held, "cdr": t in CDR,
-                     "_prio": (0 if t in held else 1, REENTRY_PRIORITY.index(t) if t in REENTRY_PRIORITY else 99, -q)})
+                     "_prio": (0 if t in held else 1, -q)})
     rows.sort(key=lambda x: x["_prio"])
     for r in rows:
         r.pop("_prio")
@@ -591,6 +597,14 @@ def checkpoints(cfg, equity, state, spy_last):
     return {"start": cfg["phase_start"], "start_equity": ph["equity"], "return_pct": round(ret, 2),
             "spy_return_pct": round(spy_ret, 2) if spy_ret is not None else None, "checks": out,
             "take_profit_rule": cfg["goal"].get("take_profit_rule")}
+
+
+def cdr_note(cfg, t, act):
+    units = (cfg.get("cdr_holdings") or {}).get(t)
+    if not units:
+        return None
+    n = units if act == "SELL ALL" else max(1, int(units // 2))
+    return f"you hold {units} {t} CDRs (CAD): sell {n} CDRs" + (" (all of them)" if act == "SELL ALL" else "")
 
 
 def lesson(today, cfg):

@@ -102,7 +102,7 @@ def dispatch_alerts(alerts, cfg, today):
         if key in sent:
             continue
         title = f"SELL ALERT {a['ticker']}: {a['action']} ~{a['shares']} sh @ ~{a['price']}"
-        notify.send_all(title, a["why"] + "\nThen log the sale in trades.csv / the dashboard form.",
+        notify.send_all(title, a["why"] + (f"\n{a['units_note']}" if a.get("units_note") else "") + "\nThen log the sale in trades.csv / the dashboard form.",
                         priority="urgent", tags="rotating_light", click=cfg.get("dashboard_url"),
                         labels=["habibi", "sell-alert"])
         sent[key] = dt.datetime.now(ET).isoformat()
@@ -307,12 +307,10 @@ def morning_message(rep):
              f"{rep['trading_days_left']} trading days to goal", ""]
     if rep["drawdown_msg"]:
         lines.append("!! " + rep["drawdown_msg"])
-    if rep.get("preview"):
-        lines.insert(0, rep["preview"])
     for a in rep["alerts"]:
-        lines.append(f"SELL {a['ticker']}: {a['action']} - {a['why']}" + (f" ({a['units_note']})" if a.get("units_note") else ""))
+        lines.append(f"SELL {a['ticker']}: {a['action']} - {a['why']}")
     for b in rep["buys"]:
-        lines.append(("(only if not bought Monday) " if b["kind"].endswith("catchup") else "") + f"BUY {b['ticker']} {b['shares']} sh (~${b['dollars']:,.0f}) limit {b['limit']} | "
+        lines.append(f"BUY {b['ticker']} {b['shares']} sh (~${b['dollars']:,.0f}) limit {b['limit']} | "
                      f"stop {b['stop']} | T1 {b['t1']} T2 {b['t2']} | sell by {b['sell_by']}")
     if not rep["buys"]:
         lines.append("No new buys today - cash is a position.")
@@ -495,8 +493,12 @@ def cmd_plan_growth(cfg, args):
         if p and not any(a["ticker"] == t and a["action"] == "SELL ALL" for a in alerts):
             p.update({"action": "SELL ALL", "why": why, "rule": "weekly review"})
             alerts = [a for a in alerts if a["ticker"] != t]
-            alerts.append({"ticker": t, "action": "SELL ALL", "why": why, "price": p["price"], "shares": p["shares"],
-                           "rule": "weekly review"})
+            a = {"ticker": t, "action": "SELL ALL", "why": why, "price": p["price"], "shares": p["shares"],
+                 "rule": "weekly review"}
+            note = growth.cdr_note(cfg, t, "SELL ALL")
+            if note:
+                a["units_note"] = note
+            alerts.append(a)
     if rebalance:
         state["last_rebalance"] = today.isoformat()
     for b in plan["buys"]:
@@ -518,8 +520,9 @@ def cmd_plan_growth(cfg, args):
         "strategy": "growth", "paper": paper, "record": win_loss(book["closed"]), "benchmark": benchmark(feats, cfg),
         "anomalies": scan_anomalies(feats, None, book, paper, plan, cfg), "backtest": {}, "replay": None,
         "growth_research": research, "research": None, "config": cfg, **plan,
-        "preview": (f"PREVIEW ONLY - not advice yet. The new plan starts {cfg['phase_start']}; these are the orders the engine "
-                    "would give on today's data." if preview else None),
+        "preview": ((f"PREVIEW ONLY - not advice yet. The new plan starts {cfg['phase_start']}; these are the orders the engine "
+                     "would give on today's data." if today < dt.date.fromisoformat(cfg["phase_start"]) else
+                     "TEST RUN (dry run) - not advice; the real plan comes from the scheduled run.") if preview else None),
         "plan_week": "W%d-%02d" % today.isocalendar()[:2],
     }
     _growth_extras(report, feats, cfg, today, state, book)
@@ -527,7 +530,8 @@ def cmd_plan_growth(cfg, args):
         save_history(today, plan, regime)
         save_growth_state(state)
     write_outputs(report)
-    if not args.no_notify and not preview:
+    quiet = args.no_notify or (getattr(args, "notify_if_review", False) and not rebalance)
+    if not quiet and not preview:
         dispatch_alerts(alerts, cfg, today)
         notify.send_all(*growth_message(report), click=cfg.get("dashboard_url"), labels=["habibi", "daily-plan"])
 
@@ -543,12 +547,15 @@ def growth_message(rep):
     lines = [f"Market: {rep['regime']['light']} - {rep['regime']['message']}",
              f"Account ${rep['account']['equity']:,.0f}; since the new plan: {ph.get('return_pct', 0):+.1f}% "
              f"(S&P 500 {ph.get('spy_return_pct') or 0:+.1f}%)", ""]
+    if rep.get("preview"):
+        lines.insert(0, rep["preview"])
     if rep["drawdown_msg"]:
         lines.append("!! " + rep["drawdown_msg"])
     for a in rep["alerts"]:
-        lines.append(f"SELL {a['ticker']}: {a['action']} - {a['why']}")
+        lines.append(f"SELL {a['ticker']}: {a['action']} - {a['why']}" + (f" ({a['units_note']})" if a.get("units_note") else ""))
     for b in rep["buys"]:
-        lines.append(f"BUY {b['ticker']} {b['shares']} sh (~${b['dollars']:,.0f}) limit {b['limit']}"
+        lines.append(("(only if you did not buy it Monday) " if b["kind"].endswith("catchup") else "")
+                     + f"BUY {b['ticker']} {b['shares']} sh (~${b['dollars']:,.0f}) limit {b['limit']}"
                      + (f" | stop {b['stop']}" if b.get("stop") else "") + (f" | take half at {b['target']}" if b.get("target") else ""))
     if not rep["buys"] and not rep["alerts"]:
         lines.append(f"No orders today. Next weekly review {rep.get('next_review')}.")
@@ -569,6 +576,7 @@ def cmd_check_growth(cfg, args):
     preview = args.dry_run or today < dt.date.fromisoformat(cfg["phase_start"])
     if preview:
         state = json.loads(json.dumps(state))
+    report["preview"] = (f"PREVIEW ONLY - not advice yet. The new plan starts {cfg['phase_start']}." if preview else None)
     if report.get("plan_week") != "W%d-%02d" % today.isocalendar()[:2]:
         # last plan is from an earlier week: its orders are stale; the next weekly review sets new ones
         report.update({"buys": [], "rebalance": False, "sells": {}, "warn": {},
@@ -626,6 +634,8 @@ def main():
     ap.add_argument("--backtest", action="store_true", help="force a backtest refresh")
     ap.add_argument("--skip-fundamentals", action="store_true")
     ap.add_argument("--dry-run", action="store_true", help="don't advance the weekly rebalance marker")
+    ap.add_argument("--notify-if-review", action="store_true",
+                    help="backup run: only notify if this run is the one that did the weekly review")
     args = ap.parse_args()
     cfg = load_cfg()
     (OUT / "history").mkdir(parents=True, exist_ok=True)
