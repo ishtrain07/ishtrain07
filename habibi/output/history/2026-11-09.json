@@ -1,0 +1,434 @@
+{
+ "buys": [
+  {
+   "ticker": "VOO",
+   "name": "Vanguard S&P 500 ETF",
+   "sector": "Index",
+   "kind": "core",
+   "price": 675.99,
+   "entry": 675.99,
+   "limit": 682.75,
+   "shares": 0.5522,
+   "dollars": 373.28,
+   "stop": null,
+   "stop_pct": null,
+   "target": null,
+   "rank": null,
+   "etf": true,
+   "cdr": false,
+   "setup": "core",
+   "score": null,
+   "momentum": null,
+   "rsi": null,
+   "reason": [
+    "core index: 30% of the account in the S&P 500, held long term",
+    "cash goes in over 3 weekly batches; new CAD money can use VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)"
+   ],
+   "sell_by": "held long term",
+   "hold_days": 999,
+   "t1": null,
+   "t2": null,
+   "t1_pct": null,
+   "t2_pct": null,
+   "risk_dollars": 0,
+   "next_earnings": null,
+   "fwd_pe": null,
+   "weekly_move_pct": 3.1,
+   "news": [
+    {
+     "title": "Should You Buy VOO Before the Market Rebounds?",
+     "url": "https://www.fool.com/investing/2026/11/08/should-you-buy-voo-before-market-rebounds/",
+     "source": "Motley Fool"
+    },
+    {
+     "title": "Warren Buffett's Retirement Strategy Has a Catch: VOO Alone May Not Be Enough in 2026",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/warren-buffetts-retirement-strategy-catch-013032807.html",
+     "source": "Benzinga"
+    },
+    {
+     "title": "VOO Is Down 6% From Its High. Over the Past Year It's Up 10%. Which Number Should Investors Focus On?",
+     "url": "https://www.fool.com/investing/2026/11/06/voo-down-6-from-high-up-10-ytd-which-to-focus-on/",
+     "source": "Motley Fool"
+    }
+   ]
+  },
+  {
+   "ticker": "MCK",
+   "name": "McKesson Corporation",
+   "sector": "Healthcare",
+   "kind": "new",
+   "price": 1060.84,
+   "entry": 1060.84,
+   "limit": 1071.45,
+   "shares": 0.14,
+   "dollars": 148.52,
+   "stop": 976.07,
+   "stop_pct": -8.0,
+   "target": 1326.05,
+   "target_pct": 25,
+   "rank": 1,
+   "etf": false,
+   "cdr": false,
+   "weekly_move_pct": 6.0,
+   "next_earnings": "2027-02-03",
+   "fwd_pe": 20.37163,
+   "reason": [
+    "#1 on risk-adjusted momentum: 6-mo +44%, 3-mo +21%, 1-mo +14%",
+    "Healthcare: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 6%",
+    "fwd P/E 20"
+   ],
+   "setup": "growth",
+   "quality": 50,
+   "score": 82.3,
+   "momentum": 99,
+   "rsi": 70,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 1326.05,
+   "t2": 1187.21,
+   "t1_pct": 25,
+   "t2_pct": 11.9,
+   "risk_dollars": 11.87,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "5 insightful analyst questions from McKesson\u2019s Q3 CY2026 earnings call",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/5-insightful-analyst-questions-mckesson-203736429.html",
+     "source": "StockStory"
+    },
+    {
+     "title": "McKesson (MCK) Plans Medical Surgical Spin Off With $1.25 Billion Backing",
+     "url": "https://finance.yahoo.com/healthcare/articles/mckesson-mck-plans-medical-surgical-081227286.html",
+     "source": "Simply Wall St."
+    },
+    {
+     "title": "McKesson Q2 Earnings Call Highlights",
+     "url": "https://www.marketbeat.com/instant-alerts/transcript-mckesson-q2-earnings-call-highlights-2026-11-07/?utm_source=yahoofinance&utm_medium=yahoofinance",
+     "source": "MarketBeat"
+    }
+   ]
+  },
+  {
+   "ticker": "ABBV",
+   "name": "AbbVie Inc.",
+   "sector": "Healthcare",
+   "kind": "new",
+   "price": 291.31,
+   "entry": 291.31,
+   "limit": 294.22,
+   "shares": 0.52,
+   "dollars": 151.48,
+   "stop": 267.95,
+   "stop_pct": -8.0,
+   "target": 364.14,
+   "target_pct": 25,
+   "rank": 2,
+   "etf": false,
+   "cdr": true,
+   "weekly_move_pct": 6.0,
+   "next_earnings": null,
+   "fwd_pe": 17.996552,
+   "reason": [
+    "#2 on risk-adjusted momentum: 6-mo +46%, 3-mo +18%, 1-mo +8%",
+    "Healthcare: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 6%",
+    "fwd P/E 18",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
+   ],
+   "setup": "growth",
+   "quality": 60,
+   "score": 82.7,
+   "momentum": 98,
+   "rsi": 60,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 364.14,
+   "t2": 326.14,
+   "t1_pct": 25,
+   "t2_pct": 12.0,
+   "risk_dollars": 12.15,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "What Happens To Pfizer Stock If Patent Losses Outpace New Drugs?",
+     "url": "https://www.trefis.com/stock/pfe/articles/623688/what-happens-to-pfizer-stock-if-patent-losses-outpace-new-drugs/2026-11-09",
+     "source": "Trefis"
+    },
+    {
+     "title": "What State Street Health Care SPDR (XLV) Sold: Eli Lilly Leads on Nov. 5",
+     "url": "https://finance.yahoo.com/healthcare/articles/state-street-health-care-spdr-110630949.html",
+     "source": "GuruFocus.com"
+    },
+    {
+     "title": "Zacks Investment Ideas feature highlights: Moderna, AbbVie, Eli Lilly and Merck",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/zacks-investment-ideas-feature-highlights-092000899.html",
+     "source": "Zacks"
+    }
+   ]
+  },
+  {
+   "ticker": "V",
+   "name": "Visa Inc.",
+   "sector": "Financials",
+   "kind": "new",
+   "price": 422.65,
+   "entry": 422.65,
+   "limit": 426.88,
+   "shares": 0.43,
+   "dollars": 181.74,
+   "stop": 394.84,
+   "stop_pct": -6.6,
+   "target": 528.31,
+   "target_pct": 25,
+   "rank": 3,
+   "etf": false,
+   "cdr": true,
+   "weekly_move_pct": 4.9,
+   "next_earnings": "2027-01-26",
+   "fwd_pe": 24.654982,
+   "reason": [
+    "#3 on risk-adjusted momentum: 6-mo +33%, 3-mo +17%, 1-mo +13%",
+    "Financials: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 5%",
+    "revenue +13% y/y",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
+   ],
+   "setup": "growth",
+   "quality": 72,
+   "score": 80.4,
+   "momentum": 96,
+   "rsi": 63,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 528.31,
+   "t2": 464.1,
+   "t1_pct": 25,
+   "t2_pct": 9.8,
+   "risk_dollars": 11.96,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "Latest News In Digital Payment - Malaysian Fintech Surge Driven By Digital Innovation",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/latest-news-digital-payment-malaysian-123745323.html",
+     "source": "Simply Wall St."
+    },
+    {
+     "title": "What State Street Fin Select Sector SPDR (XLF) Sold: Berkshire Leads on Thursday",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/state-street-fin-select-sector-110508454.html",
+     "source": "GuruFocus.com"
+    },
+    {
+     "title": "What SPDR Dow Jones Industrial Avg ETF (DIA) Sold: Goldman Leads on Nov. 5",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/spdr-dow-jones-industrial-avg-110445805.html",
+     "source": "GuruFocus.com"
+    }
+   ]
+  },
+  {
+   "ticker": "MA",
+   "name": "Mastercard Incorporated",
+   "sector": "Financials",
+   "kind": "new",
+   "price": 652.7,
+   "entry": 652.7,
+   "limit": 659.23,
+   "shares": 0.27,
+   "dollars": 176.23,
+   "stop": 607.62,
+   "stop_pct": -6.9,
+   "target": 815.88,
+   "target_pct": 25,
+   "rank": 4,
+   "etf": false,
+   "cdr": true,
+   "weekly_move_pct": 5.1,
+   "next_earnings": "2027-01-28",
+   "fwd_pe": 28.179255,
+   "reason": [
+    "#4 on risk-adjusted momentum: 6-mo +32%, 3-mo +16%, 1-mo +14%",
+    "Financials: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 5%",
+    "revenue +14% y/y",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
+   ],
+   "setup": "growth",
+   "quality": 72,
+   "score": 80.1,
+   "momentum": 95,
+   "rsi": 64,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 815.88,
+   "t2": 719.9,
+   "t1_pct": 25,
+   "t2_pct": 10.3,
+   "risk_dollars": 12.17,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "A Fund With $4.5 Billion in US Equities Just Bought These 3 Stocks",
+     "url": "https://www.tikr.com/blog/4-5-billion-fund-bought-3-stocks-csx-entergy-mastercard?ref=yahoofinance&tlnk=yf-261109-fhvm62mm",
+     "source": "TIKR"
+    },
+    {
+     "title": "Egypt\u2019s HDB partners with Mastercard to expand card offer",
+     "url": "https://www.electronicpaymentsinternational.com/news/egypts-hdb-partners-with-mastercard-to-expand-card-offer/",
+     "source": "Electronic Payments"
+    },
+    {
+     "title": "What State Street Fin Select Sector SPDR (XLF) Sold: Berkshire Leads on Thursday",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/state-street-fin-select-sector-110508454.html",
+     "source": "GuruFocus.com"
+    }
+   ]
+  },
+  {
+   "ticker": "KO",
+   "name": "Coca-Cola Company (The)",
+   "sector": "Consumer staples",
+   "kind": "new",
+   "price": 95.67,
+   "entry": 95.67,
+   "limit": 96.63,
+   "shares": 2.2,
+   "dollars": 210.47,
+   "stop": 90.18,
+   "stop_pct": -5.7,
+   "target": 119.59,
+   "target_pct": 25,
+   "rank": 8,
+   "etf": false,
+   "cdr": true,
+   "weekly_move_pct": 4.3,
+   "next_earnings": null,
+   "fwd_pe": 27.11896,
+   "reason": [
+    "#8 on risk-adjusted momentum: 6-mo +24%, 3-mo +11%, 1-mo +9%",
+    "Consumer staples: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 4%",
+    "fwd P/E 27",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
+   ],
+   "setup": "growth",
+   "quality": 60,
+   "score": 86.3,
+   "momentum": 92,
+   "rsi": 64,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 119.59,
+   "t2": 103.86,
+   "t1_pct": 25,
+   "t2_pct": 8.6,
+   "risk_dollars": 12.08,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "3 Legacy Dividend Stocks That Never Go Out of Style",
+     "url": "https://247wallst.com/investing/2026/11/09/3-legacy-dividend-stocks-that-never-go-out-of-style/",
+     "source": "24/7 Wall St."
+    },
+    {
+     "title": "Coca-Cola India IPO moves forward with draft papers",
+     "url": "https://www.just-drinks.com/news/coca-cola-india-ipo-draft-papers/",
+     "source": "Just Drinks"
+    },
+    {
+     "title": "3 Top Dividend Stocks to Buy in November for a Lifetime of Passive Income",
+     "url": "https://www.fool.com/investing/2026/11/09/3-top-dividend-stocks-buy-november-lifetime-income/",
+     "source": "Motley Fool"
+    }
+   ]
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "XLV",
+   "rank": 5,
+   "price": 184.8,
+   "sector": "Healthcare",
+   "ret63": 10.1,
+   "rsi": 63,
+   "action": "next in line",
+   "score": 10.3,
+   "setup": "growth"
+  },
+  {
+   "ticker": "TMO",
+   "rank": 6,
+   "price": 694.76,
+   "sector": "Healthcare",
+   "ret63": 15.9,
+   "rsi": 55,
+   "action": "next in line",
+   "score": 9.6,
+   "setup": "growth"
+  },
+  {
+   "ticker": "SPOT",
+   "rank": 9,
+   "price": 603.01,
+   "sector": "Communication",
+   "ret63": 17.8,
+   "rsi": 62,
+   "action": "next in line",
+   "score": 8.0,
+   "setup": "growth"
+  },
+  {
+   "ticker": "LLY",
+   "rank": 10,
+   "price": 1354.0,
+   "sector": "Healthcare",
+   "ret63": 10.1,
+   "rsi": 61,
+   "action": "next in line",
+   "score": 7.9,
+   "setup": "growth"
+  },
+  {
+   "ticker": "PG",
+   "rank": 11,
+   "price": 165.4,
+   "sector": "Consumer staples",
+   "ret63": 13.7,
+   "rsi": 65,
+   "action": "next in line",
+   "score": 6.6,
+   "setup": "growth"
+  },
+  {
+   "ticker": "SPGI",
+   "rank": 12,
+   "price": 467.8,
+   "sector": "Financials",
+   "ret63": 14.1,
+   "rsi": 65,
+   "action": "next in line",
+   "score": 6.6,
+   "setup": "growth"
+  }
+ ],
+ "regime": {
+  "light": "YELLOW",
+  "risk_mult": 0.5,
+  "max_new": 2,
+  "message": "Choppy market (below the 50-day or VIX elevated): weekly buys continue at normal size; the ranking already favours steadier names. New buys stop only if the light turns RED.",
+  "spy": 735.29,
+  "spy_sma50": 765.15,
+  "spy_sma200": 727.65,
+  "vix": 23.26
+ }
+}

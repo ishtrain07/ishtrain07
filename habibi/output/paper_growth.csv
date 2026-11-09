@@ -1,1 +1,7 @@
 date,ticker,side,shares,price,fees,note
+2026-11-09,VOO,BUY,0.3349,682.75,0,core
+2026-11-09,MCK,BUY,0.09,1071.45,0,new
+2026-11-09,ABBV,BUY,0.31,294.22,0,new
+2026-11-09,V,BUY,0.26,426.88,0,new
+2026-11-09,MA,BUY,0.16,659.23,0,new
+2026-11-09,KO,BUY,1.33,96.63,0,new
