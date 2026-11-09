@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09 08:59 ET",
+ "generated_at": "2026-11-09 09:02 ET (position check)",
  "date": "2026-11-09",
  "mode": "plan",
  "regime": {
@@ -476,25 +476,25 @@
    "action": "SELL ALL",
    "why": "weekly review: now #19, outside the top 8 for 1 review(s) in a row; the money moves to a stronger name",
    "price": 275.89,
-   "shares": 0.6059,
-   "rule": "weekly review"
+   "rule": "weekly review",
+   "shares": 0.6059
   },
   {
    "ticker": "CRWD",
    "action": "SELL ALL",
    "why": "weekly review: now #27, outside the top 8 for 1 review(s) in a row; the money moves to a stronger name",
    "price": 216.83,
-   "shares": 1.1075,
    "rule": "weekly review",
-   "units_note": "you hold 5 CRWD CDRs (CAD): sell 5 CDRs (all of them)"
+   "shares": 1.1075,
+   "units_note": "you hold 5 CRWD CDRs (CAD): sell 5 CDRs (all)"
   },
   {
    "ticker": "AMD",
    "action": "SELL ALL",
    "why": "weekly review: now #65, outside the top 8 for 1 review(s) in a row; the money moves to a stronger name",
    "price": 449.03,
-   "shares": 0.7,
-   "rule": "weekly review"
+   "rule": "weekly review",
+   "shares": 0.7
   }
  ],
  "trading_days_left": 61,
@@ -504,9 +504,9 @@
   "account": {
    "cash": 1548.72,
    "realized": 0.0,
-   "unrealized": -7.53,
-   "market_value": 753.74,
-   "equity": 2302.46,
+   "unrealized": -7.54,
+   "market_value": 753.72,
+   "equity": 2302.44,
    "return_pct": -0.33
   },
   "record": {
@@ -530,10 +530,10 @@
     "hold_days": 7,
     "sell_by": "2026-11-18",
     "partial": false,
-    "system_pick": false,
+    "system_pick": true,
     "mode": "swing",
-    "plan_entry": null,
-    "plan_date": null,
+    "plan_entry": 675.99,
+    "plan_date": "2026-11-09",
     "fills": [
      {
       "date": "2026-11-09",
@@ -542,10 +542,10 @@
      }
     ],
     "data_warning": null,
-    "price": 675.99,
-    "value": 226.39,
-    "pnl": -2.26,
-    "pnl_pct": -0.99,
+    "price": 676.03,
+    "value": 226.4,
+    "pnl": -2.25,
+    "pnl_pct": -0.98,
     "days_held": 0,
     "sleeve": "core",
     "cdr": false,
@@ -554,7 +554,7 @@
      "day_pct": 0.3,
      "day_market_pct": 0.31,
      "day_specific_pct": -0.01,
-     "week_pct": -2.71,
+     "week_pct": -2.7,
      "week_market_pct": -2.67,
      "week_specific_pct": -0.03,
      "verdict": "moving with the market"
@@ -569,16 +569,16 @@
     "shares": 0.09,
     "avg_cost": 1071.45,
     "first_buy": "2026-11-09",
-    "stop": 1029.06,
+    "stop": 976.07,
     "t1": 1339.31,
     "t2": null,
-    "hold_days": 7,
-    "sell_by": "2026-11-18",
+    "hold_days": 60,
+    "sell_by": "2027-02-05",
     "partial": false,
-    "system_pick": false,
+    "system_pick": true,
     "mode": "swing",
-    "plan_entry": null,
-    "plan_date": null,
+    "plan_entry": 1060.84,
+    "plan_date": "2026-11-09",
     "fills": [
      {
       "date": "2026-11-09",
@@ -587,10 +587,10 @@
      }
     ],
     "data_warning": null,
-    "price": 1060.84,
-    "value": 95.48,
-    "pnl": -0.95,
-    "pnl_pct": -0.99,
+    "price": 1060.33,
+    "value": 95.43,
+    "pnl": -1.0,
+    "pnl_pct": -1.04,
     "days_held": 0,
     "sleeve": "active",
     "cdr": false,
@@ -599,9 +599,9 @@
      "day_pct": -1.04,
      "day_market_pct": 0.06,
      "day_specific_pct": -1.1,
-     "week_pct": 6.66,
+     "week_pct": 6.61,
      "week_market_pct": -0.54,
-     "week_specific_pct": 7.2,
+     "week_specific_pct": 7.15,
      "verdict": "moving with the market"
     },
     "active_stop": 986.68,
@@ -615,16 +615,16 @@
     "shares": 0.31,
     "avg_cost": 294.22,
     "first_buy": "2026-11-09",
-    "stop": 282.54,
+    "stop": 267.95,
     "t1": 367.78,
     "t2": null,
-    "hold_days": 7,
-    "sell_by": "2026-11-18",
+    "hold_days": 60,
+    "sell_by": "2027-02-05",
     "partial": false,
-    "system_pick": false,
+    "system_pick": true,
     "mode": "swing",
-    "plan_entry": null,
-    "plan_date": null,
+    "plan_entry": 291.31,
+    "plan_date": "2026-11-09",
     "fills": [
      {
       "date": "2026-11-09",
@@ -661,16 +661,16 @@
     "shares": 0.26,
     "avg_cost": 426.88,
     "first_buy": "2026-11-09",
-    "stop": 401.64,
+    "stop": 394.84,
     "t1": 533.6,
     "t2": null,
     "hold_days": 60,
     "sell_by": "2027-02-05",
     "partial": false,
     "system_pick": true,
-    "mode": "momentum",
-    "plan_entry": 436.57,
-    "plan_date": "2026-11-05",
+    "mode": "swing",
+    "plan_entry": 422.65,
+    "plan_date": "2026-11-09",
     "fills": [
      {
       "date": "2026-11-09",
@@ -679,10 +679,10 @@
      }
     ],
     "data_warning": null,
-    "price": 422.65,
-    "value": 109.89,
-    "pnl": -1.1,
-    "pnl_pct": -0.99,
+    "price": 422.73,
+    "value": 109.91,
+    "pnl": -1.08,
+    "pnl_pct": -0.97,
     "days_held": 0,
     "sleeve": "active",
     "cdr": true,
@@ -691,9 +691,9 @@
      "day_pct": 0.01,
      "day_market_pct": 0.06,
      "day_specific_pct": -0.05,
-     "week_pct": 2.19,
+     "week_pct": 2.21,
      "week_market_pct": -0.54,
-     "week_specific_pct": 2.73,
+     "week_specific_pct": 2.75,
      "verdict": "moving with the market"
     },
     "active_stop": 399.07,
@@ -707,16 +707,16 @@
     "shares": 0.16,
     "avg_cost": 659.23,
     "first_buy": "2026-11-09",
-    "stop": 618.87,
+    "stop": 607.62,
     "t1": 824.04,
     "t2": null,
     "hold_days": 60,
     "sell_by": "2027-02-05",
     "partial": false,
     "system_pick": true,
-    "mode": "momentum",
-    "plan_entry": 672.68,
-    "plan_date": "2026-11-05",
+    "mode": "swing",
+    "plan_entry": 652.7,
+    "plan_date": "2026-11-09",
     "fills": [
      {
       "date": "2026-11-09",
@@ -725,10 +725,10 @@
      }
     ],
     "data_warning": null,
-    "price": 652.7,
-    "value": 104.43,
-    "pnl": -1.04,
-    "pnl_pct": -0.99,
+    "price": 652.64,
+    "value": 104.42,
+    "pnl": -1.05,
+    "pnl_pct": -1.0,
     "days_held": 0,
     "sleeve": "active",
     "cdr": true,
@@ -737,9 +737,9 @@
      "day_pct": -0.49,
      "day_market_pct": 0.06,
      "day_specific_pct": -0.55,
-     "week_pct": 2.3,
+     "week_pct": 2.29,
      "week_market_pct": -0.54,
-     "week_specific_pct": 2.84,
+     "week_specific_pct": 2.83,
      "verdict": "moving with the market"
     },
     "active_stop": 614.15,
@@ -753,16 +753,16 @@
     "shares": 1.33,
     "avg_cost": 96.63,
     "first_buy": "2026-11-09",
-    "stop": 93.88,
+    "stop": 90.18,
     "t1": 120.79,
     "t2": null,
-    "hold_days": 7,
-    "sell_by": "2026-11-18",
+    "hold_days": 60,
+    "sell_by": "2027-02-05",
     "partial": false,
-    "system_pick": false,
+    "system_pick": true,
     "mode": "swing",
-    "plan_entry": null,
-    "plan_date": null,
+    "plan_entry": 95.67,
+    "plan_date": "2026-11-09",
     "fills": [
      {
       "date": "2026-11-09",
@@ -771,10 +771,10 @@
      }
     ],
     "data_warning": null,
-    "price": 95.67,
-    "value": 127.24,
-    "pnl": -1.28,
-    "pnl_pct": -0.99,
+    "price": 95.68,
+    "value": 127.25,
+    "pnl": -1.26,
+    "pnl_pct": -0.98,
     "days_held": 0,
     "sleeve": "active",
     "cdr": true,
@@ -783,9 +783,9 @@
      "day_pct": -0.06,
      "day_market_pct": 0.06,
      "day_specific_pct": -0.13,
-     "week_pct": 1.69,
+     "week_pct": 1.7,
      "week_market_pct": -0.54,
-     "week_specific_pct": 2.23,
+     "week_specific_pct": 2.24,
      "verdict": "moving with the market"
     },
     "active_stop": 91.14,
@@ -796,62 +796,7 @@
    }
   ],
   "closed": [],
-  "orders_today": [
-   {
-    "date": "2026-11-09",
-    "ticker": "VOO",
-    "side": "BUY",
-    "shares": 0.3349,
-    "price": 682.75,
-    "fees": 0,
-    "note": "core"
-   },
-   {
-    "date": "2026-11-09",
-    "ticker": "MCK",
-    "side": "BUY",
-    "shares": 0.09,
-    "price": 1071.45,
-    "fees": 0,
-    "note": "new"
-   },
-   {
-    "date": "2026-11-09",
-    "ticker": "ABBV",
-    "side": "BUY",
-    "shares": 0.31,
-    "price": 294.22,
-    "fees": 0,
-    "note": "new"
-   },
-   {
-    "date": "2026-11-09",
-    "ticker": "V",
-    "side": "BUY",
-    "shares": 0.26,
-    "price": 426.88,
-    "fees": 0,
-    "note": "new"
-   },
-   {
-    "date": "2026-11-09",
-    "ticker": "MA",
-    "side": "BUY",
-    "shares": 0.16,
-    "price": 659.23,
-    "fees": 0,
-    "note": "new"
-   },
-   {
-    "date": "2026-11-09",
-    "ticker": "KO",
-    "side": "BUY",
-    "shares": 1.33,
-    "price": 96.63,
-    "fees": 0,
-    "note": "new"
-   }
-  ],
+  "orders_today": [],
   "executed": true
  },
  "record": {
@@ -866,7 +811,7 @@
  "benchmark": {
   "spy_return_pct": -4.67,
   "base": 771.35,
-  "last": 735.29,
+  "last": 735.34,
   "since": "2026-09-28"
  },
  "anomalies": {
@@ -12726,7 +12671,7 @@
   "start": "2026-11-09",
   "start_equity": 2336.12,
   "return_pct": 0.0,
-  "spy_return_pct": -0.0,
+  "spy_return_pct": 0.01,
   "checks": [
    {
     "label": "3-month check",
@@ -12789,5 +12734,15 @@
    "The market's 'fear gauge'. Below 20 is calm; above 28 is stressed."
   ]
  ],
- "cad_core": "VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)"
+ "cad_core": "VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)",
+ "analyst": {
+  "date": "2026-11-09",
+  "text": "First live week of the new plan. Market light YELLOW (VIX 23): choppy after a sharp chip and software sell-off (chips -24%, tech -17% over a month), while healthcare, consumer staples, financials and utilities lead.\nRotation: SNOW (#19), CRWD (#27) and AMD (#65) are outside the top 8, so they are sold at this review. AMD bounced late last week after its Q3 report, but the bounce has not held and management flagged slower PC demand late in the quarter. AMD stays on the re-entry watchlist (business quality 90/100).\nBuys: MCK, ABBV, V, MA, KO plus the first VOO core batch. No news found that argues against these buys. Earnings: V on 26 Jan, MA on 28 Jan, MCK on 3 Feb, all well outside this week.\nBRK-B was skipped because it reports earnings today.",
+  "cautions": [
+   {
+    "ticker": "AMD",
+    "why": "Q3 call flagged slowing PC sell-through; the chip rebound faded. Sold under the rank rule; re-entry only when it climbs back into the top 5."
+   }
+  ]
+ }
 }
