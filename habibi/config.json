@@ -1,5 +1,5 @@
 {
-  "owner_note": "Growth engine since 2026-11-09: 30% index core + 70% active weekly picks. Edit core.pct / growth.* to change the rules.",
+  "owner_note": "Growth engine: 30% index core + 50% weekly picks + 20% quality dips. Edit core.pct / growth.* / value.* to change the rules.",
   "strategy": "growth",
   "ranker": "adaptive",
   "momentum_stop_pct": 8,
@@ -68,5 +68,18 @@
   "paper_growth_capital_usd": 2310,
   "cdr_holdings": {
     "CRWD": 5
+  },
+  "value": {
+    "pct": 20,
+    "max_names": 3,
+    "max_name_pct": 7,
+    "min_quality": 80,
+    "min_off_high_pct": 20,
+    "peg_max": 1.0,
+    "min_revenue_growth_pct": 10,
+    "disaster_stop_pct": 35,
+    "take_half_pct": 40,
+    "second_tranche_days": 20,
+    "exit_quality": 60
   }
 }

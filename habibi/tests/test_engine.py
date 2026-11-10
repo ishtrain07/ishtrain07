@@ -389,3 +389,62 @@ def test_growth_week_rules():
     later = growth.growth_plan(feats, {}, regime, cfg, book, today, False, state, halted=True)
     assert not [b for b in later["buys"] if b["kind"] == "new-catchup"]
     assert pick
+
+
+def test_quality_dip_sleeve():
+    from habibi import growth
+    from habibi.indicators import add_features
+    from habibi.portfolio import positions
+    from habibi.universe import UNIVERSE
+    prices = fake_prices(sorted(set(UNIVERSE) | {"SPY", "VOO"}))
+    # NVDA: steady climb, then a 30% fall over the last month
+    df = prices["NVDA"]
+    n = len(df)
+    path = np.concatenate([np.linspace(100, 200, n - 22), np.linspace(200, 140, 22)])
+    for c in ("Open", "High", "Low", "Close"):
+        df[c] = path * {"Open": 1.0, "High": 1.01, "Low": 0.99, "Close": 1.0}[c]
+    feats = {t: add_features(d) for t, d in prices.items()}
+    funds = {t: {"name": t, "forward_pe": 25, "revenue_growth": 0.05, "profit_margin": 0.1} for t in UNIVERSE}
+    funds["NVDA"] = {"name": "NVIDIA", "forward_pe": 11, "revenue_growth": 1.06, "profit_margin": 0.64,
+                     "target_mean": 300, "market_cap": 4e12, "next_earnings": None}
+    cfg = run.load_cfg()
+    today = dt.date.today()
+    regime = {"light": "GREEN", "max_new": 4, "risk_mult": 1.0, "message": ""}
+    empty = pd.DataFrame(columns=["date", "ticker", "side", "shares", "price", "fees", "note"])
+    book = positions(empty, feats, {}, cfg)
+    growth.evaluate_growth(book, feats, {}, funds, cfg, today, {}, "real")
+    plan = growth.growth_plan(feats, funds, regime, cfg, book, today, True, {})
+    v = [b for b in plan["buys"] if b["kind"] == "value"]
+    assert [b["ticker"] for b in v] == ["NVDA"]
+    full = book["equity"] * cfg["value"]["max_name_pct"] / 100
+    assert v[0]["dollars"] <= full / 2 + 1 and v[0]["quality"] >= 80 and v[0]["peg"] < 1
+    # once held (note "value"), the weekly momentum review never sells it on rank
+    tr = pd.DataFrame([{"date": today - dt.timedelta(days=3), "ticker": "NVDA", "side": "BUY", "shares": 0.5,
+                        "price": 145.0, "fees": 0.0, "note": "value sleeve"}])
+    book2 = positions(tr, feats, {}, cfg)
+    alerts = growth.evaluate_growth(book2, feats, {}, funds, cfg, today, {}, "real")
+    nv = next(p for p in book2["open"] if p["ticker"] == "NVDA")
+    assert nv["sleeve"] == "value" and nv["action"] == "HOLD" and not alerts
+    plan2 = growth.growth_plan(feats, funds, regime, cfg, book2, today, True, {})
+    assert "NVDA" not in plan2["sells"] and plan2["sleeves"]["value"]["n"] == 1
+    # missing fundamentals (a Yahoo gap) must never trigger a sell
+    book_gap = positions(tr, feats, {}, cfg)
+    gap_funds = {**funds, "NVDA": {}}
+    assert not growth.evaluate_growth(book_gap, feats, {}, gap_funds, cfg, today, {}, "real")
+    # a halted account or RED market buys no quality dips
+    assert not [b for b in growth.growth_plan(feats, funds, regime, cfg, book, today, True, {}, halted=True)["buys"]
+                if b["kind"].startswith("value")]
+    # second half: offered only while exactly one buy and no sale; never a third
+    from habibi.portfolio import is_value_note
+    assert is_value_note("value") and is_value_note("Value - first half") and not is_value_note("good value entry")
+    tr2 = pd.concat([tr, pd.DataFrame([{"date": today - dt.timedelta(days=2), "ticker": "NVDA", "side": "BUY", "shares": 0.5,
+                                        "price": 140.0, "fees": 0.0, "note": "value second half"}])])
+    book4 = positions(tr2, feats, {}, cfg)
+    growth.evaluate_growth(book4, feats, {}, funds, cfg, today, {}, "real")
+    p4 = growth.growth_plan(feats, funds, regime, cfg, book4, today + dt.timedelta(days=60), True, {})
+    assert not [b for b in p4["buys"] if b["ticker"] == "NVDA"]
+    # the business story breaks -> sell
+    funds["NVDA"]["revenue_growth"] = -0.10
+    book3 = positions(tr, feats, {}, cfg)
+    alerts = growth.evaluate_growth(book3, feats, {}, funds, cfg, today, {}, "real")
+    assert alerts and alerts[0]["rule"] == "story"

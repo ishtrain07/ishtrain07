@@ -45,6 +45,11 @@ def find_plan(history, ticker, buy_date):
     return None, None
 
 
+def is_value_note(note):
+    """A fill belongs to the quality-dip sleeve when its note starts with the word 'value' (e.g. 'value', 'value - first half')."""
+    return bool(note) and str(note).strip().lower().split(" ")[0].rstrip(":,-") == "value"
+
+
 def positions(trades, feats, history, cfg):
     cash = float(cfg["starting_capital_usd"])
     realized = 0.0
@@ -60,7 +65,8 @@ def positions(trades, feats, history, cfg):
             pos["shares"] += t.shares
             pos["bought"] += t.shares
             pos["cost"] += t.shares * t.price + t.fees
-            pos["fills"].append({"date": t.date.isoformat(), "price": t.price, "shares": t.shares})
+            pos["fills"].append({"date": t.date.isoformat(), "price": t.price, "shares": t.shares,
+                                 "note": "" if pd.isna(t.note) else str(t.note)})
             cash -= t.shares * t.price + t.fees
         elif t.side == "SELL":
             avg = pos["cost"] / pos["shares"] if pos["shares"] else t.price
@@ -103,7 +109,8 @@ def positions(trades, feats, history, cfg):
                          "sell_by": add_trading_days(p["first_buy"], hold).isoformat(),
                          "partial": p["sold"] > 0, "system_pick": plan is not None, "mode": mode,
                          "plan_entry": plan["entry"] if plan else None, "plan_date": plan_date,
-                         "fills": p["fills"]})
+                         "fills": p["fills"],
+                         "sleeve_tag": "value" if any(is_value_note(f.get("note")) for f in p["fills"]) else None})
     return {"cash": round(cash, 2), "realized": round(realized, 2), "open": open_pos,
             "closed": closed}
 

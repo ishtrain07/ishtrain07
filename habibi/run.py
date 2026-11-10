@@ -423,7 +423,8 @@ def run_growth_paper(feats, funds, regime, cfg, today, history, live, state, exe
         for b in plan["buys"]:
             if b["shares"] > 0 and not b["kind"].endswith("catchup"):
                 orders.append({"date": today.isoformat(), "ticker": b["ticker"], "side": "BUY", "shares": b["shares"],
-                               "price": b["limit"], "fees": 0, "note": b["kind"]})
+                               "price": b["limit"], "fees": 0,
+                               "note": "value" if b["kind"].startswith("value") else b["kind"]})
     if execute and orders:
         with path.open("a") as f:
             for o in orders:
@@ -554,7 +555,8 @@ def growth_message(rep):
     for a in rep["alerts"]:
         lines.append(f"SELL {a['ticker']}: {a['action']} - {a['why']}" + (f" ({a['units_note']})" if a.get("units_note") else ""))
     for b in rep["buys"]:
-        lines.append(("(only if you did not buy it Monday) " if b["kind"].endswith("catchup") else "")
+        lines.append(("(only if you did not already buy it) " if b["kind"].endswith("catchup") else "")
+                     + ("QUALITY DIP (log the fill with note 'value'): " if b["kind"].startswith("value") else "")
                      + f"BUY {b['ticker']} {b['shares']} sh (~${b['dollars']:,.0f}) limit {b['limit']}"
                      + (f" | stop {b['stop']}" if b.get("stop") else "") + (f" | take half at {b['target']}" if b.get("target") else ""))
     if not rep["buys"] and not rep["alerts"]:
