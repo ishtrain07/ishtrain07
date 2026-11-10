@@ -1,0 +1,502 @@
+{
+ "buys": [
+  {
+   "ticker": "VOO",
+   "name": "Vanguard S&P 500 ETF",
+   "sector": "Index",
+   "kind": "core-catchup",
+   "price": 691.87,
+   "entry": 691.87,
+   "limit": 698.79,
+   "shares": 0.5395,
+   "dollars": 373.28,
+   "stop": null,
+   "stop_pct": null,
+   "target": null,
+   "rank": null,
+   "etf": true,
+   "cdr": false,
+   "setup": "core",
+   "score": null,
+   "momentum": null,
+   "rsi": null,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "core index: 30% of the account in the S&P 500, held long term",
+    "cash goes in over 3 weekly batches; new CAD money can use VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)"
+   ],
+   "sell_by": "held long term",
+   "hold_days": 999,
+   "t1": null,
+   "t2": null,
+   "t1_pct": null,
+   "t2_pct": null,
+   "risk_dollars": 0,
+   "next_earnings": null,
+   "fwd_pe": null,
+   "weekly_move_pct": 3.1,
+   "news": [
+    {
+     "title": "Warren Buffett's Instructions for His Wife's Inheritance Are 90% Stocks and 10% Bonds. Here's How That Mix Has Done Since 2000.",
+     "url": "https://www.fool.com/investing/2026/11/10/warren-buffett-s-instructions-for-his-wife-s-inheritance-are-90-stocks-and-10-bonds-here-s-how-that-mix-has-done-since-2000/",
+     "source": "Motley Fool"
+    },
+    {
+     "title": "Beyond the Election: 4 ETFs I'm Continuing to Buy No Matter What the Market Does in 2027",
+     "url": "https://www.fool.com/investing/2026/11/09/beyond-election-4-etfs-buy-no-matter-2027-market/",
+     "source": "Motley Fool"
+    },
+    {
+     "title": "Should You Buy VOO Before the Market Rebounds?",
+     "url": "https://www.fool.com/investing/2026/11/08/should-you-buy-voo-before-market-rebounds/",
+     "source": "Motley Fool"
+    }
+   ]
+  },
+  {
+   "ticker": "MCK",
+   "name": "McKesson Corporation",
+   "sector": "Healthcare",
+   "kind": "new-catchup",
+   "price": 1059.37,
+   "entry": 1059.37,
+   "limit": 1069.96,
+   "shares": 0.14,
+   "dollars": 148.52,
+   "stop": 976.07,
+   "stop_pct": -8.0,
+   "target": 1326.05,
+   "target_pct": 25,
+   "rank": 1,
+   "etf": false,
+   "cdr": false,
+   "weekly_move_pct": 6.0,
+   "next_earnings": "2027-02-03",
+   "fwd_pe": 20.37163,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "#1 on risk-adjusted momentum: 6-mo +44%, 3-mo +21%, 1-mo +14%",
+    "Healthcare: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 6%",
+    "fwd P/E 20"
+   ],
+   "setup": "growth",
+   "quality": 50,
+   "score": 82.3,
+   "momentum": 99,
+   "rsi": 70,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 1326.05,
+   "t2": 1187.21,
+   "t1_pct": 25,
+   "t2_pct": 11.9,
+   "risk_dollars": 11.87,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "Can Cardinal Health Stock Repeat Its Last Five Years?",
+     "url": "https://www.trefis.com/stock/cah/articles/624067/can-cardinal-health-stock-repeat-its-last-five-years/2026-11-10",
+     "source": "Trefis"
+    },
+    {
+     "title": "5 insightful analyst questions from McKesson\u2019s Q3 CY2026 earnings call",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/5-insightful-analyst-questions-mckesson-203736429.html",
+     "source": "StockStory"
+    },
+    {
+     "title": "McKesson (MCK) Plans Medical Surgical Spin Off With $1.25 Billion Backing",
+     "url": "https://finance.yahoo.com/healthcare/articles/mckesson-mck-plans-medical-surgical-081227286.html",
+     "source": "Simply Wall St."
+    }
+   ]
+  },
+  {
+   "ticker": "ABBV",
+   "name": "AbbVie Inc.",
+   "sector": "Healthcare",
+   "kind": "new-catchup",
+   "price": 293.3,
+   "entry": 293.3,
+   "limit": 296.23,
+   "shares": 0.52,
+   "dollars": 151.48,
+   "stop": 267.95,
+   "stop_pct": -8.0,
+   "target": 364.14,
+   "target_pct": 25,
+   "rank": 2,
+   "etf": false,
+   "cdr": true,
+   "weekly_move_pct": 6.0,
+   "next_earnings": null,
+   "fwd_pe": 17.996552,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "#2 on risk-adjusted momentum: 6-mo +46%, 3-mo +18%, 1-mo +8%",
+    "Healthcare: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 6%",
+    "fwd P/E 18",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
+   ],
+   "setup": "growth",
+   "quality": 60,
+   "score": 82.7,
+   "momentum": 98,
+   "rsi": 60,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 364.14,
+   "t2": 326.14,
+   "t1_pct": 25,
+   "t2_pct": 12.0,
+   "risk_dollars": 12.15,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "Can You Still Buy Merck Stock Today?",
+     "url": "https://www.trefis.com/stock/mrk/articles/624061/can-you-still-buy-merck-stock-today/2026-11-10",
+     "source": "Trefis"
+    },
+    {
+     "title": "While pharma peers stumble, AbbVie defeated the patent cliff",
+     "url": "https://finance.yahoo.com/healthcare/articles/while-pharma-peers-stumble-abbvie-102353320.html",
+     "source": "Investing.com"
+    },
+    {
+     "title": "Can IBM's Latest Quantum System Boost Illinois' Innovation Future?",
+     "url": "https://finance.yahoo.com/technology/ai/articles/ibms-latest-quantum-system-boost-130900743.html",
+     "source": "Zacks"
+    }
+   ]
+  },
+  {
+   "ticker": "V",
+   "name": "Visa Inc.",
+   "sector": "Financials",
+   "kind": "new-catchup",
+   "price": 422.16,
+   "entry": 422.16,
+   "limit": 426.38,
+   "shares": 0.43,
+   "dollars": 181.74,
+   "stop": 394.84,
+   "stop_pct": -6.6,
+   "target": 528.31,
+   "target_pct": 25,
+   "rank": 3,
+   "etf": false,
+   "cdr": true,
+   "weekly_move_pct": 4.9,
+   "next_earnings": "2027-01-26",
+   "fwd_pe": 24.654982,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "#3 on risk-adjusted momentum: 6-mo +33%, 3-mo +17%, 1-mo +13%",
+    "Financials: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 5%",
+    "revenue +13% y/y",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
+   ],
+   "setup": "growth",
+   "quality": 72,
+   "score": 80.4,
+   "momentum": 96,
+   "rsi": 63,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 528.31,
+   "t2": 464.1,
+   "t1_pct": 25,
+   "t2_pct": 9.8,
+   "risk_dollars": 11.96,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "The Dates That Matter Most For Visa Stock",
+     "url": "https://www.trefis.com/stock/v/articles/624113/the-dates-that-matter-most-for-visa-stock/2026-11-10",
+     "source": "Trefis"
+    },
+    {
+     "title": "Spdr Dow Jones Industrial Average ETF (DIA) Buys $36 Million More GS on Friday",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/spdr-dow-jones-industrial-average-110530396.html",
+     "source": "GuruFocus.com"
+    },
+    {
+     "title": "What State Street Fin. Select Sector SPDR (XLF) Sold: Berkshire Leads on Friday",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/state-street-fin-select-sector-110451080.html",
+     "source": "GuruFocus.com"
+    }
+   ]
+  },
+  {
+   "ticker": "MA",
+   "name": "Mastercard Incorporated",
+   "sector": "Financials",
+   "kind": "new-catchup",
+   "price": 655.81,
+   "entry": 655.81,
+   "limit": 662.37,
+   "shares": 0.27,
+   "dollars": 176.23,
+   "stop": 607.62,
+   "stop_pct": -6.9,
+   "target": 815.88,
+   "target_pct": 25,
+   "rank": 4,
+   "etf": false,
+   "cdr": true,
+   "weekly_move_pct": 5.1,
+   "next_earnings": "2027-01-28",
+   "fwd_pe": 28.179255,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "#4 on risk-adjusted momentum: 6-mo +32%, 3-mo +16%, 1-mo +14%",
+    "Financials: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 5%",
+    "revenue +14% y/y",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
+   ],
+   "setup": "growth",
+   "quality": 72,
+   "score": 80.1,
+   "momentum": 95,
+   "rsi": 64,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 815.88,
+   "t2": 719.9,
+   "t1_pct": 25,
+   "t2_pct": 10.3,
+   "risk_dollars": 12.17,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "The Dates That Matter Most For Visa Stock",
+     "url": "https://www.trefis.com/stock/v/articles/624113/the-dates-that-matter-most-for-visa-stock/2026-11-10",
+     "source": "Trefis"
+    },
+    {
+     "title": "What State Street Fin. Select Sector SPDR (XLF) Sold: Berkshire Leads on Friday",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/state-street-fin-select-sector-110451080.html",
+     "source": "GuruFocus.com"
+    },
+    {
+     "title": "Mastercard (MA) Expands Its Business Banking Reach Through New Partnerships",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/mastercard-ma-expands-business-banking-070817610.html",
+     "source": "Simply Wall St."
+    }
+   ]
+  },
+  {
+   "ticker": "NVDA",
+   "name": "NVIDIA Corporation",
+   "sector": "Chips",
+   "kind": "value",
+   "price": 178.67,
+   "entry": 178.67,
+   "limit": 180.46,
+   "shares": 0.47,
+   "dollars": 83.97,
+   "stop": 116.14,
+   "stop_pct": -35,
+   "target": 250.14,
+   "target_pct": 40,
+   "rank": null,
+   "etf": false,
+   "cdr": true,
+   "setup": "value",
+   "quality": 90,
+   "peg": 0.11,
+   "off_high_pct": -26.6,
+   "next_earnings": "2026-11-17",
+   "fwd_pe": 11.217311,
+   "reason": [
+    "QUALITY DIP: business quality 90/100 and 27% below its 1-year high",
+    "cheap for its growth: forward P/E 11.2 vs revenue growth 106% (PEG 0.11)",
+    "revenue +106% y/y",
+    "analyst average target $326 (+82%)",
+    "first half now; second half when it closes back above its 50-day average ($219.00) or after 20 trading days",
+    "earnings on 2026-11-17 (5 trading days): the price can jump either way, which is why we buy in halves",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)",
+    "IMPORTANT: log this fill with the note \"value\" so it is held under the quality-dip rules"
+   ],
+   "score": null,
+   "momentum": null,
+   "rsi": null,
+   "sell_by": "held 6-12 months",
+   "hold_days": 180,
+   "t1": null,
+   "t2": null,
+   "t1_pct": null,
+   "t2_pct": null,
+   "risk_dollars": 29.39,
+   "weekly_move_pct": null,
+   "news": [
+    {
+     "title": "Stock market today: Dow, S&P 500, Nasdaq trade mixed ahead of key inflation data",
+     "url": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-10-dow-sp-500-nasdaq-inflation-data-cpi-090627830.html",
+     "source": "Yahoo Finance"
+    },
+    {
+     "title": "Jensen Huang's spy scandal may cost Nvidia the China chip fight it was winning",
+     "url": "https://finance.yahoo.com/markets/article/jensen-huangs-spy-scandal-may-cost-nvidia-the-china-chip-fight-it-was-winning-121310306.html",
+     "source": "Yahoo Finance"
+    },
+    {
+     "title": "3 bipartisan plans could slap new controls on semiconductor exports. Elizabeth Warren wants to pass one this year.",
+     "url": "https://finance.yahoo.com/markets/article/3-bipartisan-plans-could-slap-new-controls-on-semiconductor-exports-elizabeth-warren-wants-to-pass-one-this-year-121030831.html",
+     "source": "Yahoo Finance"
+    }
+   ]
+  },
+  {
+   "ticker": "PLTR",
+   "name": "Palantir Technologies Inc.",
+   "sector": "Technology",
+   "kind": "value",
+   "price": 169.2,
+   "entry": 169.2,
+   "limit": 170.89,
+   "shares": 0.24,
+   "dollars": 40.61,
+   "stop": 109.98,
+   "stop_pct": -35,
+   "target": 236.88,
+   "target_pct": 40,
+   "rank": null,
+   "etf": false,
+   "cdr": true,
+   "setup": "value",
+   "quality": 90,
+   "peg": 0.69,
+   "off_high_pct": -20.5,
+   "next_earnings": "2027-02-01",
+   "fwd_pe": 66.64645,
+   "reason": [
+    "QUALITY DIP: business quality 90/100 and 21% below its 1-year high",
+    "cheap for its growth: forward P/E 66.6 vs revenue growth 96% (PEG 0.69)",
+    "revenue +96% y/y",
+    "analyst average target $222 (+31%)",
+    "first half now; second half when it closes back above its 50-day average ($185.54) or after 20 trading days",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)",
+    "IMPORTANT: log this fill with the note \"value\" so it is held under the quality-dip rules"
+   ],
+   "score": null,
+   "momentum": null,
+   "rsi": null,
+   "sell_by": "held 6-12 months",
+   "hold_days": 180,
+   "t1": null,
+   "t2": null,
+   "t1_pct": null,
+   "t2_pct": null,
+   "risk_dollars": 14.21,
+   "weekly_move_pct": null,
+   "news": [
+    {
+     "title": "What Is Driving Palantir Stock?",
+     "url": "https://www.trefis.com/stock/pltr/articles/624108/what-is-driving-palantir-stock/2026-11-10",
+     "source": "Trefis"
+    },
+    {
+     "title": "BigBear.ai Expands Gross Margin by 878 Bps: What Drives the Gains?",
+     "url": "https://finance.yahoo.com/technology/ai/articles/bigbear-ai-expands-gross-margin-122000431.html",
+     "source": "Zacks"
+    },
+    {
+     "title": "ETFs Are Buying Palantir (PLTR) on Nov. 6",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-buying-palantir-pltr-nov-110146299.html",
+     "source": "GuruFocus.com"
+    }
+   ]
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "MCK",
+   "rank": 1,
+   "price": 1059.37,
+   "sector": "Healthcare",
+   "ret63": 17.6,
+   "rsi": 70,
+   "action": "next in line",
+   "score": 12.1,
+   "setup": "growth"
+  },
+  {
+   "ticker": "TMO",
+   "rank": 2,
+   "price": 721.63,
+   "sector": "Healthcare",
+   "ret63": 19.4,
+   "rsi": 62,
+   "action": "next in line",
+   "score": 11.9,
+   "setup": "growth"
+  },
+  {
+   "ticker": "ABBV",
+   "rank": 3,
+   "price": 293.3,
+   "sector": "Healthcare",
+   "ret63": 18.0,
+   "rsi": 62,
+   "action": "next in line",
+   "score": 11.6,
+   "setup": "growth"
+  },
+  {
+   "ticker": "XLV",
+   "rank": 4,
+   "price": 188.33,
+   "sector": "Healthcare",
+   "ret63": 12.5,
+   "rsi": 68,
+   "action": "next in line",
+   "score": 11.5,
+   "setup": "growth"
+  },
+  {
+   "ticker": "MA",
+   "rank": 5,
+   "price": 655.81,
+   "sector": "Financials",
+   "ret63": 17.0,
+   "rsi": 65,
+   "action": "next in line",
+   "score": 10.4,
+   "setup": "growth"
+  },
+  {
+   "ticker": "V",
+   "rank": 6,
+   "price": 422.16,
+   "sector": "Financials",
+   "ret63": 16.4,
+   "rsi": 63,
+   "action": "next in line",
+   "score": 10.2,
+   "setup": "growth"
+  }
+ ],
+ "regime": {
+  "light": "YELLOW",
+  "risk_mult": 0.5,
+  "max_new": 2,
+  "message": "Choppy market (below the 50-day or VIX elevated): weekly buys continue at normal size; the ranking already favours steadier names. New buys stop only if the light turns RED.",
+  "spy": 752.69,
+  "spy_sma50": 764.86,
+  "spy_sma200": 727.99,
+  "vix": 20.12
+ }
+}

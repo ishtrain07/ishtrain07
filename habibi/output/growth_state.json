@@ -400,6 +400,10 @@
     "AMD": "weekly review: now #65, outside the top 8 for 1 review(s) in a row; the money moves to a stronger name"
    },
    "warn": {}
+  },
+  "value_offers": {
+   "NVDA": "2026-11-10",
+   "PLTR": "2026-11-10"
   }
  },
  "phase": {
@@ -443,6 +447,27 @@
     "base": 96.63,
     "anchor": "entry",
     "first_buy": "2026-11-09"
+   },
+   "NVDA": {
+    "stop": 155.31,
+    "atr": 8.38,
+    "base": 180.46,
+    "anchor": "entry",
+    "first_buy": "2026-11-10"
+   },
+   "TSM": {
+    "stop": 341.52,
+    "atr": 17.0,
+    "base": 392.51,
+    "anchor": "entry",
+    "first_buy": "2026-11-10"
+   },
+   "PLTR": {
+    "stop": 141.73,
+    "atr": 9.72,
+    "base": 170.89,
+    "anchor": "entry",
+    "first_buy": "2026-11-10"
    }
   },
   "below50": {},
@@ -708,6 +733,11 @@
    ],
    "sells": {},
    "warn": {}
+  },
+  "value_offers": {
+   "NVDA": "2026-11-10",
+   "TSM": "2026-11-10",
+   "PLTR": "2026-11-10"
   }
  }
 }
