@@ -268,22 +268,27 @@ def evaluate_growth(book, feats, live, funds, cfg, today, state, key="real"):
             continue
         if p["sleeve"] == "value":
             v = cfg.get("value") or {}
-            stop = round(p["avg_cost"] * (1 - v.get("disaster_stop_pct", 35) / 100), 2)
+            first_px = float(p["fills"][0]["price"]) if p.get("fills") else p["avg_cost"]
+            stop = round(first_px * (1 - v.get("disaster_stop_pct", 35) / 100), 2)   # anchored to the first fill
             half = round(p["avg_cost"] * (1 + v.get("take_half_pct", 40) / 100), 2)
             info = (funds or {}).get(t) or {}
+            have_data = any(info.get(k) is not None for k in ("forward_pe", "revenue_growth", "profit_margin"))
             q, _ = fundamental_score(info)
             g_rev = info.get("revenue_growth")
-            p.update({"active_stop": stop, "t1": half, "t2": None, "rule": "quality dip", "quality": round(q)})
+            if not have_data:
+                q = 999  # unknown: never judge the story on missing data
+                p["data_warning"] = f"no fundamentals data for {t} today: the story check is skipped until data returns"
+            p.update({"active_stop": stop, "t1": half, "t2": None, "rule": "quality dip", "quality": None if q == 999 else round(q)})
             if px <= stop:
                 act, why, rule = "SELL ALL", f"quality-dip disaster stop {stop:.2f} hit (-{v.get('disaster_stop_pct', 35)}% from your cost)", "stop"
-            elif (g_rev is not None and g_rev < 0) or q < v.get("exit_quality", 60):
+            elif have_data and ((g_rev is not None and g_rev < -0.05) or q < v.get("exit_quality", 60)):
                 act, why, rule = "SELL ALL", (f"the business story broke: quality score now {q:.0f}/100"
-                                              + (f", revenue shrinking {g_rev:.0%}" if g_rev is not None and g_rev < 0 else "")), "story"
+                                              + (f", revenue shrinking {g_rev:.0%}" if g_rev is not None and g_rev < -0.05 else "")), "story"
             elif px >= half and not p.get("partial"):
                 act, why, rule = "SELL HALF", f"up {p['pnl_pct']:.0f}%: take half off the table at +{v.get('take_half_pct', 40)}%", "profit"
             else:
                 act, rule = "HOLD", "quality dip"
-                why = (f"quality-dip position (business quality {q:.0f}/100): held 6-12 months while the business stays strong; "
+                why = (f"quality-dip position (business quality {'n/a' if q == 999 else f'{q:.0f}/100'}): held 6-12 months while the business stays strong; "
                        f"not sold on price swings or market drops; disaster stop {stop:.2f}, take half at {half:.2f}")
             p.update({"action": act, "why": why, "rule": rule})
             if act != "HOLD":
@@ -535,8 +540,9 @@ def growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, key="r
         if rank_of.get(t, 99) <= g["top_n"] + 3:
             avoid.append({"ticker": t, "why_not": why})
 
-    value_orders = value_plan(feats, funds, cfg, sc, held, value_held, equity,
-                              book["cash"] + freed - sum(o["dollars"] for o in orders), today)
+    value_orders = [] if (halted or regime["light"] == "RED") else value_plan(
+        feats, funds, cfg, sc, held, value_held, equity, book["cash"] + freed - sum(o["dollars"] for o in orders),
+        today, exclude=set(sells), offers=st.setdefault("value_offers", {}))
     orders += value_orders
     active_val = sum(p["value"] for p in active_held.values())
     val_val = sum(p["value"] for p in value_held.values())
@@ -568,6 +574,8 @@ def value_candidates(feats, funds, cfg, sc, exclude):
         if t in ETFS or t in exclude or t not in feats or len(feats[t]) < 200:
             continue
         info = (funds or {}).get(t) or {}
+        if (info.get("forward_pe") or 99) < 6 or (info.get("revenue_growth") or 0) > 1.5:
+            continue  # looks like a cyclical peak (e.g. memory chips) or bad data, not a quality dip
         f = feats[t]
         px = float(f.Close.iloc[-1])
         off = (px / float(f.High.tail(252).max()) - 1) * 100
@@ -583,11 +591,11 @@ def value_candidates(feats, funds, cfg, sc, exclude):
         out.append({"ticker": t, "px": px, "off": off, "peg": peg, "q": q, "notes": notes, "info": info,
                     "sma50": float(f.sma50.iloc[-1]), "atr": float(f.atr.iloc[-1])})
     # best business first, then the deepest discount for its growth
-    out.sort(key=lambda x: (-x["q"], x["peg"], -(x["info"].get("market_cap") or 0)))
+    out.sort(key=lambda x: (-x["q"], -(x["info"].get("market_cap") or 0), x["peg"]))
     return out
 
 
-def value_plan(feats, funds, cfg, sc, held, value_held, equity, cash_left, today):
+def value_plan(feats, funds, cfg, sc, held, value_held, equity, cash_left, today, exclude=(), offers=None):
     """Quality-dip orders: first half when a name qualifies, second half once it closes back above its 50-day
     average or after second_tranche_days trading days. Max max_names names, max_name_pct of the account each."""
     v = cfg.get("value") or {}
@@ -619,8 +627,9 @@ def value_plan(feats, funds, cfg, sc, held, value_held, equity, cash_left, today
 
     # second halves for names already held in the sleeve
     for t, p in value_held.items():
-        if t not in feats or p["value"] >= 0.75 * full or budget < 25:
-            continue
+        buys = [f for f in (p.get("fills") or [])]
+        if t not in feats or len(buys) != 1 or p.get("partial") or budget < 25:
+            continue  # exactly one half bought and nothing sold: only then add the second half (never average down again)
         f = feats[t]
         px = float(f.Close.iloc[-1])
         days = trading_days_between(dt.date.fromisoformat(p["first_buy"]), today)
@@ -629,30 +638,47 @@ def value_plan(feats, funds, cfg, sc, held, value_held, equity, cash_left, today
             q, _ = fundamental_score(info)
             if q < v.get("min_quality", 80):
                 continue
-            amt = min(full - p["value"], budget)
+            amt = min(full - float(buys[0]["price"]) * float(buys[0]["shares"]), budget)
+            if amt < 25:
+                continue
             why = [f"SECOND HALF: {'back above its 50-day average' if px > float(f.sma50.iloc[-1]) else f'{days} trading days since the first half'};"
                    f" business quality still {q:.0f}/100"]
             pe, gr = info.get("forward_pe"), info.get("revenue_growth")
             o = mk(t, px, amt, why, "value-add", info, (pe / (gr * 100)) if pe and gr else 0, q, 0)
+            if o["shares"] <= 0:
+                continue
             orders.append(o)
             budget -= o["dollars"]
     # new names: first half
     slots = v.get("max_names", 3) - len(value_held)
-    for c in value_candidates(feats, funds, cfg, sc, set(held)):
+    used = {cap_bucket(t) for t in value_held}
+    offers = offers if offers is not None else {}
+    for t in list(offers):
+        if (today - dt.date.fromisoformat(offers[t])).days > 10 or t in held:
+            del offers[t]
+    for c in value_candidates(feats, funds, cfg, sc, set(held) | set(exclude)):
         if slots <= 0 or budget < 25:
             break
         info, t = c["info"], c["ticker"]
-        why = [f"QUALITY DIP: business quality {c['q']:.0f}/100 and {c['off']:.0f}% below its 1-year high",
+        if cap_bucket(t) in used:
+            continue  # max one quality dip per sector
+        why = [f"QUALITY DIP: business quality {c['q']:.0f}/100 and {abs(c['off']):.0f}% below its 1-year high",
                f"cheap for its growth: forward P/E {info.get('forward_pe'):.1f} vs revenue growth {info.get('revenue_growth'):.0%} (PEG {c['peg']:.2f})"]
         why += c["notes"][:1]
         if info.get("target_mean"):
             why.append(f"analyst average target ${info['target_mean']:,.0f} ({(info['target_mean'] / c['px'] - 1) * 100:+.0f}%)")
         why.append("first half now; second half when it closes back above its 50-day average "
                    f"(${c['sma50']:,.2f}) or after {v.get('second_tranche_days', 20)} trading days")
-        o = mk(t, c["px"], min(full / 2, budget), why, "value", info, c["peg"], c["q"], c["off"])
+        first = offers.setdefault(t, today.isoformat())
+        repeat = first != today.isoformat()
+        if repeat:
+            why = [f"repeat of the {first} quality-dip order: only if you did NOT already buy it (log fills so this disappears)"] + why
+        o = mk(t, c["px"], min(full / 2, budget), why, "value-catchup" if repeat else "value", info, c["peg"], c["q"], c["off"])
         if o["shares"] <= 0:
             continue
+        o["reason"].append('IMPORTANT: log this fill with the note "value" so it is held under the quality-dip rules')
         orders.append(o)
+        used.add(cap_bucket(t))
         budget -= o["dollars"]
         slots -= 1
     return orders

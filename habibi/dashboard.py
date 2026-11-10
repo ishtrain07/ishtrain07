@@ -221,7 +221,7 @@ def _log_form(cfg):
 <label>Side<select id="s"><option>BUY</option><option>SELL</option></select></label>
 <label>Shares<input id="n" type="number" step="0.0001" required></label>
 <label>Fill price (USD)<input id="p" type="number" step="0.0001" required></label>
-<label>Note<input id="o" placeholder="optional"></label><button>Create log line</button></form>
+<label>Note<input id="o" placeholder="write value for a quality-dip buy"></label><button>Create log line</button></form>
 <div id="out" style="margin-top:12px;display:none"><div>1. Copy this line: <code id="line"></code> <button type="button" onclick="cp()">Copy</button></div>
 <div style="margin-top:6px">2. <a id="ed" href="{e(edit)}" target="_blank">Open trades.csv on GitHub</a>, paste it as a new last line, then Commit.
 The next engine run picks it up. <span class="mute">(Or send it to Claude in chat.)</span></div>
@@ -550,7 +550,7 @@ def _growth_order(b, i):
     if b.get("weekly_move_pct"):
         cells.append(("Normal week", f'<b>±{b["weekly_move_pct"]}%</b>', "expect this much noise"))
     if b.get("peg") is not None and b.get("kind", "").startswith("value"):
-        cells.append(("Value", f'<b>PEG {b["peg"]}</b>', f'{b.get("off_high_pct") or 0:.0f}% off its high' if b.get("off_high_pct") else "second half"))
+        cells.append(("Value", f'<b>PEG {b["peg"]}</b>', f'{abs(b.get("off_high_pct") or 0):.0f}% below its high' if b.get("off_high_pct") else "second half"))
     if b.get("quality") is not None and not b.get("etf"):
         cells.append(("Business quality", f'<b>{b["quality"]}/100</b>', "growth, margins, valuation"))
     grid = '<div class="plan">' + "".join(f"<div><span>{k}</span><b>{v}</b>{s}</div>" for k, v, s in cells) + "</div>"
@@ -736,9 +736,9 @@ Sell half at +{g.get('profit_take_pct')}% and trail the rest. A rank exit needs 
 Between reviews, a market-wide drop never triggers a sale (only the emergency stop can). At the weekly review a holding outside the top {g['hold_rank']} is sold even after a market-wide drop: rank is relative, so it means other names are holding up better. Waiting an extra week tested worse.</li>
 <li><b>Quality dips ({(cfg.get('value') or {}).get('pct', 0)}% of the account).</b> Great businesses on sale: business-quality score {(cfg.get('value') or {}).get('min_quality', 80)}+,
 at least {(cfg.get('value') or {}).get('min_off_high_pct', 20)}% below the 1-year high, and cheap for their growth (forward P/E divided by revenue growth under {(cfg.get('value') or {}).get('peg_max', 1.0)}).
-Up to {(cfg.get('value') or {}).get('max_names', 3)} names, at most {(cfg.get('value') or {}).get('max_name_pct', 7)}% of the account each, bought in two halves (the second once it closes back above its 50-day
+Up to {(cfg.get('value') or {}).get('max_names', 3)} names (one per sector; obvious cyclical peaks with a forward P/E under 6 or revenue growth over 150% are skipped), at most {(cfg.get('value') or {}).get('max_name_pct', 7)}% of the account each, bought in two halves (the second once it closes back above its 50-day
 average or after {(cfg.get('value') or {}).get('second_tranche_days', 20)} trading days). Held 6-12 months; sold only if the business story breaks (quality below {(cfg.get('value') or {}).get('exit_quality', 60)} or shrinking revenue),
-at the -{(cfg.get('value') or {}).get('disaster_stop_pct', 35)}% disaster stop, or half at +{(cfg.get('value') or {}).get('take_half_pct', 40)}%. This part is not backtested: free data has no history of fundamentals, so it has its own scoreboard line.</li>
+at the -{(cfg.get('value') or {}).get('disaster_stop_pct', 35)}% disaster stop, or half at +{(cfg.get('value') or {}).get('take_half_pct', 40)}%. Not bought while the market light is RED or the account loss limit is hit. Log these fills with the note "value". This part is not backtested: free data has no history of fundamentals, so it has its own scoreboard line.</li>
 <li><b>Market light.</b> RED (S&amp;P 500 below its 200-day average or fear spiking) = no new buys. Holdings follow their own rules.</li>
 <li><b>Safety limits.</b> Down {g['halt_pct']}% since the new plan began = no new buys. Down {g['rethink_pct']}% = full review together. Nothing is ever sold automatically just because the account is down.</li>
 <li><b>New cash</b> goes in over {cfg['deploy']['batches']} weekly batches. No buys within 3 trading days of an earnings report.</li></ol>"""

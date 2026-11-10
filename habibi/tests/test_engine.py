@@ -427,6 +427,22 @@ def test_quality_dip_sleeve():
     assert nv["sleeve"] == "value" and nv["action"] == "HOLD" and not alerts
     plan2 = growth.growth_plan(feats, funds, regime, cfg, book2, today, True, {})
     assert "NVDA" not in plan2["sells"] and plan2["sleeves"]["value"]["n"] == 1
+    # missing fundamentals (a Yahoo gap) must never trigger a sell
+    book_gap = positions(tr, feats, {}, cfg)
+    gap_funds = {**funds, "NVDA": {}}
+    assert not growth.evaluate_growth(book_gap, feats, {}, gap_funds, cfg, today, {}, "real")
+    # a halted account or RED market buys no quality dips
+    assert not [b for b in growth.growth_plan(feats, funds, regime, cfg, book, today, True, {}, halted=True)["buys"]
+                if b["kind"].startswith("value")]
+    # second half: offered only while exactly one buy and no sale; never a third
+    from habibi.portfolio import is_value_note
+    assert is_value_note("value") and is_value_note("Value - first half") and not is_value_note("good value entry")
+    tr2 = pd.concat([tr, pd.DataFrame([{"date": today - dt.timedelta(days=2), "ticker": "NVDA", "side": "BUY", "shares": 0.5,
+                                        "price": 140.0, "fees": 0.0, "note": "value second half"}])])
+    book4 = positions(tr2, feats, {}, cfg)
+    growth.evaluate_growth(book4, feats, {}, funds, cfg, today, {}, "real")
+    p4 = growth.growth_plan(feats, funds, regime, cfg, book4, today + dt.timedelta(days=60), True, {})
+    assert not [b for b in p4["buys"] if b["ticker"] == "NVDA"]
     # the business story breaks -> sell
     funds["NVDA"]["revenue_growth"] = -0.10
     book3 = positions(tr, feats, {}, cfg)
