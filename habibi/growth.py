@@ -651,7 +651,10 @@ def value_plan(feats, funds, cfg, sc, held, value_held, equity, cash_left, today
             budget -= o["dollars"]
     # new names: first half
     slots = v.get("max_names", 3) - len(value_held)
-    used = {cap_bucket(t) for t in value_held}
+    used = {}
+    for t in value_held:
+        used[cap_bucket(t)] = used.get(cap_bucket(t), 0) + 1
+    per_sector = v.get("max_per_sector", 1)
     offers = offers if offers is not None else {}
     for t in list(offers):
         if (today - dt.date.fromisoformat(offers[t])).days > 10 or t in held:
@@ -660,8 +663,8 @@ def value_plan(feats, funds, cfg, sc, held, value_held, equity, cash_left, today
         if slots <= 0 or budget < 25:
             break
         info, t = c["info"], c["ticker"]
-        if cap_bucket(t) in used:
-            continue  # max one quality dip per sector
+        if used.get(cap_bucket(t), 0) >= per_sector:
+            continue  # sector limit inside the quality-dip part
         why = [f"QUALITY DIP: business quality {c['q']:.0f}/100 and {abs(c['off']):.0f}% below its 1-year high",
                f"cheap for its growth: forward P/E {info.get('forward_pe'):.1f} vs revenue growth {info.get('revenue_growth'):.0%} (PEG {c['peg']:.2f})"]
         why += c["notes"][:1]
@@ -678,7 +681,7 @@ def value_plan(feats, funds, cfg, sc, held, value_held, equity, cash_left, today
             continue
         o["reason"].append('IMPORTANT: log this fill with the note "value" so it is held under the quality-dip rules')
         orders.append(o)
-        used.add(cap_bucket(t))
+        used[cap_bucket(t)] = used.get(cap_bucket(t), 0) + 1
         budget -= o["dollars"]
         slots -= 1
     return orders
