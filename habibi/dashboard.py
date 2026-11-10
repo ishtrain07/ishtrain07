@@ -491,7 +491,7 @@ def _anomalies(an):
 # ====================================================================== growth engine dashboard
 GROWTH_CSS = """
 .sleeve{display:flex;height:14px;border-radius:99px;overflow:hidden;background:var(--chip);margin:10px 0 6px}
-.sleeve i{display:block;height:100%}.s-core{background:#6366f1}.s-act{background:#0f7b4a}.s-cash{background:#c9c6bb}
+.sleeve i{display:block;height:100%}.s-core{background:#6366f1}.s-act{background:#0f7b4a}.s-val{background:#d97706}.s-cash{background:#c9c6bb}
 .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--mute)}.legend b{color:var(--ink)}
 .sw{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 .hold{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
@@ -529,7 +529,8 @@ def _holding_card(p):
                  ("Take half at", f'${p["t1"]}' if p.get("t1") else "-"),
                  ("CAD-hedged CDR", "yes" if p.get("cdr") else "no")]
     body = "".join(f'<div class="row"><span>{k}</span><span>{v}</span></div>' for k, v in rows)
-    tag = "CORE" if p.get("sleeve") == "core" else ("ON NOTICE" if p.get("on_notice") else e(act))
+    tag = ("CORE" if p.get("sleeve") == "core" else ("ON NOTICE" if p.get("on_notice") else
+           ("QUALITY DIP" if p.get("sleeve") == "value" and act == "HOLD" else e(act))))
     if p.get("data_warning"):
         sl += f'<div class="split neg"><b>Data warning:</b> {e(p["data_warning"])}</div>'
     return (f'<div class="card hc {"order " + cls if cls else ""}"><h3><span>{e(p["ticker"])}</span><span class="tag">{tag}</span></h3>'
@@ -539,7 +540,8 @@ def _holding_card(p):
 def _growth_order(b, i):
     news = "".join(f'<li><a href="{e(n["url"])}" target="_blank" rel="noopener">{e(n["title"])}</a></li>'
                    for n in b.get("news", []) if n.get("url"))
-    head = "CORE: " if b.get("kind", "").startswith("core") else ""
+    head = ("CORE: " if b.get("kind", "").startswith("core") else
+            "QUALITY DIP: " if b.get("kind", "").startswith("value") else "")
     cells = [("Buy", f'<b>{b["shares"]} sh</b>', f'~${b["dollars"]:,.0f}'), ("Limit", f'<b>${b["limit"]}</b>', "skip if it opens above")]
     if b.get("stop"):
         cells.append(("Emergency stop", f'<b class=neg>${b["stop"]}</b>', f'{b["stop_pct"]}%'))
@@ -547,6 +549,8 @@ def _growth_order(b, i):
         cells.append(("Take half at", f'<b class=pos>${b["target"]}</b>', f'+{b["target_pct"]}%'))
     if b.get("weekly_move_pct"):
         cells.append(("Normal week", f'<b>±{b["weekly_move_pct"]}%</b>', "expect this much noise"))
+    if b.get("peg") is not None and b.get("kind", "").startswith("value"):
+        cells.append(("Value", f'<b>PEG {b["peg"]}</b>', f'{b.get("off_high_pct") or 0:.0f}% off its high' if b.get("off_high_pct") else "second half"))
     if b.get("quality") is not None and not b.get("etf"):
         cells.append(("Business quality", f'<b>{b["quality"]}/100</b>', "growth, margins, valuation"))
     grid = '<div class="plan">' + "".join(f"<div><span>{k}</span><b>{v}</b>{s}</div>" for k, v, s in cells) + "</div>"
@@ -571,6 +575,7 @@ def render_growth(r):
     bm = (r.get("benchmark") or {}).get("spy_return_pct")
     core_pct, act_pct, cash_pct = (sl.get("core", {}).get("pct", 0), sl.get("active", {}).get("pct", 0),
                                    sl.get("cash", {}).get("pct", 0))
+    val_pct, val_tgt = sl.get("value", {}).get("pct", 0), sl.get("value", {}).get("target_pct", 0)
     out = [f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>Habibi Wealth Management</title>
 <style>{CSS}{GROWTH_CSS}</style></head><body><div class="wrap">
@@ -584,10 +589,10 @@ def render_growth(r):
 <div class="card kpi"><div class="l">You vs system vs market (since {e(cfg['phase_start'])})</div><div class="v">{pct(ph.get('return_pct'), 1)} <span class="mute" style="font-size:15px">vs</span> {pct(pa.get('return_pct'), 1)}</div>
 <div class="sub">S&amp;P 500 {pct(ph.get('spy_return_pct'), 1)} · system = paper account on the same rules, same start · all-time since {e(cfg['start_date'])}: you {pct(acct['return_pct'], 1)}, S&amp;P 500 {pct(bm, 1)}</div></div>
 </div>
-<div class="card" style="margin-top:12px"><b>Where the money is</b> <span class="note">(target {cfg['core']['pct']}% index core / {100 - cfg['core']['pct']}% active)</span>
-<div class="sleeve"><i class="s-core" style="width:{core_pct}%"></i><i class="s-act" style="width:{act_pct}%"></i><i class="s-cash" style="width:{cash_pct}%"></i></div>
+<div class="card" style="margin-top:12px"><b>Where the money is</b> <span class="note">(target {cfg['core']['pct']}% index core / {100 - cfg['core']['pct'] - val_tgt}% weekly picks / {val_tgt}% quality dips)</span>
+<div class="sleeve"><i class="s-core" style="width:{core_pct}%"></i><i class="s-act" style="width:{act_pct}%"></i><i class="s-val" style="width:{val_pct}%"></i><i class="s-cash" style="width:{cash_pct}%"></i></div>
 <div class="legend"><span><i class="sw s-core"></i>Core {e(cfg['core']['ticker'])} <b>{core_pct}%</b></span><span><i class="sw s-act"></i>Active picks <b>{act_pct}%</b>
-({sl.get('active', {}).get('n', 0)} holdings)</span><span><i class="sw s-cash"></i>Cash <b>{cash_pct}%</b></span>
+({sl.get('active', {}).get('n', 0)} holdings)</span><span><i class="sw s-val"></i>Quality dips <b>{val_pct}%</b> ({sl.get('value', {}).get('n', 0)})</span><span><i class="sw s-cash"></i>Cash <b>{cash_pct}%</b></span>
 <span>{'Cash deployment starts at the first weekly review' if r.get('preview') else 'Cash deployment: batch ' + str((r.get('deploy') or {}).get('batches_total', 0) - (r.get('deploy') or {}).get('batches_left', 0)) + ' of ' + str((r.get('deploy') or {}).get('batches_total', 0)) + ' done'}</span></div></div>"""]
     checks = "".join(f'<div class="card kpi"><div class="l">{e(c["label"])} · {e(c["date"])}</div><div class="v">{c["progress"]:.0f}%</div>'
                      f'<div class="bar"><i style="width:{c["progress"]:.0f}%"></i></div><div class="sub">goal +{c["goal_pct"]}%</div></div>'
@@ -729,6 +734,11 @@ top {g['hold_rank']}. Decisions use Friday's close; you place orders at Monday's
 <li><b>Exits.</b> Sell at the weekly review if it falls out of the top {g['hold_rank']}{', or closes below its 50-day average two weeks in a row' if g.get('trend_exit') else ''}.
 Sell half at +{g.get('profit_take_pct')}% and trail the rest. A rank exit needs {g.get('exit_confirm', 1)} weekly review(s) in a row outside the top {g['hold_rank']}. Emergency stop {g['stop_atr']:.0f} normal daily swings below entry (at most {g['stop_floor_pct']}%).
 Between reviews, a market-wide drop never triggers a sale (only the emergency stop can). At the weekly review a holding outside the top {g['hold_rank']} is sold even after a market-wide drop: rank is relative, so it means other names are holding up better. Waiting an extra week tested worse.</li>
+<li><b>Quality dips ({(cfg.get('value') or {}).get('pct', 0)}% of the account).</b> Great businesses on sale: business-quality score {(cfg.get('value') or {}).get('min_quality', 80)}+,
+at least {(cfg.get('value') or {}).get('min_off_high_pct', 20)}% below the 1-year high, and cheap for their growth (forward P/E divided by revenue growth under {(cfg.get('value') or {}).get('peg_max', 1.0)}).
+Up to {(cfg.get('value') or {}).get('max_names', 3)} names, at most {(cfg.get('value') or {}).get('max_name_pct', 7)}% of the account each, bought in two halves (the second once it closes back above its 50-day
+average or after {(cfg.get('value') or {}).get('second_tranche_days', 20)} trading days). Held 6-12 months; sold only if the business story breaks (quality below {(cfg.get('value') or {}).get('exit_quality', 60)} or shrinking revenue),
+at the -{(cfg.get('value') or {}).get('disaster_stop_pct', 35)}% disaster stop, or half at +{(cfg.get('value') or {}).get('take_half_pct', 40)}%. This part is not backtested: free data has no history of fundamentals, so it has its own scoreboard line.</li>
 <li><b>Market light.</b> RED (S&amp;P 500 below its 200-day average or fear spiking) = no new buys. Holdings follow their own rules.</li>
 <li><b>Safety limits.</b> Down {g['halt_pct']}% since the new plan began = no new buys. Down {g['rethink_pct']}% = full review together. Nothing is ever sold automatically just because the account is down.</li>
 <li><b>New cash</b> goes in over {cfg['deploy']['batches']} weekly batches. No buys within 3 trading days of an earnings report.</li></ol>"""
