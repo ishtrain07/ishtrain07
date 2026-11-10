@@ -80,6 +80,7 @@
     "disaster_stop_pct": 35,
     "take_half_pct": 40,
     "second_tranche_days": 20,
-    "exit_quality": 60
+    "exit_quality": 60,
+    "max_per_sector": 2
   }
 }
