@@ -21,6 +21,13 @@
     "base": 449.04,
     "anchor": "phase start",
     "first_buy": "2026-10-15"
+   },
+   "NVDA": {
+    "stop": 141.18,
+    "atr": 8.65,
+    "base": 167.14,
+    "anchor": "entry",
+    "first_buy": "2026-11-10"
    }
   },
   "below50": {
