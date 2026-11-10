@@ -331,7 +331,7 @@
   "revenue_growth": 0.305,
   "earnings_growth": null,
   "profit_margin": 0.02116,
-  "market_cap": 26331000832,
+  "market_cap": 26371729408,
   "target_mean": 453.65134,
   "recommendation": "buy",
   "quote_type": "EQUITY",
@@ -404,7 +404,7 @@
  },
  "QCOM": {
   "name": "QUALCOMM Incorporated",
-  "forward_pe": 13.999482,
+  "forward_pe": 14.042981,
   "trailing_pe": 13.501575,
   "revenue_growth": -0.084,
   "earnings_growth": null,
@@ -469,7 +469,7 @@
  },
  "MRVL": {
   "name": "Marvell Technology, Inc.",
-  "forward_pe": 21.041399,
+  "forward_pe": 21.034302,
   "trailing_pe": 50.855267,
   "revenue_growth": 0.365,
   "earnings_growth": 0.5,
@@ -488,7 +488,7 @@
   "earnings_growth": 1.359,
   "profit_margin": 0.34135,
   "market_cap": 583233372160,
-  "target_mean": 2153.3286,
+  "target_mean": 2154.296,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": "2027-01-27"
@@ -526,8 +526,8 @@
   "revenue_growth": 0.163,
   "earnings_growth": -0.245,
   "profit_margin": 0.15726,
-  "market_cap": 125221339136,
-  "target_mean": 648.3181,
+  "market_cap": 125243179008,
+  "target_mean": 648.6093,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": null
@@ -578,7 +578,7 @@
   "revenue_growth": 0.059,
   "earnings_growth": -0.091,
   "profit_margin": 0.03,
-  "market_cap": 1000012251136,
+  "market_cap": 996954603520,
   "target_mean": 127.975,
   "recommendation": "buy",
   "quote_type": "EQUITY",
@@ -586,7 +586,7 @@
  },
  "HD": {
   "name": "Home Depot, Inc. (The)",
-  "forward_pe": 22.183739,
+  "forward_pe": 22.16026,
   "trailing_pe": 24.731981,
   "revenue_growth": 0.057,
   "earnings_growth": 0.046,
@@ -625,13 +625,13 @@
  },
  "ONON": {
   "name": "On Holding AG",
-  "forward_pe": 18.16149,
+  "forward_pe": 18.20338,
   "trailing_pe": 25.019999,
   "revenue_growth": 0.135,
   "earnings_growth": null,
   "profit_margin": 0.12303001,
   "market_cap": 12543076352,
-  "target_mean": 44.21515,
+  "target_mean": 44.247555,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-10"
@@ -651,7 +651,7 @@
  },
  "CAVA": {
   "name": "CAVA Group, Inc.",
-  "forward_pe": 87.39715,
+  "forward_pe": 87.63176,
   "trailing_pe": 113.36363,
   "revenue_growth": 0.22,
   "earnings_growth": -0.083,
@@ -729,7 +729,7 @@
  },
  "V": {
   "name": "Visa Inc.",
-  "forward_pe": 24.626398,
+  "forward_pe": 24.629517,
   "trailing_pe": 34.266235,
   "revenue_growth": 0.132,
   "earnings_growth": 0.219,
@@ -825,7 +825,7 @@
   "revenue_growth": -0.005,
   "earnings_growth": 0.037,
   "profit_margin": 0.22993,
-  "market_cap": 153148375040,
+  "market_cap": 153124044800,
   "target_mean": 138.86365,
   "recommendation": "buy",
   "quote_type": "EQUITY",
@@ -898,7 +898,7 @@
  },
  "HIMS": {
   "name": "Hims & Hers Health, Inc.",
-  "forward_pe": 31.115211,
+  "forward_pe": 32.632973,
   "trailing_pe": null,
   "revenue_growth": 0.382,
   "earnings_growth": null,
@@ -907,7 +907,7 @@
   "target_mean": 31.15385,
   "recommendation": "hold",
   "quote_type": "EQUITY",
-  "next_earnings": "2026-11-09"
+  "next_earnings": null
  },
  "GE": {
   "name": "GE Aerospace",
@@ -1016,7 +1016,7 @@
  "CEG": {
   "name": "Constellation Energy Corporatio",
   "forward_pe": 20.60327,
-  "trailing_pe": 26.98827,
+  "trailing_pe": 22.193731,
   "revenue_growth": 0.23,
   "earnings_growth": -0.468,
   "profit_margin": 0.110810004,
@@ -1024,12 +1024,12 @@
   "target_mean": 337.76697,
   "recommendation": "buy",
   "quote_type": "EQUITY",
-  "next_earnings": "2026-11-09"
+  "next_earnings": null
  },
  "VST": {
   "name": "Vistra Corp.",
   "forward_pe": 14.162062,
-  "trailing_pe": 18.024227,
+  "trailing_pe": 18.097298,
   "revenue_growth": 0.277,
   "earnings_growth": 0.841,
   "profit_margin": 0.13148,
@@ -1042,7 +1042,7 @@
  "NRG": {
   "name": "NRG Energy, Inc.",
   "forward_pe": 9.256057,
-  "trailing_pe": 25.497383,
+  "trailing_pe": 17.027973,
   "revenue_growth": 0.11,
   "earnings_growth": null,
   "profit_margin": 0.02563,
@@ -1050,7 +1050,7 @@
   "target_mean": 166.94444,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
-  "next_earnings": "2026-11-09"
+  "next_earnings": null
  },
  "XOM": {
   "name": "ExxonMobil Holdings Corporation",
@@ -1067,7 +1067,7 @@
  },
  "CVX": {
   "name": "Chevron Corporation",
-  "forward_pe": 12.788217,
+  "forward_pe": 12.778085,
   "trailing_pe": 15.475771,
   "revenue_growth": 0.348,
   "earnings_growth": 1.78,
@@ -1132,7 +1132,7 @@
  },
  "GM": {
   "name": "General Motors Company",
-  "forward_pe": 6.056197,
+  "forward_pe": 6.062721,
   "trailing_pe": 19.617067,
   "revenue_growth": 0.029,
   "earnings_growth": 1.763,
@@ -1262,7 +1262,7 @@
  },
  "SMCI": {
   "name": "Super Micro Computer, Inc.",
-  "forward_pe": 4.2296867,
+  "forward_pe": 4.1180353,
   "trailing_pe": 6.033756,
   "revenue_growth": 2.975,
   "earnings_growth": 5.813,
@@ -1288,7 +1288,7 @@
  },
  "ALAB": {
   "name": "Astera Labs, Inc.",
-  "forward_pe": 30.491644,
+  "forward_pe": 30.552816,
   "trailing_pe": 85.71937,
   "revenue_growth": 1.537,
   "earnings_growth": 0.98,
@@ -1319,7 +1319,7 @@
   "revenue_growth": 4.54,
   "earnings_growth": null,
   "profit_margin": 0.03129,
-  "market_cap": 38453919744,
+  "market_cap": 35913900032,
   "target_mean": 278.05,
   "recommendation": "buy",
   "quote_type": "EQUITY",
@@ -1327,7 +1327,7 @@
  },
  "GRAB": {
   "name": "Grab Holdings Limited",
-  "forward_pe": 24.17768,
+  "forward_pe": 21.912224,
   "trailing_pe": 34.4,
   "revenue_growth": 0.274,
   "earnings_growth": -0.322,
@@ -1392,13 +1392,13 @@
  },
  "NVO": {
   "name": "Novo Nordisk A/S",
-  "forward_pe": 12.119772,
+  "forward_pe": 12.225372,
   "trailing_pe": 10.449495,
   "revenue_growth": 0.056,
   "earnings_growth": -0.158,
   "profit_margin": 0.33921,
   "market_cap": 182454566912,
-  "target_mean": 46.02146,
+  "target_mean": 46.038677,
   "recommendation": "hold",
   "quote_type": "EQUITY",
   "next_earnings": "2027-02-03"
@@ -1431,7 +1431,7 @@
  },
  "SYK": {
   "name": "Stryker Corporation",
-  "forward_pe": 19.972666,
+  "forward_pe": 19.998037,
   "trailing_pe": 34.68903,
   "revenue_growth": 0.076,
   "earnings_growth": -0.117,
@@ -1583,11 +1583,11 @@
   "target_mean": 102.15,
   "recommendation": "buy",
   "quote_type": "EQUITY",
-  "next_earnings": "2026-11-09"
+  "next_earnings": null
  },
  "KKR": {
   "name": "KKR & Co. Inc.",
-  "forward_pe": 13.653838,
+  "forward_pe": 13.637912,
   "trailing_pe": 31.338655,
   "revenue_growth": 0.078,
   "earnings_growth": 0.4,
@@ -1596,7 +1596,7 @@
   "target_mean": 120.57286,
   "recommendation": "buy",
   "quote_type": "EQUITY",
-  "next_earnings": "2026-11-09"
+  "next_earnings": null
  },
  "APO": {
   "name": "Apollo Global Management, Inc. ",
@@ -1627,7 +1627,7 @@
  "BRK-B": {
   "name": "Berkshire Hathaway Inc. New",
   "forward_pe": 25.600859,
-  "trailing_pe": 14.468059,
+  "trailing_pe": 16.099916,
   "revenue_growth": 0.112,
   "earnings_growth": null,
   "profit_margin": 0.19497,
@@ -1635,7 +1635,7 @@
   "target_mean": 555.6667,
   "recommendation": "none",
   "quote_type": "EQUITY",
-  "next_earnings": "2026-11-09"
+  "next_earnings": null
  },
  "PGR": {
   "name": "Progressive Corporation (The)",
@@ -1683,7 +1683,7 @@
   "revenue_growth": 0.054,
   "earnings_growth": 0.236,
   "profit_margin": 0.09729,
-  "market_cap": 151939416064,
+  "market_cap": 152592826368,
   "target_mean": 171.15788,
   "recommendation": "buy",
   "quote_type": "EQUITY",
@@ -1769,7 +1769,7 @@
  },
  "EOG": {
   "name": "EOG Resources, Inc.",
-  "forward_pe": 9.059957,
+  "forward_pe": 8.974637,
   "trailing_pe": 9.582311,
   "revenue_growth": 0.427,
   "earnings_growth": 0.974,
