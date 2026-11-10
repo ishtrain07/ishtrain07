@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10 01:55 ET",
+ "generated_at": "2026-11-10 03:42 ET",
  "date": "2026-11-10",
  "mode": "plan",
  "regime": {
@@ -10,24 +10,24 @@
   "spy": 752.69,
   "spy_sma50": 764.86,
   "spy_sma200": 727.99,
-  "vix": 19.92
+  "vix": 19.83
  },
  "macro": [
   {
    "ticker": "ES=F",
    "label": "S&P 500 futures",
-   "last": 7591.75,
-   "d1": 0.23,
-   "d5": -0.07,
-   "m1": -3.39
+   "last": 7588.75,
+   "d1": 0.19,
+   "d5": -0.11,
+   "m1": -3.43
   },
   {
    "ticker": "NQ=F",
    "label": "Nasdaq 100 futures",
-   "last": 27981.25,
-   "d1": -0.12,
-   "d5": -1.15,
-   "m1": -9.44
+   "last": 27984.25,
+   "d1": -0.11,
+   "d5": -1.14,
+   "m1": -9.43
   },
   {
    "ticker": "SPY",
@@ -56,10 +56,10 @@
   {
    "ticker": "^VIX",
    "label": "VIX (fear)",
-   "last": 19.92,
-   "d1": -22.31,
-   "d5": -5.82,
-   "m1": 34.23
+   "last": 19.83,
+   "d1": -0.45,
+   "d5": -4.8,
+   "m1": 30.37
   },
   {
    "ticker": "^TNX",
@@ -72,34 +72,34 @@
   {
    "ticker": "DX-Y.NYB",
    "label": "US Dollar index",
-   "last": 101.63,
-   "d1": -0.02,
-   "d5": -0.23,
-   "m1": -0.92
+   "last": 101.54,
+   "d1": -0.11,
+   "d5": -0.32,
+   "m1": -1.01
   },
   {
    "ticker": "CL=F",
    "label": "WTI crude",
-   "last": 85.15,
-   "d1": -1.96,
-   "d5": -11.39,
-   "m1": -9.16
+   "last": 84.69,
+   "d1": -2.49,
+   "d5": -11.86,
+   "m1": -9.65
   },
   {
    "ticker": "GC=F",
    "label": "Gold",
-   "last": 4129.4,
-   "d1": 0.36,
-   "d5": 4.8,
-   "m1": -1.46
+   "last": 4126.6,
+   "d1": 0.29,
+   "d5": 4.73,
+   "m1": -1.53
   },
   {
    "ticker": "BTC-USD",
    "label": "Bitcoin",
-   "last": 74537.66,
-   "d1": -0.06,
-   "d5": -7.3,
-   "m1": -8.94
+   "last": 74425.82,
+   "d1": -1.06,
+   "d5": -2.0,
+   "m1": -10.27
   },
   {
    "ticker": "^N225",
@@ -112,26 +112,26 @@
   {
    "ticker": "^HSI",
    "label": "Hang Seng (HK)",
-   "last": 24581.15,
-   "d1": 0.54,
-   "d5": 4.49,
-   "m1": 1.53
+   "last": 24557.04,
+   "d1": 0.44,
+   "d5": 4.38,
+   "m1": 1.43
   },
   {
    "ticker": "^GDAXI",
    "label": "DAX (Germany)",
-   "last": 26267.19,
-   "d1": 1.73,
-   "d5": 1.1,
-   "m1": 4.7
+   "last": 26523.04,
+   "d1": 0.97,
+   "d5": 2.55,
+   "m1": 4.93
   },
   {
    "ticker": "^FTSE",
    "label": "FTSE 100 (UK)",
-   "last": 10782.9,
-   "d1": 1.02,
-   "d5": 0.2,
-   "m1": 2.19
+   "last": 10830.73,
+   "d1": 0.44,
+   "d5": 1.81,
+   "m1": 1.64
   },
   {
    "ticker": "^NSEI",
@@ -145,9 +145,9 @@
    "ticker": "USDCAD=X",
    "label": "USD/CAD",
    "last": 1.41,
-   "d1": -0.02,
-   "d5": 0.95,
-   "m1": -1.0
+   "d1": -0.07,
+   "d5": 0.91,
+   "m1": -1.05
   },
   {
    "ticker": "USDINR=X",
@@ -159,19 +159,19 @@
   }
  ],
  "macro_read": [
-  "VIX 19.9: normal.",
+  "VIX 19.8: normal.",
   "10Y yield 4.86% (-7.2% over a month): falling yields support growth/tech.",
-  "Dollar -0.9% over a month: neutral.",
-  "Oil moved -11.4% this week: watch energy and inflation expectations.",
-  "Global overnight: Nikkei +2.9%, Hang Seng +0.5%, DAX +1.7%, Nifty 50 +0.1%.",
-  "US futures: S&P 500 futures +0.23%, Nasdaq 100 futures -0.12%.",
+  "Dollar -1.0% over a month: neutral.",
+  "Oil moved -11.9% this week: watch energy and inflation expectations.",
+  "Global overnight: Nikkei +2.9%, Hang Seng +0.4%, DAX +1.0%, Nifty 50 +0.1%.",
+  "US futures: S&P 500 futures +0.19%, Nasdaq 100 futures -0.11%.",
   "Choppy market (below the 50-day or VIX elevated): weekly buys continue at normal size; the ranking already favours steadier names. New buys stop only if the light turns RED."
  ],
  "macro_tilts": [
   "Money is flowing into Healthcare, Consumer staples, Consumer (discretionary) and out of Industrials, Technology, Chips (1- and 3-month sector returns).",
   "Falling long-term rates usually help growth stocks, utilities and real-asset sectors.",
-  "Oil -9% over a month: a headwind for energy stocks, relief for consumers and transport.",
-  "USD/CAD 1.41 (-1.0% over a month): new CAD money is best put into CAD-hedged versions (CDRs, VSP) to skip the FX fee."
+  "Oil -10% over a month: a headwind for energy stocks, relief for consumers and transport.",
+  "USD/CAD 1.41 (-1.1% over a month): new CAD money is best put into CAD-hedged versions (CDRs, VSP) to skip the FX fee."
  ],
  "sector_heat": [
   {
@@ -11381,6 +11381,11 @@
    "fund": null,
    "news": [
     {
+     "title": "Mastercard (MA) Expands Its Business Banking Reach Through New Partnerships",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/mastercard-ma-expands-business-banking-070817610.html",
+     "source": "Simply Wall St."
+    },
+    {
      "title": "PayPal\u2019s (PYPL) Turnaround Still Needs Proof",
      "url": "https://finance.yahoo.com/markets/stocks/articles/paypal-pypl-turnaround-still-needs-205100874.html",
      "source": "TipRanks"
@@ -11389,11 +11394,6 @@
      "title": "Mastercard Sees New Growth in AI Payments, Cybersecurity and Digital Assets",
      "url": "https://www.marketbeat.com/instant-alerts/event-mastercard-sees-new-growth-in-ai-payments-cybersecurity-and-digital-assets-2026-11-09/?utm_source=yahoofinance&utm_medium=yahoofinance",
      "source": "MarketBeat"
-    },
-    {
-     "title": "WEX or MA: Which Is the Better Value Stock Right Now?",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/wex-ma-better-value-stock-154003152.html",
-     "source": "Zacks"
     }
    ]
   },
@@ -11424,7 +11424,7 @@
     "QUALITY DIP: business quality 90/100 and 27% below its 1-year high",
     "cheap for its growth: forward P/E 11.2 vs revenue growth 106% (PEG 0.11)",
     "revenue +106% y/y",
-    "analyst average target $327 (+83%)",
+    "analyst average target $326 (+82%)",
     "first half now; second half when it closes back above its 50-day average ($219.00) or after 20 trading days",
     "earnings on 2026-11-17 (5 trading days): the price can jump either way, which is why we buy in halves",
     "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)",
@@ -11729,8 +11729,8 @@
    "range_hi": 1180.99,
    "range_lo_pct": 5.7,
    "range_hi_pct": 11.5,
-   "analyst_target": 1129.07,
-   "analyst_upside": 6.6,
+   "analyst_target": 1144.29,
+   "analyst_upside": 8.0,
    "cdr": false
   },
   {
@@ -11844,8 +11844,8 @@
    "range_hi": 463.45,
    "range_lo_pct": 4.9,
    "range_hi_pct": 9.8,
-   "analyst_target": 446.33,
-   "analyst_upside": 5.7,
+   "analyst_target": 447.42,
+   "analyst_upside": 6.0,
    "cdr": true
   },
   {
@@ -11936,8 +11936,8 @@
    "range_hi": 710.69,
    "range_lo_pct": 8.3,
    "range_hi_pct": 16.7,
-   "analyst_target": 648.54,
-   "analyst_upside": 6.5,
+   "analyst_target": 649.63,
+   "analyst_upside": 6.7,
    "cdr": false
   },
   {
@@ -12143,8 +12143,8 @@
    "range_hi": 390.29,
    "range_lo_pct": 5.6,
    "range_hi_pct": 11.3,
-   "analyst_target": 340.47,
-   "analyst_upside": -2.9,
+   "analyst_target": 340.77,
+   "analyst_upside": -2.8,
    "cdr": true
   },
   {
@@ -12373,8 +12373,8 @@
    "range_hi": 396.71,
    "range_lo_pct": 6.1,
    "range_hi_pct": 12.2,
-   "analyst_target": 379.0,
-   "analyst_upside": 7.2,
+   "analyst_target": 379.12,
+   "analyst_upside": 7.3,
    "cdr": true
   },
   {
@@ -12534,8 +12534,8 @@
    "range_hi": 43.92,
    "range_lo_pct": 8.5,
    "range_hi_pct": 17.0,
-   "analyst_target": 44.25,
-   "analyst_upside": 17.9,
+   "analyst_target": 44.29,
+   "analyst_upside": 18.0,
    "cdr": false
   },
   {
@@ -12642,7 +12642,7 @@
    "revenue_growth_pct": 44.7,
    "fwd_pe": 28.8,
    "peg": 0.64,
-   "analyst_upside_pct": 29.5,
+   "analyst_upside_pct": 29.3,
    "quality": 90,
    "quality_notes": [
     "revenue +45% y/y",
@@ -12662,7 +12662,7 @@
    "revenue_growth_pct": 105.9,
    "fwd_pe": 11.2,
    "peg": 0.11,
-   "analyst_upside_pct": 83.0,
+   "analyst_upside_pct": 82.3,
    "quality": 90,
    "quality_notes": [
     "revenue +106% y/y",
@@ -12742,7 +12742,7 @@
    "revenue_growth_pct": 55.2,
    "fwd_pe": 23.9,
    "peg": 0.43,
-   "analyst_upside_pct": 42.3,
+   "analyst_upside_pct": 42.6,
    "quality": 90,
    "quality_notes": [
     "revenue +55% y/y",
@@ -12822,7 +12822,7 @@
    "revenue_growth_pct": 36.5,
    "fwd_pe": 21.0,
    "peg": 0.58,
-   "analyst_upside_pct": 100.6,
+   "analyst_upside_pct": 101.1,
    "quality": 90,
    "quality_notes": [
     "revenue +36% y/y",

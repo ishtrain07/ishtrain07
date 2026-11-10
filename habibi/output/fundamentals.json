@@ -7,7 +7,7 @@
   "earnings_growth": 0.141,
   "profit_margin": 0.27604,
   "market_cap": 5096291172352,
-  "target_mean": 340.4655,
+  "target_mean": 340.7655,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2027-01-28"
@@ -33,7 +33,7 @@
   "earnings_growth": 1.278,
   "profit_margin": 0.63663,
   "market_cap": 4314344194048,
-  "target_mean": 326.91754,
+  "target_mean": 325.7772,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-17"
@@ -85,7 +85,7 @@
   "earnings_growth": -0.436,
   "profit_margin": 0.031070001,
   "market_cap": 1494340075520,
-  "target_mean": 413.10126,
+  "target_mean": 412.47626,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2027-01-27"
@@ -345,7 +345,7 @@
   "earnings_growth": -0.206,
   "profit_margin": 0.088360004,
   "market_cap": 11539006464,
-  "target_mean": 131.32773,
+  "target_mean": 132.1605,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": null
@@ -371,7 +371,7 @@
   "earnings_growth": 0.938,
   "profit_margin": 0.16769,
   "market_cap": 834115600384,
-  "target_mean": 658.5292,
+  "target_mean": 657.4875,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": "2027-02-02"
@@ -410,7 +410,7 @@
   "earnings_growth": null,
   "profit_margin": 0.31605,
   "market_cap": 183472898048,
-  "target_mean": 185.7857,
+  "target_mean": 185.25,
   "recommendation": "hold",
   "quote_type": "EQUITY",
   "next_earnings": "2027-02-03"
@@ -449,7 +449,7 @@
   "earnings_growth": 0.428,
   "profit_margin": 0.30052,
   "market_cap": 294067535872,
-  "target_mean": 626.86487,
+  "target_mean": 620.78375,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-12"
@@ -475,7 +475,7 @@
   "earnings_growth": 0.5,
   "profit_margin": 0.27934998,
   "market_cap": 139103813632,
-  "target_mean": 310.0666,
+  "target_mean": 310.94324,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-12-01"
@@ -488,7 +488,7 @@
   "earnings_growth": 1.359,
   "profit_margin": 0.34135,
   "market_cap": 583233372160,
-  "target_mean": 2154.054,
+  "target_mean": 2157.689,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": "2027-01-27"
@@ -514,7 +514,7 @@
   "earnings_growth": -0.92,
   "profit_margin": 0.061300002,
   "market_cap": 145321885696,
-  "target_mean": 99.15617,
+  "target_mean": 99.16894,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2027-02-03"
@@ -527,7 +527,7 @@
   "earnings_growth": -0.245,
   "profit_margin": 0.15726,
   "market_cap": 125243179008,
-  "target_mean": 648.5365,
+  "target_mean": 649.6309,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": null
@@ -579,7 +579,7 @@
   "earnings_growth": -0.091,
   "profit_margin": 0.03,
   "market_cap": 996954603520,
-  "target_mean": 127.975,
+  "target_mean": 128.45,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-19"
@@ -592,7 +592,7 @@
   "earnings_growth": 0.046,
   "profit_margin": 0.0841,
   "market_cap": 352603471872,
-  "target_mean": 379.0,
+  "target_mean": 379.125,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-17"
@@ -631,7 +631,7 @@
   "earnings_growth": null,
   "profit_margin": 0.12303001,
   "market_cap": 12543076352,
-  "target_mean": 44.2535,
+  "target_mean": 44.285416,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2026-11-10"
@@ -735,7 +735,7 @@
   "earnings_growth": 0.219,
   "profit_margin": 0.51203996,
   "market_cap": 787666173952,
-  "target_mean": 446.3346,
+  "target_mean": 447.41568,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": "2027-01-26"
@@ -1034,7 +1034,7 @@
   "earnings_growth": 0.841,
   "profit_margin": 0.13148,
   "market_cap": 45398880256,
-  "target_mean": 202.66667,
+  "target_mean": 202.7619,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": null
@@ -1047,7 +1047,7 @@
   "earnings_growth": null,
   "profit_margin": 0.02563,
   "market_cap": 20474501120,
-  "target_mean": 166.94444,
+  "target_mean": 165.70589,
   "recommendation": "strong_buy",
   "quote_type": "EQUITY",
   "next_earnings": null
@@ -1398,7 +1398,7 @@
   "earnings_growth": -0.158,
   "profit_margin": 0.33921,
   "market_cap": 182454566912,
-  "target_mean": 46.038815,
+  "target_mean": 46.115078,
   "recommendation": "hold",
   "quote_type": "EQUITY",
   "next_earnings": "2027-02-03"
@@ -1463,7 +1463,7 @@
   "earnings_growth": 0.17,
   "profit_margin": 0.01122,
   "market_cap": 122311327744,
-  "target_mean": 1129.0714,
+  "target_mean": 1144.2858,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": "2027-02-03"
@@ -1593,7 +1593,7 @@
   "earnings_growth": 0.4,
   "profit_margin": 0.12201,
   "market_cap": 90594992128,
-  "target_mean": 120.57286,
+  "target_mean": 120.90619,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": null
@@ -1633,7 +1633,7 @@
   "profit_margin": 0.19497,
   "market_cap": 1231443329024,
   "target_mean": 555.6667,
-  "recommendation": "none",
+  "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": null
  },
@@ -1775,7 +1775,7 @@
   "earnings_growth": 0.974,
   "profit_margin": 0.28059,
   "market_cap": 76958613504,
-  "target_mean": 167.58621,
+  "target_mean": 168.10345,
   "recommendation": "buy",
   "quote_type": "EQUITY",
   "next_earnings": null
