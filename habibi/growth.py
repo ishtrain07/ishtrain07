@@ -513,7 +513,8 @@ def growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, key="r
                           shares=round(o["dollars"] / px, 4 if o["etf"] else 2), kind=o["kind"] + "-catchup")
                 o2["reason"] = ["catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)"] + list(o["reason"])
                 orders.append(o2)
-            sells = {t: w for t, w in (wk.get("sells") or {}).items() if t in held}
+            # only weekly picks: a holding moved to the quality-dip part is never re-sold by midweek runs
+            sells = {t: w for t, w in (wk.get("sells") or {}).items() if t in active_held}
 
     # ---- idea of the week: a strong name outside the main picks, from a sector we don't hold
     held_sectors = {UNIVERSE.get(t) for t in list(active_held) + buys}

@@ -427,6 +427,9 @@ def test_quality_dip_sleeve():
     assert nv["sleeve"] == "value" and nv["action"] == "HOLD" and not alerts
     plan2 = growth.growth_plan(feats, funds, regime, cfg, book2, today, True, {})
     assert "NVDA" not in plan2["sells"] and plan2["sleeves"]["value"]["n"] == 1
+    # a sell decided at Monday's review (before it moved to the quality-dip part) is not repeated midweek
+    st_mid = {"real": {"week": {"date": today.isoformat(), "orders": [], "sells": {"NVDA": "weekly review"}}}}
+    assert "NVDA" not in growth.growth_plan(feats, funds, regime, cfg, book2, today, False, st_mid)["sells"]
     # missing fundamentals (a Yahoo gap) must never trigger a sell
     book_gap = positions(tr, feats, {}, cfg)
     gap_funds = {**funds, "NVDA": {}}
