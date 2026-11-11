@@ -1,0 +1,379 @@
+{
+ "buys": [
+  {
+   "ticker": "VOO",
+   "name": "Vanguard S&P 500 ETF",
+   "sector": "Index",
+   "kind": "core-catchup",
+   "price": 689.5,
+   "entry": 689.5,
+   "limit": 696.39,
+   "shares": 0.5414,
+   "dollars": 373.28,
+   "stop": null,
+   "stop_pct": null,
+   "target": null,
+   "rank": null,
+   "etf": true,
+   "cdr": false,
+   "setup": "core",
+   "score": null,
+   "momentum": null,
+   "rsi": null,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "core index: 30% of the account in the S&P 500, held long term",
+    "cash goes in over 3 weekly batches; new CAD money can use VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)"
+   ],
+   "sell_by": "held long term",
+   "hold_days": 999,
+   "t1": null,
+   "t2": null,
+   "t1_pct": null,
+   "t2_pct": null,
+   "risk_dollars": 0,
+   "next_earnings": null,
+   "fwd_pe": null,
+   "weekly_move_pct": 3.1,
+   "news": [
+    {
+     "title": "If You Invest $500 a Month in VOO Starting Today, Here's What History Says You Could Have in 20 Years",
+     "url": "https://www.fool.com/investing/2026/11/11/if-you-invest-500-a-month-in-voo-starting-today-he/",
+     "source": "Motley Fool"
+    },
+    {
+     "title": "SPY Is Still a Unit Investment Trust. Here\u2019s Why That Quirk Matters (and When It Doesn\u2019t)",
+     "url": "https://247wallst.com/investing/etf/2026/11/10/spy-is-still-a-unit-investment-trust-heres-why-that-quirk-matters-and-when-it-doesnt/",
+     "source": "24/7 Wall St."
+    },
+    {
+     "title": "3 Vanguard ETFs to Buy and Hold Forever",
+     "url": "https://www.fool.com/investing/2026/11/10/3-vanguard-etfs-to-buy-and-hold-forever/",
+     "source": "Motley Fool"
+    }
+   ]
+  },
+  {
+   "ticker": "MCK",
+   "name": "McKesson Corporation",
+   "sector": "Healthcare",
+   "kind": "new-catchup",
+   "price": 1082.59,
+   "entry": 1082.59,
+   "limit": 1093.42,
+   "shares": 0.14,
+   "dollars": 148.52,
+   "stop": 976.07,
+   "stop_pct": -8.0,
+   "target": 1326.05,
+   "target_pct": 25,
+   "rank": 1,
+   "etf": false,
+   "cdr": false,
+   "weekly_move_pct": 6.0,
+   "next_earnings": "2027-02-03",
+   "fwd_pe": 20.37163,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "#1 on risk-adjusted momentum: 6-mo +44%, 3-mo +21%, 1-mo +14%",
+    "Healthcare: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 6%",
+    "fwd P/E 20"
+   ],
+   "setup": "growth",
+   "quality": 50,
+   "score": 82.3,
+   "momentum": 99,
+   "rsi": 70,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 1326.05,
+   "t2": 1187.21,
+   "t1_pct": 25,
+   "t2_pct": 11.9,
+   "risk_dollars": 11.87,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "What iShares MSCI USA Min Vol Factor ETF (USMV) Bought: Microsoft Leads on Nov. 9",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/ishares-msci-usa-min-vol-110432758.html",
+     "source": "GuruFocus.com"
+    },
+    {
+     "title": "3 Reasons Why Growth Investors Shouldn't Overlook McKesson (MCK)",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-why-growth-investors-194224255.html",
+     "source": "Zacks"
+    },
+    {
+     "title": "Can Cardinal Health Stock Repeat Its Last Five Years?",
+     "url": "https://www.trefis.com/stock/cah/articles/624067/can-cardinal-health-stock-repeat-its-last-five-years/2026-11-10",
+     "source": "Trefis"
+    }
+   ]
+  },
+  {
+   "ticker": "ABBV",
+   "name": "AbbVie Inc.",
+   "sector": "Healthcare",
+   "kind": "new-catchup",
+   "price": 293.89,
+   "entry": 293.89,
+   "limit": 296.83,
+   "shares": 0.52,
+   "dollars": 151.48,
+   "stop": 267.95,
+   "stop_pct": -8.0,
+   "target": 364.14,
+   "target_pct": 25,
+   "rank": 2,
+   "etf": false,
+   "cdr": true,
+   "weekly_move_pct": 6.0,
+   "next_earnings": null,
+   "fwd_pe": 17.996552,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "#2 on risk-adjusted momentum: 6-mo +46%, 3-mo +18%, 1-mo +8%",
+    "Healthcare: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 6%",
+    "fwd P/E 18",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
+   ],
+   "setup": "growth",
+   "quality": 60,
+   "score": 82.7,
+   "momentum": 98,
+   "rsi": 60,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 364.14,
+   "t2": 326.14,
+   "t1_pct": 25,
+   "t2_pct": 12.0,
+   "risk_dollars": 12.15,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "Healthcare Just Hit a Record Lead Over Tech. 3 Things Could Shrink It",
+     "url": "https://beincrypto.com/healthcare-stocks-beat-tech-record-gap/",
+     "source": "BeInCrypto"
+    },
+    {
+     "title": "State Street Health Care SPDR (XLV) Sells Eli Lilly and J&J on Nov. 9",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/state-street-health-care-spdr-110402787.html",
+     "source": "GuruFocus.com"
+    },
+    {
+     "title": "Nxera Pharma (TSE:4565) Stock Could Be 18% Overvalued On Licensing Deal",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/nxera-pharma-tse-4565-stock-101505157.html",
+     "source": "Simply Wall St."
+    }
+   ]
+  },
+  {
+   "ticker": "V",
+   "name": "Visa Inc.",
+   "sector": "Financials",
+   "kind": "new-catchup",
+   "price": 423.0,
+   "entry": 423.0,
+   "limit": 427.23,
+   "shares": 0.43,
+   "dollars": 181.74,
+   "stop": 394.84,
+   "stop_pct": -6.6,
+   "target": 528.31,
+   "target_pct": 25,
+   "rank": 3,
+   "etf": false,
+   "cdr": true,
+   "weekly_move_pct": 4.9,
+   "next_earnings": "2027-01-26",
+   "fwd_pe": 24.654982,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "#3 on risk-adjusted momentum: 6-mo +33%, 3-mo +17%, 1-mo +13%",
+    "Financials: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 5%",
+    "revenue +13% y/y",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
+   ],
+   "setup": "growth",
+   "quality": 72,
+   "score": 80.4,
+   "momentum": 96,
+   "rsi": 63,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 528.31,
+   "t2": 464.1,
+   "t1_pct": 25,
+   "t2_pct": 9.8,
+   "risk_dollars": 11.96,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "Financial Select Sector SPDR (XLF) Buys $26.7 Million More Berkshire on Nov. 9",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/financial-select-sector-spdr-xlf-110424944.html",
+     "source": "GuruFocus.com"
+    },
+    {
+     "title": "Spdr Dow Jones Industrial Average ETF (DIA) Buys $40.3 Million More GS on Nov. 9",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/spdr-dow-jones-industrial-average-110359101.html",
+     "source": "GuruFocus.com"
+    },
+    {
+     "title": "Fiserv CEO Sees Clearer Results Ahead as Company Targets $1 Billion in Savings",
+     "url": "https://www.marketbeat.com/instant-alerts/event-fiserv-ceo-sees-clearer-results-ahead-as-company-targets-1-billion-in-savings-2026-11-11/?utm_source=yahoofinance&utm_medium=yahoofinance",
+     "source": "MarketBeat"
+    }
+   ]
+  },
+  {
+   "ticker": "MA",
+   "name": "Mastercard Incorporated",
+   "sector": "Financials",
+   "kind": "new-catchup",
+   "price": 658.84,
+   "entry": 658.84,
+   "limit": 665.43,
+   "shares": 0.27,
+   "dollars": 176.23,
+   "stop": 607.62,
+   "stop_pct": -6.9,
+   "target": 815.88,
+   "target_pct": 25,
+   "rank": 4,
+   "etf": false,
+   "cdr": true,
+   "weekly_move_pct": 5.1,
+   "next_earnings": "2027-01-28",
+   "fwd_pe": 28.179255,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "#4 on risk-adjusted momentum: 6-mo +32%, 3-mo +16%, 1-mo +14%",
+    "Financials: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 5%",
+    "revenue +14% y/y",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
+   ],
+   "setup": "growth",
+   "quality": 72,
+   "score": 80.1,
+   "momentum": 95,
+   "rsi": 64,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 815.88,
+   "t2": 719.9,
+   "t1_pct": 25,
+   "t2_pct": 10.3,
+   "risk_dollars": 12.17,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "Interactive Brokers Group vs. Mastercard: Which Financial Stock Is a Better Buy for 2027?",
+     "url": "https://www.fool.com/coverage/better-buy/2026/11/11/interactive-brokers-group-vs-mastercard-which-financial-stock-is-a-better-buy-for-2027/",
+     "source": "Motley Fool"
+    },
+    {
+     "title": "Financial Select Sector SPDR (XLF) Buys $26.7 Million More Berkshire on Nov. 9",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/financial-select-sector-spdr-xlf-110424944.html",
+     "source": "GuruFocus.com"
+    },
+    {
+     "title": "MrBeast is teaming up with Mastercard on new co-branded cards as he expands his financial empire",
+     "url": "https://finance.yahoo.com/small-business/articles/mrbeast-teaming-mastercard-co-branded-110000058.html",
+     "source": "Moneywise"
+    }
+   ]
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "MCK",
+   "rank": 1,
+   "price": 1082.59,
+   "sector": "Healthcare",
+   "ret63": 23.3,
+   "rsi": 73,
+   "action": "next in line",
+   "score": 13.3,
+   "setup": "growth"
+  },
+  {
+   "ticker": "TMO",
+   "rank": 2,
+   "price": 718.2,
+   "sector": "Healthcare",
+   "ret63": 19.2,
+   "rsi": 60,
+   "action": "next in line",
+   "score": 11.7,
+   "setup": "growth"
+  },
+  {
+   "ticker": "ABBV",
+   "rank": 3,
+   "price": 293.89,
+   "sector": "Healthcare",
+   "ret63": 18.9,
+   "rsi": 62,
+   "action": "next in line",
+   "score": 11.4,
+   "setup": "growth"
+  },
+  {
+   "ticker": "XLV",
+   "rank": 4,
+   "price": 188.88,
+   "sector": "Healthcare",
+   "ret63": 12.6,
+   "rsi": 69,
+   "action": "next in line",
+   "score": 11.2,
+   "setup": "growth"
+  },
+  {
+   "ticker": "MA",
+   "rank": 5,
+   "price": 658.84,
+   "sector": "Financials",
+   "ret63": 17.9,
+   "rsi": 66,
+   "action": "next in line",
+   "score": 10.7,
+   "setup": "growth"
+  },
+  {
+   "ticker": "V",
+   "rank": 6,
+   "price": 423.0,
+   "sector": "Financials",
+   "ret63": 17.9,
+   "rsi": 64,
+   "action": "next in line",
+   "score": 10.5,
+   "setup": "growth"
+  }
+ ],
+ "regime": {
+  "light": "YELLOW",
+  "risk_mult": 0.5,
+  "max_new": 2,
+  "message": "Choppy market (below the 50-day or VIX elevated): weekly buys continue at normal size; the ranking already favours steadier names. New buys stop only if the light turns RED.",
+  "spy": 749.92,
+  "spy_sma50": 764.55,
+  "spy_sma200": 728.3,
+  "vix": 18.34
+ }
+}
