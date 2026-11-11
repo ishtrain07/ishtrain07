@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11 08:58 ET",
+ "generated_at": "2026-11-11 09:00 ET (position check)",
  "date": "2026-11-11",
  "mode": "plan",
  "regime": {
@@ -320,9 +320,9 @@
  "account": {
   "cash": 1280.23,
   "realized": 0.0,
-  "unrealized": -92.04,
-  "market_value": 1127.74,
-  "equity": 2407.97,
+  "unrealized": -92.09,
+  "market_value": 1127.69,
+  "equity": 2407.92,
   "return_pct": -3.68
  },
  "drawdown_state": "OK",
@@ -450,10 +450,10 @@
    ],
    "sleeve_tag": "value",
    "data_warning": null,
-   "price": 515.49,
-   "value": 360.84,
-   "pnl": -22.46,
-   "pnl_pct": -5.86,
+   "price": 515.42,
+   "value": 360.79,
+   "pnl": -22.51,
+   "pnl_pct": -5.87,
    "days_held": 19,
    "sleeve": "value",
    "cdr": true,
@@ -462,9 +462,9 @@
     "day_pct": 1.3,
     "day_market_pct": -1.1,
     "day_specific_pct": 2.41,
-    "week_pct": 6.53,
+    "week_pct": 6.51,
     "week_market_pct": -1.75,
-    "week_specific_pct": 8.28,
+    "week_specific_pct": 8.27,
     "verdict": "moving with the market"
    },
    "active_stop": 355.92,
@@ -1012,7 +1012,7 @@
  "benchmark": {
   "spy_return_pct": -2.78,
   "base": 771.35,
-  "last": 749.92,
+  "last": 749.94,
   "since": "2026-09-28"
  },
  "anomalies": {
@@ -12850,7 +12850,7 @@
  "phase": {
   "start": "2026-11-09",
   "start_equity": 2336.12,
-  "return_pct": 3.08,
+  "return_pct": 3.07,
   "spy_return_pct": 1.99,
   "checks": [
    {
@@ -12914,5 +12914,15 @@
    "The market's 'fear gauge'. Below 20 is calm; above 28 is stressed."
   ]
  ],
- "cad_core": "VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)"
+ "cad_core": "VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)",
+ "analyst": {
+  "date": "2026-11-11",
+  "text": "Midweek: the market light is YELLOW but calming (VIX 18). Healthcare, staples, consumer and communication lead this week; chips (-7%) and tech (-4%) still lag.\nNVDA: the board's independent investigation into the CEO is at an early stage with no findings; Huang stays on as CEO. Congress asked for a briefing by 11 Nov. Earnings are 17 Nov. The stock is about flat against the 167 entry, after a 5% drop yesterday that was mostly company-specific. It is held under the quality-dip rules: no action unless the story breaks or the 108.64 disaster stop hits.\nAMD (quality dip) is up 6.5% this week, beating the market.\nSNOW and CRWD limit sells (good till Friday) have not filled. CRWD fell another 7.7% this week on company-specific weakness.\nMonday's catch-up buys (VOO, MCK, ABBV, V, MA) are still open, and no news argues against them.",
+  "cautions": [
+   {
+    "ticker": "NVDA",
+    "why": "CEO investigation ongoing, earnings 17 Nov, and the position is about 14% of the account (larger than the planned half size)."
+   }
+  ]
+ }
 }
