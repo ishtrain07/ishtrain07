@@ -1,0 +1,440 @@
+{
+ "buys": [
+  {
+   "ticker": "VOO",
+   "name": "Vanguard S&P 500 ETF",
+   "sector": "Index",
+   "kind": "core-catchup",
+   "price": 689.01,
+   "entry": 689.01,
+   "limit": 695.9,
+   "shares": 0.5418,
+   "dollars": 373.28,
+   "stop": null,
+   "stop_pct": null,
+   "target": null,
+   "rank": null,
+   "etf": true,
+   "cdr": false,
+   "setup": "core",
+   "score": null,
+   "momentum": null,
+   "rsi": null,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "core index: 30% of the account in the S&P 500, held long term",
+    "cash goes in over 3 weekly batches; new CAD money can use VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)"
+   ],
+   "sell_by": "held long term",
+   "hold_days": 999,
+   "t1": null,
+   "t2": null,
+   "t1_pct": null,
+   "t2_pct": null,
+   "risk_dollars": 0,
+   "next_earnings": null,
+   "fwd_pe": null,
+   "weekly_move_pct": 3.1,
+   "news": [
+    {
+     "title": "He Wants Anthropic in His S&P 500 401(k) as Soon as It Goes Public. One Index Rule Could Keep It Out for at Least 12 Months. Even Then, His Fund May Never Own It",
+     "url": "https://247wallst.com/personal-finance/2026/11/13/he-wants-anthropic-in-his-sp-500-401k-as-soon-as-it-goes-public-one-index-rule-could-keep-it-out-for-at-least-12-months-even-then-his-fund-may-never-own-it/",
+     "source": "24/7 Wall St."
+    },
+    {
+     "title": "Wall Street Divided on S&P 500: Which ETFs Could Benefit in 2027?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-divided-p-500-135700793.html",
+     "source": "Zacks"
+    },
+    {
+     "title": "Vanguard Has an ETF That Chases Winning Stocks on Purpose. Most VOO Owners Have Never Heard of VFMO",
+     "url": "https://247wallst.com/investing/etf/2026/11/13/vanguard-has-an-etf-that-chases-winning-stocks-on-purpose-most-voo-owners-have-never-heard-of-vfmo/",
+     "source": "24/7 Wall St."
+    }
+   ]
+  },
+  {
+   "ticker": "MCK",
+   "name": "McKesson Corporation",
+   "sector": "Healthcare",
+   "kind": "new-catchup",
+   "price": 1095.18,
+   "entry": 1095.18,
+   "limit": 1106.13,
+   "shares": 0.14,
+   "dollars": 148.52,
+   "stop": 976.07,
+   "stop_pct": -8.0,
+   "target": 1326.05,
+   "target_pct": 25,
+   "rank": 1,
+   "etf": false,
+   "cdr": false,
+   "weekly_move_pct": 6.0,
+   "next_earnings": "2027-02-03",
+   "fwd_pe": 20.37163,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "#1 on risk-adjusted momentum: 6-mo +44%, 3-mo +21%, 1-mo +14%",
+    "Healthcare: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 6%",
+    "fwd P/E 20"
+   ],
+   "setup": "growth",
+   "quality": 50,
+   "score": 82.3,
+   "momentum": 99,
+   "rsi": 70,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 1326.05,
+   "t2": 1187.21,
+   "t1_pct": 25,
+   "t2_pct": 11.9,
+   "risk_dollars": 11.87,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "Here is What to Know Beyond Why McKesson Corporation (MCK) is a Trending Stock",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/know-beyond-why-mckesson-corporation-202144714.html",
+     "source": "Zacks"
+    },
+    {
+     "title": "Sales of Pharmaceuticals, GLP-1s Send McKesson Shares to New Highs",
+     "url": "https://finance.yahoo.com/healthcare/articles/sales-pharmaceuticals-glp-1s-send-164940357.html",
+     "source": "FX Empire"
+    },
+    {
+     "title": "What iShares MSCI USA Min Vol Factor ETF (USMV) Bought: Microsoft Leads on Nov. 9",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/ishares-msci-usa-min-vol-110432758.html",
+     "source": "GuruFocus.com"
+    }
+   ]
+  },
+  {
+   "ticker": "ABBV",
+   "name": "AbbVie Inc.",
+   "sector": "Healthcare",
+   "kind": "new-catchup",
+   "price": 296.45,
+   "entry": 296.45,
+   "limit": 299.41,
+   "shares": 0.51,
+   "dollars": 151.48,
+   "stop": 267.95,
+   "stop_pct": -8.0,
+   "target": 364.14,
+   "target_pct": 25,
+   "rank": 2,
+   "etf": false,
+   "cdr": true,
+   "weekly_move_pct": 6.0,
+   "next_earnings": null,
+   "fwd_pe": 17.996552,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "#2 on risk-adjusted momentum: 6-mo +46%, 3-mo +18%, 1-mo +8%",
+    "Healthcare: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 6%",
+    "fwd P/E 18",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
+   ],
+   "setup": "growth",
+   "quality": 60,
+   "score": 82.7,
+   "momentum": 98,
+   "rsi": 60,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 364.14,
+   "t2": 326.14,
+   "t1_pct": 25,
+   "t2_pct": 12.0,
+   "risk_dollars": 12.15,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "While AI hogged the headlines, 1 overlooked sector beat the S&P 500 \u2014 and its top stock is up 700%+ this year",
+     "url": "https://finance.yahoo.com/healthcare/articles/while-ai-hogged-headlines-1-120000682.html",
+     "source": "Moneywise"
+    },
+    {
+     "title": "State Street Health Care SPDR (XLV) Buys $66.8 Million More Eli Lilly on Nov. 11",
+     "url": "https://finance.yahoo.com/healthcare/articles/state-street-health-care-spdr-110327637.html",
+     "source": "GuruFocus.com"
+    },
+    {
+     "title": "Is Amgen Stock Priced Right Against Its Peers?",
+     "url": "https://www.trefis.com/stock/amgn/articles/624559/is-amgen-stock-priced-right-against-its-peers/2026-11-12",
+     "source": "Trefis"
+    }
+   ]
+  },
+  {
+   "ticker": "V",
+   "name": "Visa Inc.",
+   "sector": "Financials",
+   "kind": "new-catchup",
+   "price": 426.31,
+   "entry": 426.31,
+   "limit": 430.57,
+   "shares": 0.43,
+   "dollars": 181.74,
+   "stop": 394.84,
+   "stop_pct": -6.6,
+   "target": 528.31,
+   "target_pct": 25,
+   "rank": 3,
+   "etf": false,
+   "cdr": true,
+   "weekly_move_pct": 4.9,
+   "next_earnings": "2027-01-26",
+   "fwd_pe": 24.654982,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "#3 on risk-adjusted momentum: 6-mo +33%, 3-mo +17%, 1-mo +13%",
+    "Financials: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 5%",
+    "revenue +13% y/y",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
+   ],
+   "setup": "growth",
+   "quality": 72,
+   "score": 80.4,
+   "momentum": 96,
+   "rsi": 63,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 528.31,
+   "t2": 464.1,
+   "t1_pct": 25,
+   "t2_pct": 9.8,
+   "risk_dollars": 11.96,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "Visa or Mastercard: I Can Only Pick One Dividend Stock for the Next 20 Years. Here\u2019s Mine",
+     "url": "https://www.tikr.com/blog/visa-vs-mastercard-dividend-stock-next-20-years?ref=yahoofinancedividend&tlnk=yf-261113-4mwqrg8v",
+     "source": "TIKR"
+    },
+    {
+     "title": "Visa Inc. (V) Is a Trending Stock: Facts to Know Before Betting on It",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/visa-inc-v-trending-stock-130006379.html",
+     "source": "Zacks"
+    },
+    {
+     "title": "What Could Go Wrong With Mastercard Stock?",
+     "url": "https://www.trefis.com/stock/ma/articles/624929/what-could-go-wrong-with-mastercard-stock/2026-11-13",
+     "source": "Trefis"
+    }
+   ]
+  },
+  {
+   "ticker": "MA",
+   "name": "Mastercard Incorporated",
+   "sector": "Financials",
+   "kind": "new-catchup",
+   "price": 661.66,
+   "entry": 661.66,
+   "limit": 668.28,
+   "shares": 0.27,
+   "dollars": 176.23,
+   "stop": 607.62,
+   "stop_pct": -6.9,
+   "target": 815.88,
+   "target_pct": 25,
+   "rank": 4,
+   "etf": false,
+   "cdr": true,
+   "weekly_move_pct": 5.1,
+   "next_earnings": "2027-01-28",
+   "fwd_pe": 28.179255,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "#4 on risk-adjusted momentum: 6-mo +32%, 3-mo +16%, 1-mo +14%",
+    "Financials: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 5%",
+    "revenue +14% y/y",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
+   ],
+   "setup": "growth",
+   "quality": 72,
+   "score": 80.1,
+   "momentum": 95,
+   "rsi": 64,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 815.88,
+   "t2": 719.9,
+   "t1_pct": 25,
+   "t2_pct": 10.3,
+   "risk_dollars": 12.17,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "Visa or Mastercard: I Can Only Pick One Dividend Stock for the Next 20 Years. Here\u2019s Mine",
+     "url": "https://www.tikr.com/blog/visa-vs-mastercard-dividend-stock-next-20-years?ref=yahoofinancedividend&tlnk=yf-261113-4mwqrg8v",
+     "source": "TIKR"
+    },
+    {
+     "title": "Coinbase Global vs. Mastercard: Which Financial Stock Is a Better Buy for 2027?",
+     "url": "https://www.fool.com/coverage/better-buy/2026/11/13/coinbase-global-vs-mastercard-which-financial-stock-is-a-better-buy-for-2027/",
+     "source": "Motley Fool"
+    },
+    {
+     "title": "What Could Go Wrong With Mastercard Stock?",
+     "url": "https://www.trefis.com/stock/ma/articles/624929/what-could-go-wrong-with-mastercard-stock/2026-11-13",
+     "source": "Trefis"
+    }
+   ]
+  },
+  {
+   "ticker": "KO",
+   "name": "Coca-Cola Company (The)",
+   "sector": "Consumer staples",
+   "kind": "new-catchup",
+   "price": 99.15,
+   "entry": 99.15,
+   "limit": 100.14,
+   "shares": 2.12,
+   "dollars": 210.47,
+   "stop": 90.18,
+   "stop_pct": -5.7,
+   "target": 119.59,
+   "target_pct": 25,
+   "rank": 8,
+   "etf": false,
+   "cdr": true,
+   "weekly_move_pct": 4.3,
+   "next_earnings": null,
+   "fwd_pe": 27.11896,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "#8 on risk-adjusted momentum: 6-mo +24%, 3-mo +11%, 1-mo +9%",
+    "Consumer staples: keeps the portfolio to max 2 per sector",
+    "sized for its swings: a normal week moves it about 4%",
+    "fwd P/E 27",
+    "also available as a CAD-hedged CDR (use it if paying with Canadian dollars)"
+   ],
+   "setup": "growth",
+   "quality": 60,
+   "score": 86.3,
+   "momentum": 92,
+   "rsi": 64,
+   "sell_by": "reviewed 2026-11-16",
+   "hold_days": 60,
+   "t1": 119.59,
+   "t2": 103.86,
+   "t1_pct": 25,
+   "t2_pct": 8.6,
+   "risk_dollars": 12.08,
+   "trend": null,
+   "rs": null,
+   "fund": null,
+   "news": [
+    {
+     "title": "Procter & Gamble or PepsiCo: The One Dividend Stock I\u2019d Hold for the Next 20 Years",
+     "url": "https://www.tikr.com/blog/procter-gamble-or-pepsico-the-one-dividend-stock-id-hold-for-the-next-20-years?ref=yahoofinancedividend&tlnk=yf-261113-mwffm7fr",
+     "source": "TIKR"
+    },
+    {
+     "title": "5 Dividend Aristocrats and Kings to Consider if the Stock Market Sells Off",
+     "url": "https://247wallst.com/investing/2026/11/13/5-dividend-aristocrats-and-kings-to-consider-if-the-stock-market-sells-off/",
+     "source": "24/7 Wall St."
+    },
+    {
+     "title": "How Much Does a 69-Year-Old Need Invested in Dividend Stocks to Collect $3,000 a Month?",
+     "url": "https://247wallst.com/investing/2026/11/13/how-much-does-a-69-year-old-need-invested-in-dividend-stocks-to-collect-3000-a-month/",
+     "source": "24/7 Wall St."
+    }
+   ]
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "MCK",
+   "rank": 1,
+   "price": 1095.18,
+   "sector": "Healthcare",
+   "ret63": 27.5,
+   "rsi": 74,
+   "action": "next in line",
+   "score": 14.1,
+   "setup": "growth"
+  },
+  {
+   "ticker": "ABBV",
+   "rank": 2,
+   "price": 296.45,
+   "sector": "Healthcare",
+   "ret63": 19.2,
+   "rsi": 64,
+   "action": "next in line",
+   "score": 12.1,
+   "setup": "growth"
+  },
+  {
+   "ticker": "TMO",
+   "rank": 3,
+   "price": 697.84,
+   "sector": "Healthcare",
+   "ret63": 19.3,
+   "rsi": 53,
+   "action": "next in line",
+   "score": 12.0,
+   "setup": "growth"
+  },
+  {
+   "ticker": "XLV",
+   "rank": 4,
+   "price": 188.64,
+   "sector": "Healthcare",
+   "ret63": 13.4,
+   "rsi": 67,
+   "action": "next in line",
+   "score": 11.9,
+   "setup": "growth"
+  },
+  {
+   "ticker": "MA",
+   "rank": 5,
+   "price": 661.66,
+   "sector": "Financials",
+   "ret63": 17.9,
+   "rsi": 65,
+   "action": "next in line",
+   "score": 11.2,
+   "setup": "growth"
+  },
+  {
+   "ticker": "V",
+   "rank": 6,
+   "price": 426.31,
+   "sector": "Financials",
+   "ret63": 19.0,
+   "rsi": 64,
+   "action": "next in line",
+   "score": 10.9,
+   "setup": "growth"
+  }
+ ],
+ "regime": {
+  "light": "YELLOW",
+  "risk_mult": 0.5,
+  "max_new": 2,
+  "message": "Choppy market (below the 50-day or VIX elevated): weekly buys continue at normal size; the ranking already favours steadier names. New buys stop only if the light turns RED.",
+  "spy": 749.57,
+  "spy_sma50": 763.99,
+  "spy_sma200": 729.29,
+  "vix": 20.68
+ }
+}
