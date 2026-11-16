@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16 08:58 ET",
+ "generated_at": "2026-11-16 09:01 ET (position check)",
  "date": "2026-11-16",
  "mode": "plan",
  "regime": {
@@ -529,17 +529,17 @@
    "action": "SELL ALL",
    "why": "trend broken: second weekly close below its 50-day average",
    "price": 290.96,
-   "shares": 0.6059,
-   "rule": "weekly review"
+   "rule": "weekly review",
+   "shares": 0.6059
   },
   {
    "ticker": "CRWD",
    "action": "SELL ALL",
    "why": "trend broken: second weekly close below its 50-day average",
    "price": 226.61,
-   "shares": 1.1075,
    "rule": "weekly review",
-   "units_note": "you hold 5 CRWD CDRs (CAD): sell 5 CDRs (all of them)"
+   "shares": 1.1075,
+   "units_note": "you hold 5 CRWD CDRs (CAD): sell 5 CDRs (all)"
   }
  ],
  "trading_days_left": 56,
@@ -1003,17 +1003,7 @@
    }
   ],
   "closed": [],
-  "orders_today": [
-   {
-    "date": "2026-11-16",
-    "ticker": "VOO",
-    "side": "BUY",
-    "shares": 0.6655,
-    "price": 700.31,
-    "fees": 0,
-    "note": "core"
-   }
-  ],
+  "orders_today": [],
   "executed": true
  },
  "record": {
@@ -1026,9 +1016,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -2.2,
+  "spy_return_pct": -2.22,
   "base": 771.35,
-  "last": 754.37,
+  "last": 754.25,
   "since": "2026-09-28"
  },
  "anomalies": {
@@ -12928,7 +12918,7 @@
   "start": "2026-11-09",
   "start_equity": 2336.12,
   "return_pct": 3.03,
-  "spy_return_pct": 2.59,
+  "spy_return_pct": 2.58,
   "checks": [
    {
     "label": "3-month check",
@@ -12991,5 +12981,15 @@
    "The market's 'fear gauge'. Below 20 is calm; above 28 is stressed."
   ]
  ],
- "cad_core": "VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)"
+ "cad_core": "VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)",
+ "analyst": {
+  "date": "2026-11-16",
+  "text": "Weekly review (batch 2 of 3). Market light YELLOW (VIX 21). Healthcare, staples, consumer and financials lead over 1 to 3 months. Tech and chips bounced last week but are still down 10-13% over a month.\nSells: SNOW and CRWD have both closed below their 50-day average for a second week, so the trend is broken and the money moves to stronger names. Last week's limit sells did not fill.\nBuys: VOO (core), MCK, TMO, MA, V, KO. ABBV is skipped this week only because healthcare already has 2 names. No news argues against these buys. Their earnings are late January to early February.\nNVDA reports this week. MarketPulse says Tuesday 17 Nov after the close; Earnings Whispers lists 25 Nov. Options imply a move of about 10% either way. It is a quality-dip hold with no action; disaster stop 108.64.\nAMD (quality dip) rose 19% last week.",
+  "cautions": [
+   {
+    "ticker": "NVDA",
+    "why": "Earnings this week (expected move about 10%) plus the CEO investigation; the position is about 14% of the account."
+   }
+  ]
+ }
 }
