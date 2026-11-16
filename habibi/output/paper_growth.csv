@@ -8,3 +8,4 @@ date,ticker,side,shares,price,fees,note
 2026-11-10,NVDA,BUY,0.45,180.46,0,value
 2026-11-10,TSM,BUY,0.21,392.51,0,value
 2026-11-10,PLTR,BUY,0.48,170.89,0,value
+2026-11-16,VOO,BUY,0.6655,700.31,0,core
