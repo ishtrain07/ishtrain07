@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18 08:58 ET",
+ "generated_at": "2026-11-18 09:00 ET (position check)",
  "date": "2026-11-18",
  "mode": "plan",
  "regime": {
@@ -1016,9 +1016,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -5.04,
+  "spy_return_pct": -5.05,
   "base": 771.35,
-  "last": 732.44,
+  "last": 732.39,
   "since": "2026-09-28"
  },
  "anomalies": {
@@ -12906,5 +12906,15 @@
    "The market's 'fear gauge'. Below 20 is calm; above 28 is stressed."
   ]
  ],
- "cad_core": "VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)"
+ "cad_core": "VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)",
+ "analyst": {
+  "date": "2026-11-18",
+  "text": "Midweek: risk-off. VIX 24; only staples (+0.5%) and energy (+1.9%) are up this week, while chips (-4.9%) and tech (-3.3%) lead the decline.\nNVDA: no earnings release was found for 17 Nov; the report now looks likely around 25 Nov. Shares are -7% vs entry, roughly half of that the market. Held as a quality dip.\nAMD is beating the market this week (+4.8% after removing the market move).\nSNOW and CRWD are still held; Monday's trend-broken sells remain the plan.\nMonday's buys (VOO, MCK, TMO, MA, KO) are still open as catch-ups; V dropped off. No news argues against them.",
+  "cautions": [
+   {
+    "ticker": "NVDA",
+    "why": "Earnings date unconfirmed (likely ~25 Nov); CEO investigation ongoing."
+   }
+  ]
+ }
 }
