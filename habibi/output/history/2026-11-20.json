@@ -1,0 +1,136 @@
+{
+ "buys": [
+  {
+   "ticker": "VOO",
+   "name": "Vanguard S&P 500 ETF",
+   "sector": "Index",
+   "kind": "core-catchup",
+   "price": 658.01,
+   "entry": 658.01,
+   "limit": 664.59,
+   "shares": 0.5945,
+   "dollars": 391.2,
+   "stop": null,
+   "stop_pct": null,
+   "target": null,
+   "rank": null,
+   "etf": true,
+   "cdr": false,
+   "setup": "core",
+   "score": null,
+   "momentum": null,
+   "rsi": null,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "core index: 30% of the account in the S&P 500, held long term",
+    "cash goes in over 3 weekly batches; new CAD money can use VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)"
+   ],
+   "sell_by": "held long term",
+   "hold_days": 999,
+   "t1": null,
+   "t2": null,
+   "t1_pct": null,
+   "t2_pct": null,
+   "risk_dollars": 0,
+   "next_earnings": null,
+   "fwd_pe": null,
+   "weekly_move_pct": 3.2,
+   "news": [
+    {
+     "title": "Is Your VOO Fund Secretly An AI Bet?",
+     "url": "https://www.trefis.com/stock/voo/articles/626646/is-your-voo-fund-secretly-an-ai-bet/2026-11-19",
+     "source": "Trefis"
+    },
+    {
+     "title": "Anthropic Just Went Public at $1.5 Trillion. VOO Won\u2019t Own a Share Until Late 2027 at the Earliest",
+     "url": "https://247wallst.com/investing/etf/2026/11/19/anthropic-just-went-public-at-1-5-trillion-voo-wont-own-a-share-until-late-2027-at-the-earliest/",
+     "source": "24/7 Wall St."
+    },
+    {
+     "title": "A 66-Year-Old With $600,000 in VOO Owns Nvidia Without Ever Buying a Share. SCHD Owns None.",
+     "url": "https://247wallst.com/investing/etf/2026/11/19/a-66-year-old-with-600000-in-voo-owns-nvidia-without-ever-buying-a-share-schd-owns-none/",
+     "source": "24/7 Wall St."
+    }
+   ]
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "MCK",
+   "rank": 1,
+   "price": 1062.16,
+   "sector": "Healthcare",
+   "ret63": 23.8,
+   "rsi": 59,
+   "action": "next in line",
+   "score": 11.3,
+   "setup": "growth"
+  },
+  {
+   "ticker": "TMO",
+   "rank": 2,
+   "price": 688.75,
+   "sector": "Healthcare",
+   "ret63": 9.5,
+   "rsi": 50,
+   "action": "next in line",
+   "score": 10.7,
+   "setup": "growth"
+  },
+  {
+   "ticker": "BRK-B",
+   "rank": 3,
+   "price": 572.04,
+   "sector": "Financials",
+   "ret63": 15.4,
+   "rsi": 58,
+   "action": "next in line",
+   "score": 9.2,
+   "setup": "growth"
+  },
+  {
+   "ticker": "PG",
+   "rank": 4,
+   "price": 167.85,
+   "sector": "Consumer staples",
+   "ret63": 16.8,
+   "rsi": 59,
+   "action": "next in line",
+   "score": 8.5,
+   "setup": "growth"
+  },
+  {
+   "ticker": "ABBV",
+   "rank": 5,
+   "price": 283.54,
+   "sector": "Healthcare",
+   "ret63": 7.7,
+   "rsi": 46,
+   "action": "next in line",
+   "score": 8.1,
+   "setup": "growth"
+  },
+  {
+   "ticker": "MA",
+   "rank": 6,
+   "price": 626.5,
+   "sector": "Financials",
+   "ret63": 8.1,
+   "rsi": 46,
+   "action": "next in line",
+   "score": 6.8,
+   "setup": "growth"
+  }
+ ],
+ "regime": {
+  "light": "RED",
+  "risk_mult": 0.0,
+  "max_new": 0,
+  "message": "S&P 500 below its 200-day average or fear spiking: no new active buys; holdings follow their own rules.",
+  "spy": 715.87,
+  "spy_sma50": 761.48,
+  "spy_sma200": 730.2,
+  "vix": 31.53
+ }
+}
