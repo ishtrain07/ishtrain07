@@ -2,39 +2,39 @@
  "results": {
   "BTC buy & hold": {
    "full": {
-    "total_pct": -4.2,
+    "total_pct": -13.1,
     "max_dd_pct": -53.1,
-    "vol_pct": 45.2,
+    "vol_pct": 45.3,
     "p25_loss": 48.9,
     "med25": 0.4
    },
    "half1": {
-    "total_pct": 67.5,
+    "total_pct": 55.4,
     "max_dd_pct": -28.1,
-    "vol_pct": 46.9,
+    "vol_pct": 47.0,
     "p25_loss": 40.3,
     "med25": 2.2
    },
    "half2": {
-    "total_pct": -42.8,
+    "total_pct": -44.1,
     "max_dd_pct": -53.1,
-    "vol_pct": 43.4,
-    "p25_loss": 55.4,
-    "med25": -1.1
+    "vol_pct": 43.5,
+    "p25_loss": 57.1,
+    "med25": -1.3
    }
   },
   "BTC trend 50/200": {
    "full": {
-    "total_pct": -1.3,
+    "total_pct": -4.0,
     "max_dd_pct": -32.3,
-    "vol_pct": 22.4,
-    "p25_loss": 33.4,
+    "vol_pct": 22.3,
+    "p25_loss": 32.7,
     "med25": 0.0
    },
    "half1": {
-    "total_pct": 3.2,
+    "total_pct": 0.4,
     "max_dd_pct": -25.8,
-    "vol_pct": 28.4,
+    "vol_pct": 28.2,
     "p25_loss": 40.8,
     "med25": 0.0
    },
@@ -42,22 +42,22 @@
     "total_pct": -4.4,
     "max_dd_pct": -15.6,
     "vol_pct": 14.3,
-    "p25_loss": 22.4,
+    "p25_loss": 21.2,
     "med25": 0.0
    }
   },
   "BTC trend 20/100": {
    "full": {
-    "total_pct": 15.5,
+    "total_pct": 12.3,
     "max_dd_pct": -20.9,
-    "vol_pct": 22.1,
+    "vol_pct": 22.0,
     "p25_loss": 31.7,
     "med25": 0.0
    },
    "half1": {
-    "total_pct": 34.1,
-    "max_dd_pct": -16.4,
-    "vol_pct": 27.4,
+    "total_pct": 30.4,
+    "max_dd_pct": -14.6,
+    "vol_pct": 27.2,
     "p25_loss": 35.6,
     "med25": 0.0
    },
@@ -65,98 +65,98 @@
     "total_pct": -13.9,
     "max_dd_pct": -14.7,
     "vol_pct": 15.0,
-    "p25_loss": 23.8,
+    "p25_loss": 24.3,
     "med25": 0.0
    }
   },
   "ETH buy & hold": {
    "full": {
-    "total_pct": -51.7,
+    "total_pct": -53.8,
     "max_dd_pct": -67.6,
-    "vol_pct": 67.8,
+    "vol_pct": 68.0,
     "p25_loss": 54.9,
     "med25": -1.2
    },
    "half1": {
-    "total_pct": 26.4,
+    "total_pct": 18.5,
     "max_dd_pct": -63.2,
-    "vol_pct": 73.0,
-    "p25_loss": 55.2,
-    "med25": -1.3
+    "vol_pct": 73.6,
+    "p25_loss": 53.5,
+    "med25": -0.7
    },
    "half2": {
-    "total_pct": -61.8,
-    "max_dd_pct": -67.3,
-    "vol_pct": 62.2,
-    "p25_loss": 55.9,
-    "med25": -1.7
+    "total_pct": -61.0,
+    "max_dd_pct": -66.8,
+    "vol_pct": 62.0,
+    "p25_loss": 56.1,
+    "med25": -1.8
    }
   },
   "ETH trend 50/200": {
    "full": {
-    "total_pct": -1.3,
-    "max_dd_pct": -39.3,
-    "vol_pct": 26.8,
-    "p25_loss": 21.9,
+    "total_pct": 0.7,
+    "max_dd_pct": -36.7,
+    "vol_pct": 26.7,
+    "p25_loss": 21.1,
     "med25": 0.0
    },
    "half1": {
-    "total_pct": 16.5,
-    "max_dd_pct": -39.3,
-    "vol_pct": 32.3,
-    "p25_loss": 25.0,
+    "total_pct": 9.2,
+    "max_dd_pct": -36.7,
+    "vol_pct": 33.5,
+    "p25_loss": 23.3,
     "med25": 0.0
    },
    "half2": {
-    "total_pct": -15.3,
-    "max_dd_pct": -17.8,
-    "vol_pct": 19.9,
-    "p25_loss": 18.2,
+    "total_pct": -7.8,
+    "max_dd_pct": -16.7,
+    "vol_pct": 17.4,
+    "p25_loss": 16.7,
     "med25": 0.0
    }
   },
   "ETH trend 20/100": {
    "full": {
-    "total_pct": 15.4,
+    "total_pct": 19.0,
     "max_dd_pct": -41.6,
-    "vol_pct": 33.3,
-    "p25_loss": 29.4,
+    "vol_pct": 33.2,
+    "p25_loss": 28.7,
     "med25": 0.0
    },
    "half1": {
-    "total_pct": 44.3,
+    "total_pct": 35.3,
     "max_dd_pct": -41.6,
-    "vol_pct": 37.5,
-    "p25_loss": 25.5,
+    "vol_pct": 38.5,
+    "p25_loss": 24.1,
     "med25": 0.0
    },
    "half2": {
-    "total_pct": -20.0,
-    "max_dd_pct": -33.1,
-    "vol_pct": 28.5,
-    "p25_loss": 32.3,
+    "total_pct": -12.1,
+    "max_dd_pct": -27.4,
+    "vol_pct": 26.8,
+    "p25_loss": 30.7,
     "med25": 0.0
    }
   },
   "QNT buy & hold": {
    "full": {
-    "total_pct": 69.7,
+    "total_pct": 62.4,
     "max_dd_pct": -66.4,
-    "vol_pct": 106.6,
+    "vol_pct": 106.7,
     "p25_loss": 60.1,
     "med25": -4.1
    },
    "half1": {
-    "total_pct": 15.1,
+    "total_pct": 18.2,
     "max_dd_pct": -64.0,
-    "vol_pct": 88.1,
+    "vol_pct": 88.0,
     "p25_loss": 57.1,
-    "med25": -4.3
+    "med25": -4.2
    },
    "half2": {
-    "total_pct": 47.5,
-    "max_dd_pct": -50.0,
-    "vol_pct": 122.4,
+    "total_pct": 37.4,
+    "max_dd_pct": -51.3,
+    "vol_pct": 122.6,
     "p25_loss": 61.1,
     "med25": -3.4
    }
@@ -166,21 +166,21 @@
     "total_pct": -72.3,
     "max_dd_pct": -77.3,
     "vol_pct": 35.8,
-    "p25_loss": 28.7,
+    "p25_loss": 29.1,
     "med25": 0.0
    },
    "half1": {
     "total_pct": -53.9,
     "max_dd_pct": -60.3,
     "vol_pct": 35.3,
-    "p25_loss": 35.6,
+    "p25_loss": 37.3,
     "med25": 0.0
    },
    "half2": {
     "total_pct": -39.8,
     "max_dd_pct": -42.9,
     "vol_pct": 36.4,
-    "p25_loss": 19.8,
+    "p25_loss": 20.8,
     "med25": 0.0
    }
   },
@@ -189,80 +189,80 @@
     "total_pct": 127.0,
     "max_dd_pct": -54.1,
     "vol_pct": 79.3,
-    "p25_loss": 25.1,
+    "p25_loss": 25.9,
     "med25": 0.0
    },
    "half1": {
     "total_pct": -12.6,
     "max_dd_pct": -54.1,
     "vol_pct": 44.1,
-    "p25_loss": 34.7,
+    "p25_loss": 36.3,
     "med25": 0.0
    },
    "half2": {
     "total_pct": 159.7,
     "max_dd_pct": -39.9,
     "vol_pct": 103.1,
-    "p25_loss": 11.3,
+    "p25_loss": 13.0,
     "med25": 0.0
    }
   },
   "BTC+ETH dual trend 50/200": {
    "full": {
-    "total_pct": 0.9,
+    "total_pct": 0.5,
     "max_dd_pct": -27.1,
-    "vol_pct": 20.5,
-    "p25_loss": 33.9,
+    "vol_pct": 20.4,
+    "p25_loss": 33.3,
     "med25": 0.0
    },
    "half1": {
-    "total_pct": 11.6,
+    "total_pct": 6.7,
     "max_dd_pct": -27.1,
-    "vol_pct": 25.0,
-    "p25_loss": 42.9,
+    "vol_pct": 25.2,
+    "p25_loss": 41.3,
     "med25": 0.0
    },
    "half2": {
-    "total_pct": -9.6,
-    "max_dd_pct": -13.9,
-    "vol_pct": 14.8,
-    "p25_loss": 24.5,
+    "total_pct": -5.8,
+    "max_dd_pct": -13.6,
+    "vol_pct": 14.0,
+    "p25_loss": 23.3,
     "med25": 0.0
    }
   }
  },
  "now": {
   "BTC": {
-   "price": 64932.26,
+   "price": 60529.64,
    "in_trend": false,
-   "sma50": 79747.61,
-   "sma200": 72920.05
+   "sma50": 76651.28,
+   "sma200": 72322.92
   },
   "ETH": {
-   "price": 1824.96,
+   "price": 1710.3,
    "in_trend": false,
-   "sma50": 2377.88,
-   "sma200": 2142.48
+   "sma50": 2245.83,
+   "sma200": 2122.22
   },
   "QNT": {
-   "price": 155.29,
+   "price": 142.55,
    "in_trend": false,
-   "sma50": 209.73,
-   "sma200": 103.09
+   "sma50": 194.16,
+   "sma200": 105.87
   }
  },
  "periods": {
   "full": [
-   "2024-06-02",
-   "2026-11-15"
+   "2024-06-09",
+   "2026-11-22"
   ],
   "half1": [
-   "2024-06-02",
-   "2025-08-24"
+   "2024-06-09",
+   "2025-08-31"
   ],
   "half2": [
-   "2025-08-24",
-   "2026-11-15"
+   "2025-08-31",
+   "2026-11-22"
   ]
  }
 }
