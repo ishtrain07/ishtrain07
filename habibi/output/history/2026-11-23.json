@@ -1,0 +1,135 @@
+{
+ "buys": [
+  {
+   "ticker": "VOO",
+   "name": "Vanguard S&P 500 ETF",
+   "sector": "Index",
+   "kind": "core",
+   "price": 635.54,
+   "entry": 635.54,
+   "limit": 641.9,
+   "shares": 1.0561,
+   "dollars": 671.19,
+   "stop": null,
+   "stop_pct": null,
+   "target": null,
+   "rank": null,
+   "etf": true,
+   "cdr": false,
+   "setup": "core",
+   "score": null,
+   "momentum": null,
+   "rsi": null,
+   "reason": [
+    "core index: 30% of the account in the S&P 500, held long term",
+    "cash goes in over 3 weekly batches; new CAD money can use VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)"
+   ],
+   "sell_by": "held long term",
+   "hold_days": 999,
+   "t1": null,
+   "t2": null,
+   "t1_pct": null,
+   "t2_pct": null,
+   "risk_dollars": 0,
+   "next_earnings": null,
+   "fwd_pe": null,
+   "weekly_move_pct": 4.3,
+   "news": [
+    {
+     "title": "Billionaire Ray Dalio\u2019s Bridgewater Keeps 16% of Its $23 Billion Stock Portfolio in S&P 500 Index Funds, Even After Cutting Them",
+     "url": "https://247wallst.com/investing/2026/11/22/billionaire-ray-dalios-bridgewater-keeps-16-of-its-23-billion-stock-portfolio-in-sp-500-index-funds-even-after-cutting-them/",
+     "source": "24/7 Wall St."
+    },
+    {
+     "title": "His Indexed Annuity Tracks the S&P 500. The Fine Print Says \u201cPrice Return,\u201d Which Means It Leaves Out Every Dividend the 500 Companies Pay",
+     "url": "https://247wallst.com/personal-finance/2026/11/21/his-indexed-annuity-tracks-the-sp-500-the-fine-print-says-price-return-which-means-it-leaves-out-every-dividend-the-500-companies-pay/",
+     "source": "24/7 Wall St."
+    },
+    {
+     "title": "The S&P 500 Is Now Below Every Wall Street Year-End Target for 2026",
+     "url": "https://247wallst.com/investing/2026/11/21/the-sp-500-is-now-below-every-wall-street-year-end-target-for-2026/",
+     "source": "24/7 Wall St."
+    }
+   ]
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "MCK",
+   "rank": 1,
+   "price": 1069.43,
+   "sector": "Healthcare",
+   "ret63": 22.5,
+   "rsi": 60,
+   "action": "next in line",
+   "score": 11.5,
+   "setup": "growth"
+  },
+  {
+   "ticker": "TMO",
+   "rank": 2,
+   "price": 669.54,
+   "sector": "Healthcare",
+   "ret63": 6.6,
+   "rsi": 43,
+   "action": "next in line",
+   "score": 9.2,
+   "setup": "growth"
+  },
+  {
+   "ticker": "ABBV",
+   "rank": 3,
+   "price": 286.2,
+   "sector": "Healthcare",
+   "ret63": 8.9,
+   "rsi": 50,
+   "action": "next in line",
+   "score": 8.5,
+   "setup": "growth"
+  },
+  {
+   "ticker": "PG",
+   "rank": 4,
+   "price": 169.37,
+   "sector": "Consumer staples",
+   "ret63": 16.3,
+   "rsi": 62,
+   "action": "next in line",
+   "score": 7.9,
+   "setup": "growth"
+  },
+  {
+   "ticker": "BRK-B",
+   "rank": 5,
+   "price": 570.0,
+   "sector": "Financials",
+   "ret63": 13.0,
+   "rsi": 57,
+   "action": "next in line",
+   "score": 7.9,
+   "setup": "growth"
+  },
+  {
+   "ticker": "KO",
+   "rank": 6,
+   "price": 96.99,
+   "sector": "Consumer staples",
+   "ret63": 6.1,
+   "rsi": 58,
+   "action": "next in line",
+   "score": 6.7,
+   "setup": "growth"
+  }
+ ],
+ "regime": {
+  "light": "RED",
+  "risk_mult": 0.0,
+  "max_new": 0,
+  "message": "S&P 500 below its 200-day average or fear spiking: no new active buys; holdings follow their own rules.",
+  "spy": 689.81,
+  "spy_sma50": 760.03,
+  "spy_sma200": 730.29,
+  "vix": 31.48
+ }
+}
