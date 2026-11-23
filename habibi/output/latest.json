@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23 08:58 ET",
+ "generated_at": "2026-11-23 09:01 ET (position check)",
  "date": "2026-11-23",
  "mode": "plan",
  "regime": {
@@ -531,17 +531,17 @@
    "action": "SELL ALL",
    "why": "trend broken: second weekly close below its 50-day average",
    "price": 254.71,
-   "shares": 0.6059,
-   "rule": "weekly review"
+   "rule": "weekly review",
+   "shares": 0.6059
   },
   {
    "ticker": "CRWD",
    "action": "SELL ALL",
    "why": "trend broken: second weekly close below its 50-day average",
    "price": 229.46,
-   "shares": 1.1075,
    "rule": "weekly review",
-   "units_note": "you hold 5 CRWD CDRs (CAD): sell 5 CDRs (all of them)"
+   "shares": 1.1075,
+   "units_note": "you hold 5 CRWD CDRs (CAD): sell 5 CDRs (all)"
   }
  ],
  "trading_days_left": 51,
@@ -1011,17 +1011,7 @@
    }
   ],
   "closed": [],
-  "orders_today": [
-   {
-    "date": "2026-11-23",
-    "ticker": "VOO",
-    "side": "BUY",
-    "shares": 0.0317,
-    "price": 641.9,
-    "fees": 0,
-    "note": "core"
-   }
-  ],
+  "orders_today": [],
   "executed": true
  },
  "record": {
@@ -1034,9 +1024,9 @@
   "net": 0
  },
  "benchmark": {
-  "spy_return_pct": -10.57,
+  "spy_return_pct": -10.43,
   "base": 771.35,
-  "last": 689.81,
+  "last": 690.91,
   "since": "2026-09-28"
  },
  "anomalies": {
@@ -12659,7 +12649,7 @@
   "start": "2026-11-09",
   "start_equity": 2336.12,
   "return_pct": -4.23,
-  "spy_return_pct": -6.19,
+  "spy_return_pct": -6.04,
   "checks": [
    {
     "label": "3-month check",
@@ -12722,5 +12712,15 @@
    "The market's 'fear gauge'. Below 20 is calm; above 28 is stressed."
   ]
  ],
- "cad_core": "VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)"
+ "cad_core": "VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)",
+ "analyst": {
+  "date": "2026-11-23",
+  "text": "Weekly review. The market light is RED (VIX 31). The S&P 500 is -6% since the plan began; chips are -18% this week and tech -12%. No new weekly picks are bought while the light is RED; only the VOO index core is allowed.\nCORRECTION: Nvidia CEO Jensen Huang resigned on 12 Nov (8-K filed; CFO Colette Kress is interim CEO). FBI, congressional and company investigations plus a class action are ongoing. Earlier notes wrongly said he stayed on.\nUnder the agreed quality-dip rules, a CEO forced out over misconduct counts as a broken story even though revenue is at a record. Recommendation: sell NVDA. The automated quality score does not capture governance, so this is a manual story-break call.\nAMD stays: its business story is intact, and its fall matches the market.\nSNOW and CRWD sells still stand.",
+  "cautions": [
+   {
+    "ticker": "NVDA",
+    "why": "CEO resigned on 12 Nov amid an espionage-linked scandal; investigations and a class action are ongoing. Story broken: sell per the quality-dip rules."
+   }
+  ]
+ }
 }
