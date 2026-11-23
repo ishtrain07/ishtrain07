@@ -45,6 +45,11 @@ def find_plan(history, ticker, buy_date):
     return None, None
 
 
+def note_tag(note):
+    """First word of a fill note: 'value' = quality-dip sleeve, 'own' = the owner's own pick (tracked, no auto-sell)."""
+    return str(note).strip().lower().split(" ")[0].rstrip(":,-") if note else ""
+
+
 def is_value_note(note):
     """A fill belongs to the quality-dip sleeve when its note starts with the word 'value' (e.g. 'value', 'value - first half')."""
     return bool(note) and str(note).strip().lower().split(" ")[0].rstrip(":,-") == "value"
@@ -110,7 +115,8 @@ def positions(trades, feats, history, cfg):
                          "partial": p["sold"] > 0, "system_pick": plan is not None, "mode": mode,
                          "plan_entry": plan["entry"] if plan else None, "plan_date": plan_date,
                          "fills": p["fills"],
-                         "sleeve_tag": "value" if any(is_value_note(f.get("note")) for f in p["fills"]) else None})
+                         "sleeve_tag": ("value" if any(note_tag(f.get("note")) == "value" for f in p["fills"]) else
+                                        "own" if any(note_tag(f.get("note")) == "own" for f in p["fills"]) else None)})
     return {"cash": round(cash, 2), "realized": round(realized, 2), "open": open_pos,
             "closed": closed}
 
