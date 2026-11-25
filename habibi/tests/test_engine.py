@@ -451,3 +451,23 @@ def test_quality_dip_sleeve():
     book3 = positions(tr, feats, {}, cfg)
     alerts = growth.evaluate_growth(book3, feats, {}, funds, cfg, today, {}, "real")
     assert alerts and alerts[0]["rule"] == "story"
+
+
+def test_own_pick_is_tracked_not_traded():
+    from habibi import growth
+    from habibi.indicators import add_features
+    from habibi.portfolio import positions
+    from habibi.universe import UNIVERSE
+    feats = {t: add_features(d) for t, d in fake_prices(sorted(set(UNIVERSE) | {"SPY", "VOO", "ANT"})).items()}
+    feats["ANT"] = feats["ANT"].iloc[-3:]          # brand-new listing: 3 days of history
+    cfg = run.load_cfg()
+    today = dt.date.today()
+    tr = pd.DataFrame([{"date": today - dt.timedelta(days=2), "ticker": "ANT", "side": "BUY", "shares": 2.0,
+                        "price": 98.306, "fees": 0.0, "note": "own pick - her 2 of 5 shares"}])
+    book = positions(tr, feats, {}, cfg)
+    alerts = growth.evaluate_growth(book, feats, {}, {}, cfg, today, {}, "real")
+    ant = book["open"][0]
+    assert ant["sleeve"] == "own" and ant["action"] == "HOLD" and not alerts
+    regime = {"light": "GREEN", "max_new": 4, "risk_mult": 1.0, "message": ""}
+    plan = growth.growth_plan(feats, {}, regime, cfg, book, today, True, {})
+    assert "ANT" not in plan["sells"]
