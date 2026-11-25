@@ -230,6 +230,8 @@ def anchor_stops(book, feats, cfg, state, key):
             anchor = "phase start"
         else:
             base_px, a, anchor = p["avg_cost"], _atr_on(f, first), "entry"
+        if a != a:  # NaN ATR (fewer than 14 days of history): fall back to the floor stop
+            a = 0.0
         stop = max(base_px - g["stop_atr"] * a, base_px * (1 - g["stop_floor_pct"] / 100))
         st[t] = {"stop": round(stop, 2), "atr": round(a, 2), "base": round(base_px, 2), "anchor": anchor,
                  "first_buy": p["first_buy"]}
@@ -259,12 +261,17 @@ def evaluate_growth(book, feats, live, funds, cfg, today, state, key="real"):
                   "pnl": round((px - p["avg_cost"]) * p["shares"], 2),
                   "pnl_pct": round((px / p["avg_cost"] - 1) * 100, 2),
                   "days_held": trading_days_between(dt.date.fromisoformat(p["first_buy"]), today),
-                  "sleeve": "core" if t == core else ("value" if p.get("sleeve_tag") == "value" else "active"), "cdr": t in CDR,
+                  "sleeve": "core" if t == core else (p.get("sleeve_tag") if p.get("sleeve_tag") in ("value", "own") else "active"),
+                  "cdr": t in CDR,
                   "split": market_vs_stock(feats, t, today, live) if f is not None else None})
         mv += p["value"]
         if t == core:
             p.update({"action": "HOLD", "why": "core index fund: held through ups and downs; topped up toward its target share from cash at weekly reviews",
                       "active_stop": None, "t1": None, "t2": None, "rule": "core"})
+            continue
+        if p["sleeve"] == "own":
+            p.update({"action": "HOLD", "rule": "own pick", "active_stop": None, "t1": None, "t2": None,
+                      "why": "your own pick: tracked and news-checked, no automatic sell rules (not part of the weekly ranking)"})
             continue
         if p["sleeve"] == "value":
             v = cfg.get("value") or {}
@@ -369,7 +376,8 @@ def growth_plan(feats, funds, regime, cfg, book, today, rebalance, state, key="r
             blocked[t] = f"fundamentals check: {why}"
     held = {p["ticker"]: p for p in book["open"]}
     value_held = {t: p for t, p in held.items() if p.get("sleeve_tag") == "value"}
-    active_held = {t: p for t, p in held.items() if t != core_t and t not in value_held}
+    own_held = {t: p for t, p in held.items() if p.get("sleeve_tag") == "own"}
+    active_held = {t: p for t, p in held.items() if t != core_t and t not in value_held and t not in own_held}
     value_pct = ((cfg.get("value") or {}).get("pct", 0)) / 100
     equity = book["equity"]
 
