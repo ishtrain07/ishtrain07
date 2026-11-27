@@ -1,0 +1,136 @@
+{
+ "buys": [
+  {
+   "ticker": "VOO",
+   "name": "Vanguard S&P 500 ETF",
+   "sector": "Index",
+   "kind": "core-catchup",
+   "price": 658.87,
+   "entry": 658.87,
+   "limit": 665.46,
+   "shares": 1.0187,
+   "dollars": 671.19,
+   "stop": null,
+   "stop_pct": null,
+   "target": null,
+   "rank": null,
+   "etf": true,
+   "cdr": false,
+   "setup": "core",
+   "score": null,
+   "momentum": null,
+   "rsi": null,
+   "reason": [
+    "catch-up from Monday's list: only if you did NOT already buy it (log your fills so this disappears)",
+    "core index: 30% of the account in the S&P 500, held long term",
+    "cash goes in over 3 weekly batches; new CAD money can use VSP (Vanguard S&P 500, CAD-hedged) or ZUE (BMO S&P 500, CAD-hedged)"
+   ],
+   "sell_by": "held long term",
+   "hold_days": 999,
+   "t1": null,
+   "t2": null,
+   "t1_pct": null,
+   "t2_pct": null,
+   "risk_dollars": 0,
+   "next_earnings": null,
+   "fwd_pe": null,
+   "weekly_move_pct": 4.3,
+   "news": [
+    {
+     "title": "BofA Sees S&P 500 Rising 8% in 2027: Are Your ETFs Ready for a Soft Landing?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/bofa-sees-p-500-rising-110800608.html",
+     "source": "Zacks"
+    },
+    {
+     "title": "The 3 ETFs to Add at 52 When Your Only Investment Is the Company Stock You Buy Every Paycheck",
+     "url": "https://247wallst.com/investing/etf/2026/11/27/the-3-etfs-to-add-at-52-when-your-only-investment-is-the-company-stock-you-buy-every-paycheck/",
+     "source": "24/7 Wall St."
+    },
+    {
+     "title": "$2,000,000 In QQQ At The 2000 Peak Ran Out",
+     "url": "https://www.trefis.com/stock/qqq/articles/629194/2-000-000-in-qqq-at-the-2000-peak-ran-out/2026-11-26",
+     "source": "Trefis"
+    }
+   ]
+  }
+ ],
+ "backups": [],
+ "watch": [
+  {
+   "ticker": "MCK",
+   "rank": 1,
+   "price": 1077.32,
+   "sector": "Healthcare",
+   "ret63": 21.1,
+   "rsi": 60,
+   "action": "next in line",
+   "score": 12.6,
+   "setup": "growth"
+  },
+  {
+   "ticker": "BRK-B",
+   "rank": 2,
+   "price": 579.32,
+   "sector": "Financials",
+   "ret63": 15.0,
+   "rsi": 63,
+   "action": "next in line",
+   "score": 10.3,
+   "setup": "growth"
+  },
+  {
+   "ticker": "PG",
+   "rank": 3,
+   "price": 173.23,
+   "sector": "Consumer staples",
+   "ret63": 21.8,
+   "rsi": 67,
+   "action": "next in line",
+   "score": 10.2,
+   "setup": "growth"
+  },
+  {
+   "ticker": "MA",
+   "rank": 4,
+   "price": 659.97,
+   "sector": "Financials",
+   "ret63": 11.7,
+   "rsi": 61,
+   "action": "next in line",
+   "score": 9.8,
+   "setup": "growth"
+  },
+  {
+   "ticker": "ABBV",
+   "rank": 5,
+   "price": 294.48,
+   "sector": "Healthcare",
+   "ret63": 14.8,
+   "rsi": 57,
+   "action": "next in line",
+   "score": 9.4,
+   "setup": "growth"
+  },
+  {
+   "ticker": "V",
+   "rank": 6,
+   "price": 424.39,
+   "sector": "Financials",
+   "ret63": 12.0,
+   "rsi": 59,
+   "action": "next in line",
+   "score": 9.3,
+   "setup": "growth"
+  }
+ ],
+ "regime": {
+  "light": "RED",
+  "risk_mult": 0.0,
+  "max_new": 0,
+  "message": "S&P 500 below its 200-day average or fear spiking: no new active buys; holdings follow their own rules.",
+  "spy": 716.7,
+  "spy_sma50": 757.85,
+  "spy_sma200": 730.77,
+  "vix": 25.26
+ }
+}
